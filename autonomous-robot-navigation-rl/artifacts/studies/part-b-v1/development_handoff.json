@@ -1,0 +1,17 @@
+{
+  "milestone_complete": 4,
+  "next_milestone": 5,
+  "development_reference_run": "m4-tuned-q-learning-seed101",
+  "reward_variant": "step-cost",
+  "selection": "Q-learning family selected by original-reward tuned confirmation means; single seed101 was predeclared",
+  "voting_decision": "Retain as comparison; fewer validation successes than reference single, despite higher SPL",
+  "terminal_only_decision": "Diagnostic negative result; do not promote",
+  "final_system_frozen": false,
+  "final_test_policy_executions": 0,
+  "unresolved": [
+    "SARSA misses all declared mean targets",
+    "Residual Q-learning timeouts/collisions",
+    "Fresh browser visual check pending",
+    "Integration/core robustness and final freeze/test remain later milestones"
+  ]
+}

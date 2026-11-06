@@ -1,0 +1,134 @@
+{
+  "q-learning": {
+    "seed_differences": [
+      {
+        "seed": 101,
+        "success_rate": 0.2575431034482759,
+        "collision_rate": 0.0010775862068965517,
+        "timeout_rate": -0.25862068965517243,
+        "spl": 0.26584107844658533,
+        "mean_return": 3.0567133620689653
+      },
+      {
+        "seed": 211,
+        "success_rate": 0.2338362068965517,
+        "collision_rate": -0.003232758620689655,
+        "timeout_rate": -0.23060344827586204,
+        "spl": 0.2310283036966475,
+        "mean_return": 2.787036637931034
+      },
+      {
+        "seed": 307,
+        "success_rate": 0.2262931034482759,
+        "collision_rate": -0.002155172413793104,
+        "timeout_rate": -0.22413793103448276,
+        "spl": 0.21350663510806833,
+        "mean_return": 2.6940948275862056
+      },
+      {
+        "seed": 401,
+        "success_rate": 0.2586206896551725,
+        "collision_rate": 0.0010775862068965517,
+        "timeout_rate": -0.25969827586206895,
+        "spl": 0.24798637577992622,
+        "mean_return": 3.0675431034482754
+      },
+      {
+        "seed": 503,
+        "success_rate": 0.2844827586206896,
+        "collision_rate": -0.0010775862068965517,
+        "timeout_rate": -0.2834051724137931,
+        "spl": 0.28082861228653966,
+        "mean_return": 3.3824999999999994
+      }
+    ],
+    "metrics": {
+      "success_rate": {
+        "mean_difference": 0.25215517241379315,
+        "sample_std_of_paired_differences": 0.023023556701747282
+      },
+      "collision_rate": {
+        "mean_difference": -0.0008620689655172414,
+        "sample_std_of_paired_differences": 0.001927644808189474
+      },
+      "timeout_rate": {
+        "mean_difference": -0.2512931034482758,
+        "sample_std_of_paired_differences": 0.024088330349712098
+      },
+      "spl": {
+        "mean_difference": 0.24783820106355342,
+        "sample_std_of_paired_differences": 0.026803553182920187
+      },
+      "mean_return": {
+        "mean_difference": 2.9975775862068965,
+        "sample_std_of_paired_differences": 0.27064125420512636
+      }
+    }
+  },
+  "sarsa": {
+    "seed_differences": [
+      {
+        "seed": 101,
+        "success_rate": 0.09482758620689655,
+        "collision_rate": 0.0,
+        "timeout_rate": -0.09482758620689657,
+        "spl": 0.0874763100191299,
+        "mean_return": 1.1305280172413792
+      },
+      {
+        "seed": 211,
+        "success_rate": 0.08836206896551724,
+        "collision_rate": -0.0021551724137931026,
+        "timeout_rate": -0.08620689655172409,
+        "spl": 0.07907780677177229,
+        "mean_return": 1.0595366379310345
+      },
+      {
+        "seed": 307,
+        "success_rate": 0.08512931034482757,
+        "collision_rate": 0.0010775862068965539,
+        "timeout_rate": -0.08620689655172409,
+        "spl": 0.081922574679644,
+        "mean_return": 1.011648706896552
+      },
+      {
+        "seed": 401,
+        "success_rate": 0.07327586206896552,
+        "collision_rate": 0.006465517241379313,
+        "timeout_rate": -0.07974137931034475,
+        "spl": 0.07069531264007214,
+        "mean_return": 0.852790948275862
+      },
+      {
+        "seed": 503,
+        "success_rate": 0.08081896551724133,
+        "collision_rate": -0.0021551724137931043,
+        "timeout_rate": -0.07866379310344829,
+        "spl": 0.07431069551469613,
+        "mean_return": 0.9691487068965516
+      }
+    ],
+    "metrics": {
+      "success_rate": {
+        "mean_difference": 0.08448275862068963,
+        "sample_std_of_paired_differences": 0.008085487707889687
+      },
+      "collision_rate": {
+        "mean_difference": 0.000646551724137932,
+        "sample_std_of_paired_differences": 0.003541309639042023
+      },
+      "timeout_rate": {
+        "mean_difference": -0.08512931034482756,
+        "sample_std_of_paired_differences": 0.0064655172413793285
+      },
+      "spl": {
+        "mean_difference": 0.0786965399250629,
+        "sample_std_of_paired_differences": 0.006536289023766927
+      },
+      "mean_return": {
+        "mean_difference": 1.004730603448276,
+        "sample_std_of_paired_differences": 0.10395705972204254
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "training": {
+    "interactions": 200000,
+    "monitor_every": 10000,
+    "learning_rate": 0.9,
+    "discount": 0.99,
+    "epsilon_start": 0.7,
+    "epsilon_end": 0.03,
+    "epsilon_decay_fraction": 0.3,
+    "algorithm": "q-learning",
+    "seed": 503,
+    "run_id": "m4-tuned-q-learning-seed503",
+    "stage": "tuned",
+    "reward_variant": "step-cost"
+  },
+  "environment": {
+    "map_id": "bottleneck-v1",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "step-goal-collision-v1",
+    "max_steps": 200,
+    "step_reward": -0.01,
+    "goal_reward": 10.0,
+    "collision_reward": -5.0,
+    "split_seed": 20261106,
+    "monitoring_count": 30
+  },
+  "signature": {
+    "map_id": "bottleneck-v1",
+    "map_hash": "614472df8e4cbed5408e1e5092dfd708bb683cdeef780a1a064246f0e1e58a94",
+    "task_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "step-goal-collision-v1"
+  }
+}

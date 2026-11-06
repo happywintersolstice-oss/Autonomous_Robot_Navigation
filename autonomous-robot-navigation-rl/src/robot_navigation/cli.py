@@ -13,6 +13,7 @@ def main():
     parser.add_argument("--config", help="Smoke YAML; use a new run_id for each run")
     parser.add_argument("--checkpoint", help="Frozen table for read-only evaluation")
     parser.add_argument("--split", choices=("validation", "monitoring"), default="validation")
+    parser.add_argument("--reward-variant", choices=("step-cost", "terminal-only"), default="step-cost")
     args = parser.parse_args()
     if args.command == "prepare":
         from .visualization import save_figure
@@ -26,12 +27,14 @@ def main():
         print("Gymnasium environment checker passed (rendering is separate from the environment).")
     elif args.command == "evaluate":
         from .agents import load_policy
+        from .refinement import reward_task
         from .workflow import evaluate
         if not args.checkpoint:
             parser.error("evaluate requires --checkpoint")
-        task = load_task()
+        parent_task = load_task()
+        task = reward_task(parent_task, args.reward_variant)
         policy = load_policy(args.checkpoint, task)
-        summary, _, _ = evaluate(task, load_scenarios(task, args.split), policy, 0,
+        summary, _, _ = evaluate(task, load_scenarios(parent_task, args.split), policy, 0,
                                   "complete validation manifest" if args.split == "validation" else "fixed monitoring subset")
         print(json.dumps(summary, indent=2))
     elif args.command == "train-part-a":

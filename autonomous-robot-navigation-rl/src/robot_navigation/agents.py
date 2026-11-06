@@ -110,6 +110,9 @@ class SARSA(QLearning):
 
 def load_policy(path, task):
     algorithm = read_json(Path(path).with_suffix(".json")).get("algorithm", "q-learning")
+    if algorithm == "voting":
+        from .voting import VotingPolicy
+        return VotingPolicy.load(path, task)
     if algorithm == "dqn":
         from .dqn import DQNPolicy
         return DQNPolicy.load(path, task)

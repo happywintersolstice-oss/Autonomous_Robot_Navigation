@@ -57,6 +57,10 @@ def test_part_a_writes_selected_and_final_without_overwriting(tmp_path):
     manifest = read_json(directory / "manifest.json")
     assert manifest["status"] == "complete" and manifest["training_interactions"] == 40
     assert manifest["selected_interactions"] in (20, 40) and not manifest["final_test_evaluated"]
+    import numpy as np
+    with np.load(directory / "selected_visitation.npz", allow_pickle=False) as data:
+        assert data["state_action_counts"].sum() == manifest["selected_interactions"]
+    assert summary["q_learning"]["initial_state_overlap_scope"] == "selected checkpoint training prefix"
     assert summary["q_learning"]["episodes"] == 928 and pilot["total_state_action_visits"] == 40
     with pytest.raises(FileExistsError):
         train_part_a(config, root)

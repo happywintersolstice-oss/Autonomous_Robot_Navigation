@@ -1,0 +1,1522 @@
+[
+  {
+    "training_interactions": 10000,
+    "weight_phase": "after tabular update",
+    "episodes": 30,
+    "counts": {
+      "success": 2,
+      "collision": 18,
+      "timeout": 10
+    },
+    "success_rate": 0.06666666666666667,
+    "collision_rate": 0.6,
+    "timeout_rate": 0.3333333333333333,
+    "spl": 0.06666666666666667,
+    "mean_return": -3.0146666666666673,
+    "mean_successful_route_length": 1.0,
+    "successful_route_count": 2,
+    "interactions": 2044,
+    "scope": "fixed monitoring subset",
+    "seed": 101,
+    "by_distance_band": {
+      "short": {
+        "episodes": 10,
+        "counts": {
+          "success": 2,
+          "collision": 6,
+          "timeout": 2
+        },
+        "success_rate": 0.2,
+        "collision_rate": 0.6,
+        "timeout_rate": 0.2,
+        "spl": 0.2,
+        "mean_return": -1.4129999999999998,
+        "mean_successful_route_length": 1.0,
+        "successful_route_count": 2,
+        "interactions": 413
+      },
+      "medium": {
+        "episodes": 10,
+        "counts": {
+          "success": 0,
+          "collision": 6,
+          "timeout": 4
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.6,
+        "timeout_rate": 0.4,
+        "spl": 0.0,
+        "mean_return": -3.816,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 816
+      },
+      "long": {
+        "episodes": 10,
+        "counts": {
+          "success": 0,
+          "collision": 6,
+          "timeout": 4
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.6,
+        "timeout_rate": 0.4,
+        "spl": 0.0,
+        "mean_return": -3.815,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 815
+      }
+    },
+    "evaluation_seconds": 0.05200109997531399,
+    "interactions_per_second": 39306.86083506559,
+    "mean_decision_microseconds": 2.9030011501163244,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries",
+    "initial_states_visited_in_training": 15,
+    "initial_state_overlap_fraction": 0.5
+  },
+  {
+    "training_interactions": 20000,
+    "weight_phase": "after tabular update",
+    "episodes": 30,
+    "counts": {
+      "success": 3,
+      "collision": 15,
+      "timeout": 12
+    },
+    "success_rate": 0.1,
+    "collision_rate": 0.5,
+    "timeout_rate": 0.4,
+    "spl": 0.1,
+    "mean_return": -2.3096666666666668,
+    "mean_successful_route_length": 1.3333333333333333,
+    "successful_route_count": 3,
+    "interactions": 2429,
+    "scope": "fixed monitoring subset",
+    "seed": 101,
+    "by_distance_band": {
+      "short": {
+        "episodes": 10,
+        "counts": {
+          "success": 3,
+          "collision": 5,
+          "timeout": 2
+        },
+        "success_rate": 0.3,
+        "collision_rate": 0.5,
+        "timeout_rate": 0.2,
+        "spl": 0.3,
+        "mean_return": 0.09000000000000022,
+        "mean_successful_route_length": 1.3333333333333333,
+        "successful_route_count": 3,
+        "interactions": 410
+      },
+      "medium": {
+        "episodes": 10,
+        "counts": {
+          "success": 0,
+          "collision": 7,
+          "timeout": 3
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.7,
+        "timeout_rate": 0.3,
+        "spl": 0.0,
+        "mean_return": -4.116,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 616
+      },
+      "long": {
+        "episodes": 10,
+        "counts": {
+          "success": 0,
+          "collision": 3,
+          "timeout": 7
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.3,
+        "timeout_rate": 0.7,
+        "spl": 0.0,
+        "mean_return": -2.903,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1403
+      }
+    },
+    "evaluation_seconds": 0.04946209996705875,
+    "interactions_per_second": 49108.307201224554,
+    "mean_decision_microseconds": 4.501999937929213,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries",
+    "initial_states_visited_in_training": 23,
+    "initial_state_overlap_fraction": 0.7666666666666667
+  },
+  {
+    "training_interactions": 30000,
+    "weight_phase": "after tabular update",
+    "episodes": 30,
+    "counts": {
+      "success": 3,
+      "collision": 16,
+      "timeout": 11
+    },
+    "success_rate": 0.1,
+    "collision_rate": 0.5333333333333333,
+    "timeout_rate": 0.36666666666666664,
+    "spl": 0.1,
+    "mean_return": -2.4116666666666666,
+    "mean_successful_route_length": 1.3333333333333333,
+    "successful_route_count": 3,
+    "interactions": 2235,
+    "scope": "fixed monitoring subset",
+    "seed": 101,
+    "by_distance_band": {
+      "short": {
+        "episodes": 10,
+        "counts": {
+          "success": 3,
+          "collision": 5,
+          "timeout": 2
+        },
+        "success_rate": 0.3,
+        "collision_rate": 0.5,
+        "timeout_rate": 0.2,
+        "spl": 0.3,
+        "mean_return": 0.09000000000000022,
+        "mean_successful_route_length": 1.3333333333333333,
+        "successful_route_count": 3,
+        "interactions": 410
+      },
+      "medium": {
+        "episodes": 10,
+        "counts": {
+          "success": 0,
+          "collision": 6,
+          "timeout": 4
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.6,
+        "timeout_rate": 0.4,
+        "spl": 0.0,
+        "mean_return": -3.815,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 815
+      },
+      "long": {
+        "episodes": 10,
+        "counts": {
+          "success": 0,
+          "collision": 5,
+          "timeout": 5
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.5,
+        "timeout_rate": 0.5,
+        "spl": 0.0,
+        "mean_return": -3.5100000000000002,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1010
+      }
+    },
+    "evaluation_seconds": 0.040442900033667684,
+    "interactions_per_second": 55263.09928663423,
+    "mean_decision_microseconds": 3.622998483479023,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries",
+    "initial_states_visited_in_training": 29,
+    "initial_state_overlap_fraction": 0.9666666666666667
+  },
+  {
+    "training_interactions": 40000,
+    "weight_phase": "after tabular update",
+    "episodes": 30,
+    "counts": {
+      "success": 3,
+      "collision": 12,
+      "timeout": 15
+    },
+    "success_rate": 0.1,
+    "collision_rate": 0.4,
+    "timeout_rate": 0.5,
+    "spl": 0.1,
+    "mean_return": -2.0073333333333334,
+    "mean_successful_route_length": 1.3333333333333333,
+    "successful_route_count": 3,
+    "interactions": 3022,
+    "scope": "fixed monitoring subset",
+    "seed": 101,
+    "by_distance_band": {
+      "short": {
+        "episodes": 10,
+        "counts": {
+          "success": 3,
+          "collision": 6,
+          "timeout": 1
+        },
+        "success_rate": 0.3,
+        "collision_rate": 0.6,
+        "timeout_rate": 0.1,
+        "spl": 0.3,
+        "mean_return": -0.21199999999999974,
+        "mean_successful_route_length": 1.3333333333333333,
+        "successful_route_count": 3,
+        "interactions": 212
+      },
+      "medium": {
+        "episodes": 10,
+        "counts": {
+          "success": 0,
+          "collision": 4,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.4,
+        "timeout_rate": 0.6,
+        "spl": 0.0,
+        "mean_return": -3.2079999999999997,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1208
+      },
+      "long": {
+        "episodes": 10,
+        "counts": {
+          "success": 0,
+          "collision": 2,
+          "timeout": 8
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.2,
+        "timeout_rate": 0.8,
+        "spl": 0.0,
+        "mean_return": -2.602,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1602
+      }
+    },
+    "evaluation_seconds": 0.05452140001580119,
+    "interactions_per_second": 55427.77696691895,
+    "mean_decision_microseconds": 4.4240005081519485,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries",
+    "initial_states_visited_in_training": 30,
+    "initial_state_overlap_fraction": 1.0
+  },
+  {
+    "training_interactions": 50000,
+    "weight_phase": "after tabular update",
+    "episodes": 30,
+    "counts": {
+      "success": 3,
+      "collision": 10,
+      "timeout": 17
+    },
+    "success_rate": 0.1,
+    "collision_rate": 0.3333333333333333,
+    "timeout_rate": 0.5666666666666667,
+    "spl": 0.1,
+    "mean_return": -1.8079999999999998,
+    "mean_successful_route_length": 1.3333333333333333,
+    "successful_route_count": 3,
+    "interactions": 3424,
+    "scope": "fixed monitoring subset",
+    "seed": 101,
+    "by_distance_band": {
+      "short": {
+        "episodes": 10,
+        "counts": {
+          "success": 3,
+          "collision": 5,
+          "timeout": 2
+        },
+        "success_rate": 0.3,
+        "collision_rate": 0.5,
+        "timeout_rate": 0.2,
+        "spl": 0.3,
+        "mean_return": 0.08800000000000026,
+        "mean_successful_route_length": 1.3333333333333333,
+        "successful_route_count": 3,
+        "interactions": 412
+      },
+      "medium": {
+        "episodes": 10,
+        "counts": {
+          "success": 0,
+          "collision": 3,
+          "timeout": 7
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.3,
+        "timeout_rate": 0.7,
+        "spl": 0.0,
+        "mean_return": -2.909,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1409
+      },
+      "long": {
+        "episodes": 10,
+        "counts": {
+          "success": 0,
+          "collision": 2,
+          "timeout": 8
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.2,
+        "timeout_rate": 0.8,
+        "spl": 0.0,
+        "mean_return": -2.603,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1603
+      }
+    },
+    "evaluation_seconds": 0.053384499973617494,
+    "interactions_per_second": 64138.46718976732,
+    "mean_decision_microseconds": 4.336999263614416,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries",
+    "initial_states_visited_in_training": 30,
+    "initial_state_overlap_fraction": 1.0
+  },
+  {
+    "training_interactions": 60000,
+    "weight_phase": "after tabular update",
+    "episodes": 30,
+    "counts": {
+      "success": 4,
+      "collision": 12,
+      "timeout": 14
+    },
+    "success_rate": 0.13333333333333333,
+    "collision_rate": 0.4,
+    "timeout_rate": 0.4666666666666667,
+    "spl": 0.13333333333333333,
+    "mean_return": -1.6103333333333332,
+    "mean_successful_route_length": 2.75,
+    "successful_route_count": 4,
+    "interactions": 2831,
+    "scope": "fixed monitoring subset",
+    "seed": 101,
+    "by_distance_band": {
+      "short": {
+        "episodes": 10,
+        "counts": {
+          "success": 3,
+          "collision": 5,
+          "timeout": 2
+        },
+        "success_rate": 0.3,
+        "collision_rate": 0.5,
+        "timeout_rate": 0.2,
+        "spl": 0.3,
+        "mean_return": 0.08800000000000026,
+        "mean_successful_route_length": 1.3333333333333333,
+        "successful_route_count": 3,
+        "interactions": 412
+      },
+      "medium": {
+        "episodes": 10,
+        "counts": {
+          "success": 1,
+          "collision": 5,
+          "timeout": 4
+        },
+        "success_rate": 0.1,
+        "collision_rate": 0.5,
+        "timeout_rate": 0.4,
+        "spl": 0.1,
+        "mean_return": -2.3169999999999993,
+        "mean_successful_route_length": 7.0,
+        "successful_route_count": 1,
+        "interactions": 817
+      },
+      "long": {
+        "episodes": 10,
+        "counts": {
+          "success": 0,
+          "collision": 2,
+          "timeout": 8
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.2,
+        "timeout_rate": 0.8,
+        "spl": 0.0,
+        "mean_return": -2.602,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1602
+      }
+    },
+    "evaluation_seconds": 0.04682510002749041,
+    "interactions_per_second": 60459.027281051334,
+    "mean_decision_microseconds": 2.7790002059191465,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries",
+    "initial_states_visited_in_training": 30,
+    "initial_state_overlap_fraction": 1.0
+  },
+  {
+    "training_interactions": 70000,
+    "weight_phase": "after tabular update",
+    "episodes": 30,
+    "counts": {
+      "success": 5,
+      "collision": 6,
+      "timeout": 19
+    },
+    "success_rate": 0.16666666666666666,
+    "collision_rate": 0.2,
+    "timeout_rate": 0.6333333333333333,
+    "spl": 0.16666666666666666,
+    "mean_return": -0.6099999999999998,
+    "mean_successful_route_length": 3.2,
+    "successful_route_count": 5,
+    "interactions": 3830,
+    "scope": "fixed monitoring subset",
+    "seed": 101,
+    "by_distance_band": {
+      "short": {
+        "episodes": 10,
+        "counts": {
+          "success": 4,
+          "collision": 2,
+          "timeout": 4
+        },
+        "success_rate": 0.4,
+        "collision_rate": 0.2,
+        "timeout_rate": 0.4,
+        "spl": 0.4,
+        "mean_return": 2.1870000000000003,
+        "mean_successful_route_length": 2.25,
+        "successful_route_count": 4,
+        "interactions": 813
+      },
+      "medium": {
+        "episodes": 10,
+        "counts": {
+          "success": 1,
+          "collision": 4,
+          "timeout": 5
+        },
+        "success_rate": 0.1,
+        "collision_rate": 0.4,
+        "timeout_rate": 0.5,
+        "spl": 0.1,
+        "mean_return": -2.0170000000000003,
+        "mean_successful_route_length": 7.0,
+        "successful_route_count": 1,
+        "interactions": 1017
+      },
+      "long": {
+        "episodes": 10,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 10
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 2000
+      }
+    },
+    "evaluation_seconds": 0.06835030001820996,
+    "interactions_per_second": 56034.86742530182,
+    "mean_decision_microseconds": 4.302000161260366,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries",
+    "initial_states_visited_in_training": 30,
+    "initial_state_overlap_fraction": 1.0
+  },
+  {
+    "training_interactions": 80000,
+    "weight_phase": "after tabular update",
+    "episodes": 30,
+    "counts": {
+      "success": 4,
+      "collision": 4,
+      "timeout": 22
+    },
+    "success_rate": 0.13333333333333333,
+    "collision_rate": 0.13333333333333333,
+    "timeout_rate": 0.7333333333333333,
+    "spl": 0.13333333333333333,
+    "mean_return": -0.8053333333333331,
+    "mean_successful_route_length": 2.25,
+    "successful_route_count": 4,
+    "interactions": 4416,
+    "scope": "fixed monitoring subset",
+    "seed": 101,
+    "by_distance_band": {
+      "short": {
+        "episodes": 10,
+        "counts": {
+          "success": 4,
+          "collision": 2,
+          "timeout": 4
+        },
+        "success_rate": 0.4,
+        "collision_rate": 0.2,
+        "timeout_rate": 0.4,
+        "spl": 0.4,
+        "mean_return": 2.1870000000000003,
+        "mean_successful_route_length": 2.25,
+        "successful_route_count": 4,
+        "interactions": 813
+      },
+      "medium": {
+        "episodes": 10,
+        "counts": {
+          "success": 0,
+          "collision": 2,
+          "timeout": 8
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.2,
+        "timeout_rate": 0.8,
+        "spl": 0.0,
+        "mean_return": -2.603,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1603
+      },
+      "long": {
+        "episodes": 10,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 10
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 2000
+      }
+    },
+    "evaluation_seconds": 0.06893599999602884,
+    "interactions_per_second": 64059.41743435056,
+    "mean_decision_microseconds": 1.9320001592859628,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries",
+    "initial_states_visited_in_training": 30,
+    "initial_state_overlap_fraction": 1.0
+  },
+  {
+    "training_interactions": 90000,
+    "weight_phase": "after tabular update",
+    "episodes": 30,
+    "counts": {
+      "success": 5,
+      "collision": 4,
+      "timeout": 21
+    },
+    "success_rate": 0.16666666666666666,
+    "collision_rate": 0.13333333333333333,
+    "timeout_rate": 0.7,
+    "spl": 0.16666666666666666,
+    "mean_return": -0.40899999999999986,
+    "mean_successful_route_length": 2.6,
+    "successful_route_count": 5,
+    "interactions": 4227,
+    "scope": "fixed monitoring subset",
+    "seed": 101,
+    "by_distance_band": {
+      "short": {
+        "episodes": 10,
+        "counts": {
+          "success": 5,
+          "collision": 1,
+          "timeout": 4
+        },
+        "success_rate": 0.5,
+        "collision_rate": 0.1,
+        "timeout_rate": 0.4,
+        "spl": 0.5,
+        "mean_return": 3.683,
+        "mean_successful_route_length": 2.6,
+        "successful_route_count": 5,
+        "interactions": 817
+      },
+      "medium": {
+        "episodes": 10,
+        "counts": {
+          "success": 0,
+          "collision": 2,
+          "timeout": 8
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.2,
+        "timeout_rate": 0.8,
+        "spl": 0.0,
+        "mean_return": -2.603,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1603
+      },
+      "long": {
+        "episodes": 10,
+        "counts": {
+          "success": 0,
+          "collision": 1,
+          "timeout": 9
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.1,
+        "timeout_rate": 0.9,
+        "spl": 0.0,
+        "mean_return": -2.307,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1807
+      }
+    },
+    "evaluation_seconds": 0.07835229998454452,
+    "interactions_per_second": 53948.63968044081,
+    "mean_decision_microseconds": 4.4139992678537965,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries",
+    "initial_states_visited_in_training": 30,
+    "initial_state_overlap_fraction": 1.0
+  },
+  {
+    "training_interactions": 100000,
+    "weight_phase": "after tabular update",
+    "episodes": 30,
+    "counts": {
+      "success": 5,
+      "collision": 1,
+      "timeout": 24
+    },
+    "success_rate": 0.16666666666666666,
+    "collision_rate": 0.03333333333333333,
+    "timeout_rate": 0.8,
+    "spl": 0.16666666666666666,
+    "mean_return": -0.10666666666666652,
+    "mean_successful_route_length": 2.6,
+    "successful_route_count": 5,
+    "interactions": 4820,
+    "scope": "fixed monitoring subset",
+    "seed": 101,
+    "by_distance_band": {
+      "short": {
+        "episodes": 10,
+        "counts": {
+          "success": 5,
+          "collision": 0,
+          "timeout": 5
+        },
+        "success_rate": 0.5,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.5,
+        "spl": 0.5,
+        "mean_return": 3.9870000000000005,
+        "mean_successful_route_length": 2.6,
+        "successful_route_count": 5,
+        "interactions": 1013
+      },
+      "medium": {
+        "episodes": 10,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 10
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 2000
+      },
+      "long": {
+        "episodes": 10,
+        "counts": {
+          "success": 0,
+          "collision": 1,
+          "timeout": 9
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.1,
+        "timeout_rate": 0.9,
+        "spl": 0.0,
+        "mean_return": -2.307,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1807
+      }
+    },
+    "evaluation_seconds": 0.08533719996921718,
+    "interactions_per_second": 56481.81568810167,
+    "mean_decision_microseconds": 4.326999769546092,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries",
+    "initial_states_visited_in_training": 30,
+    "initial_state_overlap_fraction": 1.0
+  },
+  {
+    "training_interactions": 110000,
+    "weight_phase": "after tabular update",
+    "episodes": 30,
+    "counts": {
+      "success": 8,
+      "collision": 1,
+      "timeout": 21
+    },
+    "success_rate": 0.26666666666666666,
+    "collision_rate": 0.03333333333333333,
+    "timeout_rate": 0.7,
+    "spl": 0.26666666666666666,
+    "mean_return": 1.0873333333333335,
+    "mean_successful_route_length": 3.875,
+    "successful_route_count": 8,
+    "interactions": 4238,
+    "scope": "fixed monitoring subset",
+    "seed": 101,
+    "by_distance_band": {
+      "short": {
+        "episodes": 10,
+        "counts": {
+          "success": 6,
+          "collision": 0,
+          "timeout": 4
+        },
+        "success_rate": 0.6,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.4,
+        "spl": 0.6,
+        "mean_return": 5.184,
+        "mean_successful_route_length": 2.6666666666666665,
+        "successful_route_count": 6,
+        "interactions": 816
+      },
+      "medium": {
+        "episodes": 10,
+        "counts": {
+          "success": 2,
+          "collision": 0,
+          "timeout": 8
+        },
+        "success_rate": 0.2,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.8,
+        "spl": 0.2,
+        "mean_return": 0.38499999999999995,
+        "mean_successful_route_length": 7.5,
+        "successful_route_count": 2,
+        "interactions": 1615
+      },
+      "long": {
+        "episodes": 10,
+        "counts": {
+          "success": 0,
+          "collision": 1,
+          "timeout": 9
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.1,
+        "timeout_rate": 0.9,
+        "spl": 0.0,
+        "mean_return": -2.307,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1807
+      }
+    },
+    "evaluation_seconds": 0.07228459999896586,
+    "interactions_per_second": 58629.36227164059,
+    "mean_decision_microseconds": 2.0020001102238894,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries",
+    "initial_states_visited_in_training": 30,
+    "initial_state_overlap_fraction": 1.0
+  },
+  {
+    "training_interactions": 120000,
+    "weight_phase": "after tabular update",
+    "episodes": 30,
+    "counts": {
+      "success": 8,
+      "collision": 0,
+      "timeout": 22
+    },
+    "success_rate": 0.26666666666666666,
+    "collision_rate": 0.0,
+    "timeout_rate": 0.7333333333333333,
+    "spl": 0.26666666666666666,
+    "mean_return": 1.1906666666666665,
+    "mean_successful_route_length": 3.5,
+    "successful_route_count": 8,
+    "interactions": 4428,
+    "scope": "fixed monitoring subset",
+    "seed": 101,
+    "by_distance_band": {
+      "short": {
+        "episodes": 10,
+        "counts": {
+          "success": 7,
+          "collision": 0,
+          "timeout": 3
+        },
+        "success_rate": 0.7,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.3,
+        "spl": 0.7,
+        "mean_return": 6.3790000000000004,
+        "mean_successful_route_length": 3.0,
+        "successful_route_count": 7,
+        "interactions": 621
+      },
+      "medium": {
+        "episodes": 10,
+        "counts": {
+          "success": 1,
+          "collision": 0,
+          "timeout": 9
+        },
+        "success_rate": 0.1,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.9,
+        "spl": 0.1,
+        "mean_return": -0.807,
+        "mean_successful_route_length": 7.0,
+        "successful_route_count": 1,
+        "interactions": 1807
+      },
+      "long": {
+        "episodes": 10,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 10
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 2000
+      }
+    },
+    "evaluation_seconds": 0.07642820000182837,
+    "interactions_per_second": 57936.730158424114,
+    "mean_decision_microseconds": 4.316999693401158,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries",
+    "initial_states_visited_in_training": 30,
+    "initial_state_overlap_fraction": 1.0
+  },
+  {
+    "training_interactions": 130000,
+    "weight_phase": "after tabular update",
+    "episodes": 30,
+    "counts": {
+      "success": 8,
+      "collision": 0,
+      "timeout": 22
+    },
+    "success_rate": 0.26666666666666666,
+    "collision_rate": 0.0,
+    "timeout_rate": 0.7333333333333333,
+    "spl": 0.25925925925925924,
+    "mean_return": 1.1900000000000002,
+    "mean_successful_route_length": 3.75,
+    "successful_route_count": 8,
+    "interactions": 4430,
+    "scope": "fixed monitoring subset",
+    "seed": 101,
+    "by_distance_band": {
+      "short": {
+        "episodes": 10,
+        "counts": {
+          "success": 7,
+          "collision": 0,
+          "timeout": 3
+        },
+        "success_rate": 0.7,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.3,
+        "spl": 0.7,
+        "mean_return": 6.3790000000000004,
+        "mean_successful_route_length": 3.0,
+        "successful_route_count": 7,
+        "interactions": 621
+      },
+      "medium": {
+        "episodes": 10,
+        "counts": {
+          "success": 1,
+          "collision": 0,
+          "timeout": 9
+        },
+        "success_rate": 0.1,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.9,
+        "spl": 0.07777777777777778,
+        "mean_return": -0.8089999999999999,
+        "mean_successful_route_length": 9.0,
+        "successful_route_count": 1,
+        "interactions": 1809
+      },
+      "long": {
+        "episodes": 10,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 10
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 2000
+      }
+    },
+    "evaluation_seconds": 0.07810380001319572,
+    "interactions_per_second": 56719.391364460454,
+    "mean_decision_microseconds": 3.780998522415757,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries",
+    "initial_states_visited_in_training": 30,
+    "initial_state_overlap_fraction": 1.0
+  },
+  {
+    "training_interactions": 140000,
+    "weight_phase": "after tabular update",
+    "episodes": 30,
+    "counts": {
+      "success": 12,
+      "collision": 0,
+      "timeout": 18
+    },
+    "success_rate": 0.4,
+    "collision_rate": 0.0,
+    "timeout_rate": 0.6,
+    "spl": 0.36925925925925923,
+    "mean_return": 2.778666666666667,
+    "mean_successful_route_length": 5.333333333333333,
+    "successful_route_count": 12,
+    "interactions": 3664,
+    "scope": "fixed monitoring subset",
+    "seed": 101,
+    "by_distance_band": {
+      "short": {
+        "episodes": 10,
+        "counts": {
+          "success": 9,
+          "collision": 0,
+          "timeout": 1
+        },
+        "success_rate": 0.9,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.1,
+        "spl": 0.85,
+        "mean_return": 8.766000000000002,
+        "mean_successful_route_length": 3.7777777777777777,
+        "successful_route_count": 9,
+        "interactions": 234
+      },
+      "medium": {
+        "episodes": 10,
+        "counts": {
+          "success": 2,
+          "collision": 0,
+          "timeout": 8
+        },
+        "success_rate": 0.2,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.8,
+        "spl": 0.1577777777777778,
+        "mean_return": 0.38100000000000006,
+        "mean_successful_route_length": 9.5,
+        "successful_route_count": 2,
+        "interactions": 1619
+      },
+      "long": {
+        "episodes": 10,
+        "counts": {
+          "success": 1,
+          "collision": 0,
+          "timeout": 9
+        },
+        "success_rate": 0.1,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.9,
+        "spl": 0.1,
+        "mean_return": -0.8109999999999999,
+        "mean_successful_route_length": 11.0,
+        "successful_route_count": 1,
+        "interactions": 1811
+      }
+    },
+    "evaluation_seconds": 0.0657960000098683,
+    "interactions_per_second": 55687.27581388628,
+    "mean_decision_microseconds": 4.860000335611403,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries",
+    "initial_states_visited_in_training": 30,
+    "initial_state_overlap_fraction": 1.0
+  },
+  {
+    "training_interactions": 150000,
+    "weight_phase": "after tabular update",
+    "episodes": 30,
+    "counts": {
+      "success": 12,
+      "collision": 0,
+      "timeout": 18
+    },
+    "success_rate": 0.4,
+    "collision_rate": 0.0,
+    "timeout_rate": 0.6,
+    "spl": 0.37592592592592594,
+    "mean_return": 2.7800000000000002,
+    "mean_successful_route_length": 5.0,
+    "successful_route_count": 12,
+    "interactions": 3660,
+    "scope": "fixed monitoring subset",
+    "seed": 101,
+    "by_distance_band": {
+      "short": {
+        "episodes": 10,
+        "counts": {
+          "success": 9,
+          "collision": 0,
+          "timeout": 1
+        },
+        "success_rate": 0.9,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.1,
+        "spl": 0.85,
+        "mean_return": 8.766000000000002,
+        "mean_successful_route_length": 3.7777777777777777,
+        "successful_route_count": 9,
+        "interactions": 234
+      },
+      "medium": {
+        "episodes": 10,
+        "counts": {
+          "success": 2,
+          "collision": 0,
+          "timeout": 8
+        },
+        "success_rate": 0.2,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.8,
+        "spl": 0.17777777777777776,
+        "mean_return": 0.38499999999999995,
+        "mean_successful_route_length": 7.5,
+        "successful_route_count": 2,
+        "interactions": 1615
+      },
+      "long": {
+        "episodes": 10,
+        "counts": {
+          "success": 1,
+          "collision": 0,
+          "timeout": 9
+        },
+        "success_rate": 0.1,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.9,
+        "spl": 0.1,
+        "mean_return": -0.8109999999999999,
+        "mean_successful_route_length": 11.0,
+        "successful_route_count": 1,
+        "interactions": 1811
+      }
+    },
+    "evaluation_seconds": 0.053763900010380894,
+    "interactions_per_second": 68075.41862278065,
+    "mean_decision_microseconds": 1.7449998995289207,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries",
+    "initial_states_visited_in_training": 30,
+    "initial_state_overlap_fraction": 1.0
+  },
+  {
+    "training_interactions": 160000,
+    "weight_phase": "after tabular update",
+    "episodes": 30,
+    "counts": {
+      "success": 14,
+      "collision": 0,
+      "timeout": 16
+    },
+    "success_rate": 0.4666666666666667,
+    "collision_rate": 0.0,
+    "timeout_rate": 0.5333333333333333,
+    "spl": 0.4277777777777778,
+    "mean_return": 3.5743333333333336,
+    "mean_successful_route_length": 5.5,
+    "successful_route_count": 14,
+    "interactions": 3277,
+    "scope": "fixed monitoring subset",
+    "seed": 101,
+    "by_distance_band": {
+      "short": {
+        "episodes": 10,
+        "counts": {
+          "success": 10,
+          "collision": 0,
+          "timeout": 0
+        },
+        "success_rate": 1.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.0,
+        "spl": 0.9055555555555556,
+        "mean_return": 9.957,
+        "mean_successful_route_length": 4.3,
+        "successful_route_count": 10,
+        "interactions": 43
+      },
+      "medium": {
+        "episodes": 10,
+        "counts": {
+          "success": 3,
+          "collision": 0,
+          "timeout": 7
+        },
+        "success_rate": 0.3,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.7,
+        "spl": 0.2777777777777778,
+        "mean_return": 1.577,
+        "mean_successful_route_length": 7.666666666666667,
+        "successful_route_count": 3,
+        "interactions": 1423
+      },
+      "long": {
+        "episodes": 10,
+        "counts": {
+          "success": 1,
+          "collision": 0,
+          "timeout": 9
+        },
+        "success_rate": 0.1,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.9,
+        "spl": 0.1,
+        "mean_return": -0.8109999999999999,
+        "mean_successful_route_length": 11.0,
+        "successful_route_count": 1,
+        "interactions": 1811
+      }
+    },
+    "evaluation_seconds": 0.05050040001515299,
+    "interactions_per_second": 64890.57510468657,
+    "mean_decision_microseconds": 2.261000336147845,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries",
+    "initial_states_visited_in_training": 30,
+    "initial_state_overlap_fraction": 1.0
+  },
+  {
+    "training_interactions": 170000,
+    "weight_phase": "after tabular update",
+    "episodes": 30,
+    "counts": {
+      "success": 14,
+      "collision": 0,
+      "timeout": 16
+    },
+    "success_rate": 0.4666666666666667,
+    "collision_rate": 0.0,
+    "timeout_rate": 0.5333333333333333,
+    "spl": 0.4314814814814814,
+    "mean_return": 3.571333333333334,
+    "mean_successful_route_length": 6.142857142857143,
+    "successful_route_count": 14,
+    "interactions": 3286,
+    "scope": "fixed monitoring subset",
+    "seed": 101,
+    "by_distance_band": {
+      "short": {
+        "episodes": 10,
+        "counts": {
+          "success": 9,
+          "collision": 0,
+          "timeout": 1
+        },
+        "success_rate": 0.9,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.1,
+        "spl": 0.85,
+        "mean_return": 8.766000000000002,
+        "mean_successful_route_length": 3.7777777777777777,
+        "successful_route_count": 9,
+        "interactions": 234
+      },
+      "medium": {
+        "episodes": 10,
+        "counts": {
+          "success": 3,
+          "collision": 0,
+          "timeout": 7
+        },
+        "success_rate": 0.3,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.7,
+        "spl": 0.2777777777777778,
+        "mean_return": 1.577,
+        "mean_successful_route_length": 7.666666666666667,
+        "successful_route_count": 3,
+        "interactions": 1423
+      },
+      "long": {
+        "episodes": 10,
+        "counts": {
+          "success": 2,
+          "collision": 0,
+          "timeout": 8
+        },
+        "success_rate": 0.2,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.8,
+        "spl": 0.16666666666666666,
+        "mean_return": 0.3710000000000001,
+        "mean_successful_route_length": 14.5,
+        "successful_route_count": 2,
+        "interactions": 1629
+      }
+    },
+    "evaluation_seconds": 0.06382300000404939,
+    "interactions_per_second": 51486.14135643126,
+    "mean_decision_microseconds": 5.801001098006964,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries",
+    "initial_states_visited_in_training": 30,
+    "initial_state_overlap_fraction": 1.0
+  },
+  {
+    "training_interactions": 180000,
+    "weight_phase": "after tabular update",
+    "episodes": 30,
+    "counts": {
+      "success": 18,
+      "collision": 0,
+      "timeout": 12
+    },
+    "success_rate": 0.6,
+    "collision_rate": 0.0,
+    "timeout_rate": 0.4,
+    "spl": 0.5518518518518519,
+    "mean_return": 5.156,
+    "mean_successful_route_length": 7.333333333333333,
+    "successful_route_count": 18,
+    "interactions": 2532,
+    "scope": "fixed monitoring subset",
+    "seed": 101,
+    "by_distance_band": {
+      "short": {
+        "episodes": 10,
+        "counts": {
+          "success": 9,
+          "collision": 0,
+          "timeout": 1
+        },
+        "success_rate": 0.9,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.1,
+        "spl": 0.85,
+        "mean_return": 8.766000000000002,
+        "mean_successful_route_length": 3.7777777777777777,
+        "successful_route_count": 9,
+        "interactions": 234
+      },
+      "medium": {
+        "episodes": 10,
+        "counts": {
+          "success": 6,
+          "collision": 0,
+          "timeout": 4
+        },
+        "success_rate": 0.6,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.4,
+        "spl": 0.5611111111111111,
+        "mean_return": 5.148999999999999,
+        "mean_successful_route_length": 8.5,
+        "successful_route_count": 6,
+        "interactions": 851
+      },
+      "long": {
+        "episodes": 10,
+        "counts": {
+          "success": 3,
+          "collision": 0,
+          "timeout": 7
+        },
+        "success_rate": 0.3,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.7,
+        "spl": 0.24444444444444446,
+        "mean_return": 1.5530000000000002,
+        "mean_successful_route_length": 15.666666666666666,
+        "successful_route_count": 3,
+        "interactions": 1447
+      }
+    },
+    "evaluation_seconds": 0.04064520000247285,
+    "interactions_per_second": 62295.17876270638,
+    "mean_decision_microseconds": 4.217001260258257,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries",
+    "initial_states_visited_in_training": 30,
+    "initial_state_overlap_fraction": 1.0
+  },
+  {
+    "training_interactions": 190000,
+    "weight_phase": "after tabular update",
+    "episodes": 30,
+    "counts": {
+      "success": 18,
+      "collision": 0,
+      "timeout": 12
+    },
+    "success_rate": 0.6,
+    "collision_rate": 0.0,
+    "timeout_rate": 0.4,
+    "spl": 0.5574074074074074,
+    "mean_return": 5.159666666666667,
+    "mean_successful_route_length": 6.722222222222222,
+    "successful_route_count": 18,
+    "interactions": 2521,
+    "scope": "fixed monitoring subset",
+    "seed": 101,
+    "by_distance_band": {
+      "short": {
+        "episodes": 10,
+        "counts": {
+          "success": 10,
+          "collision": 0,
+          "timeout": 0
+        },
+        "success_rate": 1.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.0,
+        "spl": 0.95,
+        "mean_return": 9.961000000000002,
+        "mean_successful_route_length": 3.9,
+        "successful_route_count": 10,
+        "interactions": 39
+      },
+      "medium": {
+        "episodes": 10,
+        "counts": {
+          "success": 5,
+          "collision": 0,
+          "timeout": 5
+        },
+        "success_rate": 0.5,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.5,
+        "spl": 0.45555555555555555,
+        "mean_return": 3.9579999999999997,
+        "mean_successful_route_length": 8.4,
+        "successful_route_count": 5,
+        "interactions": 1042
+      },
+      "long": {
+        "episodes": 10,
+        "counts": {
+          "success": 3,
+          "collision": 0,
+          "timeout": 7
+        },
+        "success_rate": 0.3,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.7,
+        "spl": 0.26666666666666666,
+        "mean_return": 1.56,
+        "mean_successful_route_length": 13.333333333333334,
+        "successful_route_count": 3,
+        "interactions": 1440
+      }
+    },
+    "evaluation_seconds": 0.043751000019256026,
+    "interactions_per_second": 57621.540053723074,
+    "mean_decision_microseconds": 2.064000000245869,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries",
+    "initial_states_visited_in_training": 30,
+    "initial_state_overlap_fraction": 1.0
+  },
+  {
+    "training_interactions": 200000,
+    "weight_phase": "after tabular update",
+    "episodes": 30,
+    "counts": {
+      "success": 19,
+      "collision": 0,
+      "timeout": 11
+    },
+    "success_rate": 0.6333333333333333,
+    "collision_rate": 0.0,
+    "timeout_rate": 0.36666666666666664,
+    "spl": 0.5907407407407407,
+    "mean_return": 5.5569999999999995,
+    "mean_successful_route_length": 6.7894736842105265,
+    "successful_route_count": 19,
+    "interactions": 2329,
+    "scope": "fixed monitoring subset",
+    "seed": 101,
+    "by_distance_band": {
+      "short": {
+        "episodes": 10,
+        "counts": {
+          "success": 10,
+          "collision": 0,
+          "timeout": 0
+        },
+        "success_rate": 1.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.0,
+        "spl": 0.95,
+        "mean_return": 9.961000000000002,
+        "mean_successful_route_length": 3.9,
+        "successful_route_count": 10,
+        "interactions": 39
+      },
+      "medium": {
+        "episodes": 10,
+        "counts": {
+          "success": 7,
+          "collision": 0,
+          "timeout": 3
+        },
+        "success_rate": 0.7,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.3,
+        "spl": 0.6555555555555556,
+        "mean_return": 6.339,
+        "mean_successful_route_length": 8.714285714285714,
+        "successful_route_count": 7,
+        "interactions": 661
+      },
+      "long": {
+        "episodes": 10,
+        "counts": {
+          "success": 2,
+          "collision": 0,
+          "timeout": 8
+        },
+        "success_rate": 0.2,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.8,
+        "spl": 0.16666666666666666,
+        "mean_return": 0.3710000000000001,
+        "mean_successful_route_length": 14.5,
+        "successful_route_count": 2,
+        "interactions": 1629
+      }
+    },
+    "evaluation_seconds": 0.03809340001316741,
+    "interactions_per_second": 61139.199945264925,
+    "mean_decision_microseconds": 4.316000267863274,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries",
+    "initial_states_visited_in_training": 30,
+    "initial_state_overlap_fraction": 1.0
+  }
+]

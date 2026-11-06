@@ -1,0 +1,44 @@
+{
+  "q-learning/control": {
+    "collision_boundary": 11,
+    "success_optimal": 2407,
+    "timeout_repeated_state": 1623,
+    "success_detour": 597,
+    "collision_obstacle": 2
+  },
+  "q-learning/tuned": {
+    "success_optimal": 3381,
+    "success_detour": 793,
+    "timeout_repeated_state": 457,
+    "collision_boundary": 7,
+    "collision_obstacle": 2
+  },
+  "sarsa/control": {
+    "success_optimal": 948,
+    "success_detour": 191,
+    "timeout_repeated_state": 3410,
+    "collision_boundary": 38,
+    "collision_obstacle": 53
+  },
+  "sarsa/tuned": {
+    "success_optimal": 1235,
+    "timeout_repeated_state": 3015,
+    "success_detour": 296,
+    "collision_obstacle": 50,
+    "collision_boundary": 44
+  },
+  "q-learning/terminal": {
+    "success_optimal": 1183,
+    "timeout_repeated_state": 3024,
+    "collision_boundary": 31,
+    "success_detour": 346,
+    "collision_obstacle": 56
+  },
+  "sarsa/terminal": {
+    "timeout_repeated_state": 3454,
+    "success_optimal": 765,
+    "success_detour": 149,
+    "collision_boundary": 76,
+    "collision_obstacle": 196
+  }
+}

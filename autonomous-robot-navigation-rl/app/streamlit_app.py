@@ -5,6 +5,7 @@ from robot_navigation.agents import BFSPolicy, RandomPolicy, load_policy, viewer
 from robot_navigation.benchmark import load_scenarios
 from robot_navigation.core import ROOT, NavigationEnv, load_task, read_json, validate_scenario
 from robot_navigation.episodes import Playback, rollout, validate_replay
+from robot_navigation.refinement import task_for_run
 from robot_navigation.visualization import draw
 
 import matplotlib.pyplot as plt
@@ -41,7 +42,7 @@ if not runs:
 
 with st.sidebar:
     st.header("Episode library")
-    directory = st.selectbox("Saved run", runs, format_func=lambda p: p.name)
+    directory = st.selectbox("Saved run", runs, format_func=lambda p: p.name, key="saved_run")
     source = st.radio("Episode source", ["Saved replay", "Custom demonstration"])
     st.caption("The final test holdout is sealed. This viewer never opens its manifest.")
     st.divider()
@@ -51,7 +52,7 @@ with st.sidebar:
 
 try:
     # Check the run and the actual checkpoint even when opening its saved replays.
-    task.check(read_json(directory / "manifest.json")["signature"])
+    task = task_for_run(task, directory)
     frozen_agent = load_policy(viewer_checkpoint(directory), task)
 except (OSError, ValueError, KeyError, ImportError) as exc:
     st.error(f"Cannot open this fixed-map run: {exc}")
@@ -73,7 +74,8 @@ if source == "Saved replay":
         st.stop()
     # Put a verified start-to-goal reference first, and retain actual RL failures.
     paths.sort(key=lambda p: (p.name != "bfs_success.json", p.name))
-    path = st.selectbox("Recorded episode", paths, format_func=lambda p: p.stem.replace("_", " "))
+    path = st.selectbox("Recorded episode", paths, format_func=lambda p: p.stem.replace("_", " "),
+                        key=f"recorded_episode:{directory}")
     identity = str(path)
     if st.session_state.get("episode_identity") != identity:
         try:
@@ -92,7 +94,7 @@ else:
         sc = columns[1].number_input("Start column", 0, 9, 0)
         gr = columns[2].number_input("Goal row", 0, 9, 9)
         gc = columns[3].number_input("Goal column", 0, 9, 9)
-        learned_label = {"q-learning": "Q-learning", "sarsa": "SARSA", "dqn": "DQN"}[frozen_agent.algorithm]
+        learned_label = {"q-learning": "Q-learning", "sarsa": "SARSA", "dqn": "DQN", "voting": "Policy voting"}[frozen_agent.algorithm]
         model = st.selectbox("Frozen policy", ["BFS", "Random (untrained)", learned_label])
         seed = st.number_input("Demonstration seed", 0, 2147483647, 7)
         generate = st.form_submit_button("Generate demonstration")
@@ -113,6 +115,9 @@ else:
 playback = st.session_state["playback"]
 episode = playback.episode
 st.caption(f"{episode['policy_id']}  ·  {task.grid.map_id}  ·  {episode['scenario']['id']}  ·  {episode['mode']}  ·  seed {episode['seed']}")
+st.caption(f"Reward: {task.config['reward_version']} · step {task.config['step_reward']:+.2f}, goal +{task.config['goal_reward']}, collision {task.config['collision_reward']}")
+if frozen_agent.algorithm == "voting":
+    st.caption(f"Frozen {frozen_agent.family} voting · member seeds {list(frozen_agent.seeds)} · ties use the first member")
 st.caption("Saved replay" if source == "Saved replay" else "Frozen-policy demonstration replay; no learning")
 
 

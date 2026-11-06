@@ -1,0 +1,47 @@
+{
+  "pytest": {
+    "passed": 46,
+    "seconds": 20.55,
+    "command": ".venv/Scripts/python.exe -m pytest -q"
+  },
+  "learned_episode_records_verified": 57536,
+  "learned_actions_verified": 6543058,
+  "periodic_checkpoints_verified": 1240,
+  "voting_episodes_verified": 928,
+  "voting_actions_verified": 24810,
+  "selected_prefix_visitation_verified": true,
+  "candidate_and_family_selection_verified": true,
+  "voting_inference_state_unchanged": true,
+  "final_test_policy_executions": 0,
+  "analysis_source_sha256": "df85bf285f836face91db8a6079d025ce1a73f5da0a61957c11c5014f769a564",
+  "archived_runner_hash_matches": true,
+  "audited_analyzer_hash_matches": true,
+  "post_training_source_changes": [
+    "app/streamlit_app.py"
+  ],
+  "source_change_explanation": "Viewer-only stable saved-run and per-run episode widget keys fixed after training; training/configuration code and saved source snapshots remain unchanged",
+  "plot_qa": {
+    "render_source_sha256": "003b1111d542faf2cc8803be1bd7763d2d029e9b861c4214e36c4f9b23896a75",
+    "audited_analyzer_snapshot_matches": true,
+    "repair": "Voting success annotations use percentages to match the axis; no data changed",
+    "data_changed": false
+  },
+  "figures_visually_inspected": [
+    "search",
+    "learning_curves",
+    "paired_refinement",
+    "reward_ablation",
+    "voting"
+  ],
+  "cli_monitoring_evaluation": {
+    "checkpoint": "m4-voting-q-learning/voting.json",
+    "episodes": 30,
+    "success": 27,
+    "collision": 0,
+    "timeout": 3
+  },
+  "preservation": {
+    "files_checked": 815,
+    "changes": 0
+  }
+}

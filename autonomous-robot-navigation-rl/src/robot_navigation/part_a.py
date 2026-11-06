@@ -75,12 +75,15 @@ class TrainingLedger(gym.Wrapper):
 
 
 class PartARecord:
-    def __init__(self, task, config, root=ROOT):
+    def __init__(self, task, config, root=ROOT, scenario_task=None):
+        from .refinement import validate_task_parent
+        scenario_task = scenario_task or task
+        validate_task_parent(task, scenario_task)
         self.task, self.config, self.root = task, config, root
         self.directory = root / "artifacts/runs" / config["run_id"]
         self.directory.mkdir(parents=True, exist_ok=False)
-        self.monitoring = load_scenarios(task, "monitoring", root)
-        self.validation = load_scenarios(task, "validation", root)
+        self.monitoring = load_scenarios(scenario_task, "monitoring", root)
+        self.validation = load_scenarios(scenario_task, "validation", root)
         self.monitoring_log, self.best_rank = [], None
         self.monitor_seconds = 0.
         self.extension = ".zip" if config["algorithm"] == "dqn" else ".npz"
@@ -95,7 +98,9 @@ class PartARecord:
             "dependencies": {p: version(p) for p in packages}, "final_test_evaluated": False,
             "selection_rule": "maximum monitoring success, then SPL, then earliest interaction",
             "viewer_checkpoint": "selected" + self.extension, "inference_only_checkpoint": True,
-            "training_scenario_ids": [s["id"] for s in load_scenarios(task, "train", root)],
+            "scenario_signature": scenario_task.signature, "reward_variant": config.get("reward_variant", "step-cost"),
+            "stage": config.get("stage", "part-a"),
+            "training_scenario_ids": [s["id"] for s in load_scenarios(scenario_task, "train", root)],
             "validation_scenario_ids": [s["id"] for s in self.validation],
             "information": "robot/goal coordinates only; DQN uses fixed coordinate scaling; no masking or planner fallback"}
         write_json(self.directory / "configuration.json", {"training": config, "environment": task.config, "signature": task.signature})
@@ -122,6 +127,7 @@ class PartARecord:
             shutil.copy2(path, selected)
             shutil.copy2(path.with_suffix(".json"), selected.with_suffix(".json"))
             self.manifest["selected_interactions"] = interaction
+            np.savez_compressed(self.directory / "selected_visitation.npz", state_action_counts=visitation)
         if interaction == self.config["interactions"]:
             final = self.directory / ("checkpoint" + self.extension)
             shutil.copy2(path, final)
@@ -136,9 +142,12 @@ class PartARecord:
         np.savez_compressed(self.directory / "visitation.npz", state_action_counts=visitation)
         selected_path = self.directory / self.manifest["viewer_checkpoint"]
         selected = load_policy(selected_path, self.task)
+        with np.load(self.directory / "selected_visitation.npz", allow_pickle=False) as data:
+            selected_visitation = data["state_action_counts"]
         summary, metrics, records = evaluate(self.task, self.validation, selected, self.config["seed"],
-            "complete validation manifest; validation-selected checkpoint", visitation,
+            "complete validation manifest; validation-selected checkpoint", selected_visitation,
             self.directory / f"{self.key}_trajectories.jsonl.gz")
+        summary["initial_state_overlap_scope"] = "selected checkpoint training prefix"
         write_json(self.directory / "validation.json", {self.key: summary})
         write_json(self.directory / f"{self.key}_episodes.json", metrics)
         for episode in records:
@@ -164,9 +173,11 @@ def train_part_a(config, root=ROOT):
             raise ValueError("DQN budgets and monitoring intervals must be positive multiples of train_freq")
         if Path(config["run_id"]).name != config["run_id"] or config["run_id"] in (".", ".."):
             raise ValueError("run_id must be one directory name")
-    task = load_task(root)
-    scenarios = load_scenarios(task, "train", root)
-    record = PartARecord(task, config, root)
+    from .refinement import reward_task
+    parent_task = load_task(root)
+    task = reward_task(parent_task, config.get("reward_variant", "step-cost"))
+    scenarios = load_scenarios(parent_task, "train", root)
+    record = PartARecord(task, config, root, scenario_task=parent_task)
     try:
         with (record.directory / "training.csv").open("w", encoding="utf-8", newline="") as file:
             fields = ["episode", "scenario_id", "end_interaction", "steps", "return", "outcome"]

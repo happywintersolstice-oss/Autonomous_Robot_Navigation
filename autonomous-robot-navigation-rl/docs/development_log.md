@@ -111,3 +111,47 @@ Method/API references consulted during implementation:
 Part B tuning/voting, the full dashboard and all explicitly deferred additions
 remain for later milestones. Poor DQN/long-route results were not repaired by
 changing rules, selecting on final test, or introducing planner assistance.
+
+## Milestone 4 — 6 November 2026
+
+Completed Part B under the predeclared bounded protocol: eight shared candidates
+per shortlisted family and two development seeds, five fresh paired control/tuned
+seeds, and a five-seed reward-only ablation per family. All 62 runs completed their
+200,000-interaction budgets: 12.4 million training actions in 858.57 seconds.
+Training-run storage was 266.19 MiB. No follow-on search or final-test execution
+was performed. Candidate c07 won for both Q-learning and SARSA.
+
+Matched mean success changed from 64.74% to 89.96% for Q-learning and 24.55% to
+33.00% for SARSA. Q-learning met all predeclared mean targets; SARSA missed all
+three, including its 2.03% collision rate against a 2% cap. Removing the ordinary
+step cost reduced success to 32.95% and 19.70% respectively; that diagnostic
+variant was not promoted. Reward returns remain version-specific.
+
+Frozen Q-learning voting used predeclared seeds 101/211/307, majority action and
+first-member priority for three-way ties. Compared with reference seed101, it
+lost five goals (837 versus 842 of 928) while improving SPL by .013117. Voting
+requires three Q arrays and measured 7.51 versus 1.66 microseconds per decision
+on this machine. Member training costs are counted once; the wrapper adds none.
+
+Replayed and audited 57,536 trial-validation episodes / 6,543,058 actions, 1,240
+periodic checkpoints, and 928 voting episodes / 24,810 actions. Verified selected
+training-prefix visitation, original-scenario relationships for reward variants,
+selection rules, immutable inference, source/model hashes and all voting proposals.
+The runner and audited analyzer are archived; a later plot-only label repair is
+recorded separately. All five generated figures were visually inspected.
+
+The minimal animated viewer supports matching reward variants and frozen voting,
+with reward/member labels. A new inventory regression exposed a playback reset;
+stable saved-run and per-run episode widget keys fixed it. This viewer-only repair
+postdates training; training/configuration sources and saved snapshots are unchanged.
+All 46 tests pass. The local server health check and read-only voting CLI check
+pass. A fresh browser rendering check remains unverified because the dedicated
+Chrome window was minimized; AppTest replay/control checks passed.
+
+Preserved 815 root/benchmark/earlier-artifact files by SHA-256 with zero changes.
+No energy project or sources directory was present in this checkout. Full traces,
+visitation and periodic models remain local under the existing storage policy;
+selected models, configurations and measured summaries remain reviewable.
+Milestone 5 (integration and core robustness) is next. Final freezing/evaluation,
+the full comparison dashboard and deferred additions remain for their planned
+milestones. This work is local and uncommitted.

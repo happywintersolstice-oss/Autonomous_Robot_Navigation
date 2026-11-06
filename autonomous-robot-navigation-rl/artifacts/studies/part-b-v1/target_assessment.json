@@ -1,0 +1,19 @@
+{
+  "targets": {
+    "success_rate_at_least": 0.8,
+    "collision_rate_at_most": 0.02,
+    "spl_at_least": 0.75
+  },
+  "tuned_family_mean_targets_met": {
+    "q-learning": {
+      "success": true,
+      "collision": true,
+      "spl": true
+    },
+    "sarsa": {
+      "success": false,
+      "collision": false,
+      "spl": false
+    }
+  }
+}

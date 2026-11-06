@@ -1,0 +1,78 @@
+{
+  "suite_id": "part-b-v1",
+  "algorithms": [
+    "q-learning",
+    "sarsa"
+  ],
+  "search_seed": 20261106,
+  "search_candidates": 8,
+  "development_seeds": [
+    7,
+    19
+  ],
+  "confirmation_seeds": [
+    101,
+    211,
+    307,
+    401,
+    503
+  ],
+  "voting_member_seeds": [
+    101,
+    211,
+    307
+  ],
+  "single_policy_seed": 101,
+  "common": {
+    "interactions": 200000,
+    "monitor_every": 10000
+  },
+  "search_space": {
+    "learning_rate": [
+      0.1,
+      0.3,
+      0.5,
+      0.7,
+      0.9
+    ],
+    "discount": [
+      0.95,
+      0.99,
+      0.995
+    ],
+    "epsilon_start": [
+      0.7,
+      1.0
+    ],
+    "epsilon_end": [
+      0.01,
+      0.03,
+      0.1
+    ],
+    "epsilon_decay_fraction": [
+      0.3,
+      0.6,
+      0.8,
+      1.0
+    ]
+  },
+  "baseline": {
+    "learning_rate": 0.3,
+    "discount": 0.99,
+    "epsilon_start": 1.0,
+    "epsilon_end": 0.1,
+    "epsilon_decay_fraction": 0.8
+  },
+  "targets": {
+    "success_rate_at_least": 0.8,
+    "collision_rate_at_most": 0.02,
+    "spl_at_least": 0.75
+  },
+  "limits": {
+    "training_runs": 62,
+    "training_interactions": 12400000,
+    "wall_minutes": 45,
+    "run_storage_mib": 750
+  },
+  "run_prefix": "m4"
+}

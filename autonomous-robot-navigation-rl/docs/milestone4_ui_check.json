@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-06",
+  "url": "http://127.0.0.1:8517/",
+  "server_health": "ok; owned local Streamlit server restarted for updated imports",
+  "automated_checks": [
+    "Terminal-only run uses its matching reward task, displays reward version and synchronizes replay position/reward",
+    "Voting replay retains three member proposals and no invented Q scores; matching frozen voting custom demo loads",
+    "Saved run, selected episode and playback frame survive new run inventory entries",
+    "Existing BFS/Q-learning/SARSA/DQN replay and custom-demo checks still pass",
+    "Play/pause, next-step, reset, seeking and speed changes pass AppTest checks"
+  ],
+  "browser_observation": "Dedicated local Chrome window was minimized; native automation could not obtain its state. No fresh milestone-4 visual animation result is claimed.",
+  "limitations": [
+    "AppTest exercises application state, not browser rendering",
+    "No new quantitative browser timing measurement"
+  ]
+}

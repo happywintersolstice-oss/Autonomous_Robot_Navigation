@@ -68,3 +68,26 @@ does not call a partial path's efficiency a completed SPL.
 Method references consulted during implementation:
 [Gymnasium custom environments](https://gymnasium.farama.org/introduction/create_custom_env/),
 [Farama termination/truncation](https://farama.org/Gymnasium-Terminated-Truncated-Step-API).
+
+## Milestone 4 reward derivation and policy voting
+
+The canonical task and saved scenario manifests retain their original signatures.
+The approved diagnostic `terminal-only` variant changes only ordinary step reward
+from -.01 to 0 and uses reward version `terminal-only-v1`, producing a distinct
+task hash. Goal +10, collision -5, map, observations, actions, endings and timeout
+handling are unchanged. Variant training/evaluation explicitly validates its parent
+scenario task; loading a model or replay still requires its actual reward signature.
+The viewer reconstructs that task from the saved run configuration and labels it.
+Returns across reward versions are not a quality comparison.
+
+Voting is a frozen inference wrapper around three tabular members from the same
+family/task and distinct declared training seeds. Every member proposes one greedy
+action; majority wins. When all three disagree, the first declared member wins.
+It uses no Q averaging, action mask, planner assistance, learning or additional
+training RNG. Descriptors retain ordered checkpoint references, seeds, identities
+and hashes. Replays retain member actions, counts and tie decisions; Q scores are
+null because the voting system does not expose an aggregate Q function.
+
+New training runs save visitation at each newly selected checkpoint separately
+from full-budget visitation. Validation overlap is computed from that selected
+training prefix and labeled accordingly. Historical artifacts remain intact.

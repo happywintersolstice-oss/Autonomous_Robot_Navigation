@@ -1,0 +1,31 @@
+{
+  "training_interactions": 200000,
+  "config": {
+    "interactions": 200000,
+    "monitor_every": 10000,
+    "learning_rate": 0.9,
+    "discount": 0.99,
+    "epsilon_start": 0.7,
+    "epsilon_end": 0.03,
+    "epsilon_decay_fraction": 0.3,
+    "algorithm": "sarsa",
+    "seed": 101,
+    "run_id": "m4-terminal-sarsa-seed101",
+    "stage": "terminal",
+    "reward_variant": "terminal-only"
+  },
+  "weight_phase": "after tabular update",
+  "signature": {
+    "map_id": "bottleneck-v1",
+    "map_hash": "614472df8e4cbed5408e1e5092dfd708bb683cdeef780a1a064246f0e1e58a94",
+    "task_hash": "2a66370a5a7602bb553d69f2e51eea1b2c552b80fa78f5d63e9ea698f39485c3",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "terminal-only-v1"
+  },
+  "policy_id": "sarsa/m4-terminal-sarsa-seed101/step-200000",
+  "algorithm": "sarsa",
+  "kind": "inference-only; exact training resume unsupported",
+  "sha256": "fb54582b8298e08d9686ddb32ca1a8295a7d9d953ef854ccadd4eed808e8a66f"
+}

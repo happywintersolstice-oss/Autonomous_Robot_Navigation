@@ -1,4 +1,4 @@
-# Autonomous Robot Navigation — milestone 3 / Part A
+# Autonomous Robot Navigation — milestone 4 / Part B
 
 A local Python research pilot: one versioned static grid, Gymnasium environment,
 random/BFS references, Q-learning, SARSA and vanilla SB3 DQN, reproducible scenario splits, measured validation,
@@ -10,6 +10,11 @@ and algorithm-family selection rule. See [milestone 3 results](docs/milestone3_r
 for measured outcomes, failure analysis and the two-family shortlist. The final
 test has never been executed. The original [30k pilot](docs/milestone_results.md)
 and [tabular development runs](docs/milestone2_results.md) remain unchanged.
+
+**Milestone 4:** the Q-learning/SARSA shortlist receives a bounded random search,
+fresh-seed paired baseline/tuned confirmations, a reward-only ablation and frozen
+policy voting. See [milestone 4 results](docs/milestone4_results.md) for achieved
+metrics, missed targets and limitations. The original Part A evidence is preserved.
 
 ## Windows setup
 
@@ -56,6 +61,44 @@ The viewer supports all three checkpoint algorithms, including old Q-learning
 files. `m3-*` runs use `selected.npz` or `selected.zip` from validation monitoring;
 `checkpoint.*` retains the final-budget model separately. Playback never trains
 or changes learned state. All custom demos stay outside benchmark results.
+
+It also loads explicit terminal-only reward variants and frozen three-policy
+voting descriptors. The reward version/cost and voting member seeds are shown.
+A checkpoint for a different reward version is rejected unless that exact approved
+variant is active. Canonical map/scenario files are never rewritten by experiments.
+
+## Reproduce Part B
+
+The study uses eight frozen random candidates per shortlisted family, two
+development seeds, five fresh confirmation seeds, and matched original-setting
+controls. A paired reward ablation changes only step reward from -.01 to 0.
+Voting uses three predeclared seeds of the winning tuned original-reward family,
+without averaging Q values or training the voting rule. See the
+[predeclared protocol](docs/milestone4_protocol.md) and `configs/part_b.yaml`.
+
+```powershell
+.\.venv\Scripts\python.exe scripts/run_part_b.py --suite-id part-b-repeat --run-prefix m4-repeat
+.\.venv\Scripts\python.exe scripts/analyze_part_b.py --suite-id part-b-repeat
+```
+
+Use fresh names each time; prior runs are not overwritten. The full matrix has
+62 training runs / 12.4m interactions, capped at 45 run-phase minutes and 750 MiB
+of run artifacts. Search alone costs 6.4m interactions; report it separately from
+the chosen policy's cost. Fresh training seeds check seed stability on the same
+validation tasks; they do not turn selected validation scores into final-test results.
+
+Read-only evaluation of a terminal-only checkpoint requires the matching variant:
+
+```powershell
+.\.venv\Scripts\python.exe -m robot_navigation.cli evaluate --checkpoint artifacts/runs/m4-terminal-q-learning-seed101/selected.npz --reward-variant terminal-only --split validation
+```
+
+Voting is saved in `artifacts/runs/m4-voting-<family>/voting.json`; it references
+the three member checkpoints and metadata by relative path with hashes. Retain
+that directory layout when copying a bundle. The wrapper has zero new training;
+its members' summed training cost, table memory, disk size and latency are recorded
+in `artifacts/studies/part-b-v1/voting_comparison.json`. Saved voting transitions
+contain actual member proposals and tie diagnostics, not invented Q scores.
 
 ## Reproduce Part A
 
@@ -150,6 +193,14 @@ All model snapshots are inference-only; exact training resume is unsupported.
 - [Milestone 3 checks](docs/milestone3_verification.json),
   [browser replay check](docs/milestone3_ui_check.json), and
   [measured Part A results](docs/milestone3_results.md).
+- [Part B summary](artifacts/studies/part-b-v1/summary.json),
+  [paired changes](artifacts/studies/part-b-v1/paired_improvements.json),
+  [reward ablation](artifacts/studies/part-b-v1/reward_ablation.json),
+  [voting comparison](artifacts/studies/part-b-v1/voting_comparison.json), and
+  [target assessment](artifacts/studies/part-b-v1/target_assessment.json).
+- [Milestone 4 verification](docs/milestone4_verification.json),
+  [UI checks and limits](docs/milestone4_ui_check.json), and
+  [preservation check](docs/milestone4_preservation.json).
 - [Validation summary](artifacts/runs/smoke-seed7/validation.json) and
   [pilot diagnostics](artifacts/runs/smoke-seed7/pilot.json).
 - [Training log](artifacts/runs/smoke-seed7/training.csv),
@@ -169,6 +220,6 @@ or deployment was performed. Part A has a separate saved benchmark-freeze record
 all results concern held-out initial conditions on a familiar map. Most validation
 initial states were visited during training, so this is not unseen-state transfer.
 
-Refinement, tuning, voting and the full dashboard are later
-milestones. PPO, unseen maps, moving obstacles, continuous movement and physical
+The full dashboard, expanded core robustness, final freeze/test evaluation and
+release documentation are later milestones. PPO, unseen maps, moving obstacles, continuous movement and physical
 robots remain deferred. No such extensions are implemented here.

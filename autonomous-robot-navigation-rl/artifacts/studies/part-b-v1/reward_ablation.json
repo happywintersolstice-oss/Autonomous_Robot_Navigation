@@ -1,0 +1,120 @@
+{
+  "paired_changes_excluding_return": {
+    "q-learning": {
+      "seed_differences": [
+        {
+          "seed": 101,
+          "success_rate": -0.5484913793103449,
+          "collision_rate": 0.017241379310344827,
+          "timeout_rate": 0.53125,
+          "spl": -0.5459926179501051
+        },
+        {
+          "seed": 211,
+          "success_rate": -0.6228448275862069,
+          "collision_rate": 0.01939655172413793,
+          "timeout_rate": 0.603448275862069,
+          "spl": -0.6038906681053815
+        },
+        {
+          "seed": 307,
+          "success_rate": -0.5797413793103449,
+          "collision_rate": 0.01831896551724138,
+          "timeout_rate": 0.5614224137931034,
+          "spl": -0.5603395220820423
+        },
+        {
+          "seed": 401,
+          "success_rate": -0.5646551724137931,
+          "collision_rate": 0.014008620689655173,
+          "timeout_rate": 0.5506465517241379,
+          "spl": -0.5468099826933532
+        },
+        {
+          "seed": 503,
+          "success_rate": -0.5344827586206897,
+          "collision_rate": 0.015086206896551725,
+          "timeout_rate": 0.5193965517241379,
+          "spl": -0.5292553621410911
+        }
+      ],
+      "metrics": {
+        "success_rate": {
+          "mean_difference": -0.5700431034482758,
+          "sample_std_of_paired_differences": 0.03405922549413597
+        },
+        "collision_rate": {
+          "mean_difference": 0.016810344827586206,
+          "sample_std_of_paired_differences": 0.0022345303182465218
+        },
+        "timeout_rate": {
+          "mean_difference": 0.5532327586206897,
+          "sample_std_of_paired_differences": 0.032494182800525385
+        },
+        "spl": {
+          "mean_difference": -0.5572576305943947,
+          "sample_std_of_paired_differences": 0.02830335288315572
+        }
+      }
+    },
+    "sarsa": {
+      "seed_differences": [
+        {
+          "seed": 101,
+          "success_rate": -0.09806034482758619,
+          "collision_rate": 0.014008620689655176,
+          "timeout_rate": 0.08405172413793105,
+          "spl": -0.09530591456209647
+        },
+        {
+          "seed": 211,
+          "success_rate": -0.11422413793103448,
+          "collision_rate": 0.021551724137931036,
+          "timeout_rate": 0.09267241379310343,
+          "spl": -0.10714185240047308
+        },
+        {
+          "seed": 307,
+          "success_rate": -0.1756465517241379,
+          "collision_rate": 0.07650862068965518,
+          "timeout_rate": 0.09913793103448276,
+          "spl": -0.16124866047124706
+        },
+        {
+          "seed": 401,
+          "success_rate": -0.11530172413793102,
+          "collision_rate": 0.019396551724137928,
+          "timeout_rate": 0.09590517241379304,
+          "spl": -0.11401095293847105
+        },
+        {
+          "seed": 503,
+          "success_rate": -0.16163793103448273,
+          "collision_rate": 0.0603448275862069,
+          "timeout_rate": 0.10129310344827591,
+          "spl": -0.15190852132816593
+        }
+      ],
+      "metrics": {
+        "success_rate": {
+          "mean_difference": -0.13297413793103446,
+          "sample_std_of_paired_differences": 0.03363553772482387
+        },
+        "collision_rate": {
+          "mean_difference": 0.03836206896551725,
+          "sample_std_of_paired_differences": 0.028168111693004625
+        },
+        "timeout_rate": {
+          "mean_difference": 0.09461206896551724,
+          "sample_std_of_paired_differences": 0.006746756828663164
+        },
+        "spl": {
+          "mean_difference": -0.1259231803400907,
+          "sample_std_of_paired_differences": 0.02896197462763443
+        }
+      }
+    }
+  },
+  "returns_comparable_across_versions": false,
+  "only_changed_factor": "step reward -.01 to 0; version/hash explicitly distinct"
+}
