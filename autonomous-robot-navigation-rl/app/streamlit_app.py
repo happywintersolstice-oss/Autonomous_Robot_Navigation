@@ -7,6 +7,9 @@ from robot_navigation.core import ROOT, NavigationEnv, load_task, read_json, val
 from robot_navigation.episodes import Playback, rollout, validate_replay
 from robot_navigation.refinement import task_for_run
 from robot_navigation.visualization import draw
+from robot_navigation.dashboard import PAGES
+from robot_navigation.dashboard_ui import render_page, render_comparison, overlays, diagnostics, event_log
+from robot_navigation.release import final_summary
 
 import matplotlib.pyplot as plt
 import streamlit as st
@@ -18,8 +21,7 @@ st.markdown("""<style>
 [data-testid="stMetric"] * {color:#0f172a !important;}
 </style>""", unsafe_allow_html=True)
 st.caption("LOCAL RESEARCH LAB  /  LEARNED NAVIGATION")
-st.title("Watch the next move")
-st.write("Fixed-map robot navigation · recorded actions, visible outcomes.")
+page = st.sidebar.selectbox('Dashboard view', PAGES, key='dashboard_page')
 
 
 @st.cache_resource
@@ -34,6 +36,13 @@ except (OSError, ValueError, KeyError) as exc:
     st.error(f"Benchmark unavailable: {exc}. Run python -m robot_navigation.cli prepare first.")
     st.stop()
 
+if page != 'Navigation simulator':
+    render_page(page, task, ROOT)
+    st.stop()
+
+st.title("Watch the next move")
+st.write("Fixed-map robot navigation · recorded actions, visible outcomes.")
+
 runs = sorted((p for p in (ROOT / "artifacts/runs").glob("*") if (p / "manifest.json").exists()),
               key=lambda p: (p.name != "smoke-seed7", p.name))
 if not runs:
@@ -43,8 +52,9 @@ if not runs:
 with st.sidebar:
     st.header("Episode library")
     directory = st.selectbox("Saved run", runs, format_func=lambda p: p.name, key="saved_run")
-    source = st.radio("Episode source", ["Saved replay", "Custom demonstration"])
-    st.caption("The final test holdout is sealed. This viewer never opens its manifest.")
+    source = st.radio("Episode source", ["Saved replay", "Custom demonstration", "Matched comparison"])
+    st.caption('Frozen final evaluation is complete. This simulator uses validation/custom scenarios only.'
+               if final_summary(ROOT) else 'The final test holdout is sealed. This viewer never opens its manifest.')
     st.divider()
     st.markdown("**Information available**")
     st.write("BFS knows the obstacle map. Q-learning, SARSA and DQN see only robot and goal coordinates. Random is untrained.")
@@ -56,6 +66,10 @@ try:
     frozen_agent = load_policy(viewer_checkpoint(directory), task)
 except (OSError, ValueError, KeyError, ImportError) as exc:
     st.error(f"Cannot open this fixed-map run: {exc}")
+    st.stop()
+
+if source == 'Matched comparison':
+    render_comparison(task_resource(), directory, validation, runs, ROOT)
     st.stop()
 
 
@@ -119,6 +133,8 @@ st.caption(f"Reward: {task.config['reward_version']} · step {task.config['step_
 if frozen_agent.algorithm == "voting":
     st.caption(f"Frozen {frozen_agent.family} voting · member seeds {list(frozen_agent.seeds)} · ties use the first member")
 st.caption("Saved replay" if source == "Saved replay" else "Frozen-policy demonstration replay; no learning")
+st.caption(f'Checkpoint: {viewer_checkpoint(directory).name} · selected interaction: {read_json(directory / "manifest.json").get("selected_interactions", "legacy snapshot")}')
+overlay_options = overlays()
 
 
 def control(command):
@@ -134,15 +150,25 @@ def seek():
     player.seek(st.session_state["seek"])
 
 
+def seek_event(key):
+    player = st.session_state['playback']
+    player.pause()
+    player.seek(st.session_state[key])
+    st.session_state['seek'] = player.index
+
+
+# Keep action controls stable while the timer refreshes the display below.
+controls = st.columns([1, 1, 1.3, 1, 2.4])
+controls[0].button("Play", on_click=control, args=("play",), width="stretch")
+controls[1].button("Pause", on_click=control, args=("pause",), width="stretch")
+controls[2].button("Next step", on_click=control, args=("next",), width="stretch")
+controls[3].button("Reset", on_click=control, args=("reset",), width="stretch")
+speed = controls[4].select_slider("Speed (actions / second)", options=[.5, 1., 2., 4.], value=2., key="speed")
+
+
 @st.fragment(run_every=.2)
 def navigation_viewer():
     player = st.session_state["playback"]
-    controls = st.columns([1, 1, 1.3, 1, 2.4])
-    controls[0].button("Play", on_click=control, args=("play",), width="stretch")
-    controls[1].button("Pause", on_click=control, args=("pause",), width="stretch")
-    controls[2].button("Next step", on_click=control, args=("next",), width="stretch")
-    controls[3].button("Reset", on_click=control, args=("reset",), width="stretch")
-    speed = controls[4].select_slider("Speed (actions / second)", options=[.5, 1., 2., 4.], value=2., key="speed")
     now = time.monotonic()
     if player.playing and now - st.session_state["last_tick"] >= 1 / speed:
         player.tick()
@@ -152,7 +178,7 @@ def navigation_viewer():
     state = player.current
     left, right = st.columns([1.6, 1])
     with left:
-        figure = draw(task.grid, player.episode, player.index)
+        figure = draw(task.grid, player.episode, player.index, **overlay_options)
         st.pyplot(figure, width="stretch")
         plt.close(figure)
     with right:
@@ -170,6 +196,9 @@ def navigation_viewer():
         if player.index == len(player.episode["transitions"]):
             st.write(f"**Completed SPL:** {player.episode['metrics']['spl']:.3f}")
         st.caption("Trail and diagnostics show the current replay prefix. Future actions remain hidden.")
+        diagnostics(player.episode, player.index, 'single')
+    with st.expander('Displayed step event log'):
+        event_log(player.episode, player.index, f'events:{st.session_state["episode_identity"]}:{player.index}', seek_event)
 
 
 navigation_viewer()

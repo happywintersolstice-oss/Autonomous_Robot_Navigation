@@ -155,3 +155,108 @@ selected models, configurations and measured summaries remain reviewable.
 Milestone 5 (integration and core robustness) is next. Final freezing/evaluation,
 the full comparison dashboard and deferred additions remain for their planned
 milestones. This work is local and uncommitted.
+
+## Milestone 5 — 6 November 2026
+
+Expanded the local Streamlit viewer into six views using saved evidence: overview,
+navigation, learning, agent comparison, optimization/robustness and methodology.
+Added optional prefix visits/planner reference, recorded action scores and vote
+diagnostics, prefix event seeking, synchronized two-agent and early/selected-model
+replay. Both panels share task/scenario/mode and action index, holding completed
+agents at their terminal state. No policy trains or writes benchmark results in
+the UI. Archived five declared 10k models separately from original run directories.
+
+Recorded the robustness protocol before assigning labels and aggregating outcomes.
+The six dimensions partition 928 validation pairs by distance, canonical reference
+corridor, start wall proximity, start/goal quadrant and quadrant crossing. Reused
+all five seed metrics from paired Part B controls/refined Q/SARSA and historical
+Part A DQN, plus the fixed vote. Reconciled 24,128 metric records and 442 group/seed
+rows, verified model/task hashes and retained per-seed paired group differences.
+No new training or benchmark evaluation was needed. Saved interactive examples
+used 1,416 separately counted display actions; the analysis took 3.78 seconds.
+
+Refined Q-learning success is 98.60% short / 97.77% medium / 74.44% long, versus
+98.22% / 78.51% / 22.69% for matched controls. Its corridor group improves 30.63 pp;
+the no-reference-corridor group declines .37 pp. Refined SARSA remains weak on
+long routes (4.69%). Group support and confounding by geometry/distance are explicit;
+no unseen-state/map or causal robustness claim is made. No extra tuning followed.
+
+The first rendering attempt failed on the unavailable Tk/Tcl runtime; retained
+that partial study with failed status. Added explicit Agg rendering and completed
+a separate canonical analysis with archived source/input hashes. Inspected all
+three figures and prefix/collision renderer QA. Fixed an event selector default
+that prevented seeking to frame zero. All 58 tests pass (33.84 seconds after the live control fix), including
+new dashboard/geometry/terminal synchronization/missing-evidence checks.
+
+The owner restored the dedicated local Chrome window. Restarted the owned server
+to clear a stale milestone-4 import. Native browser checks exposed live buttons
+that did not advance frames inside the timer-refreshed display. Moved playback
+buttons/speed outside that display for both modes; automated tests and live
+checks then passed. Observed BFS three-action success/9.97, actual control-policy
+one-action collision/-5.01, and matched control/refined seed101 at indices 0/1/2/3.
+The control holds its terminal cell while the refined policy advances to success.
+Q scores, rewards and counters match. Live visual gate is now passed; no browser
+frame-rate claim or claim of manually replaying every model is made.
+
+Preservation rechecks 3,041 root, benchmark and earlier-artifact files by SHA-256;
+no protected changes. No energy project or sources directory exists in this checkout.
+Final-test policy executions remain zero. Dynamics noise and all larger additions
+are deferred; milestone 6 will freeze systems and conduct final evaluation.
+No new dependencies, commit, push or deployment.
+
+## Milestone 6 — 6 November 2026
+
+Closed the milestone-5 live browser gate before final work. Added explicit final
+rollout/replay authorization for a separate digest-gated runner; generic training,
+CLI and simulator split loaders remain sealed. The UI displays aggregate final
+results only after successful audit. No environment/learning rule changed.
+
+Wrote protocol before opening final cases. Fixed Q-learning seed101 as the selected
+system and original-setting seed101 as the single matched control; froze all 35
+learned checkpoints, one fixed vote, five random streams and BFS. Snapshot contains
+184 source/model/config/data/dependency/protocol inputs, with digest
+f536d8ab40dc461f7dd2f94cb31cda2ce9a612f13f19c4bedd7c431bf91f8c28.
+No scientific source/model/analysis changes occurred during final evaluation.
+
+Before freezing, 64 tests passed (34.47 seconds), plus Gymnasium and dependency
+checks. A synthetic final pipeline tested serialization, audit, publication and
+overwrite refusal without real final cases. Isolated benchmark preparation and
+200k Q-learning reproduction matched the selected Q array and every validation
+metric exactly in 8.76 seconds. An initial preparation comparison stopped before
+training because in-memory integer keys were compared with persisted JSON string
+keys; corrected it to compare persisted reports and retained that local attempt.
+No configuration or model selection changed.
+
+Completed 42 final records / 38,976 episodes / 3,456,940 actions in 109.68 seconds.
+Replayed every action, score, state, reward and flag against frozen policies and
+the shared environment; audit/analysis took 87.87 seconds. Frozen inputs and learned
+inference state remained unchanged. BFS solves all 928 cases optimally.
+
+Matched five-seed Q-learning success is 65.52% baseline → 90.43% refined; paired
+gain 24.91 pp (SD 3.03). Collision rises .32 pp to .54%, retained as a negative
+finding. SARSA improves to 32.44% but misses all targets; Part A DQN reaches 5.78%.
+The predeclared single Q seed101 reaches 840 goals, 7 collisions, 81 timeouts, SPL
+.867870. Voting reaches 848 goals and SPL .893175, but is not promoted using test.
+No tuning, checkpoint change, seed removal or rerun followed these final outcomes.
+
+Inspected four final figures. Five dashboard page checks passed with final data,
+and the isolated native Chrome Overview visibly shows the audited final table and
+predeclared system. Finished the concise technical report, per-seed CSV, historical
+run matrix, release checklist and Windows commands. Historical records contain
+87 positive-budget runs / 17.04m interactions; the separate reproduction adds 200k.
+Repeated seeds/streams/cases are not treated as extra independent training seeds.
+
+Packaging review found newline normalization could invalidate raw frozen hashes
+after checkout. Scoped new attributes preserve the final snapshot bytes. Added a
+post-evaluation packaging helper that restores the exact archived source/model/data
+into a fresh .cache workspace and verifies all 184 files/dependencies. Preparation
+only was executed; no extra final policy pass or scientific code change. The
+helper can optionally rerun the unchanged archived runner as repeatability evidence.
+The frozen scientific source and original evaluation remain untouched.
+
+Preserved 6,763 earlier root/data/artifact files, including ignored local periodic
+models/traces. No energy project or sources directory was present. Known limits
+remain familiar-map transfer, residual failures, poor SARSA/DQN, small seed counts,
+one ensemble, inference-only snapshots and no clean network dependency installation
+or cross-hardware verification. Deferred scope remains unchanged. No automatic
+commit, push, share link or deployment. All six core milestones are complete.

@@ -1,4 +1,4 @@
-# Autonomous Robot Navigation — milestone 4 / Part B
+# Autonomous Robot Navigation — completed core release / milestone 6
 
 A local Python research pilot: one versioned static grid, Gymnasium environment,
 random/BFS references, Q-learning, SARSA and vanilla SB3 DQN, reproducible scenario splits, measured validation,
@@ -7,14 +7,29 @@ and an animated Streamlit replay viewer. Existing workspace files are separate.
 **Part A:** five independent seeds per learned algorithm, 200,000 interactions
 each, common validation monitoring, and an explicit validation-only checkpoint
 and algorithm-family selection rule. See [milestone 3 results](docs/milestone3_results.md)
-for measured outcomes, failure analysis and the two-family shortlist. The final
-test has never been executed. The original [30k pilot](docs/milestone_results.md)
+for measured outcomes, failure analysis and the two-family shortlist. Part A/B
+selection used validation only; frozen final evaluation is now complete.
+The original [30k pilot](docs/milestone_results.md)
 and [tabular development runs](docs/milestone2_results.md) remain unchanged.
 
 **Milestone 4:** the Q-learning/SARSA shortlist receives a bounded random search,
 fresh-seed paired baseline/tuned confirmations, a reward-only ablation and frozen
 policy voting. See [milestone 4 results](docs/milestone4_results.md) for achieved
 metrics, missed targets and limitations. The original Part A evidence is preserved.
+
+**Milestone 5:** six local dashboard views, prefix visit/BFS/decision diagnostics,
+event seeking, synchronized agent and early-versus-selected checkpoint replay,
+and predefined fixed-map robustness groups. See [measured results and limits](docs/milestone5_results.md).
+The analysis reuses saved validation metrics; it adds no training or final-test runs.
+
+**Milestone 6:** predeclared models and analysis were frozen, evaluated on all 928
+final pairs and fully replay-audited. Refined Q-learning averaged **90.43%** success
+versus **65.52%** for matched controls. The selected single remains
+`m4-tuned-q-learning-seed101`: 840/928 goals, 7 collisions, 81 timeouts, SPL .867870.
+Voting reached 848 goals but was not promoted using final data. See the
+[technical report](docs/technical_report.md), [final results](docs/milestone6_results.md)
+and [verification](docs/milestone6_verification.json). Final data is now spent for
+selection; later performance changes need a new holdout or exploratory labeling.
 
 ## Windows setup
 
@@ -43,6 +58,8 @@ No API key, GPU or cloud account is required.
 
 Open **http://127.0.0.1:8517**. Binding is local only. Stop with Ctrl+C. Change the
 port if occupied. Select `bfs success`, press Play, and watch each discrete action.
+Restart an already-running server after pulling new Python modules; reloading the
+browser alone may retain imports from an earlier milestone.
 The library also has random and actual learned-agent success/collision/timeout replays.
 Play, Pause, Next step, Reset, speed and replay seeking all use the same stored
 transitions; changing display controls preserves the scenario and current frame.
@@ -56,6 +73,28 @@ unchanged map, then run BFS, random or the frozen selected learned policy once a
 They never update the policy or benchmark. The viewer rejects incompatible map,
 task, reward or observation/action versions and corrupted checkpoints/replays.
 No map editor or final-test scenario browser is provided in this milestone.
+Overview and Agent comparison also display audited aggregate final results. The
+simulator continues using validation/custom scenarios and never opens final pairs.
+
+Choose **Dashboard view** for Overview, Learning analysis, Agent comparison,
+Optimization and robustness, or Methodology. The simulator remains the default.
+Optional trail/visit/BFS overlays use the displayed prefix and a labeled planner
+reference. Decision tables show actual recorded Q scores or voting proposals for
+the last displayed move; initial-frame scores are unavailable. Open the displayed
+event log and select a frame to seek backward. No future action log is exposed.
+
+For side-by-side playback select **Episode source → Matched comparison**, choose
+the same validation scenario and a second run, then Play or seek the shared timeline.
+Finished agents remain at their terminal frames while the other continues. Reward
+versions and all task identities must match. Comparison replay is generated once
+when its selection changes, and is excluded from measured benchmark summaries.
+
+For **Early versus selected checkpoint**, choose an archived exemplar in Saved run:
+`m3-q-learning-seed7`, `m3-sarsa-seed7`, `m3-dqn-seed7`,
+`m4-tuned-q-learning-seed101`, or `m4-tuned-sarsa-seed101`. The early snapshot is
+10,000 interactions; the later one is monitoring-selected, with its actual age in
+the run manifest. Unavailable early models produce a clear message. The five
+archived early snapshots are included independently of the ignored bulk checkpoints.
 
 The viewer supports all three checkpoint algorithms, including old Q-learning
 files. `m3-*` runs use `selected.npz` or `selected.zip` from validation monitoring;
@@ -66,6 +105,52 @@ It also loads explicit terminal-only reward variants and frozen three-policy
 voting descriptors. The reward version/cost and voting member seeds are shown.
 A checkpoint for a different reward version is rejected unless that exact approved
 variant is active. Canonical map/scenario files are never rewritten by experiments.
+
+## Reproduce the core robustness analysis
+
+```powershell
+$env:MPLCONFIGDIR = Join-Path (Get-Location) '.cache/matplotlib'
+.\.venv\Scripts\python.exe scripts/analyze_core_robustness.py --suite-id milestone5-repeat
+```
+
+Use a fresh suite ID. This reanalysis validates 26 saved system/seed records on
+928 validation pairs each, reconciles aggregates, verifies models, and reports six
+predefined scenario dimensions. It does not retrain. Periodic models, if present,
+are copied into the new study for early-checkpoint demonstrations; when absent,
+that comparison is marked unavailable. The canonical dashboard reads the included
+`milestone5-v1` study. DQN dependencies are needed to verify its saved checkpoints.
+
+## Reproduce the selected policy and frozen release
+
+In a fresh `.cache` workspace this prepares the identical benchmark, trains the
+selected Q-learning configuration for 200k interactions, reloads it and checks its
+selected array and all validation metrics against the saved model:
+
+```powershell
+$env:MPLCONFIGDIR = Join-Path (Get-Location) '.cache/matplotlib'
+.\.venv\Scripts\python.exe scripts/verify_reproduction.py --workspace .cache/reproduction-repeat
+```
+
+The actual check passed using the installed locked dependencies on Windows/Python
+3.14.10. A clean network dependency installation and other hardware were not tested.
+The reproduced model is under that workspace's `artifacts/runs/`; original runs
+are never overwritten. No final cases enter training.
+
+The exact original freeze is [final-v1](artifacts/studies/final-v1/freeze.json), with
+digest in `seal.json`. Its runner refuses changed input bytes and an existing
+evaluation output. Its snapshot is protected from Git line-ending normalization.
+Restore and verify that exact source/model/data archive after checkout with:
+
+```powershell
+.\.venv\Scripts\python.exe scripts/replay_frozen_release.py --workspace .cache/frozen-check
+```
+
+This prepares and checks hashes/dependencies only. To repeat the unchanged frozen
+evaluation, add `--evaluate` and use another fresh workspace name. It runs the
+archived code via PYTHONPATH, retains the original model choice and cannot overwrite
+the recorded final results. Repeated cases provide repeatability evidence, not an
+independent test set or another selection opportunity. The original two-stage
+freeze/evaluate procedure and matrix/limits are in [the final protocol](docs/milestone6_protocol.md).
 
 ## Reproduce Part B
 
@@ -156,6 +241,7 @@ Read-only evaluation of a saved table, without training:
 ```
 
 Only `validation` and `monitoring` are accepted; there is no final-test option.
+Final evaluation uses the separate digest-gated frozen runner.
 To reproduce the full predeclared development matrix in a fresh output namespace:
 
 ```powershell
@@ -201,6 +287,18 @@ All model snapshots are inference-only; exact training resume is unsupported.
 - [Milestone 4 verification](docs/milestone4_verification.json),
   [UI checks and limits](docs/milestone4_ui_check.json), and
   [preservation check](docs/milestone4_preservation.json).
+- [Milestone 5 results](docs/milestone5_results.md),
+  [robustness summary](artifacts/studies/milestone5-v1/summary.json),
+  [per-seed groups](artifacts/studies/milestone5-v1/groups.csv),
+  [paired group differences](artifacts/studies/milestone5-v1/paired_groups.json),
+  [verification](docs/milestone5_verification.json), and
+  [automated and live browser checks](docs/milestone5_ui_check.json).
+- [Technical report](docs/technical_report.md), [final results](docs/milestone6_results.md),
+  [final summary](artifacts/studies/final-v1/summary.json),
+  [per-seed final metrics](artifacts/studies/final-v1/final_seed_results.csv),
+  [development run matrix](artifacts/studies/final-v1/development_run_matrix.csv),
+  [release checklist](docs/release_checklist.md), and
+  [preservation](docs/milestone6_preservation.json).
 - [Validation summary](artifacts/runs/smoke-seed7/validation.json) and
   [pilot diagnostics](artifacts/runs/smoke-seed7/pilot.json).
 - [Training log](artifacts/runs/smoke-seed7/training.csv),
@@ -220,6 +318,6 @@ or deployment was performed. Part A has a separate saved benchmark-freeze record
 all results concern held-out initial conditions on a familiar map. Most validation
 initial states were visited during training, so this is not unseen-state transfer.
 
-The full dashboard, expanded core robustness, final freeze/test evaluation and
-release documentation are later milestones. PPO, unseen maps, moving obstacles, continuous movement and physical
+All six core milestones are complete. Source and evidence remain local and uncommitted.
+PPO, unseen maps, moving obstacles, continuous movement and physical
 robots remain deferred. No such extensions are implemented here.

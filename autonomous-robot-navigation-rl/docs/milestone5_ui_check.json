@@ -1,0 +1,118 @@
+{
+  "date": "2026-11-06",
+  "url": "http://127.0.0.1:8517/",
+  "automated_result": "passed",
+  "automated_checks": [
+    "All six dashboard views load; absent evidence produces a clear message",
+    "Overlay changes preserve selected episode and frame",
+    "Recorded Q scores correspond to the displayed action; initial frame has no future decision",
+    "Prefix event selection seeks and pauses at the matching frame",
+    "Matched agents share task/scenario/mode, action-index clock and terminal holding",
+    "Early versus selected replay loads distinct checkpoints on the same validation scenario",
+    "Pause/resume, stepping, reset, speed and seeking retain existing behavior"
+  ],
+  "rendered_images_inspected": [
+    "figures/distance.png",
+    "figures/groups.png",
+    "figures/learning.png",
+    "render_qa/prefix.png",
+    "render_qa/collision.png"
+  ],
+  "live_browser_result": "passed",
+  "surface": "Dedicated local Chrome window restored by owner; unrelated browser untouched",
+  "previous_blockers_resolved": [
+    "Minimized window restored by owner",
+    "Used native app control despite browser access host being unavailable",
+    "Restarted owned Streamlit server after stale milestone-4 import",
+    "Moved playback buttons and speed controls outside timer-refreshed display after live button interactions failed"
+  ],
+  "observations": {
+    "success": {
+      "run": "smoke-seed7",
+      "policy": "bfs-known-map",
+      "scenario": "r0c0-r0c3",
+      "initial_position": [
+        0,
+        0
+      ],
+      "initial_actions": 0,
+      "final_position": [
+        0,
+        3
+      ],
+      "actions": 3,
+      "return": 9.97,
+      "last_action": "Right",
+      "step_reward": 9.99,
+      "spl": 1.0,
+      "playing": false
+    },
+    "failure": {
+      "run": "m4-control-q-learning-seed101",
+      "scenario": "r0c0-r0c3",
+      "actions": 1,
+      "position": [
+        0,
+        0
+      ],
+      "attempted_position": [
+        -1,
+        0
+      ],
+      "last_action": "Up",
+      "return": -5.01,
+      "spl": 0.0,
+      "playing": false
+    },
+    "comparison": {
+      "runs": [
+        "m4-control-q-learning-seed101",
+        "m4-tuned-q-learning-seed101"
+      ],
+      "scenario": "r0c0-r0c3",
+      "mode": "validation",
+      "evaluation_seed": 7,
+      "shared_indices_observed": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "held_baseline_actions": 1,
+      "refined_positions_observed": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "final_returns": [
+        -5.01,
+        9.97
+      ],
+      "final_outcomes": [
+        "collision",
+        "success"
+      ],
+      "final_shared_index": 3,
+      "playing": false,
+      "recorded_q_scores_visible": true
+    }
+  },
+  "server_health": "ok; owned server restarted with latest imports",
+  "limitations": [
+    "Representative browser success/failure/comparison cases, not every run",
+    "No quantitative browser frame-rate or input-latency measurement"
+  ]
+}

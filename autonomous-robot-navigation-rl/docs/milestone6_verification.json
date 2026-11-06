@@ -1,0 +1,84 @@
+{
+  "status": "passed",
+  "core_release_milestone": 6,
+  "freeze_digest": "f536d8ab40dc461f7dd2f94cb31cda2ce9a612f13f19c4bedd7c431bf91f8c28",
+  "pytest": {
+    "passed": 64,
+    "seconds": 34.47
+  },
+  "gymnasium_checker": "passed",
+  "pip_check": "passed",
+  "final_data_dashboard_pages": {
+    "passed": 5,
+    "seconds": 9.38
+  },
+  "frozen_input_files_verified": 184,
+  "evaluation": {
+    "status": "complete",
+    "freeze_digest": "f536d8ab40dc461f7dd2f94cb31cda2ce9a612f13f19c4bedd7c431bf91f8c28",
+    "frozen_files_unchanged": true,
+    "evaluation_records": 42,
+    "evaluation_episodes": 38976,
+    "evaluation_interactions": 3456940,
+    "evaluation_seconds": 109.68149270000868,
+    "audit_and_analysis_seconds": 87.87468529999023,
+    "audit_episode_replays": 38976,
+    "audit_actions": 3456940,
+    "bfs_all_optimal": true,
+    "new_training_interactions": 0,
+    "no_selection_after_test": true,
+    "analysis_source_frozen": true
+  },
+  "reproduction": {
+    "status": "passed",
+    "isolated_workspace": ".cache/reproduction-v2",
+    "benchmark_report_identical": true,
+    "selected_q_arrays_identical": true,
+    "all_validation_episode_metrics_identical": true,
+    "selected_interactions": 200000,
+    "reproduction_training_interactions": 200000,
+    "final_test_policy_executions": 0,
+    "seconds": 8.760741600010078,
+    "limitations": "Uses installed locked dependencies on this machine; not a clean network dependency install or a hardware portability guarantee",
+    "earlier_preparation_attempt": "reproduction-v1 stopped before training while comparing in-memory integer histogram keys to persisted JSON string keys; persisted reports now compared; retained locally"
+  },
+  "protected_files_verified": 6763,
+  "protected_changes": [],
+  "figures_visually_inspected": [
+    "comparison",
+    "distance",
+    "outcomes",
+    "routes"
+  ],
+  "historical_training_interactions": 17040000,
+  "reproduction_training_interactions": 200000,
+  "scientific_source_changes_after_freeze": [],
+  "final_selection_unchanged": true,
+  "live_final_overview": "passed; audited aggregate table and predeclared model visibly present",
+  "packaging_restore": {
+    "result": "passed",
+    "input_files_verified": 184,
+    "extra_final_policy_executions": 0,
+    "git_filter_checks": [
+      {
+        "path": "artifacts/runs/m4-tuned-q-learning-seed101/selected.json",
+        "git_filter_preserves_exact_bytes": true
+      },
+      {
+        "path": "data/scenarios/test.json",
+        "git_filter_preserves_exact_bytes": true
+      },
+      {
+        "path": "scripts/run_final_evaluation.py",
+        "git_filter_preserves_exact_bytes": true
+      }
+    ],
+    "helper_sha256": "7a9044e162bf2dc2148cb648ee37aa9eda76d54857af9f9cc415596aafd6f589"
+  },
+  "limitations": [
+    "Familiar map/held-out initial conditions only",
+    "No clean network dependency installation tested",
+    "No cross-hardware bitwise guarantee",
+    "Inference-only checkpoints; exact training resume unsupported"
+  ]
+}

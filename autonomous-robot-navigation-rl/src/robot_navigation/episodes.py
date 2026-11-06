@@ -4,8 +4,8 @@ import numpy as np
 from .core import ACTION_NAMES, NavigationEnv, validate_scenario
 
 
-def rollout(env, policy, scenario, seed=0, mode="validation"):
-    if mode not in ("validation", "training", "custom demonstration"):
+def rollout(env, policy, scenario, seed=0, mode="validation", *, allow_final=False):
+    if mode not in ("validation", "training", "custom demonstration") and not (mode == 'final evaluation' and allow_final):
         raise ValueError("Final-test rollouts are disabled in this milestone")
     observation, _ = env.reset(seed=seed, options={"scenario": scenario})
     episode = {"signature": env.task.signature, "scenario": scenario, "seed": seed,
@@ -62,9 +62,9 @@ def aggregate(metrics):
             "successful_route_count": len(successful), "interactions": sum(m["steps"] for m in metrics)}
 
 
-def validate_replay(task, episode):
+def validate_replay(task, episode, *, allow_final=False):
     task.check(episode["signature"])
-    if episode["mode"] not in ("validation", "training", "custom demonstration"):
+    if episode["mode"] not in ("validation", "training", "custom demonstration") and not (episode['mode']=='final evaluation' and allow_final):
         raise ValueError("Sealed final-test replays are unavailable")
     scenario = episode["scenario"]
     validate_scenario(task.grid, scenario)
@@ -129,3 +129,41 @@ class Playback:
     @property
     def current(self):
         return frame(self.episode, self.index)
+
+
+class ComparisonPlayback:
+    """One action-index clock; finished agents remain at their terminal frames."""
+    def __init__(self, episodes):
+        if len(episodes) != 2:
+            raise ValueError('Two episodes are required')
+        first, second = episodes
+        if any(first[k] != second[k] for k in ('signature', 'scenario', 'mode')):
+            raise ValueError('Comparison requires matching task, scenario and evaluation mode')
+        self.episodes = tuple(episodes)
+        self.index, self.playing = 0, False
+        self.length = max(len(e['transitions']) for e in episodes)
+
+    def seek(self, index):
+        self.index = max(0, min(int(index), self.length))
+        if self.index == self.length:
+            self.playing = False
+
+    def play(self):
+        self.playing = self.index < self.length
+
+    def pause(self):
+        self.playing = False
+
+    def next(self):
+        self.seek(self.index + 1)
+
+    def reset(self):
+        self.index, self.playing = 0, False
+
+    def tick(self):
+        if self.playing:
+            self.next()
+
+    @property
+    def current(self):
+        return [frame(e, self.index) for e in self.episodes]

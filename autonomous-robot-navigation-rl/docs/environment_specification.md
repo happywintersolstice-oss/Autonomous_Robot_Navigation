@@ -91,3 +91,17 @@ null because the voting system does not expose an aggregate Q function.
 New training runs save visitation at each newly selected checkpoint separately
 from full-budget visitation. Validation overlap is computed from that selected
 training prefix and labeled accordingly. Historical artifacts remain intact.
+
+## Milestone 6 final-evaluation access
+
+The generic split loader, trainer, evaluation CLI and simulator retain their
+training/validation restrictions. A dedicated final runner first verifies a saved
+freeze digest and every archived/original input hash, then loads the exact frozen
+test manifest and calls the same environment/rollout implementation with explicit
+final-evaluation metadata. Replay validation also requires an explicit final flag;
+interactive replay loading does not enable it. No transition or reward rule changed.
+
+The final evaluation is now complete and audited. Only aggregate final results are
+shown in the dashboard; its navigation scenarios remain validation/custom. This
+holdout can no longer support new model selection. See the final protocol and
+technical report for counts, freeze identity, repeatability and remaining limits.

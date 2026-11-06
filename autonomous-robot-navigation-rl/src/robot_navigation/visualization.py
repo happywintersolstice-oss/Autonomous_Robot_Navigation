@@ -9,7 +9,7 @@ import numpy as np
 from .episodes import frame
 
 
-def draw(grid, episode=None, index=0):
+def draw(grid, episode=None, index=0, trail=True, visits=False, bfs=False):
     fig, ax = plt.subplots(figsize=(6.5, 6.0), layout="constrained")
     fig.patch.set_facecolor("#f7fafc")
     blocked = np.array([[v == "#" for v in row] for row in grid.rows])
@@ -23,8 +23,18 @@ def draw(grid, episode=None, index=0):
     title = grid.map_id
     if episode is not None:
         state = frame(episode, index)
-        trail = np.array(state["trail"])
-        ax.plot(trail[:, 1], trail[:, 0], color="#0891b2", linewidth=3, alpha=.65, marker=".")
+        traveled = np.array(state["trail"])
+        if bfs:
+            reference = np.array(grid.path(episode['scenario']['start'], episode['scenario']['goal']))
+            ax.plot(reference[:, 1], reference[:, 0], '--', color='#8b5cf6', linewidth=2, label='BFS planner reference')
+            ax.legend(loc='upper right', fontsize=7)
+        if trail:
+            ax.plot(traveled[:, 1], traveled[:, 0], color="#0891b2", linewidth=3, alpha=.65, marker=".")
+        if visits:
+            from collections import Counter
+            for (r, c), count in Counter(map(tuple, state['trail'])).items():
+                ax.text(c+.32, r+.32, str(count), color='#0e7490', fontsize=9, weight='bold',
+                        bbox={'facecolor':'white', 'edgecolor':'none', 'alpha':.85, 'pad':.4})
         start, goal = episode["scenario"]["start"], episode["scenario"]["goal"]
         for position, label, color in ((start, "S", "#0369a1"), (goal, "G", "#15803d")):
             ax.add_patch(Rectangle((position[1] - .42, position[0] - .42), .84, .84,

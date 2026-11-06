@@ -1,0 +1,28 @@
+{
+  "status": "complete",
+  "run_id": "m4-voting-q-learning",
+  "algorithm": "voting",
+  "stage": "voting",
+  "signature": {
+    "map_id": "bottleneck-v1",
+    "map_hash": "614472df8e4cbed5408e1e5092dfd708bb683cdeef780a1a064246f0e1e58a94",
+    "task_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "step-goal-collision-v1"
+  },
+  "source_hash": "4de20cbe2f3732cd8734309fdd06e1149bb0294a578b788a9aa323e54338395c",
+  "viewer_checkpoint": "voting.json",
+  "member_run_ids": [
+    "m4-tuned-q-learning-seed101",
+    "m4-tuned-q-learning-seed211",
+    "m4-tuned-q-learning-seed307"
+  ],
+  "training_interactions": 0,
+  "member_training_interactions": 600000,
+  "final_test_evaluated": false,
+  "inference_only_checkpoint": true,
+  "validation_interactions": 24810,
+  "inference_state_unchanged": true
+}

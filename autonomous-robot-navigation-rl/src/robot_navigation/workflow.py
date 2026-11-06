@@ -22,7 +22,7 @@ def source_hash(root):
     return digest(sources)
 
 
-def evaluate(task, scenarios, policy, seed, scope, visitation=None, trajectory_path=None):
+def evaluate(task, scenarios, policy, seed, scope, visitation=None, trajectory_path=None, *, mode='validation', allow_final=False):
     env = NavigationEnv(task, scenarios)
     fingerprint = getattr(policy, "state_fingerprint", None)
     before = fingerprint() if fingerprint else policy.q.copy() if isinstance(policy, QLearning) else None
@@ -36,7 +36,7 @@ def evaluate(task, scenarios, policy, seed, scope, visitation=None, trajectory_p
             path.parent.mkdir(parents=True, exist_ok=True)
             output = stack.enter_context(gzip.open(path, "xt", encoding="utf-8"))
         for scenario in scenarios:
-            episode = rollout(env, policy, scenario, seed)
+            episode = rollout(env, policy, scenario, seed, mode, allow_final=allow_final)
             if visitation is not None:
                 episode["initial_state_visited_in_training"] = bool(visitation[tuple(episode["initial_observation"])].sum())
             metrics.append({"scenario_id": scenario["id"], **episode["metrics"]})

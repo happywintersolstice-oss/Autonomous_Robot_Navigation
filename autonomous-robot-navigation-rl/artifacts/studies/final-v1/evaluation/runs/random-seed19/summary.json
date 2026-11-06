@@ -1,0 +1,72 @@
+{
+  "episodes": 928,
+  "counts": {
+    "success": 19,
+    "collision": 909,
+    "timeout": 0
+  },
+  "success_rate": 0.020474137931034482,
+  "collision_rate": 0.9795258620689655,
+  "timeout_rate": 0.0,
+  "spl": 0.014447154856637614,
+  "mean_return": -4.732252155172413,
+  "mean_successful_route_length": 3.5789473684210527,
+  "successful_route_count": 19,
+  "interactions": 3653,
+  "scope": "frozen complete final-test manifest; no learning or checkpoint selection",
+  "seed": 19,
+  "by_distance_band": {
+    "short": {
+      "episodes": 258,
+      "counts": {
+        "success": 19,
+        "collision": 239,
+        "timeout": 0
+      },
+      "success_rate": 0.07364341085271318,
+      "collision_rate": 0.9263565891472868,
+      "timeout_rate": 0.0,
+      "spl": 0.05196496010449498,
+      "mean_return": -3.931666666666666,
+      "mean_successful_route_length": 3.5789473684210527,
+      "successful_route_count": 19,
+      "interactions": 937
+    },
+    "medium": {
+      "episodes": 350,
+      "counts": {
+        "success": 0,
+        "collision": 350,
+        "timeout": 0
+      },
+      "success_rate": 0.0,
+      "collision_rate": 1.0,
+      "timeout_rate": 0.0,
+      "spl": 0.0,
+      "mean_return": -5.03782857142857,
+      "mean_successful_route_length": null,
+      "successful_route_count": 0,
+      "interactions": 1324
+    },
+    "long": {
+      "episodes": 320,
+      "counts": {
+        "success": 0,
+        "collision": 320,
+        "timeout": 0
+      },
+      "success_rate": 0.0,
+      "collision_rate": 1.0,
+      "timeout_rate": 0.0,
+      "spl": 0.0,
+      "mean_return": -5.0435,
+      "mean_successful_route_length": null,
+      "successful_route_count": 0,
+      "interactions": 1392
+    }
+  },
+  "evaluation_seconds": 0.3915526000200771,
+  "interactions_per_second": 9329.525585611462,
+  "mean_decision_microseconds": 1.8999999156221747,
+  "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries"
+}

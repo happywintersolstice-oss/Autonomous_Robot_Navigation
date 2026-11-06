@@ -1,0 +1,72 @@
+{
+  "episodes": 928,
+  "counts": {
+    "success": 20,
+    "collision": 908,
+    "timeout": 0
+  },
+  "success_rate": 0.021551724137931036,
+  "collision_rate": 0.978448275862069,
+  "timeout_rate": 0.0,
+  "spl": 0.01860632183908046,
+  "mean_return": -4.715980603448276,
+  "mean_successful_route_length": 2.7,
+  "successful_route_count": 20,
+  "interactions": 3643,
+  "scope": "frozen complete final-test manifest; no learning or checkpoint selection",
+  "seed": 43,
+  "by_distance_band": {
+    "short": {
+      "episodes": 258,
+      "counts": {
+        "success": 19,
+        "collision": 239,
+        "timeout": 0
+      },
+      "success_rate": 0.07364341085271318,
+      "collision_rate": 0.9263565891472868,
+      "timeout_rate": 0.0,
+      "spl": 0.06459948320413436,
+      "mean_return": -3.930116279069767,
+      "mean_successful_route_length": 2.3157894736842106,
+      "successful_route_count": 19,
+      "interactions": 897
+    },
+    "medium": {
+      "episodes": 350,
+      "counts": {
+        "success": 1,
+        "collision": 349,
+        "timeout": 0
+      },
+      "success_rate": 0.002857142857142857,
+      "collision_rate": 0.9971428571428571,
+      "timeout_rate": 0.0,
+      "spl": 0.0017142857142857142,
+      "mean_return": -4.9966857142857135,
+      "mean_successful_route_length": 10.0,
+      "successful_route_count": 1,
+      "interactions": 1384
+    },
+    "long": {
+      "episodes": 320,
+      "counts": {
+        "success": 0,
+        "collision": 320,
+        "timeout": 0
+      },
+      "success_rate": 0.0,
+      "collision_rate": 1.0,
+      "timeout_rate": 0.0,
+      "spl": 0.0,
+      "mean_return": -5.0425625,
+      "mean_successful_route_length": null,
+      "successful_route_count": 0,
+      "interactions": 1362
+    }
+  },
+  "evaluation_seconds": 0.324513100029435,
+  "interactions_per_second": 11226.049116875594,
+  "mean_decision_microseconds": 1.6289990162476897,
+  "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries"
+}

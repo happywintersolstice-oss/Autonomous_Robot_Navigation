@@ -1,0 +1,6642 @@
+{
+  "signature": {
+    "map_id": "bottleneck-v1",
+    "map_hash": "614472df8e4cbed5408e1e5092dfd708bb683cdeef780a1a064246f0e1e58a94",
+    "task_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "step-goal-collision-v1"
+  },
+  "scenario": {
+    "id": "r0c0-r0c5",
+    "start": [
+      0,
+      0
+    ],
+    "goal": [
+      0,
+      5
+    ],
+    "shortest_length": 5,
+    "distance_band": "short"
+  },
+  "seed": 0,
+  "policy_id": "dqn/m3-dqn-seed43/step-70000",
+  "mode": "final evaluation",
+  "initial_observation": [
+    0,
+    0,
+    0,
+    5
+  ],
+  "transitions": [
+    {
+      "observation": [
+        0,
+        0,
+        0,
+        5
+      ],
+      "action": 3,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        1,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          1
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 1
+      },
+      "scores": [
+        -5.151256084442139,
+        5.821452617645264,
+        -4.826272010803223,
+        5.842627048492432
+      ]
+    },
+    {
+      "observation": [
+        0,
+        1,
+        0,
+        5
+      ],
+      "action": 3,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 2
+      },
+      "scores": [
+        -5.101517677307129,
+        5.794100284576416,
+        5.676489353179932,
+        6.2317891120910645
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 3
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 4
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 5
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 6
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 7
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 8
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 9
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 10
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 11
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 12
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 13
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 14
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 15
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 16
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 17
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 18
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 19
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 20
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 21
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 22
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 23
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 24
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 25
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 26
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 27
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 28
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 29
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 30
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 31
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 32
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 33
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 34
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 35
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 36
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 37
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 38
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 39
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 40
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 41
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 42
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 43
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 44
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 45
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 46
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 47
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 48
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 49
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 50
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 51
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 52
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 53
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 54
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 55
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 56
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 57
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 58
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 59
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 60
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 61
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 62
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 63
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 64
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 65
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 66
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 67
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 68
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 69
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 70
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 71
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 72
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 73
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 74
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 75
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 76
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 77
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 78
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 79
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 80
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 81
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 82
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 83
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 84
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 85
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 86
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 87
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 88
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 89
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 90
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 91
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 92
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 93
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 94
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 95
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 96
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 97
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 98
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 99
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 100
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 101
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 102
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 103
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 104
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 105
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 106
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 107
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 108
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 109
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 110
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 111
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 112
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 113
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 114
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 115
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 116
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 117
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 118
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 119
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 120
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 121
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 122
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 123
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 124
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 125
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 126
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 127
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 128
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 129
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 130
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 131
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 132
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 133
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 134
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 135
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 136
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 137
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 138
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 139
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 140
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 141
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 142
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 143
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 144
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 145
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 146
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 147
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 148
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 149
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 150
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 151
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 152
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 153
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 154
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 155
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 156
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 157
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 158
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 159
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 160
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 161
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 162
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 163
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 164
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 165
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 166
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 167
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 168
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 169
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 170
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 171
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 172
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 173
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 174
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 175
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 176
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 177
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 178
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 179
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 180
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 181
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 182
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 183
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 184
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 185
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 186
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 187
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 188
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 189
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 190
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 191
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 192
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 193
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 194
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 195
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 196
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 197
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 198
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 199
+      },
+      "scores": [
+        -4.988518714904785,
+        6.197727680206299,
+        6.102553844451904,
+        5.6139912605285645
+      ]
+    },
+    {
+      "observation": [
+        1,
+        2,
+        0,
+        5
+      ],
+      "action": 0,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": true,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "timeout",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 200
+      },
+      "scores": [
+        6.257656097412109,
+        5.923410892486572,
+        5.691092014312744,
+        3.090524196624756
+      ]
+    }
+  ],
+  "metrics": {
+    "outcome": "timeout",
+    "steps": 200,
+    "return": -2.0,
+    "successful_route_length": null,
+    "spl": 0.0
+  }
+}

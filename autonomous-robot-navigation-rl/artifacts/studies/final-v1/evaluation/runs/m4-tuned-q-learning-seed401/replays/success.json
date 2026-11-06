@@ -1,0 +1,207 @@
+{
+  "signature": {
+    "map_id": "bottleneck-v1",
+    "map_hash": "614472df8e4cbed5408e1e5092dfd708bb683cdeef780a1a064246f0e1e58a94",
+    "task_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "step-goal-collision-v1"
+  },
+  "scenario": {
+    "id": "r0c0-r0c5",
+    "start": [
+      0,
+      0
+    ],
+    "goal": [
+      0,
+      5
+    ],
+    "shortest_length": 5,
+    "distance_band": "short"
+  },
+  "seed": 0,
+  "policy_id": "q-learning/m4-tuned-q-learning-seed401/step-200000",
+  "mode": "final evaluation",
+  "initial_observation": [
+    0,
+    0,
+    0,
+    5
+  ],
+  "transitions": [
+    {
+      "observation": [
+        0,
+        0,
+        0,
+        5
+      ],
+      "action": 3,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        1,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          1
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 1
+      },
+      "scores": [
+        -4.9599,
+        -0.044971531944192907,
+        -4.509,
+        8.597466813805823
+      ]
+    },
+    {
+      "observation": [
+        0,
+        1,
+        0,
+        5
+      ],
+      "action": 3,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 2
+      },
+      "scores": [
+        -4.9599,
+        -0.0439946788470939,
+        -0.043549455097278,
+        9.663586009999806
+      ]
+    },
+    {
+      "observation": [
+        0,
+        2,
+        0,
+        5
+      ],
+      "action": 3,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        3,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          3
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 3
+      },
+      "scores": [
+        -5.004989999999999,
+        -0.02849873409,
+        9.530755113330752,
+        9.771299
+      ]
+    },
+    {
+      "observation": [
+        0,
+        3,
+        0,
+        5
+      ],
+      "action": 3,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        4,
+        0,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          4
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 4
+      },
+      "scores": [
+        -5.004989999999999,
+        -4.509,
+        -0.026660511900000003,
+        9.8801
+      ]
+    },
+    {
+      "observation": [
+        0,
+        4,
+        0,
+        5
+      ],
+      "action": 3,
+      "reward": 9.99,
+      "next_observation": [
+        0,
+        5,
+        0,
+        5
+      ],
+      "terminated": true,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          5
+        ],
+        "outcome": "success",
+        "scenario_id": "r0c0-r0c5",
+        "steps": 5
+      },
+      "scores": [
+        -4.509,
+        -0.0188109,
+        -0.0188109,
+        9.99
+      ]
+    }
+  ],
+  "metrics": {
+    "outcome": "success",
+    "steps": 5,
+    "return": 9.950000000000001,
+    "successful_route_length": 5,
+    "spl": 1.0
+  }
+}

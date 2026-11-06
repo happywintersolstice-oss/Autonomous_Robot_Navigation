@@ -1,0 +1,240 @@
+{
+  "signature": {
+    "map_id": "bottleneck-v1",
+    "map_hash": "614472df8e4cbed5408e1e5092dfd708bb683cdeef780a1a064246f0e1e58a94",
+    "task_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "step-goal-collision-v1"
+  },
+  "scenario": {
+    "id": "r0c0-r4c0",
+    "start": [
+      0,
+      0
+    ],
+    "goal": [
+      4,
+      0
+    ],
+    "shortest_length": 4,
+    "distance_band": "short"
+  },
+  "seed": 0,
+  "policy_id": "sarsa/m4-control-sarsa-seed101/step-140000",
+  "mode": "final evaluation",
+  "initial_observation": [
+    0,
+    0,
+    4,
+    0
+  ],
+  "transitions": [
+    {
+      "observation": [
+        0,
+        0,
+        4,
+        0
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        0,
+        4,
+        0
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          0
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r4c0",
+        "steps": 1
+      },
+      "scores": [
+        -2.5550999999999995,
+        -0.003891,
+        -2.5550999999999995,
+        -0.003891
+      ]
+    },
+    {
+      "observation": [
+        1,
+        0,
+        4,
+        0
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        2,
+        0,
+        4,
+        0
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          2,
+          0
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r4c0",
+        "steps": 2
+      },
+      "scores": [
+        -0.3190437,
+        0.7076510235311737,
+        -3.2915699999999997,
+        -0.23262121589999993
+      ]
+    },
+    {
+      "observation": [
+        2,
+        0,
+        4,
+        0
+      ],
+      "action": 3,
+      "reward": -0.01,
+      "next_observation": [
+        2,
+        1,
+        4,
+        0
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          2,
+          1
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r4c0",
+        "steps": 3
+      },
+      "scores": [
+        -0.12664293525461445,
+        0.10581721838973782,
+        -2.5550999999999995,
+        0.9151784082861435
+      ]
+    },
+    {
+      "observation": [
+        2,
+        1,
+        4,
+        0
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        3,
+        1,
+        4,
+        0
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          3,
+          1
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r4c0",
+        "steps": 4
+      },
+      "scores": [
+        0.2382708702224429,
+        5.330162390708093,
+        0.39941761446370616,
+        -0.2738338131673352
+      ]
+    },
+    {
+      "observation": [
+        3,
+        1,
+        4,
+        0
+      ],
+      "action": 2,
+      "reward": -0.01,
+      "next_observation": [
+        3,
+        0,
+        4,
+        0
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          3,
+          0
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r4c0",
+        "steps": 5
+      },
+      "scores": [
+        0.4111253593063695,
+        4.291805466171,
+        8.908827831357689,
+        0.08723597314713448
+      ]
+    },
+    {
+      "observation": [
+        3,
+        0,
+        4,
+        0
+      ],
+      "action": 1,
+      "reward": 9.99,
+      "next_observation": [
+        4,
+        0,
+        4,
+        0
+      ],
+      "terminated": true,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          4,
+          0
+        ],
+        "outcome": "success",
+        "scenario_id": "r0c0-r4c0",
+        "steps": 6
+      },
+      "scores": [
+        0.6813971094514384,
+        9.973732148156875,
+        -3.8070989999999996,
+        3.2107186041037616
+      ]
+    }
+  ],
+  "metrics": {
+    "outcome": "success",
+    "steps": 6,
+    "return": 9.94,
+    "successful_route_length": 6,
+    "spl": 0.6666666666666666
+  }
+}

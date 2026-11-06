@@ -1,0 +1,72 @@
+{
+  "episodes": 928,
+  "counts": {
+    "success": 21,
+    "collision": 907,
+    "timeout": 0
+  },
+  "success_rate": 0.022629310344827586,
+  "collision_rate": 0.9773706896551724,
+  "timeout_rate": 0.0,
+  "spl": 0.015276067323481118,
+  "mean_return": -4.701002155172413,
+  "mean_successful_route_length": 4.285714285714286,
+  "successful_route_count": 21,
+  "interactions": 3753,
+  "scope": "frozen complete final-test manifest; no learning or checkpoint selection",
+  "seed": 67,
+  "by_distance_band": {
+    "short": {
+      "episodes": 258,
+      "counts": {
+        "success": 21,
+        "collision": 237,
+        "timeout": 0
+      },
+      "success_rate": 0.08139534883720931,
+      "collision_rate": 0.9186046511627907,
+      "timeout_rate": 0.0,
+      "spl": 0.05494647471391658,
+      "mean_return": -3.8151162790697675,
+      "mean_successful_route_length": 4.285714285714286,
+      "successful_route_count": 21,
+      "interactions": 930
+    },
+    "medium": {
+      "episodes": 350,
+      "counts": {
+        "success": 0,
+        "collision": 350,
+        "timeout": 0
+      },
+      "success_rate": 0.0,
+      "collision_rate": 1.0,
+      "timeout_rate": 0.0,
+      "spl": 0.0,
+      "mean_return": -5.042857142857142,
+      "mean_successful_route_length": null,
+      "successful_route_count": 0,
+      "interactions": 1500
+    },
+    "long": {
+      "episodes": 320,
+      "counts": {
+        "success": 0,
+        "collision": 320,
+        "timeout": 0
+      },
+      "success_rate": 0.0,
+      "collision_rate": 1.0,
+      "timeout_rate": 0.0,
+      "spl": 0.0,
+      "mean_return": -5.041343749999999,
+      "mean_successful_route_length": null,
+      "successful_route_count": 0,
+      "interactions": 1323
+    }
+  },
+  "evaluation_seconds": 0.24613720003981143,
+  "interactions_per_second": 15247.593616052232,
+  "mean_decision_microseconds": 1.2309994781389832,
+  "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries"
+}

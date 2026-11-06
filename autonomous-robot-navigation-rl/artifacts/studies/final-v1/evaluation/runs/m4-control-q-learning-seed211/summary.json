@@ -1,0 +1,72 @@
+{
+  "episodes": 928,
+  "counts": {
+    "success": 624,
+    "collision": 1,
+    "timeout": 303
+  },
+  "success_rate": 0.6724137931034483,
+  "collision_rate": 0.0010775862068965517,
+  "timeout_rate": 0.3265086206896552,
+  "spl": 0.6315976527427799,
+  "mean_return": 6.018189655172414,
+  "mean_successful_route_length": 7.068910256410256,
+  "successful_route_count": 624,
+  "interactions": 65012,
+  "scope": "frozen complete final-test manifest; no learning or checkpoint selection",
+  "seed": 0,
+  "by_distance_band": {
+    "short": {
+      "episodes": 258,
+      "counts": {
+        "success": 254,
+        "collision": 1,
+        "timeout": 3
+      },
+      "success_rate": 0.9844961240310077,
+      "collision_rate": 0.003875968992248062,
+      "timeout_rate": 0.011627906976744186,
+      "spl": 0.9258397932816538,
+      "mean_return": 9.76717054263566,
+      "mean_successful_route_length": 3.5669291338582676,
+      "successful_route_count": 254,
+      "interactions": 1507
+    },
+    "medium": {
+      "episodes": 350,
+      "counts": {
+        "success": 284,
+        "collision": 0,
+        "timeout": 66
+      },
+      "success_rate": 0.8114285714285714,
+      "collision_rate": 0.0,
+      "timeout_rate": 0.18857142857142858,
+      "spl": 0.7568070500927645,
+      "mean_return": 7.668857142857143,
+      "mean_successful_route_length": 8.415492957746478,
+      "successful_route_count": 284,
+      "interactions": 15590
+    },
+    "long": {
+      "episodes": 320,
+      "counts": {
+        "success": 86,
+        "collision": 0,
+        "timeout": 234
+      },
+      "success_rate": 0.26875,
+      "collision_rate": 0.0,
+      "timeout_rate": 0.73125,
+      "spl": 0.2574171485817674,
+      "mean_return": 1.1901562500000002,
+      "mean_successful_route_length": 12.965116279069768,
+      "successful_route_count": 86,
+      "interactions": 47915
+    }
+  },
+  "evaluation_seconds": 1.0906093000085093,
+  "interactions_per_second": 59610.71485406621,
+  "mean_decision_microseconds": 1.8919992726296186,
+  "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries"
+}

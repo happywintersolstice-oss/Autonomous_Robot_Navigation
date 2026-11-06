@@ -1,0 +1,72 @@
+{
+  "episodes": 928,
+  "counts": {
+    "success": 25,
+    "collision": 903,
+    "timeout": 0
+  },
+  "success_rate": 0.02693965517241379,
+  "collision_rate": 0.9730603448275862,
+  "timeout_rate": 0.0,
+  "spl": 0.018688521675309534,
+  "mean_return": -4.636131465517241,
+  "mean_successful_route_length": 4.56,
+  "successful_route_count": 25,
+  "interactions": 3733,
+  "scope": "frozen complete final-test manifest; no learning or checkpoint selection",
+  "seed": 91,
+  "by_distance_band": {
+    "short": {
+      "episodes": 258,
+      "counts": {
+        "success": 23,
+        "collision": 235,
+        "timeout": 0
+      },
+      "success_rate": 0.08914728682170543,
+      "collision_rate": 0.9108527131782945,
+      "timeout_rate": 0.0,
+      "spl": 0.06302644384039732,
+      "mean_return": -3.697829457364341,
+      "mean_successful_route_length": 3.5652173913043477,
+      "successful_route_count": 23,
+      "interactions": 904
+    },
+    "medium": {
+      "episodes": 350,
+      "counts": {
+        "success": 2,
+        "collision": 348,
+        "timeout": 0
+      },
+      "success_rate": 0.005714285714285714,
+      "collision_rate": 0.9942857142857143,
+      "timeout_rate": 0.0,
+      "spl": 0.0030917874396135265,
+      "mean_return": -4.956657142857142,
+      "mean_successful_route_length": 16.0,
+      "successful_route_count": 2,
+      "interactions": 1483
+    },
+    "long": {
+      "episodes": 320,
+      "counts": {
+        "success": 0,
+        "collision": 320,
+        "timeout": 0
+      },
+      "success_rate": 0.0,
+      "collision_rate": 1.0,
+      "timeout_rate": 0.0,
+      "spl": 0.0,
+      "mean_return": -5.042062499999999,
+      "mean_successful_route_length": null,
+      "successful_route_count": 0,
+      "interactions": 1346
+    }
+  },
+  "evaluation_seconds": 0.2620706000016071,
+  "interactions_per_second": 14244.25326601728,
+  "mean_decision_microseconds": 1.1839991202577949,
+  "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries"
+}
