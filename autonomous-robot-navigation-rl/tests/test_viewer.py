@@ -67,3 +67,20 @@ def test_sarsa_run_replay_and_custom_policy():
     app.button[0].click().run()
     assert not app.exception
     assert app.session_state["playback"].episode["policy_id"].startswith("sarsa/")
+
+
+def test_dqn_selected_checkpoint_replay_and_custom_policy():
+    app = AppTest.from_file(str(ROOT / "app/streamlit_app.py"), default_timeout=15).run()
+    next(box for box in app.selectbox if box.label == "Saved run").set_value(
+        ROOT / "artifacts/runs/m3-dqn-pilot-seed7").run()
+    assert not app.exception
+    next(box for box in app.selectbox if box.label == "Recorded episode").set_value(
+        ROOT / "artifacts/runs/m3-dqn-pilot-seed7/replays/dqn_success.json").run()
+    assert app.session_state["playback"].episode["policy_id"].startswith("dqn/")
+    app.button[2].click().run()
+    assert not app.exception and app.session_state["playback"].index == 1
+    app.radio[0].set_value("Custom demonstration").run()
+    next(box for box in app.selectbox if box.label == "Frozen policy").set_value("DQN")
+    app.button[0].click().run()
+    assert not app.exception
+    assert app.session_state["playback"].episode["policy_id"].startswith("dqn/")

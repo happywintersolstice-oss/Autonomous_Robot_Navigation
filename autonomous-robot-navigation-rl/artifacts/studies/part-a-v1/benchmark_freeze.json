@@ -1,0 +1,32 @@
+{
+  "signature": {
+    "map_id": "bottleneck-v1",
+    "map_hash": "614472df8e4cbed5408e1e5092dfd708bb683cdeef780a1a064246f0e1e58a94",
+    "task_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "step-goal-collision-v1"
+  },
+  "frozen_utc": "2026-11-06T12:26:26.456624+00:00",
+  "configuration_hash": "d9bc9643e935a3ae2e90c902208814530d8b2d87c3b4ff69f263cb961f06c3ff",
+  "pilot_training_interactions": 10000,
+  "pilot_training_seconds": 3.6329105000477284,
+  "pilot_validation_seconds": 6.205249100050423,
+  "pilot_validation_counts": {
+    "success": 20,
+    "collision": 358,
+    "timeout": 550
+  },
+  "pilot_discovered_goals": 36,
+  "estimated_dqn_training_seconds": 435.9492600057274,
+  "estimated_dqn_monitoring_seconds": 19.06408999930136,
+  "estimated_dqn_full_validation_seconds": 31.026245500252116,
+  "estimated_tabular_training_seconds": 110.0,
+  "estimated_tabular_monitoring_and_validation_seconds": 80.0,
+  "estimated_artifact_storage_mb": 100.0,
+  "estimate_basis": "DQN measured 10k throughput with 20% warm-up allowance; tabular milestone-2 measurements; storage includes trajectories and periodic models",
+  "selection": "monitoring success, SPL, earliest; final ranking on full validation, never final test",
+  "task_adjustments_after_pilot": [],
+  "final_test_evaluated": false
+}

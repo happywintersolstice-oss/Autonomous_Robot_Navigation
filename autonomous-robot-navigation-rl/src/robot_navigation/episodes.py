@@ -12,8 +12,12 @@ def rollout(env, policy, scenario, seed=0, mode="validation"):
                "policy_id": policy.policy_id, "mode": mode,
                "initial_observation": observation.tolist(), "transitions": []}
     while True:
-        scores = policy.scores(observation).tolist() if hasattr(policy, "scores") else None
-        action = policy.act(observation)
+        if hasattr(policy, "action_and_scores"):
+            action, scores = policy.action_and_scores(observation)
+            scores = scores.tolist()
+        else:
+            scores = policy.scores(observation).tolist() if hasattr(policy, "scores") else None
+            action = policy.act(observation)
         next_observation, reward, terminated, truncated, info = env.step(action)
         episode["transitions"].append({"observation": observation.tolist(), "action": action,
             "reward": reward, "next_observation": next_observation.tolist(),

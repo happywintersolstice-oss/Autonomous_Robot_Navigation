@@ -1,7 +1,7 @@
 """Local, read-only playback plus explicitly labeled frozen-policy custom demos."""
 import time
 
-from robot_navigation.agents import BFSPolicy, RandomPolicy, load_policy
+from robot_navigation.agents import BFSPolicy, RandomPolicy, load_policy, viewer_checkpoint
 from robot_navigation.benchmark import load_scenarios
 from robot_navigation.core import ROOT, NavigationEnv, load_task, read_json, validate_scenario
 from robot_navigation.episodes import Playback, rollout, validate_replay
@@ -16,7 +16,7 @@ st.markdown("""<style>
 [data-testid="stMetric"] {background:#f0f6fa;border-radius:10px;padding:12px;}
 [data-testid="stMetric"] * {color:#0f172a !important;}
 </style>""", unsafe_allow_html=True)
-st.caption("LOCAL RESEARCH LAB  /  TABULAR NAVIGATION")
+st.caption("LOCAL RESEARCH LAB  /  LEARNED NAVIGATION")
 st.title("Watch the next move")
 st.write("Fixed-map robot navigation · recorded actions, visible outcomes.")
 
@@ -46,14 +46,14 @@ with st.sidebar:
     st.caption("The final test holdout is sealed. This viewer never opens its manifest.")
     st.divider()
     st.markdown("**Information available**")
-    st.write("BFS knows the obstacle map. Q-learning and SARSA see only robot and goal coordinates. Random is untrained.")
+    st.write("BFS knows the obstacle map. Q-learning, SARSA and DQN see only robot and goal coordinates. Random is untrained.")
     st.caption("One action moves one grid cell. Walls and boundaries end the episode in collision. Repeated cells do not end an episode.")
 
 try:
     # Check the run and the actual checkpoint even when opening its saved replays.
     task.check(read_json(directory / "manifest.json")["signature"])
-    frozen_agent = load_policy(directory / "checkpoint.npz", task)
-except (OSError, ValueError, KeyError) as exc:
+    frozen_agent = load_policy(viewer_checkpoint(directory), task)
+except (OSError, ValueError, KeyError, ImportError) as exc:
     st.error(f"Cannot open this fixed-map run: {exc}")
     st.stop()
 
@@ -92,7 +92,7 @@ else:
         sc = columns[1].number_input("Start column", 0, 9, 0)
         gr = columns[2].number_input("Goal row", 0, 9, 9)
         gc = columns[3].number_input("Goal column", 0, 9, 9)
-        learned_label = "SARSA" if frozen_agent.algorithm == "sarsa" else "Q-learning"
+        learned_label = {"q-learning": "Q-learning", "sarsa": "SARSA", "dqn": "DQN"}[frozen_agent.algorithm]
         model = st.selectbox("Frozen policy", ["BFS", "Random (untrained)", learned_label])
         seed = st.number_input("Demonstration seed", 0, 2147483647, 7)
         generate = st.form_submit_button("Generate demonstration")

@@ -24,7 +24,8 @@ def source_hash(root):
 
 def evaluate(task, scenarios, policy, seed, scope, visitation=None, trajectory_path=None):
     env = NavigationEnv(task, scenarios)
-    before = policy.q.copy() if isinstance(policy, QLearning) else None
+    fingerprint = getattr(policy, "state_fingerprint", None)
+    before = fingerprint() if fingerprint else policy.q.copy() if isinstance(policy, QLearning) else None
     metrics, records, decision_times = [], [], []
     by_band = defaultdict(list)
     started = perf_counter()
@@ -46,7 +47,8 @@ def evaluate(task, scenarios, policy, seed, scope, visitation=None, trajectory_p
             if output:
                 output.write(json.dumps(episode, allow_nan=False) + "\n")
     elapsed = perf_counter() - started
-    if before is not None and not np.array_equal(before, policy.q):
+    if before is not None and ((fingerprint and fingerprint() != before) or
+                               (not fingerprint and not np.array_equal(before, policy.q))):
         raise AssertionError("Validation changed learned parameters")
     observation = np.array((*scenarios[0]["start"], *scenarios[0]["goal"]), dtype=np.int64)
     for _ in range(100):

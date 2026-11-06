@@ -9,7 +9,7 @@ from .core import ROOT, NavigationEnv, load_task
 
 def main():
     parser = argparse.ArgumentParser(description="Local navigation milestone; final test is sealed")
-    parser.add_argument("command", choices=("prepare", "check", "smoke", "train", "evaluate"))
+    parser.add_argument("command", choices=("prepare", "check", "smoke", "train", "evaluate", "train-part-a"))
     parser.add_argument("--config", help="Smoke YAML; use a new run_id for each run")
     parser.add_argument("--checkpoint", help="Frozen table for read-only evaluation")
     parser.add_argument("--split", choices=("validation", "monitoring"), default="validation")
@@ -34,6 +34,15 @@ def main():
         summary, _, _ = evaluate(task, load_scenarios(task, args.split), policy, 0,
                                   "complete validation manifest" if args.split == "validation" else "fixed monitoring subset")
         print(json.dumps(summary, indent=2))
+    elif args.command == "train-part-a":
+        from pathlib import Path
+        import yaml
+        from .part_a import train_part_a
+        if not args.config:
+            parser.error("train-part-a requires --config")
+        config = yaml.safe_load(Path(args.config).read_text(encoding="utf-8"))
+        directory, summaries, pilot = train_part_a(config)
+        print(json.dumps({"run_directory": str(directory), "validation": summaries, "pilot": pilot}, indent=2))
     else:
         from .workflow import train_smoke
         directory, summaries, pilot = train_smoke(args.config)

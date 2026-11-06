@@ -33,6 +33,15 @@ On truncation, bootstrap using the old episode's final observation/action, then
 reset and draw a fresh behavior action. Goal/collision use `r` only. A training
 budget cutoff is logged separately and does not change environment outcomes.
 
+Milestone 3's DQN wrapper scales the same four coordinates by dimension minus
+one into a float32 Box(0,1,shape=(4,)); it changes no actions, rewards, flags or
+scenario sampling. There is no fitted normalization or map channel. The inference
+adapter accepts the raw coordinates and applies that same fixed scaling.
+Checkpoints require `normalized-coordinates-v1` plus the original task signature.
+SB3's vector wrapper stores the terminal observation on autoreset; tests verify
+that replay samples mask timeout dones to preserve bootstrapping, while true
+terminal events keep done=1. The saved network is vanilla SB3 DQN.
+
 Scenario preparation enumerates all reachable, distinct ordered pairs; a fixed
 Python RNG shuffles each goal/distance stratum, allocating approximately 70/15/15.
 Holdout sizes round to nearest integer within each stratum; strata under four pairs

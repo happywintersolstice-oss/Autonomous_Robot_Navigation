@@ -69,3 +69,45 @@ Observed BFS and saved Q-learning start-to-goal replay in-browser. Fixed dark-mo
 metric contrast and narrow-window clipping after inspection. Run source snapshots
 preserve the training revision; post-run changes affect UI styling/layout and runner
 output-name options. No additional dependencies, cloud calls or public publication.
+
+## Milestone 3 — 6 November 2026
+
+Added optional SB3 2.9.2 / CPU PyTorch 2.15.0 dependencies, fixed coordinate scaling,
+vanilla DQN training/inference, checksum/encoding-aware model loading, and generic
+inference-state checks covering neural weights, optimizer, replay and counters.
+New tests verify actual SB3 vector/autoreset timeout storage and bootstrap masking,
+fixture learning, inference RNG isolation, DQN replay/custom demos, checkpoint
+selection and ranking, failure taxonomy, overwrite protection and failed status.
+33 tests pass; Gymnasium and SB3 environment checks pass.
+
+Recorded protocol before a 10k DQN pilot, reported throughput and weak validation
+results, then froze the unchanged benchmark and five-seed/200k matrix. Completed
+all 15 runs (3m training interactions) in 648.37 seconds, with no tuning or final-test
+use. Mean complete-validation success at monitoring-selected checkpoints: Q-learning
+65.24%, SARSA 21.94%, DQN 5.32%. Declared ranking shortlists Q-learning and SARSA.
+Both monitoring and complete validation scopes, selected age versus full budget,
+per-seed outcomes, negative findings, costs and limitations are documented.
+
+Audited 13,920 learned validation episodes / 1,622,440 actions and 5,568 reference
+episodes, plus all 300 periodic models, training counts, checkpoint choices and
+source hashes. Generated learning curves, comparison plots, failure heatmaps,
+route distributions and actual common-scenario/loop/detour records. Added missing
+reference-line labels after visual inspection; audited analyzer bytes are archived
+separately from the rendering correction. No experimental measurements changed.
+
+The viewer now chooses `selected.zip`/`selected.npz` through manifest metadata,
+retains legacy checkpoint support, and exposes a matching frozen DQN custom demo.
+Restarted the owned local server to load the new imports. Browser-specific results
+are recorded separately. Preserved 256 existing root/benchmark/earlier-artifact
+files by SHA-256; no energy files or `sources/` were present here. All work remains
+local and uncommitted pending the owner's next instruction.
+
+Method/API references consulted during implementation:
+- https://stable-baselines3.readthedocs.io/en/master/modules/dqn.html
+- https://stable-baselines3.readthedocs.io/en/master/guide/rl_tips.html
+- https://pytorch.org/get-started/locally/
+- Installed SB3 `collect_rollouts`, `ReplayBuffer._get_samples`, and DQN target code.
+
+Part B tuning/voting, the full dashboard and all explicitly deferred additions
+remain for later milestones. Poor DQN/long-route results were not repaired by
+changing rules, selecting on final test, or introducing planner assistance.

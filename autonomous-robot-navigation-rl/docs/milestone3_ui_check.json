@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-06",
+  "url": "http://127.0.0.1:8517/",
+  "surface": "Dedicated project-local Chrome profile, existing signed-in browser left alone",
+  "server": "Owned Streamlit process restarted to load new DQN imports",
+  "observed_run": "m3-dqn-pilot-seed7",
+  "observed_checkpoint": "selected.zip, step 10000",
+  "scenario_id": "r0c2-r0c3",
+  "initial_position": [0, 2],
+  "initial_actions": 0,
+  "after_play": {
+    "position": [0, 3],
+    "actions": 1,
+    "return": 9.99,
+    "step_reward": 9.99,
+    "status": "success",
+    "playing": false,
+    "last_action": "Right"
+  },
+  "visual_observations": [
+    "DQN checkpoint/scenario/validation identity is visible",
+    "Robot and traveled trail advance to the goal",
+    "Counters and rewards match the recorded terminal frame",
+    "Dark-mode metrics are readable"
+  ],
+  "automated_viewer_checks": "AppTest covers DQN selected checkpoint loading, saved step playback, and a matching frozen DQN custom demo; legacy Q-learning and SARSA tests still pass",
+  "limitations": [
+    "Browser check used the real 10k pilot replay, not a manual replay of every main-study checkpoint",
+    "No quantitative browser frame-rate or input-latency measurement was performed"
+  ]
+}

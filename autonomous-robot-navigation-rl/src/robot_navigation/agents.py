@@ -110,6 +110,18 @@ class SARSA(QLearning):
 
 def load_policy(path, task):
     algorithm = read_json(Path(path).with_suffix(".json")).get("algorithm", "q-learning")
+    if algorithm == "dqn":
+        from .dqn import DQNPolicy
+        return DQNPolicy.load(path, task)
     if algorithm not in ("q-learning", "sarsa"):
         raise ValueError(f"Unsupported checkpoint algorithm: {algorithm}")
     return {"q-learning": QLearning, "sarsa": SARSA}[algorithm].load(path, task)
+
+
+def viewer_checkpoint(directory):
+    """Prefer a validation-selected artifact where a Part A run supplies one."""
+    directory = Path(directory)
+    name = read_json(directory / "manifest.json").get("viewer_checkpoint", "checkpoint.npz")
+    if Path(name).name != name:
+        raise ValueError("Invalid viewer checkpoint filename")
+    return directory / name
