@@ -1,0 +1,34 @@
+{
+  "pytest": {
+    "passed": 23,
+    "seconds": 8.24,
+    "last_full_command": ".venv/Scripts/python.exe -m pytest -q",
+    "after_layout_change": "3 viewer tests passed in 7.97 seconds"
+  },
+  "gymnasium_checker": "passed",
+  "audited_episodes": 7424,
+  "audited_actions": 803520,
+  "periodic_checkpoints": 160,
+  "reproducibility": [
+    {
+      "algorithm": "q-learning",
+      "seed": 7,
+      "equal_tables": true,
+      "equal_training_csv": true,
+      "equal_validation_metrics": true,
+      "equal_replay_records_except_policy_id": true
+    },
+    {
+      "algorithm": "sarsa",
+      "seed": 7,
+      "equal_tables": true,
+      "equal_training_csv": true,
+      "equal_validation_metrics": true,
+      "equal_replay_records_except_policy_id": true
+    }
+  ],
+  "archived_runner_hash_matches": true,
+  "training_source_unchanged_since_run": true,
+  "final_test_policy_executions": 0,
+  "preservation": "45 file hashes checked, zero changes; see milestone2_preservation.json"
+}

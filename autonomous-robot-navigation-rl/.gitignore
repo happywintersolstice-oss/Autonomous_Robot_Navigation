@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.cache/
+artifacts/runs/*
+!artifacts/runs/smoke-seed7/
+!artifacts/runs/m2-*/
+artifacts/runs/m2-*/visitation.npz
+artifacts/runs/m2-*/*_trajectories.jsonl.gz
+artifacts/runs/m2-*/checkpoints/
+artifacts/runs/smoke-seed7/visitation.npz
+artifacts/runs/smoke-seed7/*_trajectories.jsonl
+artifacts/smoke-console.json
+.streamlit/secrets.toml

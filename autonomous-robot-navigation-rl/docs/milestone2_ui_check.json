@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-06",
+  "url": "http://127.0.0.1:8517/",
+  "method": "Native Chrome UI in a separate project-local profile; screenshots and accessibility observations",
+  "existing_signed_in_browser_content_inspected": false,
+  "server_health": "HTTP 200 ok",
+  "bfs_playback": {
+    "scenario_id": "r0c0-r0c3",
+    "initial_position": [0, 0],
+    "observed_after_play": {"position": [0, 3], "actions": 3, "return": 9.97, "status": "success", "playing": false}
+  },
+  "q_learning_playback": {
+    "run_id": "m2-q-learning-seed7",
+    "scenario_id": "r0c0-r0c3",
+    "initial_position": [0, 0],
+    "observed_after_play": {"position": [0, 3], "actions": 3, "return": 9.97, "step_reward": 9.99, "status": "success", "playing": false},
+    "speed_control": "Changed to displayed 0.5 actions/second without changing scenario",
+    "backward_seek": {"actions": 1, "position": [0, 1], "return": -0.01, "step_reward": -0.01, "playing": false},
+    "next_step": {"actions": 2, "position": [0, 2], "return": -0.02, "playing": false},
+    "reset": {"actions": 0, "position": [0, 0], "status": "ready"}
+  },
+  "q_learning_collision": {
+    "scenario_id": "r2c4-r0c5",
+    "observed_after_play": {"actions": 1, "position": [2, 4], "attempted_position": [2, 3], "return": -5.01, "step_reward": -5.01, "status": "collision", "playing": false}
+  },
+  "sarsa_ui": "AppTest verified saved SARSA success animation branch and frozen SARSA custom demo selection",
+  "pause_resume": "Automated playback-state and Streamlit callback tests pass; browser resume reached the recorded terminal frame",
+  "visual_repairs_verified": ["Readable dark-mode metric text", "Full-width metric counters avoid narrow-column clipping", "Header caption no longer obscured"],
+  "limitations": ["No quantitative browser frame-rate or input-latency benchmark was performed", "SARSA replay was checked through AppTest, not manually replayed in Chrome"],
+  "inherited_browser_access_blocker_resolved": true
+}
