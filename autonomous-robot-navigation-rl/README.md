@@ -4,6 +4,9 @@ A local Python research pilot: one versioned static grid, Gymnasium environment,
 random/BFS references, Q-learning, SARSA and vanilla SB3 DQN, reproducible scenario splits, measured validation,
 and an animated Streamlit replay viewer. Existing workspace files are separate.
 
+For experiment labels such as `m4-tuned-q-learning-seed101`, seeds and saved file
+types, see the [file and experiment naming guide](docs/file_and_experiment_guide.md).
+
 **Part A:** five independent seeds per learned algorithm, 200,000 interactions
 each, common validation monitoring, and an explicit validation-only checkpoint
 and algorithm-family selection rule. See [milestone 3 results](docs/milestone3_results.md)
