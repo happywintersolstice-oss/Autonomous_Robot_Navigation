@@ -60,7 +60,9 @@ No API key, GPU or cloud account is required.
 ```
 
 Open **http://127.0.0.1:8517**. Binding is local only. Stop with Ctrl+C. Change the
-port if occupied. Select `bfs success`, press Play, and watch each discrete action.
+port if occupied. The control room opens the predeclared refined Q-learning run
+(`m4-tuned-q-learning-seed101`) and its saved success replay. Press Play to watch
+each discrete action; older runs and their failures remain in Mission setup.
 Restart an already-running server after pulling new Python modules; reloading the
 browser alone may retain imports from an earlier milestone.
 The library also has random and actual learned-agent success/collision/timeout replays.
@@ -91,6 +93,14 @@ the same validation scenario and a second run, then Play or seek the shared time
 Finished agents remain at their terminal frames while the other continues. Reward
 versions and all task identities must match. Comparison replay is generated once
 when its selection changes, and is excluded from measured benchmark summaries.
+
+The dark simulator interface groups mission setup and map layers in the sidebar,
+with shared playback controls above the map. Matched comparison initially pairs
+the selected refined run with its seed-101 baseline. Telemetry distinguishes
+training seeds in run labels from the replay seed in task details. A repeating
+action-pattern warning uses the displayed prefix and never changes the policy.
+See the [dashboard rework notes](docs/dashboard_rework.md) for verification and
+the distinction between this UI revision and the original frozen release.
 
 For **Early versus selected checkpoint**, choose an archived exemplar in Saved run:
 `m3-q-learning-seed7`, `m3-sarsa-seed7`, `m3-dqn-seed7`,

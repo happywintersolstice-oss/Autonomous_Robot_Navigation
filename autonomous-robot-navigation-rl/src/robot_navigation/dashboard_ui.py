@@ -1,14 +1,13 @@
 """Streamlit views; all quantitative displays read saved experiment evidence."""
 import time
 
-import matplotlib.pyplot as plt
 import pandas as pd
 import streamlit as st
 
 from .core import ACTION_NAMES, read_json
 from .dashboard import evidence, early_checkpoint, frozen_episode
 from .episodes import ComparisonPlayback
-from .visualization import draw
+from .interface import context_strip, panel_heading, show_map, telemetry, run_label, SELECTED_RUN
 from .release import final_summary
 
 
@@ -96,7 +95,7 @@ Interactive demos/comparisons do not enter benchmark summaries.''')
         a,b,c=st.columns(3)
         a.metric('Implemented learned families','3')
         b.metric('Validation pairs per seed','928')
-        c.metric('Implemented milestone','5')
+        c.metric('Implemented milestone','6' if final else '5')
         st.dataframe(pd.DataFrame(metric_rows(summary))[['System','Seeds','success_rate','collision_rate','timeout_rate','spl']],hide_index=True,width='stretch')
         st.info('Q-learning improved with tuning. SARSA still misses its declared targets. Voting lost five goals versus its predeclared single member while improving SPL. Removing the step cost hurt both tabular families.')
         st.write('Use Navigation simulator for saved replay, a frozen custom demonstration, matched agents or early-versus-selected checkpoints. Learning analysis uses saved logs; Optimization and robustness shows outcome-independent scenario groups.')
@@ -151,10 +150,9 @@ Interactive demos/comparisons do not enter benchmark summaries.''')
 
 
 def overlays(prefix='single'):
-    cols=st.columns(3)
-    return {'trail':cols[0].checkbox('Traveled trail',True,key=f'{prefix}_trail'),
-            'visits':cols[1].checkbox('Prefix visit counts',False,key=f'{prefix}_visits'),
-            'bfs':cols[2].checkbox('BFS planner reference',False,key=f'{prefix}_bfs')}
+    return {'trail':st.checkbox('Traveled trail',True,key=f'{prefix}_trail'),
+            'visits':st.checkbox('Prefix visit counts',False,key=f'{prefix}_visits'),
+            'bfs':st.checkbox('BFS planner reference',False,key=f'{prefix}_bfs')}
 
 
 def diagnostics(episode,index,key):
@@ -172,30 +170,39 @@ def diagnostics(episode,index,key):
         st.caption('Action scores unavailable for this policy.')
 
 
-def event_log(episode,index,key,callback):
+def event_log(episode,index,key,callback,disabled=False):
     # Prefix-only: selecting an event cannot reveal or draw future decisions.
     events=[{'Frame':0,'Action':'Initial state','Reward':0.,'Status':'ready'}]
     events += [{'Frame':i,'Action':ACTION_NAMES[t['action']],'Reward':t['reward'],'Status':t['info']['outcome']}
                for i,t in enumerate(episode['transitions'][:index],1)]
     st.dataframe(pd.DataFrame(events),hide_index=True,width='stretch')
     st.selectbox('Seek displayed event',range(index+1),index=index,key=key,on_change=callback,args=(key,),
-                 format_func=lambda i:f'Frame {i}')
+                 format_func=lambda i:f'Frame {i}',disabled=disabled)
+    if disabled:
+        st.caption('Pause playback to seek a displayed event.')
 
 
 def render_comparison(task,directory,validation,runs,root):
-    st.subheader('Matched checkpoint comparison')
-    kind=st.radio('Comparison type',['Another agent','Early versus selected checkpoint'])
-    scenario=st.selectbox('Validation scenario',validation,format_func=lambda s:f"{s['id']} · shortest {s['shortest_length']}",key='comparison_scenario')
-    second=directory
-    early=None
-    if kind=='Another agent':
-        second=st.selectbox('Compare with run',runs,format_func=lambda p:p.name,key='comparison_second')
-    else:
-        try:
-            early=early_checkpoint(directory,root)
-            st.caption(f'Early 10,000-interaction checkpoint: {early.name}; later checkpoint is the monitoring-selected snapshot, not necessarily the full-budget snapshot.')
-        except (OSError,ValueError) as exc:
-            st.info(str(exc));return
+    with st.sidebar:
+        st.header('Comparison setup')
+        kind=st.radio('Comparison type',['Another agent','Early versus selected checkpoint'])
+        scenario=st.selectbox('Validation scenario',validation,
+                             format_func=lambda s:f"{s['id']} · shortest {s['shortest_length']}",
+                             key='comparison_scenario')
+        second=directory
+        early=None
+        if kind=='Another agent':
+            preferred='m4-control-q-learning-seed101' if directory.name==SELECTED_RUN else SELECTED_RUN
+            default=next((i for i,p in enumerate(runs) if p.name==preferred and p!=directory),
+                         next((i for i,p in enumerate(runs) if p!=directory),0))
+            second=st.selectbox('Compare with run',runs,index=default,format_func=run_label,key='comparison_second')
+        else:
+            try:
+                early=early_checkpoint(directory,root)
+                st.caption('Early: 10,000 interactions. Later: monitoring-selected snapshot, which may precede the full budget.')
+            except (OSError,ValueError) as exc:
+                st.info(str(exc))
+                return
     identity=(str(directory),str(second),scenario['id'],kind)
     if st.session_state.get('comparison_identity')!=identity:
         try:
@@ -205,42 +212,55 @@ def render_comparison(task,directory,validation,runs,root):
             st.session_state['comparison_seek']=0
             st.session_state['comparison_tick']=time.monotonic()
         except (OSError,ValueError,KeyError,RuntimeError,ImportError) as exc:
-            st.error(f'Comparison unavailable: {exc}');return
-    st.caption('Frozen-policy validation replay generated on selection; no learning, no benchmark result writes. Both panels share map/start/goal/reward/mode and action index. Finished agents hold their terminal frame.')
-    options=overlays('comparison')
+            st.error(f'Comparison unavailable: {exc}')
+            return
+    player=st.session_state['comparison_playback']
+    context_strip(player.episodes[0])
+    with st.sidebar.expander('Map layers'):
+        options=overlays('comparison')
+    with st.sidebar.expander('Comparison details'):
+        st.caption('Frozen policies on validation scenarios. No learning or benchmark result writes.')
+        st.caption('Both panels share map, start, goal, reward, replay seed and action index. Finished agents hold their terminal frame.')
+        st.caption('BFS knows the obstacle map. Learned agents see only robot and goal coordinates.')
     def command(name):
         player=st.session_state['comparison_playback']
         getattr(player,name)()
+        st.session_state['comparison_playback']=player
         st.session_state['comparison_seek']=player.index
         st.session_state['comparison_tick']=time.monotonic()
     def seek():
-        player=st.session_state['comparison_playback'];player.pause()
+        player=st.session_state['comparison_playback']
+        player.pause()
         player.seek(st.session_state['comparison_seek'])
-    controls=st.columns([1,1,1.3,1,2.4])
-    for col,label,name in zip(controls,['Play','Pause','Next step','Reset'],['play','pause','next','reset']):
-        col.button(label,on_click=command,args=(name,),key=f'comparison_{name}',width='stretch')
-    speed=controls[4].select_slider('Speed (actions / second)',options=[.5,1.,2.,4.],value=2.,key='comparison_speed')
+        st.session_state['comparison_playback']=player
+    with st.container(key='comparison_playback_controls'):
+        controls=st.columns([1,1,1.2,1,2.2],vertical_alignment='center')
+        for col,label,name,icon in zip(controls,['Play','Pause','Next step','Reset'],
+                                      ['play','pause','next','reset'],
+                                      ['play_arrow','pause','skip_next','restart_alt']):
+            col.button(label,on_click=command,args=(name,),key=f'comparison_{name}',icon=f':material/{icon}:',
+                       type='primary' if name=='play' else 'secondary',width='stretch')
+        speed=controls[4].select_slider('Speed (actions / second)',options=[.5,1.,2.,4.],value=2.,key='comparison_speed')
     @st.fragment(run_every=.2)
     def panels():
         player=st.session_state['comparison_playback']
         now=time.monotonic()
         if player.playing and now-st.session_state['comparison_tick']>=1/speed:
-            player.tick();st.session_state['comparison_seek']=player.index;st.session_state['comparison_tick']=now
+            player.tick()
+            st.session_state['comparison_playback']=player
+            st.session_state['comparison_seek']=player.index
+            st.session_state['comparison_tick']=now
         st.slider('Replay position',0,player.length,key='comparison_seek',on_change=seek)
-        st.write(f'**Shared action index:** {player.index} · '+('Playing' if player.playing else 'Paused'))
-        for col,episode,state in zip(st.columns(2),player.episodes,player.current):
+        st.caption(f'Shared action index: {player.index} · '+('Playing' if player.playing else 'Paused'))
+        for panel_index,(col,episode,run) in enumerate(zip(st.columns(2),player.episodes,(directory,second))):
             with col:
-                st.caption(episode['display_checkpoint'])
-                st.caption(f"{episode['policy_id']} · {episode['scenario']['id']} · validation · seed {episode['seed']} · {episode['signature']['map_id']}")
-                figure=draw(task.grid,episode,player.index,**options);st.pyplot(figure,width='stretch');plt.close(figure)
-                st.metric('Actions',f"{state['index']} / {task.config['max_steps']}")
-                st.metric('Cumulative reward',f"{state['return']:.2f}")
-                st.write(f"**Status:** {state['status']} · **Position:** {state['position']}")
-                st.write(f"**Last action:** {state['action']} · **Step reward:** {state['step_reward']:.2f} · **Revisited cells:** {state['revisited_cells']}")
-                st.caption(f"Reference shortest distance: {episode['scenario']['shortest_length']} actions")
-                if state['status']=='collision':
-                    st.error(f"Collision attempt at {state['attempted_position']}; robot remains at {state['position']}")
-                if state['index']==len(episode['transitions']):
-                    st.write(f"**Completed SPL:** {episode['metrics']['spl']:.3f}")
-                diagnostics(episode,state['index'],'comparison')
+                age='Early · 10,000 interactions' if early and run==directory and episode is player.episodes[0] else 'Selected checkpoint'
+                panel_heading(run,f"{age} · replay seed {episode['seed']}")
+                show_map(task.grid,episode,player.index,**options)
+                telemetry(episode,player.index,task.config['max_steps'],player.playing,shared_index=player.index)
+                with st.container(key=f'comparison_decision_details_{panel_index}'):
+                    with st.expander('Recorded decision and checkpoint'):
+                        st.caption(episode['display_checkpoint'])
+                        st.caption(episode['policy_id'])
+                        diagnostics(episode,min(player.index,len(episode['transitions'])),'comparison')
     panels()
