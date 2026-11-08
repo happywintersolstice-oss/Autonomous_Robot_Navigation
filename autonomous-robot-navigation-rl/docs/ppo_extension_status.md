@@ -34,9 +34,10 @@ See [the measured results](ppo_comparison_results.md) for all four algorithms,
 per-seed PPO outcomes and interpretation limits.
 
 Automated replay, custom demonstration and matched-comparison checks passed.
-Live visual verification remains unresolved: Windows computer-use automation
-stopped because it could not reliably determine Chrome's current URL. No visual
-verification is claimed.
+The initial Windows computer-use attempts stopped because Chrome's current URL
+could not be determined reliably. A later owner-opened local tab enabled native
+Chrome verification, including PPO animation, probabilities, seeking/reset and
+matched terminal holding. See [current plan closure](plan_closure_status.md).
 
 ## Implementation
 
@@ -51,6 +52,12 @@ verification is claimed.
 PPO is a configured additional baseline; it is not hyperparameter-tuned. The
 comparison reuses the original Part A baseline Q-learning, SARSA and DQN runs.
 The old tuned tabular runs and frozen final evaluation remain separate and unchanged.
+
+The subsequent [plan-closure integration](plan_closure_status.md) adds full
+route/cost tables and six-dimension robustness for all four baseline families.
+That analysis uses saved metrics only, under the new `four-rl-analysis-v1` study.
+All 96 current tests passed in a fresh environment installed from the unchanged
+lock file; the 90-test count above records the original PPO-extension checkpoint.
 
 ## Commands
 

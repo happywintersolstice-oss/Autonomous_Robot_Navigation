@@ -73,6 +73,26 @@ def test_continuous_playback_ignores_event_seek_until_paused():
     assert app.session_state['playback'].index==0
 
 
+@pytest.mark.parametrize('comparison',[False,True])
+def test_delayed_timeline_events_cannot_rewind_or_pause_newer_frame(comparison):
+    from robot_navigation.dashboard import seek_from_widget
+    from robot_navigation.episodes import Playback, ComparisonPlayback
+    episode=read_json(ROOT/'artifacts/runs/m4-tuned-q-learning-seed101/replays/q_learning_success.json')
+    player=ComparisonPlayback([episode,deepcopy(episode)]) if comparison else Playback(episode)
+    player.play(); player.tick()
+    state={'player':player,'position':1,'active':'timeline:1','timeline:0':0,'timeline:1':1}
+    # The browser echoed frame zero after the timer had already advanced to one.
+    assert not seek_from_widget(state,'timeline:0',player_key='player',position_key='position',active_key='active')
+    assert player.index==1 and player.playing and state['position']==1
+    # A redundant current-frame event must also leave Play running.
+    assert not seek_from_widget(state,'timeline:1',player_key='player',position_key='position',active_key='active')
+    assert player.playing
+    # A real seek from the currently displayed widget still pauses and rewinds.
+    state['timeline:1']=0
+    assert seek_from_widget(state,'timeline:1',player_key='player',position_key='position',active_key='active')
+    assert player.index==0 and not player.playing and state['position']==0
+
+
 def test_parallel_map_images_are_isolated_and_share_fixed_geometry(monkeypatch):
     import robot_navigation.interface as ui
     from robot_navigation.core import load_task

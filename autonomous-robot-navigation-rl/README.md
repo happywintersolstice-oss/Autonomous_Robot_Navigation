@@ -15,6 +15,10 @@ Its implementation and separate validation workflow are described in
 **Agent comparison** view includes all four RL algorithms using development
 validation. See [measured results and limitations](docs/ppo_comparison_results.md).
 PPO is an untuned additional baseline. The original frozen release is unchanged.
+The [current plan-closure status](docs/plan_closure_status.md) tracks remaining
+gaps. Additional route/cost tables and all six four-family robustness dimensions
+are available in the dashboard, backed by the separate `four-rl-analysis-v1`
+saved-evidence study. See [analysis details](docs/four_way_analysis_results.md).
 
 **Part A:** five independent seeds per learned algorithm, 200,000 interactions
 each, common validation monitoring, and an explicit validation-only checkpoint
@@ -118,7 +122,7 @@ For **Early versus selected checkpoint**, choose an archived exemplar in Saved r
 the run manifest. Unavailable early models produce a clear message. The five
 archived early snapshots are included independently of the ignored bulk checkpoints.
 
-The viewer supports all three checkpoint algorithms, including old Q-learning
+The viewer supports all four checkpoint algorithms, including old Q-learning
 files. `m3-*` runs use `selected.npz` or `selected.zip` from validation monitoring;
 `checkpoint.*` retains the final-budget model separately. Playback never trains
 or changes learned state. All custom demos stay outside benchmark results.
@@ -153,8 +157,11 @@ $env:MPLCONFIGDIR = Join-Path (Get-Location) '.cache/matplotlib'
 .\.venv\Scripts\python.exe scripts/verify_reproduction.py --workspace .cache/reproduction-repeat
 ```
 
-The actual check passed using the installed locked dependencies on Windows/Python
-3.14.10. A clean network dependency installation and other hardware were not tested.
+The original check passed using installed locked dependencies on Windows/Python
+3.14.10. A subsequent fresh virtual-environment installation also passed all 96
+tests, imports, dependency consistency and frozen-release preparation using the
+unchanged lock file. Pip reused cached wheels; cold-cache downloads and other
+hardware were not tested. See [current verification](docs/plan_closure_status.md).
 The reproduced model is under that workspace's `artifacts/runs/`; original runs
 are never overwritten. No final cases enter training.
 
@@ -340,6 +347,6 @@ or deployment was performed. Part A has a separate saved benchmark-freeze record
 all results concern held-out initial conditions on a familiar map. Most validation
 initial states were visited during training, so this is not unseen-state transfer.
 
-All six core milestones are complete. Source and evidence remain local and uncommitted.
+All six core milestones are complete. Source and evidence remain local.
 PPO was subsequently added as the owner-authorized exploratory extension above.
 Unseen maps, moving obstacles, continuous movement and physical robots remain deferred.

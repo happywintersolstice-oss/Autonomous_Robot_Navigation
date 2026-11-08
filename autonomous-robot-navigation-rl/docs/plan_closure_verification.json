@@ -1,0 +1,111 @@
+{
+  "status": "automated_and_live_ui_checks_passed",
+  "fresh_setup": {
+    "python": "3.14.10",
+    "system_site_packages": false,
+    "locked_distributions": 58,
+    "all_locked_versions_match": true,
+    "lock_sha256": "5cc11c27a3847a44ee526250954f0e62c7820fb2cc9f9502a98227e826c5dea1",
+    "editable_install": "passed; no build isolation, no dependency re-resolution",
+    "pip_check": "passed",
+    "imports": [
+      "torch 2.15.0+cpu",
+      "pandas 3.1.1",
+      "stable-baselines3 2.9.2",
+      "streamlit 1.67.0"
+    ],
+    "gymnasium_checker": "passed",
+    "pytest": {
+      "passed": 96,
+      "seconds": 44.06
+    },
+    "frozen_restore": "passed; preparation only, no final policy execution",
+    "limitations": "Same Windows machine and cached wheels; no cold-cache download or cross-hardware guarantee"
+  },
+  "analysis": {
+    "status": "passed",
+    "saved_episode_metrics_reconciled": 18560,
+    "group_seed_rows": 340,
+    "input_files_verified": 104,
+    "input_files_unchanged": true,
+    "output_hashes": {
+      "summary.json": "e3b9d3df3e868854fd100a0d3bc17fca2c1fc6389d03559c282af28b44b5b7cb",
+      "groups.csv": "82131e37cf9a7b7fb497f4704f654a86e38d85bbe8b212c8d278713b141f8289",
+      "costs.csv": "ff65d57663a70e8758ccc8ceaa97ad4e602551998753f2d05618ca2634cd054c",
+      "scenario_labels.json": "df350a4955bba863d760ac25ae52721f907fe6023841c31af7c491fb3b34e670"
+    },
+    "new_training_interactions": 0,
+    "new_benchmark_evaluation_interactions": 0,
+    "final_test_policy_executions": 0,
+    "historical_means_unchanged": true
+  },
+  "preservation": {
+    "protected_historical_and_data_files": 7736,
+    "unauthorized_changes": [],
+    "frozen_files_verified": 184,
+    "frozen_seal_verified": true
+  },
+  "live_ui": {
+    "status": "passed",
+    "url": "http://127.0.0.1:8518",
+    "method": "Native Chrome on the owner-opened local tab",
+    "in_app_browser": "Host unavailable; native fallback succeeded",
+    "viewport_widths_inspected": [
+      1536,
+      854
+    ],
+    "comparison_tables": "Four baseline families, route metrics, recorded costs; distance and corridor tables inspected",
+    "ppo_success": {
+      "run_id": "m7-ppo-seed91",
+      "scenario_id": "r0c0-r9c0",
+      "observed_intermediate_action": 5,
+      "final_actions": 9,
+      "final_position": [
+        9,
+        0
+      ],
+      "return": 9.91,
+      "spl": 1.0,
+      "playing_at_end": false
+    },
+    "seeking": {
+      "target_action": 2,
+      "position": [
+        2,
+        0
+      ],
+      "return": -0.02,
+      "paused": true,
+      "diagnostic_expansion_preserved_frame": true
+    },
+    "reset": {
+      "action": 0,
+      "old_decision_table_removed": true
+    },
+    "matched_comparison": {
+      "scenario_id": "r0c0-r0c3",
+      "left": "m7-ppo-seed7",
+      "right": "m4-control-q-learning-seed101",
+      "shared_final_index": 3,
+      "left_outcome": "success",
+      "left_return": 9.97,
+      "right_outcome": "collision",
+      "right_held_action": 1,
+      "right_return": -5.01
+    },
+    "playback_issue": "Delayed timeline seek to zero after timer advanced to one; stale event callbacks reinforced reset",
+    "correction": "Frame-specific timeline widget keys, active-widget seek guards, redundant-event rejection, paused timers disabled",
+    "narrow_layout": "Full button labels in two rows, full-width speed, single map/telemetry stacked",
+    "limitations": [
+      "No measured browser frame-rate or input-latency benchmark",
+      "Phone/touch not tested",
+      "Not every saved run manually replayed"
+    ]
+  },
+  "extra_research_training_runs": 0,
+  "unresolved": [
+    "Historical selected training trajectories were not retained",
+    "Neural representation comparison not performed",
+    "Independent four-family final evaluation not performed"
+  ]
+}

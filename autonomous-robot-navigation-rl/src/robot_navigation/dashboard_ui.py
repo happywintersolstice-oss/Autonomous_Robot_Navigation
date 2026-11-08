@@ -5,11 +5,12 @@ import pandas as pd
 import streamlit as st
 
 from .core import ACTION_NAMES, read_json
-from .dashboard import evidence, early_checkpoint, frozen_episode
+from .dashboard import evidence, early_checkpoint, frozen_episode, seek_from_widget
 from .episodes import ComparisonPlayback
 from .interface import context_strip, panel_heading, show_map, telemetry, run_label, SELECTED_RUN
 from .release import final_summary
 from .four_way import saved_summary as four_way_summary,STUDY as FOUR_WAY_STUDY
+from .four_way_analysis import saved_analysis, ANALYSIS_STUDY
 
 
 def saved_json(path):
@@ -41,6 +42,13 @@ def metric_rows(summary):
 
 def render_page(page, task, root):
     st.title(page)
+    try:
+        details = saved_analysis(root)
+        if details:
+            task.check(details['signature'])
+    except (OSError, ValueError, KeyError) as exc:
+        st.warning(f'Extended comparison unavailable: {exc}')
+        details = None
     fourth=four_way_summary(root)
     if fourth:
         task.check(fourth['signature'])
@@ -52,7 +60,35 @@ def render_page(page, task, root):
                    **{metric:system['metrics'][metric]['mean'] for metric in ('success_rate','collision_rate','timeout_rate','spl')},
                    'Success seed SD':system['metrics']['success_rate']['sample_sd']}
                   for system in fourth['systems'].values()]
+            if details:
+                for row, system in zip(rows, details['systems'].values()):
+                    route = system['metrics']['mean_successful_route_length']
+                    row.update({'Successful route actions': route['mean'],
+                                'Route seed SD': route['sample_sd'],
+                                'Route contributing seeds': route['contributing_seeds'],
+                                'Successes across five seeds': system['counts']['success'],
+                                'Mean return': system['metrics']['mean_return']['mean']})
             st.dataframe(pd.DataFrame(rows),hide_index=True,width='stretch')
+            if details:
+                st.caption('Route length is conditional on success: equal-weight seed means, excluding undefined zero-success seed means. Success counts span 928 scenarios × five seeds; they are not independent training replicates. Rates are fractions (1 = 100%).')
+                st.subheader('Recorded costs across five training seeds')
+                cost_labels = {'training_seconds':'Training seconds', 'evaluation_seconds':'Validation seconds',
+                               'mean_decision_microseconds':'Decision microseconds', 'checkpoint_bytes':'Checkpoint bytes'}
+                costs = [{'Algorithm': system['label'],
+                          **{label: system['costs'][key]['mean'] for key, label in cost_labels.items()},
+                          **{label+' seed SD': system['costs'][key]['sample_sd'] for key, label in cost_labels.items()}}
+                         for system in details['systems'].values()]
+                st.dataframe(pd.DataFrame(costs),hide_index=True,width='stretch')
+                st.caption('Recorded timings are descriptive, from separate runs on this machine. Training excludes monitoring/export; validation includes reset/recording/export. Latency is the historical 100-query mean, excluding rendering. Checkpoint bytes exclude metadata and do not measure RAM. SD is sample SD across training seeds.')
+                with st.expander('Per-seed metrics and recorded costs'):
+                    records = [{'Algorithm': system['label'], 'Seed': seed['seed'],
+                                'Run': seed['run_id'], 'Selected interaction': seed['selected_interactions'],
+                                **{k:v for k,v in seed['metrics'].items() if k!='counts'}, **seed['costs']}
+                               for system in details['systems'].values() for seed in system['seed_results']]
+                    st.dataframe(pd.DataFrame(records),hide_index=True,width='stretch')
+                    st.download_button('Download four-algorithm metrics and costs',
+                        (root/'artifacts/studies'/ANALYSIS_STUDY/'costs.csv').read_bytes(),
+                        file_name='four-rl-costs.csv',mime='text/csv')
             saved_image(root/'artifacts/studies'/FOUR_WAY_STUDY/'comparison.png')
         else:
             st.info('The PPO extension has not produced a verified four-algorithm comparison yet. The existing results below cover the original release.')
@@ -150,6 +186,30 @@ Interactive demos/comparisons do not enter benchmark summaries.''')
         st.dataframe(pd.DataFrame([{'policy':k,**v} for k,v in vote['timing'].items()]),hide_index=True)
         st.caption('Above latency uses the shared 1,000-query benchmark. Per-run evaluation runtimes include reset/recording/export; they are local measurements, not isolated hardware guarantees. Voting wrapper training is zero, but member cost is not zero.')
     elif page=='Optimization and robustness':
+        if details:
+            st.subheader('Four baseline algorithms: fixed-map robustness')
+            st.caption('Original Part A Q-learning, SARSA and DQN plus PPO; five seeds per family. Unchanged predefined geometry labels on development validation. These are exploratory, overlapping scenario dimensions on one familiar map, not causal effects or independent test sets.')
+            dimensions = list(dict.fromkeys(g['dimension'] for g in details['systems']['ppo']['groups']))
+            dimension = st.selectbox('Four-algorithm scenario dimension', dimensions, key='four_way_dimension')
+            rows = []
+            for system in details['systems'].values():
+                for group in system['groups']:
+                    if group['dimension'] == dimension:
+                        route = group['metrics']['mean_successful_route_length']
+                        rows.append({'Algorithm':system['label'],'Group':group['group'],
+                                     'Pairs per seed':group['scenarios_per_seed'],'Seeds':system['seed_count'],
+                                     **{m:group['metrics'][m]['mean'] for m in ('success_rate','collision_rate','timeout_rate','spl')},
+                                     'Success seed SD':group['metrics']['success_rate']['sample_sd'],
+                                     'Successful route actions':route['mean'],
+                                     'Route contributing seeds':route['contributing_seeds'],
+                                     'Successes across five seeds':group['counts']['success']})
+            st.dataframe(pd.DataFrame(rows),hide_index=True,width='stretch',
+                         column_config={'Group':st.column_config.TextColumn(width='medium')})
+            st.caption('Each dimension partitions all 928 pairs per seed. Route means exclude zero-success seeds; an empty value means no successful routes, never a zero-action solution. Corridor labels describe the canonical BFS route. Groups differ in distance and geometry.')
+            st.download_button('Download four-algorithm robustness by seed',
+                (root/'artifacts/studies'/ANALYSIS_STUDY/'groups.csv').read_bytes(),
+                file_name='four-rl-robustness.csv',mime='text/csv')
+            st.divider()
         st.subheader('Matched baseline versus refinement')
         paired=saved_json(root / 'artifacts/studies/part-b-v1/paired_improvements.json')
         if paired is not None:
@@ -258,11 +318,9 @@ def render_comparison(task,directory,validation,runs,root):
         st.session_state['comparison_playback']=player
         st.session_state['comparison_seek']=player.index
         st.session_state['comparison_tick']=time.monotonic()
-    def seek():
-        player=st.session_state['comparison_playback']
-        player.pause()
-        player.seek(st.session_state['comparison_seek'])
-        st.session_state['comparison_playback']=player
+    def seek(key):
+        seek_from_widget(st.session_state, key, player_key='comparison_playback',
+                         position_key='comparison_seek', active_key='comparison_timeline_key')
     with st.container(key='comparison_playback_controls'):
         controls=st.columns([1,1,1.2,1,2.2],vertical_alignment='center')
         for col,label,name,icon in zip(controls,['Play','Pause','Next step','Reset'],
@@ -271,7 +329,7 @@ def render_comparison(task,directory,validation,runs,root):
             col.button(label,on_click=command,args=(name,),key=f'comparison_{name}',icon=f':material/{icon}:',
                        type='primary' if name=='play' else 'secondary',width='stretch')
         speed=controls[4].select_slider('Speed (actions / second)',options=[.5,1.,2.,4.],value=2.,key='comparison_speed')
-    @st.fragment(run_every=.2)
+    @st.fragment(run_every=.2 if player.playing else None)
     def panels():
         player=st.session_state['comparison_playback']
         now=time.monotonic()
@@ -280,7 +338,12 @@ def render_comparison(task,directory,validation,runs,root):
             st.session_state['comparison_playback']=player
             st.session_state['comparison_seek']=player.index
             st.session_state['comparison_tick']=now
-        st.slider('Replay position',0,player.length,key='comparison_seek',on_change=seek)
+            if not player.playing:
+                st.rerun()
+        timeline_key=f'comparison-timeline:{identity}:{player.index}'
+        st.session_state['comparison_timeline_key']=timeline_key
+        st.slider('Replay position',0,player.length,value=player.index,key=timeline_key,
+                  on_change=seek,args=(timeline_key,))
         st.caption(f'Shared action index: {player.index} · '+('Playing' if player.playing else 'Paused'))
         for panel_index,(col,episode,run) in enumerate(zip(st.columns(2),player.episodes,(directory,second))):
             with col:

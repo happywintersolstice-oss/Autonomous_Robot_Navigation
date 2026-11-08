@@ -98,4 +98,39 @@ hashes to match the new UI.
 The map still uses discrete cell steps. Playback speed is a requested cadence;
 rendering and browser scheduling can slow it. Weak frozen policies still loop
 until their original episode termination condition. Deferred features remain
-deferred, including unseen maps, dynamics noise, PPO and hardware integration.
+deferred, including unseen maps, dynamics noise and hardware integration. PPO was
+subsequently implemented as the owner-authorized fourth algorithm; the current
+four-family tables and verification are documented in
+[the analysis results](four_way_analysis_results.md).
+
+## Live playback correction — 8 November 2026
+
+With the local dashboard active in Chrome, a new live check reproduced Play
+rewinding to frame zero despite passing automated tests. Temporary callback
+logging showed `control play` at index 0, followed by a delayed timeline seek
+to 0 after the player reached index 1; stale event-log callbacks could then
+bounce between frames. Diagnostic logging was removed after identifying this.
+
+Timeline widgets now use frame-specific keys and ignore events from superseded
+widgets. Duplicate current-frame events do not pause Play. Event seeking accepts
+only the currently displayed event widget, and remains disabled during playback.
+Paused viewers do not schedule timer reruns; reaching a terminal frame performs
+one full rebuild with the timer disabled. Both single and matched replay use the
+same seek guard. The server was restarted to clear an old imported module.
+
+All 96 tests passed in 44.06 seconds in the fresh environment, including two new
+delayed-event regressions. Native Chrome observed PPO seed91 advance to action 5
+and finish at action 9, `[9,0]`, return 9.91, SPL 1.000. Rewinding to action 2
+paused at `[2,0]`/-.02; expanding probabilities preserved the frame. Reset cleared
+the old decision table at index 0. PPO seed7 versus control Q-learning101 on the
+same three-step scenario reached shared index 3 with PPO at success/9.97 and the
+control held at its one-action boundary collision/-5.01. The map and terminal
+markers were visually inspected.
+
+At approximately 854 pixels wide, the old toolbar clipped labels. Controls now
+form two button rows with a full-width speed slider; the single replay map and
+telemetry stack vertically. Full labels and the larger map were inspected live.
+The four-family comparison/cost tables and distance/corridor group selectors
+were also inspected at desktop width. No phone/touch or measured cadence claim
+is made. This remains a presentation-only revision with no research retraining
+or changes to benchmark rules, learned checkpoints or frozen final results.

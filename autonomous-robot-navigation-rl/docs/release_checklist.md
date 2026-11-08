@@ -1,5 +1,9 @@
 # Core release acceptance
 
+Historical milestone-6 acceptance record (6 November 2026). Test counts and
+observations below belong to that frozen release. PPO, later UI changes and
+current setup checks are tracked separately in [plan closure](plan_closure_status.md).
+
 - [x] Versioned fixed map, deterministic scenario manifests and shared environment.
 - [x] Tested endings/rewards, tabular updates, timeout bootstrap, metrics and model loading.
 - [x] Random/BFS/Q-learning/SARSA/DQN and five-seed equal-budget Part A comparison.
@@ -20,7 +24,8 @@
 Known limits: familiar map only, poor SARSA/DQN and residual refined-policy
 failures, one ensemble, small seed counts, no clean network dependency installation
 test, no cross-hardware bitwise guarantee, no exact training resume. Deferred scope
-is unchanged. New final-result-driven model work needs a new holdout or explicit
-exploratory labeling. The dashboard's implementation badge identifies integration
-milestone 5; its final-evaluation panel and this release record identify completion
+remains deferred except for the later owner-authorized PPO validation extension.
+New final-result-driven model work needs a new holdout or explicit
+exploratory labeling. The current dashboard reports four trained RL families;
+its historical final-evaluation panel and this release record identify completion
 of milestone 6.

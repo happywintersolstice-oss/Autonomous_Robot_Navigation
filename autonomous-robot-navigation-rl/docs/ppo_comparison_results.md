@@ -71,5 +71,8 @@ All 90 project tests passed after publication. Automated dashboard checks cover
 replay, custom demonstrations, matched playback and the verified table. A separate
 preservation check examined 7,249 protected files with no unauthorized changes and
 verified all 184 archived frozen inputs against their seal.
-Live visual inspection remains unresolved because Windows
-computer-use automation could not reliably determine Chrome's current URL.
+Those initial visual attempts were blocked by unreliable Chrome URL detection.
+A later owner-opened local tab enabled successful native Chrome verification;
+the current observations and playback correction are recorded in
+[plan closure](plan_closure_status.md). The 90-test count above records the
+original PPO extension; the current suite has 96 passing tests.

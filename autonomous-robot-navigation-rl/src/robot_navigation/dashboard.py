@@ -13,6 +13,21 @@ PART_B_SEEDS = (101, 211, 307, 401, 503)
 PART_A_SEEDS = (7, 19, 43, 67, 91)
 
 
+def seek_from_widget(state, key, *, player_key, position_key, active_key):
+    """Ignore delayed events from a timeline/event widget no longer displayed."""
+    if state.get(active_key) != key:
+        return False
+    player = state[player_key]
+    target = state[key]
+    if target == player.index:
+        return False
+    player.pause()
+    player.seek(target)
+    state[player_key] = player
+    state[position_key] = player.index
+    return True
+
+
 def system_runs():
     systems = {}
     for stage, label in (('control', 'Baseline'), ('tuned', 'Refined')):

@@ -62,6 +62,20 @@ def apply_theme():
     .st-key-single_decision_details,
     .st-key-comparison_decision_details_0,
     .st-key-comparison_decision_details_1 {padding-top:12px;}
+    @media(max-width:1100px) {
+      .st-key-single_playback_controls [data-testid="stHorizontalBlock"],
+      .st-key-comparison_playback_controls [data-testid="stHorizontalBlock"] {
+        display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem;
+      }
+      .st-key-single_playback_controls [data-testid="stColumn"],
+      .st-key-comparison_playback_controls [data-testid="stColumn"] {
+        width:100% !important;min-width:0 !important;
+      }
+      .st-key-single_playback_controls [data-testid="stColumn"]:last-child,
+      .st-key-comparison_playback_controls [data-testid="stColumn"]:last-child {grid-column:1 / -1;}
+      .st-key-single_replay_content [data-testid="stHorizontalBlock"] {flex-direction:column;}
+      .st-key-single_replay_content [data-testid="stColumn"] {width:100% !important;flex:1 1 100% !important;}
+    }
     @media(max-width:800px) {
       [data-testid="stMainBlockContainer"] {padding:3rem 1rem 1rem;}
       .lab-context {gap:.75rem;} h1 {font-size:1.55rem !important;}

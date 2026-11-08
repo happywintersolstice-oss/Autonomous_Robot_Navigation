@@ -260,3 +260,87 @@ remain familiar-map transfer, residual failures, poor SARSA/DQN, small seed coun
 one ensemble, inference-only snapshots and no clean network dependency installation
 or cross-hardware verification. Deferred scope remains unchanged. No automatic
 commit, push, share link or deployment. All six core milestones are complete.
+
+## Owner-authorized PPO extension — 8 November 2026
+
+The owner required four trained RL algorithms and selected PPO. Implemented a
+categorical actor/value baseline with normalized coordinate inputs, fixed-rollout
+budgets, post-update monitoring, checksum-validated ZIP models and probability/
+state-value diagnostics. Windows Application Control initially blocked imports;
+the owner changed the setting manually. The existing environment then loaded
+PyTorch/pandas/SB3 successfully; no security setting was changed by the agent.
+
+Registered a fixed single configuration before an independent seed-101 10k pilot.
+The five main seeds [7,19,43,67,91] each completed exactly 200k interactions,
+with no tuning or poor-seed replacement. Matrix wall time was 654.21 seconds.
+Mean validation success was 15.22%, sample seed SD 13.46 percentage points.
+Audited 241,569 validation actions, 100 monitoring checkpoints and all 128
+registered historical comparison inputs. All 90 tests passed at that checkpoint.
+PPO remains outside the old frozen final evaluation; its comparison is exploratory.
+The owner requested a local commit, recorded as `3848049`.
+
+## Plan reconciliation and saved-evidence integration — 8 November 2026
+
+The owner authorized documentation reconciliation, complete PPO route/cost and
+robustness views, fresh installation checks and another live UI check. Updated
+the plan status and report addendum, retaining historical core results and dates.
+Added `four-rl-analysis-v1` rather than changing old runs/studies. Reused the
+unchanged six milestone-5 geometry labels before aggregating saved outcomes.
+Reconciled 18,560 episode metrics and 340 group/seed rows across 20 baseline runs;
+104 analysis inputs passed hash checks. The original success means are unchanged.
+Analysis adds zero training, benchmark evaluations or final-test policy executions.
+
+Dashboard additions show conditional successful route means, contributing seed/
+success counts, recorded training/validation times, 100-query decision latency,
+checkpoint file sizes, sample seed SD and CSV downloads. Four-family robustness
+now covers distance, corridor, wall proximity, start/goal quadrant and region
+crossing. Zero-success route means stay undefined. Costs are descriptive separate
+run measurements; group effects are confounded with distance/geometry.
+
+Created a fresh isolated Python 3.14.10 environment with no system site packages.
+Initial restricted installation failed to resolve the first package; a retry with
+approved explicit PyPI access installed all 58 unchanged lock entries using cached
+wheels. Editable package installation, pip consistency, neural/UI imports and
+Gymnasium checks passed. All 94 tests passed in 41.54 seconds in this environment.
+Exact frozen archive preparation passed without final-policy execution. This is
+a same-machine fresh-environment check, not cold-cache or cross-hardware evidence.
+
+Selected historical training traces cannot be recovered from episode CSVs;
+the optional neural representation comparison remains unperformed. Neither was
+invented or silently added as new training. Current visual-check status and
+remaining research are tracked in `docs/plan_closure_status.md`.
+
+Preservation verified all 7,736 pre-existing artifact/data files unchanged and all
+184 frozen inputs against their seal. The new local preview runs at port 8518
+from the fresh environment. The renewed in-app browser attempt returned
+`The browser access host is unavailable`; browser inventory exposed no connected
+browser. Live verification therefore remains unconfirmed. No remote publication,
+new model selection or additional research training was performed.
+
+## Live verification and playback synchronization — 8 November 2026
+
+The owner opened the local preview and left its tab active, resolving the earlier
+native Chrome URL ambiguity. Four-family comparison/cost tables and PPO distance/
+corridor groups were visually inspected. The live replay exposed a bug absent
+from AppTest: delayed timeline events rewound index 1 to 0 and paused Play, then
+old event-log events could reinforce the bounce. Temporary callback logging
+confirmed that sequence and was removed after diagnosis.
+
+Introduced frame-specific timeline keys and shared active-widget seek guards for
+single/matched playback. Duplicate frame events leave Play running; obsolete
+timeline/event callbacks are ignored. Paused viewers disable interval reruns,
+and terminal frames trigger one timer-free rebuild. A stale server import was
+cleared by restarting the owned port-8518 server. All 96 tests passed in 44.06
+seconds in the fresh environment, including delayed-event regressions for both
+playback modes.
+
+Native Chrome observed PPO seed91 reach action 5 then goal `[9,0]` at action 9,
+return 9.91/SPL 1.000. Seeking paused at action 2, `[2,0]`/-.02; expanding
+probabilities preserved it, and Reset removed the previous decision table at
+frame 0. Matched PPO7 versus control Q-learning101 finished at shared index 3:
+PPO success `[0,3]`/9.97, baseline held at its one-action collision `[0,0]`/-5.01.
+Narrow toolbar labels were clipped; two-row controls/full-width speed and stacked
+single map/telemetry were fixed and inspected at approximately 854 pixels.
+No quantitative browser cadence, phone/touch or all-run manual replay claim is
+made. Historical training traces, representation experiments and an independent
+four-family final evaluation remain outside this verification work.

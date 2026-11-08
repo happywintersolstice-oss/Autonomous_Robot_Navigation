@@ -2,6 +2,24 @@
 
 Private technical report · completed core release · 6 November 2026
 
+Current addendum, 8 November 2026: the owner subsequently authorized PPO as a
+fourth algorithm. Its five 200k-interaction runs and exploratory validation
+comparison are complete. PPO averaged 15.22% success (sample seed SD 13.46
+percentage points). It is untuned and remains outside the original frozen final
+evaluation reported below. See [PPO results](ppo_comparison_results.md),
+[four-family route/cost/robustness analysis](four_way_analysis_results.md) and
+[current plan-closure status](plan_closure_status.md). Historical core counts,
+dates and final results below describe that original release. The later fresh
+virtual-environment check installed all 58 unchanged pinned dependencies and
+passed all 96 current tests, the Gymnasium/dependency checks and exact archived
+release preparation. Cached wheels were reused on the same Windows machine;
+other hardware and cold-cache downloads remain untested.
+The later native Chrome check confirmed PPO success/failure comparison, route/
+cost and robustness tables, probability diagnostics, seeking/reset and narrow
+controls. It exposed and corrected delayed timeline events that paused/rewound
+Play; both single and matched playback now reject stale widget events. Details
+and limits are recorded in the current plan-closure status.
+
 ## Problem and solution
 
 Build and study a robot controller that reaches varied goals on one fixed static
@@ -41,7 +59,8 @@ this is held-out initial conditions on a familiar map, not unseen-state/map tran
 Q-learning uses a max next-action target; SARSA uses its carried next behavior
 action. Exploration and random training tie-breaking are confined to training;
 evaluation uses greedy fixed-priority ties. Vanilla Stable-Baselines3 DQN uses a
-replay buffer and target network; no Double/Dueling/PPO claim is made.
+replay buffer and target network; no Double/Dueling claim is made. PPO belongs to
+the later addendum, rather than the original three-family frozen study.
 
 Each main learned run received 200,000 interactions, with a fixed 30-pair validation
 monitor every 10k. Checkpoints maximize monitor success, then SPL, then earliest
@@ -200,7 +219,9 @@ The final table was also inspected in the live native Chrome overview.
 
 Preserved **6,763 pre-milestone-6 root/data/artifact files**, including local
 ignored models/traces. No energy project or sources directory was present here.
-All work stays local; no commit, push, public share link or deployment was performed.
+At that release checkpoint, no commit, push, public share link or deployment had
+been performed. Later core/UI/PPO work was committed locally; no remote
+publication is part of this project.
 
 ## Development plan, limits and future work
 
@@ -211,8 +232,9 @@ implementation and Codex assistance without fictional team allocations.
 
 Residual timeouts/collisions, weak SARSA/DQN, five-seed limits and one-ensemble
 uncertainty remain. The final set is now spent: subsequent performance changes
-motivated by it require a new holdout or explicit exploratory labeling. PPO,
-dynamics noise, unseen maps, moving obstacles, partial observations, continuous
+motivated by it require a new holdout or explicit exploratory labeling. PPO was
+subsequently added under that exploratory labeling. Dynamics noise, unseen maps,
+moving obstacles, partial observations, continuous
 control and physical hardware remain deferred; simulator collision rates are not
 physical safety certification. No further tuning or winner promotion followed test.
 

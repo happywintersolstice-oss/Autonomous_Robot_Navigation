@@ -4,13 +4,13 @@
 
 **Project title:** Autonomous Robot Navigation Using Reinforcement Learning: Comparative Evaluation and Optimization in a Simulated Environment  
 **Owner:** Individual personal project  
-**Status:** Planning complete; implementation and experiments have not started under this brief  
+**Status:** Six core milestones completed; fourth-algorithm PPO extension trained and verified. Current integration checks and remaining gaps are recorded in `autonomous-robot-navigation-rl/docs/plan_closure_status.md`.
 **Planning date:** 6 November 2026  
 **Development period:** Suggested six-week first release, adjustable to personal availability  
 **Language:** Python  
 **Application type:** Reinforcement learning research prototype with an interactive navigation demonstration
 
-**Confirmed scope:** Proceed with the core plan, including the animated navigation UI. PPO, unseen-map generalization, moving obstacles, continuous movement and physical robots are deferred to later phases. Retain their descriptions as future reference only; do not implement or schedule them in the current release without a new request from the owner.
+**Confirmed scope:** The core plan includes the animated navigation UI. PPO was subsequently authorized as the separate extension below. Unseen-map generalization, moving obstacles, continuous movement and physical robots remain deferred. Retain their descriptions as future reference only; do not implement or schedule them without a new request from the owner.
 
 **Owner extension, 8 November 2026:** Add PPO as a fourth trained RL algorithm
 for comparison. This supersedes PPO's deferred status for this extension only.
@@ -199,11 +199,11 @@ Hold test maps back until the transfer method is frozen. Full visibility means t
 | Q-learning | Off-policy tabular learning baseline | Essential learned agent |
 | SARSA | On-policy tabular comparison for exploration behavior | Essential learned agent |
 | DQN | Neural value-based learning with replay and a target network | Essential learned agent |
-| PPO | Additional policy-gradient comparison | Deferred; outside current release |
+| PPO | Additional policy-gradient comparison | Completed owner-authorized post-release baseline; separate exploratory validation |
 
 BFS is a classical planner, not a trained ML model. It uses the known map and serves as a correctness and efficiency reference. RL is not expected to outperform an exact shortest-path planner on minimum route length in this setting. A* may be added to compare planner computation, but BFS is sufficient for the initial grid.
 
-Use small, readable tabular implementations for Q-learning and SARSA. Prefer an established DQN implementation from Stable-Baselines3. Its [DQN documentation](https://stable-baselines3.readthedocs.io/en/master/modules/dqn.html) supports the proposed discrete actions. Do not label the standard SB3 DQN implementation as Double DQN, Dueling DQN or prioritized replay. PPO implementation is deferred.
+Use small, readable tabular implementations for Q-learning and SARSA. Prefer an established DQN implementation from Stable-Baselines3. Its [DQN documentation](https://stable-baselines3.readthedocs.io/en/master/modules/dqn.html) supports the proposed discrete actions. Do not label the standard SB3 DQN implementation as Double DQN, Dueling DQN or prioritized replay. PPO is implemented under the separate owner-extension protocol; it is not part of the original frozen final evaluation.
 
 ### Common experiment protocol
 
@@ -242,7 +242,7 @@ Produce learning curves with seed variability, common-scenario comparison tables
 
 Shortlist two learned approaches using validation success rate first, SPL second, and runtime/stability as documented tie-breakers. Keep BFS and random-policy references in the comparison. Do not pick the winner from the final test set.
 
-**Part A deliverables:** Validated environment, saved splits, baseline references, three trained RL approaches, run manifests, comparable validation results, failure analysis and a justified shortlist. PPO is outside this release.
+**Part A deliverables:** Validated environment, saved splits, baseline references, three original trained RL approaches, run manifests, comparable validation results, failure analysis and a justified shortlist. The later PPO extension adds a fourth trained baseline for exploratory development-validation comparison while preserving Part A and its shortlist.
 
 ## 5. Part B - Refining the Model/System
 
@@ -451,7 +451,7 @@ One person owns all workstreams. Use milestone gates to control scope instead of
 | 5 - Integration and robustness | Expand the viewer into the full dashboard, add comparisons and insight overlays, analyze core robustness on the fixed map | Working navigation viewer with synchronized diagnostics, comparisons and robustness evidence |
 | 6 - Final evaluation and documentation | Freeze system, run final tests, verify figures, reproduce from setup instructions, finish report | Reproducible private release with actual evidence and known limitations |
 
-PPO, unseen maps, moving obstacles, continuous movement and physical robots remain deferred even if time is available. If behind schedule, reduce graphical polish while keeping the required animated viewer, model comparison, meaningful refinement, voting experiment and core robustness. If training fails, preserve the negative finding and reduce task difficulty only as a documented new benchmark version applied consistently to every approach.
+Unseen maps, moving obstacles, continuous movement and physical robots remain deferred even if time is available. PPO was authorized separately after these six core milestones. If behind schedule, reduce graphical polish while keeping the required animated viewer, model comparison, meaningful refinement, voting experiment and core robustness. If training fails, preserve the negative finding and reduce task difficulty only as a documented new benchmark version applied consistently to every approach.
 
 ## 10. Quality, Testing and Experimental Integrity
 
@@ -481,7 +481,7 @@ Each run must store run ID, source revision or source hash, dependencies, hardwa
 - Retain the existing correctness requirements independently of learning targets: BFS solves every reachable benchmark scenario optimally, outcome counts reconcile, and replay positions/rewards match saved transitions.
 - Include a locally produced saved demonstration bundle so the viewer opens without retraining. Document setup, training, evaluation and UI launch commands for Windows, with the tested Python/dependency versions. Record the external sources used for methods or adapted code in the development log.
 
-This planning review identifies requirements to implement; none of these gates or performance targets has been validated by running a robot application yet.
+The core release has measured implementation, evaluation and reproduction evidence. Consult `docs/release_checklist.md` for the historical core acceptance record and `docs/plan_closure_status.md` for current checks and remaining limits. Passing implementation checks does not imply that every learned family met its performance targets.
 
 Exact bitwise reproducibility may vary across hardware/libraries; document that limit and verify practical repeatability. Record runs interrupted by budget or software errors separately from complete learning runs.
 
@@ -517,7 +517,7 @@ The institution specifies a cover page, Times New Roman 11 pt, single spacing an
 
 The items below are outside the current release and require a later scope decision before implementation.
 
-- PPO comparison.
+- Further PPO tuning or a separately designed independent four-algorithm evaluation; the initial PPO validation comparison is complete.
 - Map-aware policies trained across layouts and evaluated on held-out maps.
 - Controlled action noise, deeper state/reward analysis and richer playback.
 
