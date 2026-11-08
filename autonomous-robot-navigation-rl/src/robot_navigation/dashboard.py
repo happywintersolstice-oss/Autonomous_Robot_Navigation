@@ -13,6 +13,52 @@ PART_B_SEEDS = (101, 211, 307, 401, 503)
 PART_A_SEEDS = (7, 19, 43, 67, 91)
 
 
+def baseline_lineup(seed, root=ROOT):
+    """Declared baseline replicates, independent of the scenario or its outcome."""
+    if seed not in PART_A_SEEDS:
+        raise ValueError('Choose one of the five declared baseline training seeds')
+    algorithms = ('q-learning', 'sarsa', 'dqn', 'ppo')
+    runs = [root / 'artifacts/runs' / f'm{7 if a == "ppo" else 3}-{a}-seed{seed}' for a in algorithms]
+    for directory, algorithm in zip(runs, algorithms):
+        manifest = read_json(directory / 'manifest.json')
+        if (manifest['status'] != 'complete' or manifest['algorithm'] != algorithm
+                or manifest['training_seed'] != seed or manifest['training_interactions'] != 200000):
+            raise ValueError(f'Baseline run identity or budget mismatch: {directory.name}')
+    return runs
+
+
+def training_paths(directory):
+    """Only manifest-declared recordings, confined to this run's trace folder."""
+    paths = []
+    for item in read_json(directory / 'manifest.json').get('training_traces', {}).get('records', []):
+        path = directory / item['path']
+        if not path.resolve().is_relative_to((directory / 'training_traces').resolve()):
+            raise ValueError('Training recording must stay inside its run')
+        paths.append(path)
+    return paths
+
+
+def training_episode(task, directory, path, root=ROOT):
+    """Read actual recorded training behavior, never a frozen-model reconstruction."""
+    from .representation import validate_training_prefix
+    from .release import sha
+    paths = training_paths(directory)
+    if path not in paths:
+        raise ValueError('Training recording is not declared in the run manifest')
+    manifest = read_json(directory / 'manifest.json')
+    item = manifest['training_traces']['records'][paths.index(path)]
+    if sha(path) != item['sha256']:
+        raise ValueError('Training recording checksum mismatch')
+    episode = read_json(path)
+    scenarios = {s['id']: s for s in load_scenarios(task, 'train', root)}
+    if (episode['scenario'] != scenarios.get(episode['scenario']['id'])
+            or episode['seed'] != manifest['training_seed']
+            or episode['complete'] != item['complete'] or len(episode['transitions']) != item['actions']):
+        raise ValueError('Training recording identity mismatch')
+    validate_training_prefix(task, episode)
+    return episode
+
+
 def seek_from_widget(state, key, *, player_key, position_key, active_key):
     """Ignore delayed events from a timeline/event widget no longer displayed."""
     if state.get(active_key) != key:

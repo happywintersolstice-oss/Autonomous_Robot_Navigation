@@ -134,10 +134,11 @@ class Playback:
 class ComparisonPlayback:
     """One action-index clock; finished agents remain at their terminal frames."""
     def __init__(self, episodes):
-        if len(episodes) != 2:
-            raise ValueError('Two episodes are required')
-        first, second = episodes
-        if any(first[k] != second[k] for k in ('signature', 'scenario', 'mode')):
+        if len(episodes) not in (2, 4):
+            raise ValueError('Two or four episodes are required')
+        first = episodes[0]
+        if any(first[k] != episode[k] for episode in episodes[1:]
+               for k in ('signature', 'scenario', 'mode', 'seed')):
             raise ValueError('Comparison requires matching task, scenario and evaluation mode')
         self.episodes = tuple(episodes)
         self.index, self.playing = 0, False

@@ -5,9 +5,10 @@ import pandas as pd
 import streamlit as st
 
 from .core import ACTION_NAMES, read_json
-from .dashboard import evidence, early_checkpoint, frozen_episode, seek_from_widget
-from .episodes import ComparisonPlayback
-from .interface import context_strip, panel_heading, show_map, telemetry, run_label, SELECTED_RUN
+from .dashboard import evidence, early_checkpoint, frozen_episode, seek_from_widget, baseline_lineup, PART_A_SEEDS
+from .episodes import ComparisonPlayback, frame
+from .interface import (context_strip, panel_heading, show_map, telemetry, run_label, SELECTED_RUN,
+                        playback_toolbar, playback_status)
 from .release import final_summary
 from .four_way import saved_summary as four_way_summary,STUDY as FOUR_WAY_STUDY
 from .four_way_analysis import saved_analysis, ANALYSIS_STUDY
@@ -270,6 +271,9 @@ def overlays(prefix='single'):
 
 
 def diagnostics(episode,index,key):
+    if episode.get('mode')=='training':
+        st.caption('These are actual training actions, including exploration. The model could change during the episode. Decision scores were not recorded; the trained model is not used to fill them in.')
+        return
     if index==0:
         st.caption('No action has been displayed. Decision scores are unavailable at the initial frame.')
         return
@@ -301,31 +305,45 @@ def event_log(episode,index,key,callback,disabled=False):
         st.caption('Pause playback to seek a displayed event.')
 
 
-def render_comparison(task,directory,validation,runs,root):
-    with st.sidebar:
-        st.header('Comparison setup')
-        kind=st.radio('Comparison type',['Another agent','Early versus selected checkpoint'])
-        scenario=st.selectbox('Validation scenario',validation,
-                             format_func=lambda s:f"{s['id']} · shortest {s['shortest_length']}",
+def render_comparison(task,directory,validation,runs,root,four=False):
+    with st.container(key='comparison_setup'):
+        kind='Four baselines' if four else st.radio('Comparison type',['Different models','Earlier vs trained model'],horizontal=True,
+            help='Compare different saved models, or compare an early checkpoint against the same run after training.')
+        fields=st.columns([1,2],gap='large')
+        if four:
+            training_seed=fields[0].selectbox('Training seed',PART_A_SEEDS,key='four_training_seed',
+                help='Each seed identifies four baseline training runs, one per algorithm. Every run used 200,000 training steps.')
+            st.caption('Four baseline models: Q-learning, SARSA, DQN and PPO. These are not four tuned models. Each panel shows one demonstration, not an overall ranking.')
+        scenario=fields[1].selectbox('Start and goal',validation,
+                             format_func=lambda s:f"{s['start']} → {s['goal']} · shortest {s['shortest_length']} steps",
                              key='comparison_scenario')
         second=directory
         early=None
-        if kind=='Another agent':
+        if four:
+            try:
+                lineup=baseline_lineup(training_seed,root)
+            except (OSError,ValueError,KeyError) as exc:
+                st.error(f'Four-agent lineup unavailable: {exc}')
+                return
+        elif kind=='Different models':
             preferred='m4-control-q-learning-seed101' if directory.name==SELECTED_RUN else SELECTED_RUN
             default=next((i for i,p in enumerate(runs) if p.name==preferred and p!=directory),
                          next((i for i,p in enumerate(runs) if p!=directory),0))
-            second=st.selectbox('Compare with run',runs,index=default,format_func=run_label,key='comparison_second')
+            second=fields[0].selectbox('Second trained model',runs,index=default,format_func=run_label,key='comparison_second')
         else:
             try:
                 early=early_checkpoint(directory,root)
-                st.caption('Early: 10,000 interactions. Later: monitoring-selected snapshot, which may precede the full budget.')
+                fields[0].caption('Earlier model: saved at 10,000 training steps. Trained model: the checkpoint selected during training, which may precede the full budget.')
             except (OSError,ValueError) as exc:
                 st.info(str(exc))
                 return
-    identity=(str(directory),str(second),scenario['id'],kind)
+        if not four:
+            lineup=[directory,second]
+    identity=(*map(str,lineup),scenario['id'],kind)
     if st.session_state.get('comparison_identity')!=identity:
         try:
-            records=[frozen_episode(task,directory,scenario,early),frozen_episode(task,second,scenario)]
+            records=[frozen_episode(task,run,scenario,early if index==0 else None)
+                     for index,run in enumerate(lineup)]
             st.session_state['comparison_playback']=ComparisonPlayback(records)
             st.session_state['comparison_identity']=identity
             st.session_state['comparison_seek']=0
@@ -334,12 +352,13 @@ def render_comparison(task,directory,validation,runs,root):
             st.error(f'Comparison unavailable: {exc}')
             return
     player=st.session_state['comparison_playback']
-    context_strip(player.episodes[0])
-    with st.sidebar.expander('Map layers'):
-        options=overlays('comparison')
-    with st.sidebar.expander('Comparison details'):
+    options={'trail':st.session_state.get('comparison_trail',True),
+             'visits':st.session_state.get('comparison_visits',False),
+             'bfs':st.session_state.get('comparison_bfs',False)}
+    with st.expander('About this comparison'):
+        context_strip(player.episodes[0])
         st.caption('Frozen policies on validation scenarios. No learning or benchmark result writes.')
-        st.caption('Both panels share map, start, goal, reward, replay seed and action index. Finished agents hold their terminal frame.')
+        st.caption('All panels share map, start, goal, reward, replay seed and action index. Finished agents hold their terminal frame.')
         st.caption('BFS knows the obstacle map. Learned agents see only robot and goal coordinates.')
     def command(name):
         player=st.session_state['comparison_playback']
@@ -351,15 +370,12 @@ def render_comparison(task,directory,validation,runs,root):
         seek_from_widget(st.session_state, key, player_key='comparison_playback',
                          position_key='comparison_seek', active_key='comparison_timeline_key')
     with st.container(key='comparison_playback_controls'):
-        controls=st.columns([1,1,1.2,1,2.2],vertical_alignment='center')
-        for col,label,name,icon in zip(controls,['Play','Pause','Next step','Reset'],
-                                      ['play','pause','next','reset'],
-                                      ['play_arrow','pause','skip_next','restart_alt']):
-            col.button(label,on_click=command,args=(name,),key=f'comparison_{name}',icon=f':material/{icon}:',
-                       type='primary' if name=='play' else 'secondary',width='stretch')
-        speed=controls[4].select_slider('Speed (actions / second)',options=[.5,1.,2.,4.],value=2.,key='comparison_speed')
+        speed=playback_toolbar(command,prefix='comparison_',speed_key='comparison_speed')
     @st.fragment(run_every=.2 if player.playing else None)
     def panels():
+        if (st.session_state.get('replay_tab')!='Compare agents'
+                or st.session_state.get('comparison_identity')!=identity):
+            return
         player=st.session_state['comparison_playback']
         now=time.monotonic()
         if player.playing and now-st.session_state['comparison_tick']>=1/speed:
@@ -373,16 +389,30 @@ def render_comparison(task,directory,validation,runs,root):
         st.session_state['comparison_timeline_key']=timeline_key
         st.slider('Replay position',0,player.length,value=player.index,key=timeline_key,
                   on_change=seek,args=(timeline_key,))
-        st.caption(f'Shared action index: {player.index} · '+('Playing' if player.playing else 'Paused'))
-        for panel_index,(col,episode,run) in enumerate(zip(st.columns(2),player.episodes,(directory,second))):
-            with col:
-                age='Early · 10,000 interactions' if early and run==directory and episode is player.episodes[0] else 'Selected checkpoint'
-                panel_heading(run,f"{age} · replay seed {episode['seed']}")
-                show_map(task.grid,episode,player.index,**options)
-                telemetry(episode,player.index,task.config['max_steps'],player.playing,shared_index=player.index)
-                with st.container(key=f'comparison_decision_details_{panel_index}'):
-                    with st.expander('Recorded decision and checkpoint'):
-                        st.caption(episode['display_checkpoint'])
-                        st.caption(episode['policy_id'])
-                        diagnostics(episode,min(player.index,len(episode['transitions'])),'comparison')
+        playback_status(player.index,player.playing,shared=True)
+        if four:
+            with st.expander('Compare displayed steps'):
+                rows=[]
+                for episode,run in zip(player.episodes,lineup):
+                    state=frame(episode,player.index)
+                    rows.append({'Agent':run_label(run),'Episode state':state['status'].capitalize(),
+                                 'Actions':state['index'],'Reward':round(state['return'],2),
+                                 'Position':str(state['position'])})
+                st.dataframe(pd.DataFrame(rows),hide_index=True,width='stretch')
+                st.caption('These are the displayed episode prefixes, not aggregate validation rankings.')
+        with st.container(key='four_maps' if four else 'pair_maps'):
+            for offset in range(0,len(player.episodes),2):
+                for panel_index,col in zip(range(offset,offset+2),st.columns(2,gap='medium')):
+                    episode,run=player.episodes[panel_index],lineup[panel_index]
+                    with col:
+                        age='Early · 10,000 interactions' if early and panel_index==0 else 'Selected checkpoint'
+                        panel_heading(run,f"{age} · replay seed {episode['seed']}")
+                        show_map(task.grid,episode,player.index,**options)
+                        telemetry(episode,player.index,task.config['max_steps'],player.playing,shared_index=player.index,compact=four)
+                        with st.expander('Recorded decision and checkpoint'):
+                            st.caption(episode['display_checkpoint'])
+                            st.caption(episode['policy_id'])
+                            diagnostics(episode,min(player.index,len(episode['transitions'])),'comparison')
     panels()
+    with st.expander('Map display options'):
+        overlays('comparison')

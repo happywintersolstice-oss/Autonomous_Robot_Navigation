@@ -1,0 +1,98 @@
+{
+  "date": "2026-11-09",
+  "status": "passed_with_fixes",
+  "browser": "Chrome",
+  "tested_url": "http://127.0.0.1:8518",
+  "updated_preview_ports": [
+    8518,
+    8520
+  ],
+  "window_widths_px": [
+    1536,
+    854
+  ],
+  "checks": {
+    "trained_replay": {
+      "position": [
+        0,
+        3
+      ],
+      "actions": 3,
+      "return": 9.97,
+      "outcome": "success"
+    },
+    "learning_first_action": {
+      "record": "m8-control-dqn-seed101/training_traces/episode-001.json",
+      "position": [
+        3,
+        9
+      ],
+      "action": "Down",
+      "reward": -0.01
+    },
+    "pair_terminal_holding": {
+      "shared_index": 3,
+      "selected_actions": 3,
+      "selected_return": 9.97,
+      "control_actions": 1,
+      "control_return": -5.01
+    },
+    "four_agent_pause": {
+      "shared_index": 27,
+      "q_learning_actions": 3,
+      "sarsa_actions": 3,
+      "dqn_actions": 27,
+      "dqn_position": [
+        1,
+        0
+      ],
+      "dqn_return": -0.27,
+      "ppo_actions": 3
+    },
+    "custom_demo_created": {
+      "start": [
+        0,
+        0
+      ],
+      "goal": [
+        9,
+        9
+      ],
+      "shortest_length": 18
+    },
+    "sidebar_navigation_only": true,
+    "narrow_model_selectors_stack": true,
+    "narrow_maps_stack": true,
+    "filter_label_readable_with_sidebar": true,
+    "inspector_reward_label_readable": true
+  },
+  "fixes": [
+    "Restarted stale imported modules on the old 8518 server",
+    "Stacked maps and model selectors at narrow widths",
+    "Enlarged four-agent maps and reserved filter-button width",
+    "Stacked single-agent metric cards to keep reward labels readable"
+  ],
+  "tests": {
+    "full_suite": {
+      "passed": 118,
+      "seconds": 51.45
+    },
+    "after_final_display_adjustment": {
+      "passed": 22,
+      "seconds": 20.31
+    }
+  },
+  "preservation": {
+    "protected_files_unchanged": 8816,
+    "archived_frozen_inputs_verified": 184,
+    "original_freeze_seal_valid": true
+  },
+  "new_training_interactions": 0,
+  "new_final_test_policy_executions": 0,
+  "limits": [
+    "No phone or touch-device test",
+    "No measured animation-cadence claim",
+    "Not every research-evidence page was visually rechecked",
+    "Older runs still lack actual training replay recordings"
+  ]
+}

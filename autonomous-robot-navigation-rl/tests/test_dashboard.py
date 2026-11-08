@@ -91,7 +91,7 @@ def test_all_dashboard_evidence_pages(page):
 
 def test_overlays_scores_event_seeking_preserve_replay():
     app=AppTest.from_file(str(ROOT / 'app/streamlit_app.py'),default_timeout=15).run()
-    box(app,'Saved run').set_value(ROOT / 'artifacts/runs/m4-tuned-q-learning-seed101').run()
+    box(app,'Trained model').set_value(ROOT / 'artifacts/runs/m4-tuned-q-learning-seed101').run()
     box(app,'Recorded episode').set_value(ROOT / 'artifacts/runs/m4-tuned-q-learning-seed101/replays/q_learning_success.json').run()
     next(b for b in app.button if b.label=='Next step').click().run()
     identity=app.session_state['episode_identity']
@@ -109,9 +109,9 @@ def test_overlays_scores_event_seeking_preserve_replay():
 def test_matched_comparison_and_early_checkpoint_controls():
     app=AppTest.from_file(str(ROOT / 'app/streamlit_app.py'),default_timeout=20).run()
     directory=ROOT / 'artifacts/runs/m4-tuned-q-learning-seed101'
-    box(app,'Saved run').set_value(directory).run()
-    next(r for r in app.radio if r.label=='Episode source').set_value('Matched comparison').run()
-    box(app,'Compare with run').set_value(ROOT / 'artifacts/runs/m4-tuned-sarsa-seed101').run()
+    box(app,'Trained model').set_value(directory).run()
+    app.session_state['replay_tab']='Compare agents'; app.run()
+    box(app,'Second trained model').set_value(ROOT / 'artifacts/runs/m4-tuned-sarsa-seed101').run()
     assert not app.exception
     player=app.session_state['comparison_playback']
     assert player.episodes[0]['scenario']==player.episodes[1]['scenario']
@@ -122,7 +122,7 @@ def test_matched_comparison_and_early_checkpoint_controls():
     assert app.session_state['comparison_playback'].index==2
     next(b for b in app.button if b.label=='Pause').click().run()
     assert not app.session_state['comparison_playback'].playing
-    next(r for r in app.radio if r.label=='Comparison type').set_value('Early versus selected checkpoint').run()
+    next(r for r in app.radio if r.label=='Comparison type').set_value('Earlier vs trained model').run()
     assert not app.exception
     assert 'step-0010000' in app.session_state['comparison_playback'].episodes[0]['display_checkpoint']
     assert app.session_state['comparison_playback'].index==0

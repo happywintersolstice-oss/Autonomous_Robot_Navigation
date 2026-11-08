@@ -138,13 +138,12 @@ def test_real_relative_pilot_replays_with_encoding_label_and_training_trace_down
     from streamlit.testing.v1 import AppTest
     directory=ROOT/'artifacts/runs/m8-relative-dqn-pilot-seed1701'
     app=AppTest.from_file(str(ROOT/'app/streamlit_app.py'),default_timeout=20).run()
-    next(w for w in app.selectbox if w.label=='Saved run').set_value(directory).run()
+    next(w for w in app.selectbox if w.label=='Trained model').set_value(directory).run()
     assert not app.exception
     assert any(ABSOLUTE_RELATIVE in c.value and '6 features' in c.value for c in app.caption)
     next(b for b in app.button if b.label=='Next step').click().run()
     player=app.session_state['playback']
     assert player.index==1 and player.current['position']==player.episode['transitions'][0]['next_observation'][:2]
-    assert any('actual exploratory actions' in m.value for m in app.markdown)
 
 
 def test_published_representation_dashboard_keeps_original_comparison_separate():

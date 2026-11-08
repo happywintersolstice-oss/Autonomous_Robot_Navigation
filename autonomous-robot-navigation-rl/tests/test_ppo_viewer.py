@@ -24,7 +24,7 @@ def test_verified_four_family_results_are_exposed_in_dashboard():
 def test_real_ppo_replay_probabilities_custom_demo_and_comparison():
     directory=ROOT/'artifacts/runs/m7-ppo-pilot-seed101'
     app=AppTest.from_file(str(ROOT/'app/streamlit_app.py'),default_timeout=20).run()
-    box(app,'Saved run').set_value(directory).run()
+    box(app,'Trained model').set_value(directory).run()
     box(app,'Recorded episode').set_value(directory/'replays/ppo_success.json').run()
     next(button for button in app.button if button.label=='Next step').click().run()
     assert not app.exception
@@ -32,14 +32,14 @@ def test_real_ppo_replay_probabilities_custom_demo_and_comparison():
     assert player.episode['policy_id'].startswith('ppo/') and player.index==1
     assert any('Action probability' in table.value.columns for table in app.dataframe)
     assert player.current['position']==player.episode['transitions'][0]['next_observation'][:2]
-    next(widget for widget in app.radio if widget.label=='Episode source').set_value('Custom demonstration').run()
+    app.session_state['replay_tab']='Try a route'; app.run()
     box(app,'Frozen policy').set_value('PPO')
     next(button for button in app.button if button.label=='Generate demonstration').click().run()
     assert not app.exception
     assert app.session_state['playback'].episode['mode']=='custom demonstration'
     assert app.session_state['playback'].episode['policy_id'].startswith('ppo/')
-    next(widget for widget in app.radio if widget.label=='Episode source').set_value('Matched comparison').run()
-    box(app,'Compare with run').set_value(ROOT/'artifacts/runs/m3-dqn-seed7').run()
+    app.session_state['replay_tab']='Compare agents'; app.run()
+    box(app,'Second trained model').set_value(ROOT/'artifacts/runs/m3-dqn-seed7').run()
     assert not app.exception
     next(button for button in app.button if button.label=='Next step').click().run()
     player=app.session_state['comparison_playback']

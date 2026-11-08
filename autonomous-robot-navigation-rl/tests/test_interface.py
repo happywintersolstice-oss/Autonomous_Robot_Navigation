@@ -35,9 +35,9 @@ def test_run_inventory_identifies_the_predeclared_system():
 
 def test_default_comparison_holds_collision_while_selected_system_moves():
     app=AppTest.from_file(str(ROOT/'app/streamlit_app.py'),default_timeout=20).run()
-    next(r for r in app.radio if r.label=='Episode source').set_value('Matched comparison').run()
+    app.session_state['replay_tab']='Compare agents'; app.run()
     assert not app.exception
-    second=next(b for b in app.selectbox if b.label=='Compare with run')
+    second=next(b for b in app.selectbox if b.label=='Second trained model')
     assert second.value.name=='m4-control-q-learning-seed101'
     player=app.session_state['comparison_playback']
     assert [len(e['transitions']) for e in player.episodes]==[3,1]

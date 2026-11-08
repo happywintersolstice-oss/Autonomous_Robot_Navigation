@@ -134,3 +134,67 @@ The four-family comparison/cost tables and distance/corridor group selectors
 were also inspected at desktop width. No phone/touch or measured cadence claim
 is made. This remains a presentation-only revision with no research retraining
 or changes to benchmark rules, learned checkpoints or frozen final results.
+
+
+## Task-based replay tabs ? 9 November 2026
+
+The simulator now uses Trained replay, Learning replay, Compare agents and Try a
+route tabs. The sidebar contains only research-page navigation and short help;
+model, episode and comparison choices are in the main screen. Experiment filters
+use a popover. Map options, identifiers and detailed recording information are
+secondary controls rather than a persistent sidebar stack. Technical Focus/Pair
+workspace labels were removed, and playback and episode states have separate,
+plain-language labels.
+
+Trained replay defaults to an example from the selected learned model rather
+than a BFS reference. Custom routes default to the chosen trained model; BFS and
+Random remain explicit references. The four-family baseline view uses the same
+registered training seed and budget for Q-learning, SARSA, DQN and PPO, with one
+shared action clock and held terminal frames. It is labeled as exploratory
+baseline evidence, not four tuned agents or aggregate performance.
+
+Learning replay reads only manifest-declared training traces. It verifies checksums,
+training identity and recorded transitions and does not load a trained model to
+reconstruct past behavior. Complete and cutoff recordings have distinct handling.
+Only the first three chronological episodes from each M8 pilot/main DQN run exist;
+older algorithms have no recoverable training replay. The screen and user guide
+explain that limitation. Tab changes pause hidden playback, and inactive views do
+not run animation fragments. The existing learning/evaluation evidence pages remain.
+
+Validation: all **118 tests passed in 35.81 seconds**, including training/trained
+tab separation, no model queries during learning replay, cutoff handling, tamper
+rejection, four-agent terminal holding, training-seed changes, empty filters,
+existing controls and research pages. All **8,816 protected files** were byte-checked
+unchanged. All **184 archived frozen inputs** and the original freeze seal verified.
+No training, benchmark regeneration or new final-test policy execution occurred.
+Streamlit 1.67 is now the minimum because the tabs require tracked active state;
+the existing dependency lock already pins that version.
+
+Live Chrome verification is now complete for this UI revision at approximately
+1536 px and 854 px window widths, including the expanded navigation sidebar.
+The first open page was an older server on port 8518 with stale imported modules;
+restarting that project process and reloading the page resolved its import error.
+Both local preview ports 8518 and 8520 now serve the updated application.
+
+The live check found small comparison grids at narrow width and a clipped Filter
+label when the sidebar was expanded. Comparison rows now stack below 1100 px;
+four-agent maps use the larger display bound. Model/episode selectors also stack
+at narrow width, and the filter button has reserved space. The desktop inspector's
+reward label clipped with the sidebar open, so its two metric cards now stack.
+All corrections were visually rechecked. The sidebar contains navigation and help
+only; controls, selectors and map/inspector alignment were inspected in Chrome.
+
+Observed behavior: the selected Q-learning replay reached [0,3] in three actions
+with return 9.97. A learning replay's first recorded action moved to [3,9] for
+-0.01, matching the saved training trace. Pair playback held the control at its
+one-action collision/-5.01 while the selected policy finished. Four-agent playback
+paused consistently at shared index 27, with Q-learning/SARSA/PPO held at their
+three-action successes and DQN at actual action 27, [1,0], return -0.27. The custom
+form generated a fixed-model [0,0] to [9,9] demonstration with shortest route 18.
+
+The full suite passed again: **118 tests in 51.45 seconds**. After the final
+inspector-card presentation adjustment, **22 related UI tests passed in 20.31
+seconds**. Protected-file and archived-freeze checks remained valid. This is a
+desktop/narrow-browser check, not phone/touch testing or a measured frame-rate
+claim. It does not substitute for visual review of every research-evidence page.
+Instructions for the revised interface are in docs/dashboard_ui_guide.md.

@@ -1,0 +1,410 @@
+[
+  {
+    "run_id": "learning-replay-q-learning-seed1109",
+    "algorithm": "q-learning",
+    "seed": 1109,
+    "training_interactions": 200000,
+    "recordings": [
+      {
+        "path": "training_traces/episode-001.json",
+        "sha256": "79e70ebb8c2c08115bfbb6fb507f454da5984bca112c740c6506d813b6052978",
+        "window_start": 0,
+        "training_start": 0,
+        "training_end": 1,
+        "actions": 1,
+        "outcome": "collision"
+      },
+      {
+        "path": "training_traces/episode-002.json",
+        "sha256": "9e1a83a19790778d9eac2a85d9b6fbc4f32831897aac5df2c5614fe18c634fb6",
+        "window_start": 0,
+        "training_start": 1,
+        "training_end": 7,
+        "actions": 6,
+        "outcome": "collision"
+      },
+      {
+        "path": "training_traces/episode-003.json",
+        "sha256": "ef92f515973d639c68afda596eed1c02b125f3671176ed05092ab6dd4cd21d24",
+        "window_start": 50000,
+        "training_start": 50001,
+        "training_end": 50004,
+        "actions": 3,
+        "outcome": "collision"
+      },
+      {
+        "path": "training_traces/episode-004.json",
+        "sha256": "5f99af6ab28145b2f7ded90f8aabb9723da995a860da3e39ac58118e1c90ce10",
+        "window_start": 50000,
+        "training_start": 50004,
+        "training_end": 50006,
+        "actions": 2,
+        "outcome": "collision"
+      },
+      {
+        "path": "training_traces/episode-005.json",
+        "sha256": "e67307ea5b3ced1cb986580c8d55f5a92d62cca52226bf229c959cd0bb7d91d7",
+        "window_start": 100000,
+        "training_start": 100000,
+        "training_end": 100004,
+        "actions": 4,
+        "outcome": "collision"
+      },
+      {
+        "path": "training_traces/episode-006.json",
+        "sha256": "f8031624d855cd89429b0504b2513bdc841cdb20366119b2b3373c697ec2abaf",
+        "window_start": 100000,
+        "training_start": 100004,
+        "training_end": 100008,
+        "actions": 4,
+        "outcome": "success"
+      },
+      {
+        "path": "training_traces/episode-007.json",
+        "sha256": "f576eb0d19a575d36d923340d67144e91d75ea6a9a01a0c59971f722baaaea7a",
+        "window_start": 150000,
+        "training_start": 150030,
+        "training_end": 150034,
+        "actions": 4,
+        "outcome": "success"
+      },
+      {
+        "path": "training_traces/episode-008.json",
+        "sha256": "90d484a9178e6bd3b193b4e969a5c6e0675349d041684b10a4f87f729ac4ddde",
+        "window_start": 150000,
+        "training_start": 150034,
+        "training_end": 150036,
+        "actions": 2,
+        "outcome": "collision"
+      },
+      {
+        "path": "training_traces/episode-009.json",
+        "sha256": "d4b35840bb449a53225c8bf1810e574bcd2dd1168f28c2c6566aa1745b38fce5",
+        "window_start": 190000,
+        "training_start": 190005,
+        "training_end": 190017,
+        "actions": 12,
+        "outcome": "collision"
+      },
+      {
+        "path": "training_traces/episode-010.json",
+        "sha256": "e0a970a5888acfbca62e8f47eea5636af91ea0fd93f267e43c8cf75963815e54",
+        "window_start": 190000,
+        "training_start": 190017,
+        "training_end": 190029,
+        "actions": 12,
+        "outcome": "collision"
+      }
+    ],
+    "recorded_actions": 50,
+    "scope": "new recorded training demo; excluded from original benchmarks and final evaluation",
+    "historical_training_reconstructed": false,
+    "final_test_evaluated": false
+  },
+  {
+    "run_id": "learning-replay-sarsa-seed1109",
+    "algorithm": "sarsa",
+    "seed": 1109,
+    "training_interactions": 200000,
+    "recordings": [
+      {
+        "path": "training_traces/episode-001.json",
+        "sha256": "94213d5cad75f1cde3215a4d0bf60c7be732c9a2ac57ccea6e18127fdf155417",
+        "window_start": 0,
+        "training_start": 0,
+        "training_end": 1,
+        "actions": 1,
+        "outcome": "collision"
+      },
+      {
+        "path": "training_traces/episode-002.json",
+        "sha256": "e78d431b994451eebf02d07394ece0ddf13d1075725fe96a7fa15d3c7d600765",
+        "window_start": 0,
+        "training_start": 1,
+        "training_end": 7,
+        "actions": 6,
+        "outcome": "collision"
+      },
+      {
+        "path": "training_traces/episode-003.json",
+        "sha256": "189d854c4c3eb2ac91bae51b0dc3b86d25c14b6f55e89645e93f5d4a54a382fe",
+        "window_start": 50000,
+        "training_start": 50001,
+        "training_end": 50031,
+        "actions": 30,
+        "outcome": "collision"
+      },
+      {
+        "path": "training_traces/episode-004.json",
+        "sha256": "11baa748d798fd747e463d8906fd2983ebc38d241306bd783901cce5418f6807",
+        "window_start": 50000,
+        "training_start": 50031,
+        "training_end": 50033,
+        "actions": 2,
+        "outcome": "collision"
+      },
+      {
+        "path": "training_traces/episode-005.json",
+        "sha256": "0bd5f9a8a99571d4cd6836730cd0a50822760b34ccac128cdc05a734a18d64a6",
+        "window_start": 100000,
+        "training_start": 100020,
+        "training_end": 100028,
+        "actions": 8,
+        "outcome": "success"
+      },
+      {
+        "path": "training_traces/episode-006.json",
+        "sha256": "4d60689ad34582a9c5e7c7196c85f6aa460a4c0efce0597cf5c88ea00b499d56",
+        "window_start": 100000,
+        "training_start": 100028,
+        "training_end": 100030,
+        "actions": 2,
+        "outcome": "collision"
+      },
+      {
+        "path": "training_traces/episode-007.json",
+        "sha256": "6a6b1131e53a0c33c5fe47cc7b6d0a62705ec617169785ca2eee53805a1d1c61",
+        "window_start": 150000,
+        "training_start": 150000,
+        "training_end": 150192,
+        "actions": 192,
+        "outcome": "collision"
+      },
+      {
+        "path": "training_traces/episode-008.json",
+        "sha256": "cccf02dfab21419a50059c7099e8375bc2c5bbf7f807f956d64c9ffc9d6d7730",
+        "window_start": 150000,
+        "training_start": 150192,
+        "training_end": 150196,
+        "actions": 4,
+        "outcome": "success"
+      },
+      {
+        "path": "training_traces/episode-009.json",
+        "sha256": "8e01d3e533e5cfaf902eaa8b02fb96cad2047c273480e5f7e6d6f6ec19457cbb",
+        "window_start": 190000,
+        "training_start": 190002,
+        "training_end": 190013,
+        "actions": 11,
+        "outcome": "success"
+      },
+      {
+        "path": "training_traces/episode-010.json",
+        "sha256": "2d7b60c8d541dc50c3bd23cbef460b3ee7b6ef7b5dba826bfec227c06d4579c0",
+        "window_start": 190000,
+        "training_start": 190013,
+        "training_end": 190017,
+        "actions": 4,
+        "outcome": "success"
+      }
+    ],
+    "recorded_actions": 260,
+    "scope": "new recorded training demo; excluded from original benchmarks and final evaluation",
+    "historical_training_reconstructed": false,
+    "final_test_evaluated": false
+  },
+  {
+    "run_id": "learning-replay-dqn-seed1109",
+    "algorithm": "dqn",
+    "seed": 1109,
+    "training_interactions": 200000,
+    "recordings": [
+      {
+        "path": "training_traces/episode-001.json",
+        "sha256": "d66bf9821f6445052f73c7358d053f7fcd86a5e51873a00f92cd2138bafdebbc",
+        "window_start": 0,
+        "training_start": 0,
+        "training_end": 1,
+        "actions": 1,
+        "outcome": "collision"
+      },
+      {
+        "path": "training_traces/episode-002.json",
+        "sha256": "c88ada363df3261003cf45b16f6f49b50e262bd410651d220f3d4877064acf50",
+        "window_start": 0,
+        "training_start": 1,
+        "training_end": 7,
+        "actions": 6,
+        "outcome": "collision"
+      },
+      {
+        "path": "training_traces/episode-003.json",
+        "sha256": "2613e76c82e23a4e9aa8d0438337ac98f806925a01ab82a9721e5e216cea5835",
+        "window_start": 50000,
+        "training_start": 50000,
+        "training_end": 50004,
+        "actions": 4,
+        "outcome": "collision"
+      },
+      {
+        "path": "training_traces/episode-004.json",
+        "sha256": "6d93067b1b2f9aa1ad5f0c4e7f963f6a16261c4dd5f6bdf1a29ff39402680786",
+        "window_start": 50000,
+        "training_start": 50004,
+        "training_end": 50009,
+        "actions": 5,
+        "outcome": "collision"
+      },
+      {
+        "path": "training_traces/episode-005.json",
+        "sha256": "27292c0502d51399a3537e31b28961b1a1fcea1a6e8170f8418a7df6138f7760",
+        "window_start": 100000,
+        "training_start": 100061,
+        "training_end": 100063,
+        "actions": 2,
+        "outcome": "collision"
+      },
+      {
+        "path": "training_traces/episode-006.json",
+        "sha256": "a41e8c45a96e70c5d8469d9a66bf9fa3786b2bd2d28b5c63854469ba0cf945ce",
+        "window_start": 100000,
+        "training_start": 100063,
+        "training_end": 100066,
+        "actions": 3,
+        "outcome": "collision"
+      },
+      {
+        "path": "training_traces/episode-007.json",
+        "sha256": "d180e1004fc5ea7da867a4ce2cd9bc18b9cd9da7c734ff6eaab3e27e47c329ae",
+        "window_start": 150000,
+        "training_start": 150010,
+        "training_end": 150016,
+        "actions": 6,
+        "outcome": "collision"
+      },
+      {
+        "path": "training_traces/episode-008.json",
+        "sha256": "785127ee559cacd8d6822da5cf5aadc6323c5933a198de450723c87ae1d7be2d",
+        "window_start": 150000,
+        "training_start": 150016,
+        "training_end": 150065,
+        "actions": 49,
+        "outcome": "collision"
+      },
+      {
+        "path": "training_traces/episode-009.json",
+        "sha256": "ce647c143bfc9ddb7ee76fc7048bbcefe3d7b02751c09492b59a00f11a400d86",
+        "window_start": 190000,
+        "training_start": 190013,
+        "training_end": 190027,
+        "actions": 14,
+        "outcome": "collision"
+      },
+      {
+        "path": "training_traces/episode-010.json",
+        "sha256": "8fb69fff7e109cc0756be6852d396aea9665d0bbee3be761308c489d164b8233",
+        "window_start": 190000,
+        "training_start": 190027,
+        "training_end": 190085,
+        "actions": 58,
+        "outcome": "collision"
+      }
+    ],
+    "recorded_actions": 148,
+    "scope": "new recorded training demo; excluded from original benchmarks and final evaluation",
+    "historical_training_reconstructed": false,
+    "final_test_evaluated": false
+  },
+  {
+    "run_id": "learning-replay-ppo-seed1109",
+    "algorithm": "ppo",
+    "seed": 1109,
+    "training_interactions": 200000,
+    "recordings": [
+      {
+        "path": "training_traces/episode-001.json",
+        "sha256": "d241ccb79dc93febf713e460f27ed497cdd2914769c13794bdbb2e5577f54533",
+        "window_start": 0,
+        "training_start": 0,
+        "training_end": 1,
+        "actions": 1,
+        "outcome": "collision"
+      },
+      {
+        "path": "training_traces/episode-002.json",
+        "sha256": "d355f53247886a9bab07904c1c16dab101106d71ef58b799f15ab6f61b83b0b1",
+        "window_start": 0,
+        "training_start": 1,
+        "training_end": 4,
+        "actions": 3,
+        "outcome": "collision"
+      },
+      {
+        "path": "training_traces/episode-003.json",
+        "sha256": "728a0613a76964a3ffe74aab2630a85080b4bd79740ad3e7935aec2436b0fb2c",
+        "window_start": 50000,
+        "training_start": 50093,
+        "training_end": 50293,
+        "actions": 200,
+        "outcome": "timeout"
+      },
+      {
+        "path": "training_traces/episode-004.json",
+        "sha256": "ed76347f29ce193fa59ca70a4930f3c4551ce0e764423105ae193b4ab7e0a84d",
+        "window_start": 50000,
+        "training_start": 50293,
+        "training_end": 50493,
+        "actions": 200,
+        "outcome": "timeout"
+      },
+      {
+        "path": "training_traces/episode-005.json",
+        "sha256": "e0392426f42c418c640df6a1611526cafbb3841332f5560bd38dc1de0178abfa",
+        "window_start": 100000,
+        "training_start": 100178,
+        "training_end": 100179,
+        "actions": 1,
+        "outcome": "success"
+      },
+      {
+        "path": "training_traces/episode-006.json",
+        "sha256": "da7a4bac11f5db0725a7b2317e4714cd7a1911642a533c097cde7f9640f6f5ab",
+        "window_start": 100000,
+        "training_start": 100179,
+        "training_end": 100379,
+        "actions": 200,
+        "outcome": "timeout"
+      },
+      {
+        "path": "training_traces/episode-007.json",
+        "sha256": "c27b8ca9fc0cb91a3dd2f08457a800cae42e078ac60990c87b6024e3dd5242a1",
+        "window_start": 150000,
+        "training_start": 150155,
+        "training_end": 150192,
+        "actions": 37,
+        "outcome": "collision"
+      },
+      {
+        "path": "training_traces/episode-008.json",
+        "sha256": "1f3130d2788cd52d256f5623d7a642ef156bc7be6ff2ae19d2f8db442541b4ae",
+        "window_start": 150000,
+        "training_start": 150192,
+        "training_end": 150202,
+        "actions": 10,
+        "outcome": "success"
+      },
+      {
+        "path": "training_traces/episode-009.json",
+        "sha256": "bd7c946f46f4b7d5747aba65044b0c5fb0c7d7562c92f48929a1de7f8bef0f45",
+        "window_start": 190000,
+        "training_start": 190105,
+        "training_end": 190107,
+        "actions": 2,
+        "outcome": "collision"
+      },
+      {
+        "path": "training_traces/episode-010.json",
+        "sha256": "f8fe2a10c332e558a743f23deacacda6715d8bc66f037f0d1a65351b3eb0e7a0",
+        "window_start": 190000,
+        "training_start": 190107,
+        "training_end": 190307,
+        "actions": 200,
+        "outcome": "timeout"
+      }
+    ],
+    "recorded_actions": 854,
+    "scope": "new recorded training demo; excluded from original benchmarks and final evaluation",
+    "historical_training_reconstructed": false,
+    "final_test_evaluated": false
+  }
+]
