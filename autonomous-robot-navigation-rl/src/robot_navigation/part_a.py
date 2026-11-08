@@ -86,10 +86,10 @@ class PartARecord:
         self.validation = load_scenarios(scenario_task, "validation", root)
         self.monitoring_log, self.best_rank = [], None
         self.monitor_seconds = 0.
-        self.extension = ".zip" if config["algorithm"] == "dqn" else ".npz"
+        self.extension = ".zip" if config["algorithm"] in ("dqn", "ppo") else ".npz"
         self.key = config["algorithm"].replace("-", "_")
         packages = ["numpy", "gymnasium", "PyYAML", "matplotlib", "streamlit"]
-        if config["algorithm"] == "dqn":
+        if config["algorithm"] in ("dqn", "ppo"):
             packages += ["torch", "stable-baselines3"]
         self.manifest = {"status": "running", "run_id": config["run_id"], "algorithm": config["algorithm"],
             "training_seed": config["seed"], "signature": task.signature, "source_hash": source_hash(root),
@@ -102,7 +102,7 @@ class PartARecord:
             "stage": config.get("stage", "part-a"),
             "training_scenario_ids": [s["id"] for s in load_scenarios(scenario_task, "train", root)],
             "validation_scenario_ids": [s["id"] for s in self.validation],
-            "information": "robot/goal coordinates only; DQN uses fixed coordinate scaling; no masking or planner fallback"}
+            "information": "robot/goal coordinates only; neural policies use fixed coordinate scaling; no masking or planner fallback"}
         write_json(self.directory / "configuration.json", {"training": config, "environment": task.config, "signature": task.signature})
         for folder in ("src", "app", "configs"):
             shutil.copytree(root / folder, self.directory / "source" / folder,
@@ -165,7 +165,10 @@ class PartARecord:
 
 
 def train_part_a(config, root=ROOT):
-    if config["algorithm"] != "dqn":
+    if config["algorithm"] == "ppo":
+        from .ppo_config import validate_config as validate_ppo
+        validate_ppo(config)
+    elif config["algorithm"] != "dqn":
         validate_config(config)
     else:
         if (config["interactions"] <= 0 or config["monitor_every"] <= 0 or
@@ -181,7 +184,7 @@ def train_part_a(config, root=ROOT):
     try:
         with (record.directory / "training.csv").open("w", encoding="utf-8", newline="") as file:
             fields = ["episode", "scenario_id", "end_interaction", "steps", "return", "outcome"]
-            if config["algorithm"] != "dqn":
+            if config["algorithm"] not in ("dqn", "ppo"):
                 fields.append("epsilon")
             writer = csv.DictWriter(file, fieldnames=fields)
             writer.writeheader()
@@ -211,6 +214,9 @@ def train_part_a(config, root=ROOT):
                 visitation, pilot = ledger.visitation, ledger.report(seconds)
                 pilot.update(gradient_updates=model._n_updates, replay_size=model.replay_buffer.size(),
                              replay_capacity=model.replay_buffer.buffer_size, observation_encoding="normalized-coordinates-v1")
+            elif config["algorithm"] == "ppo":
+                from .ppo import train
+                visitation, pilot = train(task, scenarios, config, record, file, writer)
             else:
                 policy = {"q-learning": QLearning, "sarsa": SARSA}[config["algorithm"]](task)
                 def monitor(interaction, visitation):

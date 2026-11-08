@@ -116,6 +116,9 @@ def load_policy(path, task):
     if algorithm == "dqn":
         from .dqn import DQNPolicy
         return DQNPolicy.load(path, task)
+    if algorithm == "ppo":
+        from .ppo import PPOPolicy
+        return PPOPolicy.load(path, task)
     if algorithm not in ("q-learning", "sarsa"):
         raise ValueError(f"Unsupported checkpoint algorithm: {algorithm}")
     return {"q-learning": QLearning, "sarsa": SARSA}[algorithm].load(path, task)

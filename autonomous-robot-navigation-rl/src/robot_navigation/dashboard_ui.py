@@ -9,6 +9,7 @@ from .dashboard import evidence, early_checkpoint, frozen_episode
 from .episodes import ComparisonPlayback
 from .interface import context_strip, panel_heading, show_map, telemetry, run_label, SELECTED_RUN
 from .release import final_summary
+from .four_way import saved_summary as four_way_summary,STUDY as FOUR_WAY_STUDY
 
 
 def saved_json(path):
@@ -40,6 +41,22 @@ def metric_rows(summary):
 
 def render_page(page, task, root):
     st.title(page)
+    fourth=four_way_summary(root)
+    if fourth:
+        task.check(fourth['signature'])
+    if page=='Agent comparison':
+        st.subheader('Four RL algorithms: development validation')
+        if fourth:
+            st.caption('Historical Part A Q-learning, SARSA and DQN plus the additional PPO baseline. Five seeds and 200,000 training interactions per seed. Post-release exploratory comparison; PPO is not part of the frozen final evaluation below.')
+            rows=[{'Algorithm':system['label'],'Seeds':system['seed_count'],
+                   **{metric:system['metrics'][metric]['mean'] for metric in ('success_rate','collision_rate','timeout_rate','spl')},
+                   'Success seed SD':system['metrics']['success_rate']['sample_sd']}
+                  for system in fourth['systems'].values()]
+            st.dataframe(pd.DataFrame(rows),hide_index=True,width='stretch')
+            saved_image(root/'artifacts/studies'/FOUR_WAY_STUDY/'comparison.png')
+        else:
+            st.info('The PPO extension has not produced a verified four-algorithm comparison yet. The existing results below cover the original release.')
+        st.divider()
     final=final_summary(root)
     st.caption(f"{task.grid.map_id} · {task.config['environment_version']} · development validation · "
                + ('frozen final evaluation available' if final else 'final test sealed'))
@@ -62,6 +79,10 @@ reward is −0.01 per action, +10 at the goal and −5 on collision.
 Q-learning and SARSA use coordinate-indexed tables. DQN scales the same four
 coordinates by dimension minus one. BFS knows the obstacle map and supplies a
 planner reference; learned agents receive no map, action mask or planner fallback.
+The additional PPO baseline uses the same normalized coordinates, a categorical
+four-action policy and separate actor/value networks. Its diagnostics are action
+probabilities and a state-value estimate. It is a post-release exploratory
+extension and is excluded from the original frozen final evaluation.
 Voting uses three frozen Q-learning members, majority action and first-member
 priority for three-way ties. Q-values are scores, never probabilities.
 
@@ -81,7 +102,7 @@ failures contribute zero. Successful route length is conditional on success and
 must be read with its success count. Seed SD is sample SD, not a confidence interval.
 Interactive demos/comparisons do not enter benchmark summaries.''')
         st.json(task.signature)
-        st.caption('Protocol and full definitions: docs/milestone5_protocol.md. Final freeze/test is milestone 6. Dynamics noise, unseen maps, PPO and hardware remain deferred.')
+        st.caption('Protocol and full definitions: docs/milestone5_protocol.md. Final freeze/test is milestone 6. PPO is the additional fourth-algorithm extension; dynamics noise, unseen maps and hardware remain deferred.')
         return
     try:
         summary=evidence(root)
@@ -93,14 +114,18 @@ Interactive demos/comparisons do not enter benchmark summaries.''')
     if page=='Overview':
         st.write('A local research dashboard for coordinate-only navigation on one fixed map. Explore recorded decisions, compare frozen checkpoints and inspect weak scenario groups.')
         a,b,c=st.columns(3)
-        a.metric('Implemented learned families','3')
+        a.metric('Implemented learned families','4')
         b.metric('Validation pairs per seed','928')
-        c.metric('Implemented milestone','6' if final else '5')
+        c.metric('Trained RL families','4' if fourth else '3')
         st.dataframe(pd.DataFrame(metric_rows(summary))[['System','Seeds','success_rate','collision_rate','timeout_rate','spl']],hide_index=True,width='stretch')
         st.info('Q-learning improved with tuning. SARSA still misses its declared targets. Voting lost five goals versus its predeclared single member while improving SPL. Removing the step cost hurt both tabular families.')
         st.write('Use Navigation simulator for saved replay, a frozen custom demonstration, matched agents or early-versus-selected checkpoints. Learning analysis uses saved logs; Optimization and robustness shows outcome-independent scenario groups.')
         st.caption('Evidence is local under artifacts/studies/milestone5-v1. Original experiment snapshots and canonical benchmark files are unchanged.')
     elif page=='Learning analysis':
+        if fourth:
+            st.subheader('Four-algorithm validation monitoring')
+            st.caption('Additional PPO baseline alongside the original three Part A families; exploratory extension.')
+            saved_image(root/'artifacts/studies'/FOUR_WAY_STUDY/'learning.png')
         st.write('Read-only 30-pair validation monitoring curves. The band is ±1 sample seed SD, clipped to [0,1]. Selected checkpoint results use the complete 928-pair validation set.')
         saved_image(study / 'figures/learning.png')
         names=[n for n,s in summary['systems'].items() if s['learning_curve']]
@@ -165,7 +190,12 @@ def diagnostics(episode,index,key):
         st.dataframe(pd.DataFrame({'Action':ACTION_NAMES,'Q score':transition['scores']}),hide_index=True)
         st.caption('Q-values are not probabilities.')
     elif transition.get('decision'):
-        st.json(transition['decision'])
+        decision=transition['decision']
+        if 'action_probabilities' in decision:
+            st.dataframe(pd.DataFrame({'Action':ACTION_NAMES,'Action probability':decision['action_probabilities']}),hide_index=True)
+            st.caption(f"PPO categorical action probabilities; selected action is the largest probability. State value: {decision['state_value']:.3f}. These are not Q-values.")
+        else:
+            st.json(decision)
     else:
         st.caption('Action scores unavailable for this policy.')
 

@@ -100,7 +100,7 @@ else:
         columns = st.columns(2)
         gr = columns[0].number_input("Goal row", 0, 9, 9)
         gc = columns[1].number_input("Goal column", 0, 9, 9)
-        learned_label = {"q-learning": "Q-learning", "sarsa": "SARSA", "dqn": "DQN", "voting": "Policy voting"}[frozen_agent.algorithm]
+        learned_label = {"q-learning": "Q-learning", "sarsa": "SARSA", "dqn": "DQN", "ppo": "PPO", "voting": "Policy voting"}[frozen_agent.algorithm]
         model = st.selectbox("Frozen policy", ["BFS", "Random (untrained)", learned_label])
         seed = st.number_input("Demonstration seed", 0, 2147483647, 7)
         generate = st.form_submit_button("Generate demonstration", type="primary", width="stretch")

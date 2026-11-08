@@ -75,13 +75,15 @@ def run_label(directory):
         return 'Q-learning · Three-policy vote'
     if name=='smoke-seed7':
         return 'Q-learning · Initial pilot · seed 7'
-    match=re.match(r'm(\d+)-(?:(control|tuned|terminal|search)-)?(q-learning|sarsa|dqn)-(.*)',name)
+    match=re.match(r'm(\d+)-(?:(control|tuned|terminal|search)-)?(q-learning|sarsa|dqn|ppo)-(.*)',name)
     if not match:
         return name
     milestone,stage,algorithm,suffix=match.groups()
-    family={'q-learning':'Q-learning','sarsa':'SARSA','dqn':'DQN'}[algorithm]
+    family={'q-learning':'Q-learning','sarsa':'SARSA','dqn':'DQN','ppo':'PPO'}[algorithm]
     stage={'control':'Baseline','tuned':'Refined','terminal':'Zero step cost','search':'Search'}.get(stage,
            'DQN pilot' if 'pilot' in suffix else 'Part A' if milestone=='3' else 'Early baseline')
+    if algorithm=='ppo':
+        stage='Pilot' if 'pilot' in suffix else 'Additional baseline'
     seed=re.search(r'seed(\d+)',suffix)
     candidate=re.search(r'c\d\d',suffix)
     label=f'{family} · {stage}'
@@ -97,7 +99,7 @@ def run_label(directory):
 
 
 def preferred_runs(runs):
-    priorities=(SELECTED_RUN,'m4-voting-q-learning','m4-control-q-learning-seed101',
+    priorities=(SELECTED_RUN,'m7-ppo-seed7','m4-voting-q-learning','m4-control-q-learning-seed101',
                 'm4-tuned-sarsa-seed101','smoke-seed7')
     return sorted(runs,key=lambda p:(priorities.index(p.name) if p.name in priorities else len(priorities),p.name))
 
@@ -126,7 +128,7 @@ def status_badge(status,playing=False,held=False):
 
 def repeated_pattern(episode,index):
     """Recognize two observed repetitions, without inspecting any future action."""
-    if not episode['policy_id'].startswith(('q-learning/','sarsa/','dqn/','voting/')):
+    if not episode['policy_id'].startswith(('q-learning/','sarsa/','dqn/','ppo/','voting/')):
         return None
     transitions=episode['transitions'][:index]
     moves=[(tuple(t['observation']),t['action'],tuple(t['next_observation'])) for t in transitions]

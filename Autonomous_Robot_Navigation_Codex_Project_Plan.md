@@ -12,6 +12,13 @@
 
 **Confirmed scope:** Proceed with the core plan, including the animated navigation UI. PPO, unseen-map generalization, moving obstacles, continuous movement and physical robots are deferred to later phases. Retain their descriptions as future reference only; do not implement or schedule them in the current release without a new request from the owner.
 
+**Owner extension, 8 November 2026:** Add PPO as a fourth trained RL algorithm
+for comparison. This supersedes PPO's deferred status for this extension only.
+Use a separate post-release development-validation study and preserve the
+original three-family results and frozen final evaluation. Other deferred
+additions remain deferred. The new protocol is
+`autonomous-robot-navigation-rl/docs/ppo_comparison_protocol.md`.
+
 ## 1. Project Information and Institutional Guidance
 
 This project uses the same development structure as the Smart Energy project: define the problem, prepare reproducible inputs, compare learning approaches in Part A, refine the strongest approaches in Part B, and produce an inspectable prototype and technical report.

@@ -1,5 +1,14 @@
 # File and experiment naming guide
 
+The owner requested an additional PPO baseline on 8 November 2026. Its completed
+run names are `m7-ppo-pilot-seed101` and `m7-ppo-seed7`, `seed19`, `seed43`,
+`seed67`, `seed91`; its verified comparison study is `four-rl-v1`. These identify
+the new extension, not a tuned PPO or a replacement for the frozen final study.
+Each main PPO run used 200,000 interactions; the independent pilot used 10,000
+and is excluded from comparison. The seed controls training randomness, not
+algorithm quality or a tuning level. See [PPO status](ppo_extension_status.md)
+and [the four-algorithm results](ppo_comparison_results.md).
+
 This guide explains the project folders, experiment labels and saved files.
 Most experiment folders contain different runs of the same algorithms, rather
 than separate robot programs.

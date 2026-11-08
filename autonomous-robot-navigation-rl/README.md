@@ -1,11 +1,20 @@
 # Autonomous Robot Navigation — completed core release / milestone 6
 
 A local Python research pilot: one versioned static grid, Gymnasium environment,
-random/BFS references, Q-learning, SARSA and vanilla SB3 DQN, reproducible scenario splits, measured validation,
+random/BFS references, Q-learning, SARSA, vanilla SB3 DQN and PPO, reproducible scenario splits, measured validation,
 and an animated Streamlit replay viewer. Existing workspace files are separate.
 
 For experiment labels such as `m4-tuned-q-learning-seed101`, seeds and saved file
 types, see the [file and experiment naming guide](docs/file_and_experiment_guide.md).
+
+**Fourth-algorithm extension:** the owner requested PPO after the core release.
+Its implementation and separate validation workflow are described in
+[PPO extension status](docs/ppo_extension_status.md) and the
+[registered protocol](docs/ppo_comparison_protocol.md). All five PPO seeds completed
+200,000 interactions each and passed artifact verification. The dashboard's
+**Agent comparison** view includes all four RL algorithms using development
+validation. See [measured results and limitations](docs/ppo_comparison_results.md).
+PPO is an untuned additional baseline. The original frozen release is unchanged.
 
 **Part A:** five independent seeds per learned algorithm, 200,000 interactions
 each, common validation monitoring, and an explicit validation-only checkpoint
@@ -332,5 +341,5 @@ all results concern held-out initial conditions on a familiar map. Most validati
 initial states were visited during training, so this is not unseen-state transfer.
 
 All six core milestones are complete. Source and evidence remain local and uncommitted.
-PPO, unseen maps, moving obstacles, continuous movement and physical
-robots remain deferred. No such extensions are implemented here.
+PPO was subsequently added as the owner-authorized exploratory extension above.
+Unseen maps, moving obstacles, continuous movement and physical robots remain deferred.
