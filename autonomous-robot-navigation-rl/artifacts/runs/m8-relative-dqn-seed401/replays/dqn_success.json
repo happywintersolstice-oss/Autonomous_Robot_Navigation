@@ -1,0 +1,109 @@
+{
+  "signature": {
+    "map_id": "bottleneck-v1",
+    "map_hash": "614472df8e4cbed5408e1e5092dfd708bb683cdeef780a1a064246f0e1e58a94",
+    "task_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "step-goal-collision-v1"
+  },
+  "scenario": {
+    "id": "r0c1-r1c0",
+    "start": [
+      0,
+      1
+    ],
+    "goal": [
+      1,
+      0
+    ],
+    "shortest_length": 2,
+    "distance_band": "short"
+  },
+  "seed": 401,
+  "policy_id": "dqn/m8-relative-dqn-seed401/step-50000",
+  "mode": "validation",
+  "initial_observation": [
+    0,
+    1,
+    1,
+    0
+  ],
+  "transitions": [
+    {
+      "observation": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          1
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c1-r1c0",
+        "steps": 1
+      },
+      "scores": [
+        -4.4857635498046875,
+        5.516305446624756,
+        5.299727916717529,
+        5.042215824127197
+      ]
+    },
+    {
+      "observation": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "action": 2,
+      "reward": 9.99,
+      "next_observation": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "terminated": true,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          0
+        ],
+        "outcome": "success",
+        "scenario_id": "r0c1-r1c0",
+        "steps": 2
+      },
+      "scores": [
+        5.276866912841797,
+        5.095702171325684,
+        5.284351825714111,
+        4.879952907562256
+      ]
+    }
+  ],
+  "metrics": {
+    "outcome": "success",
+    "steps": 2,
+    "return": 9.98,
+    "successful_route_length": 2,
+    "spl": 1.0
+  },
+  "initial_state_visited_in_training": true
+}

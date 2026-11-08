@@ -79,6 +79,6 @@ def test_dashboard_exposes_costs_and_all_four_robustness_families():
     for dimension in ('distance','corridor','wall proximity','start region','goal region','region crossing'):
         box('Four-algorithm scenario dimension').set_value(dimension).run()
         assert not app.exception
-        table=app.dataframe[0].value
+        table=next(df.value for df in app.dataframe if 'Algorithm' in df.value.columns and 'Pairs per seed' in df.value.columns)
         assert set(table['Algorithm'])=={'Q-learning','SARSA','DQN','PPO'}
         assert table[table['Algorithm']=='PPO']['Pairs per seed'].sum()==928

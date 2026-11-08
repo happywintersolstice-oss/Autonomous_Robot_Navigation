@@ -344,3 +344,45 @@ single map/telemetry were fixed and inspected at approximately 854 pixels.
 No quantitative browser cadence, phone/touch or all-run manual replay claim is
 made. Historical training traces, representation experiments and an independent
 four-family final evaluation remain outside this verification work.
+
+## Milestone 8 — controlled DQN inputs, 8 November 2026
+
+The owner selected the representation study over neural hyperparameter tuning.
+Registered a fixed comparison of four absolute normalized coordinates versus
+those coordinates plus two goal offsets. The canonical environment, reward,
+actions and scenario manifests stay unchanged. Six inputs retain absolute
+obstacle context and add no new information; their first layer has 128 extra
+online parameters (4,868 total versus 4,740), disclosed as a capacity difference.
+
+Added encoding-aware DQN save/load/inference with old four-feature compatibility.
+Bounded optional training traces observe actual actions without policy queries
+or RNG draws and retain completed episodes or explicitly incomplete prefixes.
+Tests establish transition parity, six-feature timeout bootstrapping and capture
+that leaves seeded neural/tabular training unchanged. All 108 initial tests
+passed. Each new study run captures its first three chronological episodes,
+including failed warm-up behavior; these do not reconstruct historical training.
+Record-time replay checks use separate environments and add no learner training
+or benchmark episodes.
+
+Both 10k pilots (seed1701) passed, including chronological ledger/trace checks.
+Their measured main estimate was 1,831.51 seconds. With settings unchanged, trained
+both inputs on fresh paired seeds [101,211,307,401,503] at exactly 200k actions
+each. All ten runs completed: 2m main plus 20k pilot training interactions. Main
+wall time was 1,938.53 seconds, below 2,400; all individual runs were below 300
+seconds and artifacts used 53.36 MiB, below 1 GiB. Source/configuration remained
+fixed throughout; all 7,746 historical artifact/data files retained their hashes.
+
+Validation success averaged 5.97% control versus 6.51% relative; paired change
++0.54 pp with sample paired-seed SD 2.88 pp. Two seeds improved, two worsened,
+one tied. Collision mean fell from 36.38% to 24.40%, while timeout mean increased
+from 57.65% to 69.09%. This is mixed evidence, with no consistent improvement and
+both families still weak. No new controller or tuned DQN claim is promoted.
+
+The full audit replayed 1,187,423 validation actions and 78 captured main training
+actions, verified all 200 periodic models and all source/checkpoint/selection
+rules, and confirmed inference state unchanged. Six existing geometry dimensions
+are reported for both treatments. Inspected both scientific figures. After
+publication, all 110 tests passed in 39.40 seconds, including the real six-feature
+pilot UI and separate representation/four-family dashboard panels. The old frozen
+archive's 184 inputs still match its seal; final-test policy executions are zero.
+Live verification status is recorded separately in `docs/milestone8_verification.json`.

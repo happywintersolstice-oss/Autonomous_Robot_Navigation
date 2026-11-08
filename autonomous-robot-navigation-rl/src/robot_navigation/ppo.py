@@ -83,7 +83,7 @@ class PPOPolicy:
 
 def train(task,scenarios,config,record,file,writer):
     from .part_a import TrainingLedger
-    ledger=TrainingLedger(NavigationEnv(task,scenarios),writer.writerow)
+    ledger=TrainingLedger(NavigationEnv(task,scenarios),writer.writerow,record.trace)
     model=build_model(ledger,config)
     policy=PPOPolicy(task,model,f"ppo/{config['run_id']}")
     started=perf_counter()

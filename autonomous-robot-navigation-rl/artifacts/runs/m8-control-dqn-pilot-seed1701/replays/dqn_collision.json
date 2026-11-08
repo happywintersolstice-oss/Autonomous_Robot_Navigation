@@ -1,0 +1,109 @@
+{
+  "signature": {
+    "map_id": "bottleneck-v1",
+    "map_hash": "614472df8e4cbed5408e1e5092dfd708bb683cdeef780a1a064246f0e1e58a94",
+    "task_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "step-goal-collision-v1"
+  },
+  "scenario": {
+    "id": "r0c4-r0c0",
+    "start": [
+      0,
+      4
+    ],
+    "goal": [
+      0,
+      0
+    ],
+    "shortest_length": 4,
+    "distance_band": "short"
+  },
+  "seed": 1701,
+  "policy_id": "dqn/m8-control-dqn-pilot-seed1701/step-10000",
+  "mode": "validation",
+  "initial_observation": [
+    0,
+    4,
+    0,
+    0
+  ],
+  "transitions": [
+    {
+      "observation": [
+        0,
+        4,
+        0,
+        0
+      ],
+      "action": 2,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        3,
+        0,
+        0
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          3
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c4-r0c0",
+        "steps": 1
+      },
+      "scores": [
+        -1.8111063241958618,
+        -1.3431620597839355,
+        -1.3115044832229614,
+        -1.4238049983978271
+      ]
+    },
+    {
+      "observation": [
+        0,
+        3,
+        0,
+        0
+      ],
+      "action": 1,
+      "reward": -5.01,
+      "next_observation": [
+        0,
+        3,
+        0,
+        0
+      ],
+      "terminated": true,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          3
+        ],
+        "outcome": "collision",
+        "scenario_id": "r0c4-r0c0",
+        "steps": 2
+      },
+      "scores": [
+        -1.6753575801849365,
+        -1.2625272274017334,
+        -1.3066002130508423,
+        -1.355700969696045
+      ]
+    }
+  ],
+  "metrics": {
+    "outcome": "collision",
+    "steps": 2,
+    "return": -5.02,
+    "successful_route_length": null,
+    "spl": 0.0
+  },
+  "initial_state_visited_in_training": false
+}

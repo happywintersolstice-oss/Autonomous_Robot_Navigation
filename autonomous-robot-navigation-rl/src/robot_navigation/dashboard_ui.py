@@ -11,6 +11,7 @@ from .interface import context_strip, panel_heading, show_map, telemetry, run_la
 from .release import final_summary
 from .four_way import saved_summary as four_way_summary,STUDY as FOUR_WAY_STUDY
 from .four_way_analysis import saved_analysis, ANALYSIS_STUDY
+from .representation import saved_summary as representation_summary, STUDY as REPRESENTATION_STUDY
 
 
 def saved_json(path):
@@ -42,6 +43,13 @@ def metric_rows(summary):
 
 def render_page(page, task, root):
     st.title(page)
+    try:
+        representation = representation_summary(root)
+        if representation:
+            task.check(representation['signature'])
+    except (OSError,ValueError,KeyError) as exc:
+        st.warning(f'Representation evidence unavailable: {exc}')
+        representation=None
     try:
         details = saved_analysis(root)
         if details:
@@ -119,6 +127,10 @@ The additional PPO baseline uses the same normalized coordinates, a categorical
 four-action policy and separate actor/value networks. Its diagnostics are action
 probabilities and a state-value estimate. It is a post-release exploratory
 extension and is excluded from the original frozen final evaluation.
+The separate DQN input study compares the original four absolute coordinates
+with those coordinates plus two normalized goal offsets. Both receive the same
+information; the six-input network has 128 more online first-layer parameters.
+It is an exploratory input ablation, not a tuned replacement for historical DQN.
 Voting uses three frozen Q-learning members, majority action and first-member
 priority for three-way ties. Q-values are scores, never probabilities.
 
@@ -158,6 +170,10 @@ Interactive demos/comparisons do not enter benchmark summaries.''')
         st.write('Use Navigation simulator for saved replay, a frozen custom demonstration, matched agents or early-versus-selected checkpoints. Learning analysis uses saved logs; Optimization and robustness shows outcome-independent scenario groups.')
         st.caption('Evidence is local under artifacts/studies/milestone5-v1. Original experiment snapshots and canonical benchmark files are unchanged.')
     elif page=='Learning analysis':
+        if representation:
+            st.subheader('DQN input representation: paired study')
+            st.caption('Five fresh paired seeds; absolute inputs versus absolute plus relative goal offsets. Exploratory validation, unchanged task and DQN settings.')
+            saved_image(root/'artifacts/studies'/REPRESENTATION_STUDY/'representation_learning.png')
         if fourth:
             st.subheader('Four-algorithm validation monitoring')
             st.caption('Additional PPO baseline alongside the original three Part A families; exploratory extension.')
@@ -186,6 +202,19 @@ Interactive demos/comparisons do not enter benchmark summaries.''')
         st.dataframe(pd.DataFrame([{'policy':k,**v} for k,v in vote['timing'].items()]),hide_index=True)
         st.caption('Above latency uses the shared 1,000-query benchmark. Per-run evaluation runtimes include reset/recording/export; they are local measurements, not isolated hardware guarantees. Voting wrapper training is zero, but member cost is not zero.')
     elif page=='Optimization and robustness':
+        if representation:
+            st.subheader('DQN input representation: controlled comparison')
+            st.caption('Only input encoding changes: four absolute coordinates versus the same four plus two relative offsets. Five fresh paired seeds and 200k interactions each; no DQN tuning or new final evaluation. The six-input model has 128 additional online first-layer parameters.')
+            rows=[{'Inputs':variant,'Seeds':system['seed_count'],
+                   **{m:system['metrics'][m]['mean'] for m in ('success_rate','collision_rate','timeout_rate','spl')},
+                   'Success seed SD':system['metrics']['success_rate']['sample_sd'],
+                   'Online parameters':system['online_parameter_count'][0]}
+                  for variant,system in representation['systems'].items()]
+            st.dataframe(pd.DataFrame(rows),hide_index=True,width='stretch')
+            st.caption('Relative minus control: paired training-seed differences. Rates are fractions; sample seed SD is not a confidence interval. No winner promotion follows this exploratory study.')
+            st.dataframe(pd.DataFrame(representation['paired_seed_differences']),hide_index=True,width='stretch')
+            saved_image(root/'artifacts/studies'/REPRESENTATION_STUDY/'paired_representation.png')
+            st.divider()
         if details:
             st.subheader('Four baseline algorithms: fixed-map robustness')
             st.caption('Original Part A Q-learning, SARSA and DQN plus PPO; five seeds per family. Unchanged predefined geometry labels on development validation. These are exploratory, overlapping scenario dimensions on one familiar map, not causal effects or independent test sets.')

@@ -1,5 +1,15 @@
 # File and experiment naming guide
 
+The next owner-authorized study is milestone 8, a DQN input comparison.
+`m8-control-dqn-seed101` means the original four normalized absolute inputs;
+`m8-relative-dqn-seed101` means those same four inputs plus two goal offsets.
+The same seed is paired across treatments, and neither name means a tuned model.
+Main seeds are 101, 211, 307, 401 and 503. Names containing `pilot-seed1701`
+are excluded software/throughput pilots. See [current status](representation_status.md).
+New runs include `training_traces/episode-001.json` through `003.json`: actual
+chronological exploratory training actions. They are separate from frozen-policy
+validation replays, and incomplete prefixes do not have terminal episode metrics.
+
 The owner requested an additional PPO baseline on 8 November 2026. Its completed
 run names are `m7-ppo-pilot-seed101` and `m7-ppo-seed7`, `seed19`, `seed43`,
 `seed67`, `seed91`; its verified comparison study is `four-rl-v1`. These identify

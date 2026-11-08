@@ -1,0 +1,43 @@
+{
+  "status": "training_and_automated_audits_passed_live_pending",
+  "milestone": 8,
+  "matrix": {
+    "runs": 10,
+    "interactions": 2000000,
+    "wall_seconds": 1938.5309085999615,
+    "wall_cap_seconds": 2400,
+    "artifact_bytes": 55946829,
+    "all_run_wall_seconds_below_300": true
+  },
+  "pytest": {
+    "passed": 110,
+    "seconds": 39.4
+  },
+  "source_matches_registered_matrix": true,
+  "audit": {
+    "validation_actions": 1187423,
+    "main_training_trace_actions": 78,
+    "periodic_checkpoints": 200,
+    "historical_files_verified": 7746,
+    "historical_files_unchanged": true,
+    "frozen_archive_inputs_verified": 184,
+    "final_test_policy_executions": 0
+  },
+  "figures_visually_inspected": [
+    "paired_representation.png",
+    "representation_learning.png"
+  ],
+  "live_ui": {
+    "status": "pending",
+    "url": "http://127.0.0.1:8518",
+    "owner_left_tab_active": true
+  },
+  "limitations": [
+    "Exploratory development validation on a familiar map",
+    "Five paired seeds; no consistent representation benefit",
+    "Six-input network has 128 additional online parameters",
+    "Chronological training traces cover early warm-up only",
+    "Historical training traces cannot be reconstructed",
+    "No original final selection change or neural hyperparameter tuning"
+  ]
+}

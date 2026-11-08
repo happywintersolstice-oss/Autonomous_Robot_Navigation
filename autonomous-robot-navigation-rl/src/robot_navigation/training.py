@@ -17,6 +17,7 @@ from .core import ROOT, NavigationEnv, load_task, write_json
 from .episodes import validate_replay
 from .visualization import save_figure
 from .workflow import evaluate, source_hash
+from .training_traces import trace_limit, TrainingTraces
 
 
 def epsilon_at(config, interaction_index):
@@ -25,6 +26,7 @@ def epsilon_at(config, interaction_index):
 
 
 def validate_config(config):
+    trace_limit(config)
     for key in ("interactions", "monitor_every"):
         if type(config[key]) is not int or config[key] < 1:
             raise ValueError(f"{key} must be a positive integer")
@@ -41,7 +43,7 @@ def validate_config(config):
         raise ValueError("run_id must be a single directory name")
 
 
-def train_loop(task, scenarios, policy, config, on_monitor=None, on_episode=None):
+def train_loop(task, scenarios, policy, config, on_monitor=None, on_episode=None, trace=None):
     """Return diagnostics; callbacks see the table but never training RNG/env.
 
     SARSA's continuation action is sampled pre-update and carried unchanged.
@@ -50,6 +52,8 @@ def train_loop(task, scenarios, policy, config, on_monitor=None, on_episode=None
     env = NavigationEnv(task, scenarios)
     rng = np.random.default_rng(config["seed"])
     observation, _ = env.reset(seed=config["seed"])
+    if trace:
+        trace.start(observation, env.scenario, 0)
     action = policy.explore(observation, epsilon_at(config, 0), rng)
     visitation = np.zeros_like(policy.q, dtype=np.int64)
     samples, discoveries = {}, {}
@@ -62,6 +66,8 @@ def train_loop(task, scenarios, policy, config, on_monitor=None, on_episode=None
             key = goal_key(observation)
             samples[key] = samples.get(key, 0) + 1
         next_obs, reward, terminated, truncated, info = env.step(action)
+        if trace:
+            trace.transition(observation, action, reward, next_obs, terminated, truncated, info, index+1)
         visitation[(*observation, action)] += 1
         next_epsilon = epsilon_at(config, index + 1)
         next_action = None
@@ -88,6 +94,8 @@ def train_loop(task, scenarios, policy, config, on_monitor=None, on_episode=None
             steps, episode_return = 0, 0.
             if index + 1 < config["interactions"]:
                 observation, _ = env.reset()
+                if trace:
+                    trace.start(observation, env.scenario, index+1)
                 # Always choose on the NEW reset state, even after truncation.
                 action = policy.explore(observation, next_epsilon, rng)
         else:
@@ -142,6 +150,7 @@ def train_tabular(config_path=None, root=ROOT, config=None):
     write_json(directory / "manifest.json", manifest)
     monitoring_log = []
     training_progress = 0
+    trace = TrainingTraces(task, directory, config)
     try:
         with (directory / "training.csv").open("w", encoding="utf-8", newline="") as file:
             writer = csv.DictWriter(file, fieldnames=["episode", "scenario_id", "end_interaction", "steps", "return", "outcome", "epsilon"])
@@ -158,7 +167,8 @@ def train_tabular(config_path=None, root=ROOT, config=None):
                 policy.save(directory / "checkpoint.npz", metadata)
                 file.flush()
 
-            visitation, pilot = train_loop(task, train, policy, config, monitor, writer.writerow)
+            visitation, pilot = train_loop(task, train, policy, config, monitor, writer.writerow, trace)
+        manifest['training_traces'] = trace.finish()
         np.savez_compressed(directory / "visitation.npz", state_action_counts=visitation)
         write_json(directory / "pilot.json", pilot)
         agents = [(key, policy)]
@@ -184,6 +194,7 @@ def train_tabular(config_path=None, root=ROOT, config=None):
             trajectory_export_interactions=0, checkpoint_bytes=(directory / "checkpoint.npz").stat().st_size,
             finished_utc=datetime.now(timezone.utc).isoformat())
     except BaseException as exc:
+        manifest['training_traces'] = trace.finish('interrupted' if isinstance(exc, KeyboardInterrupt) else 'run_failed')
         manifest.update(status="interrupted" if isinstance(exc, KeyboardInterrupt) else "failed",
                         error=f"{type(exc).__name__}: {exc}", last_monitor_interaction=training_progress,
                         resume_supported=False)

@@ -18,6 +18,7 @@ from .episodes import validate_replay
 from .training import train_loop, validate_config
 from .visualization import save_figure
 from .workflow import evaluate, source_hash
+from .training_traces import trace_limit, TrainingTraces
 
 
 def checkpoint_rank(summary, interaction):
@@ -26,18 +27,21 @@ def checkpoint_rank(summary, interaction):
 
 class TrainingLedger(gym.Wrapper):
     """Observe the raw task for diagnostics; never change actions or outcomes."""
-    def __init__(self, env, writer):
+    def __init__(self, env, writer, trace=None):
         super().__init__(env)
         h, w = env.grid.shape
         self.visitation = np.zeros((h, w, h, w, 4), dtype=np.int64)
         self.writer, self.interactions, self.episodes, self.successes = writer, 0, 0, 0
         self.samples, self.discoveries = Counter(), Counter()
         self.steps, self.total_return = 0, 0.
+        self.trace = trace
 
     def reset(self, **kwargs):
         observation, info = self.env.reset(**kwargs)
         self.previous = observation
         self.steps, self.total_return = 0, 0.
+        if self.trace:
+            self.trace.start(observation, self.env.scenario, self.interactions)
         return observation, info
 
     def step(self, action):
@@ -46,6 +50,8 @@ class TrainingLedger(gym.Wrapper):
             self.samples[goal] += 1
         self.visitation[(*self.previous, int(action))] += 1
         observation, reward, terminated, truncated, info = self.env.step(action)
+        if self.trace:
+            self.trace.transition(self.previous, action, reward, observation, terminated, truncated, info, self.interactions+1)
         self.previous = observation
         self.interactions += 1
         self.steps += 1
@@ -165,12 +171,16 @@ class PartARecord:
 
 
 def train_part_a(config, root=ROOT):
+    trace_limit(config)
     if config["algorithm"] == "ppo":
         from .ppo_config import validate_config as validate_ppo
         validate_ppo(config)
     elif config["algorithm"] != "dqn":
         validate_config(config)
     else:
+        from .observation_encoding import COORDINATES, DIMENSIONS
+        if config.get('observation_encoding', COORDINATES) not in DIMENSIONS:
+            raise ValueError('Unsupported DQN observation encoding')
         if (config["interactions"] <= 0 or config["monitor_every"] <= 0 or
                 config["interactions"] % config["train_freq"] or config["monitor_every"] % config["train_freq"]):
             raise ValueError("DQN budgets and monitoring intervals must be positive multiples of train_freq")
@@ -181,6 +191,7 @@ def train_part_a(config, root=ROOT):
     task = reward_task(parent_task, config.get("reward_variant", "step-cost"))
     scenarios = load_scenarios(parent_task, "train", root)
     record = PartARecord(task, config, root, scenario_task=parent_task)
+    record.trace = TrainingTraces(task, record.directory, config)
     try:
         with (record.directory / "training.csv").open("w", encoding="utf-8", newline="") as file:
             fields = ["episode", "scenario_id", "end_interaction", "steps", "return", "outcome"]
@@ -191,16 +202,20 @@ def train_part_a(config, root=ROOT):
             if config["algorithm"] == "dqn":
                 from stable_baselines3.common.callbacks import BaseCallback
                 from .dqn import DQNPolicy, build_model
-                ledger = TrainingLedger(NavigationEnv(task, scenarios), writer.writerow)
+                ledger = TrainingLedger(NavigationEnv(task, scenarios), writer.writerow, record.trace)
                 model = build_model(ledger, config)
                 policy = DQNPolicy(task, model, f"dqn/{config['run_id']}")
 
                 class Monitor(BaseCallback):
                     def _on_step(self):
+                        if perf_counter()-started > config.get('max_wall_seconds', float('inf')):
+                            raise TimeoutError('DQN run exceeded its declared wall-time limit')
                         if self.num_timesteps % config["monitor_every"] == 0 and self.num_timesteps < config["interactions"]:
                             record.monitor(policy, self.num_timesteps, ledger.visitation,
                                            "SB3 callback: before boundary transition storage/gradient/target update")
                             file.flush()
+                            if config.get('log_progress'):
+                                print(f"{config['run_id']}: {self.num_timesteps:,} interactions", flush=True)
                         return True
 
                     def _on_training_end(self):
@@ -213,7 +228,9 @@ def train_part_a(config, root=ROOT):
                     raise AssertionError("DQN training budget mismatch")
                 visitation, pilot = ledger.visitation, ledger.report(seconds)
                 pilot.update(gradient_updates=model._n_updates, replay_size=model.replay_buffer.size(),
-                             replay_capacity=model.replay_buffer.buffer_size, observation_encoding="normalized-coordinates-v1")
+                             replay_capacity=model.replay_buffer.buffer_size, observation_encoding=policy.encoding,
+                             input_dimensions=model.observation_space.shape[0],
+                             online_parameter_count=sum(p.numel() for p in model.q_net.parameters()))
             elif config["algorithm"] == "ppo":
                 from .ppo import train
                 visitation, pilot = train(task, scenarios, config, record, file, writer)
@@ -222,9 +239,11 @@ def train_part_a(config, root=ROOT):
                 def monitor(interaction, visitation):
                     record.monitor(policy, interaction, visitation)
                     file.flush()
-                visitation, pilot = train_loop(task, scenarios, policy, config, monitor, writer.writerow)
+                visitation, pilot = train_loop(task, scenarios, policy, config, monitor, writer.writerow, record.trace)
+        record.manifest['training_traces'] = record.trace.finish()
         return record.finish(visitation, pilot)
     except BaseException as exc:
+        record.manifest['training_traces'] = record.trace.finish('interrupted' if isinstance(exc, KeyboardInterrupt) else 'run_failed')
         record.manifest.update(status="interrupted" if isinstance(exc, KeyboardInterrupt) else "failed",
                                error=f"{type(exc).__name__}: {exc}", resume_supported=False)
         record.save_manifest()

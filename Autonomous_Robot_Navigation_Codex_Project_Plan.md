@@ -19,6 +19,15 @@ original three-family results and frozen final evaluation. Other deferred
 additions remain deferred. The new protocol is
 `autonomous-robot-navigation-rl/docs/ppo_comparison_protocol.md`.
 
+**Owner extension, 8 November 2026 — representation study:** Following completion
+of the core release and PPO/dashboard extensions, the owner selected the
+controlled DQN input comparison. Milestone 8 uses paired fresh-seed absolute
+versus absolute-plus-relative inputs, with bounded chronological training traces,
+under `autonomous-robot-navigation-rl/docs/representation_protocol.md`. It is
+exploratory development validation and preserves the original frozen final study.
+All ten main runs and their artifact audit are now complete; actual results and
+remaining limits are in `autonomous-robot-navigation-rl/docs/milestone8_results.md`.
+
 ## 1. Project Information and Institutional Guidance
 
 This project uses the same development structure as the Smart Energy project: define the problem, prepare reproducible inputs, compare learning approaches in Part A, refine the strongest approaches in Part B, and produce an inspectable prototype and technical report.

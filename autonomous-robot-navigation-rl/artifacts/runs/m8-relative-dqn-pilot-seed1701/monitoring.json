@@ -1,0 +1,78 @@
+[
+  {
+    "training_interactions": 10000,
+    "weight_phase": "after final scheduled gradient update",
+    "episodes": 30,
+    "counts": {
+      "success": 0,
+      "collision": 9,
+      "timeout": 21
+    },
+    "success_rate": 0.0,
+    "collision_rate": 0.3,
+    "timeout_rate": 0.7,
+    "spl": 0.0,
+    "mean_return": -2.9116666666666666,
+    "mean_successful_route_length": null,
+    "successful_route_count": 0,
+    "interactions": 4235,
+    "scope": "fixed monitoring subset",
+    "seed": 1701,
+    "by_distance_band": {
+      "short": {
+        "episodes": 10,
+        "counts": {
+          "success": 0,
+          "collision": 1,
+          "timeout": 9
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.1,
+        "timeout_rate": 0.9,
+        "spl": 0.0,
+        "mean_return": -2.302,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1802
+      },
+      "medium": {
+        "episodes": 10,
+        "counts": {
+          "success": 0,
+          "collision": 4,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.4,
+        "timeout_rate": 0.6,
+        "spl": 0.0,
+        "mean_return": -3.2089999999999996,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1209
+      },
+      "long": {
+        "episodes": 10,
+        "counts": {
+          "success": 0,
+          "collision": 4,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.4,
+        "timeout_rate": 0.6,
+        "spl": 0.0,
+        "mean_return": -3.2239999999999993,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1224
+      }
+    },
+    "evaluation_seconds": 0.6352401999756694,
+    "interactions_per_second": 6666.769515156954,
+    "mean_decision_microseconds": 88.84100010618567,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries",
+    "initial_states_visited_in_training": 10,
+    "initial_state_overlap_fraction": 0.3333333333333333
+  }
+]

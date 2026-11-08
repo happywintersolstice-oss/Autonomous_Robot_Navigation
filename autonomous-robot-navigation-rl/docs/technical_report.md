@@ -20,6 +20,18 @@ controls. It exposed and corrected delayed timeline events that paused/rewound
 Play; both single and matched playback now reject stale widget events. Details
 and limits are recorded in the current plan-closure status.
 
+Milestone 8 subsequently compared DQN absolute versus absolute-plus-relative inputs
+on five fresh paired seeds at 200k interactions each. Mean validation success was
+5.97% versus 6.51%, paired change +0.54 pp (sample paired-seed SD 2.88 pp). Two
+seeds improved, two worsened and one tied. Fewer collisions accompanied more
+timeouts; both means remain below 7%. This input design, including 128 additional
+online parameters, did not yield consistent improvement. All 110 current tests
+pass; the main audit verified 1,187,423 actions and 200 periodic checkpoints.
+Actual chronological training traces are retained for the new runs, without
+reconstructing old training. See [the full milestone 8 report](milestone8_results.md).
+This exploratory study changes neither the historical final table nor the
+predeclared selected controller.
+
 ## Problem and solution
 
 Build and study a robot controller that reaches varied goals on one fixed static

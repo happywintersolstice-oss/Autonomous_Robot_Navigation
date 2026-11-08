@@ -89,7 +89,7 @@ def run_label(directory):
         return 'Q-learning · Three-policy vote'
     if name=='smoke-seed7':
         return 'Q-learning · Initial pilot · seed 7'
-    match=re.match(r'm(\d+)-(?:(control|tuned|terminal|search)-)?(q-learning|sarsa|dqn|ppo)-(.*)',name)
+    match=re.match(r'm(\d+)-(?:(control|relative|tuned|terminal|search)-)?(q-learning|sarsa|dqn|ppo)-(.*)',name)
     if not match:
         return name
     milestone,stage,algorithm,suffix=match.groups()
@@ -98,6 +98,12 @@ def run_label(directory):
            'DQN pilot' if 'pilot' in suffix else 'Part A' if milestone=='3' else 'Early baseline')
     if algorithm=='ppo':
         stage='Pilot' if 'pilot' in suffix else 'Additional baseline'
+    if milestone=='8' and algorithm=='dqn':
+        stage=('Absolute + relative' if stage=='Early baseline' else 'Absolute control')
+        if 'relative' in name:
+            stage='Absolute + relative'
+        if 'pilot' in suffix:
+            stage+=' pilot'
     seed=re.search(r'seed(\d+)',suffix)
     candidate=re.search(r'c\d\d',suffix)
     label=f'{family} · {stage}'

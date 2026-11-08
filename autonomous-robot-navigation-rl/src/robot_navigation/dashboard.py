@@ -63,11 +63,11 @@ def evidence(root=ROOT):
 
 
 def early_checkpoint(directory, root=ROOT):
-    if read_json(directory/'manifest.json').get('algorithm')=='ppo':
+    if (read_json(directory/'manifest.json').get('algorithm')=='ppo' or directory.name.startswith('m8-')):
         checkpoint=directory/'checkpoints/step-0010000.zip'
         if checkpoint.is_file() and read_json(checkpoint.with_suffix('.json'))['training_interactions']==10000:
             return checkpoint
-        raise ValueError('No 10,000-interaction PPO checkpoint is available for this run')
+        raise ValueError('No 10,000-interaction neural checkpoint is available for this run')
     path = root / 'artifacts/studies/milestone5-v1/early_checkpoints' / directory.name
     candidates = sorted(path.glob('*.npz')) + sorted(path.glob('*.zip'))
     if not candidates:

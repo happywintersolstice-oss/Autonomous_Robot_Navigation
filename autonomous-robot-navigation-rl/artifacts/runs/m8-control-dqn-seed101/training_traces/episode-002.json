@@ -1,0 +1,102 @@
+{
+  "signature": {
+    "map_id": "bottleneck-v1",
+    "map_hash": "614472df8e4cbed5408e1e5092dfd708bb683cdeef780a1a064246f0e1e58a94",
+    "task_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "step-goal-collision-v1"
+  },
+  "scenario": {
+    "id": "r9c5-r3c8",
+    "start": [
+      9,
+      5
+    ],
+    "goal": [
+      3,
+      8
+    ],
+    "shortest_length": 9,
+    "distance_band": "medium"
+  },
+  "seed": 101,
+  "policy_id": "dqn/m8-control-dqn-seed101/training-behavior",
+  "mode": "training",
+  "initial_observation": [
+    9,
+    5,
+    3,
+    8
+  ],
+  "transitions": [
+    {
+      "observation": [
+        9,
+        5,
+        3,
+        8
+      ],
+      "action": 2,
+      "reward": -0.01,
+      "next_observation": [
+        9,
+        4,
+        3,
+        8
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          9,
+          4
+        ],
+        "outcome": "running",
+        "scenario_id": "r9c5-r3c8",
+        "steps": 1
+      },
+      "scores": null
+    },
+    {
+      "observation": [
+        9,
+        4,
+        3,
+        8
+      ],
+      "action": 1,
+      "reward": -5.01,
+      "next_observation": [
+        9,
+        4,
+        3,
+        8
+      ],
+      "terminated": true,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          10,
+          4
+        ],
+        "outcome": "collision",
+        "scenario_id": "r9c5-r3c8",
+        "steps": 2
+      },
+      "scores": null
+    }
+  ],
+  "training_start_interaction": 2,
+  "behavior": "actual exploratory training actions; policy may change within an episode; no frozen-policy scores recorded",
+  "training_end_interaction": 4,
+  "complete": true,
+  "metrics": {
+    "outcome": "collision",
+    "steps": 2,
+    "return": -5.02,
+    "successful_route_length": null,
+    "spl": 0.0
+  }
+}

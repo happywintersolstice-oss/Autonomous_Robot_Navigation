@@ -20,6 +20,16 @@ gaps. Additional route/cost tables and all six four-family robustness dimensions
 are available in the dashboard, backed by the separate `four-rl-analysis-v1`
 saved-evidence study. See [analysis details](docs/four_way_analysis_results.md).
 
+**Milestone 8: controlled DQN inputs.** The owner selected a paired comparison
+of four absolute coordinates versus those coordinates plus two relative goal
+offsets. This is an input ablation on the unchanged task, with fresh paired seeds
+and bounded chronological training traces. All ten 200k-interaction main runs
+completed and passed audit. Success averaged 5.97% control versus 6.51% relative;
+the +0.54 pp paired change was inconsistent across seeds. See
+[all measured results](docs/milestone8_results.md), the
+[registered protocol](docs/representation_protocol.md) and
+[execution status](docs/representation_status.md) for actual progress.
+
 **Part A:** five independent seeds per learned algorithm, 200,000 interactions
 each, common validation monitoring, and an explicit validation-only checkpoint
 and algorithm-family selection rule. See [milestone 3 results](docs/milestone3_results.md)
@@ -215,6 +225,19 @@ in `artifacts/studies/part-b-v1/voting_comparison.json`. Saved voting transition
 contain actual member proposals and tie diagnostics, not invented Q scores.
 
 ## Reproduce Part A
+
+For the separate DQN representation study, copy
+`configs/representation_study.yaml`, choose a fresh `suite_id` and `run_prefix`,
+then run `scripts/run_representation_study.py pilot --config <your-yaml>` followed
+by the same command with `run`. The runner checks the pilot estimate before the
+main matrix, refuses overwrite and retains failures. The canonical analyzer is
+`scripts/analyze_representation_study.py` for `representation-v1`.
+Relative checkpoints declare `absolute-relative-coordinates-v1`; model loading
+checks the saved encoding and six-input architecture. Old DQN checkpoints retain
+their four-feature inference. New runs can set `training_trace_episodes` from 0
+to 10 (default 0); this study captures the first three episodes and explicitly
+labels incomplete budget/interruption prefixes. Training trace downloads live in
+the simulator's saved training-progress expander, separate from validation replays.
 
 The original `part-a-v1` study and `m3-*` runs are retained. Use fresh output names:
 

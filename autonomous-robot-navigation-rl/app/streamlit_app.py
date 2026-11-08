@@ -129,6 +129,8 @@ with st.sidebar.expander("Model and task details"):
     st.caption(f"Checkpoint: {viewer_checkpoint(directory).name} · selected interaction: {read_json(directory / 'manifest.json').get('selected_interactions', 'legacy snapshot')}")
     st.caption(f"{task.grid.map_id} · replay seed {episode['seed']}")
     st.caption(f"Reward: {task.config['reward_version']} · step {task.config['step_reward']:+.2f}, goal +{task.config['goal_reward']}, collision {task.config['collision_reward']}")
+    if frozen_agent.algorithm=='dqn':
+        st.caption(f"Input encoding: {frozen_agent.encoding} · {frozen_agent.model.observation_space.shape[0]} features from the same raw coordinates")
     if frozen_agent.algorithm == "voting":
         st.caption(f"Frozen {frozen_agent.family} voting · member seeds {list(frozen_agent.seeds)} · ties use the first member")
     st.write("BFS knows the obstacle map. Learned agents see only robot and goal coordinates. Random is untrained.")
@@ -212,5 +214,11 @@ with st.expander("Saved training progress and measured validation"):
         st.json({name: {key: result[key] for key in ("episodes", "counts", "spl", "mean_return")}
                  for name, result in validation_results.items() if name != "bfs_training_correctness"})
         st.caption("One saved seed on held-out initial conditions on a familiar map. No final-test results.")
+        traces=read_json(directory/'manifest.json').get('training_traces',{}).get('records',[])
+        if traces:
+            st.write('Chronological training traces: actual exploratory actions, excluded from validation metrics.')
+            for trace in traces:
+                st.download_button(f"Download {trace['path']}", (directory/trace['path']).read_bytes(),
+                                   file_name=trace['path'].replace('/','-'),mime='application/json')
     except (OSError, KeyError, ValueError) as exc:
         st.info(f"Progress summary unavailable: {exc}")

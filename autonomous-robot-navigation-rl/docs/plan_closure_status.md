@@ -22,6 +22,11 @@ historical milestone records remain dated evidence of their original releases.
   performs zero policy evaluations or training and leaves original studies intact.
 - Plan, README, report addendum, development log and release/UI notes distinguish
   current PPO support from the historical three-family frozen release.
+- The subsequent owner-authorized milestone 8 completed the controlled DQN
+  representation study, with five fresh paired seeds, chronological training
+  traces and a passed full replay audit. Mean success was 5.97% absolute versus
+  6.51% absolute plus relative, without consistent seed-level improvement.
+  All 110 current tests pass. See [milestone 8 results](milestone8_results.md).
 
 Analysis protocol, actual costs and PPO group outcomes are in
 [four-family analysis results](four_way_analysis_results.md). Primary evidence:
@@ -88,15 +93,16 @@ display checks excluded from benchmark summaries, not new final evaluations.
 
 ## Remaining research and limits
 
-1. **Selected training trajectories:** historical runs retain episode CSVs,
+1. **Historical training trajectories:** historical runs retain episode CSVs,
    visitation and full evaluation traces, but selected training episodes were
    not saved transition by transition. Those historical traces cannot be
-   reconstructed from summaries. Capturing them requires instrumented future
-   runs; no historical evidence will be invented or relabeled.
-2. **Representation comparison:** normalized versus absolute-plus-relative neural
-   inputs was not tested. The core essential requirement was at least one
-   controlled reward or representation experiment; the reward ablation satisfies
-   it. The representation portion of RQ2 remains unanswered.
+   reconstructed from summaries. Milestone 8 now implements bounded prospective
+   capture and retains 36 actual early training records across its pilots/main
+   runs. No historical evidence is invented or relabeled.
+2. **Representation scope:** milestone 8 tested normalized versus absolute-plus-
+   relative DQN inputs. It addresses that portion of RQ2 under one fixed setup,
+   with no consistent improvement. Other representations and capacity-matched
+   neural comparisons remain untested.
 3. **Untuned neural baselines:** DQN and PPO are trained but untuned. Original
    tuning applied to the two shortlisted tabular families. Their weak results
    are retained; four trained algorithms do not imply four strong or tuned ones.
@@ -109,4 +115,6 @@ display checks excluded from benchmark summaries, not new final evaluations.
    Bitwise repeatability across machines and exact training resume are unsupported.
    Performance misses and residual collisions/timeouts are reported limitations.
 
-The current integration does not initiate any of these additional research tracks.
+The earlier integration did not initiate new research. Milestone 8 was authorized
+separately afterward; neural tuning and independent final evaluation remain
+outside that input study.

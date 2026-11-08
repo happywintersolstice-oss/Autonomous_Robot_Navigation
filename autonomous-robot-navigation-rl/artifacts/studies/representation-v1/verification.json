@@ -1,0 +1,167 @@
+{
+  "status": "passed",
+  "audits": [
+    {
+      "run_id": "m8-control-dqn-seed101",
+      "training_ledger_reconciled": true,
+      "validation_episodes": 928,
+      "selection_verified": true,
+      "policy_actions_replayed": 80921,
+      "scope": "saved aggregate, ledger and task verification",
+      "checkpoints_verified": 20,
+      "training_traces": {
+        "records": 3,
+        "actions": 5,
+        "chronological_ledger_verified": true
+      },
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m8-relative-dqn-seed101",
+      "training_ledger_reconciled": true,
+      "validation_episodes": 928,
+      "selection_verified": true,
+      "policy_actions_replayed": 164595,
+      "scope": "saved aggregate, ledger and task verification",
+      "checkpoints_verified": 20,
+      "training_traces": {
+        "records": 3,
+        "actions": 5,
+        "chronological_ledger_verified": true
+      },
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m8-control-dqn-seed211",
+      "training_ledger_reconciled": true,
+      "validation_episodes": 928,
+      "selection_verified": true,
+      "policy_actions_replayed": 117242,
+      "scope": "saved aggregate, ledger and task verification",
+      "checkpoints_verified": 20,
+      "training_traces": {
+        "records": 3,
+        "actions": 10,
+        "chronological_ledger_verified": true
+      },
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m8-relative-dqn-seed211",
+      "training_ledger_reconciled": true,
+      "validation_episodes": 928,
+      "selection_verified": true,
+      "policy_actions_replayed": 115857,
+      "scope": "saved aggregate, ledger and task verification",
+      "checkpoints_verified": 20,
+      "training_traces": {
+        "records": 3,
+        "actions": 10,
+        "chronological_ledger_verified": true
+      },
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m8-control-dqn-seed307",
+      "training_ledger_reconciled": true,
+      "validation_episodes": 928,
+      "selection_verified": true,
+      "policy_actions_replayed": 121017,
+      "scope": "saved aggregate, ledger and task verification",
+      "checkpoints_verified": 20,
+      "training_traces": {
+        "records": 3,
+        "actions": 6,
+        "chronological_ledger_verified": true
+      },
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m8-relative-dqn-seed307",
+      "training_ledger_reconciled": true,
+      "validation_episodes": 928,
+      "selection_verified": true,
+      "policy_actions_replayed": 116186,
+      "scope": "saved aggregate, ledger and task verification",
+      "checkpoints_verified": 20,
+      "training_traces": {
+        "records": 3,
+        "actions": 6,
+        "chronological_ledger_verified": true
+      },
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m8-control-dqn-seed401",
+      "training_ledger_reconciled": true,
+      "validation_episodes": 928,
+      "selection_verified": true,
+      "policy_actions_replayed": 116962,
+      "scope": "saved aggregate, ledger and task verification",
+      "checkpoints_verified": 20,
+      "training_traces": {
+        "records": 3,
+        "actions": 4,
+        "chronological_ledger_verified": true
+      },
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m8-relative-dqn-seed401",
+      "training_ledger_reconciled": true,
+      "validation_episodes": 928,
+      "selection_verified": true,
+      "policy_actions_replayed": 127001,
+      "scope": "saved aggregate, ledger and task verification",
+      "checkpoints_verified": 20,
+      "training_traces": {
+        "records": 3,
+        "actions": 4,
+        "chronological_ledger_verified": true
+      },
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m8-control-dqn-seed503",
+      "training_ledger_reconciled": true,
+      "validation_episodes": 928,
+      "selection_verified": true,
+      "policy_actions_replayed": 105562,
+      "scope": "saved aggregate, ledger and task verification",
+      "checkpoints_verified": 20,
+      "training_traces": {
+        "records": 3,
+        "actions": 14,
+        "chronological_ledger_verified": true
+      },
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m8-relative-dqn-seed503",
+      "training_ledger_reconciled": true,
+      "validation_episodes": 928,
+      "selection_verified": true,
+      "policy_actions_replayed": 122080,
+      "scope": "saved aggregate, ledger and task verification",
+      "checkpoints_verified": 20,
+      "training_traces": {
+        "records": 3,
+        "actions": 14,
+        "chronological_ledger_verified": true
+      },
+      "inference_unchanged": true
+    }
+  ],
+  "historical_files_verified": 7746,
+  "historical_inputs_unchanged": true,
+  "policy_actions_replayed": 1187423,
+  "training_trace_actions_replayed": 78,
+  "new_final_test_policy_executions": 0,
+  "analysis_seconds": 40.3813908000011,
+  "output_hashes": {
+    "summary.json": "a69fcc40b4c22082607c5cf0de82a8f778484c8277d676153088f3be8b0476e8",
+    "paired_differences.csv": "63bae29c0e18d8857abdb77ae5dd1c39c4d5953b7f40721e1224001888d6eddd",
+    "paired_representation.png": "ce63b70855bdfe36f27fe491f0f02517c6e322e5594f84f348f1e68bd4434d0b",
+    "representation_learning.png": "4fc10bd992d166d207b31186f124c5e796ea86d289ec8d79649430f853982672"
+  }
+}
