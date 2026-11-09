@@ -14,7 +14,8 @@ Its implementation and separate validation workflow are described in
 200,000 interactions each and passed artifact verification. The dashboard's
 **Agent comparison** view includes all four RL algorithms using development
 validation. See [measured results and limitations](docs/ppo_comparison_results.md).
-PPO is an untuned additional baseline. The original frozen release is unchanged.
+Those five PPO runs are the original additional baselines. M9 adds a separate
+preliminary neural tuning study below.
 The [current plan-closure status](docs/plan_closure_status.md) tracks remaining
 gaps. Additional route/cost tables and all six four-family robustness dimensions
 are available in the dashboard, backed by the separate `four-rl-analysis-v1`
@@ -29,6 +30,15 @@ the +0.54 pp paired change was inconsistent across seeds. See
 [all measured results](docs/milestone8_results.md), the
 [registered protocol](docs/representation_protocol.md) and
 [execution status](docs/representation_status.md) for actual progress.
+
+**Milestone 9 controlled DQN/PPO tuning.** Four configurations per algorithm were
+screened before three fresh matched confirmation seeds at 200,000 steps each.
+Success averaged 5.60% baseline versus 7.11% selected settings for DQN, and 16.99%
+versus 24.35% for PPO. Both remain weak and miss the declared targets. Open
+**Neural tuning** in the dashboard for results, curves, costs and matched replay.
+See [the measured results](docs/milestone9_results.md) and
+[the registered protocol](docs/milestone9_protocol.md). The original frozen final
+controller remains Q-learning. This is preliminary development validation.
 
 **Part A:** five independent seeds per learned algorithm, 200,000 interactions
 each, common validation monitoring, and an explicit validation-only checkpoint

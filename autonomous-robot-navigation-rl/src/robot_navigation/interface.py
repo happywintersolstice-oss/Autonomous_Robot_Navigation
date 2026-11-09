@@ -118,6 +118,11 @@ def apply_theme():
 
 def run_label(directory):
     name=directory.name
+    neural = re.fullmatch(r'm9-(pilot|search|control|tuned)-(dqn|ppo)(?:-(c\d\d))?-seed(\d+)',name)
+    if neural:
+        stage={'pilot':'Tuning pilot','search':'Tuning search','control':'Fresh baseline','tuned':'Selected settings'}[neural[1]]
+        candidate=f' {neural[3]}' if neural[3] else ''
+        return f'{ALGORITHM_LABELS[neural[2]]} · {stage}{candidate} · seed {neural[4]}'
     demo = re.fullmatch(r'learning-replay-(q-learning|sarsa|dqn|ppo)-seed(\d+)', name)
     if demo:
         return f'{ALGORITHM_LABELS[demo[1]]} · Recorded training demo · seed {demo[2]}'
@@ -165,6 +170,8 @@ def experiment_group(directory):
     name = directory.name
     if name.startswith('learning-replay-'):
         return 'Learning replay demonstrations'
+    if name.startswith('m9-'):
+        return 'Neural tuning'
     if name.startswith('m8-'):
         return 'DQN input representation'
     if name.startswith('m7-'):

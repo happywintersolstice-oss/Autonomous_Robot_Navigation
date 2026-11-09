@@ -66,3 +66,20 @@ Recording checks verify the manifest declaration, checksum, training seed,
 canonical training scenario and environment transitions. If a recording ends at
 a training cutoff, the viewer labels that cutoff rather than inventing success,
 collision or timeout. Trained and learning replays remain separate.
+
+## Neural tuning results
+
+Choose **Neural tuning** from **Dashboard view** for the separate preliminary
+DQN/PPO study. Its first table compares fresh baselines with selected settings
+across three matched training seeds. Success, collision and timeout are shown
+as percentages. Paired changes use percentage points. SPL ranges from zero to one.
+
+Use **Compare DQN models** or **Compare PPO models** to open the first declared
+confirmation seed in **Compare agents**. Both models face the same route with
+synchronized action steps. Change **Start and goal** to inspect other validation
+routes. The initial seed is fixed before results and is not chosen for its score.
+
+For other seeds, open **Filter**, choose **Neural tuning**, then select the
+desired **Fresh baseline** or **Selected settings** model. Those runs also contain
+bounded actual training episodes in **Learning replay**. The page displays the
+verified study after its integrity checks finish and reports progress beforehand.

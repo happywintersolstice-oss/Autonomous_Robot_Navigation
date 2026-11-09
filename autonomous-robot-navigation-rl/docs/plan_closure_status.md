@@ -1,7 +1,7 @@
 # Plan closure and remaining scope
 
-Updated 8 November 2026 after the owner's request to reconcile the plan and
-complete four-family dashboard integration. This is a current status page;
+Updated 9 November 2026 after completion of the preliminary DQN/PPO tuning study
+and owner acceptance of the preceding dashboard visuals. This page records current status.
 historical milestone records remain dated evidence of their original releases.
 
 ## Implemented and measured
@@ -11,7 +11,7 @@ historical milestone records remain dated evidence of their original releases.
   robustness, animated dashboard, original frozen final evaluation and report.
 - Owner-authorized fourth algorithm: PPO, five independent seeds with exactly
   200,000 training interactions each. Its separate exploratory validation study
-  passed verification; no PPO final-test evaluation or tuning was performed.
+  passed verification. PPO tuning was added separately in M9 below.
 - Four-family comparison includes success/collision/timeout/SPL/return, conditional
   successful route lengths and counts, recorded training/validation runtime,
   decision latency and checkpoint file size, with seed means, sample SD and
@@ -26,7 +26,7 @@ historical milestone records remain dated evidence of their original releases.
   representation study, with five fresh paired seeds, chronological training
   traces and a passed full replay audit. Mean success was 5.97% absolute versus
   6.51% absolute plus relative, without consistent seed-level improvement.
-  All 110 current tests pass. See [milestone 8 results](milestone8_results.md).
+  All 110 tests passed at the M8 release. See [milestone 8 results](milestone8_results.md).
 
 Analysis protocol, actual costs and PPO group outcomes are in
 [four-family analysis results](four_way_analysis_results.md). Primary evidence:
@@ -34,7 +34,7 @@ Analysis protocol, actual costs and PPO group outcomes are in
 [cost records](../artifacts/studies/four-rl-analysis-v1/costs.csv) and
 [group records](../artifacts/studies/four-rl-analysis-v1/groups.csv).
 
-## Current automated and setup verification
+## Earlier automated and setup verification
 
 All **96 tests passed in 44.06 seconds** in a fresh isolated Python 3.14.10
 environment with system site packages disabled. All 58 pinned distributions
@@ -65,7 +65,7 @@ and all 184 original frozen inputs against their seal. The current analysis is a
 new study; no older evidence was rewritten. See the
 [machine-readable verification](plan_closure_verification.json).
 
-## Current live visual verification
+## Earlier live visual verification
 
 Passed in native Chrome after the owner opened the local preview tab. The in-app
 browser host remains unavailable, but direct observation of the active local tab
@@ -98,14 +98,16 @@ display checks excluded from benchmark summaries, not new final evaluations.
    not saved transition by transition. Those historical traces cannot be
    reconstructed from summaries. Milestone 8 now implements bounded prospective
    capture and retains 36 actual early training records across its pilots/main
-   runs. No historical evidence is invented or relabeled.
+   runs. Subsequent four-family demos add 40 staged recordings, and the verified
+   M9 suite adds 220 staged recordings. Historical actions remain unavailable.
 2. **Representation scope:** milestone 8 tested normalized versus absolute-plus-
    relative DQN inputs. It addresses that portion of RQ2 under one fixed setup,
    with no consistent improvement. Other representations and capacity-matched
    neural comparisons remain untested.
-3. **Untuned neural baselines:** DQN and PPO are trained but untuned. Original
-   tuning applied to the two shortlisted tabular families. Their weak results
-   are retained; four trained algorithms do not imply four strong or tuned ones.
+3. **Preliminary neural tuning:** M9 screened four configurations per algorithm
+   and confirmed DQN/PPO c01 on three fresh matched seeds. Success increased from
+   5.60% to 7.11% for DQN and 16.99% to 24.35% for PPO. Both remain weak and miss
+   all declared performance targets. Five-seed confirmation remains future work.
 4. **Independent four-family final evaluation:** PPO was added after the original
    holdout had been inspected. The extension is exploratory development validation.
    A separately designed evaluation is required for a new confirmatory claim;
@@ -115,6 +117,23 @@ display checks excluded from benchmark summaries, not new final evaluations.
    Bitwise repeatability across machines and exact training resume are unsupported.
    Performance misses and residual collisions/timeouts are reported limitations.
 
-The earlier integration did not initiate new research. Milestone 8 was authorized
-separately afterward; neural tuning and independent final evaluation remain
-outside that input study.
+The earlier integration did not initiate new research. Milestones 8 and 9 were
+authorized separately afterward. Neural tuning remains separate from the input
+study and the original final evaluation.
+
+## Milestone 9 completion
+
+The bounded suite completed 22 runs and 3.22 million training steps in 17.89
+minutes, within its declared limits. One interrupted setup attempt added 20,000
+training steps and was preserved separately. All 9,371 pre-study artifact/data
+files retained their hashes. Independent checks verified the original 8,816
+protected files and 184 sealed archived inputs.
+
+The audit replayed 1,751,597 validation actions and 3,464 actual training actions.
+All 148 tests passed after the final figure adjustment. The dashboard has a
+separate Neural tuning page with matched model comparisons. Prior dashboard
+visuals were owner-verified. The new research page passed the application harness.
+Its native-browser appearance has not been independently inspected.
+
+See [M9 measured results and limits](milestone9_results.md) and
+[the registered protocol](milestone9_protocol.md).

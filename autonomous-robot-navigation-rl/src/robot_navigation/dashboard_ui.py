@@ -44,6 +44,10 @@ def metric_rows(summary):
 
 def render_page(page, task, root):
     st.title(page)
+    if page=='Neural tuning':
+        from .neural_tuning_ui import render_tuning
+        render_tuning(task,root)
+        return
     try:
         representation = representation_summary(root)
         if representation:
@@ -307,7 +311,7 @@ def event_log(episode,index,key,callback,disabled=False):
 
 def render_comparison(task,directory,validation,runs,root,four=False):
     with st.container(key='comparison_setup'):
-        kind='Four baselines' if four else st.radio('Comparison type',['Different models','Earlier vs trained model'],horizontal=True,
+        kind='Four baselines' if four else st.radio('Comparison type',['Different models','Earlier vs trained model'],horizontal=True,key='comparison_kind',
             help='Compare different saved models, or compare an early checkpoint against the same run after training.')
         fields=st.columns([1,2],gap='large')
         if four:

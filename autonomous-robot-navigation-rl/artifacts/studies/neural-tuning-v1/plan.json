@@ -1,0 +1,76 @@
+{
+  "suite_id": "neural-tuning-v1",
+  "run_prefix": "m9",
+  "algorithms": [
+    "dqn",
+    "ppo"
+  ],
+  "pilot_seed": 7101,
+  "development_seed": 7201,
+  "confirmation_seeds": [
+    7307,
+    7411,
+    7523
+  ],
+  "pilot_interactions": 10000,
+  "search_interactions": 100000,
+  "confirmation_interactions": 200000,
+  "monitor_every": 10000,
+  "workers": 2,
+  "baseline_runs": {
+    "dqn": "m3-dqn-seed7",
+    "ppo": "m7-ppo-seed7"
+  },
+  "candidates": {
+    "dqn": {
+      "c00": {},
+      "c01": {
+        "learning_rate": 0.001,
+        "target_update_interval": 250,
+        "epsilon_decay_fraction": 1.0
+      },
+      "c02": {
+        "learning_rate": 0.0001,
+        "target_update_interval": 500,
+        "epsilon_end": 0.3,
+        "epsilon_decay_fraction": 1.0
+      },
+      "c03": {
+        "learning_rate": 0.001,
+        "discount": 0.95,
+        "target_update_interval": 250,
+        "epsilon_end": 0.05
+      }
+    },
+    "ppo": {
+      "c00": {},
+      "c01": {
+        "learning_rate": 0.001,
+        "n_steps": 500,
+        "ent_coef": 0.01
+      },
+      "c02": {
+        "n_steps": 500,
+        "ent_coef": 0.02,
+        "clip_range": 0.1
+      },
+      "c03": {
+        "learning_rate": 0.001,
+        "ent_coef": 0.01,
+        "discount": 0.95
+      }
+    }
+  },
+  "targets": {
+    "mean_success_rate_at_least": 0.8,
+    "mean_collision_rate_at_most": 0.02,
+    "mean_spl_at_least": 0.75
+  },
+  "limits": {
+    "max_runs_including_pilots": 22,
+    "max_training_interactions_including_pilots": 3220000,
+    "run_wall_seconds": 900,
+    "suite_wall_seconds": 4500,
+    "new_artifact_bytes": 1073741824
+  }
+}

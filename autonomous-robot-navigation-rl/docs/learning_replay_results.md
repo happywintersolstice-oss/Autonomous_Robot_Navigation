@@ -29,6 +29,6 @@ The artifact audit verified each recording against its declared chronological wi
 The initial aggregate audit rejected one SARSA return because Python compensated summation produced -6.92 while the sequential CSV accumulator produced -6.920000000000002. Only this aggregate comparison now allows absolute roundoff up to 1e-12; raw actions and per-step rewards remain checked exactly. Re-auditing required no retraining or raw-data edits. A regression test accepts tiny accumulation noise and rejects a 0.01 reward change.
 All **8,816 pre-existing protected files** and **184 archived frozen inputs**, including the original freeze seal, verified unchanged. No new final-test policy executions occurred.
 
-Live browser verification of the newly added algorithm choices is pending; all four choices and late-stage playback have passed the Streamlit application harness.
+The owner confirmed the dashboard visuals on 9 November 2026 before authorizing M9. This is owner verification. All four choices and late-stage playback also passed the Streamlit application harness.
 
 Artifacts: `artifacts/studies/learning-replays-v1/{plan,manifest,run_results,verification}.json`. Protocol: `docs/learning_replay_protocol.md`. Re-run integrity checks without training with `python scripts/record_learning_replays.py --verify-existing`.

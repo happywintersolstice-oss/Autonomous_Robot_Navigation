@@ -1,0 +1,104 @@
+{
+  "signature": {
+    "map_id": "bottleneck-v1",
+    "map_hash": "614472df8e4cbed5408e1e5092dfd708bb683cdeef780a1a064246f0e1e58a94",
+    "task_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "step-goal-collision-v1"
+  },
+  "scenario": {
+    "id": "r8c8-r8c6",
+    "start": [
+      8,
+      8
+    ],
+    "goal": [
+      8,
+      6
+    ],
+    "shortest_length": 2,
+    "distance_band": "short"
+  },
+  "seed": 7523,
+  "policy_id": "dqn/m9-control-dqn-seed7523/training-behavior",
+  "mode": "training",
+  "initial_observation": [
+    8,
+    8,
+    8,
+    6
+  ],
+  "transitions": [
+    {
+      "observation": [
+        8,
+        8,
+        8,
+        6
+      ],
+      "action": 2,
+      "reward": -0.01,
+      "next_observation": [
+        8,
+        7,
+        8,
+        6
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          8,
+          7
+        ],
+        "outcome": "running",
+        "scenario_id": "r8c8-r8c6",
+        "steps": 1
+      },
+      "scores": null
+    },
+    {
+      "observation": [
+        8,
+        7,
+        8,
+        6
+      ],
+      "action": 2,
+      "reward": 9.99,
+      "next_observation": [
+        8,
+        6,
+        8,
+        6
+      ],
+      "terminated": true,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          8,
+          6
+        ],
+        "outcome": "success",
+        "scenario_id": "r8c8-r8c6",
+        "steps": 2
+      },
+      "scores": null
+    }
+  ],
+  "training_start_interaction": 190102,
+  "behavior": "actual exploratory training actions; policy may change within an episode; no frozen-policy scores recorded",
+  "recording_window_index": 4,
+  "recording_window_start_interaction": 190000,
+  "training_end_interaction": 190104,
+  "complete": true,
+  "metrics": {
+    "outcome": "success",
+    "steps": 2,
+    "return": 9.98,
+    "successful_route_length": 2,
+    "spl": 1.0
+  }
+}

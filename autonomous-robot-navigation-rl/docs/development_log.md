@@ -386,3 +386,37 @@ publication, all 110 tests passed in 39.40 seconds, including the real six-featu
 pilot UI and separate representation/four-family dashboard panels. The old frozen
 archive's 184 inputs still match its seal; final-test policy executions are zero.
 Live verification status is recorded separately in `docs/milestone8_verification.json`.
+
+## 9 November 2026 preliminary neural tuning
+
+The owner accepted the preceding dashboard visuals and authorized the next
+milestone. Chose a bounded M9 DQN/PPO study with four configurations per family,
+one development screening seed and three fresh matched confirmation seeds. This
+uses the original plan's preliminary-study allowance to bound local CPU cost.
+Retained absolute four-coordinate inputs, [64,64] networks and the original task.
+
+An initial startup investigation interrupted two pilots after 10k training steps
+each. Preserved them under neural-tuning-v1. A fresh attempt with pilot seed 7103
+retained the predeclared screen candidates and main seeds. Its measured pilot
+projection fit the limits. All 22 fresh runs completed 3.22m training steps in
+1,073.28 seconds, including audit. The interrupted setup adds another 20k steps.
+
+Both searches selected c01 before confirmation. Across seeds 7307/7411/7523,
+success increased from 5.60% to 7.11% for DQN and 16.99% to 24.35% for PPO.
+Every paired seed improved success, but both families missed all three target
+means. DQN retains roughly 70% timeouts, and selected PPO exceeds 62% collisions.
+Reported all poor outcomes, costs, selection ages and preliminary scope.
+
+Audit replayed 1,751,597 validation actions and 3,464 actual recorded training
+actions, checked all 322 periodic checkpoint checksums and all 22 source snapshots,
+and verified 9,371 historical artifact/data files. Independent checks also
+verified 8,816 original protected files and 184 sealed archived inputs. There were
+zero new final-test policy executions. All 148 tests passed in 40.45 seconds after
+the figure-label refinement. Added the separate Neural tuning page and matched
+replay buttons, tested through the Streamlit harness. Prior dashboard visual
+acceptance is owner-verified. The new research page has no fresh native-browser
+inspection. Both saved scientific figures were visually inspected.
+
+Codex assisted implementation, execution and analysis. The detailed protocol,
+actual results and remaining limits are recorded in docs/milestone9_protocol.md
+and docs/milestone9_results.md.

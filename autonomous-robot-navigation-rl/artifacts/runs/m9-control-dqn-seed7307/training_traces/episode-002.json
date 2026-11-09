@@ -1,0 +1,76 @@
+{
+  "signature": {
+    "map_id": "bottleneck-v1",
+    "map_hash": "614472df8e4cbed5408e1e5092dfd708bb683cdeef780a1a064246f0e1e58a94",
+    "task_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "step-goal-collision-v1"
+  },
+  "scenario": {
+    "id": "r8c9-r1c0",
+    "start": [
+      8,
+      9
+    ],
+    "goal": [
+      1,
+      0
+    ],
+    "shortest_length": 16,
+    "distance_band": "long"
+  },
+  "seed": 7307,
+  "policy_id": "dqn/m9-control-dqn-seed7307/training-behavior",
+  "mode": "training",
+  "initial_observation": [
+    8,
+    9,
+    1,
+    0
+  ],
+  "transitions": [
+    {
+      "observation": [
+        8,
+        9,
+        1,
+        0
+      ],
+      "action": 3,
+      "reward": -5.01,
+      "next_observation": [
+        8,
+        9,
+        1,
+        0
+      ],
+      "terminated": true,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          8,
+          10
+        ],
+        "outcome": "collision",
+        "scenario_id": "r8c9-r1c0",
+        "steps": 1
+      },
+      "scores": null
+    }
+  ],
+  "training_start_interaction": 6,
+  "behavior": "actual exploratory training actions; policy may change within an episode; no frozen-policy scores recorded",
+  "recording_window_index": 0,
+  "recording_window_start_interaction": 0,
+  "training_end_interaction": 7,
+  "complete": true,
+  "metrics": {
+    "outcome": "collision",
+    "steps": 1,
+    "return": -5.01,
+    "successful_route_length": null,
+    "spl": 0.0
+  }
+}

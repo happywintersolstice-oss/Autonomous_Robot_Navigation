@@ -1,0 +1,14 @@
+suite_id: learning-replays-v1
+seed: 1109
+interactions: 200000
+training_trace_episodes: 10
+training_trace_starts: [0, 50000, 100000, 150000, 190000]
+sources:
+  q-learning: m3-q-learning-seed7
+  sarsa: m3-sarsa-seed7
+  dqn: m3-dqn-seed7
+  ppo: m7-ppo-seed7
+limits:
+  run_wall_seconds: 600
+  suite_wall_seconds: 2400
+  new_artifact_bytes: 1073741824

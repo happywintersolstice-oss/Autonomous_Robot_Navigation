@@ -1,0 +1,52 @@
+{
+  "training_interactions": 20000,
+  "config": {
+    "interactions": 100000,
+    "monitor_every": 10000,
+    "discount": 0.99,
+    "epsilon_start": 1.0,
+    "epsilon_end": 0.1,
+    "epsilon_decay_fraction": 1.0,
+    "learning_rate": 0.001,
+    "buffer_size": 50000,
+    "learning_starts": 1000,
+    "batch_size": 64,
+    "train_freq": 4,
+    "gradient_steps": 1,
+    "target_update_interval": 250,
+    "net_arch": [
+      64,
+      64
+    ],
+    "torch_threads": 1,
+    "algorithm": "dqn",
+    "seed": 7201,
+    "run_id": "m9-search-dqn-c01-seed7201",
+    "stage": "search",
+    "training_trace_episodes": 10,
+    "training_trace_starts": [
+      0,
+      25000,
+      50000,
+      75000,
+      95000
+    ],
+    "max_wall_seconds": 900,
+    "log_progress": true
+  },
+  "weight_phase": "SB3 callback: before boundary transition storage/gradient/target update",
+  "signature": {
+    "map_id": "bottleneck-v1",
+    "map_hash": "614472df8e4cbed5408e1e5092dfd708bb683cdeef780a1a064246f0e1e58a94",
+    "task_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "step-goal-collision-v1"
+  },
+  "algorithm": "dqn",
+  "policy_id": "dqn/m9-search-dqn-c01-seed7201/step-20000",
+  "encoding": "normalized-coordinates-v1",
+  "kind": "inference-only; replay/RNG/environment state not saved; exact resume unsupported",
+  "sha256": "890aae3ca00a27e44cd585440aade5855ceb7eb249ea3e774518c5351fba6996"
+}

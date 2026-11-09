@@ -265,3 +265,14 @@ physical safety certification. No further tuning or winner promotion followed te
   [SB3 evaluation](https://stable-baselines3.readthedocs.io/en/master/guide/rl_tips.html).
   Installed SB3 replay/target code and project source were inspected and tested;
   no third-party training dataset or planner-derived learned supervision was used.
+
+## Post-release preliminary neural tuning
+
+M9 subsequently screened four DQN and four PPO configurations, then compared
+selected settings with fresh controls on three matched training seeds. Mean
+success increased from 5.60% to 7.11% for DQN and 16.99% to 24.35% for PPO. Both remain
+weak and miss the declared performance targets. This exploratory development
+study retains the original four-coordinate input and familiar-map task.
+The original final selection and evaluation remain historical evidence.
+See [the registered protocol](milestone9_protocol.md) and
+[all measured outcomes, costs and limits](milestone9_results.md).

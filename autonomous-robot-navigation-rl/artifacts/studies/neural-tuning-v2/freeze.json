@@ -1,0 +1,22 @@
+{
+  "plan_hash": "bca89168da62817bed561f6a8ce39c6540d43e77929d0f0521dd6a6f8366c193",
+  "source_hash": "2897e4f14ab450e48285b7e7581da268f59c6fcc8373c2da0b74cf66915939c9",
+  "pilot_run_ids": [
+    "m9-pilot-dqn-seed7103",
+    "m9-pilot-ppo-seed7103"
+  ],
+  "main_wall_seconds_estimate": 1556.4696499856655,
+  "estimate_note": "measured pilots, 30% training and 2x validation allowances; two concurrent one-thread processes; outcomes can change cost",
+  "limits": {
+    "max_runs_including_pilots": 22,
+    "max_training_interactions_including_pilots": 3220000,
+    "run_wall_seconds": 900,
+    "suite_wall_seconds": 4500,
+    "new_artifact_bytes": 1073741824
+  },
+  "frozen_utc": "2026-11-09T05:15:23.691551+00:00",
+  "checkpoint_selection": "monitor success, SPL, earliest step",
+  "candidate_selection": "complete validation success, SPL, lower collision, candidate ID",
+  "confirmation_seed_count": 3,
+  "preliminary": true
+}

@@ -1,0 +1,309 @@
+{
+  "signature": {
+    "map_id": "bottleneck-v1",
+    "map_hash": "614472df8e4cbed5408e1e5092dfd708bb683cdeef780a1a064246f0e1e58a94",
+    "task_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "step-goal-collision-v1"
+  },
+  "scenario": {
+    "id": "r0c0-r9c0",
+    "start": [
+      0,
+      0
+    ],
+    "goal": [
+      9,
+      0
+    ],
+    "shortest_length": 9,
+    "distance_band": "medium"
+  },
+  "seed": 7201,
+  "policy_id": "ppo/m9-search-ppo-c03-seed7201/step-10000",
+  "mode": "validation",
+  "initial_observation": [
+    0,
+    0,
+    9,
+    0
+  ],
+  "transitions": [
+    {
+      "observation": [
+        0,
+        0,
+        9,
+        0
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        0,
+        9,
+        0
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          0
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r9c0",
+        "steps": 1
+      },
+      "scores": null,
+      "decision": {
+        "action": 1,
+        "action_probabilities": [
+          0.09884806722402573,
+          0.4582691788673401,
+          0.24450431764125824,
+          0.19837844371795654
+        ],
+        "state_value": -4.485042095184326
+      }
+    },
+    {
+      "observation": [
+        1,
+        0,
+        9,
+        0
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        2,
+        0,
+        9,
+        0
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          2,
+          0
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r9c0",
+        "steps": 2
+      },
+      "scores": null,
+      "decision": {
+        "action": 1,
+        "action_probabilities": [
+          0.1465991884469986,
+          0.38082200288772583,
+          0.19882217049598694,
+          0.27375656366348267
+        ],
+        "state_value": -4.546015739440918
+      }
+    },
+    {
+      "observation": [
+        2,
+        0,
+        9,
+        0
+      ],
+      "action": 3,
+      "reward": -0.01,
+      "next_observation": [
+        2,
+        1,
+        9,
+        0
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          2,
+          1
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r9c0",
+        "steps": 3
+      },
+      "scores": null,
+      "decision": {
+        "action": 3,
+        "action_probabilities": [
+          0.2052648961544037,
+          0.29153376817703247,
+          0.14991995692253113,
+          0.3532813787460327
+        ],
+        "state_value": -4.596368789672852
+      }
+    },
+    {
+      "observation": [
+        2,
+        1,
+        9,
+        0
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        3,
+        1,
+        9,
+        0
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          3,
+          1
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r9c0",
+        "steps": 4
+      },
+      "scores": null,
+      "decision": {
+        "action": 1,
+        "action_probabilities": [
+          0.17677220702171326,
+          0.32785850763320923,
+          0.21826748549938202,
+          0.2771018147468567
+        ],
+        "state_value": -4.684739112854004
+      }
+    },
+    {
+      "observation": [
+        3,
+        1,
+        9,
+        0
+      ],
+      "action": 3,
+      "reward": -0.01,
+      "next_observation": [
+        3,
+        2,
+        9,
+        0
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          3,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r9c0",
+        "steps": 5
+      },
+      "scores": null,
+      "decision": {
+        "action": 3,
+        "action_probabilities": [
+          0.24389813840389252,
+          0.24457688629627228,
+          0.1609508991241455,
+          0.3505740761756897
+        ],
+        "state_value": -4.711889743804932
+      }
+    },
+    {
+      "observation": [
+        3,
+        2,
+        9,
+        0
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        4,
+        2,
+        9,
+        0
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          4,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r9c0",
+        "steps": 6
+      },
+      "scores": null,
+      "decision": {
+        "action": 1,
+        "action_probabilities": [
+          0.21121884882450104,
+          0.2763441801071167,
+          0.23669128119945526,
+          0.2757457196712494
+        ],
+        "state_value": -4.7587385177612305
+      }
+    },
+    {
+      "observation": [
+        4,
+        2,
+        9,
+        0
+      ],
+      "action": 3,
+      "reward": -5.01,
+      "next_observation": [
+        4,
+        2,
+        9,
+        0
+      ],
+      "terminated": true,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          4,
+          3
+        ],
+        "outcome": "collision",
+        "scenario_id": "r0c0-r9c0",
+        "steps": 7
+      },
+      "scores": null,
+      "decision": {
+        "action": 3,
+        "action_probabilities": [
+          0.2860916554927826,
+          0.20153160393238068,
+          0.17079484462738037,
+          0.34158188104629517
+        ],
+        "state_value": -4.768306255340576
+      }
+    }
+  ],
+  "metrics": {
+    "outcome": "collision",
+    "steps": 7,
+    "return": -5.069999999999999,
+    "successful_route_length": null,
+    "spl": 0.0
+  },
+  "initial_state_visited_in_training": false
+}

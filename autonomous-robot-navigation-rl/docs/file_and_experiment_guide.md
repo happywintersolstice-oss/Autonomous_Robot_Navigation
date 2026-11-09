@@ -367,3 +367,26 @@ directory rather than overwrite an existing experiment.
 
 Guide saved on 7 November 2026. For measured findings, see
 [the technical report](technical_report.md).
+
+## Neural tuning added on 9 November 2026
+
+| Name | Meaning |
+| --- | --- |
+| `m9-search-dqn-c01-seed7201` | DQN candidate c01 screened for 100,000 steps using the development training seed 7201. |
+| `m9-control-dqn-seed7307` | Fresh DQN baseline trained for 200,000 steps using confirmation seed 7307. |
+| `m9-tuned-dqn-seed7307` | The selected DQN settings trained for the same budget and confirmation seed. |
+| `m9-tuned-ppo-seed7411` | The same confirmation role for PPO, using training seed 7411. |
+| `m9-pilot-*-seed7103` | Short runtime/mechanics pilots excluded from confirmation results. |
+| `m9-pilot-*-seed7101` | Interrupted first-attempt pilots preserved separately. |
+| `artifacts/studies/neural-tuning-v2/` | Current preliminary DQN/PPO study with frozen settings, all results and audits. |
+| `artifacts/studies/neural-tuning-v1/` | Preserved interrupted setup attempt. |
+| `configs/neural_tuning.yaml` | Candidate overrides, seed matrix, budgets and limits declared before screening. |
+| `selected_configurations.json` | Candidate choices frozen before confirmation outcomes. |
+| `historical_hashes.json` | Checksums of older artifact/data files protected by this study. |
+
+`c01` identifies a configuration. It does not identify a training seed or a
+checkpoint. The three confirmation seeds are 7307, 7411 and 7523. Candidate
+screening and confirmation have different budgets and are reported separately.
+The `tuned` directory identifies the selected experimental settings. Their
+measured strength is reported in [the M9 results](milestone9_results.md).
+The original selected Q-learning controller remains the frozen release model.
