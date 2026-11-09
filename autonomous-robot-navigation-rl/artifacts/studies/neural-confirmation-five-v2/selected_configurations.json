@@ -1,0 +1,9 @@
+{
+  "selected": {
+    "dqn": "c01",
+    "ppo": "c01"
+  },
+  "frozen_before_confirmation": true,
+  "selection_uses": "one development training seed, 100k budget, 928 development-validation pairs",
+  "baseline_retention_rule": "c00 winner reuses control confirmations, without duplicate training replicates"
+}

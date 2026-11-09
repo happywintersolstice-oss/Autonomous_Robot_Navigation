@@ -5,6 +5,7 @@ import yaml
 
 from .core import read_json
 from .neural_tuning import STUDY, saved_summary
+from .neural_confirmation import STUDY as FIVE_STUDY, saved_summary as five_seed_summary
 
 
 def open_pair(root, system):
@@ -22,11 +23,16 @@ def open_pair(root, system):
 
 def render_tuning(task, root):
     st.write('Compare fresh baseline settings with settings chosen in a bounded DQN/PPO search.')
-    st.caption('Preliminary study with three matched training seeds per algorithm. Screening uses one separate seed. '
-               'Results use development-validation routes on the familiar fixed map.')
     study=root/'artifacts/studies'/STUDY
     try:
         summary=saved_summary(root)
+        expanded=five_seed_summary(root)
+        if expanded:
+            selection=st.radio('Study',['Original three-seed study','Five-seed extension'],index=1,
+                               horizontal=True,key='neural_study')
+            if selection=='Five-seed extension':
+                summary=expanded
+                study=root/'artifacts/studies'/FIVE_STUDY
         if summary:
             task.check(summary['signature'])
     except (OSError,ValueError,KeyError) as exc:
@@ -42,6 +48,12 @@ def render_tuning(task, root):
         with (root/'configs/neural_tuning.yaml').open(encoding='utf-8') as file:
             st.json(yaml.safe_load(file))
         return
+    seed_count=next(iter(summary['systems'].values()))['seed_count']
+    st.caption(f'{seed_count} matched training seeds per algorithm. Screening used one separate seed. '
+               'Results use development-validation routes on the familiar fixed map.')
+    if summary.get('expansion_declared_after_original_results'):
+        st.info('This expansion was declared after the original three-seed results were available. '
+                'The same selected settings were used for the two additional seeds.')
     st.subheader('Matched confirmation results')
     rows=[]
     for family,system in summary['systems'].items():
@@ -58,13 +70,13 @@ def render_tuning(task, root):
                 'Mean return':metrics['mean_return']['mean']})
     st.dataframe(pd.DataFrame(rows),hide_index=True,width='stretch')
     st.caption('Each run trains for 200,000 steps and evaluates 928 validation routes. '
-               'SD describes variation across three training seeds. The routes share the same map and training history within each run.')
+               f'SD describes variation across {seed_count} training seeds. The routes share the same map and training history within each run.')
     for family,system in summary['systems'].items():
         change=system['paired_change']['success_rate']
         st.write(f"**{family.upper()}** · selected {system['selected_candidate']} · mean paired success change "
                  f"{100*change['mean']:+.2f} percentage points · seed SD {100*change['sample_sd']:.2f} pp")
         if system['baseline_retained']:
-            st.caption('The original settings won screening. Both rows refer to the same three control runs. '
+            st.caption(f'The original settings won screening. Both rows refer to the same {seed_count} control runs. '
                        'There is no separate selected-settings replicate.')
         else:
             st.button(f'Compare {family.upper()} models',key=f'neural_compare_{family}',
@@ -72,6 +84,16 @@ def render_tuning(task, root):
                 on_click=open_pair,args=(root,system))
     st.image(str(study/'paired_neural_tuning.png'),width='stretch')
     st.image(str(study/'neural_tuning_learning.png'),width='stretch')
+    if summary.get('added_seed_systems'):
+        with st.expander('Two additional seeds separately'):
+            added=[]
+            for family,system in summary['added_seed_systems'].items():
+                for condition,values in system['conditions'].items():
+                    added.append({'Algorithm':family.upper(),'Settings':condition,'Training seeds':system['seed_count'],
+                                  'Success %':100*values['metrics']['success_rate']['mean'],
+                                  'Success seed SD (pp)':100*values['metrics']['success_rate']['sample_sd']})
+            st.dataframe(pd.DataFrame(added),hide_index=True,width='stretch')
+            st.caption('Only the two added seeds are included here. The five-seed table above also reuses the original three seeds.')
     with st.expander('Every confirmation seed and recorded cost'):
         seeds=[]
         for family,system in summary['systems'].items():

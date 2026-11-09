@@ -420,3 +420,66 @@ inspection. Both saved scientific figures were visually inspected.
 Codex assisted implementation, execution and analysis. The detailed protocol,
 actual results and remaining limits are recorded in docs/milestone9_protocol.md
 and docs/milestone9_results.md.
+
+## Five-seed follow-up and native dashboard checks
+
+The owner requested both extensions on 9 November 2026. Declared seeds 7607 and
+7717 before training, with frozen c01 settings, paired baselines and exact 200k
+budgets. Kept the original three-seed evidence and disclosed the staged design.
+
+The first attempt completed four DQN additions. PPO baseline seed 7607 failed
+on an in-place manifest write at 50k with Windows OSError 22. Its peer was stopped
+after 40k. Preserved the failed attempt and reused completed DQN rows. Repaired
+JSON I/O with atomic replacement and bounded transient-access retries, tested
+format compatibility, permanent failure and concurrent readers, and verified
+all other learning-engine core syntax/engine hashes. Restarted only the four
+remaining PPO conditions from zero under recovery-cohort run IDs.
+
+All eight successful additions total 1.6m training steps, plus at least 90k
+interrupted PPO work. Recovery and combined audit took 474.10 seconds. Saved
+parameters, optimizer state and counters match at shared failed/restarted PPO
+prefixes. The five-seed success means are 6.88% versus 7.37% for DQN and 19.44%
+versus 23.69% for PPO. The two additions alone averaged declines. Recorded all
+regressions and missed targets without selecting a new release controller.
+
+All 20 combined audits passed, covering 1,656,863 validation and 2,743 recorded
+training actions, 400 periodic checkpoint checksums and 200 training recordings.
+Preservation checks verified 11,563 pre-extension and 12,142 pre-recovery files,
+and 184 sealed archived inputs. The older cross-session root README checksum
+differs because of an earlier committed README change. It matches the starting
+commit and was not edited by this task.
+
+Native Chrome checks passed at 1536×912 and 854×722. Corrected and rechecked the
+narrow model/route selector row. Verified the study switch, tables, images,
+matched stepping/Play/seek/Reset and terminal holding. All 158 tests passed in
+68.21 seconds. Codex assisted implementation, execution, diagnosis and reporting.
+Detailed evidence is in docs/neural_confirmation_results.md and its verification.
+
+## Report consolidation and evaluation handoff on 9 November 2026
+
+The owner requested report consolidation, evaluation completion and a local
+commit before unseen-map work. A coverage review confirmed 79 free cells and
+all 6,162 possible distinct ordered start–goal pairs in the existing manifests.
+The original test outcomes had already been inspected. After this finding, the
+owner chose to defer independent four-family evaluation to the unseen-map study.
+
+Rebuilt the main technical report from saved baseline, tabular, neural and final
+summaries. Kept the original frozen final table separate from post-release
+development validation. Integrated five-seed regressions, I/O failure/recovery
+costs, actual learning recordings and native dashboard verification. Recorded
+the next-stage evaluation requirements without creating new maps or models.
+
+The closeout full suite passed all 158 tests in 76.39 seconds. This stage adds
+zero canonical benchmark training or final-test policy executions. Isolated
+regression fixtures exercise training and synthetic release logic. The requested
+commit includes the verified five-seed extension, UI fix, JSON recovery,
+consolidated report and explicit evaluation deferral.
+
+The staging check exposed legacy text normalization and a shallow neural archive
+attribute pattern. Added explicit CRLF checkout rules for Windows-generated
+legacy JSON/CSV/log records and the historical Part B report, preserving the LF
+map definition. Neural confirmation archives now use recursive raw-byte rules.
+An isolated checkout matched all 7,104 indexed artifact/data files byte for byte.
+The 12,603-file working artifact/data snapshot and original 184-file seal passed
+preservation verification. These packaging rules retain the recorded data values
+and model contents.

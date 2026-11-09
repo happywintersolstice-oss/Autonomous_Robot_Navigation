@@ -93,7 +93,7 @@ def summarize(rows, selected, plan, signature):
                     for m in METRICS if m!='mean_successful_route_length'}}
                 for before,after in zip(groups['control'],groups['tuned'],strict=True)]
         systems[family]={'selected_candidate':selected[family],'baseline_retained':selected[family]=='c00',
-                        'seed_count':3,'seeds':plan['confirmation_seeds'],
+                        'seed_count':len(plan['confirmation_seeds']),'seeds':plan['confirmation_seeds'],
                         'conditions':{stage:{'metrics':{m:stats([r['validation'][m] for r in group]) for m in METRICS},
                            'costs':{m:stats([r['costs'][m] for r in group]) for m in group[0]['costs']},
                            'seed_results':group} for stage,group in groups.items()},
@@ -102,7 +102,7 @@ def summarize(rows, selected, plan, signature):
                         'wins_losses_ties':{key:sum((r['success_rate']>0 if key=='wins' else r['success_rate']<0 if key=='losses' else r['success_rate']==0) for r in paired)
                                             for key in ('wins','losses','ties')}}
     return {'status':'verified','signature':signature,'systems':systems,
-            'scope':'preliminary three-seed matched confirmation on development validation; one-seed screening',
+            'scope':plan.get('scope','preliminary three-seed matched confirmation on development validation; one-seed screening'),
             'validation_scenarios_per_seed':928,'final_test_evaluated':False,
             'original_final_selection_changed':False,'aggregation_unit':'independent paired training seed; sample SD, not a confidence interval'}
 
@@ -223,7 +223,8 @@ def figures(study, summary, root):
             ax.plot([0,1],[before['validation']['success_rate'],after['validation']['success_rate']],'o-',label=str(before['seed']))
         ax.set(xticks=[0,1],xticklabels=['Fresh baseline','Selected settings'],ylim=(-.02,1.02),title=family.upper())
         ax.yaxis.set_major_formatter(PercentFormatter(1));ax.grid(axis='y',alpha=.25);ax.legend(title='Training seed',fontsize=8)
-    fig.supxlabel('Preliminary: three fresh matched seeds; 200k steps each; 928 development-validation scenarios',fontsize=8)
+    count=next(iter(summary['systems'].values()))['seed_count']
+    fig.supxlabel(f'{count} matched training seeds · 200k steps each · 928 development-validation scenarios',fontsize=8)
     fig.savefig(study/'paired_neural_tuning.png',dpi=160);plt.close(fig)
     fig,axes=plt.subplots(1,2,figsize=(10,4.8),layout='constrained')
     for ax,(family,system) in zip(axes,summary['systems'].items()):

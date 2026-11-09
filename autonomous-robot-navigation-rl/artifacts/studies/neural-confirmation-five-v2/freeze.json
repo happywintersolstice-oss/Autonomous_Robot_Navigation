@@ -1,0 +1,226 @@
+{
+  "plan_hash": "e86a821d65e00ebf2b939cfeda36806e26db26f09eb475daed9bcd89a45438a8",
+  "source_hash": "bb04e8729c3d396a2820ff354b15c2bd7cfdc4c7aca0897025b76f9de3b598cd",
+  "engine_hashes": {
+    "src/robot_navigation/agents.py": {
+      "original_sha256": "7db6bf0d5949834b1f397490337e77e91e5bb2c1846f9ff9a1a784ed6b926c00",
+      "current_sha256": "7db6bf0d5949834b1f397490337e77e91e5bb2c1846f9ff9a1a784ed6b926c00",
+      "json_io_only_change": false
+    },
+    "src/robot_navigation/benchmark.py": {
+      "original_sha256": "43c799ba50060b3adcede4963dbbbd931800f65ae0b2884eb74bb7f549ceb632",
+      "current_sha256": "43c799ba50060b3adcede4963dbbbd931800f65ae0b2884eb74bb7f549ceb632",
+      "json_io_only_change": false
+    },
+    "src/robot_navigation/core.py": {
+      "original_sha256": "7bd05db15f116e161cabfd276c63e81b1e5ef9572d6f6bf974e8ae08ad1f3971",
+      "current_sha256": "a109284bf8504ce667addd6da2ede6fd06921c1761a55b34e62773a851fba8f5",
+      "json_io_only_change": true
+    },
+    "src/robot_navigation/dqn.py": {
+      "original_sha256": "812db834ffd65a760cb2abcd6bdf3e6638f6462fb68103195286cfffdf7f9ce6",
+      "current_sha256": "812db834ffd65a760cb2abcd6bdf3e6638f6462fb68103195286cfffdf7f9ce6",
+      "json_io_only_change": false
+    },
+    "src/robot_navigation/episodes.py": {
+      "original_sha256": "1edcd8ea090114fcafbc3b3c1e448a94001d5fec5fbe177a969a8ac639ccdce0",
+      "current_sha256": "1edcd8ea090114fcafbc3b3c1e448a94001d5fec5fbe177a969a8ac639ccdce0",
+      "json_io_only_change": false
+    },
+    "src/robot_navigation/observation_encoding.py": {
+      "original_sha256": "858e7c334bb1d13241c0eac1dccf01d973c7f30fc1168041511fdad491b1b22f",
+      "current_sha256": "858e7c334bb1d13241c0eac1dccf01d973c7f30fc1168041511fdad491b1b22f",
+      "json_io_only_change": false
+    },
+    "src/robot_navigation/part_a.py": {
+      "original_sha256": "9554c006735e254a0f54963b88fc10991fc87a3a9ef0274de6c571f864e7f7a7",
+      "current_sha256": "9554c006735e254a0f54963b88fc10991fc87a3a9ef0274de6c571f864e7f7a7",
+      "json_io_only_change": false
+    },
+    "src/robot_navigation/ppo.py": {
+      "original_sha256": "283a2ba59ad5bf59485c7a178cc585610dee4056bc864f51c890ff41103918a7",
+      "current_sha256": "283a2ba59ad5bf59485c7a178cc585610dee4056bc864f51c890ff41103918a7",
+      "json_io_only_change": false
+    },
+    "src/robot_navigation/ppo_config.py": {
+      "original_sha256": "f7ab1058a4fed62e885bb92eecdd8e87ee29a6941bcc88111b897799b91996b3",
+      "current_sha256": "f7ab1058a4fed62e885bb92eecdd8e87ee29a6941bcc88111b897799b91996b3",
+      "json_io_only_change": false
+    },
+    "src/robot_navigation/refinement.py": {
+      "original_sha256": "d7691c12c88b2a4a346065f3971392e487890be11aa2000e6af8f9ecae7bb240",
+      "current_sha256": "d7691c12c88b2a4a346065f3971392e487890be11aa2000e6af8f9ecae7bb240",
+      "json_io_only_change": false
+    },
+    "src/robot_navigation/training_traces.py": {
+      "original_sha256": "d055e849858b621282e8f8d79d2551254024321f8f6ac5e36500b28518fa7c7b",
+      "current_sha256": "d055e849858b621282e8f8d79d2551254024321f8f6ac5e36500b28518fa7c7b",
+      "json_io_only_change": false
+    },
+    "src/robot_navigation/workflow.py": {
+      "original_sha256": "a6f03f538d3312e1a4b7540e5e5e95bbf058a292ed6c33151017a523f51dbe48",
+      "current_sha256": "a6f03f538d3312e1a4b7540e5e5e95bbf058a292ed6c33151017a523f51dbe48",
+      "json_io_only_change": false
+    }
+  },
+  "frozen_utc": "2026-11-09T12:38:00.070747+00:00",
+  "runner_sha256": "b361e8cf7795fc167fc1b4939a54c2df57f92d868797893323b45cfeae8f77b5",
+  "worker_sha256": "72cc1727ab2f1e872f8bad563ddcf0118c2190c92d0da8cb5169b4c5cfc28b81",
+  "protocol_sha256": "d15b7c0ffbc13c3763f1e54ac76fabf84a463bf240454ccd8c4748f032a95229",
+  "jobs": [
+    {
+      "config": {
+        "algorithm": "ppo",
+        "stage": "control",
+        "interactions": 200000,
+        "monitor_every": 10000,
+        "discount": 0.99,
+        "learning_rate": 0.0003,
+        "n_steps": 1000,
+        "batch_size": 100,
+        "n_epochs": 10,
+        "gae_lambda": 0.95,
+        "clip_range": 0.2,
+        "ent_coef": 0.0,
+        "vf_coef": 0.5,
+        "max_grad_norm": 0.5,
+        "net_arch": [
+          64,
+          64
+        ],
+        "torch_threads": 1,
+        "max_wall_seconds": 900,
+        "seed": 7607,
+        "run_id": "m9-control-ppo-seed7607-attempt2",
+        "training_trace_episodes": 10,
+        "training_trace_starts": [
+          0,
+          50000,
+          100000,
+          150000,
+          190000
+        ],
+        "log_progress": true
+      },
+      "candidate": "c00"
+    },
+    {
+      "config": {
+        "algorithm": "ppo",
+        "stage": "tuned",
+        "interactions": 200000,
+        "monitor_every": 10000,
+        "discount": 0.99,
+        "learning_rate": 0.001,
+        "n_steps": 500,
+        "batch_size": 100,
+        "n_epochs": 10,
+        "gae_lambda": 0.95,
+        "clip_range": 0.2,
+        "ent_coef": 0.01,
+        "vf_coef": 0.5,
+        "max_grad_norm": 0.5,
+        "net_arch": [
+          64,
+          64
+        ],
+        "torch_threads": 1,
+        "max_wall_seconds": 900,
+        "seed": 7607,
+        "run_id": "m9-tuned-ppo-seed7607-attempt2",
+        "training_trace_episodes": 10,
+        "training_trace_starts": [
+          0,
+          50000,
+          100000,
+          150000,
+          190000
+        ],
+        "log_progress": true
+      },
+      "candidate": "c01"
+    },
+    {
+      "config": {
+        "algorithm": "ppo",
+        "stage": "control",
+        "interactions": 200000,
+        "monitor_every": 10000,
+        "discount": 0.99,
+        "learning_rate": 0.0003,
+        "n_steps": 1000,
+        "batch_size": 100,
+        "n_epochs": 10,
+        "gae_lambda": 0.95,
+        "clip_range": 0.2,
+        "ent_coef": 0.0,
+        "vf_coef": 0.5,
+        "max_grad_norm": 0.5,
+        "net_arch": [
+          64,
+          64
+        ],
+        "torch_threads": 1,
+        "max_wall_seconds": 900,
+        "seed": 7717,
+        "run_id": "m9-control-ppo-seed7717-attempt2",
+        "training_trace_episodes": 10,
+        "training_trace_starts": [
+          0,
+          50000,
+          100000,
+          150000,
+          190000
+        ],
+        "log_progress": true
+      },
+      "candidate": "c00"
+    },
+    {
+      "config": {
+        "algorithm": "ppo",
+        "stage": "tuned",
+        "interactions": 200000,
+        "monitor_every": 10000,
+        "discount": 0.99,
+        "learning_rate": 0.001,
+        "n_steps": 500,
+        "batch_size": 100,
+        "n_epochs": 10,
+        "gae_lambda": 0.95,
+        "clip_range": 0.2,
+        "ent_coef": 0.01,
+        "vf_coef": 0.5,
+        "max_grad_norm": 0.5,
+        "net_arch": [
+          64,
+          64
+        ],
+        "torch_threads": 1,
+        "max_wall_seconds": 900,
+        "seed": 7717,
+        "run_id": "m9-tuned-ppo-seed7717-attempt2",
+        "training_trace_episodes": 10,
+        "training_trace_starts": [
+          0,
+          50000,
+          100000,
+          150000,
+          190000
+        ],
+        "log_progress": true
+      },
+      "candidate": "c01"
+    }
+  ],
+  "main_wall_seconds_estimate": 506.2546905782986,
+  "original_results_already_available": true,
+  "reused_completed_runs": [
+    "m9-control-dqn-seed7607",
+    "m9-tuned-dqn-seed7607",
+    "m9-control-dqn-seed7717",
+    "m9-tuned-dqn-seed7717"
+  ],
+  "json_io_repair_before_restarted_ppo": true,
+  "new_final_test_policy_executions": 0
+}

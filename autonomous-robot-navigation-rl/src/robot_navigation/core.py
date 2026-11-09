@@ -1,9 +1,13 @@
 """The single source of truth for maps, task identity and environment dynamics."""
 from collections import deque
 from dataclasses import dataclass
+import errno
 import hashlib
 import json
+import os
 from pathlib import Path
+import tempfile
+import time
 
 import gymnasium as gym
 import numpy as np
@@ -19,13 +23,35 @@ def digest(value):
 
 
 def read_json(path):
-    return json.loads(Path(path).read_text(encoding="utf-8"))
+    for attempt in range(6):
+        try:
+            return json.loads(Path(path).read_text(encoding="utf-8"))
+        except OSError as exc:
+            if exc.errno not in (errno.EACCES, errno.EPERM, errno.EINVAL) or attempt == 5:
+                raise
+            time.sleep(.02 * 2**attempt)
 
 
 def write_json(path, value):
     path = Path(path)
+    payload = json.dumps(value, indent=2, allow_nan=False) + "\n"
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(value, indent=2, allow_nan=False) + "\n", encoding="utf-8")
+    descriptor, temporary = tempfile.mkstemp(prefix=f'.{path.name}.', suffix='.tmp', dir=path.parent)
+    try:
+        with os.fdopen(descriptor, 'w', encoding='utf-8') as file:
+            file.write(payload)
+        # Windows readers or indexing tools can briefly hold the destination.
+        # Replace a complete file so readers always see a complete JSON record.
+        for attempt in range(6):
+            try:
+                os.replace(temporary, path)
+                break
+            except OSError as exc:
+                if exc.errno not in (errno.EACCES, errno.EPERM, errno.EINVAL) or attempt == 5:
+                    raise
+                time.sleep(.02 * 2**attempt)
+    finally:
+        Path(temporary).unlink(missing_ok=True)
 
 
 @dataclass(frozen=True)

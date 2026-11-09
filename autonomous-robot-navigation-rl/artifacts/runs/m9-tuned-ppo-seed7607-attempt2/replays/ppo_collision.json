@@ -1,0 +1,81 @@
+{
+  "signature": {
+    "map_id": "bottleneck-v1",
+    "map_hash": "614472df8e4cbed5408e1e5092dfd708bb683cdeef780a1a064246f0e1e58a94",
+    "task_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "step-goal-collision-v1"
+  },
+  "scenario": {
+    "id": "r1c6-r6c0",
+    "start": [
+      1,
+      6
+    ],
+    "goal": [
+      6,
+      0
+    ],
+    "shortest_length": 13,
+    "distance_band": "long"
+  },
+  "seed": 7607,
+  "policy_id": "ppo/m9-tuned-ppo-seed7607-attempt2/step-200000",
+  "mode": "validation",
+  "initial_observation": [
+    1,
+    6,
+    6,
+    0
+  ],
+  "transitions": [
+    {
+      "observation": [
+        1,
+        6,
+        6,
+        0
+      ],
+      "action": 1,
+      "reward": -5.01,
+      "next_observation": [
+        1,
+        6,
+        6,
+        0
+      ],
+      "terminated": true,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          2,
+          6
+        ],
+        "outcome": "collision",
+        "scenario_id": "r1c6-r6c0",
+        "steps": 1
+      },
+      "scores": null,
+      "decision": {
+        "action": 1,
+        "action_probabilities": [
+          0.0027209054678678513,
+          0.5087215304374695,
+          0.4754864573478699,
+          0.013071108609437943
+        ],
+        "state_value": -4.004042625427246
+      }
+    }
+  ],
+  "metrics": {
+    "outcome": "collision",
+    "steps": 1,
+    "return": -5.01,
+    "successful_route_length": null,
+    "spl": 0.0
+  },
+  "initial_state_visited_in_training": true
+}

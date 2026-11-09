@@ -1,8 +1,8 @@
 # Plan closure and remaining scope
 
-Updated 9 November 2026 after completion of the preliminary DQN/PPO tuning study
-and owner acceptance of the preceding dashboard visuals. This page records current status.
-historical milestone records remain dated evidence of their original releases.
+Updated 9 November 2026 after five-seed neural confirmation, native dashboard
+checks and report consolidation. The owner chose to defer independent evaluation
+to the unseen-map stage. Historical milestone records retain their original scope.
 
 ## Implemented and measured
 
@@ -104,16 +104,19 @@ display checks excluded from benchmark summaries, not new final evaluations.
    relative DQN inputs. It addresses that portion of RQ2 under one fixed setup,
    with no consistent improvement. Other representations and capacity-matched
    neural comparisons remain untested.
-3. **Preliminary neural tuning:** M9 screened four configurations per algorithm
-   and confirmed DQN/PPO c01 on three fresh matched seeds. Success increased from
-   5.60% to 7.11% for DQN and 16.99% to 24.35% for PPO. Both remain weak and miss
-   all declared performance targets. Five-seed confirmation remains future work.
+3. **Staged neural confirmation:** M9 screened four configurations per algorithm.
+   Its follow-up now combines five matched seeds for the same c01 settings.
+   Success averages 6.88% baseline versus 7.37% selected settings for DQN and
+   19.44% versus 23.69% for PPO. The two added seeds averaged declines for both.
+   Both remain weak and miss all declared performance targets.
 4. **Independent four-family final evaluation:** PPO was added after the original
    holdout had been inspected. The extension is exploratory development validation.
-   A separately designed evaluation is required for a new confirmatory claim;
-   the old final results and predeclared selected policy remain unchanged.
-5. **Scope and portability:** unseen maps, dynamics noise, moving obstacles,
-   continuous movement, sensors, ROS and physical hardware remain deferred.
+   All 6,162 possible fixed-map pairs are already covered by existing manifests.
+   The owner chose to defer independent evaluation to the unseen-map study.
+   Its benchmark, information contract and final-access protocol remain next-stage
+   decisions. See [the evaluation handoff](evaluation_boundary_and_handoff.md).
+5. **Scope and portability:** unseen maps are the upcoming stage. Dynamics noise,
+   moving obstacles, continuous movement, sensors, ROS and hardware remain deferred.
    Bitwise repeatability across machines and exact training resume are unsupported.
    Performance misses and residual collisions/timeouts are reported limitations.
 
@@ -121,7 +124,7 @@ The earlier integration did not initiate new research. Milestones 8 and 9 were
 authorized separately afterward. Neural tuning remains separate from the input
 study and the original final evaluation.
 
-## Milestone 9 completion
+## Historical three-seed milestone 9 completion
 
 The bounded suite completed 22 runs and 3.22 million training steps in 17.89
 minutes, within its declared limits. One interrupted setup attempt added 20,000
@@ -132,8 +135,56 @@ protected files and 184 sealed archived inputs.
 The audit replayed 1,751,597 validation actions and 3,464 actual training actions.
 All 148 tests passed after the final figure adjustment. The dashboard has a
 separate Neural tuning page with matched model comparisons. Prior dashboard
-visuals were owner-verified. The new research page passed the application harness.
-Its native-browser appearance has not been independently inspected.
+visuals were owner-verified. At that checkpoint, the new research page had passed
+the application harness. The subsequent native check is recorded below.
 
 See [M9 measured results and limits](milestone9_results.md) and
 [the registered protocol](milestone9_protocol.md).
+
+## Five-seed follow-up and native visual completion
+
+The owner requested both the five-seed expansion and native dashboard checks.
+Eight successful additions total 1.6m training steps. A Windows progress-file
+write failure interrupted two PPO attempts after at least 90k additional steps.
+Four completed DQN additions were reused verbatim, and only the remaining PPO
+conditions were trained again under recovery run names. Atomic JSON replacement
+and transient-access retries were tested. Saved PPO parameters/optimizer state
+match across failed/restarted prefixes at 50k baseline and 40k selected settings.
+
+All 20 combined confirmation runs passed audit. The verifier replayed 1,656,863
+validation actions and 2,743 actual training actions, and checked 400 periodic
+checkpoint checksums. All 11,563 pre-extension and 12,142 pre-recovery artifact/data
+files retained their hashes. The 184 sealed archived inputs remain valid.
+
+All 158 tests passed in 68.21 seconds. Native Chrome checks passed at 1536×912
+and 854×722, including study switching, five-seed/added-seed tables, curves,
+costs, stepping, automatic playback, seeking, Reset and terminal holding.
+The narrow second-model/route row now stacks, fixing the observed squeezed
+selector. Independent four-family final evaluation remains outstanding.
+
+See [the follow-up results and recovery record](neural_confirmation_results.md)
+and [the native/regression verification](neural_confirmation_verification.json).
+
+## Report consolidation and evaluation decision
+
+The main technical report now integrates four-family baseline validation,
+tabular refinement, representation results, five-seed neural outcomes,
+the original frozen final evaluation, native UI checks and failed-run costs.
+Historical final evidence and later exploratory evidence have separate tables
+and scopes. The added-seed regressions and missed targets remain explicit.
+
+The boundary review confirmed 79 free cells and all 6,162 distinct ordered pairs
+covered by the existing splits. The owner chose independent evaluation on new
+unseen layouts as the next stage. This report/commit stage performs no new
+canonical training or final-test policy executions.
+
+The closeout regression run passed all 158 tests in 76.39 seconds. The report
+and handoff are ready for the requested local commit alongside the verified
+five-seed implementation, native-layout fix and JSON I/O recovery work.
+
+The commit packaging check restored 7,104 indexed artifact/data files into an
+isolated checkout and matched every file's recorded working bytes. Legacy
+Windows record line endings and recursive neural archive rules are explicit.
+All 12,603 current artifact/data files and the 184 sealed inputs passed the
+working-tree preservation checks. Detailed results are in
+[the closeout verification](report_closeout_verification.json).

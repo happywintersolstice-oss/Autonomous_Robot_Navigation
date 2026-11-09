@@ -40,6 +40,20 @@ See [the measured results](docs/milestone9_results.md) and
 [the registered protocol](docs/milestone9_protocol.md). The original frozen final
 controller remains Q-learning. This is preliminary development validation.
 
+**Five-seed staged confirmation and visual verification.** The follow-up added
+two matched seeds with the same settings. Five-seed success is 6.88% baseline
+versus 7.37% selected settings for DQN, and 19.44% versus 23.69% for PPO. The two
+added seeds averaged declines for both algorithms. The dashboard now switches
+between the original and five-seed evidence. Native desktop/narrow checks passed,
+and all 158 tests passed. See [the full follow-up results](docs/neural_confirmation_results.md)
+for paired outcomes, preserved interrupted attempts, I/O repair and limits.
+
+The [consolidated technical report](docs/technical_report.md) integrates these
+studies with the original frozen release. The owner deferred independent
+four-algorithm evaluation to the upcoming unseen-map study. All 6,162 possible
+fixed-map start–goal pairs already occur in the existing splits. The next-stage
+requirements are recorded in the [evaluation handoff](docs/evaluation_boundary_and_handoff.md).
+
 **Part A:** five independent seeds per learned algorithm, 200,000 interactions
 each, common validation monitoring, and an explicit validation-only checkpoint
 and algorithm-family selection rule. See [milestone 3 results](docs/milestone3_results.md)
@@ -374,12 +388,14 @@ All model snapshots are inference-only; exact training resume is unsupported.
   [milestone 2 checks](docs/milestone2_verification.json), and
   [milestone 2 results](docs/milestone2_results.md).
 
-Small saved demo artifacts are included; caches, visitation arrays and bulky full
-trajectory JSONL files remain local and are ignored by Git. No remote publication
-or deployment was performed. Part A has a separate saved benchmark-freeze record;
-all results concern held-out initial conditions on a familiar map. Most validation
-initial states were visited during training, so this is not unseen-state transfer.
+Saved models, summaries, bounded replays and selected audit inputs are versioned.
+Bulky full trajectories, periodic checkpoints and older visitation arrays remain
+local according to the ignore rules. Deep audits can require those local inputs.
+Part A has a separate benchmark freeze. Current results concern familiar-map
+initial conditions, many of which were visited during training.
 
 All six core milestones are complete. Source and evidence remain local.
 PPO was subsequently added as the owner-authorized exploratory extension above.
-Unseen maps, moving obstacles, continuous movement and physical robots remain deferred.
+The next stage is the versioned unseen-map study and independent four-algorithm
+evaluation. Moving obstacles, continuous movement and physical robots remain
+future backlog.

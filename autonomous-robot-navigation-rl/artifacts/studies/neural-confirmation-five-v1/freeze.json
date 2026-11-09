@@ -1,0 +1,319 @@
+{
+  "plan_hash": "87ba974679fac3c799594022b8f47412f9586d3995f9253c0c5508186335df26",
+  "source_hash": "cc1e55f89bc4ea68b09bcfe6af3abb0dac9e037387f6a53d1770f0e7b366e5d4",
+  "engine_hashes": {
+    "src/robot_navigation/agents.py": "7db6bf0d5949834b1f397490337e77e91e5bb2c1846f9ff9a1a784ed6b926c00",
+    "src/robot_navigation/benchmark.py": "43c799ba50060b3adcede4963dbbbd931800f65ae0b2884eb74bb7f549ceb632",
+    "src/robot_navigation/core.py": "7bd05db15f116e161cabfd276c63e81b1e5ef9572d6f6bf974e8ae08ad1f3971",
+    "src/robot_navigation/dqn.py": "812db834ffd65a760cb2abcd6bdf3e6638f6462fb68103195286cfffdf7f9ce6",
+    "src/robot_navigation/episodes.py": "1edcd8ea090114fcafbc3b3c1e448a94001d5fec5fbe177a969a8ac639ccdce0",
+    "src/robot_navigation/observation_encoding.py": "858e7c334bb1d13241c0eac1dccf01d973c7f30fc1168041511fdad491b1b22f",
+    "src/robot_navigation/part_a.py": "9554c006735e254a0f54963b88fc10991fc87a3a9ef0274de6c571f864e7f7a7",
+    "src/robot_navigation/ppo.py": "283a2ba59ad5bf59485c7a178cc585610dee4056bc864f51c890ff41103918a7",
+    "src/robot_navigation/ppo_config.py": "f7ab1058a4fed62e885bb92eecdd8e87ee29a6941bcc88111b897799b91996b3",
+    "src/robot_navigation/refinement.py": "d7691c12c88b2a4a346065f3971392e487890be11aa2000e6af8f9ecae7bb240",
+    "src/robot_navigation/training_traces.py": "d055e849858b621282e8f8d79d2551254024321f8f6ac5e36500b28518fa7c7b",
+    "src/robot_navigation/workflow.py": "a6f03f538d3312e1a4b7540e5e5e95bbf058a292ed6c33151017a523f51dbe48"
+  },
+  "frozen_utc": "2026-11-09T12:20:04.456838+00:00",
+  "runner_sha256": "21dffa63a120e427fc72eb58a818d46f0002fcb21f7021538209dfe221337171",
+  "worker_sha256": "72cc1727ab2f1e872f8bad563ddcf0118c2190c92d0da8cb5169b4c5cfc28b81",
+  "protocol_sha256": "749fe0dfb81337a31fc23343605a4af7fc2974eac385ba8846d4cac0a99a4e75",
+  "jobs": [
+    {
+      "config": {
+        "interactions": 200000,
+        "monitor_every": 10000,
+        "discount": 0.99,
+        "epsilon_start": 1.0,
+        "epsilon_end": 0.1,
+        "epsilon_decay_fraction": 0.8,
+        "learning_rate": 0.0003,
+        "buffer_size": 50000,
+        "learning_starts": 1000,
+        "batch_size": 64,
+        "train_freq": 4,
+        "gradient_steps": 1,
+        "target_update_interval": 1000,
+        "net_arch": [
+          64,
+          64
+        ],
+        "torch_threads": 1,
+        "algorithm": "dqn",
+        "seed": 7607,
+        "run_id": "m9-control-dqn-seed7607",
+        "stage": "control",
+        "training_trace_episodes": 10,
+        "training_trace_starts": [
+          0,
+          50000,
+          100000,
+          150000,
+          190000
+        ],
+        "max_wall_seconds": 900,
+        "log_progress": true
+      },
+      "candidate": "c00"
+    },
+    {
+      "config": {
+        "interactions": 200000,
+        "monitor_every": 10000,
+        "discount": 0.99,
+        "epsilon_start": 1.0,
+        "epsilon_end": 0.1,
+        "epsilon_decay_fraction": 1.0,
+        "learning_rate": 0.001,
+        "buffer_size": 50000,
+        "learning_starts": 1000,
+        "batch_size": 64,
+        "train_freq": 4,
+        "gradient_steps": 1,
+        "target_update_interval": 250,
+        "net_arch": [
+          64,
+          64
+        ],
+        "torch_threads": 1,
+        "algorithm": "dqn",
+        "seed": 7607,
+        "run_id": "m9-tuned-dqn-seed7607",
+        "stage": "tuned",
+        "training_trace_episodes": 10,
+        "training_trace_starts": [
+          0,
+          50000,
+          100000,
+          150000,
+          190000
+        ],
+        "max_wall_seconds": 900,
+        "log_progress": true
+      },
+      "candidate": "c01"
+    },
+    {
+      "config": {
+        "interactions": 200000,
+        "monitor_every": 10000,
+        "discount": 0.99,
+        "epsilon_start": 1.0,
+        "epsilon_end": 0.1,
+        "epsilon_decay_fraction": 0.8,
+        "learning_rate": 0.0003,
+        "buffer_size": 50000,
+        "learning_starts": 1000,
+        "batch_size": 64,
+        "train_freq": 4,
+        "gradient_steps": 1,
+        "target_update_interval": 1000,
+        "net_arch": [
+          64,
+          64
+        ],
+        "torch_threads": 1,
+        "algorithm": "dqn",
+        "seed": 7717,
+        "run_id": "m9-control-dqn-seed7717",
+        "stage": "control",
+        "training_trace_episodes": 10,
+        "training_trace_starts": [
+          0,
+          50000,
+          100000,
+          150000,
+          190000
+        ],
+        "max_wall_seconds": 900,
+        "log_progress": true
+      },
+      "candidate": "c00"
+    },
+    {
+      "config": {
+        "interactions": 200000,
+        "monitor_every": 10000,
+        "discount": 0.99,
+        "epsilon_start": 1.0,
+        "epsilon_end": 0.1,
+        "epsilon_decay_fraction": 1.0,
+        "learning_rate": 0.001,
+        "buffer_size": 50000,
+        "learning_starts": 1000,
+        "batch_size": 64,
+        "train_freq": 4,
+        "gradient_steps": 1,
+        "target_update_interval": 250,
+        "net_arch": [
+          64,
+          64
+        ],
+        "torch_threads": 1,
+        "algorithm": "dqn",
+        "seed": 7717,
+        "run_id": "m9-tuned-dqn-seed7717",
+        "stage": "tuned",
+        "training_trace_episodes": 10,
+        "training_trace_starts": [
+          0,
+          50000,
+          100000,
+          150000,
+          190000
+        ],
+        "max_wall_seconds": 900,
+        "log_progress": true
+      },
+      "candidate": "c01"
+    },
+    {
+      "config": {
+        "algorithm": "ppo",
+        "stage": "control",
+        "interactions": 200000,
+        "monitor_every": 10000,
+        "discount": 0.99,
+        "learning_rate": 0.0003,
+        "n_steps": 1000,
+        "batch_size": 100,
+        "n_epochs": 10,
+        "gae_lambda": 0.95,
+        "clip_range": 0.2,
+        "ent_coef": 0.0,
+        "vf_coef": 0.5,
+        "max_grad_norm": 0.5,
+        "net_arch": [
+          64,
+          64
+        ],
+        "torch_threads": 1,
+        "max_wall_seconds": 900,
+        "seed": 7607,
+        "run_id": "m9-control-ppo-seed7607",
+        "training_trace_episodes": 10,
+        "training_trace_starts": [
+          0,
+          50000,
+          100000,
+          150000,
+          190000
+        ],
+        "log_progress": true
+      },
+      "candidate": "c00"
+    },
+    {
+      "config": {
+        "algorithm": "ppo",
+        "stage": "tuned",
+        "interactions": 200000,
+        "monitor_every": 10000,
+        "discount": 0.99,
+        "learning_rate": 0.001,
+        "n_steps": 500,
+        "batch_size": 100,
+        "n_epochs": 10,
+        "gae_lambda": 0.95,
+        "clip_range": 0.2,
+        "ent_coef": 0.01,
+        "vf_coef": 0.5,
+        "max_grad_norm": 0.5,
+        "net_arch": [
+          64,
+          64
+        ],
+        "torch_threads": 1,
+        "max_wall_seconds": 900,
+        "seed": 7607,
+        "run_id": "m9-tuned-ppo-seed7607",
+        "training_trace_episodes": 10,
+        "training_trace_starts": [
+          0,
+          50000,
+          100000,
+          150000,
+          190000
+        ],
+        "log_progress": true
+      },
+      "candidate": "c01"
+    },
+    {
+      "config": {
+        "algorithm": "ppo",
+        "stage": "control",
+        "interactions": 200000,
+        "monitor_every": 10000,
+        "discount": 0.99,
+        "learning_rate": 0.0003,
+        "n_steps": 1000,
+        "batch_size": 100,
+        "n_epochs": 10,
+        "gae_lambda": 0.95,
+        "clip_range": 0.2,
+        "ent_coef": 0.0,
+        "vf_coef": 0.5,
+        "max_grad_norm": 0.5,
+        "net_arch": [
+          64,
+          64
+        ],
+        "torch_threads": 1,
+        "max_wall_seconds": 900,
+        "seed": 7717,
+        "run_id": "m9-control-ppo-seed7717",
+        "training_trace_episodes": 10,
+        "training_trace_starts": [
+          0,
+          50000,
+          100000,
+          150000,
+          190000
+        ],
+        "log_progress": true
+      },
+      "candidate": "c00"
+    },
+    {
+      "config": {
+        "algorithm": "ppo",
+        "stage": "tuned",
+        "interactions": 200000,
+        "monitor_every": 10000,
+        "discount": 0.99,
+        "learning_rate": 0.001,
+        "n_steps": 500,
+        "batch_size": 100,
+        "n_epochs": 10,
+        "gae_lambda": 0.95,
+        "clip_range": 0.2,
+        "ent_coef": 0.01,
+        "vf_coef": 0.5,
+        "max_grad_norm": 0.5,
+        "net_arch": [
+          64,
+          64
+        ],
+        "torch_threads": 1,
+        "max_wall_seconds": 900,
+        "seed": 7717,
+        "run_id": "m9-tuned-ppo-seed7717",
+        "training_trace_episodes": 10,
+        "training_trace_starts": [
+          0,
+          50000,
+          100000,
+          150000,
+          190000
+        ],
+        "log_progress": true
+      },
+      "candidate": "c01"
+    }
+  ],
+  "main_wall_seconds_estimate": 813.8002197717473,
+  "original_results_already_available": true,
+  "new_final_test_policy_executions": 0
+}

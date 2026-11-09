@@ -100,11 +100,13 @@ def apply_theme():
       .st-key-single_replay_content [data-testid="stHorizontalBlock"]:has(.st-key-single_map),
       .st-key-model_setup [data-testid="stHorizontalBlock"]:has(.st-key-saved_run_picker),
       .st-key-model_setup [data-testid="stHorizontalBlock"]:has(.st-key-learning_run_picker),
+      .st-key-comparison_setup [data-testid="stHorizontalBlock"],
       .st-key-pair_maps [data-testid="stHorizontalBlock"]:has(.lab-panel),
       .st-key-four_maps [data-testid="stHorizontalBlock"]:has(.lab-panel) {flex-direction:column;}
       .st-key-single_replay_content [data-testid="stHorizontalBlock"]:has(.st-key-single_map) > [data-testid="stColumn"],
       .st-key-model_setup [data-testid="stHorizontalBlock"]:has(.st-key-saved_run_picker) > [data-testid="stColumn"],
       .st-key-model_setup [data-testid="stHorizontalBlock"]:has(.st-key-learning_run_picker) > [data-testid="stColumn"],
+      .st-key-comparison_setup [data-testid="stHorizontalBlock"] > [data-testid="stColumn"],
       .st-key-pair_maps [data-testid="stHorizontalBlock"]:has(.lab-panel) > [data-testid="stColumn"],
       .st-key-four_maps [data-testid="stHorizontalBlock"]:has(.lab-panel) > [data-testid="stColumn"] {width:100% !important;flex:1 1 100% !important;}
     }
@@ -118,11 +120,12 @@ def apply_theme():
 
 def run_label(directory):
     name=directory.name
-    neural = re.fullmatch(r'm9-(pilot|search|control|tuned)-(dqn|ppo)(?:-(c\d\d))?-seed(\d+)',name)
+    neural = re.fullmatch(r'm9-(pilot|search|control|tuned)-(dqn|ppo)(?:-(c\d\d))?-seed(\d+)(?:-attempt(\d+))?',name)
     if neural:
         stage={'pilot':'Tuning pilot','search':'Tuning search','control':'Fresh baseline','tuned':'Selected settings'}[neural[1]]
         candidate=f' {neural[3]}' if neural[3] else ''
-        return f'{ALGORITHM_LABELS[neural[2]]} · {stage}{candidate} · seed {neural[4]}'
+        attempt=f' · Attempt {neural[5]}' if neural[5] else ''
+        return f'{ALGORITHM_LABELS[neural[2]]} · {stage}{candidate} · seed {neural[4]}{attempt}'
     demo = re.fullmatch(r'learning-replay-(q-learning|sarsa|dqn|ppo)-seed(\d+)', name)
     if demo:
         return f'{ALGORITHM_LABELS[demo[1]]} · Recorded training demo · seed {demo[2]}'

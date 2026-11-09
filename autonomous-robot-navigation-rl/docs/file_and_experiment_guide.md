@@ -390,3 +390,18 @@ screening and confirmation have different budgets and are reported separately.
 The `tuned` directory identifies the selected experimental settings. Their
 measured strength is reported in [the M9 results](milestone9_results.md).
 The original selected Q-learning controller remains the frozen release model.
+
+## Five-seed follow-up names
+
+The five-seed study adds training seeds 7607 and 7717. The four DQN additions
+use names such as `m9-tuned-dqn-seed7607`. The first extension attempt lives in
+`artifacts/studies/neural-confirmation-five-v1`. It preserves those four completed
+runs and two interrupted PPO attempts caused by a progress-file write failure.
+
+The verified combined evidence lives in
+`artifacts/studies/neural-confirmation-five-v2`. Completed PPO additions have
+names such as `m9-tuned-ppo-seed7607-attempt2`. The suffix identifies the recovery
+cohort. Seed 7717 first trained in that cohort, while seed 7607 restarted from
+step zero. The interrupted run names without the suffix remain preserved.
+The study combines the original three seeds with the two additions and also
+reports the two additions separately. See [the follow-up results](neural_confirmation_results.md).

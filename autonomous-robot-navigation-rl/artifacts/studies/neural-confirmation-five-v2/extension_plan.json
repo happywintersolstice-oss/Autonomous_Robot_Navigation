@@ -1,0 +1,37 @@
+{
+  "suite_id": "neural-confirmation-five-v2",
+  "source_study": "neural-tuning-v2",
+  "recovery_source_study": "neural-confirmation-five-v1",
+  "reused_completed_runs": [
+    "m9-control-dqn-seed7607",
+    "m9-tuned-dqn-seed7607",
+    "m9-control-dqn-seed7717",
+    "m9-tuned-dqn-seed7717"
+  ],
+  "original_seeds": [
+    7307,
+    7411,
+    7523
+  ],
+  "additional_seeds": [
+    7607,
+    7717
+  ],
+  "algorithms": [
+    "dqn",
+    "ppo"
+  ],
+  "selected_candidates": {
+    "dqn": "c01",
+    "ppo": "c01"
+  },
+  "interactions": 200000,
+  "workers": 2,
+  "limits": {
+    "max_new_runs": 4,
+    "max_new_training_interactions": 800000,
+    "run_wall_seconds": 900,
+    "suite_wall_seconds": 1800,
+    "new_artifact_bytes": 1073741824
+  }
+}

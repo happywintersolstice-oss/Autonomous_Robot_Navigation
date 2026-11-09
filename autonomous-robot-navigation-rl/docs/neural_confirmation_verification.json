@@ -1,0 +1,81 @@
+{
+  "date": "2026-11-09",
+  "status": "passed",
+  "study": "neural-confirmation-five-v2",
+  "tests": {
+    "passed": 158,
+    "seconds": 68.21
+  },
+  "combined_confirmation_runs": 20,
+  "added_successful_runs": 8,
+  "added_successful_training_interactions": 1600000,
+  "interrupted_ppo_training_interactions_minimum": 90000,
+  "exact_killed_worker_interactions_known": false,
+  "historical_files_verified_before_extension": 11563,
+  "historical_files_verified_before_recovery": 12142,
+  "legacy_snapshot_matches": 8815,
+  "legacy_snapshot_total": 8816,
+  "legacy_root_readme_differs_from_old_snapshot": true,
+  "root_readme_matches_starting_commit": "cda55b4",
+  "sealed_archive_inputs_verified": 184,
+  "sealed_archive_matches": true,
+  "new_final_test_policy_executions": 0,
+  "original_selected_controller": "m4-tuned-q-learning-seed101",
+  "validation_actions_replayed": 1656863,
+  "recorded_training_actions_replayed": 2743,
+  "periodic_checkpoint_checksums_verified": 400,
+  "combined_recordings": 200,
+  "native_browser": {
+    "app": "Chrome",
+    "window_sizes": [
+      [
+        1536,
+        912
+      ],
+      [
+        854,
+        722
+      ]
+    ],
+    "study_switch_passed": true,
+    "five_seed_table_passed": true,
+    "added_seed_details_passed": true,
+    "curves_and_cost_table_passed": true,
+    "narrow_selector_issue_fixed_and_rechecked": true,
+    "matched_play_step_seek_reset_and_terminal_holding_passed": true,
+    "illustrative_scenario": "r8c1-r5c0",
+    "selected_outcome": {
+      "actions": 4,
+      "position": [
+        5,
+        0
+      ],
+      "return": 9.96
+    },
+    "control_outcome": {
+      "actions": 1,
+      "position": [
+        8,
+        1
+      ],
+      "return": -5.01
+    },
+    "manual_pause_coverage": "automated tests"
+  },
+  "prefix_model_checks": [
+    {
+      "condition": "control",
+      "steps": 50000,
+      "parameters_optimizer_and_counters_equal": true,
+      "fingerprint": "6357bf1a575fb539994698e31502455bd1c1c7bbd40747dcf668235e0ccd88c2"
+    },
+    {
+      "condition": "tuned",
+      "steps": 40000,
+      "parameters_optimizer_and_counters_equal": true,
+      "fingerprint": "255d8bd12ab2a69fe3a044e82247f70f049ab18ef71b8febe4ef147c90b16148"
+    }
+  ],
+  "extension_artifact_bytes_current": 52104499,
+  "energy_or_sources_files_modified": false
+}

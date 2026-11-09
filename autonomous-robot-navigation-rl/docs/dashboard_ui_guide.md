@@ -69,9 +69,10 @@ collision or timeout. Trained and learning replays remain separate.
 
 ## Neural tuning results
 
-Choose **Neural tuning** from **Dashboard view** for the separate preliminary
-DQN/PPO study. Its first table compares fresh baselines with selected settings
-across three matched training seeds. Success, collision and timeout are shown
+Choose **Neural tuning** from **Dashboard view** for the separate
+DQN/PPO studies. Use **Study** to switch between **Five-seed extension** and
+**Original three-seed study**. The first table compares baselines with selected
+settings across the displayed seed count. Success, collision and timeout are shown
 as percentages. Paired changes use percentage points. SPL ranges from zero to one.
 
 Use **Compare DQN models** or **Compare PPO models** to open the first declared
@@ -83,3 +84,12 @@ For other seeds, open **Filter**, choose **Neural tuning**, then select the
 desired **Fresh baseline** or **Selected settings** model. Those runs also contain
 bounded actual training episodes in **Learning replay**. The page displays the
 verified study after its integrity checks finish and reports progress beforehand.
+
+Expand **Two additional seeds separately** to inspect the added-seed averages.
+Their results differ from the earlier three-seed pattern. The expansion note
+records that the extra seeds were declared after the original outcomes.
+
+At narrow widths, model and route selectors stack. Collapse the sidebar for
+more reading space. Wide tables keep internal horizontal scrolling. Run names
+ending in **attempt2** identify the completed PPO recovery cohort. Their earlier
+interrupted artifacts are retained separately in the research record.

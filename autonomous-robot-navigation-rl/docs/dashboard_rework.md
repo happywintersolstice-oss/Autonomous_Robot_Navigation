@@ -198,3 +198,30 @@ seconds**. Protected-file and archived-freeze checks remained valid. This is a
 desktop/narrow-browser check, not phone/touch testing or a measured frame-rate
 claim. It does not substitute for visual review of every research-evidence page.
 Instructions for the revised interface are in docs/dashboard_ui_guide.md.
+
+## Five-seed research-page native check on 9 November 2026
+
+Verified the Neural tuning page in native Chrome at 1536×912 and 854×722.
+The original/five-seed selector restores the appropriate values and scope text.
+The five-seed table, post-results expansion note, paired/monitoring figures,
+two-added-seed section and per-seed cost table were inspected. Wide tables retain
+their internal scrolling at narrow widths. Both scientific images were also
+inspected as standalone artifacts.
+
+The narrow check found a squeezed second-model selector beside the route
+selector with the sidebar open. Those controls now stack at narrow widths.
+The full-width second-model control was verified after refreshing the preview.
+
+The matched PPO seed 7307 button opened the correct baseline/selected models.
+An illustrative saved validation route r8c1-r5c0 showed selected settings reach
+[5,0] in four actions with return 9.96 and SPL 1.000, while baseline held its
+one-action collision at [8,1] and return -5.01. Seeking to shared frame 2 showed
+selected [7,0]/-.02 and held the baseline terminal state. Reset restored both
+to action 0 and zero return. A separate Next step on r0c0-r0c3 moved both models
+to [1,0] for -0.01. These display checks are excluded from benchmark aggregation.
+Manual Pause is covered by the automated tests. Phone/touch, screen-reader
+usability and quantitative frame-rate measurements remain untested.
+
+All 158 tests passed in 68.21 seconds after the completed recovery run was used
+for the late-stage learning replay test. See docs/neural_confirmation_results.md
+and docs/neural_confirmation_verification.json for data, recovery and limits.

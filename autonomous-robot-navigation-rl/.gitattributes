@@ -3,6 +3,12 @@
 *.npz binary
 *.zip binary
 *.png binary
+# Legacy Windows-generated records have raw-byte preservation hashes.
+artifacts/**/*.json text eol=crlf
+artifacts/**/*.csv text eol=crlf
+artifacts/**/*.log text eol=crlf
+data/scenarios/*.json text eol=crlf
+artifacts/studies/part-b-v1/report.md text eol=crlf
 # Analysis publication verifies raw output bytes after checkout.
 artifacts/studies/four-rl-analysis-*/* -text whitespace=cr-at-eol
 artifacts/studies/representation-*/* -text whitespace=cr-at-eol
@@ -11,3 +17,4 @@ artifacts/runs/learning-replay-*/** -text whitespace=cr-at-eol
 artifacts/studies/learning-replays-*/* -text whitespace=cr-at-eol
 artifacts/runs/m9-*/** -text whitespace=cr-at-eol
 artifacts/studies/neural-tuning-*/* -text whitespace=cr-at-eol
+artifacts/studies/neural-confirmation-*/** -text whitespace=cr-at-eol
