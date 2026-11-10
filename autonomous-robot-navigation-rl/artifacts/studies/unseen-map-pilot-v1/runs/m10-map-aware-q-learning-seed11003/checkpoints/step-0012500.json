@@ -1,0 +1,42 @@
+{
+  "training_interactions": 12500,
+  "configuration": {
+    "learning_rate": 0.1,
+    "discount": 0.99,
+    "epsilon_start": 1.0,
+    "epsilon_end": 0.05,
+    "epsilon_decay_fraction": 0.8,
+    "seed": 11003,
+    "algorithm": "q-learning",
+    "interactions": 25000,
+    "monitor_every": 12500,
+    "run_wall_seconds": 600
+  },
+  "signature": {
+    "benchmark_id": "unseen-maps-v1",
+    "configuration_hash": "82b53b96a77168e8b912e0c693437c450e3a82ab4e996448d71c07db44dc7655",
+    "environment_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "observation_version": "full-occupancy-coordinates-v1",
+    "splits_hash": "04c2ebcc65a9414d57f8abb9883ac50079158f60f9055a311b1e74de69921d75"
+  },
+  "algorithm": "q-learning",
+  "policy_id": "q-learning/m10-map-aware-q-learning-seed11003/step-12500",
+  "encoding": "full-occupancy-coordinates-v1",
+  "layout_ids": [
+    "unseen-maps-v1-train-001",
+    "unseen-maps-v1-train-002",
+    "unseen-maps-v1-train-003",
+    "unseen-maps-v1-train-004",
+    "unseen-maps-v1-train-005",
+    "unseen-maps-v1-train-006",
+    "unseen-maps-v1-train-007",
+    "unseen-maps-v1-train-008",
+    "unseen-maps-v1-train-009",
+    "unseen-maps-v1-train-010",
+    "unseen-maps-v1-train-011",
+    "unseen-maps-v1-train-012"
+  ],
+  "kind": "inference-only; exact training resume unsupported",
+  "unseen_layout_rule": "unvisited exact states have zero Q values; Up wins deterministic ties",
+  "sha256": "48df762a112142e11d2779d7ee4f7da38b121f3434b7dbcb081f3c4b900a16df"
+}

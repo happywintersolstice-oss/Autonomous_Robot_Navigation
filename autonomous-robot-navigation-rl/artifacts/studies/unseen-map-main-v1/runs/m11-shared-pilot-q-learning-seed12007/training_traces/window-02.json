@@ -1,0 +1,141 @@
+{
+  "signature": {
+    "map_id": "unseen-maps-v1-train-008",
+    "map_hash": "2fea7695593c9ac70d1d9cf3364ab5aa960f6eb19a9fdda091b13b1c4f3359d0",
+    "task_hash": "e8b195ea4b09369a9fac9b735fc825963409b73bac79df862e0ec8cd11b4212b",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "step-goal-collision-v1"
+  },
+  "scenario": {
+    "id": "unseen-maps-v1-train-008-r5c6-r7c5",
+    "start": [
+      5,
+      6
+    ],
+    "goal": [
+      7,
+      5
+    ],
+    "shortest_length": 3,
+    "distance_band": "short"
+  },
+  "seed": 12007,
+  "policy_id": "q-learning/m11-shared-pilot-q-learning-seed12007/actual-training",
+  "mode": "training",
+  "initial_observation": [
+    5,
+    6,
+    7,
+    5
+  ],
+  "transitions": [
+    {
+      "observation": [
+        5,
+        6,
+        7,
+        5
+      ],
+      "action": 2,
+      "reward": -0.01,
+      "next_observation": [
+        5,
+        5,
+        7,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          5,
+          5
+        ],
+        "outcome": "running",
+        "scenario_id": "unseen-maps-v1-train-008-r5c6-r7c5",
+        "steps": 1
+      },
+      "scores": null
+    },
+    {
+      "observation": [
+        5,
+        5,
+        7,
+        5
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        6,
+        5,
+        7,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          6,
+          5
+        ],
+        "outcome": "running",
+        "scenario_id": "unseen-maps-v1-train-008-r5c6-r7c5",
+        "steps": 2
+      },
+      "scores": null
+    },
+    {
+      "observation": [
+        6,
+        5,
+        7,
+        5
+      ],
+      "action": 1,
+      "reward": 9.99,
+      "next_observation": [
+        7,
+        5,
+        7,
+        5
+      ],
+      "terminated": true,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          7,
+          5
+        ],
+        "outcome": "success",
+        "scenario_id": "unseen-maps-v1-train-008-r5c6-r7c5",
+        "steps": 3
+      },
+      "scores": null
+    }
+  ],
+  "training_start_interaction": 23788,
+  "benchmark_signature": {
+    "benchmark_id": "unseen-maps-v1",
+    "configuration_hash": "82b53b96a77168e8b912e0c693437c450e3a82ab4e996448d71c07db44dc7655",
+    "environment_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "observation_version": "full-occupancy-coordinates-v1",
+    "splits_hash": "04c2ebcc65a9414d57f8abb9883ac50079158f60f9055a311b1e74de69921d75"
+  },
+  "layout_id": "unseen-maps-v1-train-008",
+  "layout_split": "train",
+  "policy_observation_version": "full-occupancy-coordinates-v1",
+  "policy_feature_version": "egocentric-map-goal-v1",
+  "complete": true,
+  "training_end_interaction": 23791,
+  "recording_window_start": 23750,
+  "metrics": {
+    "outcome": "success",
+    "steps": 3,
+    "return": 9.97,
+    "successful_route_length": 3,
+    "spl": 1.0
+  }
+}

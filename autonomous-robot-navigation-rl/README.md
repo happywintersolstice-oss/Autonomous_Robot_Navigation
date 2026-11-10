@@ -54,6 +54,26 @@ four-algorithm evaluation to the upcoming unseen-map study. All 6,162 possible
 fixed-map start–goal pairs already occur in the existing splits. The next-stage
 requirements are recorded in the [evaluation handoff](docs/evaluation_boundary_and_handoff.md).
 
+**Milestone 10. Unseen-map foundation and pilot.** A separate benchmark now has
+12 training, 4 validation and 10 reserved final layouts. New map-aware Q-learning,
+SARSA, DQN and PPO pilots each completed 25,000 training steps. Their new-layout
+validation success was 2.60%, 2.60%, 4.17% and 5.21%, respectively. The dashboard's
+**Unseen maps** page contains saved results and trained/learning replay. These
+are the initial one-seed development measurements. Milestone 11 below extends
+development coverage. See [actual results](docs/milestone10_results.md)
+and [the registered protocol](docs/milestone10_protocol.md).
+
+**Milestone 11. Shared-feature unseen-map comparison.** The owner selected shared
+map-and-goal features for Q-learning, SARSA, DQN and PPO. Four pilots and twelve
+main runs completed exactly 2.5 million training steps. Three-seed validation
+success averaged 18.92%, 63.37%, 33.51% and 73.96%, respectively. Q-learning and
+SARSA now use shared linear value functions in this separate study. All families
+miss the 80% success target. The **Unseen maps** page switches studies and training
+seeds for results, recorded learning and selected-policy replay. All 184 tests and
+the 453,723-action audit passed. See [measured results and limits](docs/milestone11_results.md)
+and [the frozen design](docs/milestone11_protocol.md). Independent evaluation on
+the ten reserved layouts is the next milestone.
+
 **Part A:** five independent seeds per learned algorithm, 200,000 interactions
 each, common validation monitoring, and an explicit validation-only checkpoint
 and algorithm-family selection rule. See [milestone 3 results](docs/milestone3_results.md)
@@ -396,6 +416,7 @@ initial conditions, many of which were visited during training.
 
 All six core milestones are complete. Source and evidence remain local.
 PPO was subsequently added as the owner-authorized exploratory extension above.
-The next stage is the versioned unseen-map study and independent four-algorithm
-evaluation. Moving obstacles, continuous movement and physical robots remain
+The unseen-map main development study is complete. The next stage freezes the
+four-family roster for independent evaluation on the reserved layouts.
+Moving obstacles, continuous movement and physical robots remain
 future backlog.

@@ -53,7 +53,7 @@ h3 {font-size:1rem !important;font-weight:600;}
 [data-testid="stWidgetLabel"] p {font-size:.75rem;color:#a6c4d8;}
 [data-testid="stExpander"] {background:#091a26;border-color:var(--lab-border);border-radius:10px;}
 [data-testid="stExpander"] summary p {font-size:.8rem;}
-.st-key-model_setup {background:#0a1d29;border:1px solid var(--lab-border);border-radius:12px;padding:8px 14px;}
+.st-key-model_setup, .st-key-unseen_setup {background:#0a1d29;border:1px solid var(--lab-border);border-radius:12px;padding:8px 14px;}
 .st-key-model_setup [data-testid="stVerticalBlock"] {gap:.3rem;}
 .st-key-single_playback_controls, .st-key-comparison_playback_controls {padding:4px 0;}
 .st-key-single_playback_controls [data-testid="stHorizontalBlock"] {gap:.35rem;}
@@ -118,11 +118,13 @@ h3 {font-size:1rem !important;font-weight:600;}
   .st-key-comparison_playback_controls [data-testid="stColumn"]:last-child {grid-column:1 / -1;}
   .st-key-model_setup [data-testid="stHorizontalBlock"]:has(.st-key-saved_run_picker),
   .st-key-model_setup [data-testid="stHorizontalBlock"]:has(.st-key-learning_run_picker),
+  .st-key-unseen_setup [data-testid="stHorizontalBlock"]:has([data-testid="stSelectbox"]),
   .st-key-comparison_setup [data-testid="stHorizontalBlock"],
   .st-key-pair_maps [data-testid="stHorizontalBlock"]:has(.lab-panel),
   .st-key-four_maps [data-testid="stHorizontalBlock"]:has(.lab-panel) {flex-direction:column;gap:1rem;}
   .st-key-model_setup [data-testid="stHorizontalBlock"]:has(.st-key-saved_run_picker) > [data-testid="stColumn"],
   .st-key-model_setup [data-testid="stHorizontalBlock"]:has(.st-key-learning_run_picker) > [data-testid="stColumn"],
+  .st-key-unseen_setup [data-testid="stHorizontalBlock"]:has([data-testid="stSelectbox"]) > [data-testid="stColumn"],
   .st-key-comparison_setup [data-testid="stHorizontalBlock"] > [data-testid="stColumn"],
   .st-key-pair_maps [data-testid="stHorizontalBlock"]:has(.lab-panel) > [data-testid="stColumn"],
   .st-key-four_maps [data-testid="stHorizontalBlock"]:has(.lab-panel) > [data-testid="stColumn"] {width:100% !important;flex:0 0 auto !important;}

@@ -1,0 +1,1538 @@
+[
+  {
+    "training_interactions": 12500,
+    "episodes": 24,
+    "counts": {
+      "success": 9,
+      "collision": 0,
+      "timeout": 15
+    },
+    "success_rate": 0.375,
+    "collision_rate": 0.0,
+    "timeout_rate": 0.625,
+    "spl": 0.3511904761904762,
+    "mean_return": 2.48625,
+    "mean_successful_route_length": 3.6666666666666665,
+    "successful_route_count": 9,
+    "interactions": 3033,
+    "layout_count": 4,
+    "by_map": {
+      "unseen-maps-v1-validation-001": {
+        "episodes": 6,
+        "counts": {
+          "success": 3,
+          "collision": 0,
+          "timeout": 3
+        },
+        "success_rate": 0.5,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.5,
+        "spl": 0.5,
+        "mean_return": 3.981666666666667,
+        "mean_successful_route_length": 3.6666666666666665,
+        "successful_route_count": 3,
+        "interactions": 611
+      },
+      "unseen-maps-v1-validation-002": {
+        "episodes": 6,
+        "counts": {
+          "success": 1,
+          "collision": 0,
+          "timeout": 5
+        },
+        "success_rate": 0.16666666666666666,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.8333333333333334,
+        "spl": 0.07142857142857142,
+        "mean_return": -0.011666666666666714,
+        "mean_successful_route_length": 7.0,
+        "successful_route_count": 1,
+        "interactions": 1007
+      },
+      "unseen-maps-v1-validation-003": {
+        "episodes": 6,
+        "counts": {
+          "success": 2,
+          "collision": 0,
+          "timeout": 4
+        },
+        "success_rate": 0.3333333333333333,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.6666666666666666,
+        "spl": 0.3333333333333333,
+        "mean_return": 1.9933333333333334,
+        "mean_successful_route_length": 2.0,
+        "successful_route_count": 2,
+        "interactions": 804
+      },
+      "unseen-maps-v1-validation-004": {
+        "episodes": 6,
+        "counts": {
+          "success": 3,
+          "collision": 0,
+          "timeout": 3
+        },
+        "success_rate": 0.5,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.5,
+        "spl": 0.5,
+        "mean_return": 3.981666666666667,
+        "mean_successful_route_length": 3.6666666666666665,
+        "successful_route_count": 3,
+        "interactions": 611
+      }
+    },
+    "map_mean": {
+      "success_rate": 0.375,
+      "collision_rate": 0.0,
+      "timeout_rate": 0.625,
+      "spl": 0.35119047619047616,
+      "mean_return": 2.48625
+    },
+    "evaluation_seconds": 0.5456955999834463,
+    "split": "validation",
+    "aggregation": "equal-support routes; equal-weight layout means; one trained seed",
+    "inference_unchanged": true,
+    "final_test_evaluated": false
+  },
+  {
+    "training_interactions": 25000,
+    "episodes": 24,
+    "counts": {
+      "success": 5,
+      "collision": 0,
+      "timeout": 19
+    },
+    "success_rate": 0.20833333333333334,
+    "collision_rate": 0.0,
+    "timeout_rate": 0.7916666666666666,
+    "spl": 0.20833333333333334,
+    "mean_return": 0.49541666666666667,
+    "mean_successful_route_length": 2.2,
+    "successful_route_count": 5,
+    "interactions": 3811,
+    "layout_count": 4,
+    "by_map": {
+      "unseen-maps-v1-validation-001": {
+        "episodes": 6,
+        "counts": {
+          "success": 2,
+          "collision": 0,
+          "timeout": 4
+        },
+        "success_rate": 0.3333333333333333,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.6666666666666666,
+        "spl": 0.3333333333333333,
+        "mean_return": 1.9949999999999999,
+        "mean_successful_route_length": 1.5,
+        "successful_route_count": 2,
+        "interactions": 803
+      },
+      "unseen-maps-v1-validation-002": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-003": {
+        "episodes": 6,
+        "counts": {
+          "success": 1,
+          "collision": 0,
+          "timeout": 5
+        },
+        "success_rate": 0.16666666666666666,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.8333333333333334,
+        "spl": 0.16666666666666666,
+        "mean_return": -0.0016666666666666312,
+        "mean_successful_route_length": 1.0,
+        "successful_route_count": 1,
+        "interactions": 1001
+      },
+      "unseen-maps-v1-validation-004": {
+        "episodes": 6,
+        "counts": {
+          "success": 2,
+          "collision": 0,
+          "timeout": 4
+        },
+        "success_rate": 0.3333333333333333,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.6666666666666666,
+        "spl": 0.3333333333333333,
+        "mean_return": 1.9883333333333333,
+        "mean_successful_route_length": 3.5,
+        "successful_route_count": 2,
+        "interactions": 807
+      }
+    },
+    "map_mean": {
+      "success_rate": 0.20833333333333331,
+      "collision_rate": 0.0,
+      "timeout_rate": 0.7916666666666666,
+      "spl": 0.20833333333333331,
+      "mean_return": 0.4954166666666666
+    },
+    "evaluation_seconds": 0.3617081999545917,
+    "split": "validation",
+    "aggregation": "equal-support routes; equal-weight layout means; one trained seed",
+    "inference_unchanged": true,
+    "final_test_evaluated": false
+  },
+  {
+    "training_interactions": 37500,
+    "episodes": 24,
+    "counts": {
+      "success": 2,
+      "collision": 0,
+      "timeout": 22
+    },
+    "success_rate": 0.08333333333333333,
+    "collision_rate": 0.0,
+    "timeout_rate": 0.9166666666666666,
+    "spl": 0.08333333333333333,
+    "mean_return": -1.0008333333333332,
+    "mean_successful_route_length": 1.0,
+    "successful_route_count": 2,
+    "interactions": 4402,
+    "layout_count": 4,
+    "by_map": {
+      "unseen-maps-v1-validation-001": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-002": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-003": {
+        "episodes": 6,
+        "counts": {
+          "success": 1,
+          "collision": 0,
+          "timeout": 5
+        },
+        "success_rate": 0.16666666666666666,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.8333333333333334,
+        "spl": 0.16666666666666666,
+        "mean_return": -0.0016666666666666312,
+        "mean_successful_route_length": 1.0,
+        "successful_route_count": 1,
+        "interactions": 1001
+      },
+      "unseen-maps-v1-validation-004": {
+        "episodes": 6,
+        "counts": {
+          "success": 1,
+          "collision": 0,
+          "timeout": 5
+        },
+        "success_rate": 0.16666666666666666,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.8333333333333334,
+        "spl": 0.16666666666666666,
+        "mean_return": -0.0016666666666666312,
+        "mean_successful_route_length": 1.0,
+        "successful_route_count": 1,
+        "interactions": 1001
+      }
+    },
+    "map_mean": {
+      "success_rate": 0.08333333333333333,
+      "collision_rate": 0.0,
+      "timeout_rate": 0.9166666666666667,
+      "spl": 0.08333333333333333,
+      "mean_return": -1.0008333333333335
+    },
+    "evaluation_seconds": 0.34605339996051043,
+    "split": "validation",
+    "aggregation": "equal-support routes; equal-weight layout means; one trained seed",
+    "inference_unchanged": true,
+    "final_test_evaluated": false
+  },
+  {
+    "training_interactions": 50000,
+    "episodes": 24,
+    "counts": {
+      "success": 2,
+      "collision": 0,
+      "timeout": 22
+    },
+    "success_rate": 0.08333333333333333,
+    "collision_rate": 0.0,
+    "timeout_rate": 0.9166666666666666,
+    "spl": 0.08333333333333333,
+    "mean_return": -1.0008333333333332,
+    "mean_successful_route_length": 1.0,
+    "successful_route_count": 2,
+    "interactions": 4402,
+    "layout_count": 4,
+    "by_map": {
+      "unseen-maps-v1-validation-001": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-002": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-003": {
+        "episodes": 6,
+        "counts": {
+          "success": 1,
+          "collision": 0,
+          "timeout": 5
+        },
+        "success_rate": 0.16666666666666666,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.8333333333333334,
+        "spl": 0.16666666666666666,
+        "mean_return": -0.0016666666666666312,
+        "mean_successful_route_length": 1.0,
+        "successful_route_count": 1,
+        "interactions": 1001
+      },
+      "unseen-maps-v1-validation-004": {
+        "episodes": 6,
+        "counts": {
+          "success": 1,
+          "collision": 0,
+          "timeout": 5
+        },
+        "success_rate": 0.16666666666666666,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.8333333333333334,
+        "spl": 0.16666666666666666,
+        "mean_return": -0.0016666666666666312,
+        "mean_successful_route_length": 1.0,
+        "successful_route_count": 1,
+        "interactions": 1001
+      }
+    },
+    "map_mean": {
+      "success_rate": 0.08333333333333333,
+      "collision_rate": 0.0,
+      "timeout_rate": 0.9166666666666667,
+      "spl": 0.08333333333333333,
+      "mean_return": -1.0008333333333335
+    },
+    "evaluation_seconds": 0.42215220001526177,
+    "split": "validation",
+    "aggregation": "equal-support routes; equal-weight layout means; one trained seed",
+    "inference_unchanged": true,
+    "final_test_evaluated": false
+  },
+  {
+    "training_interactions": 62500,
+    "episodes": 24,
+    "counts": {
+      "success": 2,
+      "collision": 0,
+      "timeout": 22
+    },
+    "success_rate": 0.08333333333333333,
+    "collision_rate": 0.0,
+    "timeout_rate": 0.9166666666666666,
+    "spl": 0.08333333333333333,
+    "mean_return": -1.0008333333333332,
+    "mean_successful_route_length": 1.0,
+    "successful_route_count": 2,
+    "interactions": 4402,
+    "layout_count": 4,
+    "by_map": {
+      "unseen-maps-v1-validation-001": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-002": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-003": {
+        "episodes": 6,
+        "counts": {
+          "success": 1,
+          "collision": 0,
+          "timeout": 5
+        },
+        "success_rate": 0.16666666666666666,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.8333333333333334,
+        "spl": 0.16666666666666666,
+        "mean_return": -0.0016666666666666312,
+        "mean_successful_route_length": 1.0,
+        "successful_route_count": 1,
+        "interactions": 1001
+      },
+      "unseen-maps-v1-validation-004": {
+        "episodes": 6,
+        "counts": {
+          "success": 1,
+          "collision": 0,
+          "timeout": 5
+        },
+        "success_rate": 0.16666666666666666,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.8333333333333334,
+        "spl": 0.16666666666666666,
+        "mean_return": -0.0016666666666666312,
+        "mean_successful_route_length": 1.0,
+        "successful_route_count": 1,
+        "interactions": 1001
+      }
+    },
+    "map_mean": {
+      "success_rate": 0.08333333333333333,
+      "collision_rate": 0.0,
+      "timeout_rate": 0.9166666666666667,
+      "spl": 0.08333333333333333,
+      "mean_return": -1.0008333333333335
+    },
+    "evaluation_seconds": 0.33555219997651875,
+    "split": "validation",
+    "aggregation": "equal-support routes; equal-weight layout means; one trained seed",
+    "inference_unchanged": true,
+    "final_test_evaluated": false
+  },
+  {
+    "training_interactions": 75000,
+    "episodes": 24,
+    "counts": {
+      "success": 1,
+      "collision": 0,
+      "timeout": 23
+    },
+    "success_rate": 0.041666666666666664,
+    "collision_rate": 0.0,
+    "timeout_rate": 0.9583333333333334,
+    "spl": 0.041666666666666664,
+    "mean_return": -1.5004166666666665,
+    "mean_successful_route_length": 1.0,
+    "successful_route_count": 1,
+    "interactions": 4601,
+    "layout_count": 4,
+    "by_map": {
+      "unseen-maps-v1-validation-001": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-002": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-003": {
+        "episodes": 6,
+        "counts": {
+          "success": 1,
+          "collision": 0,
+          "timeout": 5
+        },
+        "success_rate": 0.16666666666666666,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.8333333333333334,
+        "spl": 0.16666666666666666,
+        "mean_return": -0.0016666666666666312,
+        "mean_successful_route_length": 1.0,
+        "successful_route_count": 1,
+        "interactions": 1001
+      },
+      "unseen-maps-v1-validation-004": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      }
+    },
+    "map_mean": {
+      "success_rate": 0.041666666666666664,
+      "collision_rate": 0.0,
+      "timeout_rate": 0.9583333333333334,
+      "spl": 0.041666666666666664,
+      "mean_return": -1.5004166666666667
+    },
+    "evaluation_seconds": 0.41712800005916506,
+    "split": "validation",
+    "aggregation": "equal-support routes; equal-weight layout means; one trained seed",
+    "inference_unchanged": true,
+    "final_test_evaluated": false
+  },
+  {
+    "training_interactions": 87500,
+    "episodes": 24,
+    "counts": {
+      "success": 2,
+      "collision": 0,
+      "timeout": 22
+    },
+    "success_rate": 0.08333333333333333,
+    "collision_rate": 0.0,
+    "timeout_rate": 0.9166666666666666,
+    "spl": 0.08333333333333333,
+    "mean_return": -1.0008333333333332,
+    "mean_successful_route_length": 1.0,
+    "successful_route_count": 2,
+    "interactions": 4402,
+    "layout_count": 4,
+    "by_map": {
+      "unseen-maps-v1-validation-001": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-002": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-003": {
+        "episodes": 6,
+        "counts": {
+          "success": 1,
+          "collision": 0,
+          "timeout": 5
+        },
+        "success_rate": 0.16666666666666666,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.8333333333333334,
+        "spl": 0.16666666666666666,
+        "mean_return": -0.0016666666666666312,
+        "mean_successful_route_length": 1.0,
+        "successful_route_count": 1,
+        "interactions": 1001
+      },
+      "unseen-maps-v1-validation-004": {
+        "episodes": 6,
+        "counts": {
+          "success": 1,
+          "collision": 0,
+          "timeout": 5
+        },
+        "success_rate": 0.16666666666666666,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.8333333333333334,
+        "spl": 0.16666666666666666,
+        "mean_return": -0.0016666666666666312,
+        "mean_successful_route_length": 1.0,
+        "successful_route_count": 1,
+        "interactions": 1001
+      }
+    },
+    "map_mean": {
+      "success_rate": 0.08333333333333333,
+      "collision_rate": 0.0,
+      "timeout_rate": 0.9166666666666667,
+      "spl": 0.08333333333333333,
+      "mean_return": -1.0008333333333335
+    },
+    "evaluation_seconds": 0.40349529997911304,
+    "split": "validation",
+    "aggregation": "equal-support routes; equal-weight layout means; one trained seed",
+    "inference_unchanged": true,
+    "final_test_evaluated": false
+  },
+  {
+    "training_interactions": 100000,
+    "episodes": 24,
+    "counts": {
+      "success": 1,
+      "collision": 0,
+      "timeout": 23
+    },
+    "success_rate": 0.041666666666666664,
+    "collision_rate": 0.0,
+    "timeout_rate": 0.9583333333333334,
+    "spl": 0.041666666666666664,
+    "mean_return": -1.5004166666666665,
+    "mean_successful_route_length": 1.0,
+    "successful_route_count": 1,
+    "interactions": 4601,
+    "layout_count": 4,
+    "by_map": {
+      "unseen-maps-v1-validation-001": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-002": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-003": {
+        "episodes": 6,
+        "counts": {
+          "success": 1,
+          "collision": 0,
+          "timeout": 5
+        },
+        "success_rate": 0.16666666666666666,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.8333333333333334,
+        "spl": 0.16666666666666666,
+        "mean_return": -0.0016666666666666312,
+        "mean_successful_route_length": 1.0,
+        "successful_route_count": 1,
+        "interactions": 1001
+      },
+      "unseen-maps-v1-validation-004": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      }
+    },
+    "map_mean": {
+      "success_rate": 0.041666666666666664,
+      "collision_rate": 0.0,
+      "timeout_rate": 0.9583333333333334,
+      "spl": 0.041666666666666664,
+      "mean_return": -1.5004166666666667
+    },
+    "evaluation_seconds": 0.43969649996142834,
+    "split": "validation",
+    "aggregation": "equal-support routes; equal-weight layout means; one trained seed",
+    "inference_unchanged": true,
+    "final_test_evaluated": false
+  },
+  {
+    "training_interactions": 112500,
+    "episodes": 24,
+    "counts": {
+      "success": 0,
+      "collision": 0,
+      "timeout": 24
+    },
+    "success_rate": 0.0,
+    "collision_rate": 0.0,
+    "timeout_rate": 1.0,
+    "spl": 0.0,
+    "mean_return": -2.0,
+    "mean_successful_route_length": null,
+    "successful_route_count": 0,
+    "interactions": 4800,
+    "layout_count": 4,
+    "by_map": {
+      "unseen-maps-v1-validation-001": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-002": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-003": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-004": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      }
+    },
+    "map_mean": {
+      "success_rate": 0.0,
+      "collision_rate": 0.0,
+      "timeout_rate": 1.0,
+      "spl": 0.0,
+      "mean_return": -2.0
+    },
+    "evaluation_seconds": 0.5315215999726206,
+    "split": "validation",
+    "aggregation": "equal-support routes; equal-weight layout means; one trained seed",
+    "inference_unchanged": true,
+    "final_test_evaluated": false
+  },
+  {
+    "training_interactions": 125000,
+    "episodes": 24,
+    "counts": {
+      "success": 0,
+      "collision": 0,
+      "timeout": 24
+    },
+    "success_rate": 0.0,
+    "collision_rate": 0.0,
+    "timeout_rate": 1.0,
+    "spl": 0.0,
+    "mean_return": -2.0,
+    "mean_successful_route_length": null,
+    "successful_route_count": 0,
+    "interactions": 4800,
+    "layout_count": 4,
+    "by_map": {
+      "unseen-maps-v1-validation-001": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-002": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-003": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-004": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      }
+    },
+    "map_mean": {
+      "success_rate": 0.0,
+      "collision_rate": 0.0,
+      "timeout_rate": 1.0,
+      "spl": 0.0,
+      "mean_return": -2.0
+    },
+    "evaluation_seconds": 0.37990430009085685,
+    "split": "validation",
+    "aggregation": "equal-support routes; equal-weight layout means; one trained seed",
+    "inference_unchanged": true,
+    "final_test_evaluated": false
+  },
+  {
+    "training_interactions": 137500,
+    "episodes": 24,
+    "counts": {
+      "success": 0,
+      "collision": 0,
+      "timeout": 24
+    },
+    "success_rate": 0.0,
+    "collision_rate": 0.0,
+    "timeout_rate": 1.0,
+    "spl": 0.0,
+    "mean_return": -2.0,
+    "mean_successful_route_length": null,
+    "successful_route_count": 0,
+    "interactions": 4800,
+    "layout_count": 4,
+    "by_map": {
+      "unseen-maps-v1-validation-001": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-002": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-003": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-004": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      }
+    },
+    "map_mean": {
+      "success_rate": 0.0,
+      "collision_rate": 0.0,
+      "timeout_rate": 1.0,
+      "spl": 0.0,
+      "mean_return": -2.0
+    },
+    "evaluation_seconds": 0.42192750005051494,
+    "split": "validation",
+    "aggregation": "equal-support routes; equal-weight layout means; one trained seed",
+    "inference_unchanged": true,
+    "final_test_evaluated": false
+  },
+  {
+    "training_interactions": 150000,
+    "episodes": 24,
+    "counts": {
+      "success": 0,
+      "collision": 0,
+      "timeout": 24
+    },
+    "success_rate": 0.0,
+    "collision_rate": 0.0,
+    "timeout_rate": 1.0,
+    "spl": 0.0,
+    "mean_return": -2.0,
+    "mean_successful_route_length": null,
+    "successful_route_count": 0,
+    "interactions": 4800,
+    "layout_count": 4,
+    "by_map": {
+      "unseen-maps-v1-validation-001": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-002": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-003": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-004": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      }
+    },
+    "map_mean": {
+      "success_rate": 0.0,
+      "collision_rate": 0.0,
+      "timeout_rate": 1.0,
+      "spl": 0.0,
+      "mean_return": -2.0
+    },
+    "evaluation_seconds": 0.563344500027597,
+    "split": "validation",
+    "aggregation": "equal-support routes; equal-weight layout means; one trained seed",
+    "inference_unchanged": true,
+    "final_test_evaluated": false
+  },
+  {
+    "training_interactions": 162500,
+    "episodes": 24,
+    "counts": {
+      "success": 0,
+      "collision": 0,
+      "timeout": 24
+    },
+    "success_rate": 0.0,
+    "collision_rate": 0.0,
+    "timeout_rate": 1.0,
+    "spl": 0.0,
+    "mean_return": -2.0,
+    "mean_successful_route_length": null,
+    "successful_route_count": 0,
+    "interactions": 4800,
+    "layout_count": 4,
+    "by_map": {
+      "unseen-maps-v1-validation-001": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-002": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-003": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-004": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      }
+    },
+    "map_mean": {
+      "success_rate": 0.0,
+      "collision_rate": 0.0,
+      "timeout_rate": 1.0,
+      "spl": 0.0,
+      "mean_return": -2.0
+    },
+    "evaluation_seconds": 0.665109199937433,
+    "split": "validation",
+    "aggregation": "equal-support routes; equal-weight layout means; one trained seed",
+    "inference_unchanged": true,
+    "final_test_evaluated": false
+  },
+  {
+    "training_interactions": 175000,
+    "episodes": 24,
+    "counts": {
+      "success": 0,
+      "collision": 0,
+      "timeout": 24
+    },
+    "success_rate": 0.0,
+    "collision_rate": 0.0,
+    "timeout_rate": 1.0,
+    "spl": 0.0,
+    "mean_return": -2.0,
+    "mean_successful_route_length": null,
+    "successful_route_count": 0,
+    "interactions": 4800,
+    "layout_count": 4,
+    "by_map": {
+      "unseen-maps-v1-validation-001": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-002": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-003": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-004": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      }
+    },
+    "map_mean": {
+      "success_rate": 0.0,
+      "collision_rate": 0.0,
+      "timeout_rate": 1.0,
+      "spl": 0.0,
+      "mean_return": -2.0
+    },
+    "evaluation_seconds": 0.4405954999383539,
+    "split": "validation",
+    "aggregation": "equal-support routes; equal-weight layout means; one trained seed",
+    "inference_unchanged": true,
+    "final_test_evaluated": false
+  },
+  {
+    "training_interactions": 187500,
+    "episodes": 24,
+    "counts": {
+      "success": 0,
+      "collision": 0,
+      "timeout": 24
+    },
+    "success_rate": 0.0,
+    "collision_rate": 0.0,
+    "timeout_rate": 1.0,
+    "spl": 0.0,
+    "mean_return": -2.0,
+    "mean_successful_route_length": null,
+    "successful_route_count": 0,
+    "interactions": 4800,
+    "layout_count": 4,
+    "by_map": {
+      "unseen-maps-v1-validation-001": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-002": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-003": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-004": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      }
+    },
+    "map_mean": {
+      "success_rate": 0.0,
+      "collision_rate": 0.0,
+      "timeout_rate": 1.0,
+      "spl": 0.0,
+      "mean_return": -2.0
+    },
+    "evaluation_seconds": 0.5615726000396535,
+    "split": "validation",
+    "aggregation": "equal-support routes; equal-weight layout means; one trained seed",
+    "inference_unchanged": true,
+    "final_test_evaluated": false
+  },
+  {
+    "training_interactions": 200000,
+    "episodes": 24,
+    "counts": {
+      "success": 0,
+      "collision": 0,
+      "timeout": 24
+    },
+    "success_rate": 0.0,
+    "collision_rate": 0.0,
+    "timeout_rate": 1.0,
+    "spl": 0.0,
+    "mean_return": -2.0,
+    "mean_successful_route_length": null,
+    "successful_route_count": 0,
+    "interactions": 4800,
+    "layout_count": 4,
+    "by_map": {
+      "unseen-maps-v1-validation-001": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-002": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-003": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      },
+      "unseen-maps-v1-validation-004": {
+        "episodes": 6,
+        "counts": {
+          "success": 0,
+          "collision": 0,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 1.0,
+        "spl": 0.0,
+        "mean_return": -2.0,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1200
+      }
+    },
+    "map_mean": {
+      "success_rate": 0.0,
+      "collision_rate": 0.0,
+      "timeout_rate": 1.0,
+      "spl": 0.0,
+      "mean_return": -2.0
+    },
+    "evaluation_seconds": 0.7512869999045506,
+    "split": "validation",
+    "aggregation": "equal-support routes; equal-weight layout means; one trained seed",
+    "inference_unchanged": true,
+    "final_test_evaluated": false
+  }
+]

@@ -8,7 +8,7 @@ from .episodes import rollout, validate_replay
 from .refinement import task_for_run
 
 PAGES = ('Navigation simulator', 'Overview', 'Learning analysis', 'Agent comparison',
-         'Optimization and robustness', 'Neural tuning', 'Methodology')
+         'Optimization and robustness', 'Neural tuning', 'Unseen maps', 'Methodology')
 PART_B_SEEDS = (101, 211, 307, 401, 503)
 PART_A_SEEDS = (7, 19, 43, 67, 91)
 

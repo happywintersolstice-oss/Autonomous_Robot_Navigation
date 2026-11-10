@@ -1,0 +1,172 @@
+{
+  "status": "complete",
+  "run_id": "m11-shared-pilot-sarsa-seed12007",
+  "algorithm": "sarsa",
+  "training_seed": 12007,
+  "signature": {
+    "benchmark_id": "unseen-maps-v1",
+    "configuration_hash": "82b53b96a77168e8b912e0c693437c450e3a82ab4e996448d71c07db44dc7655",
+    "environment_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "observation_version": "full-occupancy-coordinates-v1",
+    "splits_hash": "04c2ebcc65a9414d57f8abb9883ac50079158f60f9055a311b1e74de69921d75"
+  },
+  "source_hash": "79588850979d96e2d4e2416b15cf4e105694bad1eb4a89af9182660ee176e968",
+  "configuration": {
+    "learning_rate": 0.1,
+    "discount": 0.99,
+    "epsilon_start": 1.0,
+    "epsilon_end": 0.05,
+    "epsilon_decay_fraction": 0.8,
+    "seed": 12007,
+    "algorithm": "sarsa",
+    "interactions": 25000,
+    "monitor_every": 12500,
+    "run_wall_seconds": 900,
+    "representation": "egocentric-map-goal-v1"
+  },
+  "started_utc": "2026-11-10T12:56:58.307496+00:00",
+  "information": "full-occupancy-coordinates-v1",
+  "final_test_evaluated": false,
+  "selection_rule": "monitor success, then SPL, then earliest interaction",
+  "monitoring_phase": "after preceding parameter update; before further collection",
+  "exact_resume_supported": false,
+  "representation": "egocentric-map-goal-v1",
+  "selected_interactions": 25000,
+  "viewer_checkpoint": "selected.npz",
+  "training": {
+    "training_interactions": 25000,
+    "completed_episodes": 2587,
+    "outcomes": {
+      "collision": 2209,
+      "success": 361,
+      "timeout": 17
+    },
+    "map_interactions": {
+      "unseen-maps-v1-train-006": 2099,
+      "unseen-maps-v1-train-010": 2516,
+      "unseen-maps-v1-train-005": 1488,
+      "unseen-maps-v1-train-004": 2280,
+      "unseen-maps-v1-train-008": 1862,
+      "unseen-maps-v1-train-009": 1420,
+      "unseen-maps-v1-train-003": 2202,
+      "unseen-maps-v1-train-002": 2166,
+      "unseen-maps-v1-train-001": 2893,
+      "unseen-maps-v1-train-012": 2200,
+      "unseen-maps-v1-train-007": 1761,
+      "unseen-maps-v1-train-011": 2113
+    },
+    "cutoff_steps": 161,
+    "training_traces": [
+      {
+        "path": "training_traces/window-00.json",
+        "sha256": "d90dcd33dabbaab045961a9b0fcc5441ef888756b1144e91acbc48d0b525186f",
+        "layout_id": "unseen-maps-v1-train-006",
+        "window_start": 0,
+        "complete": true
+      },
+      {
+        "path": "training_traces/window-01.json",
+        "sha256": "b91cf765a2ce029987777126ad8d8f210cf1d628b34122582dbe437677608a6b",
+        "layout_id": "unseen-maps-v1-train-004",
+        "window_start": 12500,
+        "complete": true
+      },
+      {
+        "path": "training_traces/window-02.json",
+        "sha256": "965a21d71841837c8d246f27d1bcddc190d38cb047d234818a5c52cb3f1ff52a",
+        "layout_id": "unseen-maps-v1-train-010",
+        "window_start": 23750,
+        "complete": true
+      }
+    ]
+  },
+  "replays": [
+    {
+      "path": "replays/validation-000.json",
+      "sha256": "0ab9b936082c5f268fbeef3d19875b1c56e915fce760706d8a8c08b9f30c6a1d",
+      "layout_id": "unseen-maps-v1-validation-001",
+      "outcome": "success"
+    },
+    {
+      "path": "replays/validation-001.json",
+      "sha256": "3bee1d845ceb95173970c288c86aca84a5540ab625edc4e434a5235f095e3700",
+      "layout_id": "unseen-maps-v1-validation-001",
+      "outcome": "timeout"
+    },
+    {
+      "path": "replays/validation-002.json",
+      "sha256": "b928a78171e165dbdc709cac7b907ba0826e811f37e4a95b7943f0b241bc4277",
+      "layout_id": "unseen-maps-v1-validation-001",
+      "outcome": "collision"
+    },
+    {
+      "path": "replays/validation-003.json",
+      "sha256": "c9a2027d0ea18e008decf4aabb2517727274bce0f03e9c8510482cad75a0b9d2",
+      "layout_id": "unseen-maps-v1-validation-002",
+      "outcome": "success"
+    },
+    {
+      "path": "replays/validation-004.json",
+      "sha256": "1285aa3974644f39e9d358ff3c186cb6ab8476059cced8a01096844655cb3c1c",
+      "layout_id": "unseen-maps-v1-validation-002",
+      "outcome": "timeout"
+    },
+    {
+      "path": "replays/validation-005.json",
+      "sha256": "d19be8c6b173c46cbcdc46de4b142b673cc7b8095e5b878c923866560bc754ed",
+      "layout_id": "unseen-maps-v1-validation-002",
+      "outcome": "collision"
+    },
+    {
+      "path": "replays/validation-006.json",
+      "sha256": "7bfc3bc03ed16f6839f70ef07ad6a91371b9cb729b7290e56ecfc0d0346b3e11",
+      "layout_id": "unseen-maps-v1-validation-003",
+      "outcome": "success"
+    },
+    {
+      "path": "replays/validation-007.json",
+      "sha256": "c1ce4b02718f84696508b56216a1495165d1e8c317866f64cd48ec141f1da4da",
+      "layout_id": "unseen-maps-v1-validation-003",
+      "outcome": "timeout"
+    },
+    {
+      "path": "replays/validation-008.json",
+      "sha256": "cb18a7683a7ec70b6383db31905da19aac2802f8ee77d39e94ab8ffb77026765",
+      "layout_id": "unseen-maps-v1-validation-003",
+      "outcome": "collision"
+    },
+    {
+      "path": "replays/validation-009.json",
+      "sha256": "8f6f2bddb69c585e2d1c241eb66565eea9f35c8fef3878f1e76bff56892c3971",
+      "layout_id": "unseen-maps-v1-validation-004",
+      "outcome": "timeout"
+    },
+    {
+      "path": "replays/validation-010.json",
+      "sha256": "8380b5978680eef946587327e0dfbd757439519fc73e2f853af105bb5f90cc57",
+      "layout_id": "unseen-maps-v1-validation-004",
+      "outcome": "success"
+    },
+    {
+      "path": "replays/validation-011.json",
+      "sha256": "19ac4857fa4cd7faf8106e771a4b2e48175af4b0fb3cf823ad486f164e25a508",
+      "layout_id": "unseen-maps-v1-validation-004",
+      "outcome": "collision"
+    }
+  ],
+  "construction_seconds": 0.0022436000872403383,
+  "training_seconds": 7.503801199956797,
+  "monitoring_seconds": 0.5857263000216335,
+  "validation_seconds": 2.409019799903035,
+  "familiar_probe_seconds": 0.8993376999860629,
+  "training_interactions": 25000,
+  "monitoring_interactions": 5091,
+  "validation_interactions": 20693,
+  "familiar_interactions": 7753,
+  "mean_decision_microseconds": 161.5689997561276,
+  "latency_queries": 100,
+  "checkpoint_bytes": 36338,
+  "total_seconds": 11.654969000024721,
+  "finished_utc": "2026-11-10T12:57:09.963954+00:00",
+  "optimized_parameter_count": 4936
+}

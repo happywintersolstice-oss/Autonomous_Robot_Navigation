@@ -19,7 +19,7 @@ TAB_LABELS = {'trained':'Trained replay', 'learning':'Learning replay', 'custom'
 
 def pause_players():
     """A hidden tab must never keep advancing a recording."""
-    for key in ('playback', 'comparison_playback'):
+    for key in ('playback', 'comparison_playback', 'unseen_playback'):
         player = st.session_state.get(key)
         if player is not None:
             player.pause()
@@ -150,42 +150,7 @@ def render_replay(base_task, validation, runs, root, mode='trained'):
             if not current.playing:
                 st.rerun()
         playback_status(current.index, current.playing, training=learning)
-        readings = replay_statistics(episode, current.index)
-        traveled_unit = 'cell' if readings['traveled'] == 1 else 'cells'
-        goal_unit = 'cell' if readings['goal_distance'] == 1 else 'cells'
-        with st.container(key='single_replay_content'):
-            state_column, map_column, reward_column = st.columns([1, 3, 1.1], gap='small')
-            with state_column:
-                st.markdown('<div class="lab-zone-label">PERFORMANCE</div>', unsafe_allow_html=True)
-                with st.container(key='left_metrics'):
-                    st.metric('Actions', f"{readings['actions']} / {task.config['max_steps']}",
-                              help='Actions shown so far / episode step limit.')
-                    st.metric('Reward so far', f"{readings['return']:.2f}",
-                              help='Total reward from the displayed actions only.')
-                with st.container(key='single_inspector'):
-                    card_heading('Agent state', 'Current recorded observation')
-                    telemetry(episode, current.index, task.config['max_steps'], current.playing,
-                              paired=False, show_metrics=False)
-                    with st.expander('Action details'):
-                        diagnostics(episode, current.index, 'single')
-            with map_column:
-                with st.container(key='single_map'):
-                    card_heading('Navigation environment',
-                                 f"{task.grid.map_id} · start {episode['scenario']['start']} → goal {episode['scenario']['goal']}",
-                                 '2D · REPLAY')
-                    show_map(task.grid, episode, current.index, landscape=True, **options)
-                    st.caption('Recorded trail · robot R · start S · goal G')
-            with reward_column:
-                st.markdown('<div class="lab-zone-label">DISTANCE &amp; REWARD</div>', unsafe_allow_html=True)
-                with st.container(key='right_metrics'):
-                    st.metric('Distance traveled', f"{readings['traveled']} {traveled_unit}",
-                              help='Successful cell moves so far. A collision attempt adds no distance.')
-                    st.metric('Goal distance', f"{readings['goal_distance']} {goal_unit}",
-                              help='Manhattan distance from the displayed position. Walls can make the actual route longer.')
-                with st.container(key='reward_panel'):
-                    card_heading('Episode reward', 'Cumulative score · displayed steps only')
-                    reward_chart(episode, current.index)
-                    st.caption('The chart grows as the replay advances.')
+        render_frame(task, episode, current.index, current.playing, options)
         timeline_key = f'timeline:{expected_identity}:{current.index}'
         st.session_state['active_timeline_key'] = timeline_key
         st.slider('Replay position', 0, len(episode['transitions']), value=current.index,
@@ -223,6 +188,46 @@ def render_replay(base_task, validation, runs, root, mode='trained'):
                        'This is a saved recording, not live training. No trained-checkpoint scores are substituted.')
         else:
             st.caption('Replay examples use validation scenarios. “Trained” refers to the saved model, not a final-test episode.')
+
+
+def render_frame(task, episode, index, playing, options):
+    """Shared centered presentation for fixed-map and map-aware recordings."""
+    readings = replay_statistics(episode, index)
+    traveled_unit = 'cell' if readings['traveled'] == 1 else 'cells'
+    goal_unit = 'cell' if readings['goal_distance'] == 1 else 'cells'
+    with st.container(key='single_replay_content'):
+        state_column, map_column, reward_column = st.columns([1, 3, 1.1], gap='small')
+        with state_column:
+            st.markdown('<div class="lab-zone-label">PERFORMANCE</div>', unsafe_allow_html=True)
+            with st.container(key='left_metrics'):
+                st.metric('Actions', f"{readings['actions']} / {task.config['max_steps']}",
+                          help='Actions shown so far / episode step limit.')
+                st.metric('Reward so far', f"{readings['return']:.2f}",
+                          help='Total reward from the displayed actions only.')
+            with st.container(key='single_inspector'):
+                card_heading('Agent state', 'Current recorded observation')
+                telemetry(episode, index, task.config['max_steps'], playing,
+                          paired=False, show_metrics=False)
+                with st.expander('Action details'):
+                    diagnostics(episode, index, 'single')
+        with map_column:
+            with st.container(key='single_map'):
+                card_heading('Navigation environment',
+                             f"{task.grid.map_id} · start {episode['scenario']['start']} → goal {episode['scenario']['goal']}",
+                             '2D · REPLAY')
+                show_map(task.grid, episode, index, landscape=True, **options)
+                st.caption('Recorded trail · robot R · start S · goal G')
+        with reward_column:
+            st.markdown('<div class="lab-zone-label">DISTANCE &amp; REWARD</div>', unsafe_allow_html=True)
+            with st.container(key='right_metrics'):
+                st.metric('Distance traveled', f"{readings['traveled']} {traveled_unit}",
+                          help='Successful cell moves so far. A collision attempt adds no distance.')
+                st.metric('Goal distance', f"{readings['goal_distance']} {goal_unit}",
+                          help='Manhattan distance from the displayed position. Walls can make the actual route longer.')
+            with st.container(key='reward_panel'):
+                card_heading('Episode reward', 'Cumulative score · displayed steps only')
+                reward_chart(episode, index)
+                st.caption('The chart grows as the replay advances.')
 
 
 def install_episode(episode, identity):

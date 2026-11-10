@@ -1,0 +1,91 @@
+{
+  "signature": {
+    "map_id": "unseen-maps-v1-validation-003",
+    "map_hash": "d57971029e7f452b1421c0d19842524406657419b0e937fcbe9ea425ab012bc3",
+    "task_hash": "ee0e7a2df817f837f743ebf47bbe2d8bbbe767dac3c24da40e9ff00fb20994ff",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "step-goal-collision-v1"
+  },
+  "scenario": {
+    "id": "unseen-maps-v1-validation-003-r0c1-r0c2",
+    "start": [
+      0,
+      1
+    ],
+    "goal": [
+      0,
+      2
+    ],
+    "shortest_length": 1,
+    "distance_band": "short"
+  },
+  "seed": 12301,
+  "policy_id": "ppo/m11-shared-main-ppo-seed12301/step-62500",
+  "mode": "validation",
+  "initial_observation": [
+    0,
+    1,
+    0,
+    2
+  ],
+  "transitions": [
+    {
+      "observation": [
+        0,
+        1,
+        0,
+        2
+      ],
+      "action": 3,
+      "reward": 9.99,
+      "next_observation": [
+        0,
+        2,
+        0,
+        2
+      ],
+      "terminated": true,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          2
+        ],
+        "outcome": "success",
+        "scenario_id": "unseen-maps-v1-validation-003-r0c1-r0c2",
+        "steps": 1
+      },
+      "scores": null,
+      "decision": {
+        "action": 3,
+        "action_probabilities": [
+          0.0011040312238037586,
+          0.00020677658903878182,
+          1.7000260413624346e-05,
+          0.9986722469329834
+        ],
+        "state_value": 9.716777801513672
+      }
+    }
+  ],
+  "metrics": {
+    "outcome": "success",
+    "steps": 1,
+    "return": 9.99,
+    "successful_route_length": 1,
+    "spl": 1.0
+  },
+  "benchmark_signature": {
+    "benchmark_id": "unseen-maps-v1",
+    "configuration_hash": "82b53b96a77168e8b912e0c693437c450e3a82ab4e996448d71c07db44dc7655",
+    "environment_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "observation_version": "full-occupancy-coordinates-v1",
+    "splits_hash": "04c2ebcc65a9414d57f8abb9883ac50079158f60f9055a311b1e74de69921d75"
+  },
+  "layout_id": "unseen-maps-v1-validation-003",
+  "layout_split": "validation",
+  "policy_observation_version": "full-occupancy-coordinates-v1",
+  "policy_feature_version": "egocentric-map-goal-v1"
+}

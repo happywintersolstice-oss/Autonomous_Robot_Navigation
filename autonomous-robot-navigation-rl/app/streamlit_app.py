@@ -25,6 +25,7 @@ with st.sidebar:
     active = st.session_state.get('dashboard_page', 'Navigation simulator')
     for label, value, icon in (
         ('Live map', 'Navigation simulator', 'map'),
+        ('Unseen maps', 'Unseen maps', 'travel_explore'),
         ('Overview', 'Overview', 'grid_view'),
         ('Learning analysis', 'Learning analysis', 'monitoring'),
         ('Compare results', 'Agent comparison', 'compare_arrows'),
@@ -38,7 +39,7 @@ with st.sidebar:
         page = st.selectbox('Dashboard view', PAGES, key='dashboard_page', on_change=pause_players)
     st.markdown('<div class="lab-sidebar-status"><span class="lab-eyebrow">LOCAL WORKSPACE</span>'
                 '<div class="lab-kv"><span>Data source</span><b>Saved runs</b></div>'
-                '<div class="lab-kv"><span>Environment</span><b>Fixed grid</b></div>'
+                f'<div class="lab-kv"><span>Environment</span><b>{"Multiple layouts" if page=="Unseen maps" else "Fixed grid"}</b></div>'
                 '<small>Playback uses recorded actions.<br>Policies stay fixed during replay.</small></div>',
                 unsafe_allow_html=True)
 
@@ -55,7 +56,7 @@ except (OSError, ValueError, KeyError) as exc:
     st.error(f'Benchmark unavailable: {exc}. Run python -m robot_navigation.cli prepare first.')
     st.stop()
 
-workspace_header(task.grid.map_id, page)
+workspace_header('Unseen layouts' if page=='Unseen maps' else task.grid.map_id, page)
 if page != 'Navigation simulator':
     render_page(page, task, ROOT)
     st.stop()

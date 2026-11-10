@@ -1,0 +1,39 @@
+{
+  "training_interactions": 175000,
+  "configuration": {
+    "learning_rate": 0.0003,
+    "discount": 0.99,
+    "n_steps": 500,
+    "batch_size": 50,
+    "n_epochs": 5,
+    "gae_lambda": 0.95,
+    "clip_range": 0.2,
+    "ent_coef": 0.01,
+    "vf_coef": 0.5,
+    "max_grad_norm": 0.5,
+    "net_arch": [
+      64,
+      64
+    ],
+    "seed": 12301,
+    "algorithm": "ppo",
+    "interactions": 200000,
+    "monitor_every": 12500,
+    "run_wall_seconds": 900,
+    "representation": "egocentric-map-goal-v1"
+  },
+  "feature_version": "egocentric-map-goal-v1",
+  "feature_count": 1234,
+  "signature": {
+    "benchmark_id": "unseen-maps-v1",
+    "configuration_hash": "82b53b96a77168e8b912e0c693437c450e3a82ab4e996448d71c07db44dc7655",
+    "environment_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "observation_version": "full-occupancy-coordinates-v1",
+    "splits_hash": "04c2ebcc65a9414d57f8abb9883ac50079158f60f9055a311b1e74de69921d75"
+  },
+  "algorithm": "ppo",
+  "policy_id": "ppo/m11-shared-main-ppo-seed12301/step-175000",
+  "encoding": "full-occupancy-coordinates-v1",
+  "kind": "inference-only; buffers/RNG/environment not saved; exact resume unsupported",
+  "sha256": "fb9e62043368db600ba965a5bcc6667a3bd7ef26a8071583fd3169956d2337ed"
+}

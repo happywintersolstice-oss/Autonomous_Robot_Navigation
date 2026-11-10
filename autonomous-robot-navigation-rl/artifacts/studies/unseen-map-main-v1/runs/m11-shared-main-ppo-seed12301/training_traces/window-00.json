@@ -1,0 +1,113 @@
+{
+  "signature": {
+    "map_id": "unseen-maps-v1-train-003",
+    "map_hash": "da601949fb0b27c362d2641bfc21d73e0316c58b504ef4fafdd7875b2e106a3e",
+    "task_hash": "82615e970482fa3d4e02845781aa934d0c25ec88299f7e8d80ba01399ff39153",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "step-goal-collision-v1"
+  },
+  "scenario": {
+    "id": "unseen-maps-v1-train-003-r3c8-r6c5",
+    "start": [
+      3,
+      8
+    ],
+    "goal": [
+      6,
+      5
+    ],
+    "shortest_length": 6,
+    "distance_band": "medium"
+  },
+  "seed": 12301,
+  "policy_id": "ppo/m11-shared-main-ppo-seed12301/actual-training",
+  "mode": "training",
+  "initial_observation": [
+    3,
+    8,
+    6,
+    5
+  ],
+  "transitions": [
+    {
+      "observation": [
+        3,
+        8,
+        6,
+        5
+      ],
+      "action": 3,
+      "reward": -0.01,
+      "next_observation": [
+        3,
+        9,
+        6,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          3,
+          9
+        ],
+        "outcome": "running",
+        "scenario_id": "unseen-maps-v1-train-003-r3c8-r6c5",
+        "steps": 1
+      },
+      "scores": null
+    },
+    {
+      "observation": [
+        3,
+        9,
+        6,
+        5
+      ],
+      "action": 1,
+      "reward": -5.01,
+      "next_observation": [
+        3,
+        9,
+        6,
+        5
+      ],
+      "terminated": true,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          4,
+          9
+        ],
+        "outcome": "collision",
+        "scenario_id": "unseen-maps-v1-train-003-r3c8-r6c5",
+        "steps": 2
+      },
+      "scores": null
+    }
+  ],
+  "training_start_interaction": 0,
+  "benchmark_signature": {
+    "benchmark_id": "unseen-maps-v1",
+    "configuration_hash": "82b53b96a77168e8b912e0c693437c450e3a82ab4e996448d71c07db44dc7655",
+    "environment_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "observation_version": "full-occupancy-coordinates-v1",
+    "splits_hash": "04c2ebcc65a9414d57f8abb9883ac50079158f60f9055a311b1e74de69921d75"
+  },
+  "layout_id": "unseen-maps-v1-train-003",
+  "layout_split": "train",
+  "policy_observation_version": "full-occupancy-coordinates-v1",
+  "policy_feature_version": "egocentric-map-goal-v1",
+  "complete": true,
+  "training_end_interaction": 2,
+  "recording_window_start": 0,
+  "metrics": {
+    "outcome": "collision",
+    "steps": 2,
+    "return": -5.02,
+    "successful_route_length": null,
+    "spl": 0.0
+  }
+}

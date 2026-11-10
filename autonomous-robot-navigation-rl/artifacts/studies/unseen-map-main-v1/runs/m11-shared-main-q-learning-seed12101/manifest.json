@@ -1,0 +1,148 @@
+{
+  "status": "complete",
+  "run_id": "m11-shared-main-q-learning-seed12101",
+  "algorithm": "q-learning",
+  "training_seed": 12101,
+  "signature": {
+    "benchmark_id": "unseen-maps-v1",
+    "configuration_hash": "82b53b96a77168e8b912e0c693437c450e3a82ab4e996448d71c07db44dc7655",
+    "environment_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "observation_version": "full-occupancy-coordinates-v1",
+    "splits_hash": "04c2ebcc65a9414d57f8abb9883ac50079158f60f9055a311b1e74de69921d75"
+  },
+  "source_hash": "79588850979d96e2d4e2416b15cf4e105694bad1eb4a89af9182660ee176e968",
+  "configuration": {
+    "learning_rate": 0.1,
+    "discount": 0.99,
+    "epsilon_start": 1.0,
+    "epsilon_end": 0.05,
+    "epsilon_decay_fraction": 0.8,
+    "seed": 12101,
+    "algorithm": "q-learning",
+    "interactions": 200000,
+    "monitor_every": 12500,
+    "run_wall_seconds": 900,
+    "representation": "egocentric-map-goal-v1"
+  },
+  "started_utc": "2026-11-10T12:58:16.447426+00:00",
+  "information": "full-occupancy-coordinates-v1",
+  "final_test_evaluated": false,
+  "selection_rule": "monitor success, then SPL, then earliest interaction",
+  "monitoring_phase": "after preceding parameter update; before further collection",
+  "exact_resume_supported": false,
+  "representation": "egocentric-map-goal-v1",
+  "selected_interactions": 12500,
+  "viewer_checkpoint": "selected.npz",
+  "training": {
+    "training_interactions": 200000,
+    "completed_episodes": 15072,
+    "outcomes": {
+      "collision": 14398,
+      "success": 527,
+      "timeout": 147
+    },
+    "map_interactions": {
+      "unseen-maps-v1-train-005": 11753,
+      "unseen-maps-v1-train-001": 20848,
+      "unseen-maps-v1-train-002": 16068,
+      "unseen-maps-v1-train-007": 13701,
+      "unseen-maps-v1-train-004": 17828,
+      "unseen-maps-v1-train-008": 18158,
+      "unseen-maps-v1-train-011": 13697,
+      "unseen-maps-v1-train-006": 13221,
+      "unseen-maps-v1-train-003": 29948,
+      "unseen-maps-v1-train-010": 13357,
+      "unseen-maps-v1-train-012": 17722,
+      "unseen-maps-v1-train-009": 13699
+    },
+    "cutoff_steps": 1,
+    "training_traces": [
+      {
+        "path": "training_traces/window-00.json",
+        "sha256": "aa36581adff0b43a49e967d535a4d03d98962dcd7124e9e6a9c12035dd3b0fd7",
+        "layout_id": "unseen-maps-v1-train-005",
+        "window_start": 0,
+        "complete": true
+      },
+      {
+        "path": "training_traces/window-01.json",
+        "sha256": "364964d985e2e8efef499886946c2ca34d9dbf2161ccdf529dc4f0e797afe7b0",
+        "layout_id": "unseen-maps-v1-train-012",
+        "window_start": 100000,
+        "complete": true
+      },
+      {
+        "path": "training_traces/window-02.json",
+        "sha256": "4a44b4679c0f714481a7c6262d6d89758da981ef5131ac3b990c5a647a4e7c59",
+        "layout_id": "unseen-maps-v1-train-003",
+        "window_start": 190000,
+        "complete": true
+      }
+    ]
+  },
+  "replays": [
+    {
+      "path": "replays/validation-000.json",
+      "sha256": "54c7a7850efb79a07565b1a4a8d69acf8523172d81d16904408f980f8bf1a0ed",
+      "layout_id": "unseen-maps-v1-validation-001",
+      "outcome": "timeout"
+    },
+    {
+      "path": "replays/validation-001.json",
+      "sha256": "e5b2cacdb33ca90bd2877780f5300b08af04cbb86d9e6aa77e99e3080b9d78f5",
+      "layout_id": "unseen-maps-v1-validation-001",
+      "outcome": "success"
+    },
+    {
+      "path": "replays/validation-002.json",
+      "sha256": "344074bfea718f29236098ecd3af8b0d02835230e4d48c04495433202f27ffff",
+      "layout_id": "unseen-maps-v1-validation-002",
+      "outcome": "success"
+    },
+    {
+      "path": "replays/validation-003.json",
+      "sha256": "ae686b5bf80a56c73ad955535b1e836ae58dfbf2e426d3ea21ae4af00044c997",
+      "layout_id": "unseen-maps-v1-validation-002",
+      "outcome": "timeout"
+    },
+    {
+      "path": "replays/validation-004.json",
+      "sha256": "2412cc92c24740aaf09df4b29b862af34072095373e07cea4da2ac3d4eac3a31",
+      "layout_id": "unseen-maps-v1-validation-003",
+      "outcome": "success"
+    },
+    {
+      "path": "replays/validation-005.json",
+      "sha256": "6132f9ca170693285c8ce91eced05ce658b7ede692731e3de65be24e4bac4e97",
+      "layout_id": "unseen-maps-v1-validation-003",
+      "outcome": "timeout"
+    },
+    {
+      "path": "replays/validation-006.json",
+      "sha256": "689e51e319289cd2085363cbdddb0b058843d72564bda16087743494280111b8",
+      "layout_id": "unseen-maps-v1-validation-004",
+      "outcome": "timeout"
+    },
+    {
+      "path": "replays/validation-007.json",
+      "sha256": "a48bec6c6a1a922019dd775dc72b8e2c2208f609544055c3bd51f4efad907897",
+      "layout_id": "unseen-maps-v1-validation-004",
+      "outcome": "success"
+    }
+  ],
+  "construction_seconds": 0.0012477999553084373,
+  "training_seconds": 50.76687309984118,
+  "monitoring_seconds": 8.269285300164483,
+  "validation_seconds": 3.7919890999328345,
+  "familiar_probe_seconds": 1.7811585000017658,
+  "training_interactions": 200000,
+  "monitoring_interactions": 71649,
+  "validation_interactions": 30540,
+  "familiar_interactions": 11835,
+  "mean_decision_microseconds": 58.5529999807477,
+  "latency_queries": 100,
+  "checkpoint_bytes": 36297,
+  "total_seconds": 64.77772360004019,
+  "finished_utc": "2026-11-10T12:59:21.228382+00:00",
+  "optimized_parameter_count": 4936
+}

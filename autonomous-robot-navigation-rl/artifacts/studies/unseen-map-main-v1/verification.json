@@ -1,0 +1,145 @@
+{
+  "status": "passed",
+  "signature": {
+    "benchmark_id": "unseen-maps-v1",
+    "configuration_hash": "82b53b96a77168e8b912e0c693437c450e3a82ab4e996448d71c07db44dc7655",
+    "environment_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "observation_version": "full-occupancy-coordinates-v1",
+    "splits_hash": "04c2ebcc65a9414d57f8abb9883ac50079158f60f9055a311b1e74de69921d75"
+  },
+  "runs": [
+    {
+      "run_id": "m11-shared-pilot-q-learning-seed12007",
+      "validation_actions": 28585,
+      "familiar_actions": 10480,
+      "training_trace_actions": 5,
+      "training_traces": 3,
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m11-shared-pilot-sarsa-seed12007",
+      "validation_actions": 20693,
+      "familiar_actions": 7753,
+      "training_trace_actions": 202,
+      "training_traces": 3,
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m11-shared-pilot-dqn-seed12007",
+      "validation_actions": 23912,
+      "familiar_actions": 8918,
+      "training_trace_actions": 95,
+      "training_traces": 3,
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m11-shared-pilot-ppo-seed12007",
+      "validation_actions": 20552,
+      "familiar_actions": 5491,
+      "training_trace_actions": 23,
+      "training_traces": 3,
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m11-shared-main-q-learning-seed12101",
+      "validation_actions": 30540,
+      "familiar_actions": 11835,
+      "training_trace_actions": 67,
+      "training_traces": 3,
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m11-shared-main-sarsa-seed12101",
+      "validation_actions": 13605,
+      "familiar_actions": 4745,
+      "training_trace_actions": 24,
+      "training_traces": 3,
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m11-shared-main-dqn-seed12101",
+      "validation_actions": 28601,
+      "familiar_actions": 5496,
+      "training_trace_actions": 21,
+      "training_traces": 3,
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m11-shared-main-ppo-seed12101",
+      "validation_actions": 10045,
+      "familiar_actions": 2294,
+      "training_trace_actions": 12,
+      "training_traces": 3,
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m11-shared-main-q-learning-seed12203",
+      "validation_actions": 32288,
+      "familiar_actions": 11059,
+      "training_trace_actions": 256,
+      "training_traces": 3,
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m11-shared-main-sarsa-seed12203",
+      "validation_actions": 15688,
+      "familiar_actions": 3990,
+      "training_trace_actions": 26,
+      "training_traces": 3,
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m11-shared-main-dqn-seed12203",
+      "validation_actions": 22631,
+      "familiar_actions": 4706,
+      "training_trace_actions": 25,
+      "training_traces": 3,
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m11-shared-main-ppo-seed12203",
+      "validation_actions": 9633,
+      "familiar_actions": 4551,
+      "training_trace_actions": 12,
+      "training_traces": 3,
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m11-shared-main-q-learning-seed12301",
+      "validation_actions": 30732,
+      "familiar_actions": 11054,
+      "training_trace_actions": 136,
+      "training_traces": 3,
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m11-shared-main-sarsa-seed12301",
+      "validation_actions": 14359,
+      "familiar_actions": 4560,
+      "training_trace_actions": 29,
+      "training_traces": 3,
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m11-shared-main-dqn-seed12301",
+      "validation_actions": 26225,
+      "familiar_actions": 10654,
+      "training_trace_actions": 37,
+      "training_traces": 3,
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m11-shared-main-ppo-seed12301",
+      "validation_actions": 13091,
+      "familiar_actions": 3977,
+      "training_trace_actions": 10,
+      "training_traces": 3,
+      "inference_unchanged": true
+    }
+  ],
+  "training_source_hash": "79588850979d96e2d4e2416b15cf4e105694bad1eb4a89af9182660ee176e968",
+  "verification_source_hash": "22ef3b0bd4d9d42c34a55e2158a75353cc13fd6b9ee3a9dc6e118dd3f9bb86f7",
+  "reused_reference_actions": 2186,
+  "final_policy_executions": 0,
+  "total_audited_actions": 453723
+}

@@ -483,3 +483,69 @@ An isolated checkout matched all 7,104 indexed artifact/data files byte for byte
 The 12,603-file working artifact/data snapshot and original 184-file seal passed
 preservation verification. These packaging rules retain the recorded data values
 and model contents.
+
+## Milestone 10 on 10 November 2026
+
+The owner authorized new map-aware Q-learning, SARSA, DQN and PPO for unseen
+layouts. Registered a fully observed 104-value input, the 12/4/10 layout split,
+D4 duplicate rejection, distance-stratified routes and a one-seed 25,000-step
+pilot per family before generation/training. Reused the core movement/reward
+environment, tabular updates, metric aggregation, BFS, checkpoint ranking,
+neural fingerprints and centered replay presentation.
+
+All four runs completed exactly 100,000 training steps in total. The suite took
+49.27 seconds. New-layout validation success was 2.60%, 2.60%, 4.17% and 5.21%
+for Q-learning, SARSA, DQN and PPO. BFS was optimal on every validation route.
+All learned families missed the targets. Tabular tables expose their exact-state
+transfer limitation, and the neural pilot also learned weak controllers.
+
+The first audit found SB3 timeout metadata appended to shared training-info
+dictionaries. Core values matched. Added a compatibility reader that checks that
+metadata against transition flags, fixed the future collector to copy info and
+retained the original records/source snapshot. The pilot was trained once.
+The audit checked 38,008 actions and unchanged inference fingerprints.
+
+Added the Unseen maps results/replay page, including actual learning records for
+all four families. Native browser checks verified DQN learning progression,
+PPO start-to-goal replay and responsive layouts. All 174 tests passed in 51.35
+seconds. All 12,605 protected files and 184 original sealed inputs passed
+preservation checks. Final-layout policy execution count remains zero.
+
+The main development budget, fresh seeds and any representation/architecture
+comparison require registration in the next stage. Independent final evaluation
+remains outstanding. Detailed costs, sources, results and limits are recorded in
+docs/milestone10_protocol.md, docs/milestone10_results.md and
+docs/milestone10_verification.json.
+
+## Milestone 11 on 10 November 2026
+
+The owner selected shared features for all four algorithms after the exact-state
+pilot exposed its layout-transfer limitation. Registered 1,234 deterministic
+map/goal features, normalized linear Q-learning/SARSA, fixed-extractor DQN/PPO,
+four engineering pilots and a three-seed 200,000-step main matrix before training.
+Workers executed frozen archived source with at most two CPU workers and one
+Torch thread each. Exact budgets total 2.5 million transitions across sixteen
+complete runs. There were no failed or retried attempts. Suite wall time was
+1,255.86 seconds and study storage was approximately 298.13 MB.
+
+Three-seed validation success averaged 18.92% Q-learning, 63.37% SARSA,
+33.51% DQN and 73.96% PPO. All four mean collision rates were below 2%, while
+every family missed the 80% success and .75 SPL targets. Timeouts dominate
+failures. Cross-milestone differences also include budget, value function and
+seeds, so this comparison does not isolate a representation effect.
+
+The full audit checked 453,723 saved actions and 48 bounded actual learning
+records. Models reload with matching actions/diagnostics, learned state remains
+unchanged during inference and budgets/ledgers/checkpoint selection reconcile.
+All 184 tests passed in 76.13 seconds. Dashboard tests covered all twelve main
+runs in both replay modes and pause on study changes. Native checks verified
+automatic learning playback, seeking/stepping, a selected-policy goal replay,
+centered desktop presentation and responsive narrow controls without overflow.
+The live environment heading was corrected after training. Separate executed
+and verification source hashes retain that distinction.
+
+All 12,772 protected pre-study files retain their hashes, and all 184 original
+frozen inputs remain valid. Earlier evidence, the energy project and sources
+remain preserved. Final-layout policy execution count is zero. Independent
+evaluation on the ten reserved layouts is the next stage. See the registered
+protocol, measured results and verification under docs/milestone11_*.

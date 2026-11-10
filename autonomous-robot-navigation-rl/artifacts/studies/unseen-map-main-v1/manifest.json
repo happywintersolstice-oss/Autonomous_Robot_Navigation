@@ -1,0 +1,292 @@
+{
+  "status": "verified",
+  "signature": {
+    "benchmark_id": "unseen-maps-v1",
+    "configuration_hash": "82b53b96a77168e8b912e0c693437c450e3a82ab4e996448d71c07db44dc7655",
+    "environment_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "observation_version": "full-occupancy-coordinates-v1",
+    "splits_hash": "04c2ebcc65a9414d57f8abb9883ac50079158f60f9055a311b1e74de69921d75"
+  },
+  "settings": {
+    "study_id": "unseen-map-main-v1",
+    "benchmark_id": "unseen-maps-v1",
+    "representation": "egocentric-map-goal-v1",
+    "algorithms": [
+      "q-learning",
+      "sarsa",
+      "dqn",
+      "ppo"
+    ],
+    "pilot_seed": 12007,
+    "seeds": [
+      12101,
+      12203,
+      12301
+    ],
+    "pilot_interactions": 25000,
+    "interactions": 200000,
+    "monitor_every": 12500,
+    "workers": 2,
+    "run_wall_seconds": 900,
+    "suite_wall_seconds": 9000,
+    "artifact_bytes": 1073741824,
+    "max_attempts_per_run": 2,
+    "max_runs_including_attempts": 20,
+    "max_training_interactions_including_attempts": 3300000,
+    "tabular": {
+      "learning_rate": 0.1,
+      "discount": 0.99,
+      "epsilon_start": 1.0,
+      "epsilon_end": 0.05,
+      "epsilon_decay_fraction": 0.8
+    },
+    "dqn": {
+      "learning_rate": 0.0003,
+      "discount": 0.99,
+      "buffer_size": 50000,
+      "learning_starts": 2000,
+      "batch_size": 64,
+      "train_freq": 4,
+      "gradient_steps": 1,
+      "target_update_interval": 500,
+      "epsilon_start": 1.0,
+      "epsilon_end": 0.05,
+      "epsilon_decay_fraction": 0.8,
+      "net_arch": [
+        64,
+        64
+      ]
+    },
+    "ppo": {
+      "learning_rate": 0.0003,
+      "discount": 0.99,
+      "n_steps": 500,
+      "batch_size": 50,
+      "n_epochs": 5,
+      "gae_lambda": 0.95,
+      "clip_range": 0.2,
+      "ent_coef": 0.01,
+      "vf_coef": 0.5,
+      "max_grad_norm": 0.5,
+      "net_arch": [
+        64,
+        64
+      ]
+    }
+  },
+  "source_hash": "79588850979d96e2d4e2416b15cf4e105694bad1eb4a89af9182660ee176e968",
+  "protocol_hash": "6df86a097db163f742b6ef147d06b6d36bbb8f2d08ebf2f53fc254f9b86be3c8",
+  "python": "3.14.10",
+  "dependencies": {
+    "numpy": "2.5.4",
+    "gymnasium": "1.4.0",
+    "torch": "2.15.0",
+    "stable-baselines3": "2.9.2"
+  },
+  "registered_utc": "2026-11-10T12:56:57.199650+00:00",
+  "references": {
+    "study": "unseen-map-pilot-v1",
+    "summary_sha256": "c9073fe6c6907bf6617d4fe40cdf8be91b8996e23b352069e6685eb812bd7374",
+    "files": {
+      "bfs": "58f60323f2ef922525b1c8b3b9287a99f6f052a8440ffb413923384358801dff",
+      "random": "21c1894e01a3777eb2d9e7736126c56f202f7557ad2f0b53e4d1e8afede73c0a"
+    }
+  },
+  "attempts": [
+    {
+      "run_id": "m11-shared-pilot-q-learning-seed12007",
+      "phase": "pilot",
+      "algorithm": "q-learning",
+      "seed": 12007,
+      "attempt": 1,
+      "budget": 25000,
+      "status": "complete",
+      "exit_code": 0,
+      "wall_seconds": 14.064849500078708,
+      "observed_interactions": 25000
+    },
+    {
+      "run_id": "m11-shared-pilot-sarsa-seed12007",
+      "phase": "pilot",
+      "algorithm": "sarsa",
+      "seed": 12007,
+      "attempt": 1,
+      "budget": 25000,
+      "status": "complete",
+      "exit_code": 0,
+      "wall_seconds": 14.064775099977851,
+      "observed_interactions": 25000
+    },
+    {
+      "run_id": "m11-shared-pilot-dqn-seed12007",
+      "phase": "pilot",
+      "algorithm": "dqn",
+      "seed": 12007,
+      "attempt": 1,
+      "budget": 25000,
+      "status": "complete",
+      "exit_code": 0,
+      "wall_seconds": 58.319673000019975,
+      "observed_interactions": 25000
+    },
+    {
+      "run_id": "m11-shared-pilot-ppo-seed12007",
+      "phase": "pilot",
+      "algorithm": "ppo",
+      "seed": 12007,
+      "attempt": 1,
+      "budget": 25000,
+      "status": "complete",
+      "exit_code": 0,
+      "wall_seconds": 64.37054570007604,
+      "observed_interactions": 25000
+    },
+    {
+      "run_id": "m11-shared-main-q-learning-seed12101",
+      "phase": "main",
+      "algorithm": "q-learning",
+      "seed": 12101,
+      "attempt": 1,
+      "budget": 200000,
+      "status": "complete",
+      "exit_code": 0,
+      "wall_seconds": 66.48766490002163,
+      "observed_interactions": 200000
+    },
+    {
+      "run_id": "m11-shared-main-sarsa-seed12101",
+      "phase": "main",
+      "algorithm": "sarsa",
+      "seed": 12101,
+      "attempt": 1,
+      "budget": 200000,
+      "status": "complete",
+      "exit_code": 0,
+      "wall_seconds": 60.39079480001237,
+      "observed_interactions": 200000
+    },
+    {
+      "run_id": "m11-shared-main-dqn-seed12101",
+      "phase": "main",
+      "algorithm": "dqn",
+      "seed": 12101,
+      "attempt": 1,
+      "budget": 200000,
+      "status": "complete",
+      "exit_code": 0,
+      "wall_seconds": 355.9084452999523,
+      "observed_interactions": 200000
+    },
+    {
+      "run_id": "m11-shared-main-ppo-seed12101",
+      "phase": "main",
+      "algorithm": "ppo",
+      "seed": 12101,
+      "attempt": 1,
+      "budget": 200000,
+      "status": "complete",
+      "exit_code": 0,
+      "wall_seconds": 329.5586735000834,
+      "observed_interactions": 200000
+    },
+    {
+      "run_id": "m11-shared-main-q-learning-seed12203",
+      "phase": "main",
+      "algorithm": "q-learning",
+      "seed": 12203,
+      "attempt": 1,
+      "budget": 200000,
+      "status": "complete",
+      "exit_code": 0,
+      "wall_seconds": 68.81273389991838,
+      "observed_interactions": 200000
+    },
+    {
+      "run_id": "m11-shared-main-sarsa-seed12203",
+      "phase": "main",
+      "algorithm": "sarsa",
+      "seed": 12203,
+      "attempt": 1,
+      "budget": 200000,
+      "status": "complete",
+      "exit_code": 0,
+      "wall_seconds": 62.774366199970245,
+      "observed_interactions": 200000
+    },
+    {
+      "run_id": "m11-shared-main-dqn-seed12203",
+      "phase": "main",
+      "algorithm": "dqn",
+      "seed": 12203,
+      "attempt": 1,
+      "budget": 200000,
+      "status": "complete",
+      "exit_code": 0,
+      "wall_seconds": 324.76250830001663,
+      "observed_interactions": 200000
+    },
+    {
+      "run_id": "m11-shared-main-ppo-seed12203",
+      "phase": "main",
+      "algorithm": "ppo",
+      "seed": 12203,
+      "attempt": 1,
+      "budget": 200000,
+      "status": "complete",
+      "exit_code": 0,
+      "wall_seconds": 306.44856869999785,
+      "observed_interactions": 200000
+    },
+    {
+      "run_id": "m11-shared-main-q-learning-seed12301",
+      "phase": "main",
+      "algorithm": "q-learning",
+      "seed": 12301,
+      "attempt": 1,
+      "budget": 200000,
+      "status": "complete",
+      "exit_code": 0,
+      "wall_seconds": 62.98841759993229,
+      "observed_interactions": 200000
+    },
+    {
+      "run_id": "m11-shared-main-sarsa-seed12301",
+      "phase": "main",
+      "algorithm": "sarsa",
+      "seed": 12301,
+      "attempt": 1,
+      "budget": 200000,
+      "status": "complete",
+      "exit_code": 0,
+      "wall_seconds": 58.90762289997656,
+      "observed_interactions": 200000
+    },
+    {
+      "run_id": "m11-shared-main-dqn-seed12301",
+      "phase": "main",
+      "algorithm": "dqn",
+      "seed": 12301,
+      "attempt": 1,
+      "budget": 200000,
+      "status": "complete",
+      "exit_code": 0,
+      "wall_seconds": 328.45716360001825,
+      "observed_interactions": 200000
+    },
+    {
+      "run_id": "m11-shared-main-ppo-seed12301",
+      "phase": "main",
+      "algorithm": "ppo",
+      "seed": 12301,
+      "attempt": 1,
+      "budget": 200000,
+      "status": "complete",
+      "exit_code": 0,
+      "wall_seconds": 314.1782600999577,
+      "observed_interactions": 200000
+    }
+  ],
+  "final_test_evaluated": false,
+  "elapsed_this_invocation_seconds": 1255.8572391999187,
+  "artifact_bytes": 298127562
+}

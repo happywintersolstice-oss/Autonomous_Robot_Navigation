@@ -1,0 +1,95 @@
+{
+  "episodes": 192,
+  "counts": {
+    "success": 85,
+    "collision": 6,
+    "timeout": 101
+  },
+  "success_rate": 0.4427083333333333,
+  "collision_rate": 0.03125,
+  "timeout_rate": 0.5260416666666666,
+  "spl": 0.43194707491582496,
+  "mean_return": 3.193072916666667,
+  "mean_successful_route_length": 5.541176470588235,
+  "successful_route_count": 85,
+  "interactions": 20693,
+  "layout_count": 4,
+  "by_map": {
+    "unseen-maps-v1-validation-001": {
+      "episodes": 48,
+      "counts": {
+        "success": 21,
+        "collision": 1,
+        "timeout": 26
+      },
+      "success_rate": 0.4375,
+      "collision_rate": 0.020833333333333332,
+      "timeout_rate": 0.5416666666666666,
+      "spl": 0.42176452020202015,
+      "mean_return": 3.159583333333334,
+      "mean_successful_route_length": 6.190476190476191,
+      "successful_route_count": 21,
+      "interactions": 5334
+    },
+    "unseen-maps-v1-validation-002": {
+      "episodes": 48,
+      "counts": {
+        "success": 21,
+        "collision": 1,
+        "timeout": 26
+      },
+      "success_rate": 0.4375,
+      "collision_rate": 0.020833333333333332,
+      "timeout_rate": 0.5416666666666666,
+      "spl": 0.4189867424242424,
+      "mean_return": 3.1629166666666677,
+      "mean_successful_route_length": 5.333333333333333,
+      "successful_route_count": 21,
+      "interactions": 5318
+    },
+    "unseen-maps-v1-validation-003": {
+      "episodes": 48,
+      "counts": {
+        "success": 23,
+        "collision": 2,
+        "timeout": 23
+      },
+      "success_rate": 0.4791666666666667,
+      "collision_rate": 0.041666666666666664,
+      "timeout_rate": 0.4791666666666667,
+      "spl": 0.47500000000000003,
+      "mean_return": 3.5958333333333337,
+      "mean_successful_route_length": 5.956521739130435,
+      "successful_route_count": 23,
+      "interactions": 4740
+    },
+    "unseen-maps-v1-validation-004": {
+      "episodes": 48,
+      "counts": {
+        "success": 20,
+        "collision": 2,
+        "timeout": 26
+      },
+      "success_rate": 0.4166666666666667,
+      "collision_rate": 0.041666666666666664,
+      "timeout_rate": 0.5416666666666666,
+      "spl": 0.41203703703703703,
+      "mean_return": 2.8539583333333334,
+      "mean_successful_route_length": 4.6,
+      "successful_route_count": 20,
+      "interactions": 5301
+    }
+  },
+  "map_mean": {
+    "success_rate": 0.44270833333333337,
+    "collision_rate": 0.03125,
+    "timeout_rate": 0.5260416666666666,
+    "spl": 0.4319470749158249,
+    "mean_return": 3.193072916666667
+  },
+  "evaluation_seconds": 2.409019799903035,
+  "split": "validation",
+  "aggregation": "equal-support routes; equal-weight layout means; one trained seed",
+  "inference_unchanged": true,
+  "final_test_evaluated": false
+}

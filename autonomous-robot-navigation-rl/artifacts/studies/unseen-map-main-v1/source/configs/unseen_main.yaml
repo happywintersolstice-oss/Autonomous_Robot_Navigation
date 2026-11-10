@@ -1,0 +1,47 @@
+study_id: unseen-map-main-v1
+benchmark_id: unseen-maps-v1
+representation: egocentric-map-goal-v1
+algorithms: [q-learning, sarsa, dqn, ppo]
+pilot_seed: 12007
+seeds: [12101, 12203, 12301]
+pilot_interactions: 25000
+interactions: 200000
+monitor_every: 12500
+workers: 2
+run_wall_seconds: 900
+suite_wall_seconds: 9000
+artifact_bytes: 1073741824
+max_attempts_per_run: 2
+max_runs_including_attempts: 20
+max_training_interactions_including_attempts: 3300000
+tabular:
+  learning_rate: 0.1
+  discount: 0.99
+  epsilon_start: 1.0
+  epsilon_end: 0.05
+  epsilon_decay_fraction: 0.8
+dqn:
+  learning_rate: 0.0003
+  discount: 0.99
+  buffer_size: 50000
+  learning_starts: 2000
+  batch_size: 64
+  train_freq: 4
+  gradient_steps: 1
+  target_update_interval: 500
+  epsilon_start: 1.0
+  epsilon_end: 0.05
+  epsilon_decay_fraction: 0.8
+  net_arch: [64, 64]
+ppo:
+  learning_rate: 0.0003
+  discount: 0.99
+  n_steps: 500
+  batch_size: 50
+  n_epochs: 5
+  gae_lambda: 0.95
+  clip_range: 0.2
+  ent_coef: 0.01
+  vf_coef: 0.5
+  max_grad_norm: 0.5
+  net_arch: [64, 64]

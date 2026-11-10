@@ -1,0 +1,76 @@
+{
+  "status": "passed",
+  "signature": {
+    "benchmark_id": "unseen-maps-v1",
+    "configuration_hash": "82b53b96a77168e8b912e0c693437c450e3a82ab4e996448d71c07db44dc7655",
+    "environment_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "observation_version": "full-occupancy-coordinates-v1",
+    "splits_hash": "04c2ebcc65a9414d57f8abb9883ac50079158f60f9055a311b1e74de69921d75"
+  },
+  "benchmark": {
+    "signature": {
+      "benchmark_id": "unseen-maps-v1",
+      "configuration_hash": "82b53b96a77168e8b912e0c693437c450e3a82ab4e996448d71c07db44dc7655",
+      "environment_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+      "observation_version": "full-occupancy-coordinates-v1",
+      "splits_hash": "04c2ebcc65a9414d57f8abb9883ac50079158f60f9055a311b1e74de69921d75"
+    },
+    "splits": {
+      "train": {
+        "layouts": 12,
+        "scenarios": 576
+      },
+      "validation": {
+        "layouts": 4,
+        "scenarios": 192
+      },
+      "test": {
+        "layouts": 10,
+        "scenarios": 480
+      }
+    },
+    "d4_unique": true,
+    "fixed_map_excluded": true,
+    "final_policy_executions": 0
+  },
+  "runs": [
+    {
+      "run_id": "m10-map-aware-q-learning-seed11003",
+      "validation_actions": 566,
+      "familiar_actions": 5873,
+      "training_trace_actions": 16,
+      "training_traces": 3,
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m10-map-aware-sarsa-seed11003",
+      "validation_actions": 566,
+      "familiar_actions": 7062,
+      "training_trace_actions": 26,
+      "training_traces": 3,
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m10-map-aware-dqn-seed11003",
+      "validation_actions": 10825,
+      "familiar_actions": 8674,
+      "training_trace_actions": 33,
+      "training_traces": 3,
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m10-map-aware-ppo-seed11003",
+      "validation_actions": 1948,
+      "familiar_actions": 228,
+      "training_trace_actions": 5,
+      "training_traces": 3,
+      "inference_unchanged": true
+    }
+  ],
+  "reference_actions": 2186,
+  "final_policy_executions": 0,
+  "verification_seconds": 5.777879299945198,
+  "verification_source_hash": "7804662a810fbeb6b8389547b16953a09b3de3d5251d149dcd900c603cf31fa5",
+  "training_source_hash": "cbd7fd8059a1a51821439f6eb20ccfc2c86a52c3106977ea469fee9249ea0329",
+  "scope": "one-seed pilot; no independent final evaluation or main-study claim"
+}

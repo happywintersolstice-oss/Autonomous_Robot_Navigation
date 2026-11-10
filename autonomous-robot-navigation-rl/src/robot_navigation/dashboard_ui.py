@@ -44,6 +44,10 @@ def metric_rows(summary):
 
 def render_page(page, task, root):
     st.title(page)
+    if page=='Unseen maps':
+        from .unseen_ui import render_unseen
+        render_unseen(root)
+        return
     if page=='Neural tuning':
         from .neural_tuning_ui import render_tuning
         render_tuning(task,root)
