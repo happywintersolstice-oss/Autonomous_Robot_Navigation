@@ -158,13 +158,40 @@ A later isolated environment installed all 58 pinned dependencies, passed depend
 
 Preservation checks passed for 11,563 pre-extension and 12,142 pre-recovery artifact/data files. An older cross-session root README checksum differs because of an earlier committed README update. The root README matches the starting revision for the extension. Existing files outside the navigation project and archived final evidence are preserved.
 
-## Independent evaluation boundary and next stage
+## Independent evaluation boundary recorded on 9 November 2026
 
 On 9 November 2026 the owner chose to defer independent four-algorithm evaluation to the upcoming unseen-map study. All 6,162 possible distinct ordered start–goal pairs are already represented in the existing manifests. The 928 test outcomes were inspected before PPO and later neural tuning. Another evaluation on those pairs would be retrospective.
 
-The next stage must establish a separate versioned benchmark, disjoint training/validation/final layout sets, a common policy-information contract and predeclared budgets, training seeds, metrics and selection rules. Seal the final layouts and freeze checkpoints/analysis before their final evaluation. Existing fixed-map checkpoint compatibility checks need an explicit new design for the new task. Detailed dataset/model decisions remain for that stage.
+At that closeout, the next stage required a separate versioned benchmark, disjoint training/validation/final layout sets, a common policy-information contract and predeclared budgets, training seeds, metrics and selection rules. These requirements were implemented in milestones 10–12, summarized below.
 
-The current stage consolidates existing evidence and commits the verified implementation. It records zero new canonical benchmark training or final-test executions. Regression tests can train isolated fixtures. Unseen-map performance and a four-family confirmatory result remain unmeasured. Dynamics noise, moving obstacles, continuous movement, sensors, ROS and hardware remain deferred beyond their separately authorized stages.
+The 9 November stage consolidated existing evidence and committed the verified implementation, with zero new canonical training or final-test executions at that stage. Milestones 10–12 subsequently added the separately authorized unseen-map work. Dynamics noise, moving obstacles, continuous movement, sensors, ROS and hardware remain deferred beyond their separately authorized stages.
+
+## Shared-feature unseen-map development and independent final evaluation
+
+Milestone 10 registered a separate 12/4/10 layout split, with 48 distance-stratified routes per map, 79 connected free cells, 21 obstacles and D4 duplicate rejection including the original fixed map. Its one-seed 25,000-step pilots measured weak transfer, including the structural limit of exact-state map tables. The owner selected shared features for all four algorithms in milestone 11.
+
+M11 uses 1,234 deterministic map/goal features, with a robot-centered full map, goal offsets, cardinal clearance and local obstacle/goal patterns. Q-learning and SARSA use normalized linear action-value approximation. DQN and PPO use fixed extractors followed by 64×64 networks. Four engineering pilots and twelve 200,000-step main runs total 2.5 million training transitions. Main seeds are 12101, 12203 and 12301. Checkpoints were selected using 24 fixed development cases every 12,500 steps. Full development validation has 192 routes on four layouts. The three-seed success means were 18.92%, 63.37%, 33.51% and 73.96% for Q-learning, SARSA, DQN and PPO. Cross-milestone changes also include value functions, budgets and seeds.
+
+M12 sealed 114 exact files before the dedicated final accessor parsed the ten reserved maps. The snapshot includes the full twelve-policy roster, task, source, dependencies, references and registered analysis. Every learned policy evaluated 480 routes. BFS evaluated 480 routes once, and Random evaluated 480 routes for each of three registered seeds. All sixteen runs completed once with zero new training transitions, covering 7,680 episodes and 671,151 environment actions.
+
+| Algorithm | Final success % ± training-seed SD points | 95% layout interval % | Collision % | Timeout % | SPL |
+|---|---:|---:|---:|---:|---:|
+| Q-learning | 16.81 ± 2.09 | 14.65–18.96 | 0.07 | 83.13 | .1645 |
+| SARSA | 62.08 ± 2.37 | 57.85–66.53 | 1.67 | 36.25 | .6127 |
+| DQN | 29.10 ± 6.39 | 26.87–31.94 | 0.00 | 70.90 | .2834 |
+| PPO | 64.10 ± 3.79 | 58.33–69.65 | 1.94 | 33.96 | .6312 |
+
+Each learned family has 1,440 policy–route outcomes across three policies. Counts are 242 successes, one collision and 1,197 timeouts for Q-learning, 894/24/522 for SARSA, 419/0/1,021 for DQN and 923/28/489 for PPO. BFS solved all 480 routes optimally with SPL 1.000. Random solved 49/1,440 and collided on 1,391, averaging 3.40% success and SPL .0285. Random SD describes evaluation-RNG variation, while learned SD describes training-seed variation.
+
+Every learned family missed the .80 success and .75 SPL mean targets. All family mean collision rates met .02. SARSA seed12203 and PPO seed12101 each had 11 collisions out of 480 routes, or 2.29%. Most learned failures were timeouts. PPO has the highest observed mean success, with overlapping layout intervals with SARSA. Its development-to-final decline was 9.86 percentage points. The comparison uses different layout cohorts and development checkpoint selection, so the difference is descriptive.
+
+The registered 95% percentile intervals use 5,000 resamples of ten layout means with a shared resampling seed. They condition on the fixed trained-policy roster. Training-seed SD is separate. Dependent routes within a layout/policy do not provide independent replications. Three training seeds and ten final maps provide limited precision and cover one map generator, grid size, occupancy count, reward scheme and observation contract. Per-policy, per-layout, conditional successful-length, count and cost tables are in the measured report.
+
+Evaluation took 178.03 seconds on one CPU evaluator with one Torch thread. The independent 22.20-second audit replayed every saved action, compared reloaded learned actions/diagnostics, checked unchanged learned fingerprints and exact reference streams, recomputed summaries/intervals and verified the seal. Release storage was approximately 43.67 MB. All 189 tests passed in 66.34 seconds. Native desktop/narrow checks verified the separate final entry and recorded replay controls. All 13,635 protected pre-study files and 184 original frozen inputs passed preservation checks.
+
+The dashboard presents final results and all twelve frozen-policy replays separately from M10/M11 development studies and actual learning recordings. The deferred independent four-family evaluation is complete. The ten final layouts are now inspected evidence, and future model selection requires a fresh independent holdout.
+
+Detailed provenance, all seeds and layouts, conditional-route statistics, runtime and model sizes, the freeze digest, reproduction commands and scope limits are recorded in the [M12 measured results](milestone12_results.md), [registered protocol](milestone12_protocol.md) and [verification](milestone12_verification.json). The earlier stages are documented in [M10 results](milestone10_results.md) and [M11 results](milestone11_results.md).
 
 ## Reproduction and evidence index
 

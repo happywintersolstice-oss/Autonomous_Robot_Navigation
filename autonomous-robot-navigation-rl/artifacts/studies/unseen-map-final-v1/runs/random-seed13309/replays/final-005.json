@@ -1,0 +1,109 @@
+{
+  "signature": {
+    "map_id": "unseen-maps-v1-test-003",
+    "map_hash": "0fb0779dc02e039c19488fa333813d9ecc5a519eccab0d1ada4aa9ff23a4a00a",
+    "task_hash": "6bd6b1b228ba5b0218bb65da929b017e390f523226172464bfd4b6ec83f2fe72",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "step-goal-collision-v1"
+  },
+  "scenario": {
+    "id": "unseen-maps-v1-test-003-r1c2-r2c1",
+    "start": [
+      1,
+      2
+    ],
+    "goal": [
+      2,
+      1
+    ],
+    "shortest_length": 2,
+    "distance_band": "short"
+  },
+  "seed": 13309,
+  "policy_id": "random-untrained",
+  "mode": "final evaluation",
+  "initial_observation": [
+    1,
+    2,
+    2,
+    1
+  ],
+  "transitions": [
+    {
+      "observation": [
+        1,
+        2,
+        2,
+        1
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        2,
+        2,
+        2,
+        1
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          2,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "unseen-maps-v1-test-003-r1c2-r2c1",
+        "steps": 1
+      },
+      "scores": null
+    },
+    {
+      "observation": [
+        2,
+        2,
+        2,
+        1
+      ],
+      "action": 2,
+      "reward": 9.99,
+      "next_observation": [
+        2,
+        1,
+        2,
+        1
+      ],
+      "terminated": true,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          2,
+          1
+        ],
+        "outcome": "success",
+        "scenario_id": "unseen-maps-v1-test-003-r1c2-r2c1",
+        "steps": 2
+      },
+      "scores": null
+    }
+  ],
+  "metrics": {
+    "outcome": "success",
+    "steps": 2,
+    "return": 9.98,
+    "successful_route_length": 2,
+    "spl": 1.0
+  },
+  "benchmark_signature": {
+    "benchmark_id": "unseen-maps-v1",
+    "configuration_hash": "82b53b96a77168e8b912e0c693437c450e3a82ab4e996448d71c07db44dc7655",
+    "environment_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "observation_version": "full-occupancy-coordinates-v1",
+    "splits_hash": "04c2ebcc65a9414d57f8abb9883ac50079158f60f9055a311b1e74de69921d75"
+  },
+  "layout_id": "unseen-maps-v1-test-003",
+  "layout_split": "test",
+  "policy_observation_version": "full-occupancy-coordinates-v1",
+  "release_digest": "dfffd2c2765832fbfb5227a044ac1efc6dfafcc86cb179fe0e3cb2a7baa9bad1"
+}

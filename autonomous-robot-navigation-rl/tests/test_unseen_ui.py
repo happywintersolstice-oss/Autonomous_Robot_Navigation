@@ -9,6 +9,7 @@ def test_unseen_results_and_four_learning_players_use_saved_actions(monkeypatch)
     import robot_navigation.unseen_agents as agents
     viewer = AppTest.from_file(str(ROOT/'app/streamlit_app.py'),default_timeout=30).run()
     next(w for w in viewer.selectbox if w.label=='Dashboard view').set_value('Unseen maps').run()
+    next(w for w in viewer.selectbox if w.label=='Unseen-map study').set_value('unseen-map-pilot-v1').run()
     assert not viewer.exception
     assert len(viewer.dataframe[0].value) == 4
 
@@ -69,4 +70,42 @@ def test_main_study_replays_all_training_seeds_and_pauses_on_study_change(monkey
     previous = viewer.session_state['unseen_playback']
     assert previous.playing
     next(w for w in viewer.selectbox if w.label=='Unseen-map study').set_value('unseen-map-pilot-v1').run()
+    assert not viewer.exception and not previous.playing
+
+
+def test_final_view_uses_only_sealed_saved_replays_and_switches_to_development(monkeypatch):
+    from robot_navigation.core import read_json
+    import robot_navigation.unseen_final as final
+    import robot_navigation.unseen_agents as agents
+    path = ROOT/'artifacts/studies'/final.STUDY/'summary.json'
+    if not path.exists() or read_json(path)['status']!='verified':
+        pytest.skip('The final evaluation is not verified yet')
+    def forbidden(*args,**kwargs):
+        raise AssertionError('Final playback cannot query a policy')
+    monkeypatch.setattr(final,'load_map_policy',forbidden)
+    monkeypatch.setattr(agents,'load_map_policy',forbidden)
+    viewer = AppTest.from_file(str(ROOT/'app/streamlit_app.py'),default_timeout=30).run()
+    next(w for w in viewer.selectbox if w.label=='Dashboard view').set_value('Unseen maps').run()
+    assert next(w for w in viewer.selectbox if w.label=='Unseen-map study').value==final.STUDY
+    assert not viewer.exception and len(viewer.dataframe[0].value)==4
+    assert len(viewer.dataframe[-1].value)==2
+    viewer.session_state['unseen_view']='Replay'
+    viewer.run()
+    assert next(w for w in viewer.selectbox if w.label=='Recording type').options==['Final policy']
+    for algorithm in ('q-learning','sarsa','dqn','ppo'):
+        next(w for w in viewer.selectbox if w.label=='Map-aware algorithm').set_value(algorithm).run()
+        for seed in (12101,12203,12301):
+            next(w for w in viewer.selectbox if w.label=='Training seed').set_value(seed).run()
+            assert not viewer.exception
+            player=viewer.session_state['unseen_playback']
+            assert player.index==0 and player.episode['mode']=='final evaluation'
+            assert player.episode['layout_split']=='test' and f'{algorithm}-seed{seed}' in player.episode['policy_id']
+            next(b for b in viewer.button if b.label=='Next step').click().run()
+            player=viewer.session_state['unseen_playback']
+            assert player.current['position']==player.episode['transitions'][0]['next_observation'][:2]
+    next(b for b in viewer.button if b.label=='Reset').click().run()
+    next(b for b in viewer.button if b.label=='Play').click().run()
+    previous=viewer.session_state['unseen_playback']
+    assert previous.playing
+    next(w for w in viewer.selectbox if w.label=='Unseen-map study').set_value('unseen-map-main-v1').run()
     assert not viewer.exception and not previous.playing

@@ -1,0 +1,285 @@
+{
+  "signature": {
+    "map_id": "unseen-maps-v1-test-003",
+    "map_hash": "0fb0779dc02e039c19488fa333813d9ecc5a519eccab0d1ada4aa9ff23a4a00a",
+    "task_hash": "6bd6b1b228ba5b0218bb65da929b017e390f523226172464bfd4b6ec83f2fe72",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "step-goal-collision-v1"
+  },
+  "scenario": {
+    "id": "unseen-maps-v1-test-003-r0c4-r4c3",
+    "start": [
+      0,
+      4
+    ],
+    "goal": [
+      4,
+      3
+    ],
+    "shortest_length": 5,
+    "distance_band": "short"
+  },
+  "seed": 0,
+  "policy_id": "dqn/m11-shared-main-dqn-seed12101/step-125000",
+  "mode": "final evaluation",
+  "initial_observation": [
+    0,
+    4,
+    4,
+    3
+  ],
+  "transitions": [
+    {
+      "observation": [
+        0,
+        4,
+        4,
+        3
+      ],
+      "action": 3,
+      "reward": -0.01,
+      "next_observation": [
+        0,
+        5,
+        4,
+        3
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          5
+        ],
+        "outcome": "running",
+        "scenario_id": "unseen-maps-v1-test-003-r0c4-r4c3",
+        "steps": 1
+      },
+      "scores": [
+        -5.439401626586914,
+        9.360392570495605,
+        -4.461850643157959,
+        9.78292179107666
+      ]
+    },
+    {
+      "observation": [
+        0,
+        5,
+        4,
+        3
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        5,
+        4,
+        3
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          5
+        ],
+        "outcome": "running",
+        "scenario_id": "unseen-maps-v1-test-003-r0c4-r4c3",
+        "steps": 2
+      },
+      "scores": [
+        -5.365306854248047,
+        9.484877586364746,
+        9.471246719360352,
+        9.16510009765625
+      ]
+    },
+    {
+      "observation": [
+        1,
+        5,
+        4,
+        3
+      ],
+      "action": 2,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        4,
+        4,
+        3
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          4
+        ],
+        "outcome": "running",
+        "scenario_id": "unseen-maps-v1-test-003-r0c4-r4c3",
+        "steps": 3
+      },
+      "scores": [
+        9.465712547302246,
+        9.370482444763184,
+        9.698042869567871,
+        9.320378303527832
+      ]
+    },
+    {
+      "observation": [
+        1,
+        4,
+        4,
+        3
+      ],
+      "action": 2,
+      "reward": -0.01,
+      "next_observation": [
+        1,
+        3,
+        4,
+        3
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          3
+        ],
+        "outcome": "running",
+        "scenario_id": "unseen-maps-v1-test-003-r0c4-r4c3",
+        "steps": 4
+      },
+      "scores": [
+        9.460182189941406,
+        -4.86002254486084,
+        9.619073867797852,
+        9.604822158813477
+      ]
+    },
+    {
+      "observation": [
+        1,
+        3,
+        4,
+        3
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        2,
+        3,
+        4,
+        3
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          2,
+          3
+        ],
+        "outcome": "running",
+        "scenario_id": "unseen-maps-v1-test-003-r0c4-r4c3",
+        "steps": 5
+      },
+      "scores": [
+        -4.739022254943848,
+        9.761902809143066,
+        9.452051162719727,
+        9.722186088562012
+      ]
+    },
+    {
+      "observation": [
+        2,
+        3,
+        4,
+        3
+      ],
+      "action": 1,
+      "reward": -0.01,
+      "next_observation": [
+        3,
+        3,
+        4,
+        3
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          3,
+          3
+        ],
+        "outcome": "running",
+        "scenario_id": "unseen-maps-v1-test-003-r0c4-r4c3",
+        "steps": 6
+      },
+      "scores": [
+        9.48855209350586,
+        10.252299308776855,
+        9.760458946228027,
+        -4.716192245483398
+      ]
+    },
+    {
+      "observation": [
+        3,
+        3,
+        4,
+        3
+      ],
+      "action": 1,
+      "reward": 9.99,
+      "next_observation": [
+        4,
+        3,
+        4,
+        3
+      ],
+      "terminated": true,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          4,
+          3
+        ],
+        "outcome": "success",
+        "scenario_id": "unseen-maps-v1-test-003-r0c4-r4c3",
+        "steps": 7
+      },
+      "scores": [
+        9.677519798278809,
+        10.23249626159668,
+        -4.732472896575928,
+        9.710515022277832
+      ]
+    }
+  ],
+  "metrics": {
+    "outcome": "success",
+    "steps": 7,
+    "return": 9.93,
+    "successful_route_length": 7,
+    "spl": 0.7142857142857143
+  },
+  "benchmark_signature": {
+    "benchmark_id": "unseen-maps-v1",
+    "configuration_hash": "82b53b96a77168e8b912e0c693437c450e3a82ab4e996448d71c07db44dc7655",
+    "environment_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "observation_version": "full-occupancy-coordinates-v1",
+    "splits_hash": "04c2ebcc65a9414d57f8abb9883ac50079158f60f9055a311b1e74de69921d75"
+  },
+  "layout_id": "unseen-maps-v1-test-003",
+  "layout_split": "test",
+  "policy_observation_version": "full-occupancy-coordinates-v1",
+  "policy_feature_version": "egocentric-map-goal-v1",
+  "release_digest": "dfffd2c2765832fbfb5227a044ac1efc6dfafcc86cb179fe0e3cb2a7baa9bad1"
+}

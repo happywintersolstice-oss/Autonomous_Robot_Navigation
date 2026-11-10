@@ -1,0 +1,116 @@
+{
+  "status": "passed",
+  "signature": {
+    "benchmark_id": "unseen-maps-v1",
+    "configuration_hash": "82b53b96a77168e8b912e0c693437c450e3a82ab4e996448d71c07db44dc7655",
+    "environment_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "observation_version": "full-occupancy-coordinates-v1",
+    "splits_hash": "04c2ebcc65a9414d57f8abb9883ac50079158f60f9055a311b1e74de69921d75"
+  },
+  "release_digest": "dfffd2c2765832fbfb5227a044ac1efc6dfafcc86cb179fe0e3cb2a7baa9bad1",
+  "runs": [
+    {
+      "run_id": "m11-shared-main-q-learning-seed12101",
+      "actions": 81861,
+      "episodes": 480,
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m11-shared-main-sarsa-seed12101",
+      "actions": 37756,
+      "episodes": 480,
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m11-shared-main-dqn-seed12101",
+      "actions": 74269,
+      "episodes": 480,
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m11-shared-main-ppo-seed12101",
+      "actions": 30523,
+      "episodes": 480,
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m11-shared-main-q-learning-seed12203",
+      "actions": 80325,
+      "episodes": 480,
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m11-shared-main-sarsa-seed12203",
+      "actions": 37634,
+      "episodes": 480,
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m11-shared-main-dqn-seed12203",
+      "actions": 62561,
+      "episodes": 480,
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m11-shared-main-ppo-seed12203",
+      "actions": 36059,
+      "episodes": 480,
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m11-shared-main-q-learning-seed12301",
+      "actions": 78183,
+      "episodes": 480,
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m11-shared-main-sarsa-seed12301",
+      "actions": 34815,
+      "episodes": 480,
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m11-shared-main-dqn-seed12301",
+      "actions": 69308,
+      "episodes": 480,
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "m11-shared-main-ppo-seed12301",
+      "actions": 37566,
+      "episodes": 480,
+      "inference_unchanged": true
+    },
+    {
+      "run_id": "bfs",
+      "actions": 3896,
+      "episodes": 480,
+      "inference_unchanged": false
+    },
+    {
+      "run_id": "random-seed13109",
+      "actions": 2211,
+      "episodes": 480,
+      "inference_unchanged": false
+    },
+    {
+      "run_id": "random-seed13217",
+      "actions": 2126,
+      "episodes": 480,
+      "inference_unchanged": false
+    },
+    {
+      "run_id": "random-seed13309",
+      "actions": 2058,
+      "episodes": 480,
+      "inference_unchanged": false
+    }
+  ],
+  "total_audited_actions": 671151,
+  "episodes": 7680,
+  "audit_seconds": 22.196397499996237,
+  "execution_source_hash": "768e696ef64d2109ddeeaf4576682a7b7c5a7cfe0c9ada341bb493cdd4998c4d",
+  "verification_source_hash": "15216f70c08f66843827de30a057ebc3d86d8721e51a95aa2d41619d67e6fbdc",
+  "new_training_interactions": 0,
+  "summary_sha256": "fdd1c546439bf6e7af2a9e025a1e1ef062bb6beba6fb39c01119436ec63fb118"
+}

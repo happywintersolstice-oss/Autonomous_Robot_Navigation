@@ -1,0 +1,466 @@
+{
+  "status": "complete",
+  "kind": "frozen-final-evaluation",
+  "run_id": "m11-shared-main-dqn-seed12301",
+  "signature": {
+    "benchmark_id": "unseen-maps-v1",
+    "configuration_hash": "82b53b96a77168e8b912e0c693437c450e3a82ab4e996448d71c07db44dc7655",
+    "environment_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "observation_version": "full-occupancy-coordinates-v1",
+    "splits_hash": "04c2ebcc65a9414d57f8abb9883ac50079158f60f9055a311b1e74de69921d75"
+  },
+  "release_digest": "dfffd2c2765832fbfb5227a044ac1efc6dfafcc86cb179fe0e3cb2a7baa9bad1",
+  "record": {
+    "run_id": "m11-shared-main-dqn-seed12301",
+    "kind": "learned",
+    "algorithm": "dqn",
+    "training_seed": 12301,
+    "evaluation_seed": 0,
+    "checkpoint": "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-dqn-seed12301/selected.zip",
+    "checkpoint_sha256": "34adcd133954259b24559d9b1a9c092038dc2c103279a8ec67e6927b5e816a0b",
+    "selected_interactions": 12500,
+    "development": {
+      "episodes": 192,
+      "counts": {
+        "success": 62,
+        "collision": 0,
+        "timeout": 130
+      },
+      "success_rate": 0.3229166666666667,
+      "collision_rate": 0.0,
+      "timeout_rate": 0.6770833333333334,
+      "spl": 0.3194444444444445,
+      "mean_return": 1.86328125,
+      "mean_successful_route_length": 3.629032258064516,
+      "successful_route_count": 62,
+      "interactions": 26225,
+      "layout_count": 4,
+      "by_map": {
+        "unseen-maps-v1-validation-001": {
+          "episodes": 48,
+          "counts": {
+            "success": 19,
+            "collision": 0,
+            "timeout": 29
+          },
+          "success_rate": 0.3958333333333333,
+          "collision_rate": 0.0,
+          "timeout_rate": 0.6041666666666666,
+          "spl": 0.3958333333333333,
+          "mean_return": 2.7325,
+          "mean_successful_route_length": 4.421052631578948,
+          "successful_route_count": 19,
+          "interactions": 5884
+        },
+        "unseen-maps-v1-validation-002": {
+          "episodes": 48,
+          "counts": {
+            "success": 15,
+            "collision": 0,
+            "timeout": 33
+          },
+          "success_rate": 0.3125,
+          "collision_rate": 0.0,
+          "timeout_rate": 0.6875,
+          "spl": 0.3055555555555555,
+          "mean_return": 1.739791666666667,
+          "mean_successful_route_length": 3.2666666666666666,
+          "successful_route_count": 15,
+          "interactions": 6649
+        },
+        "unseen-maps-v1-validation-003": {
+          "episodes": 48,
+          "counts": {
+            "success": 15,
+            "collision": 0,
+            "timeout": 33
+          },
+          "success_rate": 0.3125,
+          "collision_rate": 0.0,
+          "timeout_rate": 0.6875,
+          "spl": 0.3125,
+          "mean_return": 1.7393750000000001,
+          "mean_successful_route_length": 3.4,
+          "successful_route_count": 15,
+          "interactions": 6651
+        },
+        "unseen-maps-v1-validation-004": {
+          "episodes": 48,
+          "counts": {
+            "success": 13,
+            "collision": 0,
+            "timeout": 35
+          },
+          "success_rate": 0.2708333333333333,
+          "collision_rate": 0.0,
+          "timeout_rate": 0.7291666666666666,
+          "spl": 0.2638888888888889,
+          "mean_return": 1.2414583333333333,
+          "mean_successful_route_length": 3.1538461538461537,
+          "successful_route_count": 13,
+          "interactions": 7041
+        }
+      },
+      "map_mean": {
+        "success_rate": 0.32291666666666663,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.6770833333333333,
+        "spl": 0.3194444444444444,
+        "mean_return": 1.86328125
+      },
+      "evaluation_seconds": 12.0904457999859,
+      "split": "validation",
+      "aggregation": "equal-support routes; equal-weight layout means; one trained seed",
+      "inference_unchanged": true,
+      "final_test_evaluated": false
+    },
+    "training_seconds": 278.18030420003925,
+    "training_interactions": 200000,
+    "checkpoint_bytes": 2236046,
+    "optimized_parameter_count": 83460
+  },
+  "representation": "egocentric-map-goal-v1",
+  "replays": [
+    {
+      "path": "replays/final-000.json",
+      "sha256": "b3e9a7eba594d95b7280bc5f766a5ad94c1449b024d75e6260597bf8cf8cf2f0",
+      "layout_id": "unseen-maps-v1-test-001",
+      "outcome": "success"
+    },
+    {
+      "path": "replays/final-001.json",
+      "sha256": "7604c0b4aa5b6fad413df98b8dfb662951eca862236862ad7fffbf8749db94ba",
+      "layout_id": "unseen-maps-v1-test-001",
+      "outcome": "timeout"
+    },
+    {
+      "path": "replays/final-002.json",
+      "sha256": "fa7f1b364fc187d0394cf217f0ec1ec775d7f064c64bcf0f4546a6dc552c7cd0",
+      "layout_id": "unseen-maps-v1-test-002",
+      "outcome": "timeout"
+    },
+    {
+      "path": "replays/final-003.json",
+      "sha256": "1bea774f921254fa190c2f9f9eaa26edd0320248b1c3f56f54945f872ab7f916",
+      "layout_id": "unseen-maps-v1-test-002",
+      "outcome": "success"
+    },
+    {
+      "path": "replays/final-004.json",
+      "sha256": "d680bb816d696f34ed39e483e63e4bf3f99b0555e54291ead215fc49e52ec8cb",
+      "layout_id": "unseen-maps-v1-test-003",
+      "outcome": "timeout"
+    },
+    {
+      "path": "replays/final-005.json",
+      "sha256": "1878a1de4473aeafd29238956c058c240d8c73ce8ccad1a772dd7dc470ff432f",
+      "layout_id": "unseen-maps-v1-test-003",
+      "outcome": "success"
+    },
+    {
+      "path": "replays/final-006.json",
+      "sha256": "67e3c28c7845041d9471da6dfb60786a3174c2811972d6fb5703ce7d30aa25cd",
+      "layout_id": "unseen-maps-v1-test-004",
+      "outcome": "timeout"
+    },
+    {
+      "path": "replays/final-007.json",
+      "sha256": "f545119b2bc2db317c62a553bff2f26579f36458ddc318f9d443f990bcde61bb",
+      "layout_id": "unseen-maps-v1-test-004",
+      "outcome": "success"
+    },
+    {
+      "path": "replays/final-008.json",
+      "sha256": "eaa5cb11f65e87e8cd1d45aab399ada221970aaa8da380b7d73310464fc57eeb",
+      "layout_id": "unseen-maps-v1-test-005",
+      "outcome": "success"
+    },
+    {
+      "path": "replays/final-009.json",
+      "sha256": "2c658bed6c7032d4d39db619a7f4f7c592454fe9738897b3cb70d15136927c5b",
+      "layout_id": "unseen-maps-v1-test-005",
+      "outcome": "timeout"
+    },
+    {
+      "path": "replays/final-010.json",
+      "sha256": "bca3e87dcf4266a113df1b408b72daf39a1c7565ab735929bb150bcd69537e06",
+      "layout_id": "unseen-maps-v1-test-006",
+      "outcome": "timeout"
+    },
+    {
+      "path": "replays/final-011.json",
+      "sha256": "a6c8f989db0a781915360de9e6ea0137963abce194cc9f181c54a838d35a6208",
+      "layout_id": "unseen-maps-v1-test-006",
+      "outcome": "success"
+    },
+    {
+      "path": "replays/final-012.json",
+      "sha256": "f96c80ef2780a27a77febe4b4b17df7412731a4d8eac11c8be211078de0ff25c",
+      "layout_id": "unseen-maps-v1-test-007",
+      "outcome": "timeout"
+    },
+    {
+      "path": "replays/final-013.json",
+      "sha256": "52d3a91388acf5c9c3ddd19abb6ba7e2a61ec72b1a9e270303fcd5e295e4acbd",
+      "layout_id": "unseen-maps-v1-test-007",
+      "outcome": "success"
+    },
+    {
+      "path": "replays/final-014.json",
+      "sha256": "c682b55c84bafc3a328ede06bd4464631f074f5355bb248c92fd2ba73324df35",
+      "layout_id": "unseen-maps-v1-test-008",
+      "outcome": "timeout"
+    },
+    {
+      "path": "replays/final-015.json",
+      "sha256": "2e960429dc76ccd974fa655a0af9bc468b1148726f3c5e3a01d93e8552596619",
+      "layout_id": "unseen-maps-v1-test-008",
+      "outcome": "success"
+    },
+    {
+      "path": "replays/final-016.json",
+      "sha256": "5b82ea53397258ee2f37abd0a9673f6f645994ead1d2daf012e45c57ae3db53a",
+      "layout_id": "unseen-maps-v1-test-009",
+      "outcome": "success"
+    },
+    {
+      "path": "replays/final-017.json",
+      "sha256": "e64901b845a729cf26a77748a6da49f7c9709838e6aea3da2e94f11e5014fd20",
+      "layout_id": "unseen-maps-v1-test-009",
+      "outcome": "timeout"
+    },
+    {
+      "path": "replays/final-018.json",
+      "sha256": "eeeaf7973ad675dedf8653451047d8ba0b721bc3ffebf08f7f01fd530f084002",
+      "layout_id": "unseen-maps-v1-test-010",
+      "outcome": "success"
+    },
+    {
+      "path": "replays/final-019.json",
+      "sha256": "24291e089357d6ae71162a4841390240bb0a637e3ee5f6eacffaf81a60e2727e",
+      "layout_id": "unseen-maps-v1-test-010",
+      "outcome": "timeout"
+    }
+  ],
+  "final": {
+    "episodes": 480,
+    "counts": {
+      "success": 136,
+      "collision": 0,
+      "timeout": 344
+    },
+    "success_rate": 0.2833333333333333,
+    "collision_rate": 0.0,
+    "timeout_rate": 0.7166666666666667,
+    "spl": 0.28061507936507935,
+    "mean_return": 1.3894166666666667,
+    "mean_successful_route_length": 3.735294117647059,
+    "successful_route_count": 136,
+    "interactions": 69308,
+    "layout_count": 10,
+    "by_map": {
+      "unseen-maps-v1-test-001": {
+        "episodes": 48,
+        "counts": {
+          "success": 15,
+          "collision": 0,
+          "timeout": 33
+        },
+        "success_rate": 0.3125,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.6875,
+        "spl": 0.30654761904761907,
+        "mean_return": 1.737291666666667,
+        "mean_successful_route_length": 4.066666666666666,
+        "successful_route_count": 15,
+        "interactions": 6661
+      },
+      "unseen-maps-v1-test-002": {
+        "episodes": 48,
+        "counts": {
+          "success": 13,
+          "collision": 0,
+          "timeout": 35
+        },
+        "success_rate": 0.2708333333333333,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.7291666666666666,
+        "spl": 0.2708333333333333,
+        "mean_return": 1.241875,
+        "mean_successful_route_length": 3.0,
+        "successful_route_count": 13,
+        "interactions": 7039
+      },
+      "unseen-maps-v1-test-003": {
+        "episodes": 48,
+        "counts": {
+          "success": 12,
+          "collision": 0,
+          "timeout": 36
+        },
+        "success_rate": 0.25,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.75,
+        "spl": 0.25,
+        "mean_return": 0.9925000000000002,
+        "mean_successful_route_length": 3.0,
+        "successful_route_count": 12,
+        "interactions": 7236
+      },
+      "unseen-maps-v1-test-004": {
+        "episodes": 48,
+        "counts": {
+          "success": 16,
+          "collision": 0,
+          "timeout": 32
+        },
+        "success_rate": 0.3333333333333333,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.6666666666666666,
+        "spl": 0.3333333333333333,
+        "mean_return": 1.9843750000000002,
+        "mean_successful_route_length": 4.6875,
+        "successful_route_count": 16,
+        "interactions": 6475
+      },
+      "unseen-maps-v1-test-005": {
+        "episodes": 48,
+        "counts": {
+          "success": 14,
+          "collision": 0,
+          "timeout": 34
+        },
+        "success_rate": 0.2916666666666667,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.7083333333333334,
+        "spl": 0.2916666666666667,
+        "mean_return": 1.4904166666666667,
+        "mean_successful_route_length": 3.2857142857142856,
+        "successful_route_count": 14,
+        "interactions": 6846
+      },
+      "unseen-maps-v1-test-006": {
+        "episodes": 48,
+        "counts": {
+          "success": 13,
+          "collision": 0,
+          "timeout": 35
+        },
+        "success_rate": 0.2708333333333333,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.7291666666666666,
+        "spl": 0.2708333333333333,
+        "mean_return": 1.2414583333333333,
+        "mean_successful_route_length": 3.1538461538461537,
+        "successful_route_count": 13,
+        "interactions": 7041
+      },
+      "unseen-maps-v1-test-007": {
+        "episodes": 48,
+        "counts": {
+          "success": 12,
+          "collision": 0,
+          "timeout": 36
+        },
+        "success_rate": 0.25,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.75,
+        "spl": 0.24404761904761907,
+        "mean_return": 0.9893750000000002,
+        "mean_successful_route_length": 4.25,
+        "successful_route_count": 12,
+        "interactions": 7251
+      },
+      "unseen-maps-v1-test-008": {
+        "episodes": 48,
+        "counts": {
+          "success": 16,
+          "collision": 0,
+          "timeout": 32
+        },
+        "success_rate": 0.3333333333333333,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.6666666666666666,
+        "spl": 0.31805555555555554,
+        "mean_return": 1.9870833333333335,
+        "mean_successful_route_length": 3.875,
+        "successful_route_count": 16,
+        "interactions": 6462
+      },
+      "unseen-maps-v1-test-009": {
+        "episodes": 48,
+        "counts": {
+          "success": 15,
+          "collision": 0,
+          "timeout": 33
+        },
+        "success_rate": 0.3125,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.6875,
+        "spl": 0.3125,
+        "mean_return": 1.7383333333333335,
+        "mean_successful_route_length": 3.7333333333333334,
+        "successful_route_count": 15,
+        "interactions": 6656
+      },
+      "unseen-maps-v1-test-010": {
+        "episodes": 48,
+        "counts": {
+          "success": 10,
+          "collision": 0,
+          "timeout": 38
+        },
+        "success_rate": 0.20833333333333334,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.7916666666666666,
+        "spl": 0.20833333333333334,
+        "mean_return": 0.4914583333333334,
+        "mean_successful_route_length": 4.1,
+        "successful_route_count": 10,
+        "interactions": 7641
+      }
+    },
+    "map_mean": {
+      "success_rate": 0.2833333333333333,
+      "collision_rate": 0.0,
+      "timeout_rate": 0.7166666666666667,
+      "spl": 0.28061507936507935,
+      "mean_return": 1.389416666666667
+    },
+    "evaluation_seconds": 23.283291499945335,
+    "split": "test",
+    "aggregation": "equal-support routes; equal-weight layout means; one trained seed",
+    "inference_unchanged": true,
+    "final_test_evaluated": true
+  },
+  "evaluation_seconds": 23.283291499945335,
+  "total_seconds": 23.840876800008118,
+  "decision_microseconds": 300.9120002388954,
+  "fingerprint_before": "d208ff58b3514088e2fd514e866efcebc76afeeb3fb4cd59c3bd6a99961a6b34",
+  "fingerprint_after": "d208ff58b3514088e2fd514e866efcebc76afeeb3fb4cd59c3bd6a99961a6b34",
+  "files": {
+    "episodes.json": "c32fbfc7d9fcb3e96b3d3f3ea4459970d20c2f591097c4b1955de18ef3b6fc2d",
+    "final.json": "60ea818121f5ea2de0086a43270801b7c735d1899a94ecaa35a283c728eea9fe",
+    "trajectories.jsonl.gz": "b5952efae253054cfc269ed9383fb8b8d46094d1e869876a4819189d62d1865c",
+    "replays/final-000.json": "b3e9a7eba594d95b7280bc5f766a5ad94c1449b024d75e6260597bf8cf8cf2f0",
+    "replays/final-001.json": "7604c0b4aa5b6fad413df98b8dfb662951eca862236862ad7fffbf8749db94ba",
+    "replays/final-002.json": "fa7f1b364fc187d0394cf217f0ec1ec775d7f064c64bcf0f4546a6dc552c7cd0",
+    "replays/final-003.json": "1bea774f921254fa190c2f9f9eaa26edd0320248b1c3f56f54945f872ab7f916",
+    "replays/final-004.json": "d680bb816d696f34ed39e483e63e4bf3f99b0555e54291ead215fc49e52ec8cb",
+    "replays/final-005.json": "1878a1de4473aeafd29238956c058c240d8c73ce8ccad1a772dd7dc470ff432f",
+    "replays/final-006.json": "67e3c28c7845041d9471da6dfb60786a3174c2811972d6fb5703ce7d30aa25cd",
+    "replays/final-007.json": "f545119b2bc2db317c62a553bff2f26579f36458ddc318f9d443f990bcde61bb",
+    "replays/final-008.json": "eaa5cb11f65e87e8cd1d45aab399ada221970aaa8da380b7d73310464fc57eeb",
+    "replays/final-009.json": "2c658bed6c7032d4d39db619a7f4f7c592454fe9738897b3cb70d15136927c5b",
+    "replays/final-010.json": "bca3e87dcf4266a113df1b408b72daf39a1c7565ab735929bb150bcd69537e06",
+    "replays/final-011.json": "a6c8f989db0a781915360de9e6ea0137963abce194cc9f181c54a838d35a6208",
+    "replays/final-012.json": "f96c80ef2780a27a77febe4b4b17df7412731a4d8eac11c8be211078de0ff25c",
+    "replays/final-013.json": "52d3a91388acf5c9c3ddd19abb6ba7e2a61ec72b1a9e270303fcd5e295e4acbd",
+    "replays/final-014.json": "c682b55c84bafc3a328ede06bd4464631f074f5355bb248c92fd2ba73324df35",
+    "replays/final-015.json": "2e960429dc76ccd974fa655a0af9bc468b1148726f3c5e3a01d93e8552596619",
+    "replays/final-016.json": "5b82ea53397258ee2f37abd0a9673f6f645994ead1d2daf012e45c57ae3db53a",
+    "replays/final-017.json": "e64901b845a729cf26a77748a6da49f7c9709838e6aea3da2e94f11e5014fd20",
+    "replays/final-018.json": "eeeaf7973ad675dedf8653451047d8ba0b721bc3ffebf08f7f01fd530f084002",
+    "replays/final-019.json": "24291e089357d6ae71162a4841390240bb0a637e3ee5f6eacffaf81a60e2727e"
+  }
+}

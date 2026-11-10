@@ -1,5 +1,18 @@
 # Evaluation boundary and unseen-map handoff
 
+## Completed independent evaluation on 10 November 2026
+
+Milestones 10 and 11 registered the separate layout benchmark and shared-feature
+development study. Milestone 12 froze all twelve selected M11 controllers,
+the task and analysis before evaluating the ten held-out layouts. The 7,680
+final episodes and 671,151-action audit passed, with zero new training steps.
+Final success means were 16.81% Q-learning, 62.08% SARSA, 29.10% DQN and 64.10%
+PPO. Every family missed mean success/SPL targets. The independent four-family
+evaluation deferred below is complete. The ten final layouts are now inspected
+evidence, and future model selection requires a fresh holdout. See the
+[final protocol](milestone12_protocol.md), [measured results](milestone12_results.md)
+and [verification](milestone12_verification.json).
+
 ## Owner decision on 9 November 2026
 
 After reviewing the fixed-map coverage, the owner chose to defer independent

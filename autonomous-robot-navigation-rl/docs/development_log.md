@@ -549,3 +549,34 @@ frozen inputs remain valid. Earlier evidence, the energy project and sources
 remain preserved. Final-layout policy execution count is zero. Independent
 evaluation on the ten reserved layouts is the next stage. See the registered
 protocol, measured results and verification under docs/milestone11_*.
+
+## Milestone 12 on 10 November 2026
+
+The owner authorized frozen independent evaluation on the ten reserved unseen
+layouts. Registered the full twelve-policy roster, BFS and three Random seeds,
+layout-cluster intervals, costs, targets and recovery rules before execution.
+Sealed 114 input files and executed the archived implementation against its
+snapshot. The release completed all sixteen runs once, covering 7,680 episodes
+and 671,151 environment actions. New training interactions were zero.
+
+Final three-seed success averaged 16.81% Q-learning, 62.08% SARSA, 29.10% DQN
+and 64.10% PPO. All family means missed success .80 and SPL .75. Mean collision
+rates met .02, while SARSA seed12203 and PPO seed12101 each reached 2.29%.
+BFS solved 480/480 optimally. Random solved 49/1,440 across three seeds.
+
+Evaluation took 178.03 seconds and the independent complete action audit took
+22.20 seconds. Release storage was approximately 43.67 MB. The audit verified
+every trajectory, frozen learned-state fingerprints, actions/diagnostics,
+Random streams, optimal BFS, aggregates and registered uncertainty calculations.
+All 189 tests passed in 66.34 seconds. Regression playback checks covered all
+twelve final controllers with policy queries forbidden. Native checks verified
+automatic three-action goal playback, reset/stepping, seeking, centered desktop
+presentation and the narrow layout without horizontal overflow.
+
+All 13,635 pre-study protected files and 184 original frozen inputs passed
+preservation checks. The live dashboard wording/reference-cost presentation
+was completed after the execution freeze. Its separate verification source
+hash records the presentation change. The independent four-family evaluation
+is complete, and these ten layouts are now inspected evidence for future work.
+The frozen release and measured outcomes remain available separately from
+development results under unseen-map-final-v1 and docs/milestone12_*.

@@ -16,12 +16,18 @@ from .unseen_study import STUDY
 
 def render_unseen(root):
     from .unseen_main import STUDY as MAIN
+    from .unseen_final import STUDY as FINAL, FinalBenchmark
     choices = [STUDY]
     main_summary = root/'artifacts/studies'/MAIN/'summary.json'
     if main_summary.exists() and read_json(main_summary).get('status')=='verified':
         choices.insert(0,MAIN)
+    final_summary = root/'artifacts/studies'/FINAL/'summary.json'
+    if final_summary.exists() and read_json(final_summary).get('status')=='verified':
+        choices.insert(0,FINAL)
+    labels = {FINAL:'Final evaluation · ten held-out layouts',MAIN:'Shared features · three seeds',
+              STUDY:'Initial pilot · one seed'}
     selected = st.selectbox('Unseen-map study',choices,
-        format_func=lambda value:'Shared features · three seeds' if value==MAIN else 'Initial pilot · one seed',
+        format_func=lambda value:labels[value],
         key='unseen_study')
     if st.session_state.get('unseen_active_study') != selected:
         player = st.session_state.get('unseen_playback')
@@ -31,22 +37,33 @@ def render_unseen(root):
     directory = root/'artifacts/studies'/selected
     try:
         summary = read_json(directory/'summary.json')
-        benchmark = MapBenchmark(root)
+        benchmark = FinalBenchmark(directory) if selected==FINAL else MapBenchmark(root)
         verification = read_json(directory/'verification.json')
         if (summary['status'] != 'verified' or verification['status'] != 'passed'
                 or summary['signature'] != benchmark.signature
                 or verification['signature'] != benchmark.signature):
             raise ValueError('Pilot verification or benchmark identity is incomplete')
+        if selected==FINAL:
+            from .release import sha
+            if (verification['release_digest']!=benchmark.release_digest
+                    or summary['release_digest']!=benchmark.release_digest
+                    or verification['summary_sha256']!=sha(directory/'summary.json')):
+                raise ValueError('Final release/result verification mismatch')
     except (OSError,ValueError,KeyError) as exc:
         st.info(f'Unseen-map pilot evidence unavailable: {exc}')
         st.json({'status':'Prepare, train and verify the separate unseen-map pilot first.'})
         return
-    if selected==MAIN:
+    if selected==FINAL:
+        st.caption('Independent final evaluation · ten held-out layouts · 480 routes per policy · '
+                   'three trained seeds per algorithm. The frozen models use shared map-and-goal features.')
+    elif selected==MAIN:
         st.caption('Shared-feature Q-learning, SARSA, DQN and PPO · three seeds · 200,000 training steps per run. '
-                   'Development validation uses four layouts excluded from training. Final layouts remain reserved.')
+                   'Development validation uses four layouts excluded from training. '
+                   'The final evaluation has its own study entry when available.')
     else:
         st.caption('Map-aware Q-learning, SARSA, DQN and PPO · one pilot seed · 25,000 training steps each. '
-                   'Development validation uses four layouts excluded from training. Final layouts remain reserved.')
+                   'Development validation uses four layouts excluded from training. '
+                   'This is the initial development pilot.')
     tabs = st.tabs(['Results','Replay'], key='unseen_view', on_change='rerun')
     if st.session_state.get('unseen_active_view') != st.session_state['unseen_view']:
         player = st.session_state.get('unseen_playback')
@@ -62,6 +79,9 @@ def render_unseen(root):
 
 
 def _results(summary):
+    if summary.get('final_test_evaluated'):
+        _final_results(summary)
+        return
     if 'runs' in summary:
         _main_results(summary)
         return
@@ -138,17 +158,59 @@ def _main_results(summary):
             'Seed':r['training_seed'],'Training steps':r['training_interactions'],
             'Success (%)':100*r['validation']['success_rate'],'SPL':r['validation']['spl']}
             for r in summary['runs'] if r['phase']=='pilot']),hide_index=True,width='stretch')
-    st.caption('The ten final layouts remain reserved for the next independent evaluation. '
+    st.caption('The M11 development study kept ten final layouts reserved. Final outcomes are presented separately. '
                'The earlier pilot also used a different budget, value function and seeds.')
 
 
+def _final_results(summary):
+    learned = [s for s in summary['systems'] if s['algorithm'] in ALGORITHM_LABELS]
+    rows = []
+    for system in learned:
+        stats = system['statistics']
+        interval = stats['success_rate']['layout_ci95']
+        rows.append({'Algorithm':ALGORITHM_LABELS[system['algorithm']],
+            'Final success (%)':100*stats['success_rate']['mean'],
+            'Seed SD (points)':100*stats['success_rate']['sd'],
+            'Layout 95% interval (%)':f'{100*interval[0]:.2f}–{100*interval[1]:.2f}',
+            'Collision (%)':100*stats['collision_rate']['mean'],
+            'Timeout (%)':100*stats['timeout_rate']['mean'],'SPL':stats['spl']['mean'],
+            'Successes / routes':f"{system['counts']['success']} / {system['episodes']}"})
+    st.dataframe(pd.DataFrame(rows),hide_index=True,width='stretch')
+    st.caption('Three frozen training seeds per algorithm, 480 routes per policy. '
+               'Seed SD measures training variation. The 95% interval resamples ten layouts, '
+               'conditional on these policies. Routes within a layout/policy are dependent.')
+    st.info('These results use the reserved final layouts after the complete model roster and analysis were sealed. '
+            'The models made fixed decisions throughout evaluation. Future model changes require fresh evaluation evidence.')
+    with st.expander('Every frozen policy and evaluation cost'):
+        st.dataframe(pd.DataFrame([{'Algorithm':ALGORITHM_LABELS[r['algorithm']],'Training seed':r['training_seed'],
+            'Development success (%)':100*r['record']['development']['success_rate'],
+            'Final success (%)':100*r['final']['success_rate'],'SPL':r['final']['spl'],
+            'Evaluation seconds':r['evaluation_seconds'],'Decision µs':r['decision_microseconds'],
+            'Training seconds':r['record']['training_seconds'],'Checkpoint bytes':r['record']['checkpoint_bytes']}
+            for r in summary['runs']]),hide_index=True,width='stretch')
+    st.subheader('Results by final layout')
+    st.dataframe(pd.DataFrame([{'Algorithm':ALGORITHM_LABELS[s['algorithm']],'Layout':name,
+        'Success (%)':100*v['success_rate'],'Collision (%)':100*v['collision_rate'],
+        'Timeout (%)':100*v['timeout_rate'],'SPL':v['spl'],'Routes':v['episodes']}
+        for s in learned for name,v in s['by_map'].items()]),hide_index=True,width='stretch')
+    st.subheader('Final reference methods')
+    st.dataframe(pd.DataFrame([{'Method':s['algorithm'].upper() if s['algorithm']=='bfs' else 'Random',
+        'Runs':s['seed_count'],'Success (%)':100*s['statistics']['success_rate']['mean'],
+        'SPL':s['statistics']['spl']['mean'],'Successes':s['counts']['success'],'Routes':s['episodes'],
+        'Evaluation seconds':s['evaluation_seconds']}
+        for s in summary['systems'] if s['algorithm'] in ('bfs','random')]),hide_index=True,width='stretch')
+    st.caption('BFS uses the known map. Random uses three fixed RNG seeds. '
+               'Final outcomes cover 7,680 episodes across twelve learned policies and four reference runs.')
+
+
 def _replay(benchmark, study, summary):
-    systems = [s for s in summary.get('runs',summary['systems']) if s.get('phase','main')=='main']
+    systems = [s for s in summary.get('runs',summary['systems']) if s.get('phase','main') in ('main','final')]
     with st.container(key='unseen_setup'):
         family, recording_type, controls = st.columns([1.1,1.1,2.3], vertical_alignment='bottom')
     algorithm = family.selectbox('Map-aware algorithm', list(dict.fromkeys(s['algorithm'] for s in systems)),
                                 format_func=lambda a:ALGORITHM_LABELS[a], key='unseen_algorithm')
-    kind = recording_type.selectbox('Recording type', ['Trained policy','Recorded learning'], key='unseen_kind')
+    kinds = ['Final policy'] if summary.get('final_test_evaluated') else ['Trained policy','Recorded learning']
+    kind = recording_type.selectbox('Recording type', kinds, key='unseen_kind')
     candidates = [s for s in systems if s['algorithm']==algorithm]
     if len(candidates)>1:
         seed = st.selectbox('Training seed',[s['training_seed'] for s in candidates],key='unseen_seed')
@@ -157,7 +219,12 @@ def _replay(benchmark, study, summary):
         system = candidates[0]
     directory = study/'runs'/system['run_id']
     manifest = read_json(directory/'manifest.json')
-    items = manifest['replays'] if kind=='Trained policy' else manifest['training']['training_traces']
+    if summary.get('final_test_evaluated'):
+        from .unseen_final import validate_result
+        if system['record'] not in benchmark.release['records']:
+            raise ValueError('Final replay policy is outside the sealed roster')
+        validate_result(directory,system['record'],benchmark.release_digest)
+    items = manifest['training']['training_traces'] if kind=='Recorded learning' else manifest['replays']
 
     def label(item):
         if 'window_start' in item:

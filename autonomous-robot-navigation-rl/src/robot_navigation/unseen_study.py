@@ -105,8 +105,10 @@ class TrainingLedger(gym.Wrapper):
                 'training_traces':self.traces}
 
 
-def evaluate(benchmark, cases, policy, seed, split='validation', output=None):
-    if split not in ('train','validation'):
+def evaluate(benchmark, cases, policy, seed, split='validation', output=None, *, final=False, deadline=None):
+    if final and (split != 'test' or not getattr(benchmark,'final_authorized',False)):
+        raise ValueError('Final evaluation requires a sealed final benchmark')
+    if split not in ('train','validation') and not final:
         raise ValueError('Final layout evaluation is sealed in this milestone')
     declared = {(layout['map_id'], scenario['id']):(layout,scenario) for layout, scenario in benchmark.cases(split)}
     if not cases or any(declared.get((layout['map_id'], scenario['id'])) != (layout,scenario)
@@ -119,15 +121,20 @@ def evaluate(benchmark, cases, policy, seed, split='validation', output=None):
     reference = RandomPolicy(seed) if policy == 'random' else None
     try:
         for layout, scenario in cases:
+            if deadline is not None and perf_counter()>deadline:
+                raise TimeoutError('Evaluation exceeded its registered wall limit')
             task = benchmark.task(layout)
             current = BFSPolicy(task.grid) if policy == 'bfs' else reference
             if current is None:
                 current = map_adapter(policy, task.grid)
-            episode = rollout(NavigationEnv(task, [scenario]), current, scenario, seed, 'validation')
+            mode = 'final evaluation' if final else 'validation'
+            episode = rollout(NavigationEnv(task, [scenario]), current, scenario, seed, mode, allow_final=final)
             episode_context(episode, benchmark, layout, split)
             if getattr(policy,'feature_version',None):
                 episode['policy_feature_version'] = policy.feature_version
-            validate_replay(task, episode)
+            if final:
+                episode['release_digest'] = benchmark.release_digest
+            validate_replay(task, episode, allow_final=final)
             row = {'layout_id':layout['map_id'], 'scenario_id':scenario['id'], **episode['metrics']}
             metrics.append(row)
             groups[layout['map_id']].append(row)
@@ -147,7 +154,7 @@ def evaluate(benchmark, cases, policy, seed, split='validation', output=None):
                            for metric in ('success_rate','collision_rate','timeout_rate','spl','mean_return')},
                'evaluation_seconds':perf_counter()-started, 'split':split,
                'aggregation':'equal-support routes; equal-weight layout means; one trained seed',
-               'inference_unchanged':fingerprint is not None, 'final_test_evaluated':False}
+               'inference_unchanged':fingerprint is not None, 'final_test_evaluated':final}
     return summary, metrics, list(examples.values())
 
 

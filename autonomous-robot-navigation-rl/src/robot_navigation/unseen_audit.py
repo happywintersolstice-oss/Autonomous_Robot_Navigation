@@ -20,11 +20,16 @@ from .unseen_study import STUDY
 from .workflow import source_hash
 
 
-def replay_task(benchmark, episode):
+def replay_task(benchmark, episode, *, allow_final=False):
     if (episode.get('benchmark_signature') != benchmark.signature
             or episode.get('policy_observation_version') != OBSERVATION):
         raise ValueError('Replay benchmark/input contract mismatch')
     split = episode['layout_split']
+    if allow_final and (not getattr(benchmark,'final_authorized',False) or split!='test'
+                        or episode.get('release_digest') != benchmark.release_digest):
+        raise ValueError('Final replay requires a matching sealed release')
+    if split=='test' and not allow_final:
+        raise ValueError('Final replay access is sealed')
     layouts = benchmark.layouts(split)
     layout = next((m for m in layouts if m['map_id']==episode['layout_id']), None)
     if layout is None or episode['scenario'] not in layout['scenarios']:
@@ -49,17 +54,20 @@ def replay_task(benchmark, episode):
         if any(t['scores'] is not None or t.get('decision') is not None for t in episode['transitions']):
             raise ValueError('Training recordings cannot contain substituted checkpoint diagnostics')
     else:
-        if episode['mode'] != 'validation':
+        if episode['mode'] != ('final evaluation' if allow_final else 'validation'):
             raise ValueError('Unseen pilot replays accept development validation/training only')
-        validate_replay(task, episode)
+        validate_replay(task, episode, allow_final=allow_final)
     return task
 
 
 def load_recording(benchmark, directory, item):
     directory = Path(directory)
     manifest = read_json(directory/'manifest.json')
+    final = manifest.get('kind')=='frozen-final-evaluation'
+    if final and manifest.get('release_digest') != getattr(benchmark,'release_digest',None):
+        raise ValueError('Final recording release mismatch')
     if (manifest['status'] != 'complete' or manifest['signature'] != benchmark.signature
-            or item not in [*manifest['replays'], *manifest['training']['training_traces']]):
+            or item not in [*manifest['replays'], *manifest.get('training',{}).get('training_traces',[])]):
         raise ValueError('Recording is not registered by a completed compatible pilot run')
     path = (directory/item['path']).resolve()
     if not path.is_relative_to(directory.resolve()) or sha(path) != item['sha256']:
@@ -69,10 +77,10 @@ def load_recording(benchmark, directory, item):
         raise ValueError('Recording layout identity mismatch')
     if episode.get('policy_feature_version') != manifest.get('representation'):
         raise ValueError('Recording feature version mismatch')
-    return replay_task(benchmark, episode), episode
+    return replay_task(benchmark, episode, allow_final=final), episode
 
 
-def _audit_validation(benchmark, path, policy, split, expected):
+def _audit_validation(benchmark, path, policy, split, expected, *, final=False):
     cases = benchmark.cases(split, monitoring=split=='train')
     before = policy.state_fingerprint()
     rows, actions, cache = [], 0, {}
@@ -81,7 +89,7 @@ def _audit_validation(benchmark, path, policy, split, expected):
             episode = json.loads(line)
             if episode['scenario'] != scenario or episode['layout_split'] != split:
                 raise ValueError('Stored evaluation cases are not in declared order')
-            task = replay_task(benchmark, episode)
+            task = replay_task(benchmark, episode, allow_final=final)
             adapter = map_adapter(policy, task.grid)
             if episode['policy_id'] != policy.policy_id:
                 raise ValueError('Stored replay does not identify the selected checkpoint')

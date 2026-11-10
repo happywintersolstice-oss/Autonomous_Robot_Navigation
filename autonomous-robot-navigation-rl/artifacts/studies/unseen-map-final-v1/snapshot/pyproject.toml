@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "robot-navigation"
+version = "0.1.0"
+description = "Local fixed-map navigation research pilot"
+requires-python = ">=3.11"
+dependencies = ["numpy>=2.0,<3", "gymnasium>=1.0,<2", "PyYAML>=6,<7", "matplotlib>=3.9,<4", "streamlit>=1.67,<2"]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10"]
+dqn = ["stable-baselines3==2.9.2", "torch>=2.8,<3"]
+ppo = ["stable-baselines3==2.9.2", "torch>=2.8,<3"]
+
+[project.scripts]
+robot-nav = "robot_navigation.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

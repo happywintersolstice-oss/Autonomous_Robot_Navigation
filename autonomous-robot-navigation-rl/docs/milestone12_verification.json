@@ -1,0 +1,116 @@
+{
+  "status": "passed",
+  "date": "2026-11-10",
+  "milestone": "12. Independent unseen-map final evaluation",
+  "tests": {
+    "passed": 189,
+    "seconds": 66.34,
+    "command": "python -m pytest -p no:cacheprovider -q"
+  },
+  "freeze": {
+    "digest": "dfffd2c2765832fbfb5227a044ac1efc6dfafcc86cb179fe0e3cb2a7baa9bad1",
+    "input_files": 114,
+    "learned_policies": 12,
+    "reference_runs": 4,
+    "executed_archived_source": true
+  },
+  "evaluation": {
+    "episodes": 7680,
+    "actions": 671151,
+    "layouts": 10,
+    "routes_per_policy": 480,
+    "learned_training_seeds": [
+      12101,
+      12203,
+      12301
+    ],
+    "random_seeds": [
+      13109,
+      13217,
+      13309
+    ],
+    "new_training_interactions": 0,
+    "seconds": 178.03131120000035,
+    "interrupted_or_repeated_attempts": 0,
+    "storage_bytes": 43667333
+  },
+  "audit": {
+    "actions": 671151,
+    "episodes": 7680,
+    "seconds": 22.196397499996237,
+    "all_learned_fingerprints_unchanged": true,
+    "registered_intervals_recomputed": true,
+    "references_verified": true
+  },
+  "source": {
+    "execution": "768e696ef64d2109ddeeaf4576682a7b7c5a7cfe0c9ada341bb493cdd4998c4d",
+    "verification": "15216f70c08f66843827de30a057ebc3d86d8721e51a95aa2d41619d67e6fbdc",
+    "post_freeze_live_changes": [
+      "src/robot_navigation/unseen_ui.py"
+    ],
+    "change_reason": "Clarify historical development scopes and display final reference evaluation costs"
+  },
+  "preservation": {
+    "protected_files": 13635,
+    "changed_files": [],
+    "original_frozen_inputs": 184
+  },
+  "completed_release_reuse": {
+    "passed": true,
+    "release_files": 546,
+    "release_bytes_unchanged": true,
+    "new_canonical_episodes": 0
+  },
+  "browser": {
+    "passed": true,
+    "desktop_viewport": [
+      1230,
+      956
+    ],
+    "narrow_viewport": [
+      854,
+      1000
+    ],
+    "narrow_document_width": 854,
+    "viewport_override_reset": true,
+    "checks": [
+      "separate final table, training-seed SD, layout intervals, policy costs and reference rows",
+      "PPO seed12101 on final layout001 automatically reached [2,9] from [0,8] in3 actions, return9.97 and SPL1",
+      "reset and next step returned [1,8] with reward-0.01",
+      "End seek reached terminal state and paused",
+      "centered desktop map and synchronized state/reward panels",
+      "narrow controls stack, map precedes state, no horizontal overflow"
+    ],
+    "screenshots": {
+      "final-replay.jpg": {
+        "size": [
+          1230,
+          956
+        ],
+        "sha256": "f9b022a671e7f8396abff74e97de2a293538c39efa435b277d4c2642c3b24273"
+      },
+      "narrow-replay.jpg": {
+        "size": [
+          854,
+          1000
+        ],
+        "sha256": "f2ad95286c08d78622c750ce9fabde25d5def7980a5ba2e1fd82f6b74d35471c"
+      },
+      "results.jpg": {
+        "size": [
+          1230,
+          956
+        ],
+        "sha256": "1aa1c334070b0187d0d03dd04eb79b348c094126f14d9e6308106b5b1168d77d"
+      }
+    }
+  },
+  "remaining_limits": [
+    "all learned mean success and SPL targets missed",
+    "SARSA seed12203 and PPO seed12101 exceed the per-policy collision target",
+    "three training seeds and ten layouts limit precision",
+    "layout intervals condition on the fixed policy roster",
+    "the final layouts are now inspected evidence and future model selection requires a fresh holdout",
+    "exact training resume and cross-machine bitwise repeatability outside verified scope"
+  ]
+}

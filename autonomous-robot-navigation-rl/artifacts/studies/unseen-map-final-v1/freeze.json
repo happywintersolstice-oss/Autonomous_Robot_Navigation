@@ -1,0 +1,1509 @@
+{
+  "study_id": "unseen-map-final-v1",
+  "configuration": {
+    "study_id": "unseen-map-final-v1",
+    "development_study": "unseen-map-main-v1",
+    "algorithms": [
+      "q-learning",
+      "sarsa",
+      "dqn",
+      "ppo"
+    ],
+    "training_seeds": [
+      12101,
+      12203,
+      12301
+    ],
+    "evaluation_seed": 0,
+    "random_seeds": [
+      13109,
+      13217,
+      13309
+    ],
+    "bootstrap_seed": 13411,
+    "bootstrap_samples": 5000,
+    "confidence_level": 0.95,
+    "wall_seconds": 3600,
+    "artifact_bytes": 536870912,
+    "targets": {
+      "success_rate_at_least": 0.8,
+      "collision_rate_at_most": 0.02,
+      "spl_at_least": 0.75
+    }
+  },
+  "signature": {
+    "benchmark_id": "unseen-maps-v1",
+    "configuration_hash": "82b53b96a77168e8b912e0c693437c450e3a82ab4e996448d71c07db44dc7655",
+    "environment_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "observation_version": "full-occupancy-coordinates-v1",
+    "splits_hash": "04c2ebcc65a9414d57f8abb9883ac50079158f60f9055a311b1e74de69921d75"
+  },
+  "records": [
+    {
+      "run_id": "m11-shared-main-q-learning-seed12101",
+      "kind": "learned",
+      "algorithm": "q-learning",
+      "training_seed": 12101,
+      "evaluation_seed": 0,
+      "checkpoint": "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-q-learning-seed12101/selected.npz",
+      "checkpoint_sha256": "ac6d2d9fe38e208141ba77d133f0b0c0098eedd19747e82ffd84435ddc362f53",
+      "selected_interactions": 12500,
+      "development": {
+        "episodes": 192,
+        "counts": {
+          "success": 40,
+          "collision": 0,
+          "timeout": 152
+        },
+        "success_rate": 0.20833333333333334,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.7916666666666666,
+        "spl": 0.20362103174603174,
+        "mean_return": 0.49270833333333347,
+        "mean_successful_route_length": 3.5,
+        "successful_route_count": 40,
+        "interactions": 30540,
+        "layout_count": 4,
+        "by_map": {
+          "unseen-maps-v1-validation-001": {
+            "episodes": 48,
+            "counts": {
+              "success": 9,
+              "collision": 0,
+              "timeout": 39
+            },
+            "success_rate": 0.1875,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.8125,
+            "spl": 0.18154761904761907,
+            "mean_return": 0.24395833333333342,
+            "mean_successful_route_length": 3.2222222222222223,
+            "successful_route_count": 9,
+            "interactions": 7829
+          },
+          "unseen-maps-v1-validation-002": {
+            "episodes": 48,
+            "counts": {
+              "success": 10,
+              "collision": 0,
+              "timeout": 38
+            },
+            "success_rate": 0.20833333333333334,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.7916666666666666,
+            "spl": 0.20833333333333334,
+            "mean_return": 0.4925,
+            "mean_successful_route_length": 3.6,
+            "successful_route_count": 10,
+            "interactions": 7636
+          },
+          "unseen-maps-v1-validation-003": {
+            "episodes": 48,
+            "counts": {
+              "success": 12,
+              "collision": 0,
+              "timeout": 36
+            },
+            "success_rate": 0.25,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.75,
+            "spl": 0.24404761904761907,
+            "mean_return": 0.9902083333333335,
+            "mean_successful_route_length": 3.9166666666666665,
+            "successful_route_count": 12,
+            "interactions": 7247
+          },
+          "unseen-maps-v1-validation-004": {
+            "episodes": 48,
+            "counts": {
+              "success": 9,
+              "collision": 0,
+              "timeout": 39
+            },
+            "success_rate": 0.1875,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.8125,
+            "spl": 0.18055555555555555,
+            "mean_return": 0.24416666666666673,
+            "mean_successful_route_length": 3.111111111111111,
+            "successful_route_count": 9,
+            "interactions": 7828
+          }
+        },
+        "map_mean": {
+          "success_rate": 0.20833333333333334,
+          "collision_rate": 0.0,
+          "timeout_rate": 0.7916666666666666,
+          "spl": 0.20362103174603177,
+          "mean_return": 0.4927083333333334
+        },
+        "evaluation_seconds": 3.7919890999328345,
+        "split": "validation",
+        "aggregation": "equal-support routes; equal-weight layout means; one trained seed",
+        "inference_unchanged": true,
+        "final_test_evaluated": false
+      },
+      "training_seconds": 50.76687309984118,
+      "training_interactions": 200000,
+      "checkpoint_bytes": 36297,
+      "optimized_parameter_count": 4936
+    },
+    {
+      "run_id": "m11-shared-main-sarsa-seed12101",
+      "kind": "learned",
+      "algorithm": "sarsa",
+      "training_seed": 12101,
+      "evaluation_seed": 0,
+      "checkpoint": "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-sarsa-seed12101/selected.npz",
+      "checkpoint_sha256": "67cd42824c046df9717406a89a8cb813357503057444d8456f3e1edf142f56b6",
+      "selected_interactions": 200000,
+      "development": {
+        "episodes": 192,
+        "counts": {
+          "success": 125,
+          "collision": 3,
+          "timeout": 64
+        },
+        "success_rate": 0.6510416666666666,
+        "collision_rate": 0.015625,
+        "timeout_rate": 0.3333333333333333,
+        "spl": 0.640868015086765,
+        "mean_return": 5.723697916666667,
+        "mean_successful_route_length": 6.296,
+        "successful_route_count": 125,
+        "interactions": 13605,
+        "layout_count": 4,
+        "by_map": {
+          "unseen-maps-v1-validation-001": {
+            "episodes": 48,
+            "counts": {
+              "success": 36,
+              "collision": 0,
+              "timeout": 12
+            },
+            "success_rate": 0.75,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.25,
+            "spl": 0.75,
+            "mean_return": 6.95,
+            "mean_successful_route_length": 6.666666666666667,
+            "successful_route_count": 36,
+            "interactions": 2640
+          },
+          "unseen-maps-v1-validation-002": {
+            "episodes": 48,
+            "counts": {
+              "success": 27,
+              "collision": 1,
+              "timeout": 20
+            },
+            "success_rate": 0.5625,
+            "collision_rate": 0.020833333333333332,
+            "timeout_rate": 0.4166666666666667,
+            "spl": 0.5497159090909091,
+            "mean_return": 4.6570833333333335,
+            "mean_successful_route_length": 5.185185185185185,
+            "successful_route_count": 27,
+            "interactions": 4146
+          },
+          "unseen-maps-v1-validation-003": {
+            "episodes": 48,
+            "counts": {
+              "success": 29,
+              "collision": 2,
+              "timeout": 17
+            },
+            "success_rate": 0.6041666666666666,
+            "collision_rate": 0.041666666666666664,
+            "timeout_rate": 0.3541666666666667,
+            "spl": 0.600378787878788,
+            "mean_return": 5.083125,
+            "mean_successful_route_length": 6.517241379310345,
+            "successful_route_count": 29,
+            "interactions": 3601
+          },
+          "unseen-maps-v1-validation-004": {
+            "episodes": 48,
+            "counts": {
+              "success": 33,
+              "collision": 0,
+              "timeout": 15
+            },
+            "success_rate": 0.6875,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.3125,
+            "spl": 0.6633773633773634,
+            "mean_return": 6.204583333333335,
+            "mean_successful_route_length": 6.606060606060606,
+            "successful_route_count": 33,
+            "interactions": 3218
+          }
+        },
+        "map_mean": {
+          "success_rate": 0.6510416666666666,
+          "collision_rate": 0.015625,
+          "timeout_rate": 0.33333333333333337,
+          "spl": 0.6408680150867652,
+          "mean_return": 5.7236979166666675
+        },
+        "evaluation_seconds": 1.7618404999375343,
+        "split": "validation",
+        "aggregation": "equal-support routes; equal-weight layout means; one trained seed",
+        "inference_unchanged": true,
+        "final_test_evaluated": false
+      },
+      "training_seconds": 51.38323279982433,
+      "training_interactions": 200000,
+      "checkpoint_bytes": 37197,
+      "optimized_parameter_count": 4936
+    },
+    {
+      "run_id": "m11-shared-main-dqn-seed12101",
+      "kind": "learned",
+      "algorithm": "dqn",
+      "training_seed": 12101,
+      "evaluation_seed": 0,
+      "checkpoint": "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-dqn-seed12101/selected.zip",
+      "checkpoint_sha256": "2c05b82e36a43b79481ed8469eca34a70e986b71760cdc9a96401abaaf2d9fa2",
+      "selected_interactions": 125000,
+      "development": {
+        "episodes": 192,
+        "counts": {
+          "success": 50,
+          "collision": 0,
+          "timeout": 142
+        },
+        "success_rate": 0.2604166666666667,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.7395833333333334,
+        "spl": 0.2528156160968661,
+        "mean_return": 1.11453125,
+        "mean_successful_route_length": 4.02,
+        "successful_route_count": 50,
+        "interactions": 28601,
+        "layout_count": 4,
+        "by_map": {
+          "unseen-maps-v1-validation-001": {
+            "episodes": 48,
+            "counts": {
+              "success": 17,
+              "collision": 0,
+              "timeout": 31
+            },
+            "success_rate": 0.3541666666666667,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.6458333333333334,
+            "spl": 0.3359152421652422,
+            "mean_return": 2.2308333333333334,
+            "mean_successful_route_length": 5.411764705882353,
+            "successful_route_count": 17,
+            "interactions": 6292
+          },
+          "unseen-maps-v1-validation-002": {
+            "episodes": 48,
+            "counts": {
+              "success": 11,
+              "collision": 0,
+              "timeout": 37
+            },
+            "success_rate": 0.22916666666666666,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.7708333333333334,
+            "spl": 0.22395833333333334,
+            "mean_return": 0.7429166666666669,
+            "mean_successful_route_length": 3.090909090909091,
+            "successful_route_count": 11,
+            "interactions": 7434
+          },
+          "unseen-maps-v1-validation-003": {
+            "episodes": 48,
+            "counts": {
+              "success": 12,
+              "collision": 0,
+              "timeout": 36
+            },
+            "success_rate": 0.25,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.75,
+            "spl": 0.25,
+            "mean_return": 0.9904166666666668,
+            "mean_successful_route_length": 3.8333333333333335,
+            "successful_route_count": 12,
+            "interactions": 7246
+          },
+          "unseen-maps-v1-validation-004": {
+            "episodes": 48,
+            "counts": {
+              "success": 10,
+              "collision": 0,
+              "timeout": 38
+            },
+            "success_rate": 0.20833333333333334,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.7916666666666666,
+            "spl": 0.20138888888888887,
+            "mean_return": 0.49395833333333333,
+            "mean_successful_route_length": 2.9,
+            "successful_route_count": 10,
+            "interactions": 7629
+          }
+        },
+        "map_mean": {
+          "success_rate": 0.2604166666666667,
+          "collision_rate": 0.0,
+          "timeout_rate": 0.7395833333333334,
+          "spl": 0.2528156160968661,
+          "mean_return": 1.1145312500000002
+        },
+        "evaluation_seconds": 18.301018600002863,
+        "split": "validation",
+        "aggregation": "equal-support routes; equal-weight layout means; one trained seed",
+        "inference_unchanged": true,
+        "final_test_evaluated": false
+      },
+      "training_seconds": 295.34283530013636,
+      "training_interactions": 200000,
+      "checkpoint_bytes": 2236044,
+      "optimized_parameter_count": 83460
+    },
+    {
+      "run_id": "m11-shared-main-ppo-seed12101",
+      "kind": "learned",
+      "algorithm": "ppo",
+      "training_seed": 12101,
+      "evaluation_seed": 0,
+      "checkpoint": "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-ppo-seed12101/selected.zip",
+      "checkpoint_sha256": "9a33a4c082a1867738cfd3029ba865efcfcb52eb1e899a524aea3419965a0404",
+      "selected_interactions": 137500,
+      "development": {
+        "episodes": 192,
+        "counts": {
+          "success": 147,
+          "collision": 0,
+          "timeout": 45
+        },
+        "success_rate": 0.765625,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.234375,
+        "spl": 0.7549295756327007,
+        "mean_return": 7.133072916666666,
+        "mean_successful_route_length": 7.108843537414966,
+        "successful_route_count": 147,
+        "interactions": 10045,
+        "layout_count": 4,
+        "by_map": {
+          "unseen-maps-v1-validation-001": {
+            "episodes": 48,
+            "counts": {
+              "success": 40,
+              "collision": 0,
+              "timeout": 8
+            },
+            "success_rate": 0.8333333333333334,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.16666666666666666,
+            "spl": 0.8273504273504274,
+            "mean_return": 7.939166666666668,
+            "mean_successful_route_length": 7.3,
+            "successful_route_count": 40,
+            "interactions": 1892
+          },
+          "unseen-maps-v1-validation-002": {
+            "episodes": 48,
+            "counts": {
+              "success": 32,
+              "collision": 0,
+              "timeout": 16
+            },
+            "success_rate": 0.6666666666666666,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.3333333333333333,
+            "spl": 0.6429150132275132,
+            "mean_return": 5.953749999999999,
+            "mean_successful_route_length": 6.9375,
+            "successful_route_count": 32,
+            "interactions": 3422
+          },
+          "unseen-maps-v1-validation-003": {
+            "episodes": 48,
+            "counts": {
+              "success": 36,
+              "collision": 0,
+              "timeout": 12
+            },
+            "success_rate": 0.75,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.25,
+            "spl": 0.75,
+            "mean_return": 6.948125,
+            "mean_successful_route_length": 6.916666666666667,
+            "successful_route_count": 36,
+            "interactions": 2649
+          },
+          "unseen-maps-v1-validation-004": {
+            "episodes": 48,
+            "counts": {
+              "success": 39,
+              "collision": 0,
+              "timeout": 9
+            },
+            "success_rate": 0.8125,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.1875,
+            "spl": 0.7994528619528619,
+            "mean_return": 7.69125,
+            "mean_successful_route_length": 7.230769230769231,
+            "successful_route_count": 39,
+            "interactions": 2082
+          }
+        },
+        "map_mean": {
+          "success_rate": 0.765625,
+          "collision_rate": 0.0,
+          "timeout_rate": 0.234375,
+          "spl": 0.7549295756327007,
+          "mean_return": 7.133072916666667
+        },
+        "evaluation_seconds": 11.10798239998985,
+        "split": "validation",
+        "aggregation": "equal-support routes; equal-weight layout means; one trained seed",
+        "inference_unchanged": true,
+        "final_test_evaluated": false
+      },
+      "training_seconds": 278.9689913999755,
+      "training_interactions": 200000,
+      "checkpoint_bytes": 2472473,
+      "optimized_parameter_count": 166725
+    },
+    {
+      "run_id": "m11-shared-main-q-learning-seed12203",
+      "kind": "learned",
+      "algorithm": "q-learning",
+      "training_seed": 12203,
+      "evaluation_seed": 0,
+      "checkpoint": "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-q-learning-seed12203/selected.npz",
+      "checkpoint_sha256": "b2ecc051a196ec1bd1bab2b60f922c5f637d81e9172daa8d06dd572d8d38600f",
+      "selected_interactions": 12500,
+      "development": {
+        "episodes": 192,
+        "counts": {
+          "success": 31,
+          "collision": 0,
+          "timeout": 161
+        },
+        "success_rate": 0.16145833333333334,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.8385416666666666,
+        "spl": 0.16145833333333334,
+        "mean_return": -0.06708333333333331,
+        "mean_successful_route_length": 2.838709677419355,
+        "successful_route_count": 31,
+        "interactions": 32288,
+        "layout_count": 4,
+        "by_map": {
+          "unseen-maps-v1-validation-001": {
+            "episodes": 48,
+            "counts": {
+              "success": 7,
+              "collision": 0,
+              "timeout": 41
+            },
+            "success_rate": 0.14583333333333334,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.8541666666666666,
+            "spl": 0.14583333333333334,
+            "mean_return": -0.25375,
+            "mean_successful_route_length": 2.5714285714285716,
+            "successful_route_count": 7,
+            "interactions": 8218
+          },
+          "unseen-maps-v1-validation-002": {
+            "episodes": 48,
+            "counts": {
+              "success": 6,
+              "collision": 0,
+              "timeout": 42
+            },
+            "success_rate": 0.125,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.875,
+            "spl": 0.125,
+            "mean_return": -0.5039583333333333,
+            "mean_successful_route_length": 3.1666666666666665,
+            "successful_route_count": 6,
+            "interactions": 8419
+          },
+          "unseen-maps-v1-validation-003": {
+            "episodes": 48,
+            "counts": {
+              "success": 8,
+              "collision": 0,
+              "timeout": 40
+            },
+            "success_rate": 0.16666666666666666,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.8333333333333334,
+            "spl": 0.16666666666666666,
+            "mean_return": -0.004791666666666565,
+            "mean_successful_route_length": 2.875,
+            "successful_route_count": 8,
+            "interactions": 8023
+          },
+          "unseen-maps-v1-validation-004": {
+            "episodes": 48,
+            "counts": {
+              "success": 10,
+              "collision": 0,
+              "timeout": 38
+            },
+            "success_rate": 0.20833333333333334,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.7916666666666666,
+            "spl": 0.20833333333333334,
+            "mean_return": 0.4941666666666668,
+            "mean_successful_route_length": 2.8,
+            "successful_route_count": 10,
+            "interactions": 7628
+          }
+        },
+        "map_mean": {
+          "success_rate": 0.16145833333333334,
+          "collision_rate": 0.0,
+          "timeout_rate": 0.8385416666666666,
+          "spl": 0.16145833333333334,
+          "mean_return": -0.06708333333333323
+        },
+        "evaluation_seconds": 3.7278379999333993,
+        "split": "validation",
+        "aggregation": "equal-support routes; equal-weight layout means; one trained seed",
+        "inference_unchanged": true,
+        "final_test_evaluated": false
+      },
+      "training_seconds": 52.37301809992641,
+      "training_interactions": 200000,
+      "checkpoint_bytes": 36197,
+      "optimized_parameter_count": 4936
+    },
+    {
+      "run_id": "m11-shared-main-sarsa-seed12203",
+      "kind": "learned",
+      "algorithm": "sarsa",
+      "training_seed": 12203,
+      "evaluation_seed": 0,
+      "checkpoint": "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-sarsa-seed12203/selected.npz",
+      "checkpoint_sha256": "5509bd022beef300cd422f0f7e8449897a573b7ef43feee60dc47dd2e04acffd",
+      "selected_interactions": 187500,
+      "development": {
+        "episodes": 192,
+        "counts": {
+          "success": 117,
+          "collision": 0,
+          "timeout": 75
+        },
+        "success_rate": 0.609375,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.390625,
+        "spl": 0.6018886784511784,
+        "mean_return": 5.276666666666666,
+        "mean_successful_route_length": 5.880341880341881,
+        "successful_route_count": 117,
+        "interactions": 15688,
+        "layout_count": 4,
+        "by_map": {
+          "unseen-maps-v1-validation-001": {
+            "episodes": 48,
+            "counts": {
+              "success": 30,
+              "collision": 0,
+              "timeout": 18
+            },
+            "success_rate": 0.625,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.375,
+            "spl": 0.625,
+            "mean_return": 5.465,
+            "mean_successful_route_length": 5.6,
+            "successful_route_count": 30,
+            "interactions": 3768
+          },
+          "unseen-maps-v1-validation-002": {
+            "episodes": 48,
+            "counts": {
+              "success": 25,
+              "collision": 0,
+              "timeout": 23
+            },
+            "success_rate": 0.5208333333333334,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.4791666666666667,
+            "spl": 0.5208333333333334,
+            "mean_return": 4.222916666666667,
+            "mean_successful_route_length": 5.2,
+            "successful_route_count": 25,
+            "interactions": 4730
+          },
+          "unseen-maps-v1-validation-003": {
+            "episodes": 48,
+            "counts": {
+              "success": 31,
+              "collision": 0,
+              "timeout": 17
+            },
+            "success_rate": 0.6458333333333334,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.3541666666666667,
+            "spl": 0.6298926767676768,
+            "mean_return": 5.708541666666666,
+            "mean_successful_route_length": 6.419354838709677,
+            "successful_route_count": 31,
+            "interactions": 3599
+          },
+          "unseen-maps-v1-validation-004": {
+            "episodes": 48,
+            "counts": {
+              "success": 31,
+              "collision": 0,
+              "timeout": 17
+            },
+            "success_rate": 0.6458333333333334,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.3541666666666667,
+            "spl": 0.6318287037037037,
+            "mean_return": 5.710208333333334,
+            "mean_successful_route_length": 6.161290322580645,
+            "successful_route_count": 31,
+            "interactions": 3591
+          }
+        },
+        "map_mean": {
+          "success_rate": 0.6093750000000001,
+          "collision_rate": 0.0,
+          "timeout_rate": 0.39062500000000006,
+          "spl": 0.6018886784511785,
+          "mean_return": 5.276666666666666
+        },
+        "evaluation_seconds": 2.4302229000022635,
+        "split": "validation",
+        "aggregation": "equal-support routes; equal-weight layout means; one trained seed",
+        "inference_unchanged": true,
+        "final_test_evaluated": false
+      },
+      "training_seconds": 52.997122400207445,
+      "training_interactions": 200000,
+      "checkpoint_bytes": 37187,
+      "optimized_parameter_count": 4936
+    },
+    {
+      "run_id": "m11-shared-main-dqn-seed12203",
+      "kind": "learned",
+      "algorithm": "dqn",
+      "training_seed": 12203,
+      "evaluation_seed": 0,
+      "checkpoint": "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-dqn-seed12203/selected.zip",
+      "checkpoint_sha256": "e00175238f8679d65f3decc84c3cef4704bcf29cfe6daa67b3e05a3b129d4d99",
+      "selected_interactions": 200000,
+      "development": {
+        "episodes": 192,
+        "counts": {
+          "success": 81,
+          "collision": 0,
+          "timeout": 111
+        },
+        "success_rate": 0.421875,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.578125,
+        "spl": 0.41038660413660405,
+        "mean_return": 3.0400520833333338,
+        "mean_successful_route_length": 5.320987654320987,
+        "successful_route_count": 81,
+        "interactions": 22631,
+        "layout_count": 4,
+        "by_map": {
+          "unseen-maps-v1-validation-001": {
+            "episodes": 48,
+            "counts": {
+              "success": 21,
+              "collision": 0,
+              "timeout": 27
+            },
+            "success_rate": 0.4375,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.5625,
+            "spl": 0.4328703703703704,
+            "mean_return": 3.2293749999999997,
+            "mean_successful_route_length": 4.714285714285714,
+            "successful_route_count": 21,
+            "interactions": 5499
+          },
+          "unseen-maps-v1-validation-002": {
+            "episodes": 48,
+            "counts": {
+              "success": 16,
+              "collision": 0,
+              "timeout": 32
+            },
+            "success_rate": 0.3333333333333333,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.6666666666666666,
+            "spl": 0.3333333333333333,
+            "mean_return": 1.9825000000000002,
+            "mean_successful_route_length": 5.25,
+            "successful_route_count": 16,
+            "interactions": 6484
+          },
+          "unseen-maps-v1-validation-003": {
+            "episodes": 48,
+            "counts": {
+              "success": 20,
+              "collision": 0,
+              "timeout": 28
+            },
+            "success_rate": 0.4166666666666667,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.5833333333333334,
+            "spl": 0.4059343434343434,
+            "mean_return": 2.9789583333333334,
+            "mean_successful_route_length": 5.05,
+            "successful_route_count": 20,
+            "interactions": 5701
+          },
+          "unseen-maps-v1-validation-004": {
+            "episodes": 48,
+            "counts": {
+              "success": 24,
+              "collision": 0,
+              "timeout": 24
+            },
+            "success_rate": 0.5,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.5,
+            "spl": 0.46940836940836944,
+            "mean_return": 3.9693750000000008,
+            "mean_successful_route_length": 6.125,
+            "successful_route_count": 24,
+            "interactions": 4947
+          }
+        },
+        "map_mean": {
+          "success_rate": 0.421875,
+          "collision_rate": 0.0,
+          "timeout_rate": 0.578125,
+          "spl": 0.41038660413660416,
+          "mean_return": 3.0400520833333338
+        },
+        "evaluation_seconds": 9.450216499972157,
+        "split": "validation",
+        "aggregation": "equal-support routes; equal-weight layout means; one trained seed",
+        "inference_unchanged": true,
+        "final_test_evaluated": false
+      },
+      "training_seconds": 277.53728469996713,
+      "training_interactions": 200000,
+      "checkpoint_bytes": 2236041,
+      "optimized_parameter_count": 83460
+    },
+    {
+      "run_id": "m11-shared-main-ppo-seed12203",
+      "kind": "learned",
+      "algorithm": "ppo",
+      "training_seed": 12203,
+      "evaluation_seed": 0,
+      "checkpoint": "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-ppo-seed12203/selected.zip",
+      "checkpoint_sha256": "e6e73b35de425fbdbfa3a765cbbe1b81cb8afdea2ac7d5a4fe373200ee7e2f34",
+      "selected_interactions": 62500,
+      "development": {
+        "episodes": 192,
+        "counts": {
+          "success": 149,
+          "collision": 0,
+          "timeout": 43
+        },
+        "success_rate": 0.7760416666666666,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.22395833333333334,
+        "spl": 0.768844696969697,
+        "mean_return": 7.258697916666667,
+        "mean_successful_route_length": 6.932885906040268,
+        "successful_route_count": 149,
+        "interactions": 9633,
+        "layout_count": 4,
+        "by_map": {
+          "unseen-maps-v1-validation-001": {
+            "episodes": 48,
+            "counts": {
+              "success": 42,
+              "collision": 0,
+              "timeout": 6
+            },
+            "success_rate": 0.875,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.125,
+            "spl": 0.8722222222222222,
+            "mean_return": 8.435208333333334,
+            "mean_successful_route_length": 7.404761904761905,
+            "successful_route_count": 42,
+            "interactions": 1511
+          },
+          "unseen-maps-v1-validation-002": {
+            "episodes": 48,
+            "counts": {
+              "success": 31,
+              "collision": 0,
+              "timeout": 17
+            },
+            "success_rate": 0.6458333333333334,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.3541666666666667,
+            "spl": 0.6412037037037037,
+            "mean_return": 5.708333333333333,
+            "mean_successful_route_length": 6.451612903225806,
+            "successful_route_count": 31,
+            "interactions": 3600
+          },
+          "unseen-maps-v1-validation-003": {
+            "episodes": 48,
+            "counts": {
+              "success": 38,
+              "collision": 0,
+              "timeout": 10
+            },
+            "success_rate": 0.7916666666666666,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.20833333333333334,
+            "spl": 0.7832491582491583,
+            "mean_return": 7.445625000000001,
+            "mean_successful_route_length": 6.868421052631579,
+            "successful_route_count": 38,
+            "interactions": 2261
+          },
+          "unseen-maps-v1-validation-004": {
+            "episodes": 48,
+            "counts": {
+              "success": 38,
+              "collision": 0,
+              "timeout": 10
+            },
+            "success_rate": 0.7916666666666666,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.20833333333333334,
+            "spl": 0.7787037037037038,
+            "mean_return": 7.445625000000001,
+            "mean_successful_route_length": 6.868421052631579,
+            "successful_route_count": 38,
+            "interactions": 2261
+          }
+        },
+        "map_mean": {
+          "success_rate": 0.7760416666666666,
+          "collision_rate": 0.0,
+          "timeout_rate": 0.22395833333333334,
+          "spl": 0.768844696969697,
+          "mean_return": 7.258697916666667
+        },
+        "evaluation_seconds": 7.770288500003517,
+        "split": "validation",
+        "aggregation": "equal-support routes; equal-weight layout means; one trained seed",
+        "inference_unchanged": true,
+        "final_test_evaluated": false
+      },
+      "training_seconds": 263.6591627000598,
+      "training_interactions": 200000,
+      "checkpoint_bytes": 2472471,
+      "optimized_parameter_count": 166725
+    },
+    {
+      "run_id": "m11-shared-main-q-learning-seed12301",
+      "kind": "learned",
+      "algorithm": "q-learning",
+      "training_seed": 12301,
+      "evaluation_seed": 0,
+      "checkpoint": "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-q-learning-seed12301/selected.npz",
+      "checkpoint_sha256": "f889a7b8ebfd54f0cc12242ed74e75c6d13ffc49b08e951754b65124d76f89ac",
+      "selected_interactions": 12500,
+      "development": {
+        "episodes": 192,
+        "counts": {
+          "success": 38,
+          "collision": 1,
+          "timeout": 153
+        },
+        "success_rate": 0.19791666666666666,
+        "collision_rate": 0.005208333333333333,
+        "timeout_rate": 0.796875,
+        "spl": 0.19136904761904763,
+        "mean_return": 0.3525000000000002,
+        "mean_successful_route_length": 3.4473684210526314,
+        "successful_route_count": 38,
+        "interactions": 30732,
+        "layout_count": 4,
+        "by_map": {
+          "unseen-maps-v1-validation-001": {
+            "episodes": 48,
+            "counts": {
+              "success": 12,
+              "collision": 0,
+              "timeout": 36
+            },
+            "success_rate": 0.25,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.75,
+            "spl": 0.23571428571428574,
+            "mean_return": 0.9889583333333333,
+            "mean_successful_route_length": 4.416666666666667,
+            "successful_route_count": 12,
+            "interactions": 7253
+          },
+          "unseen-maps-v1-validation-002": {
+            "episodes": 48,
+            "counts": {
+              "success": 6,
+              "collision": 0,
+              "timeout": 42
+            },
+            "success_rate": 0.125,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.875,
+            "spl": 0.1130952380952381,
+            "mean_return": -0.5031249999999999,
+            "mean_successful_route_length": 2.5,
+            "successful_route_count": 6,
+            "interactions": 8415
+          },
+          "unseen-maps-v1-validation-003": {
+            "episodes": 48,
+            "counts": {
+              "success": 9,
+              "collision": 1,
+              "timeout": 38
+            },
+            "success_rate": 0.1875,
+            "collision_rate": 0.020833333333333332,
+            "timeout_rate": 0.7916666666666666,
+            "spl": 0.1875,
+            "mean_return": 0.18187500000000012,
+            "mean_successful_route_length": 2.888888888888889,
+            "successful_route_count": 9,
+            "interactions": 7627
+          },
+          "unseen-maps-v1-validation-004": {
+            "episodes": 48,
+            "counts": {
+              "success": 11,
+              "collision": 0,
+              "timeout": 37
+            },
+            "success_rate": 0.22916666666666666,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.7708333333333334,
+            "spl": 0.22916666666666666,
+            "mean_return": 0.7422916666666669,
+            "mean_successful_route_length": 3.3636363636363638,
+            "successful_route_count": 11,
+            "interactions": 7437
+          }
+        },
+        "map_mean": {
+          "success_rate": 0.19791666666666666,
+          "collision_rate": 0.005208333333333333,
+          "timeout_rate": 0.796875,
+          "spl": 0.19136904761904763,
+          "mean_return": 0.3525000000000001
+        },
+        "evaluation_seconds": 2.9893900000024587,
+        "split": "validation",
+        "aggregation": "equal-support routes; equal-weight layout means; one trained seed",
+        "inference_unchanged": true,
+        "final_test_evaluated": false
+      },
+      "training_seconds": 47.486162200104445,
+      "training_interactions": 200000,
+      "checkpoint_bytes": 36070,
+      "optimized_parameter_count": 4936
+    },
+    {
+      "run_id": "m11-shared-main-sarsa-seed12301",
+      "kind": "learned",
+      "algorithm": "sarsa",
+      "training_seed": 12301,
+      "evaluation_seed": 0,
+      "checkpoint": "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-sarsa-seed12301/selected.npz",
+      "checkpoint_sha256": "078938424e0833e031e9cda661293644f2b5a5208811465d1685caf256377993",
+      "selected_interactions": 200000,
+      "development": {
+        "episodes": 192,
+        "counts": {
+          "success": 123,
+          "collision": 1,
+          "timeout": 68
+        },
+        "success_rate": 0.640625,
+        "collision_rate": 0.005208333333333333,
+        "timeout_rate": 0.3541666666666667,
+        "spl": 0.627959286254323,
+        "mean_return": 5.63234375,
+        "mean_successful_route_length": 6.154471544715447,
+        "successful_route_count": 123,
+        "interactions": 14359,
+        "layout_count": 4,
+        "by_map": {
+          "unseen-maps-v1-validation-001": {
+            "episodes": 48,
+            "counts": {
+              "success": 41,
+              "collision": 0,
+              "timeout": 7
+            },
+            "success_rate": 0.8541666666666666,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.14583333333333334,
+            "spl": 0.8254629867681338,
+            "mean_return": 8.185625,
+            "mean_successful_route_length": 7.536585365853658,
+            "successful_route_count": 41,
+            "interactions": 1709
+          },
+          "unseen-maps-v1-validation-002": {
+            "episodes": 48,
+            "counts": {
+              "success": 26,
+              "collision": 0,
+              "timeout": 22
+            },
+            "success_rate": 0.5416666666666666,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.4583333333333333,
+            "spl": 0.5326704545454546,
+            "mean_return": 4.472916666666667,
+            "mean_successful_route_length": 5.0,
+            "successful_route_count": 26,
+            "interactions": 4530
+          },
+          "unseen-maps-v1-validation-003": {
+            "episodes": 48,
+            "counts": {
+              "success": 25,
+              "collision": 1,
+              "timeout": 22
+            },
+            "success_rate": 0.5208333333333334,
+            "collision_rate": 0.020833333333333332,
+            "timeout_rate": 0.4583333333333333,
+            "spl": 0.5166666666666667,
+            "mean_return": 4.159166666666667,
+            "mean_successful_route_length": 5.36,
+            "successful_route_count": 25,
+            "interactions": 4536
+          },
+          "unseen-maps-v1-validation-004": {
+            "episodes": 48,
+            "counts": {
+              "success": 31,
+              "collision": 0,
+              "timeout": 17
+            },
+            "success_rate": 0.6458333333333334,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.3541666666666667,
+            "spl": 0.637037037037037,
+            "mean_return": 5.711666666666666,
+            "mean_successful_route_length": 5.935483870967742,
+            "successful_route_count": 31,
+            "interactions": 3584
+          }
+        },
+        "map_mean": {
+          "success_rate": 0.640625,
+          "collision_rate": 0.005208333333333333,
+          "timeout_rate": 0.3541666666666667,
+          "spl": 0.627959286254323,
+          "mean_return": 5.63234375
+        },
+        "evaluation_seconds": 1.521933300071396,
+        "split": "validation",
+        "aggregation": "equal-support routes; equal-weight layout means; one trained seed",
+        "inference_unchanged": true,
+        "final_test_evaluated": false
+      },
+      "training_seconds": 49.438265300006606,
+      "training_interactions": 200000,
+      "checkpoint_bytes": 37219,
+      "optimized_parameter_count": 4936
+    },
+    {
+      "run_id": "m11-shared-main-dqn-seed12301",
+      "kind": "learned",
+      "algorithm": "dqn",
+      "training_seed": 12301,
+      "evaluation_seed": 0,
+      "checkpoint": "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-dqn-seed12301/selected.zip",
+      "checkpoint_sha256": "34adcd133954259b24559d9b1a9c092038dc2c103279a8ec67e6927b5e816a0b",
+      "selected_interactions": 12500,
+      "development": {
+        "episodes": 192,
+        "counts": {
+          "success": 62,
+          "collision": 0,
+          "timeout": 130
+        },
+        "success_rate": 0.3229166666666667,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.6770833333333334,
+        "spl": 0.3194444444444445,
+        "mean_return": 1.86328125,
+        "mean_successful_route_length": 3.629032258064516,
+        "successful_route_count": 62,
+        "interactions": 26225,
+        "layout_count": 4,
+        "by_map": {
+          "unseen-maps-v1-validation-001": {
+            "episodes": 48,
+            "counts": {
+              "success": 19,
+              "collision": 0,
+              "timeout": 29
+            },
+            "success_rate": 0.3958333333333333,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.6041666666666666,
+            "spl": 0.3958333333333333,
+            "mean_return": 2.7325,
+            "mean_successful_route_length": 4.421052631578948,
+            "successful_route_count": 19,
+            "interactions": 5884
+          },
+          "unseen-maps-v1-validation-002": {
+            "episodes": 48,
+            "counts": {
+              "success": 15,
+              "collision": 0,
+              "timeout": 33
+            },
+            "success_rate": 0.3125,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.6875,
+            "spl": 0.3055555555555555,
+            "mean_return": 1.739791666666667,
+            "mean_successful_route_length": 3.2666666666666666,
+            "successful_route_count": 15,
+            "interactions": 6649
+          },
+          "unseen-maps-v1-validation-003": {
+            "episodes": 48,
+            "counts": {
+              "success": 15,
+              "collision": 0,
+              "timeout": 33
+            },
+            "success_rate": 0.3125,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.6875,
+            "spl": 0.3125,
+            "mean_return": 1.7393750000000001,
+            "mean_successful_route_length": 3.4,
+            "successful_route_count": 15,
+            "interactions": 6651
+          },
+          "unseen-maps-v1-validation-004": {
+            "episodes": 48,
+            "counts": {
+              "success": 13,
+              "collision": 0,
+              "timeout": 35
+            },
+            "success_rate": 0.2708333333333333,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.7291666666666666,
+            "spl": 0.2638888888888889,
+            "mean_return": 1.2414583333333333,
+            "mean_successful_route_length": 3.1538461538461537,
+            "successful_route_count": 13,
+            "interactions": 7041
+          }
+        },
+        "map_mean": {
+          "success_rate": 0.32291666666666663,
+          "collision_rate": 0.0,
+          "timeout_rate": 0.6770833333333333,
+          "spl": 0.3194444444444444,
+          "mean_return": 1.86328125
+        },
+        "evaluation_seconds": 12.0904457999859,
+        "split": "validation",
+        "aggregation": "equal-support routes; equal-weight layout means; one trained seed",
+        "inference_unchanged": true,
+        "final_test_evaluated": false
+      },
+      "training_seconds": 278.18030420003925,
+      "training_interactions": 200000,
+      "checkpoint_bytes": 2236046,
+      "optimized_parameter_count": 83460
+    },
+    {
+      "run_id": "m11-shared-main-ppo-seed12301",
+      "kind": "learned",
+      "algorithm": "ppo",
+      "training_seed": 12301,
+      "evaluation_seed": 0,
+      "checkpoint": "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-ppo-seed12301/selected.zip",
+      "checkpoint_sha256": "f98672305d0be54e66cea35ea31d5659d96f6fda4c24796f71bbcc30590f53a8",
+      "selected_interactions": 62500,
+      "development": {
+        "episodes": 192,
+        "counts": {
+          "success": 130,
+          "collision": 1,
+          "timeout": 61
+        },
+        "success_rate": 0.6770833333333334,
+        "collision_rate": 0.005208333333333333,
+        "timeout_rate": 0.3177083333333333,
+        "spl": 0.6705874854312355,
+        "mean_return": 6.06296875,
+        "mean_successful_route_length": 6.8307692307692305,
+        "successful_route_count": 130,
+        "interactions": 13091,
+        "layout_count": 4,
+        "by_map": {
+          "unseen-maps-v1-validation-001": {
+            "episodes": 48,
+            "counts": {
+              "success": 30,
+              "collision": 0,
+              "timeout": 18
+            },
+            "success_rate": 0.625,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.375,
+            "spl": 0.6197916666666666,
+            "mean_return": 5.459375000000001,
+            "mean_successful_route_length": 6.5,
+            "successful_route_count": 30,
+            "interactions": 3795
+          },
+          "unseen-maps-v1-validation-002": {
+            "episodes": 48,
+            "counts": {
+              "success": 26,
+              "collision": 0,
+              "timeout": 22
+            },
+            "success_rate": 0.5416666666666666,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.4583333333333333,
+            "spl": 0.5416666666666666,
+            "mean_return": 4.466666666666668,
+            "mean_successful_route_length": 6.153846153846154,
+            "successful_route_count": 26,
+            "interactions": 4560
+          },
+          "unseen-maps-v1-validation-003": {
+            "episodes": 48,
+            "counts": {
+              "success": 38,
+              "collision": 1,
+              "timeout": 9
+            },
+            "success_rate": 0.7916666666666666,
+            "collision_rate": 0.020833333333333332,
+            "timeout_rate": 0.1875,
+            "spl": 0.7788461538461539,
+            "mean_return": 7.377291666666667,
+            "mean_successful_route_length": 7.526315789473684,
+            "successful_route_count": 38,
+            "interactions": 2089
+          },
+          "unseen-maps-v1-validation-004": {
+            "episodes": 48,
+            "counts": {
+              "success": 36,
+              "collision": 0,
+              "timeout": 12
+            },
+            "success_rate": 0.75,
+            "collision_rate": 0.0,
+            "timeout_rate": 0.25,
+            "spl": 0.7420454545454547,
+            "mean_return": 6.948541666666666,
+            "mean_successful_route_length": 6.861111111111111,
+            "successful_route_count": 36,
+            "interactions": 2647
+          }
+        },
+        "map_mean": {
+          "success_rate": 0.6770833333333333,
+          "collision_rate": 0.005208333333333333,
+          "timeout_rate": 0.3177083333333333,
+          "spl": 0.6705874854312355,
+          "mean_return": 6.062968750000001
+        },
+        "evaluation_seconds": 11.471832200069912,
+        "split": "validation",
+        "aggregation": "equal-support routes; equal-weight layout means; one trained seed",
+        "inference_unchanged": true,
+        "final_test_evaluated": false
+      },
+      "training_seconds": 267.653199700173,
+      "training_interactions": 200000,
+      "checkpoint_bytes": 2472471,
+      "optimized_parameter_count": 166725
+    },
+    {
+      "run_id": "bfs",
+      "kind": "reference",
+      "algorithm": "bfs",
+      "evaluation_seed": 0
+    },
+    {
+      "run_id": "random-seed13109",
+      "kind": "reference",
+      "algorithm": "random",
+      "evaluation_seed": 13109
+    },
+    {
+      "run_id": "random-seed13217",
+      "kind": "reference",
+      "algorithm": "random",
+      "evaluation_seed": 13217
+    },
+    {
+      "run_id": "random-seed13309",
+      "kind": "reference",
+      "algorithm": "random",
+      "evaluation_seed": 13309
+    }
+  ],
+  "created_utc": "2026-11-10T14:40:38.783786+00:00",
+  "source_hash": "768e696ef64d2109ddeeaf4576682a7b7c5a7cfe0c9ada341bb493cdd4998c4d",
+  "protocol_hash": "d19c9fdf0f8077e5408352f2ea0486e6da8e1eccfbf7be7f8dc4a3c9f6184fa0",
+  "representation": "egocentric-map-goal-v1",
+  "python": "3.14.10",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "logical_processors": 20,
+  "device": "cpu",
+  "torch_threads": 1,
+  "dependencies": {
+    "numpy": "2.5.4",
+    "gymnasium": "1.4.0",
+    "torch": "2.15.0",
+    "stable-baselines3": "2.9.2",
+    "streamlit": "1.67.0"
+  },
+  "final_policy_executions_before_freeze": 0,
+  "files": {
+    "app/streamlit_app.py": "8a5e5c21beccbbfd7298ac267502ab7e4ba6e4f8c0a6cb422a392c8b705c5970",
+    "artifacts/studies/unseen-map-main-v1/manifest.json": "1cf74bbb06ad8b930daef7b2cd9011f545e3ecb46193c69dfe1e9c19c46d3297",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-dqn-seed12101/manifest.json": "352716374b435ad2224be3adb83320b7e836787462beddf5eca9412fcf6e50b9",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-dqn-seed12101/monitoring.json": "4b059adeb6155ab7e670a11806f4aaf9da16261baaa00674c9e24144853b9878",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-dqn-seed12101/selected.json": "a2efbe70a37dff6ad1cc1a65b1f025197a6087fd237f66878617ca65dd670237",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-dqn-seed12101/selected.zip": "2c05b82e36a43b79481ed8469eca34a70e986b71760cdc9a96401abaaf2d9fa2",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-dqn-seed12203/manifest.json": "8efd26312b9c7029711982d98a1f20e62b851dba483f19cb5da5b5f4f4e4ac27",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-dqn-seed12203/monitoring.json": "f6b9937b2ea13fb6e56ccb54517ff30ac6e265b52a0c243caae0d3095bbfae62",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-dqn-seed12203/selected.json": "1d544c7fddafc84bf90d698e35b8c4d6cc26ff726eca99c6b3615c16b5bfba82",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-dqn-seed12203/selected.zip": "e00175238f8679d65f3decc84c3cef4704bcf29cfe6daa67b3e05a3b129d4d99",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-dqn-seed12301/manifest.json": "1dc49b4ab491a4f39e1d6152c41493661a9cad54a82cc38f7d0e12266e0b282d",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-dqn-seed12301/monitoring.json": "09110d33da94e6ce73a7b9615419611b280f828007c05768aa930a70156a91d7",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-dqn-seed12301/selected.json": "caaf7e1c1b9c8402823ab222b25efc828154be46d3cd8e1f91ff2ae5346d6ffc",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-dqn-seed12301/selected.zip": "34adcd133954259b24559d9b1a9c092038dc2c103279a8ec67e6927b5e816a0b",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-ppo-seed12101/manifest.json": "507e2d6aeb11d975de20d0cbb9de3d0585982f7f5d91b04a2b8326a4780fb4a4",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-ppo-seed12101/monitoring.json": "e3daed7a8b3bb1855af6df3380ff1ca7766dccf24068824ff65a41e2001da9dd",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-ppo-seed12101/selected.json": "59e41ad7d54941313465a50cb74bede8f1090a76908cdbe940665108c89d1cd3",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-ppo-seed12101/selected.zip": "9a33a4c082a1867738cfd3029ba865efcfcb52eb1e899a524aea3419965a0404",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-ppo-seed12203/manifest.json": "f4fbfe60a05e5c784f96171999faaf3554d7813cd08d05b1e1357c4b77fa7a78",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-ppo-seed12203/monitoring.json": "185d38aa7363ad8861304b837d91dcddfec5197418ab3e5c32f652395a2c36b4",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-ppo-seed12203/selected.json": "ac7f5dc1ddfe1cc3450aec06f9ca4caa2329b091edb2f918f16781ab78495798",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-ppo-seed12203/selected.zip": "e6e73b35de425fbdbfa3a765cbbe1b81cb8afdea2ac7d5a4fe373200ee7e2f34",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-ppo-seed12301/manifest.json": "03cbb97b269567ccbddd568c28b8e7a06449c2ee01a3691e287328141a57fdf9",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-ppo-seed12301/monitoring.json": "660d583854363dcbfd29cbdd98c3a782c33a2b93ffc048eb4acb98ae84f12c1e",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-ppo-seed12301/selected.json": "75670ce3b245cba5e4246d6560ee6194aa418d201a546a0ed0dff6e2ae8ee6b6",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-ppo-seed12301/selected.zip": "f98672305d0be54e66cea35ea31d5659d96f6fda4c24796f71bbcc30590f53a8",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-q-learning-seed12101/manifest.json": "e535ec1ef7565ab9a8c4e0bd8b6c06f4e0a4198b40bd14a456cd4367d7d23aa9",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-q-learning-seed12101/monitoring.json": "d91835af02e85f431da9077b9cdfa647eeb9c535fd14c9e54e77de01acc991af",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-q-learning-seed12101/selected.json": "775034109f1d6b54b596483f6021b25c21c81f1bd8578516eda46a73a9b692a7",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-q-learning-seed12101/selected.npz": "ac6d2d9fe38e208141ba77d133f0b0c0098eedd19747e82ffd84435ddc362f53",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-q-learning-seed12203/manifest.json": "faad7bd5ba19d7e34e7b901b0ae47956662b1371224d12d85372aeb3a01ccee5",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-q-learning-seed12203/monitoring.json": "b756c441f15a22f4146f4e5439716916d848517521dace187a083860ab1376a3",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-q-learning-seed12203/selected.json": "f2b89b8ceebc18c5f060e794dbfcd0e36263925ccdd26c0e2e374518065e6fb1",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-q-learning-seed12203/selected.npz": "b2ecc051a196ec1bd1bab2b60f922c5f637d81e9172daa8d06dd572d8d38600f",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-q-learning-seed12301/manifest.json": "cb3d63c725bf17700c52f97c777d94a442e5e8b4d072121bbaf7319c7227da3d",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-q-learning-seed12301/monitoring.json": "4105f41c329babecb195bd94c291ca76dd081a19df2fed728e69fa378cb19ad9",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-q-learning-seed12301/selected.json": "b9c3f567a400d5f309305901cbafe876420d744d12d5551fe94108481e18948a",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-q-learning-seed12301/selected.npz": "f889a7b8ebfd54f0cc12242ed74e75c6d13ffc49b08e951754b65124d76f89ac",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-sarsa-seed12101/manifest.json": "7eadd5e663441500f29789a3c7be87713858cddf0ef8f2b889ef0cd0caabb83f",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-sarsa-seed12101/monitoring.json": "4d0095c78e644fc188101bb3ce8e13725abbf1b9171915b1ab1a8dd8fbaef3f7",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-sarsa-seed12101/selected.json": "a80f8367690bae3e81ce0c1adffa922f1b913f905c1df8eaa8c85dceeceb4fa4",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-sarsa-seed12101/selected.npz": "67cd42824c046df9717406a89a8cb813357503057444d8456f3e1edf142f56b6",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-sarsa-seed12203/manifest.json": "5d2b20a1de98306631d881e21df157da77b47ebd3daa8c68bee3ec6abe7fbce9",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-sarsa-seed12203/monitoring.json": "a18fa9d51caf90e9665676dbd5f31aa863d1f6c24325fb67d641f82f6e05ca20",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-sarsa-seed12203/selected.json": "7466ded932f8f53bbe195a97a0ebecf5d64741dfaecb514b9485512a5f3cda70",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-sarsa-seed12203/selected.npz": "5509bd022beef300cd422f0f7e8449897a573b7ef43feee60dc47dd2e04acffd",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-sarsa-seed12301/manifest.json": "31f6b623074ea8bd63de806e2bb2cbf0a2b369bcd444bb159622a3fe6fda794c",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-sarsa-seed12301/monitoring.json": "2c75454216aa964a429bb09160642badd84c7d7db2b7d3da5f51e4f38ab05d2d",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-sarsa-seed12301/selected.json": "b00c14ec9e14516aff7b2d168907eb1e5c3e96988d0c74b9a93d71b635431163",
+    "artifacts/studies/unseen-map-main-v1/runs/m11-shared-main-sarsa-seed12301/selected.npz": "078938424e0833e031e9cda661293644f2b5a5208811465d1685caf256377993",
+    "artifacts/studies/unseen-map-main-v1/summary.json": "f377d61fb98e45b6579762ffdce788f5eea0ad500d9e4d813c7a0d5e6c9535c1",
+    "artifacts/studies/unseen-map-main-v1/verification.json": "3d2b1b20996b9780674faf4d71be906917b84088424bf71e5ba762d1fc4119f1",
+    "configs/dqn_smoke.yaml": "356dabaf6ea2cef0318817df130d9f91f70d83593bfd7b24bdbe7e32568f4e92",
+    "configs/environment.yaml": "143d2519ce4d23317ecbb4229ab2c6ac005d07b9bbb2ee06f8fbf81e05223fbd",
+    "configs/learning_replays.yaml": "19974347c1d59cca5aa0e13874562e054868e0577335d35aff907a0692b00109",
+    "configs/neural_confirmation.yaml": "66ec4131b8dc13541bd9cd300f56809d8b2c12a8803fa650ce9efbaaab228d76",
+    "configs/neural_tuning.yaml": "75df30fa489e5200c81b642c5fee3f1dff8f64013cf1fd942ab072955ebafb2c",
+    "configs/part_a.yaml": "2802efe4fd61bd6dfad11e4b46a6fb4601e6761fafb24f3536a07a79fb59d6bb",
+    "configs/part_b.yaml": "d8e78d0f5a2b45d43601be6a05ffc0b86c5d178a76ba7ec3d9a660dc4772fc17",
+    "configs/ppo_comparison.yaml": "9c74067ce5c8f9ffba75229bbb09eac23af5f23dd4f312e4c58176fe1ebbdba6",
+    "configs/representation_study.yaml": "15e0ae288160f85b42419880b78f5454664bb238f64bd7ee8fb8260f2d38f270",
+    "configs/smoke.yaml": "5de08337d6c93286d487eb166228d16c176c94a8486829390cc81a50449d6730",
+    "configs/tabular_milestone.yaml": "45c04a1071c94ad829479665e9eb186337b818d4c3613f3be9ad558fcf2c949e",
+    "configs/unseen_final.yaml": "555960c4cb8dc01d1a60a58f1e09280198c76710d3085c0023542dd86f6236a8",
+    "configs/unseen_main.yaml": "7f6358044a77e384fd3519ee87b45f665425c51b92fb9bf5efd6d5bcb4098f63",
+    "configs/unseen_maps.yaml": "afa9bdcc6ef17ce128d71a1ae6889567b9799a68b59070accea93b70e0303546",
+    "data/maps/bottleneck-v1.json": "b54f3742f0c8775338da52f972e6c5b3aa0bae049a5262b31fa4bc4169499d04",
+    "data/unseen/unseen-maps-v1/manifest.json": "cdaaa92b9b3f9a41500b18353850dad98558c1a93bf2c7c9cefd5c21719fa4de",
+    "data/unseen/unseen-maps-v1/test.json": "e7debf0b0884a32f5fc740b85d699f04df79f1aae4824775e7abee52db3b8b67",
+    "data/unseen/unseen-maps-v1/train.json": "0dd6b27dc73c21f6fe779c4fe584c1add21d6cc52afabd7eb8bb2dec543ac6c2",
+    "data/unseen/unseen-maps-v1/validation.json": "f5a45648ba3c35c506b6c593649cd83f59e2c28aff92f0f71ffbe93727811eeb",
+    "docs/milestone12_protocol.md": "d19c9fdf0f8077e5408352f2ea0486e6da8e1eccfbf7be7f8dc4a3c9f6184fa0",
+    "pyproject.toml": "b03f65ee3050e18601487766bd5694dbe02adb2559dd0ec012e415b3acf9a506",
+    "requirements-lock.txt": "5cc11c27a3847a44ee526250954f0e62c7820fb2cc9f9502a98227e826c5dea1",
+    "src/robot_navigation/__init__.py": "ba99172796d801410667242a890aab862888043bdb2f42a4cf0089aedfe4d425",
+    "src/robot_navigation/agents.py": "7db6bf0d5949834b1f397490337e77e91e5bb2c1846f9ff9a1a784ed6b926c00",
+    "src/robot_navigation/benchmark.py": "43c799ba50060b3adcede4963dbbbd931800f65ae0b2884eb74bb7f549ceb632",
+    "src/robot_navigation/cli.py": "4456352f97f7ec99e0fd4fc5128ada3566e442ed333297915795eb83d4e83eea",
+    "src/robot_navigation/core.py": "a109284bf8504ce667addd6da2ede6fd06921c1761a55b34e62773a851fba8f5",
+    "src/robot_navigation/dashboard.py": "af7d64213bcae073d6fc6ea524197e0f331570449d855649a5c745be72692dd0",
+    "src/robot_navigation/dashboard_ui.py": "d11750e8c3bfcc02813bc309145a767eabf5b18ba5664bfad5067c2314d5693a",
+    "src/robot_navigation/dqn.py": "812db834ffd65a760cb2abcd6bdf3e6638f6462fb68103195286cfffdf7f9ce6",
+    "src/robot_navigation/episodes.py": "1edcd8ea090114fcafbc3b3c1e448a94001d5fec5fbe177a969a8ac639ccdce0",
+    "src/robot_navigation/four_way.py": "e6eec262776bf0f7cae8a70b095805b2fd94d5dcac198f4e7306c9e79dbffb30",
+    "src/robot_navigation/four_way_analysis.py": "8f9e4821908ac72c71d099ea1b3aeaef0165ef63b118fd475e10e4faaa769ffc",
+    "src/robot_navigation/interface.py": "44d7162cfe3695e707d6c4070d597f6f85c78d8d2d7bf1dfaea6155907da31c1",
+    "src/robot_navigation/learning_replays.py": "0f5e58ef5007e147f63f6a98019864d21668095ff26f72df5d72a5197463aac4",
+    "src/robot_navigation/neural_confirmation.py": "0d163431890716c89ec9aeb01e5bb03d0978e40c61f1c74f0399fafdb2a09ed8",
+    "src/robot_navigation/neural_tuning.py": "0b45bb15d2470fd621a6e445bb403939b3bd848af3066cace19bb12b627bcdb2",
+    "src/robot_navigation/neural_tuning_ui.py": "4c9679713b0dc0b4893905756c0f58ed80fa199ddd04ece3dc349258efd984f2",
+    "src/robot_navigation/observation_encoding.py": "858e7c334bb1d13241c0eac1dccf01d973c7f30fc1168041511fdad491b1b22f",
+    "src/robot_navigation/part_a.py": "9554c006735e254a0f54963b88fc10991fc87a3a9ef0274de6c571f864e7f7a7",
+    "src/robot_navigation/ppo.py": "283a2ba59ad5bf59485c7a178cc585610dee4056bc864f51c890ff41103918a7",
+    "src/robot_navigation/ppo_config.py": "f7ab1058a4fed62e885bb92eecdd8e87ee29a6941bcc88111b897799b91996b3",
+    "src/robot_navigation/refinement.py": "d7691c12c88b2a4a346065f3971392e487890be11aa2000e6af8f9ecae7bb240",
+    "src/robot_navigation/release.py": "8f859128e5a1aabb088ba3c98252450addbb1bc7b6459f7583cbaab7e36f137c",
+    "src/robot_navigation/representation.py": "b04033c5b723c8e2c54a8241685a09908cc7bdccab7ca8a1e85e4928f0a2071d",
+    "src/robot_navigation/shared_agents.py": "dcaa75266b5e40063bd475991a7bbb65c3c80dcaedafc7f2872b5552b76f57f6",
+    "src/robot_navigation/shared_features.py": "8ea711428ed6598933c06fbcd06ea6719b8d853e77bc78b6151dd4a446df49cc",
+    "src/robot_navigation/shared_neural.py": "7bbc8aebc453c6830074001080a5923957ce55a07f7519344803a81528385aa8",
+    "src/robot_navigation/simulator_ui.py": "856fe621718350fe053d939972a40ea2475e411fe8ef60954b286d7a6a058d32",
+    "src/robot_navigation/theme.py": "fd4b59996a9e411142ce9ffc7ab00907507859037c25cf40cbdd075895cfca11",
+    "src/robot_navigation/training.py": "7e3ab1253bd88de8d9607fcf92803118bcd6ac10f19af06ddae98a5faf6200df",
+    "src/robot_navigation/training_traces.py": "d055e849858b621282e8f8d79d2551254024321f8f6ac5e36500b28518fa7c7b",
+    "src/robot_navigation/unseen_agents.py": "c8b82123ed3e8d6663269ebbf7c8e7cc52304c1ddd6e2cc6031324f9336b34ab",
+    "src/robot_navigation/unseen_audit.py": "fcd7f3d764a2c98dcf91e6e2a0cc8b60a31dda16e073a3c9f58f3c2599d06275",
+    "src/robot_navigation/unseen_benchmark.py": "79f9e2ea2f2e592c8ddd3ca53ef5badd1457510e71b2c6e3564f299a61753a57",
+    "src/robot_navigation/unseen_final.py": "0f6760d8bc95d3269194ce233e0a8fa983e2f9a4199dbba4d06aa60f27f6f13a",
+    "src/robot_navigation/unseen_main.py": "b0e5428fe448071b95afa2d86a14ab36de48e83a4d92788d0f1057a14dcb506f",
+    "src/robot_navigation/unseen_study.py": "cfddd90198ce34ed0528995907c033b59e039c642d3666cabe55a7e1e236e827",
+    "src/robot_navigation/unseen_ui.py": "58625e432508ed29ba3e27096a7ba372322289c82a50fb9a76963a8d016d312c",
+    "src/robot_navigation/visualization.py": "ece612d24eb49cc967c391b8155b7cc2bf06356baf43ce1c74c865d4a6763d0d",
+    "src/robot_navigation/voting.py": "ab3bb4ec9af279f652789458a6f7f14764e5f71c25bc72e339a3d1ce45b65162",
+    "src/robot_navigation/workflow.py": "a6f03f538d3312e1a4b7540e5e5e95bbf058a292ed6c33151017a523f51dbe48"
+  }
+}

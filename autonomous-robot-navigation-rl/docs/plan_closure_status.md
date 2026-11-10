@@ -1,5 +1,14 @@
 # Plan closure and remaining scope
 
+Updated 10 November 2026 for milestone 12. The independent unseen-map evaluation
+is complete. Twelve frozen policies and four reference runs evaluated 7,680
+episodes on ten held-out layouts. Three-seed final success averaged 16.81%
+Q-learning, 62.08% SARSA, 29.10% DQN and 64.10% PPO. BFS was optimal on every
+route. All 671,151 saved actions, 189 tests and native dashboard checks passed.
+Every family missed the mean success/SPL targets. The ten final layouts are
+now inspected evidence. Further model selection requires a fresh holdout.
+See [milestone 12 measured results](milestone12_results.md).
+
 Updated 10 November 2026 for milestone 11. The owner selected shared features
 for all four algorithms. Four engineering pilots and twelve main runs completed
 2.5 million training steps. Three-seed new-layout validation success averaged
@@ -30,14 +39,18 @@ On 10 November the owner prioritized the first reference, with the map centered
 between performance/agent state and distance/reward panels. Navigation is
 collapsed initially to give this layout the available screen width.
 
-The unseen-map foundation, pilot and shared-feature main development study are
-complete. The **next research milestone is frozen independent evaluation**.
+The unseen-map foundation, shared-feature development study and frozen
+independent four-family evaluation are complete. The current research stage
+has measured final outcomes and documented performance limitations.
 The original setup requirements remain in
 [the evaluation handoff](evaluation_boundary_and_handoff.md). UI work introduces
 no additional benchmark training, layouts or final-test executions.
 
 ## Implemented and measured
 
+- Frozen independent unseen-map evaluation with all twelve selected controllers,
+  ten held-out layouts, BFS/three Random seeds, layout-cluster intervals,
+  complete action audit and separate final-results/replay dashboard entry.
 - Shared-feature unseen-map comparison with three main seeds per algorithm,
   exact 200,000-step budgets, retained pilots, saved-action verification and
   results/learning/selected-policy replay with training-seed selection.
@@ -148,10 +161,11 @@ display checks excluded from benchmark summaries, not new final evaluations.
    holdout had been inspected. The extension is exploratory development validation.
    All 6,162 possible fixed-map pairs are already covered by existing manifests.
    The owner chose to defer independent evaluation to the unseen-map study.
-   Milestones 10 and 11 establish the benchmark and shared-feature development
-   comparison. A frozen final-access protocol and independent evaluation remain
-   next-stage work. See [the evaluation handoff](evaluation_boundary_and_handoff.md).
-5. **Scope and portability:** unseen-map development is underway. Dynamics noise,
+   Milestones 10 and 11 establish the separate benchmark and development study.
+   Milestone 12 completes the frozen independent evaluation on ten held-out maps.
+   The original fixed-map final record retains its historical scope. See
+   [the final unseen-map results](milestone12_results.md).
+5. **Scope and portability:** unseen-map evaluation is complete. Dynamics noise,
    moving obstacles, continuous movement, sensors, ROS and hardware remain deferred.
    Bitwise repeatability across machines and exact training resume are unsupported.
    Performance misses and residual collisions/timeouts are reported limitations.

@@ -72,7 +72,25 @@ miss the 80% success target. The **Unseen maps** page switches studies and train
 seeds for results, recorded learning and selected-policy replay. All 184 tests and
 the 453,723-action audit passed. See [measured results and limits](docs/milestone11_results.md)
 and [the frozen design](docs/milestone11_protocol.md). Independent evaluation on
-the ten reserved layouts is the next milestone.
+the ten reserved layouts follows in milestone 12 below.
+
+**Milestone 12. Independent unseen-map final evaluation.** All twelve frozen M11
+policies evaluated 480 routes each on ten held-out layouts. Final three-seed
+success averaged 16.81% Q-learning, 62.08% SARSA, 29.10% DQN and 64.10% PPO.
+BFS solved all 480 routes optimally. Three Random seeds averaged 3.40% success.
+The complete 7,680-episode, 671,151-action audit and all 189 tests passed.
+Open **Unseen maps → Final evaluation · ten held-out layouts** for final results,
+layout intervals, reference/cost tables and saved replays. Every learned family
+missed the mean success/SPL targets. These final layouts are now inspected
+evidence. See [measured results and limitations](docs/milestone12_results.md),
+[the registered protocol](docs/milestone12_protocol.md) and
+[verification](docs/milestone12_verification.json).
+
+```powershell
+python -m robot_navigation.unseen_final freeze
+python -m robot_navigation.unseen_final run
+python -m robot_navigation.unseen_final verify
+```
 
 **Part A:** five independent seeds per learned algorithm, 200,000 interactions
 each, common validation monitoring, and an explicit validation-only checkpoint
@@ -416,7 +434,7 @@ initial conditions, many of which were visited during training.
 
 All six core milestones are complete. Source and evidence remain local.
 PPO was subsequently added as the owner-authorized exploratory extension above.
-The unseen-map main development study is complete. The next stage freezes the
-four-family roster for independent evaluation on the reserved layouts.
+The unseen-map development study and frozen four-family independent evaluation
+are complete. Future model-selection work requires a fresh independent holdout.
 Moving obstacles, continuous movement and physical robots remain
 future backlog.
