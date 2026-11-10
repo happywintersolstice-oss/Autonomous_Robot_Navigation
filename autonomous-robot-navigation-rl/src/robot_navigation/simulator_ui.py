@@ -8,8 +8,9 @@ from .core import NavigationEnv, read_json, validate_scenario
 from .dashboard import seek_from_widget, training_paths, training_episode
 from .dashboard_ui import overlays, diagnostics, event_log
 from .episodes import Playback, rollout, validate_replay
-from .interface import (context_strip, panel_heading, show_map, telemetry, run_selector,
-                        playback_toolbar, playback_status)
+from .interface import (context_strip, show_map, telemetry, run_selector, card_heading,
+                        playback_toolbar, playback_status, replay_statistics, reward_chart,
+                        run_label)
 from .refinement import task_for_run
 
 
@@ -31,7 +32,14 @@ def render_replay(base_task, validation, runs, root, mode='trained'):
         'trained':'Watch a saved model after training. It makes fixed decisions here; it does not learn during replay.',
         'learning':'Watch actions recorded while the robot was learning. These include exploration and changing policies.',
         'custom':'Choose a start and goal, then let a trained model try your route. This does not retrain the model.'}
-    st.write(descriptions[mode])
+
+    def command(name):
+        current = st.session_state['playback']
+        getattr(current, name)()
+        st.session_state['playback'] = current
+        st.session_state['seek'] = current.index
+        st.session_state['last_tick'] = time.monotonic()
+
     if learning:
         available = [run for run in runs if training_paths(run)]
         if not available:
@@ -42,14 +50,12 @@ def render_replay(base_task, validation, runs, root, mode='trained'):
             family_order.get(read_json(p/'manifest.json').get('algorithm'), 4), 'pilot' in p.name, p.name))
         families = list(dict.fromkeys(read_json(p/'manifest.json').get('algorithm') for p in runs))
         from .interface import ALGORITHM_LABELS
-        st.caption('Available training recordings: '+', '.join(ALGORITHM_LABELS.get(f,f) for f in families)+'. '
+        recording_help = ('Available training recordings: '+', '.join(ALGORITHM_LABELS.get(f,f) for f in families)+'. '
                    'New demo runs sample several stages of training. The older DQN input study saved only its first three episodes. '
                    'Older Q-learning, SARSA, DQN and PPO histories were not reconstructed. Use Learning analysis for saved monitoring curves.')
-    else:
-        st.caption('Replay examples use validation scenarios. “Trained” refers to the saved model, not a final-test episode.')
 
     with st.container(key='model_setup'):
-        model_column, episode_column = st.columns([1.4, 1], gap='large')
+        model_column, episode_column, controls_column = st.columns([1.6, 1.1, 2], gap='medium', vertical_alignment='bottom')
         with model_column:
             directory = run_selector(runs, key='learning_run' if learning else 'saved_run',
                                      label='Training run' if learning else 'Trained model')
@@ -110,21 +116,10 @@ def render_replay(base_task, validation, runs, root, mode='trained'):
 
     player = st.session_state['playback']
     episode = player.episode
-    if learning:
-        st.caption(f"Training interactions {episode['training_start_interaction']:,}–{episode['training_end_interaction']:,}. "
-                   'This is a saved recording, not live training. No trained-checkpoint scores are substituted.')
-    st.caption(f"Start {episode['scenario']['start']} → goal {episode['scenario']['goal']} · shortest route {episode['scenario']['shortest_length']} steps")
     # The options live below the map. Widget state is available before rendering.
     options = {'trail': st.session_state.get('single_trail', True),
                'visits': st.session_state.get('single_visits', False),
                'bfs': st.session_state.get('single_bfs', False)}
-
-    def command(name):
-        current = st.session_state['playback']
-        getattr(current, name)()
-        st.session_state['playback'] = current
-        st.session_state['seek'] = current.index
-        st.session_state['last_tick'] = time.monotonic()
 
     def seek(key):
         seek_from_widget(st.session_state, key, player_key='playback',
@@ -135,8 +130,9 @@ def render_replay(base_task, validation, runs, root, mode='trained'):
             seek_from_widget(st.session_state, key, player_key='playback',
                              position_key='seek', active_key='active_event_key')
 
-    with st.container(key='single_playback_controls'):
-        speed = playback_toolbar(command)
+    with controls_column:
+        with st.container(key='single_playback_controls'):
+            speed = playback_toolbar(command, compact=True)
     expected_identity = st.session_state['episode_identity']
 
     @st.fragment(run_every=.2 if player.playing else None)
@@ -153,24 +149,47 @@ def render_replay(base_task, validation, runs, root, mode='trained'):
             st.session_state['last_tick'] = now
             if not current.playing:
                 st.rerun()
+        playback_status(current.index, current.playing, training=learning)
+        readings = replay_statistics(episode, current.index)
+        traveled_unit = 'cell' if readings['traveled'] == 1 else 'cells'
+        goal_unit = 'cell' if readings['goal_distance'] == 1 else 'cells'
+        with st.container(key='single_replay_content'):
+            state_column, map_column, reward_column = st.columns([1, 3, 1.1], gap='small')
+            with state_column:
+                st.markdown('<div class="lab-zone-label">PERFORMANCE</div>', unsafe_allow_html=True)
+                with st.container(key='left_metrics'):
+                    st.metric('Actions', f"{readings['actions']} / {task.config['max_steps']}",
+                              help='Actions shown so far / episode step limit.')
+                    st.metric('Reward so far', f"{readings['return']:.2f}",
+                              help='Total reward from the displayed actions only.')
+                with st.container(key='single_inspector'):
+                    card_heading('Agent state', 'Current recorded observation')
+                    telemetry(episode, current.index, task.config['max_steps'], current.playing,
+                              paired=False, show_metrics=False)
+                    with st.expander('Action details'):
+                        diagnostics(episode, current.index, 'single')
+            with map_column:
+                with st.container(key='single_map'):
+                    card_heading('Navigation environment',
+                                 f"{task.grid.map_id} · start {episode['scenario']['start']} → goal {episode['scenario']['goal']}",
+                                 '2D · REPLAY')
+                    show_map(task.grid, episode, current.index, landscape=True, **options)
+                    st.caption('Recorded trail · robot R · start S · goal G')
+            with reward_column:
+                st.markdown('<div class="lab-zone-label">DISTANCE &amp; REWARD</div>', unsafe_allow_html=True)
+                with st.container(key='right_metrics'):
+                    st.metric('Distance traveled', f"{readings['traveled']} {traveled_unit}",
+                              help='Successful cell moves so far. A collision attempt adds no distance.')
+                    st.metric('Goal distance', f"{readings['goal_distance']} {goal_unit}",
+                              help='Manhattan distance from the displayed position. Walls can make the actual route longer.')
+                with st.container(key='reward_panel'):
+                    card_heading('Episode reward', 'Cumulative score · displayed steps only')
+                    reward_chart(episode, current.index)
+                    st.caption('The chart grows as the replay advances.')
         timeline_key = f'timeline:{expected_identity}:{current.index}'
         st.session_state['active_timeline_key'] = timeline_key
         st.slider('Replay position', 0, len(episode['transitions']), value=current.index,
                   key=timeline_key, on_change=seek, args=(timeline_key,), help='Move to a recorded step. Seeking pauses playback.')
-        playback_status(current.index, current.playing, training=learning)
-        with st.container(key='single_replay_content'):
-            map_column, details_column = st.columns([3, 1.15], gap='medium')
-            with map_column:
-                with st.container(key='single_map'):
-                    panel_heading(directory, 'Recorded learning episode' if learning else 'After-training replay', episode['policy_id'])
-                    show_map(task.grid, episode, current.index, **options)
-            with details_column:
-                with st.container(key='single_inspector'):
-                    st.subheader('What is happening?')
-                    telemetry(episode, current.index, task.config['max_steps'], current.playing, paired=False)
-                    with st.expander('Action details'):
-                        diagnostics(episode, current.index, 'single')
-                    st.caption('Actions count robot steps. Reward is the total score earned so far. Revisited cells count returns to previous positions.')
         with st.expander('Step-by-step history'):
             event_key = f'events:{expected_identity}:{current.index}'
             st.session_state['active_event_key'] = event_key
@@ -193,6 +212,17 @@ def render_replay(base_task, validation, runs, root, mode='trained'):
                 st.caption(f'Input encoding: {policy.encoding} · {policy.model.observation_space.shape[0]} features from the same raw coordinates')
         st.caption('One action moves one cell. A wall or boundary attempt ends the episode. Repeated cells do not end an episode.')
         st.caption('BFS knows the obstacle map. Learned agents see robot and goal coordinates. Random is untrained.')
+    with st.expander('How to use this replay'):
+        st.write(descriptions[mode])
+        st.caption('Play animates recorded decisions. Pause stops the clock. Next step advances one action. Reset returns to the beginning.')
+        st.caption('The four cards describe the displayed episode, not aggregate benchmark performance. Distances use grid cells.')
+        st.caption(run_label(directory))
+        if learning:
+            st.caption(recording_help)
+            st.caption(f"Training interactions {episode['training_start_interaction']:,}–{episode['training_end_interaction']:,}. "
+                       'This is a saved recording, not live training. No trained-checkpoint scores are substituted.')
+        else:
+            st.caption('Replay examples use validation scenarios. “Trained” refers to the saved model, not a final-test episode.')
 
 
 def install_episode(episode, identity):

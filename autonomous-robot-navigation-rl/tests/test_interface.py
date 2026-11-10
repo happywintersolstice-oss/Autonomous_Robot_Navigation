@@ -33,6 +33,34 @@ def test_run_inventory_identifies_the_predeclared_system():
     assert 'seed 101' in run_label(selected)
 
 
+def test_control_room_readings_and_reward_chart_use_only_the_visible_prefix():
+    from robot_navigation.interface import replay_statistics, reward_history
+    episode = read_json(ROOT/'artifacts/runs/smoke-seed7/replays/q_learning_collision.json')
+    assert replay_statistics(episode, 0) == {
+        'actions':0, 'return':0, 'traveled':0,
+        'goal_distance':sum(abs(a-b) for a,b in zip(episode['scenario']['start'], episode['scenario']['goal']))}
+    assert reward_history(episode, 0) == {'Step':[0], 'Reward':[0.]}
+    observed = deepcopy(episode)
+    observed['transitions'] = episode['transitions'][:1]
+    assert replay_statistics(episode, 1) == replay_statistics(observed, 1)
+    assert reward_history(episode, 1) == reward_history(observed, 1)
+    readings = replay_statistics(episode, 1)
+    assert readings['return'] == -5.01 and readings['traveled'] == 0
+    assert reward_history(episode, 1) == {'Step':[0,1], 'Reward':[0.,-5.01]}
+
+
+def test_workspace_navigation_opens_existing_pages_and_pauses_replay():
+    app = AppTest.from_file(str(ROOT/'app/streamlit_app.py'), default_timeout=30).run()
+    next(b for b in app.button if b.label == 'Play').click().run()
+    player = app.session_state['playback']
+    next(b for b in app.button if b.label == 'Compare results').click().run()
+    assert not app.exception and not player.playing
+    assert app.session_state['dashboard_page'] == 'Agent comparison'
+    next(b for b in app.button if b.label == 'Live map').click().run()
+    assert not app.exception and app.session_state['dashboard_page'] == 'Navigation simulator'
+    assert not app.session_state['playback'].playing
+
+
 def test_default_comparison_holds_collision_while_selected_system_moves():
     app=AppTest.from_file(str(ROOT/'app/streamlit_app.py'),default_timeout=20).run()
     app.session_state['replay_tab']='Compare agents'; app.run()

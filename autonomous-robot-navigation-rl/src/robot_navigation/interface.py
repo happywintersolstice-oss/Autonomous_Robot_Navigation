@@ -23,99 +23,17 @@ _MAP_RENDER_LOCK = RLock()
 
 
 def apply_theme():
-    st.markdown('''<style>
-    .stApp {background:#0a111a;color:#e6eef7;}
-    [data-testid="stHeader"] {background:#0a111a;height:2.5rem;}
-    [data-testid="stMainBlockContainer"] {max-width:1680px;padding:3.5rem 2rem 2rem;}
-    [data-testid="stSidebar"] {background:#0e1925;border-right:1px solid #243347;}
-    [data-testid="stSidebar"] h2 {font-size:1rem;}
-    h1 {font-size:1.9rem !important;letter-spacing:-.04em;padding-top:0 !important;}
-    h2 {font-size:1.25rem !important;letter-spacing:-.02em;}
-    h3 {font-size:1.05rem !important;}
-    [data-testid="stVerticalBlock"] {gap:.7rem;}
-    [data-testid="stMetric"] {background:#142232;border:1px solid #293b4d;border-radius:10px;padding:10px 12px;}
-    [data-testid="stMetricLabel"] {color:#a3b7ca;font-size:.75rem;}
-    [data-testid="stMetricValue"] {color:#ecf5ff;font-size:1.6rem;font-weight:600;}
-    [data-testid="stCaptionContainer"] {color:#9ab0c4;}
-    .stButton button {border-radius:8px;border-color:#304459;min-height:2.5rem;}
-    .stButton button:focus-visible {outline:2px solid #8fe9d0;outline-offset:3px;}
-    .stButton button[kind="primary"] {color:#061813;font-weight:650;background:#58d9b5;border-color:#58d9b5;}
-    [data-testid="stExpander"] {border-color:#28394b;background:#0f1b28;border-radius:10px;}
-    .lab-brand {padding:0 0 12px;border-bottom:1px solid #263647;margin-bottom:10px;}
-    .lab-brand strong {font-size:1.1rem;letter-spacing:.1em;color:#e7f3ff;}
-    .lab-eyebrow {font:600 .68rem monospace;letter-spacing:.15em;color:#72cfb8;margin-bottom:.2rem;}
-    .lab-subtle {color:#9ab0c4;font-size:.77rem;line-height:1.5;}
-    .lab-context {display:flex;gap:1.6rem;flex-wrap:wrap;padding:12px 16px;background:#101e2c;border:1px solid #263a4d;border-radius:10px;}
-    .lab-context div {font-size:.84rem;color:#dfebf6;}
-    .lab-context small {display:block;font:600 .6rem monospace;color:#8fa9bf;letter-spacing:.1em;margin-bottom:3px;}
-    .st-key-single_playback_controls, .st-key-comparison_playback_controls {
-      padding:14px 16px 8px;background:#101e2c;border:1px solid #263a4d;border-radius:12px;
-    }
-    .st-key-workspace_switch {padding:8px 0 4px;}
-    .st-key-workspace_switch [role="radiogroup"] {gap:.6rem;}
-    .st-key-workspace_switch [data-testid="stRadio"] label[data-baseweb="radio"] {
-      padding:9px 16px;background:#111e2c;border:1px solid #304459;border-radius:8px;margin:0;
-    }
-    .lab-panel {min-height:78px;border-top:2px solid #58d9b5;padding:10px 2px 6px;}
-    .lab-panel strong {display:block;line-height:1.4;font-size:1rem;color:#e6f2fd;}
-    .lab-panel code {font-size:.69rem;color:#97afc6;background:none;padding:0;overflow-wrap:anywhere;}
-    .lab-status {display:inline-block;border:1px solid #385069;border-radius:5px;padding:3px 8px;margin-right:8px;font:600 .68rem monospace;letter-spacing:.06em;color:#b9ccdc;}
-    .lab-success {color:#72e2b6;border-color:#2a725b;background:#102e27;}
-    .lab-collision {color:#ff9e9e;border-color:#8a454a;background:#351c25;}
-    .lab-timeout {color:#f4c873;border-color:#806638;background:#302819;}
-    .lab-kv {display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid #233448;font-size:.84rem;}
-    .lab-kv:last-child {border-bottom:0;}
-    .lab-kv span {color:#9cb1c6;}.lab-kv b {color:#e4effa;font-weight:500;}
-    .lab-session {display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
-      padding:8px 0;color:#a9bfd2;font-size:.8rem;}
-    .lab-session b {color:#e5f1fc;font-weight:600;}
-    .st-key-single_map, .st-key-pair_maps, .st-key-four_maps {background:#0f1b28;border:1px solid #263a4d;border-radius:12px;padding:12px;}
-    .st-key-single_map [data-testid="stImage"] img {max-height:590px;object-fit:contain;}
-    .st-key-pair_maps [data-testid="stImage"] img {max-height:480px;object-fit:contain;}
-    .st-key-four_maps [data-testid="stImage"] img {max-height:480px;object-fit:contain;}
-    .st-key-single_inspector {background:#101e2c;border:1px solid #263a4d;border-radius:12px;padding:16px;}
-    .st-key-comparison_summary {padding-top:4px;}
-    .st-key-saved_run_picker [data-testid="stHorizontalBlock"] > [data-testid="stColumn"]:last-child,
-    .st-key-learning_run_picker [data-testid="stHorizontalBlock"] > [data-testid="stColumn"]:last-child {
-      flex:0 0 100px !important;min-width:100px !important;width:100px !important;
-    }
-    .st-key-saved_run_picker [data-testid="stHorizontalBlock"] > [data-testid="stColumn"]:first-child,
-    .st-key-learning_run_picker [data-testid="stHorizontalBlock"] > [data-testid="stColumn"]:first-child {
-      flex:1 1 0% !important;min-width:0 !important;width:auto !important;
-    }
-    .st-key-single_decision_details,
-    .st-key-comparison_decision_details_0,
-    .st-key-comparison_decision_details_1 {padding-top:12px;}
-    @media(max-width:1100px) {
-      .st-key-single_playback_controls [data-testid="stHorizontalBlock"],
-      .st-key-comparison_playback_controls [data-testid="stHorizontalBlock"] {
-        display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem;
-      }
-      .st-key-single_playback_controls [data-testid="stColumn"],
-      .st-key-comparison_playback_controls [data-testid="stColumn"] {
-        width:100% !important;min-width:0 !important;
-      }
-      .st-key-single_playback_controls [data-testid="stColumn"]:last-child,
-      .st-key-comparison_playback_controls [data-testid="stColumn"]:last-child {grid-column:1 / -1;}
-      .st-key-single_replay_content [data-testid="stHorizontalBlock"]:has(.st-key-single_map),
-      .st-key-model_setup [data-testid="stHorizontalBlock"]:has(.st-key-saved_run_picker),
-      .st-key-model_setup [data-testid="stHorizontalBlock"]:has(.st-key-learning_run_picker),
-      .st-key-comparison_setup [data-testid="stHorizontalBlock"],
-      .st-key-pair_maps [data-testid="stHorizontalBlock"]:has(.lab-panel),
-      .st-key-four_maps [data-testid="stHorizontalBlock"]:has(.lab-panel) {flex-direction:column;}
-      .st-key-single_replay_content [data-testid="stHorizontalBlock"]:has(.st-key-single_map) > [data-testid="stColumn"],
-      .st-key-model_setup [data-testid="stHorizontalBlock"]:has(.st-key-saved_run_picker) > [data-testid="stColumn"],
-      .st-key-model_setup [data-testid="stHorizontalBlock"]:has(.st-key-learning_run_picker) > [data-testid="stColumn"],
-      .st-key-comparison_setup [data-testid="stHorizontalBlock"] > [data-testid="stColumn"],
-      .st-key-pair_maps [data-testid="stHorizontalBlock"]:has(.lab-panel) > [data-testid="stColumn"],
-      .st-key-four_maps [data-testid="stHorizontalBlock"]:has(.lab-panel) > [data-testid="stColumn"] {width:100% !important;flex:1 1 100% !important;}
-    }
-    @media(max-width:800px) {
-      [data-testid="stMainBlockContainer"] {padding:3rem 1rem 1rem;}
-      .lab-context {gap:.75rem;} h1 {font-size:1.55rem !important;}
-      .lab-panel {min-height:0;}
-    }
-    </style>''', unsafe_allow_html=True)
+    from .theme import CONTROL_ROOM_CSS
+    st.markdown(CONTROL_ROOM_CSS, unsafe_allow_html=True)
+
+
+def workspace_header(map_id, page):
+    title = 'Live map' if page == 'Navigation simulator' else page
+    st.markdown('<div class="lab-topbar"><div><div class="lab-breadcrumb">Autonomous navigation / '
+                f'{escape(title)}</div><h1>Navigation Control</h1></div>'
+                '<div class="lab-environment"><span class="lab-icon">map</span>'
+                f'<div><small>ENVIRONMENT</small><b>{escape(map_id)}</b></div></div></div>',
+                unsafe_allow_html=True)
 
 
 def run_label(directory):
@@ -228,13 +146,17 @@ def playback_status(index, playing, shared=False, training=False):
                 f'<span>{"Recorded training actions · no live learning" if training else "Saved model · no learning during playback"}</span></div>', unsafe_allow_html=True)
 
 
-def playback_toolbar(callback, prefix='', speed_key='speed'):
+def playback_toolbar(callback, prefix='', speed_key='speed', compact=False):
     """One stable native toolbar shared by all simulator layouts."""
-    controls = st.columns([1, 1, 1.2, 1, 2], vertical_alignment='center')
+    controls = st.columns([1, 1, 1.2, 1, 1 if compact else 2], gap='small', vertical_alignment='center')
     for col, label, command, icon in zip(controls, ['Play', 'Pause', 'Next step', 'Reset'],
             ['play', 'pause', 'next', 'reset'], ['play_arrow', 'pause', 'skip_next', 'restart_alt']):
         col.button(label, on_click=callback, args=(command,), key=f'{prefix}{command}',
-                   icon=f':material/{icon}:', type='primary' if command == 'play' else 'secondary', width='stretch')
+                   icon=None if compact else f':material/{icon}:',
+                   type='primary' if command == 'play' else 'secondary', width='stretch')
+    if compact:
+        with controls[4].popover('Speed', width='stretch'):
+            return st.select_slider('Playback speed (steps / second)', options=[.5, 1., 2., 4.], value=2., key=speed_key)
     return controls[4].select_slider('Playback speed (steps / second)', options=[.5, 1., 2., 4.], value=2., key=speed_key)
 
 
@@ -276,16 +198,17 @@ def repeated_pattern(episode,index):
     return None
 
 
-def telemetry(episode,index,max_steps,playing=False,shared_index=None,paired=True,compact=False):
+def telemetry(episode,index,max_steps,playing=False,shared_index=None,paired=True,compact=False,show_metrics=True):
     state=frame(episode,index)
     held=shared_index is not None and shared_index>=len(episode['transitions'])
     status_badge(state['status'],playing and state['status'] in ('ready','running'),held)
     if compact:
         st.caption(f"Steps {state['index']} / {max_steps} · reward {state['return']:.2f} · position {state['position']}")
     else:
-        a,b=st.columns(2) if paired else (st,st)
-        a.metric('Actions',f"{state['index']} / {max_steps}")
-        b.metric('Cumulative reward',f"{state['return']:.2f}")
+        if show_metrics:
+            a,b=st.columns(2) if paired else (st,st)
+            a.metric('Actions',f"{state['index']} / {max_steps}")
+            b.metric('Cumulative reward',f"{state['return']:.2f}")
         rows=(('Robot position',str(state['position'])),('Last action',state['action']),
               ('Step reward',f"{state['step_reward']:+.2f}"),('Revisited cells',str(state['revisited_cells'])))
         st.markdown(''.join(f'<div class="lab-kv"><span>{escape(k)}</span><b>{escape(v)}</b></div>' for k,v in rows),unsafe_allow_html=True)
@@ -302,8 +225,54 @@ def telemetry(episode,index,max_steps,playing=False,shared_index=None,paired=Tru
         st.info('Recording ends here. This training episode was cut short; no completed outcome was recorded.')
 
 
+def replay_statistics(episode, index):
+    """Displayed-prefix readings in discrete grid units, with no future outcome."""
+    state = frame(episode, index)
+    traveled = sum(abs(a[0]-b[0]) + abs(a[1]-b[1])
+                   for a, b in zip(state['trail'], state['trail'][1:]))
+    goal = episode['scenario']['goal']
+    distance = sum(abs(a-b) for a, b in zip(state['position'], goal))
+    return {'actions':state['index'], 'return':state['return'],
+            'traveled':traveled, 'goal_distance':distance}
+
+
+def reward_history(episode, index):
+    """Include reset and observed rewards only, even for incomplete recordings."""
+    state = frame(episode, index)
+    rewards = [0.0]
+    for transition in episode['transitions'][:state['index']]:
+        rewards.append(rewards[-1] + transition['reward'])
+    return {'Step':list(range(len(rewards))), 'Reward':rewards}
+
+
+def card_heading(title, subtitle, chip=None):
+    badge = f'<span class="lab-chip">{escape(chip)}</span>' if chip else ''
+    st.markdown(f'<div class="lab-card-heading"><div><strong>{escape(title)}</strong>'
+                f'<small>{escape(subtitle)}</small></div>{badge}</div>', unsafe_allow_html=True)
+
+
+def reward_chart(episode, index):
+    history = reward_history(episode, index)
+    spec = {
+        'height':170, 'background':'transparent',
+        'layer':[
+            {'mark':{'type':'area', 'color':'#00bdf2', 'opacity':.12}},
+            {'mark':{'type':'line', 'color':'#00bdf2', 'strokeWidth':2,
+                     'point':{'filled':True, 'size':28}}}],
+        'encoding':{
+            'x':{'field':'Step', 'type':'quantitative',
+                 'scale':{'domain':[0,max(1,history['Step'][-1])]},
+                 'axis':{'title':'Recorded step', 'format':'d', 'tickMinStep':1, 'grid':False}},
+            'y':{'field':'Reward', 'type':'quantitative',
+                 'scale':{'domain':[min(-.1,min(history['Reward'])),max(.1,max(history['Reward']))]},
+                 'axis':{'title':None, 'format':'.2f', 'tickCount':4}}},
+        'config':{'view':{'stroke':None}, 'axis':{'labelColor':'#88a9bf', 'titleColor':'#88a9bf',
+                   'domain':False, 'tickColor':'#1c394a', 'gridColor':'#1c394a'}}}
+    st.vega_lite_chart(history, spec, width='stretch')
+
+
 @st.cache_data(show_spinner=False,max_entries=160)
-def map_png(grid,episode,index,trail=True,visits=False,bfs=False):
+def map_png(grid,episode,index,trail=True,visits=False,bfs=False,landscape=False):
     """Cache actual replay-prefix rendering, independent of timer refreshes."""
     with _MAP_RENDER_LOCK:
         figure=draw(grid,episode,index,trail=trail,visits=visits,bfs=bfs)
@@ -311,30 +280,41 @@ def map_png(grid,episode,index,trail=True,visits=False,bfs=False):
             # Fixed geometry: never let text, legends or a second layout pass resize
             # one panel's grid independently of the other.
             figure.set_layout_engine(None)
-            figure.set_size_inches(6.4,6.0,forward=False)
-            figure.set_facecolor('#0f1b28')
-            ax=figure.axes[0];ax.set_facecolor('#0f1b28')
-            ax.set_position([.10,.12,.84,.82])
-            ax.images[0].set_cmap(ListedColormap(['#152637','#3c5268']))
-            ax.tick_params(colors='#9db6cc',labelsize=9)
-            ax.grid(which='minor',color='#32495e',linewidth=.6)
+            width, height = (7.6,5.3) if landscape else (6.4,6.0)
+            figure.set_size_inches(width,height,forward=False)
+            figure.set_facecolor('#091923')
+            ax=figure.axes[0];ax.set_facecolor('#091923')
+            ax.set_position([.08,.10,.89,.87])
+            if landscape:
+                # This is a coordinate schematic. Both axes retain grid-cell
+                # units while the live workspace uses a wider viewing panel.
+                ax.set_aspect('auto')
+            ax.images[0].set_cmap(ListedColormap(['#0b1d29','#243e50']))
+            ax.tick_params(colors='#88a9bf',labelsize=8)
+            ax.grid(which='minor',color='#355368',linewidth=.65)
             for spine in ax.spines.values():
                 spine.set_color('#3d556c')
             ax.xaxis.label.set_color('#9db6cc');ax.yaxis.label.set_color('#9db6cc')
-            ax.set_title(ax.get_title(loc='left'),loc='left',color='#e2edf7',fontsize=10)
-            for patch,color in zip(ax.patches,('#78c5ff','#6ee2b7')):
+            ax.set_title('',loc='left')
+            for patch,color in zip(ax.patches,('#8ba6b8','#00dfb5')):
                 patch.set_edgecolor(color)
+            # The first collection is the real robot position from draw().
+            # Keep collision markers and attempted-move arrows red.
+            ax.collections[0].set_facecolor('#00bdf2')
+            ax.collections[0].set_edgecolor('#a3eeff')
+            ax.collections[0].set_linewidth(1.8)
             for text in ax.texts:
                 label=text.get_text()
                 if label in ('S','G'):
-                    text.set_color('#78c5ff' if label=='S' else '#6ee2b7')
+                    text.set_color('#8ba6b8' if label=='S' else '#00dfb5')
                 elif label=='R':
-                    text.set_color('#231700')
+                    text.set_color('#052333')
                 elif label.isdigit():
                     text.set_color('#8de5dd')
                     text.set_bbox({'facecolor':'#102132','edgecolor':'none','pad':.5})
             for line in ax.lines:
-                line.set_color('#ba9dff' if line.get_linestyle()=='--' else '#58d9ca')
+                line.set_color('#ba9dff' if line.get_linestyle()=='--' else '#86ddff')
+                line.set_alpha(.95)
             for text in figure.texts:
                 text.set_color('#a8bdce')
             legend=ax.get_legend()

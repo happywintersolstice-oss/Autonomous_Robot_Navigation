@@ -4,6 +4,21 @@ Updated 9 November 2026 after five-seed neural confirmation, native dashboard
 checks and report consolidation. The owner chose to defer independent evaluation
 to the unseen-map stage. Historical milestone records retain their original scope.
 
+## Current UI work and next milestone
+
+On 9 November 2026 the owner requested a dashboard recreation using the supplied
+NAVRL Navigation Control screenshots. The current work covers the dark navy and
+cyan workspace, left navigation, replay controls, map, state and reward panels.
+Displayed readings retain their actual saved-run provenance and grid units.
+On 10 November the owner prioritized the first reference, with the map centered
+between performance/agent state and distance/reward panels. Navigation is
+collapsed initially to give this layout the available screen width.
+
+The **next research milestone remains the unseen-map study**, including its
+independent evaluation. Its setup requirements remain in
+[the evaluation handoff](evaluation_boundary_and_handoff.md). UI work introduces
+no additional benchmark training, layouts or final-test executions.
+
 ## Implemented and measured
 
 - All six core milestones: versioned environment, manifests, references, tabular
