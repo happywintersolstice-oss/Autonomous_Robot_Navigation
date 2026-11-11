@@ -580,3 +580,38 @@ hash records the presentation change. The independent four-family evaluation
 is complete, and these ten layouts are now inspected evidence for future work.
 The frozen release and measured outcomes remain available separately from
 development results under unseen-map-final-v1 and docs/milestone12_*.
+
+## Milestone 13 on 11 November 2026
+
+The owner selected failure diagnosis as the next milestone. Registered the
+source cohorts, cycle/collision definitions, geometric annotations, example
+selection rule and resource limits before the full diagnostic calculation.
+The study reads all twelve M11 main validation and twelve M12 final recordings,
+with 8,064 cases, 908,298 actions and 449 pinned input files. Every stored
+transition is revalidated through the core environment, and all outcomes and
+interaction totals reconcile. Model queries and new training/evaluation
+episodes are zero.
+
+All 4,434 studied timeouts contain persistent cycles under the deterministic
+stateless evaluation contract. Of those, 4,283 are two-cell cycles, or 96.59%.
+The remaining periods are four, six and eight actions. About 97.55% of timeout
+actions occur after the first closed traversal. The 59 collisions divide into
+54 wall and five boundary attempts. Difficulty/seed records preserve the
+separate development and inspected-final cohorts.
+
+Added Failure analysis within Unseen maps, with composition charts, route-band
+tables, selectable failure maps and 41 bounded references to existing source
+replays. Native checks found a compressed chart and an old selection used by
+a rapid event click. Explicit sizing/axis labels corrected the chart. The
+callback now resolves submitted selection state and preserves preferences
+across views. Tests exercise rapid selection/click submission for longer-cycle
+and boundary examples. Native checks verified the corrected four-action event
+at action6, collision at action5, both cohorts and responsive narrow layout.
+
+Calculation/export took 14.34 seconds and verification 16.14 seconds. Study
+files occupy approximately 7.56 MB. All 202 tests passed in 116.84 seconds.
+All 14,181 protected pre-study files retain their hashes. The 114-file unseen
+final seal and 184-input original frozen archive remain valid. Initial
+calculation and latest verification hashes retain the validation/UI iteration
+history, and every scientific record recomputes exactly. Training causes and
+the benefit of an intervention remain future experimental questions.

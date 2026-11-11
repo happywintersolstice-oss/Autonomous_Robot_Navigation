@@ -1,0 +1,25 @@
+dataset,algorithm,training_seed,episodes,optimal success,detour success,wall collision,boundary collision,stationary timeout,two-cell timeout,longer-cycle timeout,non-periodic timeout
+development,dqn,12101,192,45,5,0,0,0,134,8,0
+development,dqn,12203,192,74,7,0,0,0,104,7,0
+development,dqn,12301,192,60,2,0,0,0,126,4,0
+development,ppo,12101,192,138,9,0,0,0,45,0,0
+development,ppo,12203,192,143,6,0,0,0,43,0,0
+development,ppo,12301,192,124,6,1,0,0,57,4,0
+development,q-learning,12101,192,37,3,0,0,0,152,0,0
+development,q-learning,12203,192,31,0,0,0,0,157,4,0
+development,q-learning,12301,192,35,3,1,0,0,148,5,0
+development,sarsa,12101,192,116,9,3,0,0,64,0,0
+development,sarsa,12203,192,110,7,0,0,0,73,2,0
+development,sarsa,12301,192,113,10,1,0,0,66,2,0
+final,dqn,12101,480,101,10,0,0,0,350,19,0
+final,dqn,12203,480,153,19,0,0,0,301,7,0
+final,dqn,12301,480,132,4,0,0,0,329,15,0
+final,ppo,12101,480,305,23,9,2,0,139,2,0
+final,ppo,12203,480,282,20,8,0,0,166,4,0
+final,ppo,12301,480,269,24,6,3,0,174,4,0
+final,q-learning,12101,480,69,2,1,0,0,405,3,0
+final,q-learning,12203,480,74,6,0,0,0,390,10,0
+final,q-learning,12301,480,85,6,0,0,0,376,13,0
+final,sarsa,12101,480,271,22,8,0,0,166,13,0
+final,sarsa,12203,480,273,17,11,0,0,161,18,0
+final,sarsa,12301,480,294,17,5,0,0,157,7,0

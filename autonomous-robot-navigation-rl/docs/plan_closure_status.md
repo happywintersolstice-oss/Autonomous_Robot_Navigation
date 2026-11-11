@@ -1,5 +1,15 @@
 # Plan closure and remaining scope
 
+Updated 11 November 2026 for milestone 13. The owner selected saved-trajectory
+failure diagnosis. The calculation verifies 8,064 cases and 908,298 recorded
+actions across M11 development and M12 inspected-final cohorts. All 4,434
+timeouts contain persistent cycles, with 96.59% alternating between two cells.
+The dashboard adds composition/difficulty views, failure-location maps and
+41 bounded links to existing replay events. All 202 tests, native checks and
+14,181-file preservation checks passed. This explains saved failure patterns.
+Training causes and a performance-improving intervention remain untested.
+See [milestone 13 measured results](milestone13_results.md).
+
 Updated 10 November 2026 for milestone 12. The independent unseen-map evaluation
 is complete. Twelve frozen policies and four reference runs evaluated 7,680
 episodes on ten held-out layouts. Three-seed final success averaged 16.81%
@@ -39,15 +49,20 @@ On 10 November the owner prioritized the first reference, with the map centered
 between performance/agent state and distance/reward panels. Navigation is
 collapsed initially to give this layout the available screen width.
 
-The unseen-map foundation, shared-feature development study and frozen
-independent four-family evaluation are complete. The current research stage
-has measured final outcomes and documented performance limitations.
+The unseen-map foundation, shared-feature development study, frozen independent
+four-family evaluation and saved-trajectory diagnosis are complete. The current
+research stage has measured final outcomes, quantified cycles and documented
+performance limitations. Further improvement work needs a registered design
+and fresh independent holdout.
 The original setup requirements remain in
 [the evaluation handoff](evaluation_boundary_and_handoff.md). UI work introduces
 no additional benchmark training, layouts or final-test executions.
 
 ## Implemented and measured
 
+- Post hoc failure diagnosis with cycle/collision definitions, complete source
+  reconciliation, per-seed and difficulty tables, event-location maps and replay
+  jumps for both development and inspected-final evidence.
 - Frozen independent unseen-map evaluation with all twelve selected controllers,
   ten held-out layouts, BFS/three Random seeds, layout-cluster intervals,
   complete action audit and separate final-results/replay dashboard entry.

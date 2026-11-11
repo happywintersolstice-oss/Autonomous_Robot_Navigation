@@ -1,0 +1,118 @@
+{
+  "status": "passed",
+  "date": "2026-11-11",
+  "milestone": "13. Saved-trajectory failure diagnosis",
+  "tests": {
+    "passed": 202,
+    "seconds": 116.84,
+    "command": "python -X utf8 -m pytest -q -p no:cacheprovider --basetemp=.cache/m13-full-tests-02 --tb=short"
+  },
+  "diagnosis": {
+    "status": "passed",
+    "episodes": 8064,
+    "actions": 908298,
+    "audit_seconds": 16.142125699901953,
+    "source_hash": "2cbd0ed25f3725b76f9251507d2943cb40da02cab0eca91bf37e3b4e005f4b65",
+    "input_files": 449,
+    "summary_sha256": "c05696a9f9eeb88d79eb67c984cb291a98b3a47a0e9e4839db9fc5077f21774d",
+    "new_training_interactions": 0,
+    "new_evaluation_episodes": 0,
+    "policy_queries": 0,
+    "example_links": 41,
+    "timeout_episodes": 4434,
+    "two_cell_timeouts": 4283,
+    "longer_cycle_timeouts": 151,
+    "collisions": 59,
+    "timeout_actions": 886800,
+    "actions_after_first_return": 865090,
+    "development_episodes": 2304,
+    "inspected_final_episodes": 5760
+  },
+  "resources": {
+    "calculation_seconds": 14.336346499971114,
+    "verification_seconds": 16.142125699901953,
+    "derived_artifact_bytes": 7557232
+  },
+  "source": {
+    "calculation": "a7338bc3fc78f5f0006afec64d0ae54d75c4db35871b3e6d11ba0aa92efadff1",
+    "verification": "2cbd0ed25f3725b76f9251507d2943cb40da02cab0eca91bf37e3b4e005f4b65",
+    "current_matches_verification": true,
+    "post_calculation_changes": "Verification/protocol guards and dashboard layout, selection and event-link fixes. All diagnostic rows recompute exactly."
+  },
+  "completed_output_reuse": {
+    "passed": true,
+    "files": 8,
+    "changed_files": []
+  },
+  "preservation": {
+    "protected_files": 14181,
+    "changed_files": [],
+    "unseen_frozen_inputs": 114,
+    "unseen_seal": "dfffd2c2765832fbfb5227a044ac1efc6dfafcc86cb179fe0e3cb2a7baa9bad1",
+    "original_frozen_inputs": 184,
+    "original_seal": "f536d8ab40dc461f7dd2f94cb31cda2ce9a612f13f19c4bedd7c431bf91f8c28",
+    "protocol_checkout": "Raw-byte attribute preserves the registered live protocol and study hashes."
+  },
+  "native_ui": {
+    "passed": true,
+    "desktop_viewport": [
+      1230,
+      956
+    ],
+    "narrow_viewport": [
+      854,
+      1000
+    ],
+    "narrow_document_width": 854,
+    "narrow_page_overflow_pixels": 0,
+    "viewport_restored": true,
+    "checks": [
+      "Development and final scope, support and composition match their saved records",
+      "Chart bars and labels are legible after explicit chart-height correction",
+      "PPO seed12101 final-map001 two-cell event actions 7, 8 and 9 alternate correctly",
+      "Rapid selection opens PPO seed12203 final-map010 four-action cycle at action6, position[3,8]",
+      "Boundary example opens PPO seed12101 final-map002 at terminal action5, position[0,3]",
+      "Failure-map counts and illustrative-recording source captions are visible",
+      "Selections persist when returning from replay",
+      "Narrow layout is readable without horizontal page overflow"
+    ],
+    "screenshots": [
+      {
+        "path": "docs/unseen-map-diagnostics/cycle-event.jpg",
+        "width": 1230,
+        "height": 956,
+        "sha256": "9f4d39ffa5d2f0a3c34c30be112ded634a85b126f4e26cab331b9f92653c3823"
+      },
+      {
+        "path": "docs/unseen-map-diagnostics/failure-map.jpg",
+        "width": 1230,
+        "height": 956,
+        "sha256": "9992360240ca4c3ee0b69d31811cae0130a00491b8b3f75d9a2a7c39828a5661"
+      },
+      {
+        "path": "docs/unseen-map-diagnostics/failure-summary.jpg",
+        "width": 1230,
+        "height": 956,
+        "sha256": "4a67b1f4cafb40ac800bb27442b0a81157c299e7dee1401e0358ef31035cbdd6"
+      },
+      {
+        "path": "docs/unseen-map-diagnostics/long-cycle-event.jpg",
+        "width": 1230,
+        "height": 956,
+        "sha256": "3220430640a2e6f5148a209d01b79a3b24eb3cde37c0569e74ca11c1358492f3"
+      },
+      {
+        "path": "docs/unseen-map-diagnostics/narrow-diagnostics.jpg",
+        "width": 854,
+        "height": 1000,
+        "sha256": "e2a1b17f6c0ee2db0e330f6f16f42ef8ebf785f82a65b2f1fb486b11469a4aa1"
+      }
+    ]
+  },
+  "limits": [
+    "Post hoc description of deterministic stateless saved policies on inspected development/final cohorts",
+    "Three training seeds, four development layouts and ten inspected final layouts",
+    "Training causes and intervention effectiveness remain untested",
+    "Future performance improvements require a registered change and fresh independent holdout"
+  ]
+}

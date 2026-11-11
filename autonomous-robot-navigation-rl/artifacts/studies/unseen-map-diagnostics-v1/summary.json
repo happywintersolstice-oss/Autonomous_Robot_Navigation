@@ -1,0 +1,2788 @@
+{
+  "status": "verified",
+  "groups": [
+    {
+      "dataset": "development",
+      "algorithm": "q-learning",
+      "episodes": 576,
+      "seed_count": 3,
+      "success_mean": 0.18923611111111113,
+      "success_sd": 0.024613623053398998,
+      "counts": {
+        "optimal success": 103,
+        "detour success": 6,
+        "wall collision": 1,
+        "boundary collision": 0,
+        "stationary timeout": 0,
+        "two-cell timeout": 457,
+        "longer-cycle timeout": 9,
+        "non-periodic timeout": 0
+      },
+      "rates": {
+        "optimal success": {
+          "mean": 0.17881944444444445,
+          "sd": 0.01591172116304111
+        },
+        "detour success": {
+          "mean": 0.010416666666666666,
+          "sd": 0.009021097956087904
+        },
+        "wall collision": {
+          "mean": 0.001736111111111111,
+          "sd": 0.003007032652029301
+        },
+        "boundary collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "stationary timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "two-cell timeout": {
+          "mean": 0.7934027777777778,
+          "sd": 0.023485675795952576
+        },
+        "longer-cycle timeout": {
+          "mean": 0.015625,
+          "sd": 0.013779954745128078
+        },
+        "non-periodic timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        }
+      },
+      "timeout_episodes": 466,
+      "periodic_timeouts": 466,
+      "timeout_actions": 93200,
+      "actions_after_first_return": 91025,
+      "mean_cycle_entry_action": 2.624463519313305
+    },
+    {
+      "dataset": "development",
+      "algorithm": "sarsa",
+      "episodes": 576,
+      "seed_count": 3,
+      "success_mean": 0.6336805555555555,
+      "success_sd": 0.0216840208277722,
+      "counts": {
+        "optimal success": 339,
+        "detour success": 26,
+        "wall collision": 4,
+        "boundary collision": 0,
+        "stationary timeout": 0,
+        "two-cell timeout": 203,
+        "longer-cycle timeout": 4,
+        "non-periodic timeout": 0
+      },
+      "rates": {
+        "optimal success": {
+          "mean": 0.5885416666666666,
+          "sd": 0.015625
+        },
+        "detour success": {
+          "mean": 0.045138888888888895,
+          "sd": 0.007955860581520554
+        },
+        "wall collision": {
+          "mean": 0.006944444444444444,
+          "sd": 0.007955860581520556
+        },
+        "boundary collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "stationary timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "two-cell timeout": {
+          "mean": 0.3524305555555555,
+          "sd": 0.024613623053398998
+        },
+        "longer-cycle timeout": {
+          "mean": 0.006944444444444444,
+          "sd": 0.006014065304058602
+        },
+        "non-periodic timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        }
+      },
+      "timeout_episodes": 207,
+      "periodic_timeouts": 207,
+      "timeout_actions": 41400,
+      "actions_after_first_return": 40333,
+      "mean_cycle_entry_action": 3.106280193236715
+    },
+    {
+      "dataset": "development",
+      "algorithm": "dqn",
+      "episodes": 576,
+      "seed_count": 3,
+      "success_mean": 0.3350694444444445,
+      "success_sd": 0.08141232005342607,
+      "counts": {
+        "optimal success": 179,
+        "detour success": 14,
+        "wall collision": 0,
+        "boundary collision": 0,
+        "stationary timeout": 0,
+        "two-cell timeout": 364,
+        "longer-cycle timeout": 19,
+        "non-periodic timeout": 0
+      },
+      "rates": {
+        "optimal success": {
+          "mean": 0.3107638888888889,
+          "sd": 0.07553579832571908
+        },
+        "detour success": {
+          "mean": 0.024305555555555556,
+          "sd": 0.013107351450122831
+        },
+        "wall collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "boundary collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "stationary timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "two-cell timeout": {
+          "mean": 0.6319444444444444,
+          "sd": 0.08091097359535447
+        },
+        "longer-cycle timeout": {
+          "mean": 0.03298611111111111,
+          "sd": 0.010842010413886109
+        },
+        "non-periodic timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        }
+      },
+      "timeout_episodes": 383,
+      "periodic_timeouts": 383,
+      "timeout_actions": 76600,
+      "actions_after_first_return": 74941,
+      "mean_cycle_entry_action": 2.2114882506527413
+    },
+    {
+      "dataset": "development",
+      "algorithm": "ppo",
+      "episodes": 576,
+      "seed_count": 3,
+      "success_mean": 0.7395833333333334,
+      "success_sd": 0.05437659640057575,
+      "counts": {
+        "optimal success": 405,
+        "detour success": 21,
+        "wall collision": 1,
+        "boundary collision": 0,
+        "stationary timeout": 0,
+        "two-cell timeout": 145,
+        "longer-cycle timeout": 4,
+        "non-periodic timeout": 0
+      },
+      "rates": {
+        "optimal success": {
+          "mean": 0.703125,
+          "sd": 0.05129613438435467
+        },
+        "detour success": {
+          "mean": 0.036458333333333336,
+          "sd": 0.009021097956087904
+        },
+        "wall collision": {
+          "mean": 0.001736111111111111,
+          "sd": 0.003007032652029301
+        },
+        "boundary collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "stationary timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "two-cell timeout": {
+          "mean": 0.2517361111111111,
+          "sd": 0.03943686351250189
+        },
+        "longer-cycle timeout": {
+          "mean": 0.006944444444444444,
+          "sd": 0.012028130608117204
+        },
+        "non-periodic timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        }
+      },
+      "timeout_episodes": 149,
+      "periodic_timeouts": 149,
+      "timeout_actions": 29800,
+      "actions_after_first_return": 28982,
+      "mean_cycle_entry_action": 3.422818791946309
+    },
+    {
+      "dataset": "final",
+      "algorithm": "q-learning",
+      "episodes": 1440,
+      "seed_count": 3,
+      "success_mean": 0.16805555555555554,
+      "success_sd": 0.020868026668495437,
+      "counts": {
+        "optimal success": 228,
+        "detour success": 14,
+        "wall collision": 1,
+        "boundary collision": 0,
+        "stationary timeout": 0,
+        "two-cell timeout": 1171,
+        "longer-cycle timeout": 26,
+        "non-periodic timeout": 0
+      },
+      "rates": {
+        "optimal success": {
+          "mean": 0.15833333333333333,
+          "sd": 0.01705281827473428
+        },
+        "detour success": {
+          "mean": 0.009722222222222222,
+          "sd": 0.004811252243246882
+        },
+        "wall collision": {
+          "mean": 0.0006944444444444445,
+          "sd": 0.0012028130608117203
+        },
+        "boundary collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "stationary timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "two-cell timeout": {
+          "mean": 0.8131944444444444,
+          "sd": 0.03021431933028763
+        },
+        "longer-cycle timeout": {
+          "mean": 0.018055555555555557,
+          "sd": 0.010690836332181009
+        },
+        "non-periodic timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        }
+      },
+      "timeout_episodes": 1197,
+      "periodic_timeouts": 1197,
+      "timeout_actions": 239400,
+      "actions_after_first_return": 233459,
+      "mean_cycle_entry_action": 2.901420217209691
+    },
+    {
+      "dataset": "final",
+      "algorithm": "sarsa",
+      "episodes": 1440,
+      "seed_count": 3,
+      "success_mean": 0.6208333333333333,
+      "success_sd": 0.02366211810750116,
+      "counts": {
+        "optimal success": 838,
+        "detour success": 56,
+        "wall collision": 24,
+        "boundary collision": 0,
+        "stationary timeout": 0,
+        "two-cell timeout": 484,
+        "longer-cycle timeout": 38,
+        "non-periodic timeout": 0
+      },
+      "rates": {
+        "optimal success": {
+          "mean": 0.5819444444444445,
+          "sd": 0.026543770630022803
+        },
+        "detour success": {
+          "mean": 0.03888888888888888,
+          "sd": 0.0060140653040586
+        },
+        "wall collision": {
+          "mean": 0.016666666666666666,
+          "sd": 0.0062499999999999995
+        },
+        "boundary collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "stationary timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "two-cell timeout": {
+          "mean": 0.3361111111111111,
+          "sd": 0.009394270318381024
+        },
+        "longer-cycle timeout": {
+          "mean": 0.02638888888888889,
+          "sd": 0.011474105306846043
+        },
+        "non-periodic timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        }
+      },
+      "timeout_episodes": 522,
+      "periodic_timeouts": 522,
+      "timeout_actions": 104400,
+      "actions_after_first_return": 101481,
+      "mean_cycle_entry_action": 3.4080459770114944
+    },
+    {
+      "dataset": "final",
+      "algorithm": "dqn",
+      "episodes": 1440,
+      "seed_count": 3,
+      "success_mean": 0.29097222222222224,
+      "success_sd": 0.06388511462281624,
+      "counts": {
+        "optimal success": 386,
+        "detour success": 33,
+        "wall collision": 0,
+        "boundary collision": 0,
+        "stationary timeout": 0,
+        "two-cell timeout": 980,
+        "longer-cycle timeout": 41,
+        "non-periodic timeout": 0
+      },
+      "rates": {
+        "optimal success": {
+          "mean": 0.26805555555555555,
+          "sd": 0.054499511550648395
+        },
+        "detour success": {
+          "mean": 0.022916666666666665,
+          "sd": 0.015728821740147395
+        },
+        "wall collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "boundary collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "stationary timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "two-cell timeout": {
+          "mean": 0.6805555555555555,
+          "sd": 0.05121498352081191
+        },
+        "longer-cycle timeout": {
+          "mean": 0.02847222222222222,
+          "sd": 0.01272937693043289
+        },
+        "non-periodic timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        }
+      },
+      "timeout_episodes": 1021,
+      "periodic_timeouts": 1021,
+      "timeout_actions": 204200,
+      "actions_after_first_return": 199740,
+      "mean_cycle_entry_action": 2.26052889324192
+    },
+    {
+      "dataset": "final",
+      "algorithm": "ppo",
+      "episodes": 1440,
+      "seed_count": 3,
+      "success_mean": 0.6409722222222222,
+      "success_sd": 0.037864738556154395,
+      "counts": {
+        "optimal success": 856,
+        "detour success": 67,
+        "wall collision": 23,
+        "boundary collision": 5,
+        "stationary timeout": 0,
+        "two-cell timeout": 479,
+        "longer-cycle timeout": 10,
+        "non-periodic timeout": 0
+      },
+      "rates": {
+        "optimal success": {
+          "mean": 0.5944444444444444,
+          "sd": 0.03797919142743141
+        },
+        "detour success": {
+          "mean": 0.04652777777777778,
+          "sd": 0.004336804165554446
+        },
+        "wall collision": {
+          "mean": 0.01597222222222222,
+          "sd": 0.0031823442326082215
+        },
+        "boundary collision": {
+          "mean": 0.0034722222222222225,
+          "sd": 0.0031823442326082223
+        },
+        "stationary timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "two-cell timeout": {
+          "mean": 0.33263888888888893,
+          "sd": 0.038207068620774755
+        },
+        "longer-cycle timeout": {
+          "mean": 0.006944444444444445,
+          "sd": 0.0024056261216234406
+        },
+        "non-periodic timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        }
+      },
+      "timeout_episodes": 489,
+      "periodic_timeouts": 489,
+      "timeout_actions": 97800,
+      "actions_after_first_return": 95129,
+      "mean_cycle_entry_action": 3.4171779141104293
+    }
+  ],
+  "examples": [
+    {
+      "dataset": "development",
+      "algorithm": "q-learning",
+      "training_seed": 12101,
+      "run_id": "m11-shared-main-q-learning-seed12101",
+      "category": "two-cell timeout",
+      "layout_id": "unseen-maps-v1-validation-001",
+      "scenario_id": "unseen-maps-v1-validation-001-r0c1-r6c3",
+      "event_action": 7,
+      "cycle_start": 5,
+      "first_return": 7,
+      "period": 2,
+      "item": {
+        "path": "replays/validation-000.json",
+        "sha256": "54c7a7850efb79a07565b1a4a8d69acf8523172d81d16904408f980f8bf1a0ed",
+        "layout_id": "unseen-maps-v1-validation-001",
+        "outcome": "timeout"
+      }
+    },
+    {
+      "dataset": "development",
+      "algorithm": "sarsa",
+      "training_seed": 12101,
+      "run_id": "m11-shared-main-sarsa-seed12101",
+      "category": "two-cell timeout",
+      "layout_id": "unseen-maps-v1-validation-001",
+      "scenario_id": "unseen-maps-v1-validation-001-r0c1-r7c7",
+      "event_action": 11,
+      "cycle_start": 9,
+      "first_return": 11,
+      "period": 2,
+      "item": {
+        "path": "replays/validation-001.json",
+        "sha256": "289dcb3e58c952bd8bfcf23e988d83584dee3a8fbd1f138fc945cf943eb4b174",
+        "layout_id": "unseen-maps-v1-validation-001",
+        "outcome": "timeout"
+      }
+    },
+    {
+      "dataset": "development",
+      "algorithm": "sarsa",
+      "training_seed": 12101,
+      "run_id": "m11-shared-main-sarsa-seed12101",
+      "category": "wall collision",
+      "layout_id": "unseen-maps-v1-validation-002",
+      "scenario_id": "unseen-maps-v1-validation-002-r9c0-r2c0",
+      "event_action": 6,
+      "cycle_start": null,
+      "first_return": null,
+      "period": null,
+      "item": {
+        "path": "replays/validation-004.json",
+        "sha256": "11fe1d51b30e5a220a206de9f94637347b93c99444cc9a77567c4671194faab8",
+        "layout_id": "unseen-maps-v1-validation-002",
+        "outcome": "collision"
+      }
+    },
+    {
+      "dataset": "development",
+      "algorithm": "dqn",
+      "training_seed": 12101,
+      "run_id": "m11-shared-main-dqn-seed12101",
+      "category": "two-cell timeout",
+      "layout_id": "unseen-maps-v1-validation-001",
+      "scenario_id": "unseen-maps-v1-validation-001-r0c8-r3c0",
+      "event_action": 3,
+      "cycle_start": 1,
+      "first_return": 3,
+      "period": 2,
+      "item": {
+        "path": "replays/validation-001.json",
+        "sha256": "3e6973172933ed76701f8337ec6343876e021f094c4d3bf8393d71cd9fd93a4c",
+        "layout_id": "unseen-maps-v1-validation-001",
+        "outcome": "timeout"
+      }
+    },
+    {
+      "dataset": "development",
+      "algorithm": "ppo",
+      "training_seed": 12101,
+      "run_id": "m11-shared-main-ppo-seed12101",
+      "category": "two-cell timeout",
+      "layout_id": "unseen-maps-v1-validation-001",
+      "scenario_id": "unseen-maps-v1-validation-001-r0c1-r7c7",
+      "event_action": 10,
+      "cycle_start": 8,
+      "first_return": 10,
+      "period": 2,
+      "item": {
+        "path": "replays/validation-001.json",
+        "sha256": "c991e85895851afa4f53156573f8408a90451c4d7e2777f7cac1937b664d8765",
+        "layout_id": "unseen-maps-v1-validation-001",
+        "outcome": "timeout"
+      }
+    },
+    {
+      "dataset": "development",
+      "algorithm": "q-learning",
+      "training_seed": 12203,
+      "run_id": "m11-shared-main-q-learning-seed12203",
+      "category": "two-cell timeout",
+      "layout_id": "unseen-maps-v1-validation-001",
+      "scenario_id": "unseen-maps-v1-validation-001-r0c1-r6c3",
+      "event_action": 9,
+      "cycle_start": 7,
+      "first_return": 9,
+      "period": 2,
+      "item": {
+        "path": "replays/validation-000.json",
+        "sha256": "61cd266ac42b4c5d243e6c306b23dccc90690c994493013c6fa68fc62f83474e",
+        "layout_id": "unseen-maps-v1-validation-001",
+        "outcome": "timeout"
+      }
+    },
+    {
+      "dataset": "development",
+      "algorithm": "sarsa",
+      "training_seed": 12203,
+      "run_id": "m11-shared-main-sarsa-seed12203",
+      "category": "two-cell timeout",
+      "layout_id": "unseen-maps-v1-validation-001",
+      "scenario_id": "unseen-maps-v1-validation-001-r0c1-r7c7",
+      "event_action": 11,
+      "cycle_start": 9,
+      "first_return": 11,
+      "period": 2,
+      "item": {
+        "path": "replays/validation-001.json",
+        "sha256": "d04a3573b03b313e20a3dc6aa9926e3c60a83fb7519d648f16f0e233832e2ae1",
+        "layout_id": "unseen-maps-v1-validation-001",
+        "outcome": "timeout"
+      }
+    },
+    {
+      "dataset": "development",
+      "algorithm": "dqn",
+      "training_seed": 12203,
+      "run_id": "m11-shared-main-dqn-seed12203",
+      "category": "two-cell timeout",
+      "layout_id": "unseen-maps-v1-validation-001",
+      "scenario_id": "unseen-maps-v1-validation-001-r0c1-r7c7",
+      "event_action": 7,
+      "cycle_start": 5,
+      "first_return": 7,
+      "period": 2,
+      "item": {
+        "path": "replays/validation-001.json",
+        "sha256": "d47f21e2314998af1f7d314a887a3b7f3d0ee8b8d0bb75014d20448e87578719",
+        "layout_id": "unseen-maps-v1-validation-001",
+        "outcome": "timeout"
+      }
+    },
+    {
+      "dataset": "development",
+      "algorithm": "ppo",
+      "training_seed": 12203,
+      "run_id": "m11-shared-main-ppo-seed12203",
+      "category": "two-cell timeout",
+      "layout_id": "unseen-maps-v1-validation-001",
+      "scenario_id": "unseen-maps-v1-validation-001-r0c8-r3c0",
+      "event_action": 5,
+      "cycle_start": 3,
+      "first_return": 5,
+      "period": 2,
+      "item": {
+        "path": "replays/validation-001.json",
+        "sha256": "f276b8320a05ffba92f23881fdfc7a6e5e8ad1e6b0588d8fc2a9c2892352f2e6",
+        "layout_id": "unseen-maps-v1-validation-001",
+        "outcome": "timeout"
+      }
+    },
+    {
+      "dataset": "development",
+      "algorithm": "q-learning",
+      "training_seed": 12301,
+      "run_id": "m11-shared-main-q-learning-seed12301",
+      "category": "two-cell timeout",
+      "layout_id": "unseen-maps-v1-validation-001",
+      "scenario_id": "unseen-maps-v1-validation-001-r0c1-r7c7",
+      "event_action": 7,
+      "cycle_start": 5,
+      "first_return": 7,
+      "period": 2,
+      "item": {
+        "path": "replays/validation-001.json",
+        "sha256": "f1685db00957dd77c878e4b23fe90e1c0b2283c790d553ebb297cb5c539ae2ff",
+        "layout_id": "unseen-maps-v1-validation-001",
+        "outcome": "timeout"
+      }
+    },
+    {
+      "dataset": "development",
+      "algorithm": "q-learning",
+      "training_seed": 12301,
+      "run_id": "m11-shared-main-q-learning-seed12301",
+      "category": "wall collision",
+      "layout_id": "unseen-maps-v1-validation-003",
+      "scenario_id": "unseen-maps-v1-validation-003-r6c1-r4c1",
+      "event_action": 1,
+      "cycle_start": null,
+      "first_return": null,
+      "period": null,
+      "item": {
+        "path": "replays/validation-006.json",
+        "sha256": "e791c430325efa98b315b63a14ffd85e1a294eddb040b880648dd5db191b569e",
+        "layout_id": "unseen-maps-v1-validation-003",
+        "outcome": "collision"
+      }
+    },
+    {
+      "dataset": "development",
+      "algorithm": "sarsa",
+      "training_seed": 12301,
+      "run_id": "m11-shared-main-sarsa-seed12301",
+      "category": "two-cell timeout",
+      "layout_id": "unseen-maps-v1-validation-001",
+      "scenario_id": "unseen-maps-v1-validation-001-r1c0-r6c1",
+      "event_action": 6,
+      "cycle_start": 4,
+      "first_return": 6,
+      "period": 2,
+      "item": {
+        "path": "replays/validation-001.json",
+        "sha256": "cfb64562a3d7397aac968b7b40a9ff2ef4b33f8c1134bcc220caf05b5d85226a",
+        "layout_id": "unseen-maps-v1-validation-001",
+        "outcome": "timeout"
+      }
+    },
+    {
+      "dataset": "development",
+      "algorithm": "sarsa",
+      "training_seed": 12301,
+      "run_id": "m11-shared-main-sarsa-seed12301",
+      "category": "wall collision",
+      "layout_id": "unseen-maps-v1-validation-003",
+      "scenario_id": "unseen-maps-v1-validation-003-r9c1-r7c2",
+      "event_action": 2,
+      "cycle_start": null,
+      "first_return": null,
+      "period": null,
+      "item": {
+        "path": "replays/validation-006.json",
+        "sha256": "8c7f9ce5c0ef46d5b0ede48ae41e5a1f1866be110e6ec5ccf37d8936334b45ad",
+        "layout_id": "unseen-maps-v1-validation-003",
+        "outcome": "collision"
+      }
+    },
+    {
+      "dataset": "development",
+      "algorithm": "dqn",
+      "training_seed": 12301,
+      "run_id": "m11-shared-main-dqn-seed12301",
+      "category": "two-cell timeout",
+      "layout_id": "unseen-maps-v1-validation-001",
+      "scenario_id": "unseen-maps-v1-validation-001-r0c1-r7c7",
+      "event_action": 2,
+      "cycle_start": 0,
+      "first_return": 2,
+      "period": 2,
+      "item": {
+        "path": "replays/validation-001.json",
+        "sha256": "207713e93514865ce7c4c8f1c770a49b956474fef4d17963197c362b6e29d969",
+        "layout_id": "unseen-maps-v1-validation-001",
+        "outcome": "timeout"
+      }
+    },
+    {
+      "dataset": "development",
+      "algorithm": "ppo",
+      "training_seed": 12301,
+      "run_id": "m11-shared-main-ppo-seed12301",
+      "category": "two-cell timeout",
+      "layout_id": "unseen-maps-v1-validation-001",
+      "scenario_id": "unseen-maps-v1-validation-001-r0c8-r3c0",
+      "event_action": 10,
+      "cycle_start": 8,
+      "first_return": 10,
+      "period": 2,
+      "item": {
+        "path": "replays/validation-001.json",
+        "sha256": "906268154ae3ff4aabce4b4584a777665be62a5a1cafaf64919b5985d5674904",
+        "layout_id": "unseen-maps-v1-validation-001",
+        "outcome": "timeout"
+      }
+    },
+    {
+      "dataset": "development",
+      "algorithm": "ppo",
+      "training_seed": 12301,
+      "run_id": "m11-shared-main-ppo-seed12301",
+      "category": "wall collision",
+      "layout_id": "unseen-maps-v1-validation-003",
+      "scenario_id": "unseen-maps-v1-validation-003-r5c0-r9c8",
+      "event_action": 3,
+      "cycle_start": null,
+      "first_return": null,
+      "period": null,
+      "item": {
+        "path": "replays/validation-006.json",
+        "sha256": "84c942d4e2f77e0bef2fcfa6c0b80354b60fa2a4ae0081012c006a003d3a89d5",
+        "layout_id": "unseen-maps-v1-validation-003",
+        "outcome": "collision"
+      }
+    },
+    {
+      "dataset": "final",
+      "algorithm": "q-learning",
+      "training_seed": 12101,
+      "run_id": "m11-shared-main-q-learning-seed12101",
+      "category": "two-cell timeout",
+      "layout_id": "unseen-maps-v1-test-001",
+      "scenario_id": "unseen-maps-v1-test-001-r0c8-r2c9",
+      "event_action": 9,
+      "cycle_start": 7,
+      "first_return": 9,
+      "period": 2,
+      "item": {
+        "path": "replays/final-000.json",
+        "sha256": "e77807dd213d78736060d5a25de6dd637651494a6a975c538324c75a9d9ff18d",
+        "layout_id": "unseen-maps-v1-test-001",
+        "outcome": "timeout"
+      }
+    },
+    {
+      "dataset": "final",
+      "algorithm": "q-learning",
+      "training_seed": 12101,
+      "run_id": "m11-shared-main-q-learning-seed12101",
+      "category": "wall collision",
+      "layout_id": "unseen-maps-v1-test-004",
+      "scenario_id": "unseen-maps-v1-test-004-r0c7-r9c8",
+      "event_action": 1,
+      "cycle_start": null,
+      "first_return": null,
+      "period": null,
+      "item": {
+        "path": "replays/final-007.json",
+        "sha256": "e469948e98fa518b24a4882d469f2a609f4938dc822d77376d1407f8a2c171e6",
+        "layout_id": "unseen-maps-v1-test-004",
+        "outcome": "collision"
+      }
+    },
+    {
+      "dataset": "final",
+      "algorithm": "sarsa",
+      "training_seed": 12101,
+      "run_id": "m11-shared-main-sarsa-seed12101",
+      "category": "two-cell timeout",
+      "layout_id": "unseen-maps-v1-test-001",
+      "scenario_id": "unseen-maps-v1-test-001-r0c8-r8c6",
+      "event_action": 7,
+      "cycle_start": 5,
+      "first_return": 7,
+      "period": 2,
+      "item": {
+        "path": "replays/final-001.json",
+        "sha256": "fa4ec36b5a923727e1a669032751f4fddc4ec70692bb62e41ee55c6438e380d6",
+        "layout_id": "unseen-maps-v1-test-001",
+        "outcome": "timeout"
+      }
+    },
+    {
+      "dataset": "final",
+      "algorithm": "sarsa",
+      "training_seed": 12101,
+      "run_id": "m11-shared-main-sarsa-seed12101",
+      "category": "wall collision",
+      "layout_id": "unseen-maps-v1-test-002",
+      "scenario_id": "unseen-maps-v1-test-002-r0c5-r6c4",
+      "event_action": 6,
+      "cycle_start": null,
+      "first_return": null,
+      "period": null,
+      "item": {
+        "path": "replays/final-004.json",
+        "sha256": "9b4c069049a4c053d81be66a9603c1cae714e610cf3b01d3a6a6d6e04a26cb1b",
+        "layout_id": "unseen-maps-v1-test-002",
+        "outcome": "collision"
+      }
+    },
+    {
+      "dataset": "final",
+      "algorithm": "dqn",
+      "training_seed": 12101,
+      "run_id": "m11-shared-main-dqn-seed12101",
+      "category": "two-cell timeout",
+      "layout_id": "unseen-maps-v1-test-001",
+      "scenario_id": "unseen-maps-v1-test-001-r0c8-r2c9",
+      "event_action": 3,
+      "cycle_start": 1,
+      "first_return": 3,
+      "period": 2,
+      "item": {
+        "path": "replays/final-000.json",
+        "sha256": "89325b378c2c01538b112f173b541923fc8c4a454d1ec413142768b7bd8f7233",
+        "layout_id": "unseen-maps-v1-test-001",
+        "outcome": "timeout"
+      }
+    },
+    {
+      "dataset": "final",
+      "algorithm": "ppo",
+      "training_seed": 12101,
+      "run_id": "m11-shared-main-ppo-seed12101",
+      "category": "two-cell timeout",
+      "layout_id": "unseen-maps-v1-test-001",
+      "scenario_id": "unseen-maps-v1-test-001-r0c8-r8c6",
+      "event_action": 7,
+      "cycle_start": 5,
+      "first_return": 7,
+      "period": 2,
+      "item": {
+        "path": "replays/final-001.json",
+        "sha256": "d5b72f17e2ee4cc67af69391080456a99d7731e3087a2ef4b8d30e72367b1cf2",
+        "layout_id": "unseen-maps-v1-test-001",
+        "outcome": "timeout"
+      }
+    },
+    {
+      "dataset": "final",
+      "algorithm": "ppo",
+      "training_seed": 12101,
+      "run_id": "m11-shared-main-ppo-seed12101",
+      "category": "boundary collision",
+      "layout_id": "unseen-maps-v1-test-002",
+      "scenario_id": "unseen-maps-v1-test-002-r1c6-r1c1",
+      "event_action": 5,
+      "cycle_start": null,
+      "first_return": null,
+      "period": null,
+      "item": {
+        "path": "replays/final-004.json",
+        "sha256": "7bde5fbaf5ce242fa1353b4707e483b2cf00d27f288e1748c6486e2f9b00c458",
+        "layout_id": "unseen-maps-v1-test-002",
+        "outcome": "collision"
+      }
+    },
+    {
+      "dataset": "final",
+      "algorithm": "ppo",
+      "training_seed": 12101,
+      "run_id": "m11-shared-main-ppo-seed12101",
+      "category": "wall collision",
+      "layout_id": "unseen-maps-v1-test-004",
+      "scenario_id": "unseen-maps-v1-test-004-r1c4-r1c9",
+      "event_action": 5,
+      "cycle_start": null,
+      "first_return": null,
+      "period": null,
+      "item": {
+        "path": "replays/final-009.json",
+        "sha256": "6c3e89ea37f0d170e542ef61298978da3cf0b108f4a8fdc2cda28c0b1ebb33d3",
+        "layout_id": "unseen-maps-v1-test-004",
+        "outcome": "collision"
+      }
+    },
+    {
+      "dataset": "final",
+      "algorithm": "q-learning",
+      "training_seed": 12203,
+      "run_id": "m11-shared-main-q-learning-seed12203",
+      "category": "two-cell timeout",
+      "layout_id": "unseen-maps-v1-test-001",
+      "scenario_id": "unseen-maps-v1-test-001-r0c8-r8c6",
+      "event_action": 8,
+      "cycle_start": 6,
+      "first_return": 8,
+      "period": 2,
+      "item": {
+        "path": "replays/final-001.json",
+        "sha256": "731cfe6c59a83f5fb143f36e823c213890c84e968dc604e31d26b7d519a11bf9",
+        "layout_id": "unseen-maps-v1-test-001",
+        "outcome": "timeout"
+      }
+    },
+    {
+      "dataset": "final",
+      "algorithm": "sarsa",
+      "training_seed": 12203,
+      "run_id": "m11-shared-main-sarsa-seed12203",
+      "category": "two-cell timeout",
+      "layout_id": "unseen-maps-v1-test-001",
+      "scenario_id": "unseen-maps-v1-test-001-r0c8-r8c6",
+      "event_action": 8,
+      "cycle_start": 6,
+      "first_return": 8,
+      "period": 2,
+      "item": {
+        "path": "replays/final-001.json",
+        "sha256": "52ed23918f4228136cbad7ca23ddeee6f9ec86991376b1a393cb089821346ddc",
+        "layout_id": "unseen-maps-v1-test-001",
+        "outcome": "timeout"
+      }
+    },
+    {
+      "dataset": "final",
+      "algorithm": "sarsa",
+      "training_seed": 12203,
+      "run_id": "m11-shared-main-sarsa-seed12203",
+      "category": "longer-cycle timeout",
+      "layout_id": "unseen-maps-v1-test-002",
+      "scenario_id": "unseen-maps-v1-test-002-r0c3-r8c5",
+      "event_action": 7,
+      "cycle_start": 3,
+      "first_return": 7,
+      "period": 4,
+      "item": {
+        "path": "replays/final-003.json",
+        "sha256": "09fe481a4036e40d7357439028592e6cb0c582fc6d3631783db5a0dafd1a94f8",
+        "layout_id": "unseen-maps-v1-test-002",
+        "outcome": "timeout"
+      }
+    },
+    {
+      "dataset": "final",
+      "algorithm": "sarsa",
+      "training_seed": 12203,
+      "run_id": "m11-shared-main-sarsa-seed12203",
+      "category": "wall collision",
+      "layout_id": "unseen-maps-v1-test-002",
+      "scenario_id": "unseen-maps-v1-test-002-r0c5-r6c4",
+      "event_action": 6,
+      "cycle_start": null,
+      "first_return": null,
+      "period": null,
+      "item": {
+        "path": "replays/final-004.json",
+        "sha256": "3c5757ef9e90253c2889a1fd1a79ef1caacc72bb2d2c88c6bbebcb0667f8995c",
+        "layout_id": "unseen-maps-v1-test-002",
+        "outcome": "collision"
+      }
+    },
+    {
+      "dataset": "final",
+      "algorithm": "dqn",
+      "training_seed": 12203,
+      "run_id": "m11-shared-main-dqn-seed12203",
+      "category": "two-cell timeout",
+      "layout_id": "unseen-maps-v1-test-001",
+      "scenario_id": "unseen-maps-v1-test-001-r0c8-r2c9",
+      "event_action": 3,
+      "cycle_start": 1,
+      "first_return": 3,
+      "period": 2,
+      "item": {
+        "path": "replays/final-000.json",
+        "sha256": "65dafe752c2b25262fbff04b365d6bc6810a0bd0f3039d66fb410d9c497cd1ba",
+        "layout_id": "unseen-maps-v1-test-001",
+        "outcome": "timeout"
+      }
+    },
+    {
+      "dataset": "final",
+      "algorithm": "ppo",
+      "training_seed": 12203,
+      "run_id": "m11-shared-main-ppo-seed12203",
+      "category": "two-cell timeout",
+      "layout_id": "unseen-maps-v1-test-001",
+      "scenario_id": "unseen-maps-v1-test-001-r0c8-r8c6",
+      "event_action": 7,
+      "cycle_start": 5,
+      "first_return": 7,
+      "period": 2,
+      "item": {
+        "path": "replays/final-001.json",
+        "sha256": "3f5f4555c21536e74dc5ce7d27b518b1bcafee3b7382982b7b22ae66c6bf27b1",
+        "layout_id": "unseen-maps-v1-test-001",
+        "outcome": "timeout"
+      }
+    },
+    {
+      "dataset": "final",
+      "algorithm": "ppo",
+      "training_seed": 12203,
+      "run_id": "m11-shared-main-ppo-seed12203",
+      "category": "wall collision",
+      "layout_id": "unseen-maps-v1-test-004",
+      "scenario_id": "unseen-maps-v1-test-004-r0c7-r9c8",
+      "event_action": 1,
+      "cycle_start": null,
+      "first_return": null,
+      "period": null,
+      "item": {
+        "path": "replays/final-008.json",
+        "sha256": "272b95618c6f7fd0ebb837bc9c9fbdfa328c6c36a5f37f3a024c8079dacdeba2",
+        "layout_id": "unseen-maps-v1-test-004",
+        "outcome": "collision"
+      }
+    },
+    {
+      "dataset": "final",
+      "algorithm": "ppo",
+      "training_seed": 12203,
+      "run_id": "m11-shared-main-ppo-seed12203",
+      "category": "longer-cycle timeout",
+      "layout_id": "unseen-maps-v1-test-010",
+      "scenario_id": "unseen-maps-v1-test-010-r1c8-r3c1",
+      "event_action": 6,
+      "cycle_start": 2,
+      "first_return": 6,
+      "period": 4,
+      "item": {
+        "path": "replays/final-023.json",
+        "sha256": "4531aeb6d68339350fb65a7d85ea902f22101c327def0de63dc699923ffecba9",
+        "layout_id": "unseen-maps-v1-test-010",
+        "outcome": "timeout"
+      }
+    },
+    {
+      "dataset": "final",
+      "algorithm": "q-learning",
+      "training_seed": 12301,
+      "run_id": "m11-shared-main-q-learning-seed12301",
+      "category": "two-cell timeout",
+      "layout_id": "unseen-maps-v1-test-001",
+      "scenario_id": "unseen-maps-v1-test-001-r0c8-r2c9",
+      "event_action": 8,
+      "cycle_start": 6,
+      "first_return": 8,
+      "period": 2,
+      "item": {
+        "path": "replays/final-000.json",
+        "sha256": "d263c09702cc41982e44725fc8cd41551dc145428f613856423b8c0fa0fe56bd",
+        "layout_id": "unseen-maps-v1-test-001",
+        "outcome": "timeout"
+      }
+    },
+    {
+      "dataset": "final",
+      "algorithm": "sarsa",
+      "training_seed": 12301,
+      "run_id": "m11-shared-main-sarsa-seed12301",
+      "category": "two-cell timeout",
+      "layout_id": "unseen-maps-v1-test-001",
+      "scenario_id": "unseen-maps-v1-test-001-r0c8-r8c6",
+      "event_action": 7,
+      "cycle_start": 5,
+      "first_return": 7,
+      "period": 2,
+      "item": {
+        "path": "replays/final-001.json",
+        "sha256": "ee773c4b3d567d02f2cd84ec2c50d6596b6b1b69ae5a2104cf0132b23f8a70b2",
+        "layout_id": "unseen-maps-v1-test-001",
+        "outcome": "timeout"
+      }
+    },
+    {
+      "dataset": "final",
+      "algorithm": "sarsa",
+      "training_seed": 12301,
+      "run_id": "m11-shared-main-sarsa-seed12301",
+      "category": "wall collision",
+      "layout_id": "unseen-maps-v1-test-002",
+      "scenario_id": "unseen-maps-v1-test-002-r7c3-r1c8",
+      "event_action": 10,
+      "cycle_start": null,
+      "first_return": null,
+      "period": null,
+      "item": {
+        "path": "replays/final-004.json",
+        "sha256": "5d278b22f11bd730bf707f4217593210b27efdf334ae6ee88a56bf1a4f59b23f",
+        "layout_id": "unseen-maps-v1-test-002",
+        "outcome": "collision"
+      }
+    },
+    {
+      "dataset": "final",
+      "algorithm": "sarsa",
+      "training_seed": 12301,
+      "run_id": "m11-shared-main-sarsa-seed12301",
+      "category": "longer-cycle timeout",
+      "layout_id": "unseen-maps-v1-test-006",
+      "scenario_id": "unseen-maps-v1-test-006-r0c1-r4c9",
+      "event_action": 6,
+      "cycle_start": 2,
+      "first_return": 6,
+      "period": 4,
+      "item": {
+        "path": "replays/final-012.json",
+        "sha256": "b76d76a5420b68020b1b8c327a8d235ebc6e9b0419d7e63caddbbddf7e65400d",
+        "layout_id": "unseen-maps-v1-test-006",
+        "outcome": "timeout"
+      }
+    },
+    {
+      "dataset": "final",
+      "algorithm": "dqn",
+      "training_seed": 12301,
+      "run_id": "m11-shared-main-dqn-seed12301",
+      "category": "two-cell timeout",
+      "layout_id": "unseen-maps-v1-test-001",
+      "scenario_id": "unseen-maps-v1-test-001-r0c8-r8c6",
+      "event_action": 4,
+      "cycle_start": 2,
+      "first_return": 4,
+      "period": 2,
+      "item": {
+        "path": "replays/final-001.json",
+        "sha256": "7604c0b4aa5b6fad413df98b8dfb662951eca862236862ad7fffbf8749db94ba",
+        "layout_id": "unseen-maps-v1-test-001",
+        "outcome": "timeout"
+      }
+    },
+    {
+      "dataset": "final",
+      "algorithm": "dqn",
+      "training_seed": 12301,
+      "run_id": "m11-shared-main-dqn-seed12301",
+      "category": "longer-cycle timeout",
+      "layout_id": "unseen-maps-v1-test-005",
+      "scenario_id": "unseen-maps-v1-test-005-r0c5-r2c3",
+      "event_action": 6,
+      "cycle_start": 2,
+      "first_return": 6,
+      "period": 4,
+      "item": {
+        "path": "replays/final-009.json",
+        "sha256": "2c658bed6c7032d4d39db619a7f4f7c592454fe9738897b3cb70d15136927c5b",
+        "layout_id": "unseen-maps-v1-test-005",
+        "outcome": "timeout"
+      }
+    },
+    {
+      "dataset": "final",
+      "algorithm": "ppo",
+      "training_seed": 12301,
+      "run_id": "m11-shared-main-ppo-seed12301",
+      "category": "two-cell timeout",
+      "layout_id": "unseen-maps-v1-test-001",
+      "scenario_id": "unseen-maps-v1-test-001-r0c8-r8c6",
+      "event_action": 9,
+      "cycle_start": 7,
+      "first_return": 9,
+      "period": 2,
+      "item": {
+        "path": "replays/final-001.json",
+        "sha256": "ca57734fcb38eb2463f6350742705449cdd29f48fbf98887957214ea0cfac67a",
+        "layout_id": "unseen-maps-v1-test-001",
+        "outcome": "timeout"
+      }
+    },
+    {
+      "dataset": "final",
+      "algorithm": "ppo",
+      "training_seed": 12301,
+      "run_id": "m11-shared-main-ppo-seed12301",
+      "category": "wall collision",
+      "layout_id": "unseen-maps-v1-test-002",
+      "scenario_id": "unseen-maps-v1-test-002-r4c4-r4c6",
+      "event_action": 5,
+      "cycle_start": null,
+      "first_return": null,
+      "period": null,
+      "item": {
+        "path": "replays/final-004.json",
+        "sha256": "b0d05712f6ecf9ed6253c65f2c969ece18e7b543c2ffa0cf3d92568c109befef",
+        "layout_id": "unseen-maps-v1-test-002",
+        "outcome": "collision"
+      }
+    },
+    {
+      "dataset": "final",
+      "algorithm": "ppo",
+      "training_seed": 12301,
+      "run_id": "m11-shared-main-ppo-seed12301",
+      "category": "boundary collision",
+      "layout_id": "unseen-maps-v1-test-006",
+      "scenario_id": "unseen-maps-v1-test-006-r9c9-r6c1",
+      "event_action": 1,
+      "cycle_start": null,
+      "first_return": null,
+      "period": null,
+      "item": {
+        "path": "replays/final-014.json",
+        "sha256": "cd8ddf3de061b926c6fd5069eb743391354a7ff5c0e61f1cc94a2f6bb9481b01",
+        "layout_id": "unseen-maps-v1-test-006",
+        "outcome": "collision"
+      }
+    }
+  ],
+  "difficulty": [
+    {
+      "dataset": "development",
+      "algorithm": "q-learning",
+      "episodes": 192,
+      "seed_count": 3,
+      "success_mean": 0.5,
+      "success_sd": 0.05633673867912483,
+      "counts": {
+        "optimal success": 90,
+        "detour success": 6,
+        "wall collision": 1,
+        "boundary collision": 0,
+        "stationary timeout": 0,
+        "two-cell timeout": 95,
+        "longer-cycle timeout": 0,
+        "non-periodic timeout": 0
+      },
+      "rates": {
+        "optimal success": {
+          "mean": 0.46875,
+          "sd": 0.03125
+        },
+        "detour success": {
+          "mean": 0.03125,
+          "sd": 0.027063293868263706
+        },
+        "wall collision": {
+          "mean": 0.005208333333333333,
+          "sd": 0.009021097956087904
+        },
+        "boundary collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "stationary timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "two-cell timeout": {
+          "mean": 0.4947916666666667,
+          "sd": 0.05915529526875285
+        },
+        "longer-cycle timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "non-periodic timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        }
+      },
+      "timeout_episodes": 95,
+      "periodic_timeouts": 95,
+      "timeout_actions": 19000,
+      "actions_after_first_return": 18614,
+      "mean_cycle_entry_action": 2.0631578947368423,
+      "distance_band": "short"
+    },
+    {
+      "dataset": "development",
+      "algorithm": "sarsa",
+      "episodes": 192,
+      "seed_count": 3,
+      "success_mean": 0.9635416666666666,
+      "success_sd": 0.009021097956087904,
+      "counts": {
+        "optimal success": 184,
+        "detour success": 1,
+        "wall collision": 2,
+        "boundary collision": 0,
+        "stationary timeout": 0,
+        "two-cell timeout": 5,
+        "longer-cycle timeout": 0,
+        "non-periodic timeout": 0
+      },
+      "rates": {
+        "optimal success": {
+          "mean": 0.9583333333333334,
+          "sd": 0.009021097956087904
+        },
+        "detour success": {
+          "mean": 0.005208333333333333,
+          "sd": 0.009021097956087904
+        },
+        "wall collision": {
+          "mean": 0.010416666666666666,
+          "sd": 0.009021097956087904
+        },
+        "boundary collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "stationary timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "two-cell timeout": {
+          "mean": 0.026041666666666668,
+          "sd": 0.018042195912175808
+        },
+        "longer-cycle timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "non-periodic timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        }
+      },
+      "timeout_episodes": 5,
+      "periodic_timeouts": 5,
+      "timeout_actions": 1000,
+      "actions_after_first_return": 990,
+      "mean_cycle_entry_action": 0.0,
+      "distance_band": "short"
+    },
+    {
+      "dataset": "development",
+      "algorithm": "dqn",
+      "episodes": 192,
+      "seed_count": 3,
+      "success_mean": 0.7291666666666666,
+      "success_sd": 0.13288907106430287,
+      "counts": {
+        "optimal success": 136,
+        "detour success": 4,
+        "wall collision": 0,
+        "boundary collision": 0,
+        "stationary timeout": 0,
+        "two-cell timeout": 48,
+        "longer-cycle timeout": 4,
+        "non-periodic timeout": 0
+      },
+      "rates": {
+        "optimal success": {
+          "mean": 0.7083333333333334,
+          "sd": 0.14004510062238285
+        },
+        "detour success": {
+          "mean": 0.020833333333333332,
+          "sd": 0.018042195912175808
+        },
+        "wall collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "boundary collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "stationary timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "two-cell timeout": {
+          "mean": 0.25,
+          "sd": 0.12401959270615269
+        },
+        "longer-cycle timeout": {
+          "mean": 0.020833333333333332,
+          "sd": 0.009021097956087902
+        },
+        "non-periodic timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        }
+      },
+      "timeout_episodes": 52,
+      "periodic_timeouts": 52,
+      "timeout_actions": 10400,
+      "actions_after_first_return": 10213,
+      "mean_cycle_entry_action": 1.4423076923076923,
+      "distance_band": "short"
+    },
+    {
+      "dataset": "development",
+      "algorithm": "ppo",
+      "episodes": 192,
+      "seed_count": 3,
+      "success_mean": 0.953125,
+      "success_sd": 0.046875,
+      "counts": {
+        "optimal success": 182,
+        "detour success": 1,
+        "wall collision": 0,
+        "boundary collision": 0,
+        "stationary timeout": 0,
+        "two-cell timeout": 7,
+        "longer-cycle timeout": 2,
+        "non-periodic timeout": 0
+      },
+      "rates": {
+        "optimal success": {
+          "mean": 0.9479166666666666,
+          "sd": 0.039322054350368486
+        },
+        "detour success": {
+          "mean": 0.005208333333333333,
+          "sd": 0.009021097956087904
+        },
+        "wall collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "boundary collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "stationary timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "two-cell timeout": {
+          "mean": 0.036458333333333336,
+          "sd": 0.03252603124165833
+        },
+        "longer-cycle timeout": {
+          "mean": 0.010416666666666666,
+          "sd": 0.018042195912175808
+        },
+        "non-periodic timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        }
+      },
+      "timeout_episodes": 9,
+      "periodic_timeouts": 9,
+      "timeout_actions": 1800,
+      "actions_after_first_return": 1769,
+      "mean_cycle_entry_action": 0.7777777777777778,
+      "distance_band": "short"
+    },
+    {
+      "dataset": "final",
+      "algorithm": "q-learning",
+      "episodes": 480,
+      "seed_count": 3,
+      "success_mean": 0.3916666666666666,
+      "success_sd": 0.03553900439423331,
+      "counts": {
+        "optimal success": 176,
+        "detour success": 12,
+        "wall collision": 0,
+        "boundary collision": 0,
+        "stationary timeout": 0,
+        "two-cell timeout": 283,
+        "longer-cycle timeout": 9,
+        "non-periodic timeout": 0
+      },
+      "rates": {
+        "optimal success": {
+          "mean": 0.3666666666666667,
+          "sd": 0.028867513459481315
+        },
+        "detour success": {
+          "mean": 0.024999999999999998,
+          "sd": 0.010825317547305483
+        },
+        "wall collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "boundary collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "stationary timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "two-cell timeout": {
+          "mean": 0.5895833333333332,
+          "sd": 0.05807233276985977
+        },
+        "longer-cycle timeout": {
+          "mean": 0.01875,
+          "sd": 0.02253469547164993
+        },
+        "non-periodic timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        }
+      },
+      "timeout_episodes": 292,
+      "periodic_timeouts": 292,
+      "timeout_actions": 58400,
+      "actions_after_first_return": 56990,
+      "mean_cycle_entry_action": 2.732876712328767,
+      "distance_band": "short"
+    },
+    {
+      "dataset": "final",
+      "algorithm": "sarsa",
+      "episodes": 480,
+      "seed_count": 3,
+      "success_mean": 0.9500000000000001,
+      "success_sd": 0.02724311839712924,
+      "counts": {
+        "optimal success": 452,
+        "detour success": 4,
+        "wall collision": 2,
+        "boundary collision": 0,
+        "stationary timeout": 0,
+        "two-cell timeout": 22,
+        "longer-cycle timeout": 0,
+        "non-periodic timeout": 0
+      },
+      "rates": {
+        "optimal success": {
+          "mean": 0.9416666666666665,
+          "sd": 0.026020824993326672
+        },
+        "detour success": {
+          "mean": 0.008333333333333333,
+          "sd": 0.0036084391824351613
+        },
+        "wall collision": {
+          "mean": 0.004166666666666667,
+          "sd": 0.0036084391824351613
+        },
+        "boundary collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "stationary timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "two-cell timeout": {
+          "mean": 0.04583333333333334,
+          "sd": 0.025259074277046125
+        },
+        "longer-cycle timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "non-periodic timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        }
+      },
+      "timeout_episodes": 22,
+      "periodic_timeouts": 22,
+      "timeout_actions": 4400,
+      "actions_after_first_return": 4346,
+      "mean_cycle_entry_action": 0.45454545454545453,
+      "distance_band": "short"
+    },
+    {
+      "dataset": "final",
+      "algorithm": "dqn",
+      "episodes": 480,
+      "seed_count": 3,
+      "success_mean": 0.6562499999999999,
+      "success_sd": 0.081967981553775,
+      "counts": {
+        "optimal success": 296,
+        "detour success": 19,
+        "wall collision": 0,
+        "boundary collision": 0,
+        "stationary timeout": 0,
+        "two-cell timeout": 160,
+        "longer-cycle timeout": 5,
+        "non-periodic timeout": 0
+      },
+      "rates": {
+        "optimal success": {
+          "mean": 0.6166666666666666,
+          "sd": 0.09769478406411133
+        },
+        "detour success": {
+          "mean": 0.03958333333333333,
+          "sd": 0.015728821740147395
+        },
+        "wall collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "boundary collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "stationary timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "two-cell timeout": {
+          "mean": 0.3333333333333333,
+          "sd": 0.07189764136140582
+        },
+        "longer-cycle timeout": {
+          "mean": 0.010416666666666666,
+          "sd": 0.013010412496663331
+        },
+        "non-periodic timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        }
+      },
+      "timeout_episodes": 165,
+      "periodic_timeouts": 165,
+      "timeout_actions": 33000,
+      "actions_after_first_return": 32427,
+      "mean_cycle_entry_action": 1.4,
+      "distance_band": "short"
+    },
+    {
+      "dataset": "final",
+      "algorithm": "ppo",
+      "episodes": 480,
+      "seed_count": 3,
+      "success_mean": 0.9208333333333334,
+      "success_sd": 0.026020824993326627,
+      "counts": {
+        "optimal success": 429,
+        "detour success": 13,
+        "wall collision": 1,
+        "boundary collision": 2,
+        "stationary timeout": 0,
+        "two-cell timeout": 35,
+        "longer-cycle timeout": 0,
+        "non-periodic timeout": 0
+      },
+      "rates": {
+        "optimal success": {
+          "mean": 0.8937499999999999,
+          "sd": 0.022534695471649914
+        },
+        "detour success": {
+          "mean": 0.027083333333333334,
+          "sd": 0.00360843918243516
+        },
+        "wall collision": {
+          "mean": 0.0020833333333333333,
+          "sd": 0.0036084391824351613
+        },
+        "boundary collision": {
+          "mean": 0.004166666666666667,
+          "sd": 0.007216878364870323
+        },
+        "stationary timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "two-cell timeout": {
+          "mean": 0.07291666666666667,
+          "sd": 0.02525907427704613
+        },
+        "longer-cycle timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "non-periodic timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        }
+      },
+      "timeout_episodes": 35,
+      "periodic_timeouts": 35,
+      "timeout_actions": 7000,
+      "actions_after_first_return": 6897,
+      "mean_cycle_entry_action": 0.9428571428571428,
+      "distance_band": "short"
+    },
+    {
+      "dataset": "development",
+      "algorithm": "q-learning",
+      "episodes": 192,
+      "seed_count": 3,
+      "success_mean": 0.06770833333333333,
+      "success_sd": 0.018042195912175808,
+      "counts": {
+        "optimal success": 13,
+        "detour success": 0,
+        "wall collision": 0,
+        "boundary collision": 0,
+        "stationary timeout": 0,
+        "two-cell timeout": 172,
+        "longer-cycle timeout": 7,
+        "non-periodic timeout": 0
+      },
+      "rates": {
+        "optimal success": {
+          "mean": 0.06770833333333333,
+          "sd": 0.018042195912175808
+        },
+        "detour success": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "wall collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "boundary collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "stationary timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "two-cell timeout": {
+          "mean": 0.8958333333333334,
+          "sd": 0.023867581744561665
+        },
+        "longer-cycle timeout": {
+          "mean": 0.036458333333333336,
+          "sd": 0.03252603124165833
+        },
+        "non-periodic timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        }
+      },
+      "timeout_episodes": 179,
+      "periodic_timeouts": 179,
+      "timeout_actions": 35800,
+      "actions_after_first_return": 35006,
+      "mean_cycle_entry_action": 2.346368715083799,
+      "distance_band": "medium"
+    },
+    {
+      "dataset": "development",
+      "algorithm": "sarsa",
+      "episodes": 192,
+      "seed_count": 3,
+      "success_mean": 0.6614583333333334,
+      "success_sd": 0.023867581744561665,
+      "counts": {
+        "optimal success": 107,
+        "detour success": 20,
+        "wall collision": 0,
+        "boundary collision": 0,
+        "stationary timeout": 0,
+        "two-cell timeout": 65,
+        "longer-cycle timeout": 0,
+        "non-periodic timeout": 0
+      },
+      "rates": {
+        "optimal success": {
+          "mean": 0.5572916666666666,
+          "sd": 0.018042195912175808
+        },
+        "detour success": {
+          "mean": 0.10416666666666667,
+          "sd": 0.009021097956087904
+        },
+        "wall collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "boundary collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "stationary timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "two-cell timeout": {
+          "mean": 0.3385416666666667,
+          "sd": 0.023867581744561665
+        },
+        "longer-cycle timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "non-periodic timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        }
+      },
+      "timeout_episodes": 65,
+      "periodic_timeouts": 65,
+      "timeout_actions": 13000,
+      "actions_after_first_return": 12734,
+      "mean_cycle_entry_action": 2.0923076923076924,
+      "distance_band": "medium"
+    },
+    {
+      "dataset": "development",
+      "algorithm": "dqn",
+      "episodes": 192,
+      "seed_count": 3,
+      "success_mean": 0.22395833333333334,
+      "success_sd": 0.14768173832039402,
+      "counts": {
+        "optimal success": 34,
+        "detour success": 9,
+        "wall collision": 0,
+        "boundary collision": 0,
+        "stationary timeout": 0,
+        "two-cell timeout": 143,
+        "longer-cycle timeout": 6,
+        "non-periodic timeout": 0
+      },
+      "rates": {
+        "optimal success": {
+          "mean": 0.17708333333333334,
+          "sd": 0.09155414495441118
+        },
+        "detour success": {
+          "mean": 0.046875,
+          "sd": 0.05633673867912483
+        },
+        "wall collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "boundary collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "stationary timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "two-cell timeout": {
+          "mean": 0.7447916666666666,
+          "sd": 0.1213664603930317
+        },
+        "longer-cycle timeout": {
+          "mean": 0.03125,
+          "sd": 0.027063293868263706
+        },
+        "non-periodic timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        }
+      },
+      "timeout_episodes": 149,
+      "periodic_timeouts": 149,
+      "timeout_actions": 29800,
+      "actions_after_first_return": 29174,
+      "mean_cycle_entry_action": 2.1073825503355703,
+      "distance_band": "medium"
+    },
+    {
+      "dataset": "development",
+      "algorithm": "ppo",
+      "episodes": 192,
+      "seed_count": 3,
+      "success_mean": 0.7135416666666666,
+      "success_sd": 0.07045702738785772,
+      "counts": {
+        "optimal success": 123,
+        "detour success": 14,
+        "wall collision": 0,
+        "boundary collision": 0,
+        "stationary timeout": 0,
+        "two-cell timeout": 54,
+        "longer-cycle timeout": 1,
+        "non-periodic timeout": 0
+      },
+      "rates": {
+        "optimal success": {
+          "mean": 0.640625,
+          "sd": 0.071602745233685
+        },
+        "detour success": {
+          "mean": 0.07291666666666667,
+          "sd": 0.018042195912175808
+        },
+        "wall collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "boundary collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "stationary timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "two-cell timeout": {
+          "mean": 0.28125,
+          "sd": 0.0625
+        },
+        "longer-cycle timeout": {
+          "mean": 0.005208333333333333,
+          "sd": 0.009021097956087904
+        },
+        "non-periodic timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        }
+      },
+      "timeout_episodes": 55,
+      "periodic_timeouts": 55,
+      "timeout_actions": 11000,
+      "actions_after_first_return": 10788,
+      "mean_cycle_entry_action": 1.8181818181818181,
+      "distance_band": "medium"
+    },
+    {
+      "dataset": "final",
+      "algorithm": "q-learning",
+      "episodes": 480,
+      "seed_count": 3,
+      "success_mean": 0.09791666666666665,
+      "success_sd": 0.026020824993326655,
+      "counts": {
+        "optimal success": 45,
+        "detour success": 2,
+        "wall collision": 0,
+        "boundary collision": 0,
+        "stationary timeout": 0,
+        "two-cell timeout": 427,
+        "longer-cycle timeout": 6,
+        "non-periodic timeout": 0
+      },
+      "rates": {
+        "optimal success": {
+          "mean": 0.09375,
+          "sd": 0.02253469547164993
+        },
+        "detour success": {
+          "mean": 0.004166666666666667,
+          "sd": 0.0036084391824351613
+        },
+        "wall collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "boundary collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "stationary timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "two-cell timeout": {
+          "mean": 0.8895833333333333,
+          "sd": 0.026020824993326627
+        },
+        "longer-cycle timeout": {
+          "mean": 0.012500000000000002,
+          "sd": 2.1245936804851847e-18
+        },
+        "non-periodic timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        }
+      },
+      "timeout_episodes": 433,
+      "periodic_timeouts": 433,
+      "timeout_actions": 86600,
+      "actions_after_first_return": 84571,
+      "mean_cycle_entry_action": 2.653579676674365,
+      "distance_band": "medium"
+    },
+    {
+      "dataset": "final",
+      "algorithm": "sarsa",
+      "episodes": 480,
+      "seed_count": 3,
+      "success_mean": 0.6333333333333333,
+      "success_sd": 0.046909709371657095,
+      "counts": {
+        "optimal success": 268,
+        "detour success": 36,
+        "wall collision": 14,
+        "boundary collision": 0,
+        "stationary timeout": 0,
+        "two-cell timeout": 155,
+        "longer-cycle timeout": 7,
+        "non-periodic timeout": 0
+      },
+      "rates": {
+        "optimal success": {
+          "mean": 0.5583333333333333,
+          "sd": 0.06005639710583157
+        },
+        "detour success": {
+          "mean": 0.075,
+          "sd": 0.01653594569415369
+        },
+        "wall collision": {
+          "mean": 0.029166666666666664,
+          "sd": 0.015728821740147395
+        },
+        "boundary collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "stationary timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "two-cell timeout": {
+          "mean": 0.3229166666666667,
+          "sd": 0.03969283100678679
+        },
+        "longer-cycle timeout": {
+          "mean": 0.014583333333333335,
+          "sd": 0.009547032697824668
+        },
+        "non-periodic timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        }
+      },
+      "timeout_episodes": 162,
+      "periodic_timeouts": 162,
+      "timeout_actions": 32400,
+      "actions_after_first_return": 31580,
+      "mean_cycle_entry_action": 2.9382716049382718,
+      "distance_band": "medium"
+    },
+    {
+      "dataset": "final",
+      "algorithm": "dqn",
+      "episodes": 480,
+      "seed_count": 3,
+      "success_mean": 0.17708333333333334,
+      "success_sd": 0.11731590187750907,
+      "counts": {
+        "optimal success": 76,
+        "detour success": 9,
+        "wall collision": 0,
+        "boundary collision": 0,
+        "stationary timeout": 0,
+        "two-cell timeout": 382,
+        "longer-cycle timeout": 13,
+        "non-periodic timeout": 0
+      },
+      "rates": {
+        "optimal success": {
+          "mean": 0.15833333333333335,
+          "sd": 0.09042722672587794
+        },
+        "detour success": {
+          "mean": 0.01875,
+          "sd": 0.027243118397129208
+        },
+        "wall collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "boundary collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "stationary timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "two-cell timeout": {
+          "mean": 0.7958333333333334,
+          "sd": 0.10483121354507602
+        },
+        "longer-cycle timeout": {
+          "mean": 0.02708333333333333,
+          "sd": 0.01301041249666333
+        },
+        "non-periodic timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        }
+      },
+      "timeout_episodes": 395,
+      "periodic_timeouts": 395,
+      "timeout_actions": 79000,
+      "actions_after_first_return": 77274,
+      "mean_cycle_entry_action": 2.288607594936709,
+      "distance_band": "medium"
+    },
+    {
+      "dataset": "final",
+      "algorithm": "ppo",
+      "episodes": 480,
+      "seed_count": 3,
+      "success_mean": 0.63125,
+      "success_sd": 0.0511584548242028,
+      "counts": {
+        "optimal success": 268,
+        "detour success": 35,
+        "wall collision": 6,
+        "boundary collision": 1,
+        "stationary timeout": 0,
+        "two-cell timeout": 169,
+        "longer-cycle timeout": 1,
+        "non-periodic timeout": 0
+      },
+      "rates": {
+        "optimal success": {
+          "mean": 0.5583333333333333,
+          "sd": 0.04434124302873488
+        },
+        "detour success": {
+          "mean": 0.07291666666666667,
+          "sd": 0.00721687836487032
+        },
+        "wall collision": {
+          "mean": 0.012500000000000002,
+          "sd": 2.1245936804851847e-18
+        },
+        "boundary collision": {
+          "mean": 0.0020833333333333333,
+          "sd": 0.0036084391824351618
+        },
+        "stationary timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "two-cell timeout": {
+          "mean": 0.3520833333333333,
+          "sd": 0.05807233276985983
+        },
+        "longer-cycle timeout": {
+          "mean": 0.0020833333333333333,
+          "sd": 0.0036084391824351618
+        },
+        "non-periodic timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        }
+      },
+      "timeout_episodes": 170,
+      "periodic_timeouts": 170,
+      "timeout_actions": 34000,
+      "actions_after_first_return": 33197,
+      "mean_cycle_entry_action": 2.711764705882353,
+      "distance_band": "medium"
+    },
+    {
+      "dataset": "development",
+      "algorithm": "q-learning",
+      "episodes": 192,
+      "seed_count": 3,
+      "success_mean": 0.0,
+      "success_sd": 0.0,
+      "counts": {
+        "optimal success": 0,
+        "detour success": 0,
+        "wall collision": 0,
+        "boundary collision": 0,
+        "stationary timeout": 0,
+        "two-cell timeout": 190,
+        "longer-cycle timeout": 2,
+        "non-periodic timeout": 0
+      },
+      "rates": {
+        "optimal success": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "detour success": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "wall collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "boundary collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "stationary timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "two-cell timeout": {
+          "mean": 0.9895833333333334,
+          "sd": 0.018042195912175808
+        },
+        "longer-cycle timeout": {
+          "mean": 0.010416666666666666,
+          "sd": 0.018042195912175808
+        },
+        "non-periodic timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        }
+      },
+      "timeout_episodes": 192,
+      "periodic_timeouts": 192,
+      "timeout_actions": 38400,
+      "actions_after_first_return": 37405,
+      "mean_cycle_entry_action": 3.1614583333333335,
+      "distance_band": "long"
+    },
+    {
+      "dataset": "development",
+      "algorithm": "sarsa",
+      "episodes": 192,
+      "seed_count": 3,
+      "success_mean": 0.2760416666666667,
+      "success_sd": 0.047735163489123336,
+      "counts": {
+        "optimal success": 48,
+        "detour success": 5,
+        "wall collision": 2,
+        "boundary collision": 0,
+        "stationary timeout": 0,
+        "two-cell timeout": 133,
+        "longer-cycle timeout": 4,
+        "non-periodic timeout": 0
+      },
+      "rates": {
+        "optimal success": {
+          "mean": 0.25,
+          "sd": 0.05412658773652741
+        },
+        "detour success": {
+          "mean": 0.026041666666666668,
+          "sd": 0.018042195912175808
+        },
+        "wall collision": {
+          "mean": 0.010416666666666666,
+          "sd": 0.018042195912175808
+        },
+        "boundary collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "stationary timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "two-cell timeout": {
+          "mean": 0.6927083333333334,
+          "sd": 0.047735163489123336
+        },
+        "longer-cycle timeout": {
+          "mean": 0.020833333333333332,
+          "sd": 0.018042195912175808
+        },
+        "non-periodic timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        }
+      },
+      "timeout_episodes": 137,
+      "periodic_timeouts": 137,
+      "timeout_actions": 27400,
+      "actions_after_first_return": 26609,
+      "mean_cycle_entry_action": 3.7007299270072993,
+      "distance_band": "long"
+    },
+    {
+      "dataset": "development",
+      "algorithm": "dqn",
+      "episodes": 192,
+      "seed_count": 3,
+      "success_mean": 0.052083333333333336,
+      "success_sd": 0.036084391824351615,
+      "counts": {
+        "optimal success": 9,
+        "detour success": 1,
+        "wall collision": 0,
+        "boundary collision": 0,
+        "stationary timeout": 0,
+        "two-cell timeout": 173,
+        "longer-cycle timeout": 9,
+        "non-periodic timeout": 0
+      },
+      "rates": {
+        "optimal success": {
+          "mean": 0.046875,
+          "sd": 0.04133986423538423
+        },
+        "detour success": {
+          "mean": 0.005208333333333333,
+          "sd": 0.009021097956087904
+        },
+        "wall collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "boundary collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "stationary timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "two-cell timeout": {
+          "mean": 0.9010416666666666,
+          "sd": 0.08018127249135756
+        },
+        "longer-cycle timeout": {
+          "mean": 0.046875,
+          "sd": 0.046875
+        },
+        "non-periodic timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        }
+      },
+      "timeout_episodes": 182,
+      "periodic_timeouts": 182,
+      "timeout_actions": 36400,
+      "actions_after_first_return": 35554,
+      "mean_cycle_entry_action": 2.5164835164835164,
+      "distance_band": "long"
+    },
+    {
+      "dataset": "development",
+      "algorithm": "ppo",
+      "episodes": 192,
+      "seed_count": 3,
+      "success_mean": 0.5520833333333334,
+      "success_sd": 0.07045702738785772,
+      "counts": {
+        "optimal success": 100,
+        "detour success": 6,
+        "wall collision": 1,
+        "boundary collision": 0,
+        "stationary timeout": 0,
+        "two-cell timeout": 84,
+        "longer-cycle timeout": 1,
+        "non-periodic timeout": 0
+      },
+      "rates": {
+        "optimal success": {
+          "mean": 0.5208333333333334,
+          "sd": 0.06314768569261532
+        },
+        "detour success": {
+          "mean": 0.03125,
+          "sd": 0.015625
+        },
+        "wall collision": {
+          "mean": 0.005208333333333333,
+          "sd": 0.009021097956087904
+        },
+        "boundary collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "stationary timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "two-cell timeout": {
+          "mean": 0.4375,
+          "sd": 0.05633673867912483
+        },
+        "longer-cycle timeout": {
+          "mean": 0.005208333333333333,
+          "sd": 0.009021097956087904
+        },
+        "non-periodic timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        }
+      },
+      "timeout_episodes": 85,
+      "periodic_timeouts": 85,
+      "timeout_actions": 17000,
+      "actions_after_first_return": 16425,
+      "mean_cycle_entry_action": 4.741176470588235,
+      "distance_band": "long"
+    },
+    {
+      "dataset": "final",
+      "algorithm": "q-learning",
+      "episodes": 480,
+      "seed_count": 3,
+      "success_mean": 0.014583333333333332,
+      "success_sd": 0.00360843918243516,
+      "counts": {
+        "optimal success": 7,
+        "detour success": 0,
+        "wall collision": 1,
+        "boundary collision": 0,
+        "stationary timeout": 0,
+        "two-cell timeout": 461,
+        "longer-cycle timeout": 11,
+        "non-periodic timeout": 0
+      },
+      "rates": {
+        "optimal success": {
+          "mean": 0.014583333333333332,
+          "sd": 0.00360843918243516
+        },
+        "detour success": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "wall collision": {
+          "mean": 0.0020833333333333333,
+          "sd": 0.0036084391824351618
+        },
+        "boundary collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "stationary timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "two-cell timeout": {
+          "mean": 0.9604166666666666,
+          "sd": 0.01301041249666333
+        },
+        "longer-cycle timeout": {
+          "mean": 0.02291666666666667,
+          "sd": 0.015728821740147395
+        },
+        "non-periodic timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        }
+      },
+      "timeout_episodes": 472,
+      "periodic_timeouts": 472,
+      "timeout_actions": 94400,
+      "actions_after_first_return": 91898,
+      "mean_cycle_entry_action": 3.233050847457627,
+      "distance_band": "long"
+    },
+    {
+      "dataset": "final",
+      "algorithm": "sarsa",
+      "episodes": 480,
+      "seed_count": 3,
+      "success_mean": 0.2791666666666666,
+      "success_sd": 0.05460559342533816,
+      "counts": {
+        "optimal success": 118,
+        "detour success": 16,
+        "wall collision": 8,
+        "boundary collision": 0,
+        "stationary timeout": 0,
+        "two-cell timeout": 307,
+        "longer-cycle timeout": 31,
+        "non-periodic timeout": 0
+      },
+      "rates": {
+        "optimal success": {
+          "mean": 0.24583333333333335,
+          "sd": 0.05204164998665331
+        },
+        "detour success": {
+          "mean": 0.03333333333333333,
+          "sd": 0.00360843918243516
+        },
+        "wall collision": {
+          "mean": 0.016666666666666666,
+          "sd": 0.00360843918243516
+        },
+        "boundary collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "stationary timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "two-cell timeout": {
+          "mean": 0.6395833333333334,
+          "sd": 0.04161455074049623
+        },
+        "longer-cycle timeout": {
+          "mean": 0.06458333333333334,
+          "sd": 0.02525907427704613
+        },
+        "non-periodic timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        }
+      },
+      "timeout_episodes": 338,
+      "periodic_timeouts": 338,
+      "timeout_actions": 67600,
+      "actions_after_first_return": 65555,
+      "mean_cycle_entry_action": 3.8254437869822486,
+      "distance_band": "long"
+    },
+    {
+      "dataset": "final",
+      "algorithm": "dqn",
+      "episodes": 480,
+      "seed_count": 3,
+      "success_mean": 0.03958333333333334,
+      "success_sd": 0.04732423621500228,
+      "counts": {
+        "optimal success": 14,
+        "detour success": 5,
+        "wall collision": 0,
+        "boundary collision": 0,
+        "stationary timeout": 0,
+        "two-cell timeout": 438,
+        "longer-cycle timeout": 23,
+        "non-periodic timeout": 0
+      },
+      "rates": {
+        "optimal success": {
+          "mean": 0.02916666666666667,
+          "sd": 0.0295363476640788
+        },
+        "detour success": {
+          "mean": 0.010416666666666666,
+          "sd": 0.018042195912175808
+        },
+        "wall collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "boundary collision": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "stationary timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "two-cell timeout": {
+          "mean": 0.9125,
+          "sd": 0.034798527267687625
+        },
+        "longer-cycle timeout": {
+          "mean": 0.04791666666666666,
+          "sd": 0.015728821740147395
+        },
+        "non-periodic timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        }
+      },
+      "timeout_episodes": 461,
+      "periodic_timeouts": 461,
+      "timeout_actions": 92200,
+      "actions_after_first_return": 90039,
+      "mean_cycle_entry_action": 2.544468546637744,
+      "distance_band": "long"
+    },
+    {
+      "dataset": "final",
+      "algorithm": "ppo",
+      "episodes": 480,
+      "seed_count": 3,
+      "success_mean": 0.37083333333333335,
+      "success_sd": 0.04066504436654819,
+      "counts": {
+        "optimal success": 159,
+        "detour success": 19,
+        "wall collision": 16,
+        "boundary collision": 2,
+        "stationary timeout": 0,
+        "two-cell timeout": 275,
+        "longer-cycle timeout": 9,
+        "non-periodic timeout": 0
+      },
+      "rates": {
+        "optimal success": {
+          "mean": 0.33125,
+          "sd": 0.05340002340823455
+        },
+        "detour success": {
+          "mean": 0.03958333333333333,
+          "sd": 0.014433756729740645
+        },
+        "wall collision": {
+          "mean": 0.03333333333333333,
+          "sd": 0.01301041249666333
+        },
+        "boundary collision": {
+          "mean": 0.004166666666666667,
+          "sd": 0.0036084391824351613
+        },
+        "stationary timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        },
+        "two-cell timeout": {
+          "mean": 0.5729166666666666,
+          "sd": 0.04389855730355309
+        },
+        "longer-cycle timeout": {
+          "mean": 0.01875,
+          "sd": 0.010825317547305485
+        },
+        "non-periodic timeout": {
+          "mean": 0.0,
+          "sd": 0.0
+        }
+      },
+      "timeout_episodes": 284,
+      "periodic_timeouts": 284,
+      "timeout_actions": 56800,
+      "actions_after_first_return": 55035,
+      "mean_cycle_entry_action": 4.144366197183099,
+      "distance_band": "long"
+    }
+  ],
+  "runs": [
+    {
+      "dataset": "development",
+      "run_id": "m11-shared-main-q-learning-seed12101",
+      "episodes": 192,
+      "actions": 30540
+    },
+    {
+      "dataset": "development",
+      "run_id": "m11-shared-main-sarsa-seed12101",
+      "episodes": 192,
+      "actions": 13605
+    },
+    {
+      "dataset": "development",
+      "run_id": "m11-shared-main-dqn-seed12101",
+      "episodes": 192,
+      "actions": 28601
+    },
+    {
+      "dataset": "development",
+      "run_id": "m11-shared-main-ppo-seed12101",
+      "episodes": 192,
+      "actions": 10045
+    },
+    {
+      "dataset": "development",
+      "run_id": "m11-shared-main-q-learning-seed12203",
+      "episodes": 192,
+      "actions": 32288
+    },
+    {
+      "dataset": "development",
+      "run_id": "m11-shared-main-sarsa-seed12203",
+      "episodes": 192,
+      "actions": 15688
+    },
+    {
+      "dataset": "development",
+      "run_id": "m11-shared-main-dqn-seed12203",
+      "episodes": 192,
+      "actions": 22631
+    },
+    {
+      "dataset": "development",
+      "run_id": "m11-shared-main-ppo-seed12203",
+      "episodes": 192,
+      "actions": 9633
+    },
+    {
+      "dataset": "development",
+      "run_id": "m11-shared-main-q-learning-seed12301",
+      "episodes": 192,
+      "actions": 30732
+    },
+    {
+      "dataset": "development",
+      "run_id": "m11-shared-main-sarsa-seed12301",
+      "episodes": 192,
+      "actions": 14359
+    },
+    {
+      "dataset": "development",
+      "run_id": "m11-shared-main-dqn-seed12301",
+      "episodes": 192,
+      "actions": 26225
+    },
+    {
+      "dataset": "development",
+      "run_id": "m11-shared-main-ppo-seed12301",
+      "episodes": 192,
+      "actions": 13091
+    },
+    {
+      "dataset": "final",
+      "run_id": "m11-shared-main-q-learning-seed12101",
+      "episodes": 480,
+      "actions": 81861
+    },
+    {
+      "dataset": "final",
+      "run_id": "m11-shared-main-sarsa-seed12101",
+      "episodes": 480,
+      "actions": 37756
+    },
+    {
+      "dataset": "final",
+      "run_id": "m11-shared-main-dqn-seed12101",
+      "episodes": 480,
+      "actions": 74269
+    },
+    {
+      "dataset": "final",
+      "run_id": "m11-shared-main-ppo-seed12101",
+      "episodes": 480,
+      "actions": 30523
+    },
+    {
+      "dataset": "final",
+      "run_id": "m11-shared-main-q-learning-seed12203",
+      "episodes": 480,
+      "actions": 80325
+    },
+    {
+      "dataset": "final",
+      "run_id": "m11-shared-main-sarsa-seed12203",
+      "episodes": 480,
+      "actions": 37634
+    },
+    {
+      "dataset": "final",
+      "run_id": "m11-shared-main-dqn-seed12203",
+      "episodes": 480,
+      "actions": 62561
+    },
+    {
+      "dataset": "final",
+      "run_id": "m11-shared-main-ppo-seed12203",
+      "episodes": 480,
+      "actions": 36059
+    },
+    {
+      "dataset": "final",
+      "run_id": "m11-shared-main-q-learning-seed12301",
+      "episodes": 480,
+      "actions": 78183
+    },
+    {
+      "dataset": "final",
+      "run_id": "m11-shared-main-sarsa-seed12301",
+      "episodes": 480,
+      "actions": 34815
+    },
+    {
+      "dataset": "final",
+      "run_id": "m11-shared-main-dqn-seed12301",
+      "episodes": 480,
+      "actions": 69308
+    },
+    {
+      "dataset": "final",
+      "run_id": "m11-shared-main-ppo-seed12301",
+      "episodes": 480,
+      "actions": 37566
+    }
+  ],
+  "episodes": 8064,
+  "actions": 908298,
+  "new_training_interactions": 0,
+  "new_evaluation_episodes": 0,
+  "policy_queries": 0,
+  "scope": "post hoc saved-trajectory diagnosis; development and inspected-final cohorts separate"
+}

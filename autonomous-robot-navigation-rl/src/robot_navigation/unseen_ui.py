@@ -14,7 +14,28 @@ from .unseen_benchmark import MapBenchmark
 from .unseen_study import STUDY
 
 
+def open_diagnostic_example(example):
+    player = st.session_state.get('unseen_playback')
+    if player is not None:
+        player.pause()
+    kind = 'Final policy' if example['dataset']=='final' else 'Trained policy'
+    item = example['item']
+    st.session_state['unseen_algorithm'] = example['algorithm']
+    st.session_state['unseen_seed'] = example['training_seed']
+    st.session_state['unseen_kind'] = kind
+    st.session_state[f'unseen_recording:{example["run_id"]}:{kind}'] = item
+    st.session_state['unseen_requested_seek'] = {
+        'identity':f'{example["run_id"]}/{item["path"]}/{item["sha256"]}',
+        'index':example['event_action'],'category':example['category'],
+        'period':example['period'],'first_return':example['first_return']}
+    st.session_state['unseen_view'] = 'Replay'
+
+
 def render_unseen(root):
+    # Keep diagnostic preferences when their widgets leave the active tab.
+    for key in list(st.session_state):
+        if key=='diagnostic_algorithm' or key.startswith(('diagnostic_map:','diagnostic_example:')):
+            st.session_state[key] = st.session_state[key]
     from .unseen_main import STUDY as MAIN
     from .unseen_final import STUDY as FINAL, FinalBenchmark
     choices = [STUDY]
@@ -64,7 +85,7 @@ def render_unseen(root):
         st.caption('Map-aware Q-learning, SARSA, DQN and PPO · one pilot seed · 25,000 training steps each. '
                    'Development validation uses four layouts excluded from training. '
                    'This is the initial development pilot.')
-    tabs = st.tabs(['Results','Replay'], key='unseen_view', on_change='rerun')
+    tabs = st.tabs(['Results','Replay','Failure analysis'], key='unseen_view', on_change='rerun')
     if st.session_state.get('unseen_active_view') != st.session_state['unseen_view']:
         player = st.session_state.get('unseen_playback')
         if player is not None:
@@ -76,6 +97,10 @@ def render_unseen(root):
     if tabs[1].open:
         with tabs[1]:
             _replay(benchmark, directory, summary)
+    if tabs[2].open:
+        with tabs[2]:
+            from .unseen_diagnostics_ui import render_diagnostics
+            render_diagnostics(root,selected,open_diagnostic_example)
 
 
 def _results(summary):
@@ -243,6 +268,19 @@ def _replay(benchmark, study, summary):
         st.session_state['unseen_identity'] = identity
         st.session_state['unseen_tick'] = time.monotonic()
     player = st.session_state['unseen_playback']
+    request = st.session_state.pop('unseen_requested_seek',None)
+    if request is not None and request['identity']==identity:
+        player.pause()
+        player.seek(request['index'])
+        st.session_state['unseen_seek'] = player.index
+        st.session_state['unseen_diagnostic_context'] = request
+    context = st.session_state.get('unseen_diagnostic_context')
+    if context is not None and context['identity']==identity:
+        if context['period']:
+            st.caption(f"Saved diagnosis · {context['category']}. The {context['period']}-action cycle "
+                       f"first returns at action {context['first_return']}.")
+        else:
+            st.caption(f"Saved diagnosis · {context['category']}. The collision is at action {context['index']}.")
 
     def command(name):
         current = st.session_state['unseen_playback']

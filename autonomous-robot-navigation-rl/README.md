@@ -92,6 +92,23 @@ python -m robot_navigation.unseen_final run
 python -m robot_navigation.unseen_final verify
 ```
 
+**Milestone 13. Failure diagnosis.** The owner selected post hoc diagnosis of
+the saved M11/M12 trajectories. All 8,064 learned-policy cases and 908,298 actions
+reconcile with their sources. Every studied timeout contains a persistent cycle,
+and 96.59% of timeout cases alternate between two cells. About 97.55% of timeout
+actions follow the first closed traversal. **Unseen maps → Failure analysis**
+provides composition charts, difficulty/seed tables, failure-location maps and
+41 illustrative replay links. Event links jump to the first cycle return or
+terminal collision. All 202 tests and native desktop/narrow checks passed.
+See [measured diagnosis and limits](docs/milestone13_results.md),
+[the definitions](docs/milestone13_protocol.md) and
+[verification](docs/milestone13_verification.json).
+
+```powershell
+python -m robot_navigation.unseen_diagnostics build
+python -m robot_navigation.unseen_diagnostics verify
+```
+
 **Part A:** five independent seeds per learned algorithm, 200,000 interactions
 each, common validation monitoring, and an explicit validation-only checkpoint
 and algorithm-family selection rule. See [milestone 3 results](docs/milestone3_results.md)

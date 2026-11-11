@@ -195,6 +195,16 @@ Detailed provenance, all seeds and layouts, conditional-route statistics, runtim
 
 ## Reproduction and evidence index
 
+### Saved-trajectory diagnosis added on 11 November 2026
+
+The owner selected post hoc failure diagnosis after the independent unseen-map evaluation. M13 verifies 8,064 learned-policy cases and 908,298 saved actions from M11 development and M12 inspected-final data, using 449 pinned inputs. Every run reconciles with its original outcomes and interaction totals. Model queries and new training/evaluation episodes are zero.
+
+All 4,434 studied timeouts satisfy the persistent-cycle definition. Two-cell cycles account for 4,283, or 96.59%, while longer periods are four, six and eight actions. About 97.55% of timeout actions occur after the first recorded closed traversal. The 59 collisions comprise 54 wall and five boundary attempts. Under the fixed-map/goal, deterministic stateless controller contract, repeated observations reproduce the same action sequence. The diagnosis quantifies frequency, period, timing and location. Training causes and intervention effectiveness remain experimental questions.
+
+The dashboard's Failure analysis tab keeps development and inspected-final cohorts separate. It provides composition charts, route-difficulty/seed tables, failure-location maps and 41 bounded links to existing replays. Links pause at a cycle's first return or terminal collision. Native tests verified event/source identity, quick selection changes and desktop/narrow rendering. All 202 tests and 14,181-file preservation checks passed, with both earlier release seals intact.
+
+Detailed definitions, all seeds and route bands, geometric annotations, resources, the fixed input roster and interpretation limits are in the [M13 measured results](milestone13_results.md), [protocol](milestone13_protocol.md) and [verification](milestone13_verification.json). A future improvement experiment needs a registered change and fresh independent holdout.
+
 Windows setup, preparation, training, validation and local UI commands are in the project README. Historical frozen execution uses its archived scientific runner and 184 exact inputs. Saved trajectories and audits support record verification. Periodic checkpoints and full compressed trajectories remain local where documented by the ignore rules.
 
 Commit packaging preserves the recorded bytes of Windows-generated legacy JSON/CSV/log files through explicit checkout line endings. New neural confirmation archives use recursive raw-byte rules. An isolated checkout verified all 7,104 indexed artifact/data files against the working records, including the LF map definition and historical CRLF Part B report. The current working-tree preservation check also covers 12,603 artifact/data files, including local ignored inputs.
