@@ -10,16 +10,16 @@ from .dashboard_ui import overlays, diagnostics, event_log
 from .episodes import Playback, rollout, validate_replay
 from .interface import (context_strip, show_map, telemetry, run_selector, card_heading,
                         playback_toolbar, playback_status, replay_statistics, reward_chart,
-                        run_label)
+                        run_label, status_badge, repeated_pattern)
 from .refinement import task_for_run
 
 
-TAB_LABELS = {'trained':'Trained replay', 'learning':'Learning replay', 'custom':'Try a route'}
+TAB_LABELS = {'trained':'Watch the robot', 'learning':'Learning history', 'custom':'Choose a route'}
 
 
 def pause_players():
     """A hidden tab must never keep advancing a recording."""
-    for key in ('playback', 'comparison_playback', 'unseen_playback'):
+    for key in ('playback', 'comparison_playback', 'unseen_playback', 'recovery_playback', 'lab_playback', 'lab_comparison_playback'):
         player = st.session_state.get(key)
         if player is not None:
             player.pause()
@@ -55,7 +55,9 @@ def render_replay(base_task, validation, runs, root, mode='trained'):
                    'Older Q-learning, SARSA, DQN and PPO histories were not reconstructed. Use Learning analysis for saved monitoring curves.')
 
     with st.container(key='model_setup'):
-        model_column, episode_column, controls_column = st.columns([1.6, 1.1, 2], gap='medium', vertical_alignment='bottom')
+        model_column = st.expander('Robot settings and saved models')
+        episode_column = st.container()
+        controls_column = st.container()
         with model_column:
             directory = run_selector(runs, key='learning_run' if learning else 'saved_run',
                                      label='Training run' if learning else 'Trained model')
@@ -64,7 +66,7 @@ def render_replay(base_task, validation, runs, root, mode='trained'):
         try:
             task = task_for_run(base_task, directory)
             manifest = read_json(directory / 'manifest.json')
-            # Learning replay never queries a trained policy to invent past actions.
+            # Learning history never queries a trained policy to invent past actions.
             policy = None if learning else load_policy(viewer_checkpoint(directory), task)
             with episode_column:
                 if mode == 'custom':
@@ -89,10 +91,10 @@ def render_replay(base_task, validation, runs, root, mode='trained'):
                     learned_prefix = manifest.get('algorithm', 'q-learning').replace('-', '_')
                     paths.sort(key=lambda p: (not p.stem.startswith(learned_prefix), 'success' not in p.stem, p.name))
                     if not paths:
-                        st.info('This model has no saved example episodes. Use Try a route instead.')
+                        st.info('This model has no saved example episodes. Use Choose a route instead.')
                         return
                     path = st.selectbox('Recorded episode', paths, key=f'recorded_episode:{directory}',
-                                        format_func=lambda p:p.stem.replace('_', ' '),
+                                        format_func=lambda p:p.stem.replace('_', ' ').replace('q learning', 'Q-learning').replace('bfs', 'Shortest-path planner').replace('timeout', '(runs out of moves)').replace('collision', '(hits a wall)').replace('success', '(reaches the goal)'),
                                         help='Saved examples include successes and failures. BFS and Random are reference methods, not trained RL agents.')
             identity = f'{mode}/{path}'
             if mode != 'custom' and st.session_state.get('episode_identity') != identity:
@@ -101,7 +103,7 @@ def render_replay(base_task, validation, runs, root, mode='trained'):
                 else:
                     episode = read_json(path)
                     if episode['scenario'] not in validation or episode['mode'] != 'validation':
-                        raise ValueError('Trained replay accepts canonical validation episodes only')
+                        raise ValueError('Watch the robot accepts canonical validation episodes only')
                     validate_replay(task, episode)
                 install_episode(episode, identity)
         except (OSError, ValueError, KeyError, RuntimeError, ImportError) as exc:
@@ -138,6 +140,7 @@ def render_replay(base_task, validation, runs, root, mode='trained'):
     @st.fragment(run_every=.2 if player.playing else None)
     def viewer():
         if (st.session_state.get('episode_identity') != expected_identity
+                or st.session_state.get('demo_map','bottleneck-v1')!='bottleneck-v1'
                 or st.session_state.get('replay_tab') != TAB_LABELS[mode]):
             return
         current = st.session_state['playback']
@@ -191,43 +194,45 @@ def render_replay(base_task, validation, runs, root, mode='trained'):
 
 
 def render_frame(task, episode, index, playing, options):
-    """Shared centered presentation for fixed-map and map-aware recordings."""
-    readings = replay_statistics(episode, index)
-    traveled_unit = 'cell' if readings['traveled'] == 1 else 'cells'
-    goal_unit = 'cell' if readings['goal_distance'] == 1 else 'cells'
+    """Map-first replay; technical scores are available without crowding the view."""
+    from .episodes import frame
+    state = frame(episode,index)
+    readings = replay_statistics(episode,index)
     with st.container(key='single_replay_content'):
-        state_column, map_column, reward_column = st.columns([1, 3, 1.1], gap='small')
-        with state_column:
-            st.markdown('<div class="lab-zone-label">PERFORMANCE</div>', unsafe_allow_html=True)
-            with st.container(key='left_metrics'):
-                st.metric('Actions', f"{readings['actions']} / {task.config['max_steps']}",
-                          help='Actions shown so far / episode step limit.')
-                st.metric('Reward so far', f"{readings['return']:.2f}",
-                          help='Total reward from the displayed actions only.')
-            with st.container(key='single_inspector'):
-                card_heading('Agent state', 'Current recorded observation')
-                telemetry(episode, index, task.config['max_steps'], playing,
-                          paired=False, show_metrics=False)
-                with st.expander('Action details'):
-                    diagnostics(episode, index, 'single')
+        a,b,c = st.columns(3)
+        a.metric('Moves used',f"{readings['actions']} / {task.config['max_steps']}",
+                 help='Moves shown so far / maximum allowed on this route.')
+        b.metric('Distance travelled',f"{readings['traveled']} cells",
+                 help='Squares successfully travelled. Trying to enter a wall adds no distance.')
+        c.metric('Distance to goal',f"{readings['goal_distance']} cells",
+                 help='Straight grid distance, ignoring walls. The actual route may be longer.')
+        map_column, explanation = st.columns([3,1.3],gap='large')
         with map_column:
             with st.container(key='single_map'):
-                card_heading('Navigation environment',
-                             f"{task.grid.map_id} · start {episode['scenario']['start']} → goal {episode['scenario']['goal']}",
-                             '2D · REPLAY')
-                show_map(task.grid, episode, index, landscape=True, **options)
-                st.caption('Recorded trail · robot R · start S · goal G')
-        with reward_column:
-            st.markdown('<div class="lab-zone-label">DISTANCE &amp; REWARD</div>', unsafe_allow_html=True)
-            with st.container(key='right_metrics'):
-                st.metric('Distance traveled', f"{readings['traveled']} {traveled_unit}",
-                          help='Successful cell moves so far. A collision attempt adds no distance.')
-                st.metric('Goal distance', f"{readings['goal_distance']} {goal_unit}",
-                          help='Manhattan distance from the displayed position. Walls can make the actual route longer.')
-            with st.container(key='reward_panel'):
-                card_heading('Episode reward', 'Cumulative score · displayed steps only')
-                reward_chart(episode, index)
-                st.caption('The chart grows as the replay advances.')
+                card_heading("The robot's route",'Follow the blue robot R towards the green goal G.')
+                show_map(task.grid,episode,index,**options)
+        with explanation:
+            status_badge(state['status'],playing)
+            st.markdown('**Reading the map**')
+            st.write('**R** Robot location  \n**S** Starting square  \n**G** Destination  \n**Dark squares** Walls  \n**Blue line** Route travelled')
+            st.markdown('**What happens next?**')
+            if state['status']=='success':
+                st.success('The robot reached its destination. Reset to watch again or choose another route.')
+            elif state['status']=='collision':
+                st.error('The robot tried to move into a wall or outside the map. This route has ended.')
+            elif state['status']=='timeout':
+                st.warning('The robot used all its moves without reaching the goal. Try another route or compare robots.')
+            elif repeated_pattern(episode,index):
+                st.warning('The robot is repeating its moves. You can pause and compare another robot on this route. Playback follows the recorded decisions; it does not help the robot escape.')
+            else:
+                st.write('Press Play to watch, or Next step to see one decision at a time. You can pause at any point.')
+            st.caption('Each move covers one square. The robot does not learn during replay.')
+        with st.expander('Scores and decision details'):
+            telemetry(episode,index,task.config['max_steps'],playing,paired=False,show_metrics=False)
+            st.metric('Reward so far',f"{readings['return']:.2f}")
+            st.caption('Reward is the training score: reaching the goal earns points, while moves and collisions cost points. Compare completion rates before comparing reward totals.')
+            reward_chart(episode,index)
+            diagnostics(episode,index,'single')
 
 
 def install_episode(episode, identity):
@@ -239,22 +244,19 @@ def install_episode(episode, identity):
 
 def custom_route(task, directory, policy):
     from .interface import ALGORITHM_LABELS
+    from .route_picker import pick_cells,coordinate_inputs
+    keys = ('custom_sr','custom_sc','custom_gr','custom_gc')
+    pick_cells(task,keys,'custom',(*task.grid.free_cells[0],*task.grid.free_cells[-1]))
     with st.form('custom'):
-        start, goal, agent = st.columns(3)
-        with start:
-            st.markdown('**Start cell**')
-            sr = st.number_input('Start row', 0, 9, 0)
-            sc = st.number_input('Start column', 0, 9, 0)
-        with goal:
-            st.markdown('**Goal cell**')
-            gr = st.number_input('Goal row', 0, 9, 9)
-            gc = st.number_input('Goal column', 0, 9, 9)
-        with agent:
-            model = st.selectbox('Frozen policy', [ALGORITHM_LABELS[policy.algorithm], 'BFS', 'Random (untrained)'],
-                                 help='The trained model is fixed. BFS is a known-map planner; Random is an untrained reference.')
-            seed = st.number_input('Demonstration seed', 0, 2147483647, 7,
-                                   help='Controls randomness for the Random reference. This is not a new training seed.')
-        generate = st.form_submit_button('Generate demonstration', type='primary')
+        sr,sc,gr,gc = coordinate_inputs(keys,*task.grid.shape)
+        model = st.selectbox('Frozen policy', [ALGORITHM_LABELS[policy.algorithm], 'BFS', 'Random (untrained)'],
+                             format_func=lambda value:'Shortest-path planner (BFS)' if value=='BFS' else 'Trained robot ('+value+')' if value!='Random (untrained)' else value,
+                             help='Choose the trained robot, a planner that knows the map, or an untrained random reference.')
+        with st.expander('Random movement settings'):
+            seed = st.number_input('Demonstration seed',0,2147483647,7,
+                                   help='Repeat the same random moves with the same number. This does not train a robot.')
+        generate = st.form_submit_button('Generate demonstration',type='primary')
+    st.caption('Generate demonstration creates the route attempt. Then press Play. Changing the squares does not change an existing replay until you generate again.')
     if generate:
         try:
             scenario = {'id':f'custom-{sr}-{sc}-{gr}-{gc}', 'start':[sr, sc], 'goal':[gr, gc]}

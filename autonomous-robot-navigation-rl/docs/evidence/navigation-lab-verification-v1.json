@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-17",
+  "benchmark": "structured-navigation-v2",
+  "study": "map-reward-study-v1",
+  "full_suite": {
+    "passed": 229,
+    "seconds": 97.3
+  },
+  "final_map_ui_regressions": {
+    "passed": 22,
+    "seconds": 7.63
+  },
+  "source_hash": "625761daf89e0ef2a516de14b44f4aaa627040527467686d17bb2a5544374cf5",
+  "study_verification": {
+    "status": "passed",
+    "runs": 36,
+    "episodes": 14769,
+    "actions": 639148,
+    "inference_unchanged": true,
+    "reserved_evaluation_episodes": 0
+  },
+  "demo_asset_manifest": "docs/evidence/demo-v2.json",
+  "demo_assets": {
+    "status": "passed",
+    "files": 1256,
+    "total_bytes": 102216715
+  },
+  "historical_seals": {
+    "fixed": 184,
+    "unseen": 114
+  },
+  "m13_preserved": true,
+  "old_map_dead_ends": 0,
+  "reward_result": "time cost: modest gain; potential shaping: collision regression, not recommended"
+}

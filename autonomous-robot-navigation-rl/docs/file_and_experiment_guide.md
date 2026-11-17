@@ -1,5 +1,7 @@
 # File and experiment naming guide
 
+For the current folder layout, see [project organization](../../docs/project-structure.md). Experiment IDs below retain their historical scientific meaning.
+
 The next owner-authorized study is milestone 8, a DQN input comparison.
 `m8-control-dqn-seed101` means the original four normalized absolute inputs;
 `m8-relative-dqn-seed101` means those same four inputs plus two goal offsets.
@@ -251,12 +253,12 @@ These are under [final-v1](../artifacts/studies/final-v1/).
 | `app/` | Streamlit application entry point. |
 | `configs/` | Environment and experiment settings. |
 | `data/` | Versioned map and scenario manifests. |
-| `scripts/` | Study execution, analysis and reproduction commands. |
-| `tests/` | Automated correctness checks. |
+| `developer/commands/` | Study execution, analysis and reproduction commands. |
+| `developer/tests/` | Automated correctness checks. |
 | `artifacts/` | Saved models, results, snapshots, plots and replays. |
 | `docs/` | Protocols, explanations, verification and reports. |
 | `.venv/` | Installed Python environment. |
-| `.cache/` | Local working/reproduction directories. |
+| `.runtime/` | Ignored local runtime and reproduction scratch space. |
 | `.pytest_cache/`, `__pycache__/` | Test/interpreter caches. |
 
 ## Configuration and data filenames

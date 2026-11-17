@@ -1,14 +1,13 @@
-"""Local navigation viewer with separate trained, learning and comparison tabs."""
+"""The everyday navigation app; research evidence remains available on demand."""
 import streamlit as st
 
-from robot_navigation.benchmark import load_scenarios
 from robot_navigation.core import ROOT, load_task
-from robot_navigation.dashboard import PAGES
-from robot_navigation.dashboard_ui import render_page, render_comparison
-from robot_navigation.interface import apply_theme, preferred_runs, run_selector, workspace_header
-from robot_navigation.simulator_ui import render_replay, pause_players
+from robot_navigation.dashboard import PAGES, NAVIGATION
+from robot_navigation.dashboard_ui import render_page
+from robot_navigation.interface import apply_theme
+from robot_navigation.simulator_ui import pause_players
 
-st.set_page_config(page_title='Navigation Control Room', page_icon=':material/explore:', layout='wide',
+st.set_page_config(page_title='Robot Navigation', page_icon=':material/explore:', layout='wide',
                    initial_sidebar_state='collapsed')
 apply_theme()
 
@@ -18,30 +17,29 @@ def open_page(value):
     st.session_state['dashboard_page'] = value
 
 
-with st.sidebar:
-    st.markdown('<div class="lab-brand"><span class="lab-icon">smart_toy</span>'
-                '<strong>NAV<span>RL</span></strong></div>', unsafe_allow_html=True)
-    st.markdown('<div class="lab-nav-label">WORKSPACE</div>', unsafe_allow_html=True)
-    active = st.session_state.get('dashboard_page', 'Navigation simulator')
-    for label, value, icon in (
-        ('Live map', 'Navigation simulator', 'map'),
-        ('Unseen maps', 'Unseen maps', 'travel_explore'),
-        ('Overview', 'Overview', 'grid_view'),
-        ('Learning analysis', 'Learning analysis', 'monitoring'),
-        ('Compare results', 'Agent comparison', 'compare_arrows'),
-        ('Neural tuning', 'Neural tuning', 'tune'),
-        ('Methodology', 'Methodology', 'database'),
-    ):
-        st.button(label, icon=f':material/{icon}:', key=f'nav_{value}',
-                  type='primary' if active == value else 'secondary', width='stretch',
-                  on_click=open_page, args=(value,))
-    with st.expander('Research library'):
-        page = st.selectbox('Dashboard view', PAGES, key='dashboard_page', on_change=pause_players)
-    st.markdown('<div class="lab-sidebar-status"><span class="lab-eyebrow">LOCAL WORKSPACE</span>'
-                '<div class="lab-kv"><span>Data source</span><b>Saved runs</b></div>'
-                f'<div class="lab-kv"><span>Environment</span><b>{"Multiple layouts" if page=="Unseen maps" else "Fixed grid"}</b></div>'
-                '<small>Playback uses recorded actions.<br>Policies stay fixed during replay.</small></div>',
-                unsafe_allow_html=True)
+def choose_result():
+    open_page(st.session_state['results_view'])
+
+
+def choose_benchmark():
+    open_page('Unseen maps' if st.session_state['results_benchmark']=='Unseen layouts' else 'Overview')
+
+
+page = st.session_state.get('dashboard_page', PAGES[0])
+if page=='Map & reward lab':
+    page = 'Navigation simulator'
+    st.session_state['demo_map'] = 'structured-navigation-v2-dead-end-maze'
+if page not in PAGES:
+    page = PAGES[0]
+st.session_state['dashboard_page'] = page
+record = next(row for row in NAVIGATION if row[0]==page)
+st.caption('ROBOT NAVIGATION | Learn by watching')
+with st.container(key='app_navigation'):
+    for column,route in zip(st.columns(3),dict.fromkeys(row[2] for row in NAVIGATION)):
+        target = next(row[0] for row in NAVIGATION if row[2]==route)
+        column.button(route,key=f'route_{route}',width='stretch',
+                      type='primary' if record[2]==route else 'secondary',
+                      on_click=open_page,args=(target,))
 
 
 @st.cache_resource
@@ -49,42 +47,41 @@ def task_resource():
     return load_task()
 
 
-try:
-    task = task_resource()
-    validation = load_scenarios(task, 'validation')
-except (OSError, ValueError, KeyError) as exc:
-    st.error(f'Benchmark unavailable: {exc}. Run python -m robot_navigation.cli prepare first.')
+if page=='Navigation simulator':
+    from robot_navigation.navigation_demo import render_demo
+    render_demo(ROOT)
     st.stop()
 
-workspace_header('Unseen layouts' if page=='Unseen maps' else task.grid.map_id, page)
-if page != 'Navigation simulator':
-    render_page(page, task, ROOT)
+if page=='Methodology':
+    from robot_navigation.user_guide_ui import render_guide
+    render_guide()
+    with st.expander('Research methods and technical background'):
+        render_page(page,None,ROOT)
+    with st.expander('Check this installation'):
+        if st.button('Check saved demo assets'):
+            from robot_navigation.demo_assets import verify
+            try:
+                result = verify(ROOT)
+                st.success(f"Saved demo verified: {result['files']} files.")
+            except (OSError,ValueError,KeyError) as exc:
+                st.info(f'Saved demo unavailable: {exc}. Restore the named assets from the matching release.')
     st.stop()
 
-runs = preferred_runs(p for p in (ROOT / 'artifacts/runs').glob('*') if (p / 'manifest.json').exists())
-if not runs:
-    st.info('No saved models are available yet.')
-    st.stop()
-
-labels = ['Trained replay', 'Learning replay', 'Compare agents', 'Try a route']
-tabs = st.tabs(labels, key='replay_tab', on_change='rerun')
-if st.session_state.get('active_replay_tab') != st.session_state['replay_tab']:
-    pause_players()
-    st.session_state['active_replay_tab'] = st.session_state['replay_tab']
-for label, tab in zip(labels, tabs):
-    if tab.open:
-        with tab:
-            if label == 'Compare agents':
-                st.write('Watch different agents tackle the same start and goal. Their steps advance together.')
-                count = st.radio('What would you like to compare?', ['Two agents', 'Four algorithms'],
-                                 horizontal=True, key='comparison_size', on_change=pause_players)
-                if count == 'Four algorithms':
-                    render_comparison(task, None, validation, runs, ROOT, four=True)
-                else:
-                    with st.container(key='model_setup'):
-                        directory = run_selector(runs, label='First trained model')
-                    if directory is not None:
-                        render_comparison(task, directory, validation, runs, ROOT)
-            else:
-                render_replay(task, validation, runs, ROOT,
-                              mode={'Trained replay':'trained', 'Learning replay':'learning', 'Try a route':'custom'}[label])
+from robot_navigation.user_guide_ui import render_results_intro
+render_results_intro(ROOT)
+with st.expander('Research results and comparisons',expanded=page!='Overview'):
+    st.session_state['results_benchmark'] = record[3]
+    st.radio('Benchmark',['Fixed layout','Unseen layouts'],key='results_benchmark',on_change=choose_benchmark,
+             horizontal=True,format_func=lambda x:'Original map' if x=='Fixed layout' else 'Previously unseen maps')
+    options = [row[0] for row in NAVIGATION if row[2]=='Results' and row[3]==record[3]]
+    if len(options)>1:
+        st.session_state['results_view'] = page
+        st.selectbox('Results view',options,key='results_view',
+                     format_func=lambda value:next(row[1] for row in NAVIGATION if row[0]==value),on_change=choose_result)
+    if page=='Unseen maps':
+        render_page(page,None,ROOT)
+    else:
+        try:
+            render_page(page,task_resource(),ROOT)
+        except (OSError, ValueError, KeyError) as exc:
+            st.error(f'This research view is unavailable: {exc}. The saved-data guide is still available.')

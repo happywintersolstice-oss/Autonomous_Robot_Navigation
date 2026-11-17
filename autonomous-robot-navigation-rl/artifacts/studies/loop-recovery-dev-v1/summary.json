@@ -1,0 +1,458 @@
+{
+  "scope": "exploratory development layouts only; no independent final claim",
+  "baseline_success": 0.6336805555555556,
+  "wrapper_success": 0.677662037037037,
+  "success_change": 0.0439814814814814,
+  "baseline_spl": 0.6235719932640889,
+  "wrapper_spl": 0.6527131567642886,
+  "wrapper_collision": 0.010416666666666666,
+  "promotion_passed": false,
+  "paired_changes": {
+    "success->success": 1095,
+    "timeout->timeout": 539,
+    "timeout->success": 76,
+    "collision->collision": 12,
+    "timeout->collision": 6
+  },
+  "rows": [
+    {
+      "training_seed": 12101,
+      "rng_seed": 17011,
+      "baseline": {
+        "episodes": 192,
+        "counts": {
+          "success": 125,
+          "collision": 3,
+          "timeout": 64
+        },
+        "success_rate": 0.6510416666666666,
+        "collision_rate": 0.015625,
+        "timeout_rate": 0.3333333333333333,
+        "spl": 0.640868015086765,
+        "mean_return": 5.723697916666667,
+        "mean_successful_route_length": 6.296,
+        "successful_route_count": 125,
+        "interactions": 13605
+      },
+      "wrapper": {
+        "episodes": 192,
+        "counts": {
+          "success": 137,
+          "collision": 4,
+          "timeout": 51
+        },
+        "success_rate": 0.7135416666666666,
+        "collision_rate": 0.020833333333333332,
+        "timeout_rate": 0.265625,
+        "spl": 0.6797662285326759,
+        "mean_return": 6.446197916666667,
+        "mean_successful_route_length": 7.291970802919708,
+        "successful_route_count": 137,
+        "interactions": 11233
+      },
+      "paired_changes": {
+        "success->success": 125,
+        "timeout->timeout": 51,
+        "timeout->success": 12,
+        "collision->collision": 3,
+        "timeout->collision": 1
+      },
+      "persistent_timeouts": 51,
+      "interventions": 87,
+      "decision_microseconds": {
+        "base": 45.07699981331825,
+        "wrapper": 49.25900022499263
+      }
+    },
+    {
+      "training_seed": 12101,
+      "rng_seed": 17021,
+      "baseline": {
+        "episodes": 192,
+        "counts": {
+          "success": 125,
+          "collision": 3,
+          "timeout": 64
+        },
+        "success_rate": 0.6510416666666666,
+        "collision_rate": 0.015625,
+        "timeout_rate": 0.3333333333333333,
+        "spl": 0.640868015086765,
+        "mean_return": 5.723697916666667,
+        "mean_successful_route_length": 6.296,
+        "successful_route_count": 125,
+        "interactions": 13605
+      },
+      "wrapper": {
+        "episodes": 192,
+        "counts": {
+          "success": 136,
+          "collision": 4,
+          "timeout": 52
+        },
+        "success_rate": 0.7083333333333334,
+        "collision_rate": 0.020833333333333332,
+        "timeout_rate": 0.2708333333333333,
+        "spl": 0.6760282420644264,
+        "mean_return": 6.384427083333333,
+        "mean_successful_route_length": 7.242647058823529,
+        "successful_route_count": 136,
+        "interactions": 11419
+      },
+      "paired_changes": {
+        "success->success": 125,
+        "timeout->timeout": 52,
+        "timeout->success": 11,
+        "collision->collision": 3,
+        "timeout->collision": 1
+      },
+      "persistent_timeouts": 52,
+      "interventions": 90,
+      "decision_microseconds": {
+        "base": 50.696999533101916,
+        "wrapper": 50.42900040280074
+      }
+    },
+    {
+      "training_seed": 12101,
+      "rng_seed": 17033,
+      "baseline": {
+        "episodes": 192,
+        "counts": {
+          "success": 125,
+          "collision": 3,
+          "timeout": 64
+        },
+        "success_rate": 0.6510416666666666,
+        "collision_rate": 0.015625,
+        "timeout_rate": 0.3333333333333333,
+        "spl": 0.640868015086765,
+        "mean_return": 5.723697916666667,
+        "mean_successful_route_length": 6.296,
+        "successful_route_count": 125,
+        "interactions": 13605
+      },
+      "wrapper": {
+        "episodes": 192,
+        "counts": {
+          "success": 136,
+          "collision": 4,
+          "timeout": 52
+        },
+        "success_rate": 0.7083333333333334,
+        "collision_rate": 0.020833333333333332,
+        "timeout_rate": 0.2708333333333333,
+        "spl": 0.6786286188835531,
+        "mean_return": 6.385208333333334,
+        "mean_successful_route_length": 7.132352941176471,
+        "successful_route_count": 136,
+        "interactions": 11404
+      },
+      "paired_changes": {
+        "success->success": 125,
+        "timeout->timeout": 52,
+        "timeout->success": 11,
+        "collision->collision": 3,
+        "timeout->collision": 1
+      },
+      "persistent_timeouts": 52,
+      "interventions": 87,
+      "decision_microseconds": {
+        "base": 56.46499979775399,
+        "wrapper": 49.08300004899502
+      }
+    },
+    {
+      "training_seed": 12203,
+      "rng_seed": 17011,
+      "baseline": {
+        "episodes": 192,
+        "counts": {
+          "success": 117,
+          "collision": 0,
+          "timeout": 75
+        },
+        "success_rate": 0.609375,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.390625,
+        "spl": 0.6018886784511784,
+        "mean_return": 5.276666666666666,
+        "mean_successful_route_length": 5.880341880341881,
+        "successful_route_count": 117,
+        "interactions": 15688
+      },
+      "wrapper": {
+        "episodes": 192,
+        "counts": {
+          "success": 126,
+          "collision": 0,
+          "timeout": 66
+        },
+        "success_rate": 0.65625,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.34375,
+        "spl": 0.6341638235238274,
+        "mean_return": 5.831927083333333,
+        "mean_successful_route_length": 6.563492063492063,
+        "successful_route_count": 126,
+        "interactions": 14027
+      },
+      "paired_changes": {
+        "success->success": 117,
+        "timeout->timeout": 66,
+        "timeout->success": 9
+      },
+      "persistent_timeouts": 66,
+      "interventions": 54,
+      "decision_microseconds": {
+        "base": 55.416999966837466,
+        "wrapper": 53.0560000333935
+      }
+    },
+    {
+      "training_seed": 12203,
+      "rng_seed": 17021,
+      "baseline": {
+        "episodes": 192,
+        "counts": {
+          "success": 117,
+          "collision": 0,
+          "timeout": 75
+        },
+        "success_rate": 0.609375,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.390625,
+        "spl": 0.6018886784511784,
+        "mean_return": 5.276666666666666,
+        "mean_successful_route_length": 5.880341880341881,
+        "successful_route_count": 117,
+        "interactions": 15688
+      },
+      "wrapper": {
+        "episodes": 192,
+        "counts": {
+          "success": 126,
+          "collision": 0,
+          "timeout": 66
+        },
+        "success_rate": 0.65625,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.34375,
+        "spl": 0.6341638235238274,
+        "mean_return": 5.831927083333333,
+        "mean_successful_route_length": 6.563492063492063,
+        "successful_route_count": 126,
+        "interactions": 14027
+      },
+      "paired_changes": {
+        "success->success": 117,
+        "timeout->timeout": 66,
+        "timeout->success": 9
+      },
+      "persistent_timeouts": 66,
+      "interventions": 54,
+      "decision_microseconds": {
+        "base": 43.415999971330166,
+        "wrapper": 50.613999483175576
+      }
+    },
+    {
+      "training_seed": 12203,
+      "rng_seed": 17033,
+      "baseline": {
+        "episodes": 192,
+        "counts": {
+          "success": 117,
+          "collision": 0,
+          "timeout": 75
+        },
+        "success_rate": 0.609375,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.390625,
+        "spl": 0.6018886784511784,
+        "mean_return": 5.276666666666666,
+        "mean_successful_route_length": 5.880341880341881,
+        "successful_route_count": 117,
+        "interactions": 15688
+      },
+      "wrapper": {
+        "episodes": 192,
+        "counts": {
+          "success": 126,
+          "collision": 0,
+          "timeout": 66
+        },
+        "success_rate": 0.65625,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.34375,
+        "spl": 0.6341638235238274,
+        "mean_return": 5.831927083333333,
+        "mean_successful_route_length": 6.563492063492063,
+        "successful_route_count": 126,
+        "interactions": 14027
+      },
+      "paired_changes": {
+        "success->success": 117,
+        "timeout->timeout": 66,
+        "timeout->success": 9
+      },
+      "persistent_timeouts": 66,
+      "interventions": 54,
+      "decision_microseconds": {
+        "base": 141.21600019279867,
+        "wrapper": 116.1869999486953
+      }
+    },
+    {
+      "training_seed": 12301,
+      "rng_seed": 17011,
+      "baseline": {
+        "episodes": 192,
+        "counts": {
+          "success": 123,
+          "collision": 1,
+          "timeout": 68
+        },
+        "success_rate": 0.640625,
+        "collision_rate": 0.005208333333333333,
+        "timeout_rate": 0.3541666666666667,
+        "spl": 0.627959286254323,
+        "mean_return": 5.63234375,
+        "mean_successful_route_length": 6.154471544715447,
+        "successful_route_count": 123,
+        "interactions": 14359
+      },
+      "wrapper": {
+        "episodes": 192,
+        "counts": {
+          "success": 128,
+          "collision": 2,
+          "timeout": 62
+        },
+        "success_rate": 0.6666666666666666,
+        "collision_rate": 0.010416666666666666,
+        "timeout_rate": 0.3229166666666667,
+        "spl": 0.6458346169421537,
+        "mean_return": 5.924062500000001,
+        "mean_successful_route_length": 6.609375,
+        "successful_route_count": 128,
+        "interactions": 13258
+      },
+      "paired_changes": {
+        "success->success": 123,
+        "timeout->timeout": 62,
+        "timeout->success": 5,
+        "timeout->collision": 1,
+        "collision->collision": 1
+      },
+      "persistent_timeouts": 62,
+      "interventions": 93,
+      "decision_microseconds": {
+        "base": 41.81800002697855,
+        "wrapper": 55.049999500624835
+      }
+    },
+    {
+      "training_seed": 12301,
+      "rng_seed": 17021,
+      "baseline": {
+        "episodes": 192,
+        "counts": {
+          "success": 123,
+          "collision": 1,
+          "timeout": 68
+        },
+        "success_rate": 0.640625,
+        "collision_rate": 0.005208333333333333,
+        "timeout_rate": 0.3541666666666667,
+        "spl": 0.627959286254323,
+        "mean_return": 5.63234375,
+        "mean_successful_route_length": 6.154471544715447,
+        "successful_route_count": 123,
+        "interactions": 14359
+      },
+      "wrapper": {
+        "episodes": 192,
+        "counts": {
+          "success": 128,
+          "collision": 2,
+          "timeout": 62
+        },
+        "success_rate": 0.6666666666666666,
+        "collision_rate": 0.010416666666666666,
+        "timeout_rate": 0.3229166666666667,
+        "spl": 0.6458346169421537,
+        "mean_return": 5.924062500000001,
+        "mean_successful_route_length": 6.609375,
+        "successful_route_count": 128,
+        "interactions": 13258
+      },
+      "paired_changes": {
+        "success->success": 123,
+        "timeout->timeout": 62,
+        "timeout->success": 5,
+        "timeout->collision": 1,
+        "collision->collision": 1
+      },
+      "persistent_timeouts": 62,
+      "interventions": 93,
+      "decision_microseconds": {
+        "base": 51.26999982167035,
+        "wrapper": 46.77999997511506
+      }
+    },
+    {
+      "training_seed": 12301,
+      "rng_seed": 17033,
+      "baseline": {
+        "episodes": 192,
+        "counts": {
+          "success": 123,
+          "collision": 1,
+          "timeout": 68
+        },
+        "success_rate": 0.640625,
+        "collision_rate": 0.005208333333333333,
+        "timeout_rate": 0.3541666666666667,
+        "spl": 0.627959286254323,
+        "mean_return": 5.63234375,
+        "mean_successful_route_length": 6.154471544715447,
+        "successful_route_count": 123,
+        "interactions": 14359
+      },
+      "wrapper": {
+        "episodes": 192,
+        "counts": {
+          "success": 128,
+          "collision": 2,
+          "timeout": 62
+        },
+        "success_rate": 0.6666666666666666,
+        "collision_rate": 0.010416666666666666,
+        "timeout_rate": 0.3229166666666667,
+        "spl": 0.6458346169421537,
+        "mean_return": 5.924062500000001,
+        "mean_successful_route_length": 6.609375,
+        "successful_route_count": 128,
+        "interactions": 13258
+      },
+      "paired_changes": {
+        "success->success": 123,
+        "timeout->timeout": 62,
+        "timeout->success": 5,
+        "timeout->collision": 1,
+        "collision->collision": 1
+      },
+      "persistent_timeouts": 62,
+      "interventions": 92,
+      "decision_microseconds": {
+        "base": 47.16199997346848,
+        "wrapper": 55.78499985858798
+      }
+    }
+  ],
+  "training_interactions": 0,
+  "final_layout_evaluations": 0,
+  "replication": "3 trained policies; 3 intervention streams per policy; deterministic baseline reused, not 9 independent policies",
+  "wall_seconds": 21.503601799951866
+}

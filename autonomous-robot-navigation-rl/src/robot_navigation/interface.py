@@ -23,16 +23,16 @@ _MAP_RENDER_LOCK = RLock()
 
 
 def apply_theme():
-    from .theme import CONTROL_ROOM_CSS
-    st.markdown(CONTROL_ROOM_CSS, unsafe_allow_html=True)
+    from .app_theme import APP_CSS
+    st.markdown(APP_CSS, unsafe_allow_html=True)
 
 
 def workspace_header(map_id, page):
-    title = 'Live map' if page == 'Navigation simulator' else page
+    title = 'Find a way to the goal' if page == 'Navigation simulator' else page
     st.markdown('<div class="lab-topbar"><div><div class="lab-breadcrumb">Autonomous navigation / '
-                f'{escape(title)}</div><h1>Navigation Control</h1></div>'
+                f'Robot Navigation</div><h1>{escape(title)}</h1></div>'
                 '<div class="lab-environment"><span class="lab-icon">map</span>'
-                f'<div><small>ENVIRONMENT</small><b>{escape(map_id)}</b></div></div></div>',
+                f'<div><small>ENVIRONMENT</small><b>{escape(map_id) if map_id else "Interactive demo"}</b></div></div></div>',
                 unsafe_allow_html=True)
 
 
@@ -90,7 +90,7 @@ def experiment_group(directory):
     """Human-readable provenance; never infer tuning from measured performance."""
     name = directory.name
     if name.startswith('learning-replay-'):
-        return 'Learning replay demonstrations'
+        return 'Learning history demonstrations'
     if name.startswith('m9-'):
         return 'Neural tuning'
     if name.startswith('m8-'):
@@ -140,7 +140,7 @@ def _run_selector(runs, key, label):
 
 
 def playback_status(index, playing, shared=False, training=False):
-    label = 'Shared action index' if shared else 'Action index'
+    label = 'Shared move' if shared else 'Move'
     st.markdown(f'<div class="lab-session"><span><b>{label}: {index}</b> · '
                 f'{"Playing" if playing else "Paused"}</span>'
                 f'<span>{"Recorded training actions · no live learning" if training else "Saved model · no learning during playback"}</span></div>', unsafe_allow_html=True)
@@ -256,8 +256,8 @@ def reward_chart(episode, index):
     spec = {
         'height':170, 'background':'transparent',
         'layer':[
-            {'mark':{'type':'area', 'color':'#00bdf2', 'opacity':.12}},
-            {'mark':{'type':'line', 'color':'#00bdf2', 'strokeWidth':2,
+            {'mark':{'type':'area', 'color':'#087e8b', 'opacity':.12}},
+            {'mark':{'type':'line', 'color':'#087e8b', 'strokeWidth':2,
                      'point':{'filled':True, 'size':28}}}],
         'encoding':{
             'x':{'field':'Step', 'type':'quantitative',
@@ -266,7 +266,7 @@ def reward_chart(episode, index):
             'y':{'field':'Reward', 'type':'quantitative',
                  'scale':{'domain':[min(-.1,min(history['Reward'])),max(.1,max(history['Reward']))]},
                  'axis':{'title':None, 'format':'.2f', 'tickCount':4}}},
-        'config':{'view':{'stroke':None}, 'axis':{'labelColor':'#88a9bf', 'titleColor':'#88a9bf',
+        'config':{'view':{'stroke':None}, 'axis':{'labelColor':'#526b77', 'titleColor':'#526b77',
                    'domain':False, 'tickColor':'#1c394a', 'gridColor':'#1c394a'}}}
     st.vega_lite_chart(history, spec, width='stretch')
 
@@ -282,46 +282,47 @@ def map_png(grid,episode,index,trail=True,visits=False,bfs=False,landscape=False
             figure.set_layout_engine(None)
             width, height = (7.6,5.3) if landscape else (6.4,6.0)
             figure.set_size_inches(width,height,forward=False)
-            figure.set_facecolor('#091923')
-            ax=figure.axes[0];ax.set_facecolor('#091923')
+            figure.set_facecolor('#ffffff')
+            ax=figure.axes[0];ax.set_facecolor('#ffffff')
             ax.set_position([.08,.10,.89,.87])
             if landscape:
                 # This is a coordinate schematic. Both axes retain grid-cell
                 # units while the live workspace uses a wider viewing panel.
                 ax.set_aspect('auto')
-            ax.images[0].set_cmap(ListedColormap(['#0b1d29','#243e50']))
-            ax.tick_params(colors='#88a9bf',labelsize=8)
-            ax.grid(which='minor',color='#355368',linewidth=.65)
+            ax.images[0].set_cmap(ListedColormap(['#f7fafc','#334d59']))
+            ax.tick_params(colors='#526b77',labelsize=8)
+            ax.grid(which='minor',color='#cedee4',linewidth=.65)
             for spine in ax.spines.values():
-                spine.set_color('#3d556c')
-            ax.xaxis.label.set_color('#9db6cc');ax.yaxis.label.set_color('#9db6cc')
+                spine.set_color('#b6ccd3')
+            ax.xaxis.label.set_color('#526b77');ax.yaxis.label.set_color('#526b77')
             ax.set_title('',loc='left')
-            for patch,color in zip(ax.patches,('#8ba6b8','#00dfb5')):
+            for patch,color in zip(ax.patches,('#23536d','#237453')):
                 patch.set_edgecolor(color)
             # The first collection is the real robot position from draw().
             # Keep collision markers and attempted-move arrows red.
-            ax.collections[0].set_facecolor('#00bdf2')
-            ax.collections[0].set_edgecolor('#a3eeff')
+            ax.collections[0].set_facecolor('#087e8b')
+            ax.collections[0].set_edgecolor('#044d58')
             ax.collections[0].set_linewidth(1.8)
             for text in ax.texts:
                 label=text.get_text()
                 if label in ('S','G'):
-                    text.set_color('#8ba6b8' if label=='S' else '#00dfb5')
+                    text.set_color('#23536d' if label=='S' else '#237453')
+                    text.set_verticalalignment('center')
                 elif label=='R':
-                    text.set_color('#052333')
+                    text.set_color('#ffffff')
                 elif label.isdigit():
-                    text.set_color('#8de5dd')
-                    text.set_bbox({'facecolor':'#102132','edgecolor':'none','pad':.5})
+                    text.set_color('#075965')
+                    text.set_bbox({'facecolor':'#edf6f5','edgecolor':'none','pad':.5})
             for line in ax.lines:
-                line.set_color('#ba9dff' if line.get_linestyle()=='--' else '#86ddff')
+                line.set_color('#9051bb' if line.get_linestyle()=='--' else '#1685b7')
                 line.set_alpha(.95)
             for text in figure.texts:
-                text.set_color('#a8bdce')
+                text.set_color('#526b77')
             legend=ax.get_legend()
             if legend:
-                legend.get_frame().set_facecolor('#142637');legend.get_frame().set_edgecolor('#496078')
+                legend.get_frame().set_facecolor('#ffffff');legend.get_frame().set_edgecolor('#b6ccd3')
                 for text in legend.get_texts():
-                    text.set_color('#c1d2e1')
+                    text.set_color('#17313c')
             buffer=BytesIO();figure.savefig(buffer,format='png',dpi=145,facecolor=figure.get_facecolor())
             return buffer.getvalue()
         finally:

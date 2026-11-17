@@ -12,6 +12,33 @@ from .simulator_ui import render_frame
 from .unseen_audit import load_recording
 from .unseen_benchmark import MapBenchmark
 from .unseen_study import STUDY
+from .evidence import EXPECTED_ERRORS, checked_summary, object_record, check_pinned_summary
+
+
+def discover_studies(root, signature=None):
+    """Exclude each invalid candidate independently before creating widgets."""
+    from .unseen_main import STUDY as MAIN
+    from .unseen_final import STUDY as FINAL
+    choices, problems = [], []
+    for name in (FINAL,MAIN,STUDY):
+        directory = root/'artifacts/studies'/name
+        try:
+            summary = checked_summary(read_json(directory/'summary.json'))
+            verification = object_record(read_json(directory/'verification.json'), ('status','signature'))
+            if summary.get('status')!='verified' or verification['status']!='passed':
+                raise ValueError('Study is unverified')
+            if summary['signature'] != verification['signature'] or (signature is not None and summary['signature']!=signature):
+                raise ValueError('Study task signature mismatch')
+            if signature is not None:
+                check_pinned_summary(root,name)
+            if name==FINAL:
+                from .release import sha
+                if verification.get('summary_sha256')!=sha(directory/'summary.json'):
+                    raise ValueError('Final summary checksum mismatch')
+            choices.append(name)
+        except EXPECTED_ERRORS as exc:
+            problems.append((name,str(exc)))
+    return choices,problems
 
 
 def open_diagnostic_example(example):
@@ -38,15 +65,23 @@ def render_unseen(root):
             st.session_state[key] = st.session_state[key]
     from .unseen_main import STUDY as MAIN
     from .unseen_final import STUDY as FINAL, FinalBenchmark
-    choices = [STUDY]
-    main_summary = root/'artifacts/studies'/MAIN/'summary.json'
-    if main_summary.exists() and read_json(main_summary).get('status')=='verified':
-        choices.insert(0,MAIN)
-    final_summary = root/'artifacts/studies'/FINAL/'summary.json'
-    if final_summary.exists() and read_json(final_summary).get('status')=='verified':
-        choices.insert(0,FINAL)
+    try:
+        signature = MapBenchmark(root).signature
+    except EXPECTED_ERRORS as exc:
+        st.info(f'unseen-maps-v1: benchmark unavailable ({exc}). Restore data/unseen/unseen-maps-v1.')
+        return
+    choices,problems = discover_studies(root,signature)
+    for name,reason in problems:
+        st.info(f'{name}: unavailable or unverified ({reason}). Restore its saved evidence; other studies remain available.')
+    if not choices:
+        return
     labels = {FINAL:'Final evaluation · ten held-out layouts',MAIN:'Shared features · three seeds',
               STUDY:'Initial pilot · one seed'}
+    if st.session_state.get('unseen_study') not in choices:
+        previous = st.session_state.get('unseen_playback')
+        if previous is not None:
+            previous.pause()
+        st.session_state['unseen_study'] = choices[0]
     selected = st.selectbox('Unseen-map study',choices,
         format_func=lambda value:labels[value],
         key='unseen_study')
@@ -96,7 +131,10 @@ def render_unseen(root):
             _results(summary)
     if tabs[1].open:
         with tabs[1]:
-            _replay(benchmark, directory, summary)
+            try:
+                _replay(benchmark, directory, summary)
+            except EXPECTED_ERRORS as exc:
+                st.info(f'{selected}: replay unavailable ({exc}). Restore the registered recording and manifest.')
     if tabs[2].open:
         with tabs[2]:
             from .unseen_diagnostics_ui import render_diagnostics

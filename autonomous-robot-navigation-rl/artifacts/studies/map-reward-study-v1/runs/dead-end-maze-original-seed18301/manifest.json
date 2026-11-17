@@ -1,0 +1,38 @@
+{
+  "family": "dead-end-maze",
+  "condition": "original",
+  "training_seed": 18301,
+  "training_interactions": 100000,
+  "selected_interactions": 100000,
+  "training_monitor_seconds": 2.7767843999899924,
+  "metrics": {
+    "episodes": 365,
+    "counts": {
+      "success": 279,
+      "collision": 7,
+      "timeout": 79
+    },
+    "success_rate": 0.7643835616438356,
+    "collision_rate": 0.019178082191780823,
+    "timeout_rate": 0.21643835616438356,
+    "spl": 0.7643835616438356,
+    "mean_return": 7.028082191780822,
+    "mean_successful_route_length": 11.347670250896057,
+    "successful_route_count": 279,
+    "interactions": 18975
+  },
+  "repetition": {
+    "revisited_movement_cells": 15665,
+    "looping_timeouts": 79
+  },
+  "signature": {
+    "map_id": "structured-navigation-v2-dead-end-maze",
+    "map_hash": "89e6bc431b3211e47f56711d42d8f997624c6fe6da6922398720c0d08b23a2be",
+    "task_hash": "a9869e148dcb4f2c4063d2787d49df0e4e66917d2d2d0284a70d603f1de2f7f4",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "structured-original-v1"
+  },
+  "episode_sha256": "06d4303a2f4c7d811b131b5fd772db912b887afca5152e51dc955f13f304d816"
+}

@@ -66,7 +66,7 @@ def build_analysis(task, study, root=ROOT):
     study.mkdir(parents=True)
     write_json(study/'status.json', {'status': 'running'})
     for source, name in ((root/'src/robot_navigation/four_way_analysis.py', 'analysis.py'),
-                         (root/'scripts/analyze_four_way_details.py', 'runner.py'),
+                         (root/'developer/commands/analyze_four_way_details.py', 'runner.py'),
                          (root/'docs/four_way_analysis_protocol.md', 'protocol.md')):
         shutil.copy2(source, study/name)
     inputs = {}

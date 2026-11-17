@@ -1,16 +1,15 @@
 # Using the navigation dashboard
 
-The sidebar is for changing research pages. Replay controls and model choices
-are on the main screen, next to the content they affect.
+Use **Demo**, **Results** and **Guide** at the top of the app. The [current user guide](../../docs/user-guide.md) explains the redesigned map display, free-square route picker and outcomes. Research views are under Results in an expandable section.
 
 ## Choose a replay tab
 
 | Tab | What it does |
 | --- | --- |
-| Trained replay | Plays a saved example of a model acting after training. Choose the model and example, then Play. |
-| Learning replay | Plays actual actions recorded during training, including exploration. Choose a training run and recorded episode. |
-| Compare agents | Gives different agents the same start and goal. Choose two models or the four-algorithm baseline lineup. |
-| Try a route | Lets you choose start and goal cells and run a fixed trained model once. This does not retrain it or add benchmark results. |
+| Watch the robot | Plays a saved example of a model acting after training. Choose the model and example, then Play. |
+| Learning history | Plays actual actions recorded during training, including exploration. Choose a training run and recorded episode. |
+| Compare robots | Gives different agents the same start and goal. Choose two models or the four-algorithm baseline lineup. |
+| Choose a route | Lets you choose start and goal cells and run a fixed trained model once. This does not retrain it or add benchmark results. |
 
 Changing tabs pauses playback. Only the active tab runs its animation timer.
 These tabs do not run live training.
@@ -76,13 +75,13 @@ settings across the displayed seed count. Success, collision and timeout are sho
 as percentages. Paired changes use percentage points. SPL ranges from zero to one.
 
 Use **Compare DQN models** or **Compare PPO models** to open the first declared
-confirmation seed in **Compare agents**. Both models face the same route with
+confirmation seed in **Compare robots**. Both models face the same route with
 synchronized action steps. Change **Start and goal** to inspect other validation
 routes. The initial seed is fixed before results and is not chosen for its score.
 
 For other seeds, open **Filter**, choose **Neural tuning**, then select the
 desired **Fresh baseline** or **Selected settings** model. Those runs also contain
-bounded actual training episodes in **Learning replay**. The page displays the
+bounded actual training episodes in **Learning history**. The page displays the
 verified study after its integrity checks finish and reports progress beforehand.
 
 Expand **Two additional seeds separately** to inspect the added-seed averages.

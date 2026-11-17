@@ -38,7 +38,7 @@ def freeze_release(study, root=ROOT):
     study.mkdir(parents=True,exist_ok=False)
     task=load_task(root)
     files=set()
-    for folder,pattern in (('src','*.py'),('app','*.py'),('scripts','*.py'),('configs','*.yaml'),('data','*.json')):
+    for folder,pattern in (('src','*.py'),('app','*.py'),('developer/commands','*.py'),('configs','*.yaml'),('data','*.json')):
         files.update((root/folder).rglob(pattern))
     files.update(root / name for name in ('requirements-lock.txt','pyproject.toml','docs/milestone6_protocol.md'))
     records=registry()
@@ -119,9 +119,23 @@ def load_final_scenarios(study, freeze):
 
 def final_summary(root=ROOT):
     study=root/'artifacts/studies/final-v1'
-    try:
-        if not read_json(study/'status.json').get('final_evaluation_complete'):
-            return None
-        return read_json(study/'summary.json')
-    except FileNotFoundError:
+    if not (study/'status.json').exists():
         return None
+    from .evidence import checked_summary, object_record
+    status = object_record(read_json(study/'status.json'), ('final_evaluation_complete',))
+    if status['final_evaluation_complete'] is not True or status.get('status') != 'complete':
+        raise ValueError('final-v1 evaluation is unverified or incomplete')
+    pin = object_record(read_json(root/'docs/evidence/fixed-final-v1.json'),
+                        ('schema_version','freeze_digest','summary_sha256'))
+    if pin['schema_version'] != 1:
+        raise ValueError('Unsupported final-v1 evidence manifest')
+    if sha(study/'summary.json') != pin['summary_sha256']:
+        raise ValueError('final-v1 summary checksum mismatch')
+    freeze = read_json(study/'freeze.json')
+    seal = read_json(study/'seal.json')['freeze_digest']
+    if digest(freeze) != pin['freeze_digest'] or seal != pin['freeze_digest'] or status.get('freeze_digest') != seal:
+        raise ValueError('final-v1 release seal mismatch')
+    summary = checked_summary(read_json(study/'summary.json'))
+    if summary['signature'] != freeze['signature'] or summary['selected_system'] != freeze['selected_system']:
+        raise ValueError('final-v1 task or selected policy mismatch')
+    return summary

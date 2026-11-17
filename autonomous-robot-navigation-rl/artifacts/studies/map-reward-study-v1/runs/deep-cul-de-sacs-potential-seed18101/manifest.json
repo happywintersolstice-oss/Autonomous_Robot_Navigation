@@ -1,0 +1,38 @@
+{
+  "family": "deep-cul-de-sacs",
+  "condition": "potential",
+  "training_seed": 18101,
+  "training_interactions": 100000,
+  "selected_interactions": 90000,
+  "training_monitor_seconds": 2.6706547000212595,
+  "metrics": {
+    "episodes": 367,
+    "counts": {
+      "success": 259,
+      "collision": 19,
+      "timeout": 89
+    },
+    "success_rate": 0.7057220708446866,
+    "collision_rate": 0.051771117166212535,
+    "timeout_rate": 0.24250681198910082,
+    "spl": 0.7057220708446866,
+    "mean_return": 5.690970027247957,
+    "mean_successful_route_length": 10.069498069498069,
+    "successful_route_count": 259,
+    "interactions": 20436
+  },
+  "repetition": {
+    "revisited_movement_cells": 17600,
+    "looping_timeouts": 89
+  },
+  "signature": {
+    "map_id": "structured-navigation-v2-deep-cul-de-sacs",
+    "map_hash": "ba42c05a49297cc220c3c3c7e375dbbf51e1d7f8caf7585d0b0a61026a11d8d5",
+    "task_hash": "894da434b0bc0a73ef3bb62102412399e8a3644640576aa7bd32d6797c2ded93",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "structured-potential-v1"
+  },
+  "episode_sha256": "bd501fa65435382fa76ed18d6c0371da874f4d28d9f8e8da14353fe50ebbb763"
+}

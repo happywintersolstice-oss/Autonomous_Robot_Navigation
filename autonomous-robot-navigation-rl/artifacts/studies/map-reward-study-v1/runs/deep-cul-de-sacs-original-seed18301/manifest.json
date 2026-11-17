@@ -1,0 +1,38 @@
+{
+  "family": "deep-cul-de-sacs",
+  "condition": "original",
+  "training_seed": 18301,
+  "training_interactions": 100000,
+  "selected_interactions": 90000,
+  "training_monitor_seconds": 2.71930070000235,
+  "metrics": {
+    "episodes": 367,
+    "counts": {
+      "success": 261,
+      "collision": 7,
+      "timeout": 99
+    },
+    "success_rate": 0.7111716621253406,
+    "collision_rate": 0.01907356948228883,
+    "timeout_rate": 0.26975476839237056,
+    "spl": 0.7111716621253406,
+    "mean_return": 6.404059945504087,
+    "mean_successful_route_length": 10.206896551724139,
+    "successful_route_count": 261,
+    "interactions": 22471
+  },
+  "repetition": {
+    "revisited_movement_cells": 19622,
+    "looping_timeouts": 99
+  },
+  "signature": {
+    "map_id": "structured-navigation-v2-deep-cul-de-sacs",
+    "map_hash": "ba42c05a49297cc220c3c3c7e375dbbf51e1d7f8caf7585d0b0a61026a11d8d5",
+    "task_hash": "e6c642e20335c49c8792a3635e2042c975864bd41837569ec10a8032d5504a22",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "structured-original-v1"
+  },
+  "episode_sha256": "9231e5dbeb59985225e04f179f3c51749ff772a7f147665ad51cf51e5648c462"
+}

@@ -1,0 +1,38 @@
+{
+  "family": "looped-corridors",
+  "condition": "potential",
+  "training_seed": 18301,
+  "training_interactions": 100000,
+  "selected_interactions": 100000,
+  "training_monitor_seconds": 2.7514875999768265,
+  "metrics": {
+    "episodes": 408,
+    "counts": {
+      "success": 338,
+      "collision": 28,
+      "timeout": 42
+    },
+    "success_rate": 0.8284313725490197,
+    "collision_rate": 0.06862745098039216,
+    "timeout_rate": 0.10294117647058823,
+    "spl": 0.7983805609710928,
+    "mean_return": 7.909289215686274,
+    "mean_successful_route_length": 10.363905325443787,
+    "successful_route_count": 338,
+    "interactions": 11940
+  },
+  "repetition": {
+    "revisited_movement_cells": 8318,
+    "looping_timeouts": 42
+  },
+  "signature": {
+    "map_id": "structured-navigation-v2-looped-corridors",
+    "map_hash": "be222310f3e3489acb12334ba80cb91cb6b2c7169a56025e0e760833f5c1dcd7",
+    "task_hash": "96063663e91c9c82081e3b1519f7c9e885d7452980c528b05b70c12951724b24",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "structured-potential-v1"
+  },
+  "episode_sha256": "6830b3fc2daed13d0215b9347b5c44d323d0c6766bf53ce36bef2b3169fb9b87"
+}

@@ -7,10 +7,57 @@ from .core import NavigationEnv, ROOT, read_json
 from .episodes import rollout, validate_replay
 from .refinement import task_for_run
 
-PAGES = ('Navigation simulator', 'Overview', 'Learning analysis', 'Agent comparison',
-         'Optimization and robustness', 'Neural tuning', 'Unseen maps', 'Methodology')
+# One registry owns the page IDs, labels and first-level routes.
+NAVIGATION = (
+    ('Navigation simulator', 'Demo', 'Demo', None),
+    ('Overview', 'Overview', 'Results', 'Fixed layout'),
+    ('Learning analysis', 'Learning analysis', 'Results', 'Fixed layout'),
+    ('Agent comparison', 'Compare results', 'Results', 'Fixed layout'),
+    ('Optimization and robustness', 'Optimization and robustness', 'Results', 'Fixed layout'),
+    ('Neural tuning', 'Neural tuning', 'Results', 'Fixed layout'),
+    ('Unseen maps', 'Unseen layouts', 'Results', 'Unseen layouts'),
+    ('Methodology', 'Guide', 'Guide', None),
+)
+PAGES = tuple(row[0] for row in NAVIGATION)
 PART_B_SEEDS = (101, 211, 307, 401, 503)
 PART_A_SEEDS = (7, 19, 43, 67, 91)
+
+
+def comparison_rows(baseline, details=None):
+    """Join by stable algorithm ID; mapping order never assigns labels."""
+    from .four_way import FAMILIES
+    from .evidence import object_record, checked_summary
+    checked_summary(baseline)
+    expected = set(FAMILIES)
+    def families(record):
+        object_record(record['systems'])
+        actual = set(record['systems'])
+        if actual != expected:
+            raise ValueError(f'Algorithm IDs: missing {sorted(expected-actual)}; extra {sorted(actual-expected)}')
+    families(baseline)
+    if details is not None:
+        checked_summary(details)
+        families(details)
+        if details['signature'] != baseline['signature'] or details['validation_scenarios'] != baseline['validation_scenarios']:
+            raise ValueError('Comparison cohorts or task signatures differ')
+    rows = []
+    for algorithm in FAMILIES:
+        system = baseline['systems'][algorithm]
+        row = {'Algorithm':system['label'],'Seeds':system['seed_count'],
+               **{m:system['metrics'][m]['mean'] for m in ('success_rate','collision_rate','timeout_rate','spl')},
+               'Success seed SD':system['metrics']['success_rate']['sample_sd']}
+        if details is not None:
+            extra = details['systems'][algorithm]
+            seeds = sorted(r['seed'] for r in extra['seed_results'])
+            if extra['seed_count'] != system['seed_count'] or seeds != sorted(system['seeds']) or extra['label'] != system['label']:
+                raise ValueError(f'{algorithm} seed support or label mismatch')
+            route = extra['metrics']['mean_successful_route_length']
+            row.update({'Successful route actions':route['mean'],'Route seed SD':route['sample_sd'],
+                        'Route contributing seeds':route['contributing_seeds'],
+                        'Successes across five seeds':extra['counts']['success'],
+                        'Mean return':extra['metrics']['mean_return']['mean']})
+        rows.append(row)
+    return rows
 
 
 def baseline_lineup(seed, root=ROOT):

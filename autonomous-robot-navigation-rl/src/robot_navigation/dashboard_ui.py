@@ -5,10 +5,11 @@ import pandas as pd
 import streamlit as st
 
 from .core import ACTION_NAMES, read_json
-from .dashboard import evidence, early_checkpoint, frozen_episode, seek_from_widget, baseline_lineup, PART_A_SEEDS
+from .dashboard import evidence, early_checkpoint, frozen_episode, seek_from_widget, baseline_lineup, PART_A_SEEDS, comparison_rows
 from .episodes import ComparisonPlayback, frame
 from .interface import (context_strip, panel_heading, show_map, telemetry, run_label, SELECTED_RUN,
                         playback_toolbar, playback_status)
+from .evidence import EXPECTED_ERRORS, checked_summary, check_pinned_summary, failure_state
 from .release import final_summary
 from .four_way import saved_summary as four_way_summary,STUDY as FOUR_WAY_STUDY
 from .four_way_analysis import saved_analysis, ANALYSIS_STUDY
@@ -25,9 +26,21 @@ def saved_json(path):
 
 def saved_image(path):
     if path.is_file():
-        st.image(str(path), width='stretch')
+        try:
+            st.image(str(path), width='stretch')
+        except OSError as exc:
+            st.info(f'Saved figure unavailable: {path.name} ({exc})')
     else:
         st.info(f'Saved figure unavailable: {path.name}')
+
+
+def saved_download(label,path,filename):
+    try:
+        data = path.read_bytes()
+    except OSError as exc:
+        st.info(f'{path.parent.name}: download unavailable ({path.name}: {exc}). Restore the named evidence file.')
+        return
+    st.download_button(label,data,file_name=filename,mime='text/csv')
 
 
 def metric_rows(summary):
@@ -48,43 +61,39 @@ def render_page(page, task, root):
         from .unseen_ui import render_unseen
         render_unseen(root)
         return
+    if page=='Methodology':
+        render_methods(task)
+        return
     if page=='Neural tuning':
         from .neural_tuning_ui import render_tuning
         render_tuning(task,root)
         return
-    try:
-        representation = representation_summary(root)
-        if representation:
-            task.check(representation['signature'])
-    except (OSError,ValueError,KeyError) as exc:
-        st.warning(f'Representation evidence unavailable: {exc}')
-        representation=None
-    try:
-        details = saved_analysis(root)
-        if details:
-            task.check(details['signature'])
-    except (OSError, ValueError, KeyError) as exc:
-        st.warning(f'Extended comparison unavailable: {exc}')
-        details = None
-    fourth=four_way_summary(root)
-    if fourth:
-        task.check(fourth['signature'])
+    def optional(study, loader):
+        try:
+            value = loader(root)
+            if value is None:
+                st.info(f'{study}: unavailable. Restore its saved evidence files.')
+                return None
+            check_pinned_summary(root, study)
+            return checked_summary(value, task)
+        except EXPECTED_ERRORS as exc:
+            st.info(f'{study}: {failure_state(exc)} ({exc}). Restore the reviewed study; other panels remain available.')
+            return None
+
+    representation = optional(REPRESENTATION_STUDY, representation_summary) if page in ('Learning analysis','Optimization and robustness') else None
+    details = optional(ANALYSIS_STUDY, saved_analysis) if page in ('Agent comparison','Optimization and robustness') else None
+    fourth = optional(FOUR_WAY_STUDY, four_way_summary) if page in ('Overview','Agent comparison','Learning analysis') else None
+    if fourth and details and page=='Agent comparison':
+        try:
+            comparison_rows(fourth, details)
+        except EXPECTED_ERRORS as exc:
+            st.info(f'{ANALYSIS_STUDY}: unavailable for joining ({exc}). Showing baseline-only results.')
+            details = None
     if page=='Agent comparison':
         st.subheader('Four RL algorithms: development validation')
         if fourth:
             st.caption('Historical Part A Q-learning, SARSA and DQN plus the additional PPO baseline. Five seeds and 200,000 training interactions per seed. Post-release exploratory comparison; PPO is not part of the frozen final evaluation below.')
-            rows=[{'Algorithm':system['label'],'Seeds':system['seed_count'],
-                   **{metric:system['metrics'][metric]['mean'] for metric in ('success_rate','collision_rate','timeout_rate','spl')},
-                   'Success seed SD':system['metrics']['success_rate']['sample_sd']}
-                  for system in fourth['systems'].values()]
-            if details:
-                for row, system in zip(rows, details['systems'].values()):
-                    route = system['metrics']['mean_successful_route_length']
-                    row.update({'Successful route actions': route['mean'],
-                                'Route seed SD': route['sample_sd'],
-                                'Route contributing seeds': route['contributing_seeds'],
-                                'Successes across five seeds': system['counts']['success'],
-                                'Mean return': system['metrics']['mean_return']['mean']})
+            rows = comparison_rows(fourth, details)
             st.dataframe(pd.DataFrame(rows),hide_index=True,width='stretch')
             if details:
                 st.caption('Route length is conditional on success: equal-weight seed means, excluding undefined zero-success seed means. Success counts span 928 scenarios × five seeds; they are not independent training replicates. Rates are fractions (1 = 100%).')
@@ -103,16 +112,15 @@ def render_page(page, task, root):
                                 **{k:v for k,v in seed['metrics'].items() if k!='counts'}, **seed['costs']}
                                for system in details['systems'].values() for seed in system['seed_results']]
                     st.dataframe(pd.DataFrame(records),hide_index=True,width='stretch')
-                    st.download_button('Download four-algorithm metrics and costs',
-                        (root/'artifacts/studies'/ANALYSIS_STUDY/'costs.csv').read_bytes(),
-                        file_name='four-rl-costs.csv',mime='text/csv')
+                    saved_download('Download four-algorithm metrics and costs',
+                        root/'artifacts/studies'/ANALYSIS_STUDY/'costs.csv','four-rl-costs.csv')
             saved_image(root/'artifacts/studies'/FOUR_WAY_STUDY/'comparison.png')
         else:
             st.info('The PPO extension has not produced a verified four-algorithm comparison yet. The existing results below cover the original release.')
         st.divider()
-    final=final_summary(root)
+    final = optional('final-v1', final_summary) if page in ('Overview','Agent comparison') else None
     st.caption(f"{task.grid.map_id} · {task.config['environment_version']} · development validation · "
-               + ('frozen final evaluation available' if final else 'final test sealed'))
+               + ('inspected frozen final evaluation available' if final else 'final results unavailable on this page'))
     if final and page in ('Overview','Agent comparison'):
         task.check(final['signature'])
         st.subheader('Frozen final evaluation')
@@ -123,49 +131,12 @@ def render_page(page, task, root):
         st.dataframe(pd.DataFrame(final_rows),hide_index=True,width='stretch')
         st.write(f"Predeclared selected system: **{final['selected_system']}**. It remains selected regardless of final ranking.")
         st.divider()
-    if page=='Methodology':
-        st.markdown('''The robot observes its row/column and goal row/column. Four discrete
-actions move one cell. A wall or boundary attempt ends in collision; reaching the
-goal ends in success; the cap of 200 actions truncates the episode. The original
-reward is −0.01 per action, +10 at the goal and −5 on collision.
-
-Q-learning and SARSA use coordinate-indexed tables. DQN scales the same four
-coordinates by dimension minus one. BFS knows the obstacle map and supplies a
-planner reference; learned agents receive no map, action mask or planner fallback.
-The additional PPO baseline uses the same normalized coordinates, a categorical
-four-action policy and separate actor/value networks. Its diagnostics are action
-probabilities and a state-value estimate. It is a post-release exploratory
-extension and is excluded from the original frozen final evaluation.
-The separate DQN input study compares the original four absolute coordinates
-with those coordinates plus two normalized goal offsets. Both receive the same
-information; the six-input network has 128 more online first-layer parameters.
-It is an exploratory input ablation, not a tuned replacement for historical DQN.
-Voting uses three frozen Q-learning members, majority action and first-member
-priority for three-way ties. Q-values are scores, never probabilities.
-
-The saved train/validation/final manifests partition start–goal pairs on a familiar
-map. States can overlap through training trajectories. Checkpoints and settings
-were selected using development validation; these are not unseen-map or sealed
-test results. The final test remains unopened by this dashboard.
-
-Each learned run received 200,000 training interactions. Part A compared five
-seeds per family. Part B spent an additional 12.4 million interactions across
-search, controls, confirmations and reward ablations; voting reused three members.
-Snapshots are inference-only and do not support exact training resume.
-
-Success, collision and timeout partition completed episodes. SPL is success times
-shortest distance / max(shortest distance, actions), averaged over every episode;
-failures contribute zero. Successful route length is conditional on success and
-must be read with its success count. Seed SD is sample SD, not a confidence interval.
-Interactive demos/comparisons do not enter benchmark summaries.''')
-        st.json(task.signature)
-        st.caption('Protocol and full definitions: docs/milestone5_protocol.md. Final freeze/test is milestone 6. PPO is the additional fourth-algorithm extension; dynamics noise, unseen maps and hardware remain deferred.')
-        return
     try:
         summary=evidence(root)
-        task.check(summary['signature'])
-    except (OSError,ValueError,KeyError) as exc:
-        st.info(f'Saved dashboard evidence unavailable: {exc}. Run scripts/analyze_core_robustness.py once with a fresh suite ID.')
+        check_pinned_summary(root, 'milestone5-v1')
+        checked_summary(summary, task)
+    except EXPECTED_ERRORS as exc:
+        st.info(f'Saved dashboard evidence unavailable: {exc}. Run developer/commands/analyze_core_robustness.py once with a fresh suite ID.')
         return
     study=root / 'artifacts/studies/milestone5-v1'
     if page=='Overview':
@@ -244,9 +215,8 @@ Interactive demos/comparisons do not enter benchmark summaries.''')
             st.dataframe(pd.DataFrame(rows),hide_index=True,width='stretch',
                          column_config={'Group':st.column_config.TextColumn(width='medium')})
             st.caption('Each dimension partitions all 928 pairs per seed. Route means exclude zero-success seeds; an empty value means no successful routes, never a zero-action solution. Corridor labels describe the canonical BFS route. Groups differ in distance and geometry.')
-            st.download_button('Download four-algorithm robustness by seed',
-                (root/'artifacts/studies'/ANALYSIS_STUDY/'groups.csv').read_bytes(),
-                file_name='four-rl-robustness.csv',mime='text/csv')
+            saved_download('Download four-algorithm robustness by seed',
+                root/'artifacts/studies'/ANALYSIS_STUDY/'groups.csv','four-rl-robustness.csv')
             st.divider()
         st.subheader('Matched baseline versus refinement')
         paired=saved_json(root / 'artifacts/studies/part-b-v1/paired_improvements.json')
@@ -270,6 +240,10 @@ Interactive demos/comparisons do not enter benchmark summaries.''')
         saved_image(study / 'figures/distance.png')
         saved_image(study / 'figures/groups.png')
         st.caption('Per-seed group metrics, conditional successful route lengths/counts and seed-matched group deltas are retained in groups.csv, summary.json and paired_groups.json. Small groups and five seeds limit interpretation; no causal or unseen-state claim is made.')
+
+    if page=='Optimization and robustness':
+        from .recovery_ui import render_recovery
+        render_recovery(root)
 
 
 def overlays(prefix='single'):
@@ -374,6 +348,7 @@ def render_comparison(task,directory,validation,runs,root,four=False):
         st.session_state['comparison_playback']=player
         st.session_state['comparison_seek']=player.index
         st.session_state['comparison_tick']=time.monotonic()
+        st.session_state['comparison_start_pending'] = name=='play'
     def seek(key):
         seek_from_widget(st.session_state, key, player_key='comparison_playback',
                          position_key='comparison_seek', active_key='comparison_timeline_key')
@@ -381,12 +356,18 @@ def render_comparison(task,directory,validation,runs,root,four=False):
         speed=playback_toolbar(command,prefix='comparison_',speed_key='comparison_speed')
     @st.fragment(run_every=.2 if player.playing else None)
     def panels():
-        if (st.session_state.get('replay_tab')!='Compare agents'
+        if (st.session_state.get('replay_tab')!='Compare robots'
+                or st.session_state.get('demo_map','bottleneck-v1')!='bottleneck-v1'
                 or st.session_state.get('comparison_identity')!=identity):
             return
         player=st.session_state['comparison_playback']
         now=time.monotonic()
-        if player.playing and now-st.session_state['comparison_tick']>=1/speed:
+        # Start the clock from the first visible frame. Loading four models or
+        # drawing their controls must not consume a move on the Play click.
+        starting = st.session_state.pop('comparison_start_pending',False)
+        if starting:
+            st.session_state['comparison_tick'] = now
+        if player.playing and not starting and now-st.session_state['comparison_tick']>=1/speed:
             player.tick()
             st.session_state['comparison_playback']=player
             st.session_state['comparison_seek']=player.index
@@ -424,3 +405,47 @@ def render_comparison(task,directory,validation,runs,root,four=False):
     panels()
     with st.expander('Map display options'):
         overlays('comparison')
+
+
+def render_methods(task=None):
+    st.markdown('''The robot observes its row/column and goal row/column. Four discrete
+actions move one cell. A wall or boundary attempt ends in collision; reaching the
+goal ends in success; the cap of 200 actions truncates the episode. The original
+reward is −0.01 per action, +10 at the goal and −5 on collision.
+
+Q-learning and SARSA use coordinate-indexed tables. DQN scales the same four
+coordinates by dimension minus one. BFS knows the obstacle map and supplies a
+planner reference; learned agents receive no map, action mask or planner fallback.
+The additional PPO baseline uses the same normalized coordinates, a categorical
+four-action policy and separate actor/value networks. Its diagnostics are action
+probabilities and a state-value estimate. It is a post-release exploratory
+extension and is excluded from the original frozen final evaluation.
+The separate DQN input study compares the original four absolute coordinates
+with those coordinates plus two normalized goal offsets. Both receive the same
+information; the six-input network has 128 more online first-layer parameters.
+It is an exploratory input ablation, not a tuned replacement for historical DQN.
+Voting uses three frozen Q-learning members, majority action and first-member
+priority for three-way ties. Q-values are scores, never probabilities.
+
+The saved train/validation/final manifests partition start–goal pairs on a familiar
+map. States can overlap through training trajectories. Checkpoints and settings
+were selected using development validation; these are not unseen-map or sealed
+test results. The M6 final pairs have already been evaluated and inspected;
+fixed-layout replay uses validation or custom routes, not new final evaluations.
+
+Each learned run received 200,000 training interactions. Part A compared five
+seeds per family. Part B spent an additional 12.4 million interactions across
+search, controls, confirmations and reward ablations; voting reused three members.
+Snapshots are inference-only and do not support exact training resume.
+
+Success, collision and timeout partition completed episodes. SPL is success times
+shortest distance / max(shortest distance, actions), averaged over every episode;
+failures contribute zero. Successful route length is conditional on success and
+must be read with its success count. Seed SD is sample SD, not a confidence interval.
+Interactive demos/comparisons do not enter benchmark summaries.''')
+    if task is not None:
+        st.json(task.signature)
+    st.caption('Protocol and full definitions: docs/milestone5_protocol.md. Final freeze/test is milestone 6. PPO is the additional fourth-algorithm extension. M10-M13 separately cover unseen layouts, frozen final evaluation and post hoc diagnosis. Hardware and dynamics noise remain outside this simulator.')
+    st.subheader('Unseen layouts: separate benchmark')
+    st.write('M11 trains on 12 layouts with four development layouts; M12 evaluates the frozen roster on ten different layouts (480 routes per policy). These final layouts are now inspected evidence. Q-learning and SARSA use 1,234 shared linear features; DQN and PPO use the same map-and-goal features before their networks. All four observe the full obstacle map. Three trained seeds per family; no final-data promotion.')
+    st.write('BFS solves the fully known static grids optimally. Reinforcement learning is studied for learned decision-making and generalization, rather than claimed to outperform the planner. The M13 diagnosis describes cycles; it does not establish the cause or effectiveness of a recovery intervention.')

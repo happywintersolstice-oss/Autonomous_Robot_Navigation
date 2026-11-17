@@ -1,0 +1,27 @@
+benchmark_id: structured-navigation-v2
+study_id: map-reward-study-v1
+generation_seed: 20261117
+layout_families: [dead-end-maze, looped-corridors, rooms-and-doorways, deep-cul-de-sacs]
+shape: [10, 10]
+minimum_dead_ends: 3
+minimum_junctions: 3
+minimum_corridor_cells: 8
+minimum_dead_end_depth: 3
+minimum_diameter: 20
+split_seed: 20261118
+training_seeds: [18101, 18203, 18301]
+interactions: 100000
+monitor_every: 10000
+monitor_count: 18
+learning_rate: 0.9
+discount: 0.99
+epsilon_start: 0.7
+epsilon_end: 0.03
+epsilon_decay_fraction: 0.3
+max_steps: 200
+wall_seconds: 1200
+artifact_bytes: 536870912
+reward_conditions:
+  original: {step_reward: -0.01, goal_reward: 10.0, collision_reward: -5.0, shaping_scale: 0.0}
+  time-cost: {step_reward: -0.05, goal_reward: 10.0, collision_reward: -5.0, shaping_scale: 0.0}
+  potential: {step_reward: -0.05, goal_reward: 10.0, collision_reward: -5.0, shaping_scale: 0.2}

@@ -1,0 +1,37 @@
+{
+  "date": "2026-11-17",
+  "baseline_commit": "d1ed065a6d76240226f1c671664978ca623ab188",
+  "tests": {
+    "command": ".venv/Scripts/python.exe -m pytest -q",
+    "passed": 221,
+    "seconds": 123.55
+  },
+  "environment": {
+    "python": "3.14.10",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "numpy": "2.5.4",
+      "gymnasium": "1.4.0",
+      "streamlit": "1.67.0",
+      "stable-baselines3": "2.9.2",
+      "torch": "2.15.0",
+      "pytest": "9.2.0"
+    }
+  },
+  "dependency_consistency": "passed",
+  "gymnasium_checker": "passed",
+  "active_source_hash": "9a106dccc55ece132cbbcf9d9d827a96467d85d0828d211214f7f5885447553f",
+  "fixed_freeze_digest": "f536d8ab40dc461f7dd2f94cb31cda2ce9a612f13f19c4bedd7c431bf91f8c28",
+  "unseen_freeze_digest": "dfffd2c2765832fbfb5227a044ac1efc6dfafcc86cb179fe0e3cb2a7baa9bad1",
+  "historical_release_files_verified": {
+    "fixed": 184,
+    "unseen": 114
+  },
+  "demo_files": 1006,
+  "demo_bytes": 83561697,
+  "prior_tracked_data_artifact_changes": 0,
+  "recovery_summary_sha256": "51c87162121fae691bf9a63d031d4d979f5d9d1b6c1110eb703a32c84e627c71",
+  "native_ui_check": "blocked: Computer Use could not confidently verify Chrome URL during reload",
+  "independent_second_machine_install": "not performed",
+  "human_proposal_ownership_rehearsal": "pending group confirmation"
+}

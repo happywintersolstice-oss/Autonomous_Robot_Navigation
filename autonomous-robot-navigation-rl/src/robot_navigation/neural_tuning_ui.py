@@ -13,7 +13,7 @@ def open_pair(root, system):
     pause_players()
     control=system['conditions']['control']['seed_results'][0]
     selected=system['conditions']['tuned']['seed_results'][0]
-    st.session_state.update(dashboard_page='Navigation simulator',replay_tab='Compare agents',
+    st.session_state.update(dashboard_page='Navigation simulator',replay_tab='Compare robots',
         comparison_size='Two agents',saved_run=root/'artifacts/runs'/selected['run_id'],
         comparison_second=root/'artifacts/runs'/control['run_id'],
         saved_run_experiment='All experiments',saved_run_algorithm='All algorithms',

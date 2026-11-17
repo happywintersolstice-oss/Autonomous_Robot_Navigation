@@ -1,20 +1,24 @@
 # Autonomous Robot Navigation Using Reinforcement Learning
 
-Consolidated technical report · updated 9 November 2026
+Consolidated technical report - current evidence cut: 17 November 2026
 
 ## Current status and main findings
 
-The six core milestones and the subsequent PPO, representation, neural tuning, learning-replay and dashboard extensions are complete. Four trained RL algorithms are available. The latest complete regression run passed 158 tests, and native Chrome checks covered desktop and narrow layouts.
+The core fixed-layout release and subsequent M7-M13 studies are complete. Fixed-layout and unseen-layout results have different observation contracts, selection histories and evaluation cohorts. Both original final cohorts have already been evaluated and inspected. The [current evidence index](evidence_index.md) links each requirement, implementation and demo action; the [remediation record](remediation_status.md) records current checks. Earlier test counts and dated closeout statements below describe their historical stages.
 
 The original selected controller is m4-tuned-q-learning-seed101. Its frozen final evaluation reached 840 of 928 goals, success 90.52%, with 7 collisions, 81 timeouts and SPL .867870. Later development studies retain this historical selection.
 
 The five-seed neural follow-up found success means of 6.88% baseline versus 7.37% selected settings for DQN and 19.44% versus 23.69% for PPO. The two added seeds averaged declines for both algorithms. DQN had more collisions and a slightly lower mean return after tuning. PPO had fewer collisions, more timeouts and substantial seed variability. Both neural families miss the declared targets.
 
-The owner chose to defer independent four-family evaluation to the upcoming unseen-map study. The current fixed map has 79 free cells and 6,162 possible distinct ordered start–goal pairs. Its 4,306 training, 928 validation and 928 test pairs cover all of them. The original test outcomes were inspected during the core release. A new split or new training seed on this map would reuse that task space. The current extensions therefore retain their exploratory development-validation scope.
+The original fixed map has 79 free cells and 6,162 distinct ordered start-goal pairs, partitioned into 4,306 training, 928 validation and 928 original final pairs. Later M10-M12 introduced a separate benchmark with 12 training, four development and ten final layouts. M12 final success averaged 16.81% Q-learning, 62.08% SARSA, 29.10% DQN and 64.10% PPO across three trained seeds, 480 routes per policy. BFS solved all 480 reference routes optimally. Every learned family missed the 80% success and .75 SPL targets. M13 diagnosed recurring cycles in the saved trajectories; it did not test a recovery intervention.
+
+The [history-aware recovery protocol](loop_intervention_protocol.md) defines a separate development-only follow-up. Its results, when verified, do not replace M12 or support a fresh independent-final claim. Confirm accepted-proposal conformance, real member ownership and academic analysis with the group before submission.
 
 ## Problem, environment and information contract
 
-The project studies goal-directed navigation on a fixed, connected 10×10 bottleneck grid. Q-learning, SARSA, vanilla Stable-Baselines3 DQN and categorical PPO receive robot and goal coordinates. BFS explicitly knows the map and supplies an optimal shortest-path reference. Random actions provide a lower reference.
+The later [structured-map and reward lab](navigation_lab_results.md) adds four familiar layouts with explicit dead ends, rooms, junctions and detours. It completed 36 Q-learning runs at 100,000 actions each, keeping maps/seeds/budgets matched between three reward conditions. Mean success was 77.30% original, 78.90% stronger time cost, and 77.29% time cost plus potential shaping. Shaping increased mean collision to 7.09% and is not recommended by this result. These development measurements support neither a reward-only account of historical loops nor a claim that the earlier four families generalize better. All historical task contracts and results remain intact.
+
+The original track studies goal-directed navigation on a fixed, connected 10×10 bottleneck grid. Q-learning, SARSA, vanilla Stable-Baselines3 DQN and categorical PPO receive robot and goal coordinates. BFS explicitly knows the map and supplies an optimal shortest-path reference. Random actions provide a lower reference.
 
 Actions are Up, Down, Left and Right. Each attempted action costs -.01. Reaching the goal adds +10. A wall or boundary attempt adds -5 and ends the episode while retaining the actual robot position. Goal and collision terminate. A 200-action limit truncates unless a terminal event occurs on the last action. Training bootstraps through truncation.
 
@@ -217,3 +221,7 @@ Commit packaging preserves the recorded bytes of Windows-generated legacy JSON/C
 - [Report and commit verification](report_closeout_verification.json).
 
 Method attribution remains documented in the project plan and development log, including Gymnasium and the installed Stable-Baselines3 DQN/PPO implementations. The simulator supplies the experience. Codex assisted implementation, execution, debugging and reporting.
+
+## Registered development follow-up: bounded history recovery
+
+The three shared-linear SARSA policies were compared with a near-tie recovery wrapper on the four development layouts, using three separate intervention RNG streams each. Mean success rose from 63.37% to 67.77%, SPL from .623572 to .652713, and collision from .69% to 1.04%. The +4.40-point success change missed the predeclared +5-point promotion rule. Of the paired baseline timeouts, 76 became successes and six became collisions. The original controller remains selected. No new training or final-layout evaluation occurred. See the [complete measured result and limits](loop_intervention_results.md).

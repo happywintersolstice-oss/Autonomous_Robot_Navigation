@@ -1,0 +1,38 @@
+{
+  "family": "rooms-and-doorways",
+  "condition": "original",
+  "training_seed": 18203,
+  "training_interactions": 100000,
+  "selected_interactions": 100000,
+  "training_monitor_seconds": 2.9350710000144318,
+  "metrics": {
+    "episodes": 501,
+    "counts": {
+      "success": 441,
+      "collision": 8,
+      "timeout": 52
+    },
+    "success_rate": 0.8802395209580839,
+    "collision_rate": 0.015968063872255488,
+    "timeout_rate": 0.10379241516966067,
+    "spl": 0.8574375773806634,
+    "mean_return": 8.443153692614771,
+    "mean_successful_route_length": 8.133786848072562,
+    "successful_route_count": 441,
+    "interactions": 13998
+  },
+  "repetition": {
+    "revisited_movement_cells": 10327,
+    "looping_timeouts": 52
+  },
+  "signature": {
+    "map_id": "structured-navigation-v2-rooms-and-doorways",
+    "map_hash": "4b7ad87b6232305754ac241d9d52a638fdd01d0a8835d7fa8703bc02fa91bd93",
+    "task_hash": "c2cd25196d2ebb0a28fdab3b7ed3d7d898250f3c40fe5172bbcfbad79febc0c6",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "structured-original-v1"
+  },
+  "episode_sha256": "f0e1015c17151577f78293815147c8de1cdc8d00f0c2beb94aaa1b5ecc1d5338"
+}
