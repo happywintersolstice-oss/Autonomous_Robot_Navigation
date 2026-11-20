@@ -1,0 +1,898 @@
+{
+  "status": "completed",
+  "new_training_actions": 0,
+  "new_policy_environment_actions": 0,
+  "historical_unique_training_actions": 48000,
+  "historical_assessment_episodes": 480,
+  "historical_assessment_actions": 41705,
+  "checkpoint_prefix_sum_note": "2k is contained in 6k; overlapping prefix totals are not independent samples.",
+  "systems": {
+    "q-learning": {
+      "B0-original": [
+        {
+          "checkpoint": 0,
+          "coverage_file": "coverage/q-learning-B0-original-00000.json",
+          "decision_file": "decisions/q-learning-B0-original-00000.json",
+          "probe_file": "probes/q-learning-B0-original-00000.json",
+          "actions": 0,
+          "resets": 0,
+          "goal_rewards": 0,
+          "expanded_direction_goals": {
+            "Up": 4,
+            "Down": 0,
+            "Left": 0,
+            "Right": 0
+          }
+        },
+        {
+          "checkpoint": 2000,
+          "coverage_file": "coverage/q-learning-B0-original-02000.json",
+          "decision_file": "decisions/q-learning-B0-original-02000.json",
+          "probe_file": "probes/q-learning-B0-original-02000.json",
+          "actions": 2000,
+          "resets": 94,
+          "goal_rewards": 43,
+          "expanded_direction_goals": {
+            "Up": 0,
+            "Down": 0,
+            "Left": 0,
+            "Right": 4
+          }
+        },
+        {
+          "checkpoint": 6000,
+          "coverage_file": "coverage/q-learning-B0-original-06000.json",
+          "decision_file": "decisions/q-learning-B0-original-06000.json",
+          "probe_file": "probes/q-learning-B0-original-06000.json",
+          "actions": 6000,
+          "resets": 191,
+          "goal_rewards": 104,
+          "expanded_direction_goals": {
+            "Up": 2,
+            "Down": 2,
+            "Left": 0,
+            "Right": 2
+          }
+        }
+      ],
+      "B1-relative-x4": [
+        {
+          "checkpoint": 0,
+          "coverage_file": "coverage/q-learning-B1-relative-x4-00000.json",
+          "decision_file": "decisions/q-learning-B1-relative-x4-00000.json",
+          "probe_file": "probes/q-learning-B1-relative-x4-00000.json",
+          "actions": 0,
+          "resets": 0,
+          "goal_rewards": 0,
+          "expanded_direction_goals": {
+            "Up": 4,
+            "Down": 0,
+            "Left": 0,
+            "Right": 0
+          }
+        },
+        {
+          "checkpoint": 2000,
+          "coverage_file": "coverage/q-learning-B1-relative-x4-02000.json",
+          "decision_file": "decisions/q-learning-B1-relative-x4-02000.json",
+          "probe_file": "probes/q-learning-B1-relative-x4-02000.json",
+          "actions": 2000,
+          "resets": 80,
+          "goal_rewards": 34,
+          "expanded_direction_goals": {
+            "Up": 3,
+            "Down": 1,
+            "Left": 3,
+            "Right": 1
+          }
+        },
+        {
+          "checkpoint": 6000,
+          "coverage_file": "coverage/q-learning-B1-relative-x4-06000.json",
+          "decision_file": "decisions/q-learning-B1-relative-x4-06000.json",
+          "probe_file": "probes/q-learning-B1-relative-x4-06000.json",
+          "actions": 6000,
+          "resets": 195,
+          "goal_rewards": 124,
+          "expanded_direction_goals": {
+            "Up": 2,
+            "Down": 1,
+            "Left": 4,
+            "Right": 0
+          }
+        }
+      ]
+    },
+    "sarsa": {
+      "B0-original": [
+        {
+          "checkpoint": 0,
+          "coverage_file": "coverage/sarsa-B0-original-00000.json",
+          "decision_file": "decisions/sarsa-B0-original-00000.json",
+          "probe_file": "probes/sarsa-B0-original-00000.json",
+          "actions": 0,
+          "resets": 0,
+          "goal_rewards": 0,
+          "expanded_direction_goals": {
+            "Up": 4,
+            "Down": 0,
+            "Left": 0,
+            "Right": 0
+          }
+        },
+        {
+          "checkpoint": 2000,
+          "coverage_file": "coverage/sarsa-B0-original-02000.json",
+          "decision_file": "decisions/sarsa-B0-original-02000.json",
+          "probe_file": "probes/sarsa-B0-original-02000.json",
+          "actions": 2000,
+          "resets": 90,
+          "goal_rewards": 38,
+          "expanded_direction_goals": {
+            "Up": 3,
+            "Down": 4,
+            "Left": 0,
+            "Right": 0
+          }
+        },
+        {
+          "checkpoint": 6000,
+          "coverage_file": "coverage/sarsa-B0-original-06000.json",
+          "decision_file": "decisions/sarsa-B0-original-06000.json",
+          "probe_file": "probes/sarsa-B0-original-06000.json",
+          "actions": 6000,
+          "resets": 203,
+          "goal_rewards": 95,
+          "expanded_direction_goals": {
+            "Up": 3,
+            "Down": 0,
+            "Left": 1,
+            "Right": 1
+          }
+        }
+      ],
+      "B1-relative-x4": [
+        {
+          "checkpoint": 0,
+          "coverage_file": "coverage/sarsa-B1-relative-x4-00000.json",
+          "decision_file": "decisions/sarsa-B1-relative-x4-00000.json",
+          "probe_file": "probes/sarsa-B1-relative-x4-00000.json",
+          "actions": 0,
+          "resets": 0,
+          "goal_rewards": 0,
+          "expanded_direction_goals": {
+            "Up": 4,
+            "Down": 0,
+            "Left": 0,
+            "Right": 0
+          }
+        },
+        {
+          "checkpoint": 2000,
+          "coverage_file": "coverage/sarsa-B1-relative-x4-02000.json",
+          "decision_file": "decisions/sarsa-B1-relative-x4-02000.json",
+          "probe_file": "probes/sarsa-B1-relative-x4-02000.json",
+          "actions": 2000,
+          "resets": 92,
+          "goal_rewards": 46,
+          "expanded_direction_goals": {
+            "Up": 1,
+            "Down": 0,
+            "Left": 0,
+            "Right": 4
+          }
+        },
+        {
+          "checkpoint": 6000,
+          "coverage_file": "coverage/sarsa-B1-relative-x4-06000.json",
+          "decision_file": "decisions/sarsa-B1-relative-x4-06000.json",
+          "probe_file": "probes/sarsa-B1-relative-x4-06000.json",
+          "actions": 6000,
+          "resets": 223,
+          "goal_rewards": 134,
+          "expanded_direction_goals": {
+            "Up": 1,
+            "Down": 3,
+            "Left": 0,
+            "Right": 3
+          }
+        }
+      ]
+    },
+    "dqn": {
+      "B0-original": [
+        {
+          "checkpoint": 0,
+          "coverage_file": "coverage/dqn-B0-original-00000.json",
+          "decision_file": "decisions/dqn-B0-original-00000.json",
+          "probe_file": "probes/dqn-B0-original-00000.json",
+          "actions": 0,
+          "resets": 0,
+          "goal_rewards": 0,
+          "expanded_direction_goals": {
+            "Up": 0,
+            "Down": 0,
+            "Left": 0,
+            "Right": 4
+          }
+        },
+        {
+          "checkpoint": 2000,
+          "coverage_file": "coverage/dqn-B0-original-02000.json",
+          "decision_file": "decisions/dqn-B0-original-02000.json",
+          "probe_file": "probes/dqn-B0-original-02000.json",
+          "actions": 2000,
+          "resets": 93,
+          "goal_rewards": 47,
+          "expanded_direction_goals": {
+            "Up": 1,
+            "Down": 0,
+            "Left": 2,
+            "Right": 1
+          }
+        },
+        {
+          "checkpoint": 6000,
+          "coverage_file": "coverage/dqn-B0-original-06000.json",
+          "decision_file": "decisions/dqn-B0-original-06000.json",
+          "probe_file": "probes/dqn-B0-original-06000.json",
+          "actions": 6000,
+          "resets": 245,
+          "goal_rewards": 159,
+          "expanded_direction_goals": {
+            "Up": 0,
+            "Down": 1,
+            "Left": 1,
+            "Right": 0
+          }
+        }
+      ],
+      "B1-relative-x4": [
+        {
+          "checkpoint": 0,
+          "coverage_file": "coverage/dqn-B1-relative-x4-00000.json",
+          "decision_file": "decisions/dqn-B1-relative-x4-00000.json",
+          "probe_file": "probes/dqn-B1-relative-x4-00000.json",
+          "actions": 0,
+          "resets": 0,
+          "goal_rewards": 0,
+          "expanded_direction_goals": {
+            "Up": 0,
+            "Down": 0,
+            "Left": 0,
+            "Right": 4
+          }
+        },
+        {
+          "checkpoint": 2000,
+          "coverage_file": "coverage/dqn-B1-relative-x4-02000.json",
+          "decision_file": "decisions/dqn-B1-relative-x4-02000.json",
+          "probe_file": "probes/dqn-B1-relative-x4-02000.json",
+          "actions": 2000,
+          "resets": 97,
+          "goal_rewards": 60,
+          "expanded_direction_goals": {
+            "Up": 2,
+            "Down": 1,
+            "Left": 1,
+            "Right": 1
+          }
+        },
+        {
+          "checkpoint": 6000,
+          "coverage_file": "coverage/dqn-B1-relative-x4-06000.json",
+          "decision_file": "decisions/dqn-B1-relative-x4-06000.json",
+          "probe_file": "probes/dqn-B1-relative-x4-06000.json",
+          "actions": 6000,
+          "resets": 506,
+          "goal_rewards": 444,
+          "expanded_direction_goals": {
+            "Up": 3,
+            "Down": 4,
+            "Left": 3,
+            "Right": 0
+          }
+        }
+      ]
+    },
+    "ppo": {
+      "B0-original": [
+        {
+          "checkpoint": 0,
+          "coverage_file": "coverage/ppo-B0-original-00000.json",
+          "decision_file": "decisions/ppo-B0-original-00000.json",
+          "probe_file": "probes/ppo-B0-original-00000.json",
+          "actions": 0,
+          "resets": 0,
+          "goal_rewards": 0,
+          "expanded_direction_goals": {
+            "Up": 0,
+            "Down": 0,
+            "Left": 4,
+            "Right": 0
+          }
+        },
+        {
+          "checkpoint": 2000,
+          "coverage_file": "coverage/ppo-B0-original-02000.json",
+          "decision_file": "decisions/ppo-B0-original-02000.json",
+          "probe_file": "probes/ppo-B0-original-02000.json",
+          "actions": 2000,
+          "resets": 74,
+          "goal_rewards": 24,
+          "expanded_direction_goals": {
+            "Up": 0,
+            "Down": 0,
+            "Left": 0,
+            "Right": 0
+          }
+        },
+        {
+          "checkpoint": 6000,
+          "coverage_file": "coverage/ppo-B0-original-06000.json",
+          "decision_file": "decisions/ppo-B0-original-06000.json",
+          "probe_file": "probes/ppo-B0-original-06000.json",
+          "actions": 6000,
+          "resets": 217,
+          "goal_rewards": 81,
+          "expanded_direction_goals": {
+            "Up": 0,
+            "Down": 0,
+            "Left": 0,
+            "Right": 0
+          }
+        }
+      ],
+      "B1-relative-x4": [
+        {
+          "checkpoint": 0,
+          "coverage_file": "coverage/ppo-B1-relative-x4-00000.json",
+          "decision_file": "decisions/ppo-B1-relative-x4-00000.json",
+          "probe_file": "probes/ppo-B1-relative-x4-00000.json",
+          "actions": 0,
+          "resets": 0,
+          "goal_rewards": 0,
+          "expanded_direction_goals": {
+            "Up": 0,
+            "Down": 0,
+            "Left": 4,
+            "Right": 0
+          }
+        },
+        {
+          "checkpoint": 2000,
+          "coverage_file": "coverage/ppo-B1-relative-x4-02000.json",
+          "decision_file": "decisions/ppo-B1-relative-x4-02000.json",
+          "probe_file": "probes/ppo-B1-relative-x4-02000.json",
+          "actions": 2000,
+          "resets": 83,
+          "goal_rewards": 35,
+          "expanded_direction_goals": {
+            "Up": 3,
+            "Down": 3,
+            "Left": 0,
+            "Right": 0
+          }
+        },
+        {
+          "checkpoint": 6000,
+          "coverage_file": "coverage/ppo-B1-relative-x4-06000.json",
+          "decision_file": "decisions/ppo-B1-relative-x4-06000.json",
+          "probe_file": "probes/ppo-B1-relative-x4-06000.json",
+          "actions": 6000,
+          "resets": 252,
+          "goal_rewards": 106,
+          "expanded_direction_goals": {
+            "Up": 4,
+            "Down": 1,
+            "Left": 0,
+            "Right": 0
+          }
+        }
+      ]
+    }
+  },
+  "score_probe_calls": 960,
+  "discrepancies": [],
+  "sampling_gate": {
+    "coverage_intervention_justified": false,
+    "candidates": [],
+    "families": {
+      "q-learning": {
+        "directions": {
+          "Up": {
+            "checks": {
+              "enough_resets": true,
+              "reset_deficit": false,
+              "impaired_same_direction": false,
+              "scarce_near_goal_or_arrival_signal": false,
+              "meaningful_planned_schedule_change": false
+            },
+            "candidate": false,
+            "reset_count": 52,
+            "reset_share": 0.26666666666666666,
+            "near1_decisions": 164,
+            "goal_arrivals": 34,
+            "expanded_goals": 2,
+            "planned_direction_share_gain": -0.005128205128205128,
+            "planned_deficient_case_share_gain": 0.0
+          },
+          "Down": {
+            "checks": {
+              "enough_resets": true,
+              "reset_deficit": false,
+              "impaired_same_direction": true,
+              "scarce_near_goal_or_arrival_signal": false,
+              "meaningful_planned_schedule_change": false
+            },
+            "candidate": false,
+            "reset_count": 54,
+            "reset_share": 0.27692307692307694,
+            "near1_decisions": 115,
+            "goal_arrivals": 41,
+            "expanded_goals": 1,
+            "planned_direction_share_gain": 0.020512820512820513,
+            "planned_deficient_case_share_gain": 0.0
+          },
+          "Left": {
+            "checks": {
+              "enough_resets": true,
+              "reset_deficit": false,
+              "impaired_same_direction": false,
+              "scarce_near_goal_or_arrival_signal": false,
+              "meaningful_planned_schedule_change": false
+            },
+            "candidate": false,
+            "reset_count": 45,
+            "reset_share": 0.23076923076923078,
+            "near1_decisions": 136,
+            "goal_arrivals": 28,
+            "expanded_goals": 4,
+            "planned_direction_share_gain": -0.06666666666666667,
+            "planned_deficient_case_share_gain": 0.0
+          },
+          "Right": {
+            "checks": {
+              "enough_resets": true,
+              "reset_deficit": false,
+              "impaired_same_direction": true,
+              "scarce_near_goal_or_arrival_signal": false,
+              "meaningful_planned_schedule_change": true
+            },
+            "candidate": false,
+            "reset_count": 44,
+            "reset_share": 0.22564102564102564,
+            "near1_decisions": 118,
+            "goal_arrivals": 21,
+            "expanded_goals": 0,
+            "planned_direction_share_gain": 0.05128205128205128,
+            "planned_deficient_case_share_gain": 0.0
+          }
+        },
+        "schedule_simulation": {
+          "episodes": 195,
+          "seed": 23041,
+          "uniform": {
+            "cases": {
+              "0": 31,
+              "1": 28,
+              "2": 30,
+              "3": 18,
+              "4": 19,
+              "5": 17,
+              "6": 31,
+              "7": 21
+            },
+            "directions": {
+              "Up": 50,
+              "Down": 45,
+              "Left": 61,
+              "Right": 39
+            }
+          },
+          "balanced": {
+            "cases": {
+              "0": 25,
+              "1": 25,
+              "2": 24,
+              "3": 25,
+              "4": 24,
+              "5": 24,
+              "6": 24,
+              "7": 24
+            },
+            "directions": {
+              "Up": 49,
+              "Down": 49,
+              "Left": 48,
+              "Right": 49
+            }
+          },
+          "balanced_full_blocks": 24,
+          "balanced_remainder": [
+            3,
+            1,
+            0
+          ]
+        }
+      },
+      "sarsa": {
+        "directions": {
+          "Up": {
+            "checks": {
+              "enough_resets": true,
+              "reset_deficit": false,
+              "impaired_same_direction": true,
+              "scarce_near_goal_or_arrival_signal": false,
+              "meaningful_planned_schedule_change": false
+            },
+            "candidate": false,
+            "reset_count": 58,
+            "reset_share": 0.2600896860986547,
+            "near1_decisions": 148,
+            "goal_arrivals": 43,
+            "expanded_goals": 1,
+            "planned_direction_share_gain": -0.017937219730941704,
+            "planned_deficient_case_share_gain": 0.0
+          },
+          "Down": {
+            "checks": {
+              "enough_resets": true,
+              "reset_deficit": false,
+              "impaired_same_direction": false,
+              "scarce_near_goal_or_arrival_signal": false,
+              "meaningful_planned_schedule_change": false
+            },
+            "candidate": false,
+            "reset_count": 60,
+            "reset_share": 0.26905829596412556,
+            "near1_decisions": 146,
+            "goal_arrivals": 30,
+            "expanded_goals": 3,
+            "planned_direction_share_gain": 0.02242152466367713,
+            "planned_deficient_case_share_gain": 0.0
+          },
+          "Left": {
+            "checks": {
+              "enough_resets": true,
+              "reset_deficit": false,
+              "impaired_same_direction": true,
+              "scarce_near_goal_or_arrival_signal": false,
+              "meaningful_planned_schedule_change": false
+            },
+            "candidate": false,
+            "reset_count": 56,
+            "reset_share": 0.25112107623318386,
+            "near1_decisions": 149,
+            "goal_arrivals": 32,
+            "expanded_goals": 0,
+            "planned_direction_share_gain": -0.04035874439461883,
+            "planned_deficient_case_share_gain": 0.0
+          },
+          "Right": {
+            "checks": {
+              "enough_resets": true,
+              "reset_deficit": false,
+              "impaired_same_direction": false,
+              "scarce_near_goal_or_arrival_signal": false,
+              "meaningful_planned_schedule_change": false
+            },
+            "candidate": false,
+            "reset_count": 49,
+            "reset_share": 0.21973094170403587,
+            "near1_decisions": 129,
+            "goal_arrivals": 29,
+            "expanded_goals": 3,
+            "planned_direction_share_gain": 0.03587443946188341,
+            "planned_deficient_case_share_gain": 0.0
+          }
+        },
+        "schedule_simulation": {
+          "episodes": 223,
+          "seed": 23041,
+          "uniform": {
+            "cases": {
+              "0": 36,
+              "1": 33,
+              "2": 32,
+              "3": 26,
+              "4": 24,
+              "5": 18,
+              "6": 33,
+              "7": 21
+            },
+            "directions": {
+              "Up": 60,
+              "Down": 51,
+              "Left": 65,
+              "Right": 47
+            }
+          },
+          "balanced": {
+            "cases": {
+              "0": 28,
+              "1": 28,
+              "2": 28,
+              "3": 28,
+              "4": 28,
+              "5": 28,
+              "6": 28,
+              "7": 27
+            },
+            "directions": {
+              "Up": 56,
+              "Down": 56,
+              "Left": 56,
+              "Right": 55
+            }
+          },
+          "balanced_full_blocks": 27,
+          "balanced_remainder": [
+            3,
+            5,
+            1,
+            4,
+            0,
+            6,
+            2
+          ]
+        }
+      },
+      "dqn": {
+        "directions": {
+          "Up": {
+            "checks": {
+              "enough_resets": true,
+              "reset_deficit": false,
+              "impaired_same_direction": false,
+              "scarce_near_goal_or_arrival_signal": false,
+              "meaningful_planned_schedule_change": false
+            },
+            "candidate": false,
+            "reset_count": 149,
+            "reset_share": 0.29446640316205536,
+            "near1_decisions": 307,
+            "goal_arrivals": 108,
+            "expanded_goals": 3,
+            "planned_direction_share_gain": -0.015810276679841896,
+            "planned_deficient_case_share_gain": 0.0
+          },
+          "Down": {
+            "checks": {
+              "enough_resets": true,
+              "reset_deficit": false,
+              "impaired_same_direction": false,
+              "scarce_near_goal_or_arrival_signal": false,
+              "meaningful_planned_schedule_change": true
+            },
+            "candidate": false,
+            "reset_count": 123,
+            "reset_share": 0.24308300395256918,
+            "near1_decisions": 214,
+            "goal_arrivals": 117,
+            "expanded_goals": 4,
+            "planned_direction_share_gain": 0.05533596837944664,
+            "planned_deficient_case_share_gain": 0.0
+          },
+          "Left": {
+            "checks": {
+              "enough_resets": true,
+              "reset_deficit": false,
+              "impaired_same_direction": false,
+              "scarce_near_goal_or_arrival_signal": false,
+              "meaningful_planned_schedule_change": false
+            },
+            "candidate": false,
+            "reset_count": 130,
+            "reset_share": 0.25691699604743085,
+            "near1_decisions": 263,
+            "goal_arrivals": 131,
+            "expanded_goals": 3,
+            "planned_direction_share_gain": -0.02766798418972332,
+            "planned_deficient_case_share_gain": 0.0
+          },
+          "Right": {
+            "checks": {
+              "enough_resets": true,
+              "reset_deficit": false,
+              "impaired_same_direction": true,
+              "scarce_near_goal_or_arrival_signal": false,
+              "meaningful_planned_schedule_change": false
+            },
+            "candidate": false,
+            "reset_count": 104,
+            "reset_share": 0.20553359683794467,
+            "near1_decisions": 210,
+            "goal_arrivals": 88,
+            "expanded_goals": 0,
+            "planned_direction_share_gain": -0.011857707509881422,
+            "planned_deficient_case_share_gain": 0.0
+          }
+        },
+        "schedule_simulation": {
+          "episodes": 506,
+          "seed": 23041,
+          "uniform": {
+            "cases": {
+              "0": 73,
+              "1": 62,
+              "2": 72,
+              "3": 73,
+              "4": 61,
+              "5": 37,
+              "6": 68,
+              "7": 60
+            },
+            "directions": {
+              "Up": 134,
+              "Down": 99,
+              "Left": 140,
+              "Right": 133
+            }
+          },
+          "balanced": {
+            "cases": {
+              "0": 63,
+              "1": 64,
+              "2": 63,
+              "3": 63,
+              "4": 63,
+              "5": 63,
+              "6": 63,
+              "7": 64
+            },
+            "directions": {
+              "Up": 126,
+              "Down": 127,
+              "Left": 126,
+              "Right": 127
+            }
+          },
+          "balanced_full_blocks": 63,
+          "balanced_remainder": [
+            1,
+            7
+          ]
+        }
+      },
+      "ppo": {
+        "directions": {
+          "Up": {
+            "checks": {
+              "enough_resets": true,
+              "reset_deficit": false,
+              "impaired_same_direction": false,
+              "scarce_near_goal_or_arrival_signal": false,
+              "meaningful_planned_schedule_change": false
+            },
+            "candidate": false,
+            "reset_count": 67,
+            "reset_share": 0.26587301587301587,
+            "near1_decisions": 145,
+            "goal_arrivals": 30,
+            "expanded_goals": 4,
+            "planned_direction_share_gain": -0.015873015873015872,
+            "planned_deficient_case_share_gain": 0.0
+          },
+          "Down": {
+            "checks": {
+              "enough_resets": true,
+              "reset_deficit": false,
+              "impaired_same_direction": true,
+              "scarce_near_goal_or_arrival_signal": false,
+              "meaningful_planned_schedule_change": false
+            },
+            "candidate": false,
+            "reset_count": 68,
+            "reset_share": 0.2698412698412698,
+            "near1_decisions": 143,
+            "goal_arrivals": 29,
+            "expanded_goals": 1,
+            "planned_direction_share_gain": 0.027777777777777776,
+            "planned_deficient_case_share_gain": 0.0
+          },
+          "Left": {
+            "checks": {
+              "enough_resets": true,
+              "reset_deficit": false,
+              "impaired_same_direction": true,
+              "scarce_near_goal_or_arrival_signal": false,
+              "meaningful_planned_schedule_change": false
+            },
+            "candidate": false,
+            "reset_count": 62,
+            "reset_share": 0.24603174603174602,
+            "near1_decisions": 155,
+            "goal_arrivals": 27,
+            "expanded_goals": 0,
+            "planned_direction_share_gain": -0.04365079365079365,
+            "planned_deficient_case_share_gain": 0.0
+          },
+          "Right": {
+            "checks": {
+              "enough_resets": true,
+              "reset_deficit": false,
+              "impaired_same_direction": true,
+              "scarce_near_goal_or_arrival_signal": false,
+              "meaningful_planned_schedule_change": false
+            },
+            "candidate": false,
+            "reset_count": 55,
+            "reset_share": 0.21825396825396826,
+            "near1_decisions": 118,
+            "goal_arrivals": 20,
+            "expanded_goals": 0,
+            "planned_direction_share_gain": 0.031746031746031744,
+            "planned_deficient_case_share_gain": 0.0
+          }
+        },
+        "schedule_simulation": {
+          "episodes": 252,
+          "seed": 23041,
+          "uniform": {
+            "cases": {
+              "0": 40,
+              "1": 34,
+              "2": 37,
+              "3": 28,
+              "4": 26,
+              "5": 22,
+              "6": 38,
+              "7": 27
+            },
+            "directions": {
+              "Up": 66,
+              "Down": 56,
+              "Left": 75,
+              "Right": 55
+            }
+          },
+          "balanced": {
+            "cases": {
+              "0": 31,
+              "1": 31,
+              "2": 32,
+              "3": 32,
+              "4": 31,
+              "5": 32,
+              "6": 32,
+              "7": 31
+            },
+            "directions": {
+              "Up": 62,
+              "Down": 63,
+              "Left": 64,
+              "Right": 63
+            }
+          },
+          "balanced_full_blocks": 31,
+          "balanced_remainder": [
+            3,
+            6,
+            2,
+            5
+          ]
+        }
+      }
+    },
+    "reason": "All predeclared deficit, failure, scarcity and schedule-change conditions must coincide. Uneven action coverage alone does not establish a reset-sampling mechanism."
+  },
+  "coverage_intervention_justified": false,
+  "historical_preservation": {
+    "status": "passed",
+    "base_files_checked": 9900,
+    "changed": [],
+    "delivery_pins_checked": {
+      "feasibility-pilot-v1": 249,
+      "phase5b-a-only-v1": 270
+    }
+  },
+  "verdict": "DIAGNOSIS_ONLY_SAMPLING_NOT_JUSTIFIED",
+  "elapsed_seconds": 187.1914420000976,
+  "resources": {
+    "cpu_user_seconds": 173.140625,
+    "cpu_system_seconds": 8.671875,
+    "working_set_bytes": 1415458816,
+    "peak_working_set_bytes": 2048778240
+  }
+}
