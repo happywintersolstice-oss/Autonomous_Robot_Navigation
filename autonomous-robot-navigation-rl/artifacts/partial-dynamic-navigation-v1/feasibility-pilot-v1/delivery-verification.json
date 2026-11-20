@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-20",
+  "timezone": "Asia/Kuala_Lumpur",
+  "branch": "feature/partial-dynamic-feasibility-v1",
+  "base_commit": "45f3f389518226d3ab054eb3fd321625f7b2636a",
+  "committed_or_pushed": false,
+  "created_active_files": [
+    "src/robot_navigation/partial_feasibility.py",
+    "src/robot_navigation/partial_feasibility_fixtures.py",
+    "src/robot_navigation/partial_pilot_ledger.py",
+    "src/robot_navigation/partial_pilot_diagnostics.py",
+    "src/robot_navigation/partial_feasibility_report.py",
+    "configs/partial_feasibility_v1.yaml",
+    "developer/tests/test_partial_feasibility.py",
+    "developer/tests/test_partial_pilot_diagnostics.py",
+    "developer/commands/phase5a_affine_capacity_v1.py",
+    "docs/partial_feasibility_protocol.md",
+    "docs/partial_feasibility_results.md",
+    "docs/partial_feasibility_diagnosis_v1.md"
+  ],
+  "input_brief": "CODEX_PHASE5_LEARNING_FEASIBILITY_PILOT.md; copied without content changes",
+  "existing_branch_files_unchanged": {
+    "checked": 9379,
+    "changed": []
+  },
+  "original_workspace_preserved": {
+    "status": "passed",
+    "original_branch": "main",
+    "head": "cf7f0f11d3a94d8533c6a1ff7b4834f1db78f141",
+    "files": 9644,
+    "changed": [],
+    "original_status_and_index": "unchanged"
+  },
+  "historical_pins_unchanged": {
+    "final-v1": 184,
+    "unseen-map-final-v1": 114,
+    "diagnostic_inputs": 449
+  },
+  "tests": {
+    "preflight_partial": 43,
+    "preflight_full": 278,
+    "final_focused": 70,
+    "final_full": 305,
+    "final_full_seconds": 138.105,
+    "failures": 0,
+    "skips": 0,
+    "pre_registration_test_setup_issue": "One temporary test fixture initially omitted the baseline YAML; the fixture was completed, the target test passed, then all focused/full gates passed. No task setting changed."
+  },
+  "pilot": {
+    "training_actions": 40000,
+    "per_family": {
+      "q-learning": 10000,
+      "sarsa": 10000,
+      "dqn": 10000,
+      "ppo": 10000
+    },
+    "seed": 23001,
+    "evaluation_counts": {
+      "controls": {
+        "actions": 4520,
+        "episodes": 80
+      },
+      "composition": {
+        "actions": 2898,
+        "episodes": 180
+      },
+      "learned": {
+        "actions": 5682,
+        "episodes": 64
+      }
+    },
+    "elapsed_seconds": 178.8730285000056,
+    "wall_ceiling_seconds": 1200,
+    "per_algorithm_ceiling_seconds": 240,
+    "training_ceiling": 40000,
+    "evaluation_ceiling": 100000,
+    "retries": 0,
+    "interrupted_model_runs": 0,
+    "incomplete_training_episode_prefixes": 4,
+    "b_e_learning_not_run": true,
+    "raw_record_audit": {
+      "status": "passed",
+      "training_actions": {
+        "q-learning": 10000,
+        "sarsa": 10000,
+        "dqn": 10000,
+        "ppo": 10000
+      },
+      "total_training_actions": 40000,
+      "evaluation_actions": 13100,
+      "evaluation_episodes": 324,
+      "protocol_sha256": "fa73e081260eea16fe3f97fabde254e6728de3de4a3cd79c77d4a443a94df1e8"
+    }
+  },
+  "gate_verdicts": {
+    "G1": "pass",
+    "G2": "failed for every family",
+    "G3": "learner prerequisite not met; controls measured",
+    "G4": "learner prerequisite not met; controls and hindsight measured",
+    "G5": "pass"
+  },
+  "verdict": "REQUIRES_REPRESENTATION_OR_TRAINING_DIAGNOSIS",
+  "plot_review": "Opened standalone PNG; labels, legends and registered checkpoint marks legible",
+  "posthoc_analytic_witness": {
+    "training_actions": 0,
+    "executed_environment_actions": 0,
+    "source_sha256": "c451f346c43fc67e8a9d9321590fea4813708b204f5445bb2f1d116cb208a51c"
+  },
+  "timing_limitations": "Reservation spans are not isolated pure training time; primary CPU/memory includes recording and in-run audits.",
+  "prohibited_work_not_run": [
+    "full Phase 5 training",
+    "confirmation seeds",
+    "new final/test generation or evaluation",
+    "Phase 6 UI",
+    "feature or reward ablation",
+    "push/merge/reset/clean"
+  ],
+  "key_hashes": {
+    "protocol_sha256": "fa73e081260eea16fe3f97fabde254e6728de3de4a3cd79c77d4a443a94df1e8",
+    "measured_outputs_sha256": "1389131f83020dae2b9984496b4afe3235be2ed5e4fad2317395273a3e1e4c7e",
+    "replay_verification_sha256": "18f2219218ccde3b2625c66bce3b1b2b32c4e4fc16ddee92437f1ed34df232c8"
+  }
+}

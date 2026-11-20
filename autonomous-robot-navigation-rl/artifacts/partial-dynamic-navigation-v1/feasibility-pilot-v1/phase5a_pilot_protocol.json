@@ -1,0 +1,2777 @@
+{
+  "study_id": "feasibility-pilot-v1",
+  "registered_utc": "2026-11-20T10:34:06.770915+00:00",
+  "settings": {
+    "study_id": "feasibility-pilot-v1",
+    "protocol_version": "phase5a-learning-feasibility-v1",
+    "fixture_version": "phase5a-handwritten-fixtures-v1",
+    "algorithms": [
+      "q-learning",
+      "sarsa",
+      "dqn",
+      "ppo"
+    ],
+    "primary_seed": 23001,
+    "confirmation_seeds": [],
+    "per_algorithm_actions": 10000,
+    "total_training_actions": 40000,
+    "evaluation_action_ceiling": 100000,
+    "suite_wall_seconds": 1200,
+    "per_algorithm_wall_seconds": 240,
+    "artifact_byte_ceiling": 536870912,
+    "open_checkpoints": [
+      2000,
+      6000,
+      10000
+    ],
+    "later_stage_actions": 2000,
+    "basic_min_successes": 2,
+    "basic_min_gain": 1,
+    "wall_min_successes": 1,
+    "retention_min_successes": 2,
+    "corridor_min_successes": 1,
+    "detour_min_successes": 1,
+    "evaluation_seed": 0,
+    "random_control_seed": 23011,
+    "stage_reset_seed_offsets": {
+      "A": 0,
+      "B": 100,
+      "CD": 200,
+      "E": 300
+    },
+    "model": {
+      "discount": 0.99,
+      "linear_learning_rate": 0.1,
+      "neural_learning_rate": 0.0003,
+      "net_arch": [
+        32,
+        32
+      ],
+      "epsilon_start": 1.0,
+      "epsilon_end": 0.1,
+      "buffer_size": 10000,
+      "learning_starts": 100,
+      "batch_size": 50,
+      "train_freq": 4,
+      "target_update_interval": 250,
+      "n_steps": 100,
+      "n_epochs": 5
+    }
+  },
+  "task_signature": {
+    "benchmark_id": "partial-dynamic-navigation-v1",
+    "environment_version": "partial-dynamic-env-v1",
+    "observation_version": "partial-memory-409-v2",
+    "sensor_version": "cardinal-rays-range2-v1",
+    "action_version": "up-down-left-right-wait-v1",
+    "reward_version": "partial-step-goal-collision-v1",
+    "feature_version": "partial-visible-affine-v1",
+    "task_hash": "5379b1c2e64414d3024f5a6741da22c6d3bd80517eadf2173383cca63807499b"
+  },
+  "inputs": {
+    "code": {
+      "partial_agents.py": "7f734aa0694f4dbb68bd625ceb3cbc5288b84a1c94093b736d0cb448f1cad776",
+      "partial_baselines.py": "75838f9a3cf4f7caf367262177557c9e90ce7462bcd13ab35a2bca6fdd6b5dd4",
+      "partial_benchmark.py": "41867e1c4fc45f45fb586d4b1b851f60300a757f172f2800fe719af94fbe9f2c",
+      "partial_commands.py": "430ff6656ad1d5210e2f270639806eccaed0dfda7ee73c01807845f3f2ee8e9c",
+      "partial_contract.py": "7ba8c229fee91a44e3834c79bc2ca9983e57e67e42d8fb8d524adca639babf56",
+      "partial_dynamic_env.py": "0cc37c3d010ce34ffba88c5c74a5113cf899d3b28bd6dcd1981308af5083e996",
+      "partial_evaluation.py": "666fc96a3fbdd33ceabdee19bd3eb846f3590f88217c892f04ba5e5b3aeb9afc",
+      "partial_feasibility.py": "4a0b94ea375d83df680685ca74e866ae925137c5dd2755e97e66f681c702809b",
+      "partial_feasibility_fixtures.py": "05ed5307014ffb036244bf4e099e46db710e3200610bf000ea37292450b17389",
+      "partial_feasibility_report.py": "bd9aa0468d051c52e6e6310b69390ff3df220123db323852e106a925d6a45e75",
+      "partial_features.py": "16a932dd13bf516bc8e8db2b42c94e398b474ae543137d9a38c9b812faa8eee3",
+      "partial_fixtures.py": "655ea77904cb06e6c2addb75771d62360c1195cd74fb1d61b7867b050e62ec38",
+      "partial_memory.py": "6a5db1824fada60e79ce8cbe32ac9a516a4c2bd926324ea60f7ebf4055395458",
+      "partial_neural.py": "4da85c792d81cf76725cbc3076dd1ce34b589f88e7e9f1391e37f4f5272a9d6e",
+      "partial_observation.py": "bc3064ba44dbc1de90393b431c1699471bf13b5b6939a20116b761e812dae0ca",
+      "partial_pilot_diagnostics.py": "c0a3161c9c0878024b13f6d5ca67eb560c4161cfe3af497d754e13bd865ff284",
+      "partial_pilot_ledger.py": "72fc97402c800c13a24ef476d9e5a430a410723deb02d4a134c5f139fe2daed9",
+      "partial_sensor.py": "bd2de92e656ce6413d13dfadd37ee539c501622827c7f22a46254a885195e39d",
+      "partial_training.py": "21a5d49a6943cd5c6804995e5159fced08727aada3615954f37face89b1cbc4d"
+    },
+    "config": "3cdf367047732c0dd254b432fc5baf36998cb6a734a0042d9339e9b75d20014e",
+    "baseline_config": "3dbc6a84b3627dac4ff3cc63e760540ae7816745de73165562db73f5a8c5598a",
+    "protocol": "633f7d880fdcace43a0d81541ec9d0c0ba7f959468daf142045502a6aebe701a",
+    "brief": "49eed50ac9d7a0c2e82aa7b25fbd0895dfac323d9b1b3be074e68de6cf64efb1",
+    "fixtures_hash": "f7066ad3495b35eee156876a93f5fe5ae235b50d82847318e7f26cb8688ac6b5",
+    "gate_inputs": {
+      "code": {
+        "partial_agents.py": "7f734aa0694f4dbb68bd625ceb3cbc5288b84a1c94093b736d0cb448f1cad776",
+        "partial_baselines.py": "75838f9a3cf4f7caf367262177557c9e90ce7462bcd13ab35a2bca6fdd6b5dd4",
+        "partial_benchmark.py": "41867e1c4fc45f45fb586d4b1b851f60300a757f172f2800fe719af94fbe9f2c",
+        "partial_commands.py": "430ff6656ad1d5210e2f270639806eccaed0dfda7ee73c01807845f3f2ee8e9c",
+        "partial_contract.py": "7ba8c229fee91a44e3834c79bc2ca9983e57e67e42d8fb8d524adca639babf56",
+        "partial_dynamic_env.py": "0cc37c3d010ce34ffba88c5c74a5113cf899d3b28bd6dcd1981308af5083e996",
+        "partial_evaluation.py": "666fc96a3fbdd33ceabdee19bd3eb846f3590f88217c892f04ba5e5b3aeb9afc",
+        "partial_feasibility.py": "4a0b94ea375d83df680685ca74e866ae925137c5dd2755e97e66f681c702809b",
+        "partial_feasibility_fixtures.py": "05ed5307014ffb036244bf4e099e46db710e3200610bf000ea37292450b17389",
+        "partial_feasibility_report.py": "bd9aa0468d051c52e6e6310b69390ff3df220123db323852e106a925d6a45e75",
+        "partial_features.py": "16a932dd13bf516bc8e8db2b42c94e398b474ae543137d9a38c9b812faa8eee3",
+        "partial_fixtures.py": "655ea77904cb06e6c2addb75771d62360c1195cd74fb1d61b7867b050e62ec38",
+        "partial_memory.py": "6a5db1824fada60e79ce8cbe32ac9a516a4c2bd926324ea60f7ebf4055395458",
+        "partial_neural.py": "4da85c792d81cf76725cbc3076dd1ce34b589f88e7e9f1391e37f4f5272a9d6e",
+        "partial_observation.py": "bc3064ba44dbc1de90393b431c1699471bf13b5b6939a20116b761e812dae0ca",
+        "partial_pilot_diagnostics.py": "c0a3161c9c0878024b13f6d5ca67eb560c4161cfe3af497d754e13bd865ff284",
+        "partial_pilot_ledger.py": "72fc97402c800c13a24ef476d9e5a430a410723deb02d4a134c5f139fe2daed9",
+        "partial_sensor.py": "bd2de92e656ce6413d13dfadd37ee539c501622827c7f22a46254a885195e39d",
+        "partial_training.py": "21a5d49a6943cd5c6804995e5159fced08727aada3615954f37face89b1cbc4d"
+      },
+      "configuration": "3dbc6a84b3627dac4ff3cc63e760540ae7816745de73165562db73f5a8c5598a",
+      "tests": {
+        "test_partial_agents.py": "f840a5f6e2934d55215c6945253de8105fbd6e0f903c2588e5e4e6dd9b59efb4",
+        "test_partial_benchmark.py": "6a2fc0cf797a2575be3e34b23cf196b6ecf080e6bc742bcac699d00a85b3e0bf",
+        "test_partial_commands.py": "e25104e6a3dc672096efa63c9a8a2439d579767e556eb705046a691210e21d9b",
+        "test_partial_dynamic_env.py": "c1fbbf9fe59fb5aa6e49aa3be58ab7b813606f9fded6b6867073097ede7acad4",
+        "test_partial_evaluation.py": "e42214d1fc3c953be7b4b82c0b4aadab236e88631bb6417b3eb103fa44a5d204",
+        "test_partial_feasibility.py": "4fcad1f8e25509f8e5213d6e4769f56f19a9cb966b8f6d7756089342d1fcd02b",
+        "test_partial_leakage.py": "93039b75f946d8af47e2adc242b174316b027d07b0702cd734a69110f73fc3f0",
+        "test_partial_memory.py": "4c63c4e59078a5f05988b27492324f67eec8565443cf43d3526231cc005d28ba",
+        "test_partial_observation.py": "a5b866f9c09c937968b06f8c14486007103559b66c8fe0be077d7cab11054c51",
+        "test_partial_pilot_diagnostics.py": "d8f096bc2da78db1a4bb9dc47aee2d68926a0a703740998b0f147eac58f269d2",
+        "test_partial_sensor.py": "f3bd5386beee8cd649e0ff445f4ba08ecb395bc15c4e68883923ab46817ed32d"
+      }
+    }
+  },
+  "fixture_entries": [
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-A-train-00",
+        "layout_id": "phase5a-handwritten-fixtures-v1-A-rotation0",
+        "rows": [
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          ".........."
+        ],
+        "start": [
+          2,
+          2
+        ],
+        "goal": [
+          1,
+          2
+        ],
+        "events": [],
+        "event_seed": 24000,
+        "condition": "familiar-static",
+        "split": "manual",
+        "layout_hash": "70112cb3b4bc60944fce1fa07cbcf5178e008782f880031eb3e25fa9c7908dac",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "A",
+        "fixture_split": "train",
+        "fixture_kind": "A",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        0
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-A-train-01",
+        "layout_id": "phase5a-handwritten-fixtures-v1-A-rotation0",
+        "rows": [
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          ".........."
+        ],
+        "start": [
+          7,
+          7
+        ],
+        "goal": [
+          8,
+          7
+        ],
+        "events": [],
+        "event_seed": 24001,
+        "condition": "familiar-static",
+        "split": "manual",
+        "layout_hash": "70112cb3b4bc60944fce1fa07cbcf5178e008782f880031eb3e25fa9c7908dac",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "A",
+        "fixture_split": "train",
+        "fixture_kind": "A",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        1
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-A-train-02",
+        "layout_id": "phase5a-handwritten-fixtures-v1-A-rotation0",
+        "rows": [
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          ".........."
+        ],
+        "start": [
+          7,
+          2
+        ],
+        "goal": [
+          7,
+          1
+        ],
+        "events": [],
+        "event_seed": 24002,
+        "condition": "familiar-static",
+        "split": "manual",
+        "layout_hash": "70112cb3b4bc60944fce1fa07cbcf5178e008782f880031eb3e25fa9c7908dac",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "A",
+        "fixture_split": "train",
+        "fixture_kind": "A",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        2
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-A-train-03",
+        "layout_id": "phase5a-handwritten-fixtures-v1-A-rotation0",
+        "rows": [
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          ".........."
+        ],
+        "start": [
+          2,
+          7
+        ],
+        "goal": [
+          2,
+          8
+        ],
+        "events": [],
+        "event_seed": 24003,
+        "condition": "familiar-static",
+        "split": "manual",
+        "layout_hash": "70112cb3b4bc60944fce1fa07cbcf5178e008782f880031eb3e25fa9c7908dac",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "A",
+        "fixture_split": "train",
+        "fixture_kind": "A",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        3
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-A-train-04",
+        "layout_id": "phase5a-handwritten-fixtures-v1-A-rotation0",
+        "rows": [
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          ".........."
+        ],
+        "start": [
+          5,
+          5
+        ],
+        "goal": [
+          3,
+          5
+        ],
+        "events": [],
+        "event_seed": 24004,
+        "condition": "familiar-static",
+        "split": "manual",
+        "layout_hash": "70112cb3b4bc60944fce1fa07cbcf5178e008782f880031eb3e25fa9c7908dac",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "A",
+        "fixture_split": "train",
+        "fixture_kind": "A",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-A-train-05",
+        "layout_id": "phase5a-handwritten-fixtures-v1-A-rotation0",
+        "rows": [
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          ".........."
+        ],
+        "start": [
+          4,
+          4
+        ],
+        "goal": [
+          6,
+          4
+        ],
+        "events": [],
+        "event_seed": 24005,
+        "condition": "familiar-static",
+        "split": "manual",
+        "layout_hash": "70112cb3b4bc60944fce1fa07cbcf5178e008782f880031eb3e25fa9c7908dac",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "A",
+        "fixture_split": "train",
+        "fixture_kind": "A",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        1,
+        1
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-A-train-06",
+        "layout_id": "phase5a-handwritten-fixtures-v1-A-rotation0",
+        "rows": [
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          ".........."
+        ],
+        "start": [
+          3,
+          6
+        ],
+        "goal": [
+          3,
+          4
+        ],
+        "events": [],
+        "event_seed": 24006,
+        "condition": "familiar-static",
+        "split": "manual",
+        "layout_hash": "70112cb3b4bc60944fce1fa07cbcf5178e008782f880031eb3e25fa9c7908dac",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "A",
+        "fixture_split": "train",
+        "fixture_kind": "A",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        2,
+        2
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-A-train-07",
+        "layout_id": "phase5a-handwritten-fixtures-v1-A-rotation0",
+        "rows": [
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          ".........."
+        ],
+        "start": [
+          6,
+          3
+        ],
+        "goal": [
+          6,
+          5
+        ],
+        "events": [],
+        "event_seed": 24007,
+        "condition": "familiar-static",
+        "split": "manual",
+        "layout_hash": "70112cb3b4bc60944fce1fa07cbcf5178e008782f880031eb3e25fa9c7908dac",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "A",
+        "fixture_split": "train",
+        "fixture_kind": "A",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        3,
+        3
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-A-evaluation-00",
+        "layout_id": "phase5a-handwritten-fixtures-v1-A-rotation0",
+        "rows": [
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          ".........."
+        ],
+        "start": [
+          3,
+          3
+        ],
+        "goal": [
+          2,
+          3
+        ],
+        "events": [],
+        "event_seed": 24000,
+        "condition": "familiar-static",
+        "split": "manual",
+        "layout_hash": "70112cb3b4bc60944fce1fa07cbcf5178e008782f880031eb3e25fa9c7908dac",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "A",
+        "fixture_split": "evaluation",
+        "fixture_kind": "A",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        0
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-A-evaluation-01",
+        "layout_id": "phase5a-handwritten-fixtures-v1-A-rotation0",
+        "rows": [
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          ".........."
+        ],
+        "start": [
+          6,
+          6
+        ],
+        "goal": [
+          7,
+          6
+        ],
+        "events": [],
+        "event_seed": 24001,
+        "condition": "familiar-static",
+        "split": "manual",
+        "layout_hash": "70112cb3b4bc60944fce1fa07cbcf5178e008782f880031eb3e25fa9c7908dac",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "A",
+        "fixture_split": "evaluation",
+        "fixture_kind": "A",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        1
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-A-evaluation-02",
+        "layout_id": "phase5a-handwritten-fixtures-v1-A-rotation0",
+        "rows": [
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          ".........."
+        ],
+        "start": [
+          6,
+          3
+        ],
+        "goal": [
+          6,
+          2
+        ],
+        "events": [],
+        "event_seed": 24002,
+        "condition": "familiar-static",
+        "split": "manual",
+        "layout_hash": "70112cb3b4bc60944fce1fa07cbcf5178e008782f880031eb3e25fa9c7908dac",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "A",
+        "fixture_split": "evaluation",
+        "fixture_kind": "A",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        2
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-A-evaluation-03",
+        "layout_id": "phase5a-handwritten-fixtures-v1-A-rotation0",
+        "rows": [
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          "..........",
+          ".........."
+        ],
+        "start": [
+          3,
+          6
+        ],
+        "goal": [
+          3,
+          7
+        ],
+        "events": [],
+        "event_seed": 24003,
+        "condition": "familiar-static",
+        "split": "manual",
+        "layout_hash": "70112cb3b4bc60944fce1fa07cbcf5178e008782f880031eb3e25fa9c7908dac",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "A",
+        "fixture_split": "evaluation",
+        "fixture_kind": "A",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        3
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-B-train-00",
+        "layout_id": "phase5a-handwritten-fixtures-v1-B-rotation0",
+        "rows": [
+          "##########",
+          "##########",
+          "##########",
+          "##########",
+          "#........#",
+          "#..#.....#",
+          "##########",
+          "##########",
+          "##########",
+          "##########"
+        ],
+        "start": [
+          5,
+          1
+        ],
+        "goal": [
+          5,
+          7
+        ],
+        "events": [],
+        "event_seed": 24000,
+        "condition": "familiar-static",
+        "split": "manual",
+        "layout_hash": "f8deef80e6752443af5a880355b0da71ab0f61204e09f615d1230343f1d6b556",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "B",
+        "fixture_split": "train",
+        "fixture_kind": "permanent-wall-detour",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        0,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        1
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-C-train-00",
+        "layout_id": "phase5a-handwritten-fixtures-v1-C-rotation0",
+        "rows": [
+          "##########",
+          "##########",
+          "##########",
+          "##########",
+          "##########",
+          "#........#",
+          "##########",
+          "##########",
+          "##########",
+          "##########"
+        ],
+        "start": [
+          5,
+          1
+        ],
+        "goal": [
+          5,
+          7
+        ],
+        "events": [
+          {
+            "id": "necessary-block",
+            "cell": [
+              5,
+              2
+            ],
+            "start": 0,
+            "clear": 3
+          }
+        ],
+        "event_seed": 24000,
+        "condition": "familiar-dynamic",
+        "split": "manual",
+        "layout_hash": "75d29ed58716dfdc9800661572ea44db7fa5db0b901c0ecd136b61e6346b878b",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "C",
+        "fixture_split": "train",
+        "fixture_kind": "mandatory-initial-wait",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        4,
+        4,
+        4,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-B-train-01",
+        "layout_id": "phase5a-handwritten-fixtures-v1-B-rotation1",
+        "rows": [
+          "##########",
+          "####..####",
+          "####..####",
+          "#####.####",
+          "####..####",
+          "####..####",
+          "####..####",
+          "####..####",
+          "####..####",
+          "##########"
+        ],
+        "start": [
+          1,
+          4
+        ],
+        "goal": [
+          7,
+          4
+        ],
+        "events": [],
+        "event_seed": 24001,
+        "condition": "familiar-static",
+        "split": "manual",
+        "layout_hash": "58b142d65892e2ab6acbb3050395a22b5fbb58edde3629d4d0e837fcc7f84585",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "B",
+        "fixture_split": "train",
+        "fixture_kind": "permanent-wall-detour",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-C-train-01",
+        "layout_id": "phase5a-handwritten-fixtures-v1-C-rotation1",
+        "rows": [
+          "##########",
+          "####.#####",
+          "####.#####",
+          "####.#####",
+          "####.#####",
+          "####.#####",
+          "####.#####",
+          "####.#####",
+          "####.#####",
+          "##########"
+        ],
+        "start": [
+          1,
+          4
+        ],
+        "goal": [
+          7,
+          4
+        ],
+        "events": [
+          {
+            "id": "necessary-block",
+            "cell": [
+              2,
+              4
+            ],
+            "start": 0,
+            "clear": 5
+          }
+        ],
+        "event_seed": 24001,
+        "condition": "familiar-dynamic",
+        "split": "manual",
+        "layout_hash": "f8d7bfa7a6ad60f4694b4ec850393eb7e3be741c3b24c48d581955e476b0cd16",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "C",
+        "fixture_split": "train",
+        "fixture_kind": "mandatory-initial-wait",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-B-train-02",
+        "layout_id": "phase5a-handwritten-fixtures-v1-B-rotation2",
+        "rows": [
+          "##########",
+          "##########",
+          "##########",
+          "##########",
+          "#.....#..#",
+          "#........#",
+          "##########",
+          "##########",
+          "##########",
+          "##########"
+        ],
+        "start": [
+          4,
+          8
+        ],
+        "goal": [
+          4,
+          2
+        ],
+        "events": [],
+        "event_seed": 24002,
+        "condition": "familiar-static",
+        "split": "manual",
+        "layout_hash": "6cee0a672e0cd8352de5aa44be9195a289e9fc53d53f577d5275b688c82733e4",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "B",
+        "fixture_split": "train",
+        "fixture_kind": "permanent-wall-detour",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        0
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-C-train-02",
+        "layout_id": "phase5a-handwritten-fixtures-v1-C-rotation2",
+        "rows": [
+          "##########",
+          "##########",
+          "##########",
+          "##########",
+          "#........#",
+          "##########",
+          "##########",
+          "##########",
+          "##########",
+          "##########"
+        ],
+        "start": [
+          4,
+          8
+        ],
+        "goal": [
+          4,
+          2
+        ],
+        "events": [
+          {
+            "id": "necessary-block",
+            "cell": [
+              4,
+              7
+            ],
+            "start": 0,
+            "clear": 3
+          }
+        ],
+        "event_seed": 24002,
+        "condition": "familiar-dynamic",
+        "split": "manual",
+        "layout_hash": "e6094e7437a8f524de6b357299cd4925204a4a2c7cb07fe156f5833fbe6fb6eb",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "C",
+        "fixture_split": "train",
+        "fixture_kind": "mandatory-initial-wait",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        4,
+        4,
+        4,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-B-train-03",
+        "layout_id": "phase5a-handwritten-fixtures-v1-B-rotation3",
+        "rows": [
+          "##########",
+          "####..####",
+          "####..####",
+          "####..####",
+          "####..####",
+          "####..####",
+          "####.#####",
+          "####..####",
+          "####..####",
+          "##########"
+        ],
+        "start": [
+          8,
+          5
+        ],
+        "goal": [
+          2,
+          5
+        ],
+        "events": [],
+        "event_seed": 24003,
+        "condition": "familiar-static",
+        "split": "manual",
+        "layout_hash": "89db26411b9081200ae1db76cfe541d1fa1c44aa80b5e888c955a11fa11614d6",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "B",
+        "fixture_split": "train",
+        "fixture_kind": "permanent-wall-detour",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-C-train-03",
+        "layout_id": "phase5a-handwritten-fixtures-v1-C-rotation3",
+        "rows": [
+          "##########",
+          "#####.####",
+          "#####.####",
+          "#####.####",
+          "#####.####",
+          "#####.####",
+          "#####.####",
+          "#####.####",
+          "#####.####",
+          "##########"
+        ],
+        "start": [
+          8,
+          5
+        ],
+        "goal": [
+          2,
+          5
+        ],
+        "events": [
+          {
+            "id": "necessary-block",
+            "cell": [
+              7,
+              5
+            ],
+            "start": 0,
+            "clear": 5
+          }
+        ],
+        "event_seed": 24003,
+        "condition": "familiar-dynamic",
+        "split": "manual",
+        "layout_hash": "4088c2250976a0d765b04f7f933bb680a3d0ad6716a21ddf9c1432fe6f40c04c",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "C",
+        "fixture_split": "train",
+        "fixture_kind": "mandatory-initial-wait",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-D-train-00",
+        "layout_id": "phase5a-handwritten-fixtures-v1-D-rotation0",
+        "rows": [
+          "##########",
+          "##########",
+          "##########",
+          "##########",
+          "#........#",
+          "#........#",
+          "##########",
+          "##########",
+          "##########",
+          "##########"
+        ],
+        "start": [
+          5,
+          1
+        ],
+        "goal": [
+          5,
+          7
+        ],
+        "events": [
+          {
+            "id": "detour-choice",
+            "cell": [
+              5,
+              2
+            ],
+            "start": 0,
+            "clear": 12
+          }
+        ],
+        "event_seed": 24000,
+        "condition": "familiar-dynamic",
+        "split": "manual",
+        "layout_hash": "1d9dbca957fa543ede90ed633728293074688713f18ef79a4a20cd2ba3c41b08",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "D",
+        "fixture_split": "train",
+        "fixture_kind": "short-detour-long-block",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        0,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        1
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-E-train-00",
+        "layout_id": "phase5a-handwritten-fixtures-v1-E-rotation0",
+        "rows": [
+          "##########",
+          "##########",
+          "#.########",
+          "#.########",
+          "#.########",
+          "#........#",
+          "##########",
+          "##########",
+          "##########",
+          "##########"
+        ],
+        "start": [
+          5,
+          1
+        ],
+        "goal": [
+          5,
+          7
+        ],
+        "events": [
+          {
+            "id": "out-of-range-change",
+            "cell": [
+              5,
+              3
+            ],
+            "start": 0,
+            "clear": 3
+          }
+        ],
+        "event_seed": 24000,
+        "condition": "familiar-dynamic",
+        "split": "manual",
+        "layout_hash": "f5533a23d2b1828716a71228c53621f36aca2d0e5e4c76a7a61d9ac85aa89bf3",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "E",
+        "fixture_split": "train",
+        "fixture_kind": "reopens-out-of-range",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        0,
+        0,
+        0,
+        4,
+        1,
+        1,
+        1,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-D-train-01",
+        "layout_id": "phase5a-handwritten-fixtures-v1-D-rotation1",
+        "rows": [
+          "##########",
+          "####.....#",
+          "####.###.#",
+          "####.###.#",
+          "####.###.#",
+          "####.###.#",
+          "####.###.#",
+          "####.###.#",
+          "####.....#",
+          "##########"
+        ],
+        "start": [
+          1,
+          4
+        ],
+        "goal": [
+          7,
+          4
+        ],
+        "events": [
+          {
+            "id": "detour-choice",
+            "cell": [
+              2,
+              4
+            ],
+            "start": 0,
+            "clear": 3
+          }
+        ],
+        "event_seed": 24001,
+        "condition": "familiar-dynamic",
+        "split": "manual",
+        "layout_hash": "38cf62db839f0a30488e02573d0effd5b394040d9cf6920f1141b053b1b79efd",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "D",
+        "fixture_split": "train",
+        "fixture_kind": "long-detour-short-block",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        4,
+        4,
+        4,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-E-train-01",
+        "layout_id": "phase5a-handwritten-fixtures-v1-E-rotation1",
+        "rows": [
+          "##########",
+          "####....##",
+          "####.#####",
+          "####.#####",
+          "####.#####",
+          "####.#####",
+          "####.#####",
+          "####.#####",
+          "####.#####",
+          "##########"
+        ],
+        "start": [
+          1,
+          4
+        ],
+        "goal": [
+          7,
+          4
+        ],
+        "events": [
+          {
+            "id": "out-of-range-change",
+            "cell": [
+              3,
+              4
+            ],
+            "start": 3,
+            "clear": 10
+          }
+        ],
+        "event_seed": 24001,
+        "condition": "familiar-dynamic",
+        "split": "manual",
+        "layout_hash": "d6a8e3766c1dc48f686851afb06f2a52cb14bb705ef785287ad2e8e6df6470c2",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "E",
+        "fixture_split": "train",
+        "fixture_kind": "appears-out-of-range",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        3,
+        3,
+        3,
+        4,
+        2,
+        2,
+        2,
+        4,
+        4,
+        4,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-D-train-02",
+        "layout_id": "phase5a-handwritten-fixtures-v1-D-rotation2",
+        "rows": [
+          "##########",
+          "##########",
+          "##########",
+          "##########",
+          "#........#",
+          "#........#",
+          "##########",
+          "##########",
+          "##########",
+          "##########"
+        ],
+        "start": [
+          4,
+          8
+        ],
+        "goal": [
+          4,
+          2
+        ],
+        "events": [
+          {
+            "id": "detour-choice",
+            "cell": [
+              4,
+              7
+            ],
+            "start": 0,
+            "clear": 12
+          }
+        ],
+        "event_seed": 24002,
+        "condition": "familiar-dynamic",
+        "split": "manual",
+        "layout_hash": "1d9dbca957fa543ede90ed633728293074688713f18ef79a4a20cd2ba3c41b08",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "D",
+        "fixture_split": "train",
+        "fixture_kind": "short-detour-long-block",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        0
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-E-train-02",
+        "layout_id": "phase5a-handwritten-fixtures-v1-E-rotation2",
+        "rows": [
+          "##########",
+          "##########",
+          "##########",
+          "##########",
+          "#........#",
+          "########.#",
+          "########.#",
+          "########.#",
+          "##########",
+          "##########"
+        ],
+        "start": [
+          4,
+          8
+        ],
+        "goal": [
+          4,
+          2
+        ],
+        "events": [
+          {
+            "id": "out-of-range-change",
+            "cell": [
+              4,
+              6
+            ],
+            "start": 0,
+            "clear": 3
+          }
+        ],
+        "event_seed": 24002,
+        "condition": "familiar-dynamic",
+        "split": "manual",
+        "layout_hash": "660c6e3520dedbd26a5c629e34be662dd0733b0b8cda62a01404c830dbd5ac94",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "E",
+        "fixture_split": "train",
+        "fixture_kind": "reopens-out-of-range",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        1,
+        1,
+        1,
+        4,
+        0,
+        0,
+        0,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-D-train-03",
+        "layout_id": "phase5a-handwritten-fixtures-v1-D-rotation3",
+        "rows": [
+          "##########",
+          "#.....####",
+          "#.###.####",
+          "#.###.####",
+          "#.###.####",
+          "#.###.####",
+          "#.###.####",
+          "#.###.####",
+          "#.....####",
+          "##########"
+        ],
+        "start": [
+          8,
+          5
+        ],
+        "goal": [
+          2,
+          5
+        ],
+        "events": [
+          {
+            "id": "detour-choice",
+            "cell": [
+              7,
+              5
+            ],
+            "start": 0,
+            "clear": 3
+          }
+        ],
+        "event_seed": 24003,
+        "condition": "familiar-dynamic",
+        "split": "manual",
+        "layout_hash": "f48da6f1e2f57da58f7e49cc26a2efe8184e61c92dbe2875ff9d767ec98d8180",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "D",
+        "fixture_split": "train",
+        "fixture_kind": "long-detour-short-block",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        4,
+        4,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-E-train-03",
+        "layout_id": "phase5a-handwritten-fixtures-v1-E-rotation3",
+        "rows": [
+          "##########",
+          "#####.####",
+          "#####.####",
+          "#####.####",
+          "#####.####",
+          "#####.####",
+          "#####.####",
+          "#####.####",
+          "##....####",
+          "##########"
+        ],
+        "start": [
+          8,
+          5
+        ],
+        "goal": [
+          2,
+          5
+        ],
+        "events": [
+          {
+            "id": "out-of-range-change",
+            "cell": [
+              6,
+              5
+            ],
+            "start": 3,
+            "clear": 10
+          }
+        ],
+        "event_seed": 24003,
+        "condition": "familiar-dynamic",
+        "split": "manual",
+        "layout_hash": "e26d5718b21f925fa0f758cd1c698c3fedde10230e47b35670efa0db65965e49",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "E",
+        "fixture_split": "train",
+        "fixture_kind": "appears-out-of-range",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        2,
+        2,
+        2,
+        4,
+        3,
+        3,
+        3,
+        4,
+        4,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-B-evaluation-00",
+        "layout_id": "phase5a-handwritten-fixtures-v1-B-rotation0",
+        "rows": [
+          "##########",
+          "##########",
+          "##########",
+          "##########",
+          "#........#",
+          "#..#.....#",
+          "##########",
+          "##########",
+          "##########",
+          "##########"
+        ],
+        "start": [
+          5,
+          1
+        ],
+        "goal": [
+          5,
+          8
+        ],
+        "events": [],
+        "event_seed": 24000,
+        "condition": "familiar-static",
+        "split": "manual",
+        "layout_hash": "f8deef80e6752443af5a880355b0da71ab0f61204e09f615d1230343f1d6b556",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "B",
+        "fixture_split": "evaluation",
+        "fixture_kind": "permanent-wall-detour",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        0,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        1
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-C-evaluation-00",
+        "layout_id": "phase5a-handwritten-fixtures-v1-C-rotation0",
+        "rows": [
+          "##########",
+          "##########",
+          "##########",
+          "##########",
+          "##########",
+          "#........#",
+          "##########",
+          "##########",
+          "##########",
+          "##########"
+        ],
+        "start": [
+          5,
+          1
+        ],
+        "goal": [
+          5,
+          8
+        ],
+        "events": [
+          {
+            "id": "necessary-block",
+            "cell": [
+              5,
+              2
+            ],
+            "start": 0,
+            "clear": 4
+          }
+        ],
+        "event_seed": 24000,
+        "condition": "familiar-dynamic",
+        "split": "manual",
+        "layout_hash": "75d29ed58716dfdc9800661572ea44db7fa5db0b901c0ecd136b61e6346b878b",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "C",
+        "fixture_split": "evaluation",
+        "fixture_kind": "mandatory-initial-wait",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        4,
+        4,
+        4,
+        4,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-B-evaluation-01",
+        "layout_id": "phase5a-handwritten-fixtures-v1-B-rotation1",
+        "rows": [
+          "##########",
+          "####..####",
+          "####..####",
+          "#####.####",
+          "####..####",
+          "####..####",
+          "####..####",
+          "####..####",
+          "####..####",
+          "##########"
+        ],
+        "start": [
+          1,
+          4
+        ],
+        "goal": [
+          8,
+          4
+        ],
+        "events": [],
+        "event_seed": 24001,
+        "condition": "familiar-static",
+        "split": "manual",
+        "layout_hash": "58b142d65892e2ab6acbb3050395a22b5fbb58edde3629d4d0e837fcc7f84585",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "B",
+        "fixture_split": "evaluation",
+        "fixture_kind": "permanent-wall-detour",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-C-evaluation-01",
+        "layout_id": "phase5a-handwritten-fixtures-v1-C-rotation1",
+        "rows": [
+          "##########",
+          "####.#####",
+          "####.#####",
+          "####.#####",
+          "####.#####",
+          "####.#####",
+          "####.#####",
+          "####.#####",
+          "####.#####",
+          "##########"
+        ],
+        "start": [
+          1,
+          4
+        ],
+        "goal": [
+          8,
+          4
+        ],
+        "events": [
+          {
+            "id": "necessary-block",
+            "cell": [
+              2,
+              4
+            ],
+            "start": 0,
+            "clear": 7
+          }
+        ],
+        "event_seed": 24001,
+        "condition": "familiar-dynamic",
+        "split": "manual",
+        "layout_hash": "f8d7bfa7a6ad60f4694b4ec850393eb7e3be741c3b24c48d581955e476b0cd16",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "C",
+        "fixture_split": "evaluation",
+        "fixture_kind": "mandatory-initial-wait",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-B-evaluation-02",
+        "layout_id": "phase5a-handwritten-fixtures-v1-B-rotation2",
+        "rows": [
+          "##########",
+          "##########",
+          "##########",
+          "##########",
+          "#.....#..#",
+          "#........#",
+          "##########",
+          "##########",
+          "##########",
+          "##########"
+        ],
+        "start": [
+          4,
+          8
+        ],
+        "goal": [
+          4,
+          1
+        ],
+        "events": [],
+        "event_seed": 24002,
+        "condition": "familiar-static",
+        "split": "manual",
+        "layout_hash": "6cee0a672e0cd8352de5aa44be9195a289e9fc53d53f577d5275b688c82733e4",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "B",
+        "fixture_split": "evaluation",
+        "fixture_kind": "permanent-wall-detour",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        0
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-C-evaluation-02",
+        "layout_id": "phase5a-handwritten-fixtures-v1-C-rotation2",
+        "rows": [
+          "##########",
+          "##########",
+          "##########",
+          "##########",
+          "#........#",
+          "##########",
+          "##########",
+          "##########",
+          "##########",
+          "##########"
+        ],
+        "start": [
+          4,
+          8
+        ],
+        "goal": [
+          4,
+          1
+        ],
+        "events": [
+          {
+            "id": "necessary-block",
+            "cell": [
+              4,
+              7
+            ],
+            "start": 0,
+            "clear": 4
+          }
+        ],
+        "event_seed": 24002,
+        "condition": "familiar-dynamic",
+        "split": "manual",
+        "layout_hash": "e6094e7437a8f524de6b357299cd4925204a4a2c7cb07fe156f5833fbe6fb6eb",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "C",
+        "fixture_split": "evaluation",
+        "fixture_kind": "mandatory-initial-wait",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        4,
+        4,
+        4,
+        4,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-B-evaluation-03",
+        "layout_id": "phase5a-handwritten-fixtures-v1-B-rotation3",
+        "rows": [
+          "##########",
+          "####..####",
+          "####..####",
+          "####..####",
+          "####..####",
+          "####..####",
+          "####.#####",
+          "####..####",
+          "####..####",
+          "##########"
+        ],
+        "start": [
+          8,
+          5
+        ],
+        "goal": [
+          1,
+          5
+        ],
+        "events": [],
+        "event_seed": 24003,
+        "condition": "familiar-static",
+        "split": "manual",
+        "layout_hash": "89db26411b9081200ae1db76cfe541d1fa1c44aa80b5e888c955a11fa11614d6",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "B",
+        "fixture_split": "evaluation",
+        "fixture_kind": "permanent-wall-detour",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-C-evaluation-03",
+        "layout_id": "phase5a-handwritten-fixtures-v1-C-rotation3",
+        "rows": [
+          "##########",
+          "#####.####",
+          "#####.####",
+          "#####.####",
+          "#####.####",
+          "#####.####",
+          "#####.####",
+          "#####.####",
+          "#####.####",
+          "##########"
+        ],
+        "start": [
+          8,
+          5
+        ],
+        "goal": [
+          1,
+          5
+        ],
+        "events": [
+          {
+            "id": "necessary-block",
+            "cell": [
+              7,
+              5
+            ],
+            "start": 0,
+            "clear": 7
+          }
+        ],
+        "event_seed": 24003,
+        "condition": "familiar-dynamic",
+        "split": "manual",
+        "layout_hash": "4088c2250976a0d765b04f7f933bb680a3d0ad6716a21ddf9c1432fe6f40c04c",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "C",
+        "fixture_split": "evaluation",
+        "fixture_kind": "mandatory-initial-wait",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-D-evaluation-00",
+        "layout_id": "phase5a-handwritten-fixtures-v1-D-rotation0",
+        "rows": [
+          "##########",
+          "##########",
+          "##########",
+          "##########",
+          "#........#",
+          "#........#",
+          "##########",
+          "##########",
+          "##########",
+          "##########"
+        ],
+        "start": [
+          5,
+          1
+        ],
+        "goal": [
+          5,
+          8
+        ],
+        "events": [
+          {
+            "id": "detour-choice",
+            "cell": [
+              5,
+              2
+            ],
+            "start": 0,
+            "clear": 16
+          }
+        ],
+        "event_seed": 24000,
+        "condition": "familiar-dynamic",
+        "split": "manual",
+        "layout_hash": "1d9dbca957fa543ede90ed633728293074688713f18ef79a4a20cd2ba3c41b08",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "D",
+        "fixture_split": "evaluation",
+        "fixture_kind": "short-detour-long-block",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        0,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        1
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-E-evaluation-00",
+        "layout_id": "phase5a-handwritten-fixtures-v1-E-rotation0",
+        "rows": [
+          "##########",
+          "##########",
+          "#.########",
+          "#.########",
+          "#.########",
+          "#........#",
+          "##########",
+          "##########",
+          "##########",
+          "##########"
+        ],
+        "start": [
+          5,
+          1
+        ],
+        "goal": [
+          5,
+          8
+        ],
+        "events": [
+          {
+            "id": "out-of-range-change",
+            "cell": [
+              5,
+              3
+            ],
+            "start": 0,
+            "clear": 4
+          }
+        ],
+        "event_seed": 24000,
+        "condition": "familiar-dynamic",
+        "split": "manual",
+        "layout_hash": "f5533a23d2b1828716a71228c53621f36aca2d0e5e4c76a7a61d9ac85aa89bf3",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "E",
+        "fixture_split": "evaluation",
+        "fixture_kind": "reopens-out-of-range",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        0,
+        0,
+        0,
+        4,
+        1,
+        1,
+        1,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-D-evaluation-01",
+        "layout_id": "phase5a-handwritten-fixtures-v1-D-rotation1",
+        "rows": [
+          "##########",
+          "####.....#",
+          "####.###.#",
+          "####.###.#",
+          "####.###.#",
+          "####.###.#",
+          "####.###.#",
+          "####.###.#",
+          "####.....#",
+          "##########"
+        ],
+        "start": [
+          1,
+          4
+        ],
+        "goal": [
+          8,
+          4
+        ],
+        "events": [
+          {
+            "id": "detour-choice",
+            "cell": [
+              2,
+              4
+            ],
+            "start": 0,
+            "clear": 4
+          }
+        ],
+        "event_seed": 24001,
+        "condition": "familiar-dynamic",
+        "split": "manual",
+        "layout_hash": "38cf62db839f0a30488e02573d0effd5b394040d9cf6920f1141b053b1b79efd",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "D",
+        "fixture_split": "evaluation",
+        "fixture_kind": "long-detour-short-block",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        4,
+        4,
+        4,
+        4,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-E-evaluation-01",
+        "layout_id": "phase5a-handwritten-fixtures-v1-E-rotation1",
+        "rows": [
+          "##########",
+          "####....##",
+          "####.#####",
+          "####.#####",
+          "####.#####",
+          "####.#####",
+          "####.#####",
+          "####.#####",
+          "####.#####",
+          "##########"
+        ],
+        "start": [
+          1,
+          4
+        ],
+        "goal": [
+          8,
+          4
+        ],
+        "events": [
+          {
+            "id": "out-of-range-change",
+            "cell": [
+              3,
+              4
+            ],
+            "start": 3,
+            "clear": 12
+          }
+        ],
+        "event_seed": 24001,
+        "condition": "familiar-dynamic",
+        "split": "manual",
+        "layout_hash": "d6a8e3766c1dc48f686851afb06f2a52cb14bb705ef785287ad2e8e6df6470c2",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "E",
+        "fixture_split": "evaluation",
+        "fixture_kind": "appears-out-of-range",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        3,
+        3,
+        3,
+        4,
+        2,
+        2,
+        2,
+        4,
+        4,
+        4,
+        4,
+        4,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-D-evaluation-02",
+        "layout_id": "phase5a-handwritten-fixtures-v1-D-rotation2",
+        "rows": [
+          "##########",
+          "##########",
+          "##########",
+          "##########",
+          "#........#",
+          "#........#",
+          "##########",
+          "##########",
+          "##########",
+          "##########"
+        ],
+        "start": [
+          4,
+          8
+        ],
+        "goal": [
+          4,
+          1
+        ],
+        "events": [
+          {
+            "id": "detour-choice",
+            "cell": [
+              4,
+              7
+            ],
+            "start": 0,
+            "clear": 16
+          }
+        ],
+        "event_seed": 24002,
+        "condition": "familiar-dynamic",
+        "split": "manual",
+        "layout_hash": "1d9dbca957fa543ede90ed633728293074688713f18ef79a4a20cd2ba3c41b08",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "D",
+        "fixture_split": "evaluation",
+        "fixture_kind": "short-detour-long-block",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        0
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-E-evaluation-02",
+        "layout_id": "phase5a-handwritten-fixtures-v1-E-rotation2",
+        "rows": [
+          "##########",
+          "##########",
+          "##########",
+          "##########",
+          "#........#",
+          "########.#",
+          "########.#",
+          "########.#",
+          "##########",
+          "##########"
+        ],
+        "start": [
+          4,
+          8
+        ],
+        "goal": [
+          4,
+          1
+        ],
+        "events": [
+          {
+            "id": "out-of-range-change",
+            "cell": [
+              4,
+              6
+            ],
+            "start": 0,
+            "clear": 4
+          }
+        ],
+        "event_seed": 24002,
+        "condition": "familiar-dynamic",
+        "split": "manual",
+        "layout_hash": "660c6e3520dedbd26a5c629e34be662dd0733b0b8cda62a01404c830dbd5ac94",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "E",
+        "fixture_split": "evaluation",
+        "fixture_kind": "reopens-out-of-range",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        1,
+        1,
+        1,
+        4,
+        0,
+        0,
+        0,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-D-evaluation-03",
+        "layout_id": "phase5a-handwritten-fixtures-v1-D-rotation3",
+        "rows": [
+          "##########",
+          "#.....####",
+          "#.###.####",
+          "#.###.####",
+          "#.###.####",
+          "#.###.####",
+          "#.###.####",
+          "#.###.####",
+          "#.....####",
+          "##########"
+        ],
+        "start": [
+          8,
+          5
+        ],
+        "goal": [
+          1,
+          5
+        ],
+        "events": [
+          {
+            "id": "detour-choice",
+            "cell": [
+              7,
+              5
+            ],
+            "start": 0,
+            "clear": 4
+          }
+        ],
+        "event_seed": 24003,
+        "condition": "familiar-dynamic",
+        "split": "manual",
+        "layout_hash": "f48da6f1e2f57da58f7e49cc26a2efe8184e61c92dbe2875ff9d767ec98d8180",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "D",
+        "fixture_split": "evaluation",
+        "fixture_kind": "long-detour-short-block",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        4,
+        4,
+        4,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "case": {
+        "id": "phase5a-handwritten-fixtures-v1-E-evaluation-03",
+        "layout_id": "phase5a-handwritten-fixtures-v1-E-rotation3",
+        "rows": [
+          "##########",
+          "#####.####",
+          "#####.####",
+          "#####.####",
+          "#####.####",
+          "#####.####",
+          "#####.####",
+          "#####.####",
+          "##....####",
+          "##########"
+        ],
+        "start": [
+          8,
+          5
+        ],
+        "goal": [
+          1,
+          5
+        ],
+        "events": [
+          {
+            "id": "out-of-range-change",
+            "cell": [
+              6,
+              5
+            ],
+            "start": 3,
+            "clear": 12
+          }
+        ],
+        "event_seed": 24003,
+        "condition": "familiar-dynamic",
+        "split": "manual",
+        "layout_hash": "e26d5718b21f925fa0f758cd1c698c3fedde10230e47b35670efa0db65965e49",
+        "fixture_version": "phase5a-handwritten-fixtures-v1",
+        "fixture_category": "E",
+        "fixture_split": "evaluation",
+        "fixture_kind": "appears-out-of-range",
+        "difficulty": {
+          "distance_band": "handwritten-diagnostic"
+        }
+      },
+      "script": [
+        2,
+        2,
+        2,
+        4,
+        3,
+        3,
+        3,
+        4,
+        4,
+        4,
+        4,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "evaluation_case_ids": [
+    "phase5a-handwritten-fixtures-v1-A-evaluation-00",
+    "phase5a-handwritten-fixtures-v1-A-evaluation-01",
+    "phase5a-handwritten-fixtures-v1-A-evaluation-02",
+    "phase5a-handwritten-fixtures-v1-A-evaluation-03",
+    "phase5a-handwritten-fixtures-v1-B-evaluation-00",
+    "phase5a-handwritten-fixtures-v1-C-evaluation-00",
+    "phase5a-handwritten-fixtures-v1-B-evaluation-01",
+    "phase5a-handwritten-fixtures-v1-C-evaluation-01",
+    "phase5a-handwritten-fixtures-v1-B-evaluation-02",
+    "phase5a-handwritten-fixtures-v1-C-evaluation-02",
+    "phase5a-handwritten-fixtures-v1-B-evaluation-03",
+    "phase5a-handwritten-fixtures-v1-C-evaluation-03",
+    "phase5a-handwritten-fixtures-v1-D-evaluation-00",
+    "phase5a-handwritten-fixtures-v1-E-evaluation-00",
+    "phase5a-handwritten-fixtures-v1-D-evaluation-01",
+    "phase5a-handwritten-fixtures-v1-E-evaluation-01",
+    "phase5a-handwritten-fixtures-v1-D-evaluation-02",
+    "phase5a-handwritten-fixtures-v1-E-evaluation-02",
+    "phase5a-handwritten-fixtures-v1-D-evaluation-03",
+    "phase5a-handwritten-fixtures-v1-E-evaluation-03"
+  ],
+  "training_cases_by_phase": {
+    "A": [
+      "phase5a-handwritten-fixtures-v1-A-train-00",
+      "phase5a-handwritten-fixtures-v1-A-train-01",
+      "phase5a-handwritten-fixtures-v1-A-train-02",
+      "phase5a-handwritten-fixtures-v1-A-train-03",
+      "phase5a-handwritten-fixtures-v1-A-train-04",
+      "phase5a-handwritten-fixtures-v1-A-train-05",
+      "phase5a-handwritten-fixtures-v1-A-train-06",
+      "phase5a-handwritten-fixtures-v1-A-train-07"
+    ],
+    "B": [
+      "phase5a-handwritten-fixtures-v1-B-train-00",
+      "phase5a-handwritten-fixtures-v1-B-train-01",
+      "phase5a-handwritten-fixtures-v1-B-train-02",
+      "phase5a-handwritten-fixtures-v1-B-train-03"
+    ],
+    "CD": [
+      "phase5a-handwritten-fixtures-v1-C-train-00",
+      "phase5a-handwritten-fixtures-v1-C-train-01",
+      "phase5a-handwritten-fixtures-v1-C-train-02",
+      "phase5a-handwritten-fixtures-v1-C-train-03",
+      "phase5a-handwritten-fixtures-v1-D-train-00",
+      "phase5a-handwritten-fixtures-v1-D-train-01",
+      "phase5a-handwritten-fixtures-v1-D-train-02",
+      "phase5a-handwritten-fixtures-v1-D-train-03"
+    ],
+    "E": [
+      "phase5a-handwritten-fixtures-v1-E-train-00",
+      "phase5a-handwritten-fixtures-v1-E-train-01",
+      "phase5a-handwritten-fixtures-v1-E-train-02",
+      "phase5a-handwritten-fixtures-v1-E-train-03"
+    ]
+  },
+  "composition_case_ids": [
+    "partial-dynamic-navigation-v1-train-001-route00-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-001-route01-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-001-route02-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-001-route03-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-001-route04-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-001-route05-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-002-route00-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-002-route01-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-002-route02-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-002-route03-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-002-route04-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-002-route05-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-003-route00-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-003-route01-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-003-route02-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-003-route03-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-003-route04-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-003-route05-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-004-route00-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-004-route01-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-004-route02-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-004-route03-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-004-route04-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-004-route05-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-005-route00-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-005-route01-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-005-route02-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-005-route03-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-005-route04-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-005-route05-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-006-route00-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-006-route01-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-006-route02-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-006-route03-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-006-route04-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-006-route05-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-007-route00-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-007-route01-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-007-route02-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-007-route03-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-007-route04-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-007-route05-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-008-route00-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-008-route01-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-008-route02-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-008-route03-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-008-route04-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-008-route05-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-009-route00-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-009-route01-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-009-route02-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-009-route03-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-009-route04-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-009-route05-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-010-route00-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-010-route01-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-010-route02-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-010-route03-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-010-route04-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-010-route05-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-011-route00-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-011-route01-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-011-route02-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-011-route03-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-011-route04-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-011-route05-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-012-route00-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-012-route01-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-012-route02-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-012-route03-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-012-route04-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-012-route05-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-013-route00-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-013-route01-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-013-route02-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-013-route03-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-013-route04-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-013-route05-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-014-route00-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-014-route01-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-014-route02-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-014-route03-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-014-route04-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-014-route05-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-015-route00-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-015-route01-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-015-route02-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-015-route03-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-015-route04-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-015-route05-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-016-route00-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-016-route01-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-016-route02-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-016-route03-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-016-route04-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-016-route05-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-017-route00-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-017-route01-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-017-route02-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-017-route03-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-017-route04-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-017-route05-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-018-route00-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-018-route01-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-018-route02-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-018-route03-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-018-route04-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-018-route05-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-019-route00-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-019-route01-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-019-route02-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-019-route03-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-019-route04-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-019-route05-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-020-route00-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-020-route01-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-020-route02-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-020-route03-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-020-route04-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-020-route05-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-021-route00-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-021-route01-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-021-route02-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-021-route03-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-021-route04-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-021-route05-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-022-route00-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-022-route01-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-022-route02-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-022-route03-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-022-route04-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-022-route05-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-023-route00-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-023-route01-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-023-route02-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-023-route03-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-023-route04-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-023-route05-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-024-route00-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-024-route01-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-024-route02-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-024-route03-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-024-route04-familiar-dynamic",
+    "partial-dynamic-navigation-v1-train-024-route05-familiar-dynamic",
+    "partial-dynamic-navigation-v1-validation-001-route00-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-001-route01-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-001-route02-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-001-route03-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-001-route04-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-001-route05-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-002-route00-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-002-route01-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-002-route02-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-002-route03-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-002-route04-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-002-route05-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-003-route00-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-003-route01-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-003-route02-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-003-route03-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-003-route04-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-003-route05-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-004-route00-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-004-route01-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-004-route02-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-004-route03-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-004-route04-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-004-route05-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-005-route00-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-005-route01-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-005-route02-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-005-route03-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-005-route04-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-005-route05-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-006-route00-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-006-route01-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-006-route02-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-006-route03-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-006-route04-unseen-dynamic",
+    "partial-dynamic-navigation-v1-validation-006-route05-unseen-dynamic"
+  ],
+  "checkpoint_rule": "fixed stage boundaries and declared gating; retain every checkpoint and failure",
+  "confirmation": "not authorized/exposed by this runner; one primary seed only",
+  "runtime": {
+    "python": "3.14.10",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "logical_cpus": 20,
+    "torch_threads": 1,
+    "python_executable": "C:\\Users\\User\\Desktop\\Autonomous_Robot_Navigation\\autonomous-robot-navigation-rl\\.venv\\Scripts\\python.exe",
+    "working_directory": "C:\\Users\\User\\Desktop\\Autonomous_Robot_Navigation\\autonomous-robot-navigation-rl\\.runtime\\p5\\autonomous-robot-navigation-rl",
+    "PYTHONPATH": "C:\\Users\\User\\Desktop\\Autonomous_Robot_Navigation\\autonomous-robot-navigation-rl\\.runtime\\p5\\autonomous-robot-navigation-rl\\src",
+    "dependencies": {
+      "numpy": "2.5.4",
+      "gymnasium": "1.4.0",
+      "stable-baselines3": "2.9.2",
+      "torch": "2.15.0"
+    }
+  },
+  "git": {
+    "branch": "feature/partial-dynamic-feasibility-v1",
+    "head": "45f3f389518226d3ab054eb3fd321625f7b2636a",
+    "status_before_registration": "?? CODEX_PHASE5_LEARNING_FEASIBILITY_PILOT.md\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/base-inventory.json\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/implementation-regressions.xml\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/preflight-manual-trace.json\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/preflight-regressions.xml\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/briefs/CODEX_PHASE5_LEARNING_FEASIBILITY_PILOT.md\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/configs/partial_dynamic.yaml\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/configs/partial_feasibility_v1.yaml\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/data/partial/partial-dynamic-navigation-v1/manifest.json\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/data/partial/partial-dynamic-navigation-v1/train.json\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/data/partial/partial-dynamic-navigation-v1/validation.json\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/developer/tests/test_partial_agents.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/developer/tests/test_partial_benchmark.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/developer/tests/test_partial_commands.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/developer/tests/test_partial_dynamic_env.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/developer/tests/test_partial_evaluation.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/developer/tests/test_partial_feasibility.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/developer/tests/test_partial_leakage.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/developer/tests/test_partial_memory.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/developer/tests/test_partial_observation.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/developer/tests/test_partial_pilot_diagnostics.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/developer/tests/test_partial_sensor.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/docs/partial_feasibility_protocol.md\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/pyproject.toml\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/requirements-lock.txt\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/__init__.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/agents.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/app_theme.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/benchmark.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/cli.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/core.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/dashboard.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/dashboard_ui.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/demo_assets.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/dqn.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/episodes.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/evidence.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/four_way.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/four_way_analysis.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/interface.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/learning_replays.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/loop_intervention.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/navigation_demo.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/navigation_lab.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/neural_confirmation.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/neural_tuning.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/neural_tuning_ui.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/observation_encoding.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/part_a.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/partial_agents.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/partial_baselines.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/partial_benchmark.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/partial_commands.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/partial_contract.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/partial_dynamic_env.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/partial_evaluation.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/partial_feasibility.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/partial_feasibility_fixtures.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/partial_feasibility_report.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/partial_features.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/partial_fixtures.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/partial_memory.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/partial_neural.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/partial_observation.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/partial_pilot_diagnostics.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/partial_pilot_ledger.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/partial_sensor.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/partial_training.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/ppo.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/ppo_config.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/recovery_ui.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/refinement.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/release.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/representation.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/reward_playback.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/route_picker.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/shared_agents.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/shared_features.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/shared_neural.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/simulator_ui.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/structured_demo_ui.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/training.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/training_traces.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/unseen_agents.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/unseen_audit.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/unseen_benchmark.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/unseen_diagnostics.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/unseen_diagnostics_ui.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/unseen_final.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/unseen_main.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/unseen_study.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/unseen_ui.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/user_guide_ui.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/visualization.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/voting.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/snapshot/src/robot_navigation/workflow.py\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/validation-gates.json\n?? autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/feasibility-pilot-v1/validation.log\n?? autonomous-robot-navigation-rl/configs/partial_feasibility_v1.yaml\n?? autonomous-robot-navigation-rl/developer/tests/test_partial_feasibility.py\n?? autonomous-robot-navigation-rl/developer/tests/test_partial_pilot_diagnostics.py\n?? autonomous-robot-navigation-rl/docs/partial_feasibility_protocol.md\n?? autonomous-robot-navigation-rl/src/robot_navigation/partial_feasibility.py\n?? autonomous-robot-navigation-rl/src/robot_navigation/partial_feasibility_fixtures.py\n?? autonomous-robot-navigation-rl/src/robot_navigation/partial_feasibility_report.py\n?? autonomous-robot-navigation-rl/src/robot_navigation/partial_pilot_diagnostics.py\n?? autonomous-robot-navigation-rl/src/robot_navigation/partial_pilot_ledger.py\n"
+  },
+  "commands": [
+    "C:\\Users\\User\\Desktop\\Autonomous_Robot_Navigation\\autonomous-robot-navigation-rl\\.venv\\Scripts\\python.exe -m robot_navigation.partial_feasibility register",
+    "C:\\Users\\User\\Desktop\\Autonomous_Robot_Navigation\\autonomous-robot-navigation-rl\\.venv\\Scripts\\python.exe -m robot_navigation.partial_feasibility run",
+    "C:\\Users\\User\\Desktop\\Autonomous_Robot_Navigation\\autonomous-robot-navigation-rl\\.venv\\Scripts\\python.exe -m robot_navigation.partial_feasibility audit",
+    "C:\\Users\\User\\Desktop\\Autonomous_Robot_Navigation\\autonomous-robot-navigation-rl\\.venv\\Scripts\\python.exe -m robot_navigation.partial_feasibility report"
+  ]
+}

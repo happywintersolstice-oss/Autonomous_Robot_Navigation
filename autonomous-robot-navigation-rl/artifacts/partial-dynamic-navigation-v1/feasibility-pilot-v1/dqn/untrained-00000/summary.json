@@ -1,0 +1,85 @@
+{
+  "phase": "untrained",
+  "training_actions": 0,
+  "checkpoint": "policy.zip",
+  "checkpoint_sha256": "517091fe87f099c316786789ed0a593c9e5a6ff72ff360931a5e63f10d5ffb9c",
+  "parameter_fingerprint": "5223c6fe11c2f5f74cf2648bdfc9e53529e4bc444e6c672072f86b37c14bfdd8",
+  "checkpoint_bytes": 146068,
+  "training": null,
+  "evaluation": {
+    "A": {
+      "episodes_or_prefixes": 4,
+      "completed_episodes": 4,
+      "counts": {
+        "success": 1,
+        "collision": 1,
+        "timeout": 2
+      },
+      "rates": {
+        "success": 0.25,
+        "collision": 0.25,
+        "timeout": 0.5
+      },
+      "incomplete_prefixes": 0,
+      "actions": 408,
+      "mean_steps": 102.0,
+      "length_distribution": {
+        "1": 1,
+        "7": 1,
+        "200": 2
+      },
+      "mean_completed_return": 0.2300000000000002,
+      "all_executed_return": 0.9200000000000008,
+      "action_counts": {
+        "Up": 9,
+        "Down": 0,
+        "Left": 0,
+        "Right": 0,
+        "Wait": 399
+      },
+      "wait_count": 399,
+      "wait_fraction": 0.9779411764705882,
+      "longest_wait_streak": 200,
+      "moves": 8,
+      "repeated_visits": 0,
+      "oscillation_windows": 0,
+      "mean_discovered_cells": 18.5,
+      "recovery_opportunities": 0,
+      "recoveries": 0,
+      "recovery_rate": null,
+      "mean_recovery_delay": null,
+      "nominal_event_count": 0,
+      "applied_event_count": 0,
+      "detected_event_count": 0,
+      "events_never_observed": 0,
+      "applied_event_ticks": 0,
+      "suppressed_activation_ticks": 0,
+      "sensor_cell_refreshes": 3703,
+      "occupancy_corrections": 0
+    }
+  },
+  "model": {
+    "fingerprint": "5223c6fe11c2f5f74cf2648bdfc9e53529e4bc444e6c672072f86b37c14bfdd8",
+    "parameters_finite": true,
+    "model_timesteps": 0,
+    "sb3_version_specific_updates_counter": 0,
+    "updates_counter_meaning": "DQN gradient updates; PPO epochs (SB3 2.9.2), not equal compute",
+    "replay": {
+      "stored_transitions": 0,
+      "capacity": 10000,
+      "positive_goal_rewards_stored": 0,
+      "timeouts_stored": 0,
+      "learning_starts": 100,
+      "exploration_rate": 0.0
+    }
+  },
+  "linear_updates": null,
+  "resource_usage": {
+    "cpu_user_seconds": 87.25,
+    "cpu_system_seconds": 5.25,
+    "working_set_bytes": 701014016,
+    "peak_working_set_bytes": 1073786880
+  },
+  "training_prefix_bytes": 0,
+  "training_prefix_sha256": null
+}

@@ -1,0 +1,27 @@
+{
+  "algorithm": "dqn",
+  "seed": 23001,
+  "master_protocol_sha256": "fa73e081260eea16fe3f97fabde254e6728de3de4a3cd79c77d4a443a94df1e8",
+  "model_settings": {
+    "discount": 0.99,
+    "linear_learning_rate": 0.1,
+    "neural_learning_rate": 0.0003,
+    "net_arch": [
+      32,
+      32
+    ],
+    "epsilon_start": 1.0,
+    "epsilon_end": 0.1,
+    "buffer_size": 10000,
+    "learning_starts": 100,
+    "batch_size": 50,
+    "train_freq": 4,
+    "target_update_interval": 250,
+    "n_steps": 100,
+    "n_epochs": 5
+  },
+  "per_algorithm_ceiling": 10000,
+  "wall_seconds": 240,
+  "attempt": 1,
+  "selection": "Every registered stage checkpoint retained; no retries or seed selection"
+}
