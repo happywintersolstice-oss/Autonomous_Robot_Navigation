@@ -1,0 +1,4110 @@
+{
+  "benchmark_id": "partial-dynamic-navigation-v1",
+  "split": "validation",
+  "layouts": [
+    {
+      "layout_id": "partial-dynamic-navigation-v1-validation-001",
+      "rows": [
+        "#....#....",
+        "#..#...###",
+        "#......#.#",
+        "...#......",
+        "#....#....",
+        "..........",
+        "..##......",
+        ".#..#...#.",
+        "#..#.....#",
+        ".........."
+      ],
+      "geometry_hash": "0641796c28731f1992b37d9b28068f3c8b5a4a46ebe8e7f37bb13cb8090b04c3",
+      "statistics": {
+        "free_cells": 79,
+        "dead_ends": 8,
+        "junctions": 55,
+        "diameter": 19
+      },
+      "scenarios": [
+        {
+          "id": "partial-dynamic-navigation-v1-validation-001-route00-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-001",
+          "rows": [
+            "#....#....",
+            "#..#...###",
+            "#......#.#",
+            "...#......",
+            "#....#....",
+            "..........",
+            "..##......",
+            ".#..#...#.",
+            "#..#.....#",
+            ".........."
+          ],
+          "start": [
+            4,
+            1
+          ],
+          "goal": [
+            4,
+            3
+          ],
+          "events": [],
+          "event_seed": 1767657807,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "11de5bd0c63917c8f47b626e7edb7c08f3741284d2ff751e339e2dee0291cc16",
+          "pair_id": "partial-dynamic-navigation-v1-validation-001-route00",
+          "difficulty": {
+            "distance_band": "short",
+            "base_length": 2,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 8,
+            "junctions": 55,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-001-route00-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-001",
+          "rows": [
+            "#....#....",
+            "#..#...###",
+            "#......#.#",
+            "...#......",
+            "#....#....",
+            "..........",
+            "..##......",
+            ".#..#...#.",
+            "#..#.....#",
+            ".........."
+          ],
+          "start": [
+            4,
+            1
+          ],
+          "goal": [
+            4,
+            3
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                4,
+                2
+              ],
+              "start": 7,
+              "clear": 13
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                0,
+                3
+              ],
+              "start": 8,
+              "clear": 12
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                0,
+                2
+              ],
+              "start": 15,
+              "clear": 21
+            }
+          ],
+          "event_seed": 1767657807,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "11de5bd0c63917c8f47b626e7edb7c08f3741284d2ff751e339e2dee0291cc16",
+          "pair_id": "partial-dynamic-navigation-v1-validation-001-route00",
+          "difficulty": {
+            "distance_band": "short",
+            "base_length": 2,
+            "single_event_detour_lengths": [
+              4,
+              2,
+              2
+            ],
+            "free_cells": 79,
+            "dead_ends": 8,
+            "junctions": 55,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-001-route01-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-001",
+          "rows": [
+            "#....#....",
+            "#..#...###",
+            "#......#.#",
+            "...#......",
+            "#....#....",
+            "..........",
+            "..##......",
+            ".#..#...#.",
+            "#..#.....#",
+            ".........."
+          ],
+          "start": [
+            1,
+            1
+          ],
+          "goal": [
+            3,
+            8
+          ],
+          "events": [],
+          "event_seed": 552667256,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "11de5bd0c63917c8f47b626e7edb7c08f3741284d2ff751e339e2dee0291cc16",
+          "pair_id": "partial-dynamic-navigation-v1-validation-001-route01",
+          "difficulty": {
+            "distance_band": "medium",
+            "base_length": 9,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 8,
+            "junctions": 55,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-001-route01-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-001",
+          "rows": [
+            "#....#....",
+            "#..#...###",
+            "#......#.#",
+            "...#......",
+            "#....#....",
+            "..........",
+            "..##......",
+            ".#..#...#.",
+            "#..#.....#",
+            ".........."
+          ],
+          "start": [
+            1,
+            1
+          ],
+          "goal": [
+            3,
+            8
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                2,
+                2
+              ],
+              "start": 12,
+              "clear": 20
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                9,
+                0
+              ],
+              "start": 14,
+              "clear": 21
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                0,
+                7
+              ],
+              "start": 19,
+              "clear": 26
+            }
+          ],
+          "event_seed": 552667256,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "11de5bd0c63917c8f47b626e7edb7c08f3741284d2ff751e339e2dee0291cc16",
+          "pair_id": "partial-dynamic-navigation-v1-validation-001-route01",
+          "difficulty": {
+            "distance_band": "medium",
+            "base_length": 9,
+            "single_event_detour_lengths": [
+              11,
+              9,
+              9
+            ],
+            "free_cells": 79,
+            "dead_ends": 8,
+            "junctions": 55,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-001-route02-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-001",
+          "rows": [
+            "#....#....",
+            "#..#...###",
+            "#......#.#",
+            "...#......",
+            "#....#....",
+            "..........",
+            "..##......",
+            ".#..#...#.",
+            "#..#.....#",
+            ".........."
+          ],
+          "start": [
+            7,
+            3
+          ],
+          "goal": [
+            7,
+            9
+          ],
+          "events": [],
+          "event_seed": 82787933,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "11de5bd0c63917c8f47b626e7edb7c08f3741284d2ff751e339e2dee0291cc16",
+          "pair_id": "partial-dynamic-navigation-v1-validation-001-route02",
+          "difficulty": {
+            "distance_band": "long",
+            "base_length": 14,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 8,
+            "junctions": 55,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-001-route02-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-001",
+          "rows": [
+            "#....#....",
+            "#..#...###",
+            "#......#.#",
+            "...#......",
+            "#....#....",
+            "..........",
+            "..##......",
+            ".#..#...#.",
+            "#..#.....#",
+            ".........."
+          ],
+          "start": [
+            7,
+            3
+          ],
+          "goal": [
+            7,
+            9
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                8,
+                2
+              ],
+              "start": 10,
+              "clear": 16
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                7,
+                6
+              ],
+              "start": 7,
+              "clear": 13
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                8,
+                5
+              ],
+              "start": 23,
+              "clear": 26
+            }
+          ],
+          "event_seed": 82787933,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "11de5bd0c63917c8f47b626e7edb7c08f3741284d2ff751e339e2dee0291cc16",
+          "pair_id": "partial-dynamic-navigation-v1-validation-001-route02",
+          "difficulty": {
+            "distance_band": "long",
+            "base_length": 14,
+            "single_event_detour_lengths": [
+              null,
+              14,
+              14
+            ],
+            "free_cells": 79,
+            "dead_ends": 8,
+            "junctions": 55,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-001-route03-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-001",
+          "rows": [
+            "#....#....",
+            "#..#...###",
+            "#......#.#",
+            "...#......",
+            "#....#....",
+            "..........",
+            "..##......",
+            ".#..#...#.",
+            "#..#.....#",
+            ".........."
+          ],
+          "start": [
+            4,
+            8
+          ],
+          "goal": [
+            7,
+            5
+          ],
+          "events": [],
+          "event_seed": 632581584,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "11de5bd0c63917c8f47b626e7edb7c08f3741284d2ff751e339e2dee0291cc16",
+          "pair_id": "partial-dynamic-navigation-v1-validation-001-route03",
+          "difficulty": {
+            "distance_band": "short",
+            "base_length": 6,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 8,
+            "junctions": 55,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-001-route03-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-001",
+          "rows": [
+            "#....#....",
+            "#..#...###",
+            "#......#.#",
+            "...#......",
+            "#....#....",
+            "..........",
+            "..##......",
+            ".#..#...#.",
+            "#..#.....#",
+            ".........."
+          ],
+          "start": [
+            4,
+            8
+          ],
+          "goal": [
+            7,
+            5
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                6,
+                8
+              ],
+              "start": 7,
+              "clear": 14
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                3,
+                9
+              ],
+              "start": 7,
+              "clear": 13
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                9,
+                6
+              ],
+              "start": 24,
+              "clear": 32
+            }
+          ],
+          "event_seed": 632581584,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "11de5bd0c63917c8f47b626e7edb7c08f3741284d2ff751e339e2dee0291cc16",
+          "pair_id": "partial-dynamic-navigation-v1-validation-001-route03",
+          "difficulty": {
+            "distance_band": "short",
+            "base_length": 6,
+            "single_event_detour_lengths": [
+              6,
+              6,
+              6
+            ],
+            "free_cells": 79,
+            "dead_ends": 8,
+            "junctions": 55,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-001-route04-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-001",
+          "rows": [
+            "#....#....",
+            "#..#...###",
+            "#......#.#",
+            "...#......",
+            "#....#....",
+            "..........",
+            "..##......",
+            ".#..#...#.",
+            "#..#.....#",
+            ".........."
+          ],
+          "start": [
+            3,
+            1
+          ],
+          "goal": [
+            4,
+            9
+          ],
+          "events": [],
+          "event_seed": 1924073807,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "11de5bd0c63917c8f47b626e7edb7c08f3741284d2ff751e339e2dee0291cc16",
+          "pair_id": "partial-dynamic-navigation-v1-validation-001-route04",
+          "difficulty": {
+            "distance_band": "medium",
+            "base_length": 11,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 8,
+            "junctions": 55,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-001-route04-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-001",
+          "rows": [
+            "#....#....",
+            "#..#...###",
+            "#......#.#",
+            "...#......",
+            "#....#....",
+            "..........",
+            "..##......",
+            ".#..#...#.",
+            "#..#.....#",
+            ".........."
+          ],
+          "start": [
+            3,
+            1
+          ],
+          "goal": [
+            4,
+            9
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                2,
+                2
+              ],
+              "start": 2,
+              "clear": 6
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                5,
+                5
+              ],
+              "start": 7,
+              "clear": 11
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                3,
+                6
+              ],
+              "start": 19,
+              "clear": 24
+            }
+          ],
+          "event_seed": 1924073807,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "11de5bd0c63917c8f47b626e7edb7c08f3741284d2ff751e339e2dee0291cc16",
+          "pair_id": "partial-dynamic-navigation-v1-validation-001-route04",
+          "difficulty": {
+            "distance_band": "medium",
+            "base_length": 11,
+            "single_event_detour_lengths": [
+              11,
+              11,
+              11
+            ],
+            "free_cells": 79,
+            "dead_ends": 8,
+            "junctions": 55,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-001-route05-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-001",
+          "rows": [
+            "#....#....",
+            "#..#...###",
+            "#......#.#",
+            "...#......",
+            "#....#....",
+            "..........",
+            "..##......",
+            ".#..#...#.",
+            "#..#.....#",
+            ".........."
+          ],
+          "start": [
+            8,
+            2
+          ],
+          "goal": [
+            1,
+            5
+          ],
+          "events": [],
+          "event_seed": 1280546070,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "11de5bd0c63917c8f47b626e7edb7c08f3741284d2ff751e339e2dee0291cc16",
+          "pair_id": "partial-dynamic-navigation-v1-validation-001-route05",
+          "difficulty": {
+            "distance_band": "long",
+            "base_length": 14,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 8,
+            "junctions": 55,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-001-route05-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-001",
+          "rows": [
+            "#....#....",
+            "#..#...###",
+            "#......#.#",
+            "...#......",
+            "#....#....",
+            "..........",
+            "..##......",
+            ".#..#...#.",
+            "#..#.....#",
+            ".........."
+          ],
+          "start": [
+            8,
+            2
+          ],
+          "goal": [
+            1,
+            5
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                9,
+                3
+              ],
+              "start": 8,
+              "clear": 15
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                7,
+                3
+              ],
+              "start": 9,
+              "clear": 17
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                2,
+                3
+              ],
+              "start": 22,
+              "clear": 26
+            }
+          ],
+          "event_seed": 1280546070,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "11de5bd0c63917c8f47b626e7edb7c08f3741284d2ff751e339e2dee0291cc16",
+          "pair_id": "partial-dynamic-navigation-v1-validation-001-route05",
+          "difficulty": {
+            "distance_band": "long",
+            "base_length": 14,
+            "single_event_detour_lengths": [
+              null,
+              14,
+              14
+            ],
+            "free_cells": 79,
+            "dead_ends": 8,
+            "junctions": 55,
+            "diameter": 19
+          }
+        }
+      ]
+    },
+    {
+      "layout_id": "partial-dynamic-navigation-v1-validation-002",
+      "rows": [
+        ".#........",
+        ".........#",
+        "#..#...##.",
+        ".......#..",
+        "...#......",
+        "#.......##",
+        "....#.....",
+        ".##....#.#",
+        "#......#.#",
+        "....#.#..."
+      ],
+      "geometry_hash": "7bd32a10626c444ca4c3603d1834be114a45fe7c0f74ffb2747eb0fe9cd2a867",
+      "statistics": {
+        "free_cells": 79,
+        "dead_ends": 9,
+        "junctions": 56,
+        "diameter": 18
+      },
+      "scenarios": [
+        {
+          "id": "partial-dynamic-navigation-v1-validation-002-route00-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-002",
+          "rows": [
+            ".#........",
+            ".........#",
+            "#..#...##.",
+            ".......#..",
+            "...#......",
+            "#.......##",
+            "....#.....",
+            ".##....#.#",
+            "#......#.#",
+            "....#.#..."
+          ],
+          "start": [
+            6,
+            1
+          ],
+          "goal": [
+            7,
+            0
+          ],
+          "events": [],
+          "event_seed": 320054765,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "1a813724ab17e8ca7160b14371248f64cf082ad08955a7c12d0e4613b7535858",
+          "pair_id": "partial-dynamic-navigation-v1-validation-002-route00",
+          "difficulty": {
+            "distance_band": "short",
+            "base_length": 2,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 9,
+            "junctions": 56,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-002-route00-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-002",
+          "rows": [
+            ".#........",
+            ".........#",
+            "#..#...##.",
+            ".......#..",
+            "...#......",
+            "#.......##",
+            "....#.....",
+            ".##....#.#",
+            "#......#.#",
+            "....#.#..."
+          ],
+          "start": [
+            6,
+            1
+          ],
+          "goal": [
+            7,
+            0
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                6,
+                0
+              ],
+              "start": 9,
+              "clear": 14
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                7,
+                3
+              ],
+              "start": 16,
+              "clear": 23
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                8,
+                3
+              ],
+              "start": 22,
+              "clear": 27
+            }
+          ],
+          "event_seed": 320054765,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "1a813724ab17e8ca7160b14371248f64cf082ad08955a7c12d0e4613b7535858",
+          "pair_id": "partial-dynamic-navigation-v1-validation-002-route00",
+          "difficulty": {
+            "distance_band": "short",
+            "base_length": 2,
+            "single_event_detour_lengths": [
+              null,
+              2,
+              2
+            ],
+            "free_cells": 79,
+            "dead_ends": 9,
+            "junctions": 56,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-002-route01-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-002",
+          "rows": [
+            ".#........",
+            ".........#",
+            "#..#...##.",
+            ".......#..",
+            "...#......",
+            "#.......##",
+            "....#.....",
+            ".##....#.#",
+            "#......#.#",
+            "....#.#..."
+          ],
+          "start": [
+            3,
+            9
+          ],
+          "goal": [
+            2,
+            1
+          ],
+          "events": [],
+          "event_seed": 312925219,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "1a813724ab17e8ca7160b14371248f64cf082ad08955a7c12d0e4613b7535858",
+          "pair_id": "partial-dynamic-navigation-v1-validation-002-route01",
+          "difficulty": {
+            "distance_band": "medium",
+            "base_length": 11,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 9,
+            "junctions": 56,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-002-route01-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-002",
+          "rows": [
+            ".#........",
+            ".........#",
+            "#..#...##.",
+            ".......#..",
+            "...#......",
+            "#.......##",
+            "....#.....",
+            ".##....#.#",
+            "#......#.#",
+            "....#.#..."
+          ],
+          "start": [
+            3,
+            9
+          ],
+          "goal": [
+            2,
+            1
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                4,
+                8
+              ],
+              "start": 1,
+              "clear": 5
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                8,
+                1
+              ],
+              "start": 14,
+              "clear": 22
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                9,
+                7
+              ],
+              "start": 15,
+              "clear": 19
+            }
+          ],
+          "event_seed": 312925219,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "1a813724ab17e8ca7160b14371248f64cf082ad08955a7c12d0e4613b7535858",
+          "pair_id": "partial-dynamic-navigation-v1-validation-002-route01",
+          "difficulty": {
+            "distance_band": "medium",
+            "base_length": 11,
+            "single_event_detour_lengths": [
+              null,
+              11,
+              11
+            ],
+            "free_cells": 79,
+            "dead_ends": 9,
+            "junctions": 56,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-002-route02-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-002",
+          "rows": [
+            ".#........",
+            ".........#",
+            "#..#...##.",
+            ".......#..",
+            "...#......",
+            "#.......##",
+            "....#.....",
+            ".##....#.#",
+            "#......#.#",
+            "....#.#..."
+          ],
+          "start": [
+            0,
+            3
+          ],
+          "goal": [
+            9,
+            7
+          ],
+          "events": [],
+          "event_seed": 868086348,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "1a813724ab17e8ca7160b14371248f64cf082ad08955a7c12d0e4613b7535858",
+          "pair_id": "partial-dynamic-navigation-v1-validation-002-route02",
+          "difficulty": {
+            "distance_band": "long",
+            "base_length": 15,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 9,
+            "junctions": 56,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-002-route02-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-002",
+          "rows": [
+            ".#........",
+            ".........#",
+            "#..#...##.",
+            ".......#..",
+            "...#......",
+            "#.......##",
+            "....#.....",
+            ".##....#.#",
+            "#......#.#",
+            "....#.#..."
+          ],
+          "start": [
+            0,
+            3
+          ],
+          "goal": [
+            9,
+            7
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                1,
+                4
+              ],
+              "start": 4,
+              "clear": 10
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                1,
+                1
+              ],
+              "start": 12,
+              "clear": 19
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                3,
+                9
+              ],
+              "start": 14,
+              "clear": 20
+            }
+          ],
+          "event_seed": 868086348,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "1a813724ab17e8ca7160b14371248f64cf082ad08955a7c12d0e4613b7535858",
+          "pair_id": "partial-dynamic-navigation-v1-validation-002-route02",
+          "difficulty": {
+            "distance_band": "long",
+            "base_length": 15,
+            "single_event_detour_lengths": [
+              15,
+              15,
+              15
+            ],
+            "free_cells": 79,
+            "dead_ends": 9,
+            "junctions": 56,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-002-route03-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-002",
+          "rows": [
+            ".#........",
+            ".........#",
+            "#..#...##.",
+            ".......#..",
+            "...#......",
+            "#.......##",
+            "....#.....",
+            ".##....#.#",
+            "#......#.#",
+            "....#.#..."
+          ],
+          "start": [
+            2,
+            5
+          ],
+          "goal": [
+            1,
+            5
+          ],
+          "events": [],
+          "event_seed": 1657768451,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "1a813724ab17e8ca7160b14371248f64cf082ad08955a7c12d0e4613b7535858",
+          "pair_id": "partial-dynamic-navigation-v1-validation-002-route03",
+          "difficulty": {
+            "distance_band": "short",
+            "base_length": 1,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 9,
+            "junctions": 56,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-002-route03-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-002",
+          "rows": [
+            ".#........",
+            ".........#",
+            "#..#...##.",
+            ".......#..",
+            "...#......",
+            "#.......##",
+            "....#.....",
+            ".##....#.#",
+            "#......#.#",
+            "....#.#..."
+          ],
+          "start": [
+            2,
+            5
+          ],
+          "goal": [
+            1,
+            5
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                4,
+                5
+              ],
+              "start": 11,
+              "clear": 15
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                7,
+                6
+              ],
+              "start": 17,
+              "clear": 23
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                0,
+                7
+              ],
+              "start": 20,
+              "clear": 25
+            }
+          ],
+          "event_seed": 1657768451,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "1a813724ab17e8ca7160b14371248f64cf082ad08955a7c12d0e4613b7535858",
+          "pair_id": "partial-dynamic-navigation-v1-validation-002-route03",
+          "difficulty": {
+            "distance_band": "short",
+            "base_length": 1,
+            "single_event_detour_lengths": [
+              1,
+              1,
+              1
+            ],
+            "free_cells": 79,
+            "dead_ends": 9,
+            "junctions": 56,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-002-route04-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-002",
+          "rows": [
+            ".#........",
+            ".........#",
+            "#..#...##.",
+            ".......#..",
+            "...#......",
+            "#.......##",
+            "....#.....",
+            ".##....#.#",
+            "#......#.#",
+            "....#.#..."
+          ],
+          "start": [
+            2,
+            2
+          ],
+          "goal": [
+            9,
+            3
+          ],
+          "events": [],
+          "event_seed": 942059078,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "1a813724ab17e8ca7160b14371248f64cf082ad08955a7c12d0e4613b7535858",
+          "pair_id": "partial-dynamic-navigation-v1-validation-002-route04",
+          "difficulty": {
+            "distance_band": "medium",
+            "base_length": 8,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 9,
+            "junctions": 56,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-002-route04-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-002",
+          "rows": [
+            ".#........",
+            ".........#",
+            "#..#...##.",
+            ".......#..",
+            "...#......",
+            "#.......##",
+            "....#.....",
+            ".##....#.#",
+            "#......#.#",
+            "....#.#..."
+          ],
+          "start": [
+            2,
+            2
+          ],
+          "goal": [
+            9,
+            3
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                4,
+                2
+              ],
+              "start": 11,
+              "clear": 17
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                9,
+                2
+              ],
+              "start": 16,
+              "clear": 20
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                7,
+                3
+              ],
+              "start": 15,
+              "clear": 23
+            }
+          ],
+          "event_seed": 942059078,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "1a813724ab17e8ca7160b14371248f64cf082ad08955a7c12d0e4613b7535858",
+          "pair_id": "partial-dynamic-navigation-v1-validation-002-route04",
+          "difficulty": {
+            "distance_band": "medium",
+            "base_length": 8,
+            "single_event_detour_lengths": [
+              10,
+              8,
+              12
+            ],
+            "free_cells": 79,
+            "dead_ends": 9,
+            "junctions": 56,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-002-route05-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-002",
+          "rows": [
+            ".#........",
+            ".........#",
+            "#..#...##.",
+            ".......#..",
+            "...#......",
+            "#.......##",
+            "....#.....",
+            ".##....#.#",
+            "#......#.#",
+            "....#.#..."
+          ],
+          "start": [
+            9,
+            7
+          ],
+          "goal": [
+            0,
+            7
+          ],
+          "events": [],
+          "event_seed": 1930923644,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "1a813724ab17e8ca7160b14371248f64cf082ad08955a7c12d0e4613b7535858",
+          "pair_id": "partial-dynamic-navigation-v1-validation-002-route05",
+          "difficulty": {
+            "distance_band": "long",
+            "base_length": 13,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 9,
+            "junctions": 56,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-002-route05-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-002",
+          "rows": [
+            ".#........",
+            ".........#",
+            "#..#...##.",
+            ".......#..",
+            "...#......",
+            "#.......##",
+            "....#.....",
+            ".##....#.#",
+            "#......#.#",
+            "....#.#..."
+          ],
+          "start": [
+            9,
+            7
+          ],
+          "goal": [
+            0,
+            7
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                8,
+                8
+              ],
+              "start": 1,
+              "clear": 6
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                1,
+                0
+              ],
+              "start": 15,
+              "clear": 20
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                0,
+                3
+              ],
+              "start": 16,
+              "clear": 22
+            }
+          ],
+          "event_seed": 1930923644,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "1a813724ab17e8ca7160b14371248f64cf082ad08955a7c12d0e4613b7535858",
+          "pair_id": "partial-dynamic-navigation-v1-validation-002-route05",
+          "difficulty": {
+            "distance_band": "long",
+            "base_length": 13,
+            "single_event_detour_lengths": [
+              null,
+              13,
+              13
+            ],
+            "free_cells": 79,
+            "dead_ends": 9,
+            "junctions": 56,
+            "diameter": 18
+          }
+        }
+      ]
+    },
+    {
+      "layout_id": "partial-dynamic-navigation-v1-validation-003",
+      "rows": [
+        "..#......#",
+        "...#..#...",
+        ".........#",
+        "....#.#..#",
+        "#.#.#.....",
+        ".....##...",
+        "..........",
+        ".....#....",
+        "....#####.",
+        "..#....#.."
+      ],
+      "geometry_hash": "ee80e868ea290340ed9ef7a0e86d9a08f3c10dc2a69b36f40846e37f58b2182a",
+      "statistics": {
+        "free_cells": 79,
+        "dead_ends": 4,
+        "junctions": 50,
+        "diameter": 19
+      },
+      "scenarios": [
+        {
+          "id": "partial-dynamic-navigation-v1-validation-003-route00-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-003",
+          "rows": [
+            "..#......#",
+            "...#..#...",
+            ".........#",
+            "....#.#..#",
+            "#.#.#.....",
+            ".....##...",
+            "..........",
+            ".....#....",
+            "....#####.",
+            "..#....#.."
+          ],
+          "start": [
+            5,
+            3
+          ],
+          "goal": [
+            6,
+            0
+          ],
+          "events": [],
+          "event_seed": 1771159123,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "8ea4d9736d79bb4841c3fdfe4d585627e00de5ede5d2590c3e1ee07f5d245d06",
+          "pair_id": "partial-dynamic-navigation-v1-validation-003-route00",
+          "difficulty": {
+            "distance_band": "short",
+            "base_length": 4,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 4,
+            "junctions": 50,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-003-route00-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-003",
+          "rows": [
+            "..#......#",
+            "...#..#...",
+            ".........#",
+            "....#.#..#",
+            "#.#.#.....",
+            ".....##...",
+            "..........",
+            ".....#....",
+            "....#####.",
+            "..#....#.."
+          ],
+          "start": [
+            5,
+            3
+          ],
+          "goal": [
+            6,
+            0
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                6,
+                2
+              ],
+              "start": 3,
+              "clear": 11
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                3,
+                5
+              ],
+              "start": 16,
+              "clear": 22
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                1,
+                7
+              ],
+              "start": 17,
+              "clear": 25
+            }
+          ],
+          "event_seed": 1771159123,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "8ea4d9736d79bb4841c3fdfe4d585627e00de5ede5d2590c3e1ee07f5d245d06",
+          "pair_id": "partial-dynamic-navigation-v1-validation-003-route00",
+          "difficulty": {
+            "distance_band": "short",
+            "base_length": 4,
+            "single_event_detour_lengths": [
+              4,
+              4,
+              4
+            ],
+            "free_cells": 79,
+            "dead_ends": 4,
+            "junctions": 50,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-003-route01-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-003",
+          "rows": [
+            "..#......#",
+            "...#..#...",
+            ".........#",
+            "....#.#..#",
+            "#.#.#.....",
+            ".....##...",
+            "..........",
+            ".....#....",
+            "....#####.",
+            "..#....#.."
+          ],
+          "start": [
+            7,
+            0
+          ],
+          "goal": [
+            2,
+            6
+          ],
+          "events": [],
+          "event_seed": 702605915,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "8ea4d9736d79bb4841c3fdfe4d585627e00de5ede5d2590c3e1ee07f5d245d06",
+          "pair_id": "partial-dynamic-navigation-v1-validation-003-route01",
+          "difficulty": {
+            "distance_band": "medium",
+            "base_length": 11,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 4,
+            "junctions": 50,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-003-route01-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-003",
+          "rows": [
+            "..#......#",
+            "...#..#...",
+            ".........#",
+            "....#.#..#",
+            "#.#.#.....",
+            ".....##...",
+            "..........",
+            ".....#....",
+            "....#####.",
+            "..#....#.."
+          ],
+          "start": [
+            7,
+            0
+          ],
+          "goal": [
+            2,
+            6
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                5,
+                0
+              ],
+              "start": 11,
+              "clear": 19
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                1,
+                9
+              ],
+              "start": 7,
+              "clear": 13
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                4,
+                9
+              ],
+              "start": 22,
+              "clear": 25
+            }
+          ],
+          "event_seed": 702605915,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "8ea4d9736d79bb4841c3fdfe4d585627e00de5ede5d2590c3e1ee07f5d245d06",
+          "pair_id": "partial-dynamic-navigation-v1-validation-003-route01",
+          "difficulty": {
+            "distance_band": "medium",
+            "base_length": 11,
+            "single_event_detour_lengths": [
+              11,
+              11,
+              11
+            ],
+            "free_cells": 79,
+            "dead_ends": 4,
+            "junctions": 50,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-003-route02-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-003",
+          "rows": [
+            "..#......#",
+            "...#..#...",
+            ".........#",
+            "....#.#..#",
+            "#.#.#.....",
+            ".....##...",
+            "..........",
+            ".....#....",
+            "....#####.",
+            "..#....#.."
+          ],
+          "start": [
+            1,
+            0
+          ],
+          "goal": [
+            9,
+            5
+          ],
+          "events": [],
+          "event_seed": 1524829769,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "8ea4d9736d79bb4841c3fdfe4d585627e00de5ede5d2590c3e1ee07f5d245d06",
+          "pair_id": "partial-dynamic-navigation-v1-validation-003-route02",
+          "difficulty": {
+            "distance_band": "long",
+            "base_length": 13,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 4,
+            "junctions": 50,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-003-route02-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-003",
+          "rows": [
+            "..#......#",
+            "...#..#...",
+            ".........#",
+            "....#.#..#",
+            "#.#.#.....",
+            ".....##...",
+            "..........",
+            ".....#....",
+            "....#####.",
+            "..#....#.."
+          ],
+          "start": [
+            1,
+            0
+          ],
+          "goal": [
+            9,
+            5
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                3,
+                0
+              ],
+              "start": 4,
+              "clear": 11
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                1,
+                1
+              ],
+              "start": 6,
+              "clear": 14
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                6,
+                6
+              ],
+              "start": 12,
+              "clear": 17
+            }
+          ],
+          "event_seed": 1524829769,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "8ea4d9736d79bb4841c3fdfe4d585627e00de5ede5d2590c3e1ee07f5d245d06",
+          "pair_id": "partial-dynamic-navigation-v1-validation-003-route02",
+          "difficulty": {
+            "distance_band": "long",
+            "base_length": 13,
+            "single_event_detour_lengths": [
+              13,
+              13,
+              13
+            ],
+            "free_cells": 79,
+            "dead_ends": 4,
+            "junctions": 50,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-003-route03-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-003",
+          "rows": [
+            "..#......#",
+            "...#..#...",
+            ".........#",
+            "....#.#..#",
+            "#.#.#.....",
+            ".....##...",
+            "..........",
+            ".....#....",
+            "....#####.",
+            "..#....#.."
+          ],
+          "start": [
+            7,
+            8
+          ],
+          "goal": [
+            6,
+            6
+          ],
+          "events": [],
+          "event_seed": 1162499100,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "8ea4d9736d79bb4841c3fdfe4d585627e00de5ede5d2590c3e1ee07f5d245d06",
+          "pair_id": "partial-dynamic-navigation-v1-validation-003-route03",
+          "difficulty": {
+            "distance_band": "short",
+            "base_length": 3,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 4,
+            "junctions": 50,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-003-route03-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-003",
+          "rows": [
+            "..#......#",
+            "...#..#...",
+            ".........#",
+            "....#.#..#",
+            "#.#.#.....",
+            ".....##...",
+            "..........",
+            ".....#....",
+            "....#####.",
+            "..#....#.."
+          ],
+          "start": [
+            7,
+            8
+          ],
+          "goal": [
+            6,
+            6
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                6,
+                7
+              ],
+              "start": 10,
+              "clear": 18
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                8,
+                1
+              ],
+              "start": 12,
+              "clear": 15
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                5,
+                8
+              ],
+              "start": 19,
+              "clear": 24
+            }
+          ],
+          "event_seed": 1162499100,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "8ea4d9736d79bb4841c3fdfe4d585627e00de5ede5d2590c3e1ee07f5d245d06",
+          "pair_id": "partial-dynamic-navigation-v1-validation-003-route03",
+          "difficulty": {
+            "distance_band": "short",
+            "base_length": 3,
+            "single_event_detour_lengths": [
+              3,
+              3,
+              3
+            ],
+            "free_cells": 79,
+            "dead_ends": 4,
+            "junctions": 50,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-003-route04-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-003",
+          "rows": [
+            "..#......#",
+            "...#..#...",
+            ".........#",
+            "....#.#..#",
+            "#.#.#.....",
+            ".....##...",
+            "..........",
+            ".....#....",
+            "....#####.",
+            "..#....#.."
+          ],
+          "start": [
+            9,
+            4
+          ],
+          "goal": [
+            3,
+            1
+          ],
+          "events": [],
+          "event_seed": 1941848973,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "8ea4d9736d79bb4841c3fdfe4d585627e00de5ede5d2590c3e1ee07f5d245d06",
+          "pair_id": "partial-dynamic-navigation-v1-validation-003-route04",
+          "difficulty": {
+            "distance_band": "medium",
+            "base_length": 9,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 4,
+            "junctions": 50,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-003-route04-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-003",
+          "rows": [
+            "..#......#",
+            "...#..#...",
+            ".........#",
+            "....#.#..#",
+            "#.#.#.....",
+            ".....##...",
+            "..........",
+            ".....#....",
+            "....#####.",
+            "..#....#.."
+          ],
+          "start": [
+            9,
+            4
+          ],
+          "goal": [
+            3,
+            1
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                8,
+                3
+              ],
+              "start": 4,
+              "clear": 10
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                6,
+                9
+              ],
+              "start": 8,
+              "clear": 12
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                3,
+                3
+              ],
+              "start": 16,
+              "clear": 22
+            }
+          ],
+          "event_seed": 1941848973,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "8ea4d9736d79bb4841c3fdfe4d585627e00de5ede5d2590c3e1ee07f5d245d06",
+          "pair_id": "partial-dynamic-navigation-v1-validation-003-route04",
+          "difficulty": {
+            "distance_band": "medium",
+            "base_length": 9,
+            "single_event_detour_lengths": [
+              null,
+              9,
+              9
+            ],
+            "free_cells": 79,
+            "dead_ends": 4,
+            "junctions": 50,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-003-route05-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-003",
+          "rows": [
+            "..#......#",
+            "...#..#...",
+            ".........#",
+            "....#.#..#",
+            "#.#.#.....",
+            ".....##...",
+            "..........",
+            ".....#....",
+            "....#####.",
+            "..#....#.."
+          ],
+          "start": [
+            9,
+            4
+          ],
+          "goal": [
+            0,
+            8
+          ],
+          "events": [],
+          "event_seed": 2006622220,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "8ea4d9736d79bb4841c3fdfe4d585627e00de5ede5d2590c3e1ee07f5d245d06",
+          "pair_id": "partial-dynamic-navigation-v1-validation-003-route05",
+          "difficulty": {
+            "distance_band": "long",
+            "base_length": 15,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 4,
+            "junctions": 50,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-003-route05-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-003",
+          "rows": [
+            "..#......#",
+            "...#..#...",
+            ".........#",
+            "....#.#..#",
+            "#.#.#.....",
+            ".....##...",
+            "..........",
+            ".....#....",
+            "....#####.",
+            "..#....#.."
+          ],
+          "start": [
+            9,
+            4
+          ],
+          "goal": [
+            0,
+            8
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                8,
+                3
+              ],
+              "start": 3,
+              "clear": 6
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                9,
+                5
+              ],
+              "start": 18,
+              "clear": 21
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                3,
+                1
+              ],
+              "start": 19,
+              "clear": 25
+            }
+          ],
+          "event_seed": 2006622220,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "8ea4d9736d79bb4841c3fdfe4d585627e00de5ede5d2590c3e1ee07f5d245d06",
+          "pair_id": "partial-dynamic-navigation-v1-validation-003-route05",
+          "difficulty": {
+            "distance_band": "long",
+            "base_length": 15,
+            "single_event_detour_lengths": [
+              null,
+              15,
+              15
+            ],
+            "free_cells": 79,
+            "dead_ends": 4,
+            "junctions": 50,
+            "diameter": 19
+          }
+        }
+      ]
+    },
+    {
+      "layout_id": "partial-dynamic-navigation-v1-validation-004",
+      "rows": [
+        ".#.#......",
+        "........#.",
+        "..........",
+        "#.##.#..#.",
+        "#.......#.",
+        "#.#..#..##",
+        "..........",
+        ".........#",
+        "#.#.......",
+        "..#....#.#"
+      ],
+      "geometry_hash": "f5ca2dcd54b69885b4dc5b3fff48c47062d37db1c4bcee9f0407500ef6b42d6c",
+      "statistics": {
+        "free_cells": 79,
+        "dead_ends": 7,
+        "junctions": 54,
+        "diameter": 18
+      },
+      "scenarios": [
+        {
+          "id": "partial-dynamic-navigation-v1-validation-004-route00-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-004",
+          "rows": [
+            ".#.#......",
+            "........#.",
+            "..........",
+            "#.##.#..#.",
+            "#.......#.",
+            "#.#..#..##",
+            "..........",
+            ".........#",
+            "#.#.......",
+            "..#....#.#"
+          ],
+          "start": [
+            1,
+            6
+          ],
+          "goal": [
+            4,
+            4
+          ],
+          "events": [],
+          "event_seed": 1971679957,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "566dac0f043e9fdf15590ed72fdf1e241c91ed3940496b705a616941cdcfa902",
+          "pair_id": "partial-dynamic-navigation-v1-validation-004-route00",
+          "difficulty": {
+            "distance_band": "short",
+            "base_length": 5,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 7,
+            "junctions": 54,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-004-route00-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-004",
+          "rows": [
+            ".#.#......",
+            "........#.",
+            "..........",
+            "#.##.#..#.",
+            "#.......#.",
+            "#.#..#..##",
+            "..........",
+            ".........#",
+            "#.#.......",
+            "..#....#.#"
+          ],
+          "start": [
+            1,
+            6
+          ],
+          "goal": [
+            4,
+            4
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                3,
+                6
+              ],
+              "start": 11,
+              "clear": 19
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                9,
+                5
+              ],
+              "start": 10,
+              "clear": 16
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                8,
+                1
+              ],
+              "start": 15,
+              "clear": 21
+            }
+          ],
+          "event_seed": 1971679957,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "566dac0f043e9fdf15590ed72fdf1e241c91ed3940496b705a616941cdcfa902",
+          "pair_id": "partial-dynamic-navigation-v1-validation-004-route00",
+          "difficulty": {
+            "distance_band": "short",
+            "base_length": 5,
+            "single_event_detour_lengths": [
+              5,
+              5,
+              5
+            ],
+            "free_cells": 79,
+            "dead_ends": 7,
+            "junctions": 54,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-004-route01-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-004",
+          "rows": [
+            ".#.#......",
+            "........#.",
+            "..........",
+            "#.##.#..#.",
+            "#.......#.",
+            "#.#..#..##",
+            "..........",
+            ".........#",
+            "#.#.......",
+            "..#....#.#"
+          ],
+          "start": [
+            6,
+            2
+          ],
+          "goal": [
+            2,
+            5
+          ],
+          "events": [],
+          "event_seed": 1927372823,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "566dac0f043e9fdf15590ed72fdf1e241c91ed3940496b705a616941cdcfa902",
+          "pair_id": "partial-dynamic-navigation-v1-validation-004-route01",
+          "difficulty": {
+            "distance_band": "medium",
+            "base_length": 7,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 7,
+            "junctions": 54,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-004-route01-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-004",
+          "rows": [
+            ".#.#......",
+            "........#.",
+            "..........",
+            "#.##.#..#.",
+            "#.......#.",
+            "#.#..#..##",
+            "..........",
+            ".........#",
+            "#.#.......",
+            "..#....#.#"
+          ],
+          "start": [
+            6,
+            2
+          ],
+          "goal": [
+            2,
+            5
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                5,
+                3
+              ],
+              "start": 2,
+              "clear": 8
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                1,
+                0
+              ],
+              "start": 6,
+              "clear": 12
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                7,
+                4
+              ],
+              "start": 14,
+              "clear": 18
+            }
+          ],
+          "event_seed": 1927372823,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "566dac0f043e9fdf15590ed72fdf1e241c91ed3940496b705a616941cdcfa902",
+          "pair_id": "partial-dynamic-navigation-v1-validation-004-route01",
+          "difficulty": {
+            "distance_band": "medium",
+            "base_length": 7,
+            "single_event_detour_lengths": [
+              7,
+              7,
+              7
+            ],
+            "free_cells": 79,
+            "dead_ends": 7,
+            "junctions": 54,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-004-route02-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-004",
+          "rows": [
+            ".#.#......",
+            "........#.",
+            "..........",
+            "#.##.#..#.",
+            "#.......#.",
+            "#.#..#..##",
+            "..........",
+            ".........#",
+            "#.#.......",
+            "..#....#.#"
+          ],
+          "start": [
+            2,
+            1
+          ],
+          "goal": [
+            9,
+            8
+          ],
+          "events": [],
+          "event_seed": 1604740138,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "566dac0f043e9fdf15590ed72fdf1e241c91ed3940496b705a616941cdcfa902",
+          "pair_id": "partial-dynamic-navigation-v1-validation-004-route02",
+          "difficulty": {
+            "distance_band": "long",
+            "base_length": 14,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 7,
+            "junctions": 54,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-004-route02-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-004",
+          "rows": [
+            ".#.#......",
+            "........#.",
+            "..........",
+            "#.##.#..#.",
+            "#.......#.",
+            "#.#..#..##",
+            "..........",
+            ".........#",
+            "#.#.......",
+            "..#....#.#"
+          ],
+          "start": [
+            2,
+            1
+          ],
+          "goal": [
+            9,
+            8
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                4,
+                1
+              ],
+              "start": 11,
+              "clear": 19
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                2,
+                0
+              ],
+              "start": 7,
+              "clear": 12
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                6,
+                1
+              ],
+              "start": 19,
+              "clear": 26
+            }
+          ],
+          "event_seed": 1604740138,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "566dac0f043e9fdf15590ed72fdf1e241c91ed3940496b705a616941cdcfa902",
+          "pair_id": "partial-dynamic-navigation-v1-validation-004-route02",
+          "difficulty": {
+            "distance_band": "long",
+            "base_length": 14,
+            "single_event_detour_lengths": [
+              14,
+              14,
+              14
+            ],
+            "free_cells": 79,
+            "dead_ends": 7,
+            "junctions": 54,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-004-route03-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-004",
+          "rows": [
+            ".#.#......",
+            "........#.",
+            "..........",
+            "#.##.#..#.",
+            "#.......#.",
+            "#.#..#..##",
+            "..........",
+            ".........#",
+            "#.#.......",
+            "..#....#.#"
+          ],
+          "start": [
+            6,
+            5
+          ],
+          "goal": [
+            4,
+            1
+          ],
+          "events": [],
+          "event_seed": 1404810145,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "566dac0f043e9fdf15590ed72fdf1e241c91ed3940496b705a616941cdcfa902",
+          "pair_id": "partial-dynamic-navigation-v1-validation-004-route03",
+          "difficulty": {
+            "distance_band": "short",
+            "base_length": 6,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 7,
+            "junctions": 54,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-004-route03-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-004",
+          "rows": [
+            ".#.#......",
+            "........#.",
+            "..........",
+            "#.##.#..#.",
+            "#.......#.",
+            "#.#..#..##",
+            "..........",
+            ".........#",
+            "#.#.......",
+            "..#....#.#"
+          ],
+          "start": [
+            6,
+            5
+          ],
+          "goal": [
+            4,
+            1
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                5,
+                4
+              ],
+              "start": 7,
+              "clear": 12
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                2,
+                9
+              ],
+              "start": 18,
+              "clear": 25
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                7,
+                2
+              ],
+              "start": 19,
+              "clear": 23
+            }
+          ],
+          "event_seed": 1404810145,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "566dac0f043e9fdf15590ed72fdf1e241c91ed3940496b705a616941cdcfa902",
+          "pair_id": "partial-dynamic-navigation-v1-validation-004-route03",
+          "difficulty": {
+            "distance_band": "short",
+            "base_length": 6,
+            "single_event_detour_lengths": [
+              6,
+              6,
+              6
+            ],
+            "free_cells": 79,
+            "dead_ends": 7,
+            "junctions": 54,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-004-route04-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-004",
+          "rows": [
+            ".#.#......",
+            "........#.",
+            "..........",
+            "#.##.#..#.",
+            "#.......#.",
+            "#.#..#..##",
+            "..........",
+            ".........#",
+            "#.#.......",
+            "..#....#.#"
+          ],
+          "start": [
+            4,
+            4
+          ],
+          "goal": [
+            4,
+            9
+          ],
+          "events": [],
+          "event_seed": 932005584,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "566dac0f043e9fdf15590ed72fdf1e241c91ed3940496b705a616941cdcfa902",
+          "pair_id": "partial-dynamic-navigation-v1-validation-004-route04",
+          "difficulty": {
+            "distance_band": "medium",
+            "base_length": 9,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 7,
+            "junctions": 54,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-004-route04-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-004",
+          "rows": [
+            ".#.#......",
+            "........#.",
+            "..........",
+            "#.##.#..#.",
+            "#.......#.",
+            "#.#..#..##",
+            "..........",
+            ".........#",
+            "#.#.......",
+            "..#....#.#"
+          ],
+          "start": [
+            4,
+            4
+          ],
+          "goal": [
+            4,
+            9
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                2,
+                4
+              ],
+              "start": 11,
+              "clear": 15
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                2,
+                0
+              ],
+              "start": 6,
+              "clear": 11
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                7,
+                3
+              ],
+              "start": 24,
+              "clear": 31
+            }
+          ],
+          "event_seed": 932005584,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "566dac0f043e9fdf15590ed72fdf1e241c91ed3940496b705a616941cdcfa902",
+          "pair_id": "partial-dynamic-navigation-v1-validation-004-route04",
+          "difficulty": {
+            "distance_band": "medium",
+            "base_length": 9,
+            "single_event_detour_lengths": [
+              9,
+              9,
+              9
+            ],
+            "free_cells": 79,
+            "dead_ends": 7,
+            "junctions": 54,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-004-route05-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-004",
+          "rows": [
+            ".#.#......",
+            "........#.",
+            "..........",
+            "#.##.#..#.",
+            "#.......#.",
+            "#.#..#..##",
+            "..........",
+            ".........#",
+            "#.#.......",
+            "..#....#.#"
+          ],
+          "start": [
+            2,
+            9
+          ],
+          "goal": [
+            6,
+            0
+          ],
+          "events": [],
+          "event_seed": 1218883828,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "566dac0f043e9fdf15590ed72fdf1e241c91ed3940496b705a616941cdcfa902",
+          "pair_id": "partial-dynamic-navigation-v1-validation-004-route05",
+          "difficulty": {
+            "distance_band": "long",
+            "base_length": 13,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 7,
+            "junctions": 54,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-004-route05-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-004",
+          "rows": [
+            ".#.#......",
+            "........#.",
+            "..........",
+            "#.##.#..#.",
+            "#.......#.",
+            "#.#..#..##",
+            "..........",
+            ".........#",
+            "#.#.......",
+            "..#....#.#"
+          ],
+          "start": [
+            2,
+            9
+          ],
+          "goal": [
+            6,
+            0
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                2,
+                7
+              ],
+              "start": 4,
+              "clear": 9
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                5,
+                3
+              ],
+              "start": 15,
+              "clear": 20
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                8,
+                6
+              ],
+              "start": 14,
+              "clear": 21
+            }
+          ],
+          "event_seed": 1218883828,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "566dac0f043e9fdf15590ed72fdf1e241c91ed3940496b705a616941cdcfa902",
+          "pair_id": "partial-dynamic-navigation-v1-validation-004-route05",
+          "difficulty": {
+            "distance_band": "long",
+            "base_length": 13,
+            "single_event_detour_lengths": [
+              17,
+              13,
+              13
+            ],
+            "free_cells": 79,
+            "dead_ends": 7,
+            "junctions": 54,
+            "diameter": 18
+          }
+        }
+      ]
+    },
+    {
+      "layout_id": "partial-dynamic-navigation-v1-validation-005",
+      "rows": [
+        "##........",
+        "..#.#....#",
+        "#.......##",
+        "........#.",
+        "......#...",
+        ".....#...#",
+        "...#..##..",
+        "..#..#....",
+        "...#.....#",
+        "....#..#.."
+      ],
+      "geometry_hash": "463b1242d874ae80396628adc1c763fdbe9b2fedb475440d0145aa0ca226e855",
+      "statistics": {
+        "free_cells": 79,
+        "dead_ends": 9,
+        "junctions": 53,
+        "diameter": 19
+      },
+      "scenarios": [
+        {
+          "id": "partial-dynamic-navigation-v1-validation-005-route00-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-005",
+          "rows": [
+            "##........",
+            "..#.#....#",
+            "#.......##",
+            "........#.",
+            "......#...",
+            ".....#...#",
+            "...#..##..",
+            "..#..#....",
+            "...#.....#",
+            "....#..#.."
+          ],
+          "start": [
+            4,
+            7
+          ],
+          "goal": [
+            0,
+            6
+          ],
+          "events": [],
+          "event_seed": 976409659,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "463b1242d874ae80396628adc1c763fdbe9b2fedb475440d0145aa0ca226e855",
+          "pair_id": "partial-dynamic-navigation-v1-validation-005-route00",
+          "difficulty": {
+            "distance_band": "short",
+            "base_length": 5,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 9,
+            "junctions": 53,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-005-route00-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-005",
+          "rows": [
+            "##........",
+            "..#.#....#",
+            "#.......##",
+            "........#.",
+            "......#...",
+            ".....#...#",
+            "...#..##..",
+            "..#..#....",
+            "...#.....#",
+            "....#..#.."
+          ],
+          "start": [
+            4,
+            7
+          ],
+          "goal": [
+            0,
+            6
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                2,
+                7
+              ],
+              "start": 12,
+              "clear": 17
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                1,
+                1
+              ],
+              "start": 17,
+              "clear": 25
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                8,
+                6
+              ],
+              "start": 23,
+              "clear": 28
+            }
+          ],
+          "event_seed": 976409659,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "463b1242d874ae80396628adc1c763fdbe9b2fedb475440d0145aa0ca226e855",
+          "pair_id": "partial-dynamic-navigation-v1-validation-005-route00",
+          "difficulty": {
+            "distance_band": "short",
+            "base_length": 5,
+            "single_event_detour_lengths": [
+              5,
+              5,
+              5
+            ],
+            "free_cells": 79,
+            "dead_ends": 9,
+            "junctions": 53,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-005-route01-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-005",
+          "rows": [
+            "##........",
+            "..#.#....#",
+            "#.......##",
+            "........#.",
+            "......#...",
+            ".....#...#",
+            "...#..##..",
+            "..#..#....",
+            "...#.....#",
+            "....#..#.."
+          ],
+          "start": [
+            8,
+            5
+          ],
+          "goal": [
+            6,
+            1
+          ],
+          "events": [],
+          "event_seed": 224968827,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "463b1242d874ae80396628adc1c763fdbe9b2fedb475440d0145aa0ca226e855",
+          "pair_id": "partial-dynamic-navigation-v1-validation-005-route01",
+          "difficulty": {
+            "distance_band": "medium",
+            "base_length": 8,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 9,
+            "junctions": 53,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-005-route01-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-005",
+          "rows": [
+            "##........",
+            "..#.#....#",
+            "#.......##",
+            "........#.",
+            "......#...",
+            ".....#...#",
+            "...#..##..",
+            "..#..#....",
+            "...#.....#",
+            "....#..#.."
+          ],
+          "start": [
+            8,
+            5
+          ],
+          "goal": [
+            6,
+            1
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                7,
+                4
+              ],
+              "start": 2,
+              "clear": 10
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                7,
+                6
+              ],
+              "start": 12,
+              "clear": 19
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                1,
+                0
+              ],
+              "start": 17,
+              "clear": 24
+            }
+          ],
+          "event_seed": 224968827,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "463b1242d874ae80396628adc1c763fdbe9b2fedb475440d0145aa0ca226e855",
+          "pair_id": "partial-dynamic-navigation-v1-validation-005-route01",
+          "difficulty": {
+            "distance_band": "medium",
+            "base_length": 8,
+            "single_event_detour_lengths": [
+              18,
+              8,
+              8
+            ],
+            "free_cells": 79,
+            "dead_ends": 9,
+            "junctions": 53,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-005-route02-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-005",
+          "rows": [
+            "##........",
+            "..#.#....#",
+            "#.......##",
+            "........#.",
+            "......#...",
+            ".....#...#",
+            "...#..##..",
+            "..#..#....",
+            "...#.....#",
+            "....#..#.."
+          ],
+          "start": [
+            9,
+            1
+          ],
+          "goal": [
+            9,
+            8
+          ],
+          "events": [],
+          "event_seed": 1122124181,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "463b1242d874ae80396628adc1c763fdbe9b2fedb475440d0145aa0ca226e855",
+          "pair_id": "partial-dynamic-navigation-v1-validation-005-route02",
+          "difficulty": {
+            "distance_band": "long",
+            "base_length": 15,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 9,
+            "junctions": 53,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-005-route02-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-005",
+          "rows": [
+            "##........",
+            "..#.#....#",
+            "#.......##",
+            "........#.",
+            "......#...",
+            ".....#...#",
+            "...#..##..",
+            "..#..#....",
+            "...#.....#",
+            "....#..#.."
+          ],
+          "start": [
+            9,
+            1
+          ],
+          "goal": [
+            9,
+            8
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                7,
+                1
+              ],
+              "start": 8,
+              "clear": 13
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                7,
+                9
+              ],
+              "start": 17,
+              "clear": 23
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                6,
+                0
+              ],
+              "start": 14,
+              "clear": 22
+            }
+          ],
+          "event_seed": 1122124181,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "463b1242d874ae80396628adc1c763fdbe9b2fedb475440d0145aa0ca226e855",
+          "pair_id": "partial-dynamic-navigation-v1-validation-005-route02",
+          "difficulty": {
+            "distance_band": "long",
+            "base_length": 15,
+            "single_event_detour_lengths": [
+              17,
+              15,
+              15
+            ],
+            "free_cells": 79,
+            "dead_ends": 9,
+            "junctions": 53,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-005-route03-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-005",
+          "rows": [
+            "##........",
+            "..#.#....#",
+            "#.......##",
+            "........#.",
+            "......#...",
+            ".....#...#",
+            "...#..##..",
+            "..#..#....",
+            "...#.....#",
+            "....#..#.."
+          ],
+          "start": [
+            0,
+            5
+          ],
+          "goal": [
+            4,
+            4
+          ],
+          "events": [],
+          "event_seed": 1013549380,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "463b1242d874ae80396628adc1c763fdbe9b2fedb475440d0145aa0ca226e855",
+          "pair_id": "partial-dynamic-navigation-v1-validation-005-route03",
+          "difficulty": {
+            "distance_band": "short",
+            "base_length": 5,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 9,
+            "junctions": 53,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-005-route03-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-005",
+          "rows": [
+            "##........",
+            "..#.#....#",
+            "#.......##",
+            "........#.",
+            "......#...",
+            ".....#...#",
+            "...#..##..",
+            "..#..#....",
+            "...#.....#",
+            "....#..#.."
+          ],
+          "start": [
+            0,
+            5
+          ],
+          "goal": [
+            4,
+            4
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                2,
+                5
+              ],
+              "start": 11,
+              "clear": 16
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                3,
+                4
+              ],
+              "start": 18,
+              "clear": 26
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                7,
+                8
+              ],
+              "start": 21,
+              "clear": 26
+            }
+          ],
+          "event_seed": 1013549380,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "463b1242d874ae80396628adc1c763fdbe9b2fedb475440d0145aa0ca226e855",
+          "pair_id": "partial-dynamic-navigation-v1-validation-005-route03",
+          "difficulty": {
+            "distance_band": "short",
+            "base_length": 5,
+            "single_event_detour_lengths": [
+              7,
+              5,
+              5
+            ],
+            "free_cells": 79,
+            "dead_ends": 9,
+            "junctions": 53,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-005-route04-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-005",
+          "rows": [
+            "##........",
+            "..#.#....#",
+            "#.......##",
+            "........#.",
+            "......#...",
+            ".....#...#",
+            "...#..##..",
+            "..#..#....",
+            "...#.....#",
+            "....#..#.."
+          ],
+          "start": [
+            3,
+            3
+          ],
+          "goal": [
+            7,
+            9
+          ],
+          "events": [],
+          "event_seed": 1835632802,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "463b1242d874ae80396628adc1c763fdbe9b2fedb475440d0145aa0ca226e855",
+          "pair_id": "partial-dynamic-navigation-v1-validation-005-route04",
+          "difficulty": {
+            "distance_band": "medium",
+            "base_length": 10,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 9,
+            "junctions": 53,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-005-route04-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-005",
+          "rows": [
+            "##........",
+            "..#.#....#",
+            "#.......##",
+            "........#.",
+            "......#...",
+            ".....#...#",
+            "...#..##..",
+            "..#..#....",
+            "...#.....#",
+            "....#..#.."
+          ],
+          "start": [
+            3,
+            3
+          ],
+          "goal": [
+            7,
+            9
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                3,
+                5
+              ],
+              "start": 12,
+              "clear": 17
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                2,
+                6
+              ],
+              "start": 6,
+              "clear": 9
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                3,
+                4
+              ],
+              "start": 14,
+              "clear": 21
+            }
+          ],
+          "event_seed": 1835632802,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "463b1242d874ae80396628adc1c763fdbe9b2fedb475440d0145aa0ca226e855",
+          "pair_id": "partial-dynamic-navigation-v1-validation-005-route04",
+          "difficulty": {
+            "distance_band": "medium",
+            "base_length": 10,
+            "single_event_detour_lengths": [
+              12,
+              10,
+              12
+            ],
+            "free_cells": 79,
+            "dead_ends": 9,
+            "junctions": 53,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-005-route05-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-005",
+          "rows": [
+            "##........",
+            "..#.#....#",
+            "#.......##",
+            "........#.",
+            "......#...",
+            ".....#...#",
+            "...#..##..",
+            "..#..#....",
+            "...#.....#",
+            "....#..#.."
+          ],
+          "start": [
+            9,
+            5
+          ],
+          "goal": [
+            0,
+            9
+          ],
+          "events": [],
+          "event_seed": 1046884078,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "463b1242d874ae80396628adc1c763fdbe9b2fedb475440d0145aa0ca226e855",
+          "pair_id": "partial-dynamic-navigation-v1-validation-005-route05",
+          "difficulty": {
+            "distance_band": "long",
+            "base_length": 15,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 9,
+            "junctions": 53,
+            "diameter": 19
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-005-route05-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-005",
+          "rows": [
+            "##........",
+            "..#.#....#",
+            "#.......##",
+            "........#.",
+            "......#...",
+            ".....#...#",
+            "...#..##..",
+            "..#..#....",
+            "...#.....#",
+            "....#..#.."
+          ],
+          "start": [
+            9,
+            5
+          ],
+          "goal": [
+            0,
+            9
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                8,
+                4
+              ],
+              "start": 11,
+              "clear": 16
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                1,
+                8
+              ],
+              "start": 13,
+              "clear": 20
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                7,
+                0
+              ],
+              "start": 17,
+              "clear": 21
+            }
+          ],
+          "event_seed": 1046884078,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "463b1242d874ae80396628adc1c763fdbe9b2fedb475440d0145aa0ca226e855",
+          "pair_id": "partial-dynamic-navigation-v1-validation-005-route05",
+          "difficulty": {
+            "distance_band": "long",
+            "base_length": 15,
+            "single_event_detour_lengths": [
+              15,
+              15,
+              15
+            ],
+            "free_cells": 79,
+            "dead_ends": 9,
+            "junctions": 53,
+            "diameter": 19
+          }
+        }
+      ]
+    },
+    {
+      "layout_id": "partial-dynamic-navigation-v1-validation-006",
+      "rows": [
+        ".##..##.#.",
+        ".##...#...",
+        "..........",
+        ".#...#....",
+        "..#.......",
+        ".##..#....",
+        "....#.....",
+        ".....#..#.",
+        "...#...##.",
+        "....#....."
+      ],
+      "geometry_hash": "274c35ba670b37695334209b664df965681fd4edf0142fe97bbfe1a16e1e107e",
+      "statistics": {
+        "free_cells": 79,
+        "dead_ends": 6,
+        "junctions": 53,
+        "diameter": 18
+      },
+      "scenarios": [
+        {
+          "id": "partial-dynamic-navigation-v1-validation-006-route00-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-006",
+          "rows": [
+            ".##..##.#.",
+            ".##...#...",
+            "..........",
+            ".#...#....",
+            "..#.......",
+            ".##..#....",
+            "....#.....",
+            ".....#..#.",
+            "...#...##.",
+            "....#....."
+          ],
+          "start": [
+            4,
+            3
+          ],
+          "goal": [
+            3,
+            8
+          ],
+          "events": [],
+          "event_seed": 808356929,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "274c35ba670b37695334209b664df965681fd4edf0142fe97bbfe1a16e1e107e",
+          "pair_id": "partial-dynamic-navigation-v1-validation-006-route00",
+          "difficulty": {
+            "distance_band": "short",
+            "base_length": 6,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 6,
+            "junctions": 53,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-006-route00-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-006",
+          "rows": [
+            ".##..##.#.",
+            ".##...#...",
+            "..........",
+            ".#...#....",
+            "..#.......",
+            ".##..#....",
+            "....#.....",
+            ".....#..#.",
+            "...#...##.",
+            "....#....."
+          ],
+          "start": [
+            4,
+            3
+          ],
+          "goal": [
+            3,
+            8
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                4,
+                5
+              ],
+              "start": 11,
+              "clear": 16
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                4,
+                1
+              ],
+              "start": 6,
+              "clear": 11
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                2,
+                1
+              ],
+              "start": 21,
+              "clear": 29
+            }
+          ],
+          "event_seed": 808356929,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "274c35ba670b37695334209b664df965681fd4edf0142fe97bbfe1a16e1e107e",
+          "pair_id": "partial-dynamic-navigation-v1-validation-006-route00",
+          "difficulty": {
+            "distance_band": "short",
+            "base_length": 6,
+            "single_event_detour_lengths": [
+              8,
+              6,
+              6
+            ],
+            "free_cells": 79,
+            "dead_ends": 6,
+            "junctions": 53,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-006-route01-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-006",
+          "rows": [
+            ".##..##.#.",
+            ".##...#...",
+            "..........",
+            ".#...#....",
+            "..#.......",
+            ".##..#....",
+            "....#.....",
+            ".....#..#.",
+            "...#...##.",
+            "....#....."
+          ],
+          "start": [
+            9,
+            7
+          ],
+          "goal": [
+            0,
+            9
+          ],
+          "events": [],
+          "event_seed": 2044148853,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "274c35ba670b37695334209b664df965681fd4edf0142fe97bbfe1a16e1e107e",
+          "pair_id": "partial-dynamic-navigation-v1-validation-006-route01",
+          "difficulty": {
+            "distance_band": "medium",
+            "base_length": 11,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 6,
+            "junctions": 53,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-006-route01-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-006",
+          "rows": [
+            ".##..##.#.",
+            ".##...#...",
+            "..........",
+            ".#...#....",
+            "..#.......",
+            ".##..#....",
+            "....#.....",
+            ".....#..#.",
+            "...#...##.",
+            "....#....."
+          ],
+          "start": [
+            9,
+            7
+          ],
+          "goal": [
+            0,
+            9
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                9,
+                9
+              ],
+              "start": 6,
+              "clear": 11
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                8,
+                5
+              ],
+              "start": 8,
+              "clear": 16
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                8,
+                0
+              ],
+              "start": 24,
+              "clear": 30
+            }
+          ],
+          "event_seed": 2044148853,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "274c35ba670b37695334209b664df965681fd4edf0142fe97bbfe1a16e1e107e",
+          "pair_id": "partial-dynamic-navigation-v1-validation-006-route01",
+          "difficulty": {
+            "distance_band": "medium",
+            "base_length": 11,
+            "single_event_detour_lengths": [
+              13,
+              11,
+              11
+            ],
+            "free_cells": 79,
+            "dead_ends": 6,
+            "junctions": 53,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-006-route02-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-006",
+          "rows": [
+            ".##..##.#.",
+            ".##...#...",
+            "..........",
+            ".#...#....",
+            "..#.......",
+            ".##..#....",
+            "....#.....",
+            ".....#..#.",
+            "...#...##.",
+            "....#....."
+          ],
+          "start": [
+            4,
+            0
+          ],
+          "goal": [
+            0,
+            9
+          ],
+          "events": [],
+          "event_seed": 1227661822,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "274c35ba670b37695334209b664df965681fd4edf0142fe97bbfe1a16e1e107e",
+          "pair_id": "partial-dynamic-navigation-v1-validation-006-route02",
+          "difficulty": {
+            "distance_band": "long",
+            "base_length": 13,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 6,
+            "junctions": 53,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-006-route02-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-006",
+          "rows": [
+            ".##..##.#.",
+            ".##...#...",
+            "..........",
+            ".#...#....",
+            "..#.......",
+            ".##..#....",
+            "....#.....",
+            ".....#..#.",
+            "...#...##.",
+            "....#....."
+          ],
+          "start": [
+            4,
+            0
+          ],
+          "goal": [
+            0,
+            9
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                2,
+                0
+              ],
+              "start": 4,
+              "clear": 10
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                4,
+                6
+              ],
+              "start": 9,
+              "clear": 12
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                6,
+                7
+              ],
+              "start": 18,
+              "clear": 24
+            }
+          ],
+          "event_seed": 1227661822,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "274c35ba670b37695334209b664df965681fd4edf0142fe97bbfe1a16e1e107e",
+          "pair_id": "partial-dynamic-navigation-v1-validation-006-route02",
+          "difficulty": {
+            "distance_band": "long",
+            "base_length": 13,
+            "single_event_detour_lengths": [
+              17,
+              13,
+              13
+            ],
+            "free_cells": 79,
+            "dead_ends": 6,
+            "junctions": 53,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-006-route03-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-006",
+          "rows": [
+            ".##..##.#.",
+            ".##...#...",
+            "..........",
+            ".#...#....",
+            "..#.......",
+            ".##..#....",
+            "....#.....",
+            ".....#..#.",
+            "...#...##.",
+            "....#....."
+          ],
+          "start": [
+            1,
+            3
+          ],
+          "goal": [
+            3,
+            6
+          ],
+          "events": [],
+          "event_seed": 1187040991,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "274c35ba670b37695334209b664df965681fd4edf0142fe97bbfe1a16e1e107e",
+          "pair_id": "partial-dynamic-navigation-v1-validation-006-route03",
+          "difficulty": {
+            "distance_band": "short",
+            "base_length": 5,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 6,
+            "junctions": 53,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-006-route03-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-006",
+          "rows": [
+            ".##..##.#.",
+            ".##...#...",
+            "..........",
+            ".#...#....",
+            "..#.......",
+            ".##..#....",
+            "....#.....",
+            ".....#..#.",
+            "...#...##.",
+            "....#....."
+          ],
+          "start": [
+            1,
+            3
+          ],
+          "goal": [
+            3,
+            6
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                2,
+                4
+              ],
+              "start": 10,
+              "clear": 16
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                8,
+                0
+              ],
+              "start": 9,
+              "clear": 12
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                5,
+                6
+              ],
+              "start": 20,
+              "clear": 25
+            }
+          ],
+          "event_seed": 1187040991,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "274c35ba670b37695334209b664df965681fd4edf0142fe97bbfe1a16e1e107e",
+          "pair_id": "partial-dynamic-navigation-v1-validation-006-route03",
+          "difficulty": {
+            "distance_band": "short",
+            "base_length": 5,
+            "single_event_detour_lengths": [
+              5,
+              5,
+              5
+            ],
+            "free_cells": 79,
+            "dead_ends": 6,
+            "junctions": 53,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-006-route04-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-006",
+          "rows": [
+            ".##..##.#.",
+            ".##...#...",
+            "..........",
+            ".#...#....",
+            "..#.......",
+            ".##..#....",
+            "....#.....",
+            ".....#..#.",
+            "...#...##.",
+            "....#....."
+          ],
+          "start": [
+            3,
+            7
+          ],
+          "goal": [
+            3,
+            2
+          ],
+          "events": [],
+          "event_seed": 279634504,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "274c35ba670b37695334209b664df965681fd4edf0142fe97bbfe1a16e1e107e",
+          "pair_id": "partial-dynamic-navigation-v1-validation-006-route04",
+          "difficulty": {
+            "distance_band": "medium",
+            "base_length": 7,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 6,
+            "junctions": 53,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-006-route04-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-006",
+          "rows": [
+            ".##..##.#.",
+            ".##...#...",
+            "..........",
+            ".#...#....",
+            "..#.......",
+            ".##..#....",
+            "....#.....",
+            ".....#..#.",
+            "...#...##.",
+            "....#....."
+          ],
+          "start": [
+            3,
+            7
+          ],
+          "goal": [
+            3,
+            2
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                2,
+                6
+              ],
+              "start": 8,
+              "clear": 12
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                4,
+                7
+              ],
+              "start": 18,
+              "clear": 26
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                8,
+                1
+              ],
+              "start": 22,
+              "clear": 27
+            }
+          ],
+          "event_seed": 279634504,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "274c35ba670b37695334209b664df965681fd4edf0142fe97bbfe1a16e1e107e",
+          "pair_id": "partial-dynamic-navigation-v1-validation-006-route04",
+          "difficulty": {
+            "distance_band": "medium",
+            "base_length": 7,
+            "single_event_detour_lengths": [
+              7,
+              7,
+              7
+            ],
+            "free_cells": 79,
+            "dead_ends": 6,
+            "junctions": 53,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-006-route05-unseen-static",
+          "layout_id": "partial-dynamic-navigation-v1-validation-006",
+          "rows": [
+            ".##..##.#.",
+            ".##...#...",
+            "..........",
+            ".#...#....",
+            "..#.......",
+            ".##..#....",
+            "....#.....",
+            ".....#..#.",
+            "...#...##.",
+            "....#....."
+          ],
+          "start": [
+            9,
+            7
+          ],
+          "goal": [
+            2,
+            0
+          ],
+          "events": [],
+          "event_seed": 1896393248,
+          "condition": "unseen-static",
+          "split": "validation",
+          "layout_hash": "274c35ba670b37695334209b664df965681fd4edf0142fe97bbfe1a16e1e107e",
+          "pair_id": "partial-dynamic-navigation-v1-validation-006-route05",
+          "difficulty": {
+            "distance_band": "long",
+            "base_length": 14,
+            "single_event_detour_lengths": [],
+            "free_cells": 79,
+            "dead_ends": 6,
+            "junctions": 53,
+            "diameter": 18
+          }
+        },
+        {
+          "id": "partial-dynamic-navigation-v1-validation-006-route05-unseen-dynamic",
+          "layout_id": "partial-dynamic-navigation-v1-validation-006",
+          "rows": [
+            ".##..##.#.",
+            ".##...#...",
+            "..........",
+            ".#...#....",
+            "..#.......",
+            ".##..#....",
+            "....#.....",
+            ".....#..#.",
+            "...#...##.",
+            "....#....."
+          ],
+          "start": [
+            9,
+            7
+          ],
+          "goal": [
+            2,
+            0
+          ],
+          "events": [
+            {
+              "id": "event-0",
+              "cell": [
+                8,
+                6
+              ],
+              "start": 11,
+              "clear": 15
+            },
+            {
+              "id": "event-1",
+              "cell": [
+                3,
+                3
+              ],
+              "start": 15,
+              "clear": 19
+            },
+            {
+              "id": "event-2",
+              "cell": [
+                0,
+                7
+              ],
+              "start": 15,
+              "clear": 21
+            }
+          ],
+          "event_seed": 1896393248,
+          "condition": "unseen-dynamic",
+          "split": "validation",
+          "layout_hash": "274c35ba670b37695334209b664df965681fd4edf0142fe97bbfe1a16e1e107e",
+          "pair_id": "partial-dynamic-navigation-v1-validation-006-route05",
+          "difficulty": {
+            "distance_band": "long",
+            "base_length": 14,
+            "single_event_detour_lengths": [
+              14,
+              14,
+              14
+            ],
+            "free_cells": 79,
+            "dead_ends": 6,
+            "junctions": 53,
+            "diameter": 18
+          }
+        }
+      ]
+    }
+  ]
+}

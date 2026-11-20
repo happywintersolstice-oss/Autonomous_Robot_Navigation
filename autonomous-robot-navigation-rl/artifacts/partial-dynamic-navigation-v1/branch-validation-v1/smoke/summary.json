@@ -1,0 +1,1295 @@
+{
+  "status": "verified",
+  "scope": "Functional smoke; one seed, not a comparative performance study",
+  "training_seed": 22001,
+  "training_actions": 1024,
+  "assessment_episodes": 16,
+  "python": "3.14.10",
+  "dependencies": {
+    "numpy": "2.5.4",
+    "gymnasium": "1.4.0",
+    "stable-baselines3": "2.9.2",
+    "torch": "2.15.0"
+  },
+  "code_hashes": {
+    "partial_agents.py": "7f734aa0694f4dbb68bd625ceb3cbc5288b84a1c94093b736d0cb448f1cad776",
+    "partial_baselines.py": "75838f9a3cf4f7caf367262177557c9e90ce7462bcd13ab35a2bca6fdd6b5dd4",
+    "partial_benchmark.py": "41867e1c4fc45f45fb586d4b1b851f60300a757f172f2800fe719af94fbe9f2c",
+    "partial_commands.py": "430ff6656ad1d5210e2f270639806eccaed0dfda7ee73c01807845f3f2ee8e9c",
+    "partial_contract.py": "7ba8c229fee91a44e3834c79bc2ca9983e57e67e42d8fb8d524adca639babf56",
+    "partial_dynamic_env.py": "0cc37c3d010ce34ffba88c5c74a5113cf899d3b28bd6dcd1981308af5083e996",
+    "partial_evaluation.py": "666fc96a3fbdd33ceabdee19bd3eb846f3590f88217c892f04ba5e5b3aeb9afc",
+    "partial_features.py": "16a932dd13bf516bc8e8db2b42c94e398b474ae543137d9a38c9b812faa8eee3",
+    "partial_fixtures.py": "655ea77904cb06e6c2addb75771d62360c1195cd74fb1d61b7867b050e62ec38",
+    "partial_memory.py": "6a5db1824fada60e79ce8cbe32ac9a516a4c2bd926324ea60f7ebf4055395458",
+    "partial_neural.py": "4da85c792d81cf76725cbc3076dd1ce34b589f88e7e9f1391e37f4f5272a9d6e",
+    "partial_observation.py": "bc3064ba44dbc1de90393b431c1699471bf13b5b6939a20116b761e812dae0ca",
+    "partial_sensor.py": "bd2de92e656ce6413d13dfadd37ee539c501622827c7f22a46254a885195e39d",
+    "partial_training.py": "21a5d49a6943cd5c6804995e5159fced08727aada3615954f37face89b1cbc4d"
+  },
+  "systems": {
+    "q-learning": {
+      "status": "functional_pass",
+      "training": {
+        "interactions": 256,
+        "training_seconds": 0.1408412999007851,
+        "completed_episodes": 18
+      },
+      "parameter_fingerprint": "1e5101ac74740c3ce148a5eaf7528880f3fe69573b0f804d1f6a9ff03bc91816",
+      "checkpoint": "final.npz",
+      "checkpoint_bytes": 3476,
+      "assessment": {
+        "algorithm": {
+          "q-learning": {
+            "episodes": 4,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 4
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 800,
+            "total_waits": 800,
+            "recovery_opportunities": 2,
+            "recoveries": 0,
+            "recovery_rate": 0.0,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 85.05675214109942
+          }
+        },
+        "condition": {
+          "familiar-static": {
+            "episodes": 1,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 1
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 200,
+            "total_waits": 200,
+            "recovery_opportunities": 0,
+            "recoveries": 0,
+            "recovery_rate": null,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 82.18550181481987
+          },
+          "familiar-dynamic": {
+            "episodes": 1,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 1
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 200,
+            "total_waits": 200,
+            "recovery_opportunities": 1,
+            "recoveries": 0,
+            "recovery_rate": 0.0,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 92.92450034990907
+          },
+          "unseen-static": {
+            "episodes": 1,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 1
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 200,
+            "total_waits": 200,
+            "recovery_opportunities": 0,
+            "recoveries": 0,
+            "recovery_rate": null,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 82.69550453405827
+          },
+          "unseen-dynamic": {
+            "episodes": 1,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 1
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 200,
+            "total_waits": 200,
+            "recovery_opportunities": 1,
+            "recoveries": 0,
+            "recovery_rate": 0.0,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 82.42150186561048
+          }
+        },
+        "layout_id": {
+          "partial-dynamic-navigation-v1-train-001": {
+            "episodes": 2,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 2
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 400,
+            "total_waits": 400,
+            "recovery_opportunities": 1,
+            "recoveries": 0,
+            "recovery_rate": 0.0,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 87.55500108236447
+          },
+          "partial-dynamic-navigation-v1-validation-001": {
+            "episodes": 2,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 2
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 400,
+            "total_waits": 400,
+            "recovery_opportunities": 1,
+            "recoveries": 0,
+            "recovery_rate": 0.0,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 82.55850319983438
+          }
+        },
+        "difficulty_band": {
+          "short": {
+            "episodes": 4,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 4
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 800,
+            "total_waits": 800,
+            "recovery_opportunities": 2,
+            "recoveries": 0,
+            "recovery_rate": 0.0,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 85.05675214109942
+          }
+        },
+        "training_seed": {
+          "22001": {
+            "episodes": 4,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 4
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 800,
+            "total_waits": 800,
+            "recovery_opportunities": 2,
+            "recoveries": 0,
+            "recovery_rate": 0.0,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 85.05675214109942
+          }
+        },
+        "joint_strata": [
+          {
+            "algorithm": "q-learning",
+            "training_seed": 22001,
+            "condition": "familiar-static",
+            "layout_id": "partial-dynamic-navigation-v1-train-001",
+            "difficulty_band": "short",
+            "metrics": {
+              "episodes": 1,
+              "counts": {
+                "success": 0,
+                "collision": 0,
+                "timeout": 1
+              },
+              "success_rate": 0.0,
+              "collision_rate": 0.0,
+              "timeout_rate": 1.0,
+              "mean_actions": 200.0,
+              "mean_return": -2.0,
+              "total_actions": 200,
+              "total_waits": 200,
+              "recovery_opportunities": 0,
+              "recoveries": 0,
+              "recovery_rate": null,
+              "mean_observed_to_recovery_delay": null,
+              "mean_decision_microseconds": 82.18550181481987
+            }
+          },
+          {
+            "algorithm": "q-learning",
+            "training_seed": 22001,
+            "condition": "familiar-dynamic",
+            "layout_id": "partial-dynamic-navigation-v1-train-001",
+            "difficulty_band": "short",
+            "metrics": {
+              "episodes": 1,
+              "counts": {
+                "success": 0,
+                "collision": 0,
+                "timeout": 1
+              },
+              "success_rate": 0.0,
+              "collision_rate": 0.0,
+              "timeout_rate": 1.0,
+              "mean_actions": 200.0,
+              "mean_return": -2.0,
+              "total_actions": 200,
+              "total_waits": 200,
+              "recovery_opportunities": 1,
+              "recoveries": 0,
+              "recovery_rate": 0.0,
+              "mean_observed_to_recovery_delay": null,
+              "mean_decision_microseconds": 92.92450034990907
+            }
+          },
+          {
+            "algorithm": "q-learning",
+            "training_seed": 22001,
+            "condition": "unseen-static",
+            "layout_id": "partial-dynamic-navigation-v1-validation-001",
+            "difficulty_band": "short",
+            "metrics": {
+              "episodes": 1,
+              "counts": {
+                "success": 0,
+                "collision": 0,
+                "timeout": 1
+              },
+              "success_rate": 0.0,
+              "collision_rate": 0.0,
+              "timeout_rate": 1.0,
+              "mean_actions": 200.0,
+              "mean_return": -2.0,
+              "total_actions": 200,
+              "total_waits": 200,
+              "recovery_opportunities": 0,
+              "recoveries": 0,
+              "recovery_rate": null,
+              "mean_observed_to_recovery_delay": null,
+              "mean_decision_microseconds": 82.69550453405827
+            }
+          },
+          {
+            "algorithm": "q-learning",
+            "training_seed": 22001,
+            "condition": "unseen-dynamic",
+            "layout_id": "partial-dynamic-navigation-v1-validation-001",
+            "difficulty_band": "short",
+            "metrics": {
+              "episodes": 1,
+              "counts": {
+                "success": 0,
+                "collision": 0,
+                "timeout": 1
+              },
+              "success_rate": 0.0,
+              "collision_rate": 0.0,
+              "timeout_rate": 1.0,
+              "mean_actions": 200.0,
+              "mean_return": -2.0,
+              "total_actions": 200,
+              "total_waits": 200,
+              "recovery_opportunities": 1,
+              "recoveries": 0,
+              "recovery_rate": 0.0,
+              "mean_observed_to_recovery_delay": null,
+              "mean_decision_microseconds": 82.42150186561048
+            }
+          }
+        ]
+      },
+      "training_actions_audited": 256,
+      "assessment_episodes_audited": 4
+    },
+    "sarsa": {
+      "status": "functional_pass",
+      "training": {
+        "interactions": 256,
+        "training_seconds": 0.24101100000552833,
+        "completed_episodes": 19
+      },
+      "parameter_fingerprint": "41c66108ce93ccb6b696ef3229ee6f007de86a893504cf8e94c1e2e3126dadc7",
+      "checkpoint": "final.npz",
+      "checkpoint_bytes": 3751,
+      "assessment": {
+        "algorithm": {
+          "sarsa": {
+            "episodes": 4,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 4
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 800,
+            "total_waits": 800,
+            "recovery_opportunities": 2,
+            "recoveries": 0,
+            "recovery_rate": 0.0,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 81.95187678211369
+          }
+        },
+        "condition": {
+          "familiar-static": {
+            "episodes": 1,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 1
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 200,
+            "total_waits": 200,
+            "recovery_opportunities": 0,
+            "recoveries": 0,
+            "recovery_rate": null,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 80.14900609850883
+          },
+          "familiar-dynamic": {
+            "episodes": 1,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 1
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 200,
+            "total_waits": 200,
+            "recovery_opportunities": 1,
+            "recoveries": 0,
+            "recovery_rate": 0.0,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 78.67550128139555
+          },
+          "unseen-static": {
+            "episodes": 1,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 1
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 200,
+            "total_waits": 200,
+            "recovery_opportunities": 0,
+            "recoveries": 0,
+            "recovery_rate": null,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 78.6845019320026
+          },
+          "unseen-dynamic": {
+            "episodes": 1,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 1
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 200,
+            "total_waits": 200,
+            "recovery_opportunities": 1,
+            "recoveries": 0,
+            "recovery_rate": 0.0,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 90.29849781654775
+          }
+        },
+        "layout_id": {
+          "partial-dynamic-navigation-v1-train-001": {
+            "episodes": 2,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 2
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 400,
+            "total_waits": 400,
+            "recovery_opportunities": 1,
+            "recoveries": 0,
+            "recovery_rate": 0.0,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 79.4122536899522
+          },
+          "partial-dynamic-navigation-v1-validation-001": {
+            "episodes": 2,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 2
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 400,
+            "total_waits": 400,
+            "recovery_opportunities": 1,
+            "recoveries": 0,
+            "recovery_rate": 0.0,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 84.49149987427518
+          }
+        },
+        "difficulty_band": {
+          "short": {
+            "episodes": 4,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 4
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 800,
+            "total_waits": 800,
+            "recovery_opportunities": 2,
+            "recoveries": 0,
+            "recovery_rate": 0.0,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 81.95187678211369
+          }
+        },
+        "training_seed": {
+          "22001": {
+            "episodes": 4,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 4
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 800,
+            "total_waits": 800,
+            "recovery_opportunities": 2,
+            "recoveries": 0,
+            "recovery_rate": 0.0,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 81.95187678211369
+          }
+        },
+        "joint_strata": [
+          {
+            "algorithm": "sarsa",
+            "training_seed": 22001,
+            "condition": "familiar-static",
+            "layout_id": "partial-dynamic-navigation-v1-train-001",
+            "difficulty_band": "short",
+            "metrics": {
+              "episodes": 1,
+              "counts": {
+                "success": 0,
+                "collision": 0,
+                "timeout": 1
+              },
+              "success_rate": 0.0,
+              "collision_rate": 0.0,
+              "timeout_rate": 1.0,
+              "mean_actions": 200.0,
+              "mean_return": -2.0,
+              "total_actions": 200,
+              "total_waits": 200,
+              "recovery_opportunities": 0,
+              "recoveries": 0,
+              "recovery_rate": null,
+              "mean_observed_to_recovery_delay": null,
+              "mean_decision_microseconds": 80.14900609850883
+            }
+          },
+          {
+            "algorithm": "sarsa",
+            "training_seed": 22001,
+            "condition": "familiar-dynamic",
+            "layout_id": "partial-dynamic-navigation-v1-train-001",
+            "difficulty_band": "short",
+            "metrics": {
+              "episodes": 1,
+              "counts": {
+                "success": 0,
+                "collision": 0,
+                "timeout": 1
+              },
+              "success_rate": 0.0,
+              "collision_rate": 0.0,
+              "timeout_rate": 1.0,
+              "mean_actions": 200.0,
+              "mean_return": -2.0,
+              "total_actions": 200,
+              "total_waits": 200,
+              "recovery_opportunities": 1,
+              "recoveries": 0,
+              "recovery_rate": 0.0,
+              "mean_observed_to_recovery_delay": null,
+              "mean_decision_microseconds": 78.67550128139555
+            }
+          },
+          {
+            "algorithm": "sarsa",
+            "training_seed": 22001,
+            "condition": "unseen-static",
+            "layout_id": "partial-dynamic-navigation-v1-validation-001",
+            "difficulty_band": "short",
+            "metrics": {
+              "episodes": 1,
+              "counts": {
+                "success": 0,
+                "collision": 0,
+                "timeout": 1
+              },
+              "success_rate": 0.0,
+              "collision_rate": 0.0,
+              "timeout_rate": 1.0,
+              "mean_actions": 200.0,
+              "mean_return": -2.0,
+              "total_actions": 200,
+              "total_waits": 200,
+              "recovery_opportunities": 0,
+              "recoveries": 0,
+              "recovery_rate": null,
+              "mean_observed_to_recovery_delay": null,
+              "mean_decision_microseconds": 78.6845019320026
+            }
+          },
+          {
+            "algorithm": "sarsa",
+            "training_seed": 22001,
+            "condition": "unseen-dynamic",
+            "layout_id": "partial-dynamic-navigation-v1-validation-001",
+            "difficulty_band": "short",
+            "metrics": {
+              "episodes": 1,
+              "counts": {
+                "success": 0,
+                "collision": 0,
+                "timeout": 1
+              },
+              "success_rate": 0.0,
+              "collision_rate": 0.0,
+              "timeout_rate": 1.0,
+              "mean_actions": 200.0,
+              "mean_return": -2.0,
+              "total_actions": 200,
+              "total_waits": 200,
+              "recovery_opportunities": 1,
+              "recoveries": 0,
+              "recovery_rate": 0.0,
+              "mean_observed_to_recovery_delay": null,
+              "mean_decision_microseconds": 90.29849781654775
+            }
+          }
+        ]
+      },
+      "training_actions_audited": 256,
+      "assessment_episodes_audited": 4
+    },
+    "dqn": {
+      "status": "functional_pass",
+      "training": {
+        "interactions": 256,
+        "training_seconds": 0.2419266999932006,
+        "completed_episodes": 35
+      },
+      "parameter_fingerprint": "6cc6c5c0d3e9d41b2d56ad47edb174d9e2e0f6c3564faf9590baa815f9872ca4",
+      "checkpoint": "final.zip",
+      "checkpoint_bytes": 272439,
+      "assessment": {
+        "algorithm": {
+          "dqn": {
+            "episodes": 4,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 4
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 800,
+            "total_waits": 800,
+            "recovery_opportunities": 2,
+            "recoveries": 0,
+            "recovery_rate": 0.0,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 271.2232500198297
+          }
+        },
+        "condition": {
+          "familiar-static": {
+            "episodes": 1,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 1
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 200,
+            "total_waits": 200,
+            "recovery_opportunities": 0,
+            "recoveries": 0,
+            "recovery_rate": null,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 266.70999883208424
+          },
+          "familiar-dynamic": {
+            "episodes": 1,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 1
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 200,
+            "total_waits": 200,
+            "recovery_opportunities": 1,
+            "recoveries": 0,
+            "recovery_rate": 0.0,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 262.95749994460493
+          },
+          "unseen-static": {
+            "episodes": 1,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 1
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 200,
+            "total_waits": 200,
+            "recovery_opportunities": 0,
+            "recoveries": 0,
+            "recovery_rate": null,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 272.5675003603101
+          },
+          "unseen-dynamic": {
+            "episodes": 1,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 1
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 200,
+            "total_waits": 200,
+            "recovery_opportunities": 1,
+            "recoveries": 0,
+            "recovery_rate": 0.0,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 282.65800094231963
+          }
+        },
+        "layout_id": {
+          "partial-dynamic-navigation-v1-train-001": {
+            "episodes": 2,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 2
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 400,
+            "total_waits": 400,
+            "recovery_opportunities": 1,
+            "recoveries": 0,
+            "recovery_rate": 0.0,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 264.8337493883446
+          },
+          "partial-dynamic-navigation-v1-validation-001": {
+            "episodes": 2,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 2
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 400,
+            "total_waits": 400,
+            "recovery_opportunities": 1,
+            "recoveries": 0,
+            "recovery_rate": 0.0,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 277.61275065131485
+          }
+        },
+        "difficulty_band": {
+          "short": {
+            "episodes": 4,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 4
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 800,
+            "total_waits": 800,
+            "recovery_opportunities": 2,
+            "recoveries": 0,
+            "recovery_rate": 0.0,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 271.2232500198297
+          }
+        },
+        "training_seed": {
+          "22001": {
+            "episodes": 4,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 4
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 800,
+            "total_waits": 800,
+            "recovery_opportunities": 2,
+            "recoveries": 0,
+            "recovery_rate": 0.0,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 271.2232500198297
+          }
+        },
+        "joint_strata": [
+          {
+            "algorithm": "dqn",
+            "training_seed": 22001,
+            "condition": "familiar-static",
+            "layout_id": "partial-dynamic-navigation-v1-train-001",
+            "difficulty_band": "short",
+            "metrics": {
+              "episodes": 1,
+              "counts": {
+                "success": 0,
+                "collision": 0,
+                "timeout": 1
+              },
+              "success_rate": 0.0,
+              "collision_rate": 0.0,
+              "timeout_rate": 1.0,
+              "mean_actions": 200.0,
+              "mean_return": -2.0,
+              "total_actions": 200,
+              "total_waits": 200,
+              "recovery_opportunities": 0,
+              "recoveries": 0,
+              "recovery_rate": null,
+              "mean_observed_to_recovery_delay": null,
+              "mean_decision_microseconds": 266.70999883208424
+            }
+          },
+          {
+            "algorithm": "dqn",
+            "training_seed": 22001,
+            "condition": "familiar-dynamic",
+            "layout_id": "partial-dynamic-navigation-v1-train-001",
+            "difficulty_band": "short",
+            "metrics": {
+              "episodes": 1,
+              "counts": {
+                "success": 0,
+                "collision": 0,
+                "timeout": 1
+              },
+              "success_rate": 0.0,
+              "collision_rate": 0.0,
+              "timeout_rate": 1.0,
+              "mean_actions": 200.0,
+              "mean_return": -2.0,
+              "total_actions": 200,
+              "total_waits": 200,
+              "recovery_opportunities": 1,
+              "recoveries": 0,
+              "recovery_rate": 0.0,
+              "mean_observed_to_recovery_delay": null,
+              "mean_decision_microseconds": 262.95749994460493
+            }
+          },
+          {
+            "algorithm": "dqn",
+            "training_seed": 22001,
+            "condition": "unseen-static",
+            "layout_id": "partial-dynamic-navigation-v1-validation-001",
+            "difficulty_band": "short",
+            "metrics": {
+              "episodes": 1,
+              "counts": {
+                "success": 0,
+                "collision": 0,
+                "timeout": 1
+              },
+              "success_rate": 0.0,
+              "collision_rate": 0.0,
+              "timeout_rate": 1.0,
+              "mean_actions": 200.0,
+              "mean_return": -2.0,
+              "total_actions": 200,
+              "total_waits": 200,
+              "recovery_opportunities": 0,
+              "recoveries": 0,
+              "recovery_rate": null,
+              "mean_observed_to_recovery_delay": null,
+              "mean_decision_microseconds": 272.5675003603101
+            }
+          },
+          {
+            "algorithm": "dqn",
+            "training_seed": 22001,
+            "condition": "unseen-dynamic",
+            "layout_id": "partial-dynamic-navigation-v1-validation-001",
+            "difficulty_band": "short",
+            "metrics": {
+              "episodes": 1,
+              "counts": {
+                "success": 0,
+                "collision": 0,
+                "timeout": 1
+              },
+              "success_rate": 0.0,
+              "collision_rate": 0.0,
+              "timeout_rate": 1.0,
+              "mean_actions": 200.0,
+              "mean_return": -2.0,
+              "total_actions": 200,
+              "total_waits": 200,
+              "recovery_opportunities": 1,
+              "recoveries": 0,
+              "recovery_rate": 0.0,
+              "mean_observed_to_recovery_delay": null,
+              "mean_decision_microseconds": 282.65800094231963
+            }
+          }
+        ]
+      },
+      "training_actions_audited": 256,
+      "assessment_episodes_audited": 4
+    },
+    "ppo": {
+      "status": "functional_pass",
+      "training": {
+        "interactions": 256,
+        "training_seconds": 0.3836646000854671,
+        "completed_episodes": 28
+      },
+      "parameter_fingerprint": "cd11337fb2e6cfd4c69da374f39dbe9ad5b7fa10f58cb2ac0955d969066d0141",
+      "checkpoint": "final.zip",
+      "checkpoint_bytes": 389454,
+      "assessment": {
+        "algorithm": {
+          "ppo": {
+            "episodes": 4,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 4
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 800,
+            "total_waits": 800,
+            "recovery_opportunities": 2,
+            "recoveries": 0,
+            "recovery_rate": 0.0,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 535.8825018629432
+          }
+        },
+        "condition": {
+          "familiar-static": {
+            "episodes": 1,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 1
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 200,
+            "total_waits": 200,
+            "recovery_opportunities": 0,
+            "recoveries": 0,
+            "recovery_rate": null,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 357.5629985425621
+          },
+          "familiar-dynamic": {
+            "episodes": 1,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 1
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 200,
+            "total_waits": 200,
+            "recovery_opportunities": 1,
+            "recoveries": 0,
+            "recovery_rate": 0.0,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 354.7090000938624
+          },
+          "unseen-static": {
+            "episodes": 1,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 1
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 200,
+            "total_waits": 200,
+            "recovery_opportunities": 0,
+            "recoveries": 0,
+            "recovery_rate": null,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 1048.2725006295368
+          },
+          "unseen-dynamic": {
+            "episodes": 1,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 1
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 200,
+            "total_waits": 200,
+            "recovery_opportunities": 1,
+            "recoveries": 0,
+            "recovery_rate": 0.0,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 382.98550818581134
+          }
+        },
+        "layout_id": {
+          "partial-dynamic-navigation-v1-train-001": {
+            "episodes": 2,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 2
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 400,
+            "total_waits": 400,
+            "recovery_opportunities": 1,
+            "recoveries": 0,
+            "recovery_rate": 0.0,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 356.13599931821227
+          },
+          "partial-dynamic-navigation-v1-validation-001": {
+            "episodes": 2,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 2
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 400,
+            "total_waits": 400,
+            "recovery_opportunities": 1,
+            "recoveries": 0,
+            "recovery_rate": 0.0,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 715.6290044076741
+          }
+        },
+        "difficulty_band": {
+          "short": {
+            "episodes": 4,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 4
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 800,
+            "total_waits": 800,
+            "recovery_opportunities": 2,
+            "recoveries": 0,
+            "recovery_rate": 0.0,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 535.8825018629432
+          }
+        },
+        "training_seed": {
+          "22001": {
+            "episodes": 4,
+            "counts": {
+              "success": 0,
+              "collision": 0,
+              "timeout": 4
+            },
+            "success_rate": 0.0,
+            "collision_rate": 0.0,
+            "timeout_rate": 1.0,
+            "mean_actions": 200.0,
+            "mean_return": -2.0,
+            "total_actions": 800,
+            "total_waits": 800,
+            "recovery_opportunities": 2,
+            "recoveries": 0,
+            "recovery_rate": 0.0,
+            "mean_observed_to_recovery_delay": null,
+            "mean_decision_microseconds": 535.8825018629432
+          }
+        },
+        "joint_strata": [
+          {
+            "algorithm": "ppo",
+            "training_seed": 22001,
+            "condition": "familiar-static",
+            "layout_id": "partial-dynamic-navigation-v1-train-001",
+            "difficulty_band": "short",
+            "metrics": {
+              "episodes": 1,
+              "counts": {
+                "success": 0,
+                "collision": 0,
+                "timeout": 1
+              },
+              "success_rate": 0.0,
+              "collision_rate": 0.0,
+              "timeout_rate": 1.0,
+              "mean_actions": 200.0,
+              "mean_return": -2.0,
+              "total_actions": 200,
+              "total_waits": 200,
+              "recovery_opportunities": 0,
+              "recoveries": 0,
+              "recovery_rate": null,
+              "mean_observed_to_recovery_delay": null,
+              "mean_decision_microseconds": 357.5629985425621
+            }
+          },
+          {
+            "algorithm": "ppo",
+            "training_seed": 22001,
+            "condition": "familiar-dynamic",
+            "layout_id": "partial-dynamic-navigation-v1-train-001",
+            "difficulty_band": "short",
+            "metrics": {
+              "episodes": 1,
+              "counts": {
+                "success": 0,
+                "collision": 0,
+                "timeout": 1
+              },
+              "success_rate": 0.0,
+              "collision_rate": 0.0,
+              "timeout_rate": 1.0,
+              "mean_actions": 200.0,
+              "mean_return": -2.0,
+              "total_actions": 200,
+              "total_waits": 200,
+              "recovery_opportunities": 1,
+              "recoveries": 0,
+              "recovery_rate": 0.0,
+              "mean_observed_to_recovery_delay": null,
+              "mean_decision_microseconds": 354.7090000938624
+            }
+          },
+          {
+            "algorithm": "ppo",
+            "training_seed": 22001,
+            "condition": "unseen-static",
+            "layout_id": "partial-dynamic-navigation-v1-validation-001",
+            "difficulty_band": "short",
+            "metrics": {
+              "episodes": 1,
+              "counts": {
+                "success": 0,
+                "collision": 0,
+                "timeout": 1
+              },
+              "success_rate": 0.0,
+              "collision_rate": 0.0,
+              "timeout_rate": 1.0,
+              "mean_actions": 200.0,
+              "mean_return": -2.0,
+              "total_actions": 200,
+              "total_waits": 200,
+              "recovery_opportunities": 0,
+              "recoveries": 0,
+              "recovery_rate": null,
+              "mean_observed_to_recovery_delay": null,
+              "mean_decision_microseconds": 1048.2725006295368
+            }
+          },
+          {
+            "algorithm": "ppo",
+            "training_seed": 22001,
+            "condition": "unseen-dynamic",
+            "layout_id": "partial-dynamic-navigation-v1-validation-001",
+            "difficulty_band": "short",
+            "metrics": {
+              "episodes": 1,
+              "counts": {
+                "success": 0,
+                "collision": 0,
+                "timeout": 1
+              },
+              "success_rate": 0.0,
+              "collision_rate": 0.0,
+              "timeout_rate": 1.0,
+              "mean_actions": 200.0,
+              "mean_return": -2.0,
+              "total_actions": 200,
+              "total_waits": 200,
+              "recovery_opportunities": 1,
+              "recoveries": 0,
+              "recovery_rate": 0.0,
+              "mean_observed_to_recovery_delay": null,
+              "mean_decision_microseconds": 382.98550818581134
+            }
+          }
+        ]
+      },
+      "training_actions_audited": 256,
+      "assessment_episodes_audited": 4
+    }
+  },
+  "wall_seconds": 12.874442799948156,
+  "large_study_run": false,
+  "new_final_generated_or_evaluated": false
+}

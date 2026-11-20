@@ -1,0 +1,125 @@
+{
+  "benchmark_id": "partial-dynamic-navigation-v1",
+  "generator_version": "partial-connected-d4-development-v1",
+  "configuration": {
+    "benchmark_id": "partial-dynamic-navigation-v1",
+    "environment_version": "partial-dynamic-env-v1",
+    "observation_version": "partial-memory-409-v2",
+    "sensor_version": "cardinal-rays-range2-v1",
+    "action_version": "up-down-left-right-wait-v1",
+    "reward_version": "partial-step-goal-collision-v1",
+    "feature_version": "partial-visible-affine-v1",
+    "shape": [
+      10,
+      10
+    ],
+    "max_steps": 200,
+    "step_reward": -0.01,
+    "success_bonus": 10.0,
+    "collision_penalty": -5.0,
+    "extra_timeout_penalty": 0.0,
+    "generation_seed": 2026112001,
+    "layout_counts": {
+      "train": 24,
+      "validation": 6
+    },
+    "reserved_final_layout_count": 10,
+    "blocked_cells": 21,
+    "minimum_diameter": 14,
+    "routes_per_layout": 6,
+    "event_duration": [
+      3,
+      8
+    ],
+    "events_per_dynamic_route": 3,
+    "smoke": {
+      "seed": 22001,
+      "interactions_per_algorithm": 256,
+      "algorithms": [
+        "q-learning",
+        "sarsa",
+        "dqn",
+        "ppo"
+      ],
+      "discount": 0.99,
+      "linear_learning_rate": 0.1,
+      "neural_learning_rate": 0.0003,
+      "net_arch": [
+        32,
+        32
+      ],
+      "epsilon_start": 1.0,
+      "epsilon_end": 0.1,
+      "buffer_size": 512,
+      "learning_starts": 32,
+      "batch_size": 32,
+      "train_freq": 4,
+      "target_update_interval": 64,
+      "n_steps": 32,
+      "n_epochs": 2
+    }
+  },
+  "task_signature": {
+    "benchmark_id": "partial-dynamic-navigation-v1",
+    "environment_version": "partial-dynamic-env-v1",
+    "observation_version": "partial-memory-409-v2",
+    "sensor_version": "cardinal-rays-range2-v1",
+    "action_version": "up-down-left-right-wait-v1",
+    "reward_version": "partial-step-goal-collision-v1",
+    "feature_version": "partial-visible-affine-v1",
+    "task_hash": "5379b1c2e64414d3024f5a6741da22c6d3bd80517eadf2173383cca63807499b"
+  },
+  "configuration_hash": "b0c15d01c19a626177977d497d7485c7e3040d378259f004ab4af1dade1c16ce",
+  "files": {
+    "train.json": "0256d3a5bb5b8d5925a9a9bf35828dcdde992923d42d3ce7b117d52608830413",
+    "validation.json": "f9d407f83625f8590adea471ff1506672cf1709edecdb4d47751364f6314a193"
+  },
+  "generation_attempts": 54,
+  "historical_excluded_geometry_hashes": [
+    "0c1f3be30c4dce63aa41e72531ffe5cd2f0d3bc42bc31e001201cc3628b59e83",
+    "0ecd80d5c7761d256425f01f3b1cc99b56b0afbafbf9350172265053171ffff5",
+    "0ee98dead453c6e7addf68322d564fcba2f9b1d4a7dfc0cf12dfa5d757765b45",
+    "11ad252ae61ed872b3fb6caa3dc221bed37fa4713d5c10908f869ed3b91f8b28",
+    "12f2b9540f69c77c74858039b0aa49b17b8c2958677bf7a74e82aa8d5dbb34fc",
+    "4037220f47079ed454518eeedf5edfaec1782cce031fde09d45ea4ccfcf0146d",
+    "42a74578833167422674e5a3ba72ca2539b240e83a878c08cca041124b92ea95",
+    "47e52052ec702902cc1288c55d932c525e55803837fe7f2a31b18f34280b2fbb",
+    "4b60718ba21a7f4b03f02e20265ac563a39c421cb05098bf596bf763518a6839",
+    "67a4daafbfd1c4406f1b8d2e1d46facd7464fbeefc88d3a24006cfa593ce7b79",
+    "724e09db37af9516fddabab69fa317437590994d40a9b80d15c59fd67d2dceed",
+    "8411818d402694625205e741440e017f36edf3b2eaaab95cd29ab742e949692f",
+    "8d6555e96535b03ce715007db3dd06e8964ec4da2a29f3759ace727630ad01a5",
+    "9334b09ed7f156d05a0cd812417204659a9b7d0e2f7be57f082dcabf7d6f7a59",
+    "96cee09d85ab9ac69b57457d2ae783a7414b7dcf44670d9bdcdabd8d951034e6",
+    "97e52bf8c7234cde99ececa44dde4db1aaf946ebd24af2fd3e2fc0d3b1987e8c",
+    "9d03033825b9b6ad451a898fac75bc61f0760a6adb860d904e86585ac495b5e6",
+    "addeec57854981b500ea2a7ee413b9ce219c05b45247569fd3957cb2ebb6c6a0",
+    "b9233b7f5fbbea8b718e93bbb324cadadedfc71be53c4dd7dae64c7d33cdba26",
+    "bbd4e4457bd7d510bed88006592c3eedaa7e54646bd27b231d55c7ed76f9eaf0",
+    "bc02d07c4fafa5254553458a1875736d55c8083aba2e54884ad332f8e0f3c725",
+    "cbea7b54aa8167e7f31d8559d262342f0572f552c6bc4bb8205ce5589f118600",
+    "d486cb2121f62f7a1fb558a020a2aa63cf10bbeceeb6a89492baf7712c1d041e",
+    "d828abbe40cc663bdcc52e56f3fca7c12a48c12b51f5c06de1835d500d952ed3",
+    "dd4e42db822598a1788e2cac3784dfe8c0814e3d8ffce1ccdcdc62d90f80dd4b",
+    "e35d525e36977447a8c5a942c4daf839f1ca425e886fe6b8baab2f505483bf75",
+    "e3b7cbc935557dd1e3e83f077b4856497502252380ae0eec5a625682cd9ebe1f",
+    "eb9f12cb2c6b74a977a44af58b5480b8e4ac699bc4c7e40a490c486c14426b94",
+    "ed9284986d133c248f4f6159a2ed327c39a07440f3c8d6e8d59ffc9732b84d44",
+    "f086c258c16e7850143983bf3ed82365bc4ac1eeb41f643115d7909db093dc49",
+    "facdee90b66aebcbe7e019867b3f7ce0db7d1f6a19b28088a74f1d9af2d6d1c9"
+  ],
+  "historical_sources": {
+    "data/maps/bottleneck-v1.json": "b54f3742f0c8775338da52f972e6c5b3aa0bae049a5262b31fa4bc4169499d04",
+    "data/unseen/unseen-maps-v1/manifest.json": "cdaaa92b9b3f9a41500b18353850dad98558c1a93bf2c7c9cefd5c21719fa4de",
+    "data/unseen/unseen-maps-v1/test.json": "e7debf0b0884a32f5fc740b85d699f04df79f1aae4824775e7abee52db3b8b67",
+    "data/unseen/unseen-maps-v1/train.json": "0dd6b27dc73c21f6fe779c4fe584c1add21d6cc52afabd7eb8bb2dec543ac6c2",
+    "data/unseen/unseen-maps-v1/validation.json": "f5a45648ba3c35c506b6c593649cd83f59e2c28aff92f0f71ffbe93727811eeb",
+    "data/navigation-lab/structured-navigation-v2/dead-end-maze.json": "0001d4659aaa360e3575335ca885cefa15780e35333269474848bc15ba5532f9",
+    "data/navigation-lab/structured-navigation-v2/deep-cul-de-sacs.json": "09a423913810e996a80b8be69213b3b8b8757f1aee68a06beece9fc83e9d4c9a",
+    "data/navigation-lab/structured-navigation-v2/looped-corridors.json": "4ec52192e5ce754fe3618b76484b1e531202586aa99359933faf1e7078e14ea3",
+    "data/navigation-lab/structured-navigation-v2/manifest.json": "1711bce058c2eea8cc2cc0d82ab811a61d8adb6f0344f07ae1e76021219bf99b",
+    "data/navigation-lab/structured-navigation-v2/rooms-and-doorways.json": "dcfef519658ed7bc2cc49ec8c09668b6164aa5d72215b80505b2a5979ea7857e"
+  },
+  "generator_sha256": "41867e1c4fc45f45fb586d4b1b851f60300a757f172f2800fe719af94fbe9f2c",
+  "final_status": "Not generated; ten fresh final layouts proposed; separate authorization/freeze required"
+}
