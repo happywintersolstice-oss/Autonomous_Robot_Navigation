@@ -1,0 +1,9 @@
+{
+  "stage": "after all reports rendered, before original-repository Git postcondition",
+  "exception": "Git exit 128: dubious ownership under CodexSandboxOffline",
+  "followup_status_difference": "Default status collapsed untracked directories; initial inventory used --untracked-files=all",
+  "resolution": "Separate read-only preservation check in appropriate context, using original status options; all 9646 files, main HEAD, index and status match",
+  "renderer_retried": false,
+  "scientific_analysis_retried": false,
+  "additional_score_calls": 0
+}

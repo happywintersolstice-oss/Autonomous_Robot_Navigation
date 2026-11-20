@@ -1,0 +1,31 @@
+{
+  "linear": {
+    "actual_target_TD_error_sampled_SARSA_action_update_norm": "historical",
+    "continuing_bootstrap": "reconstructable-contemporaneous from adjacent logged scores and exact recorded increment",
+    "truncated_or_last_continuing_bootstrap": "not-observed independently; actual target remains recorded",
+    "feature_contributions": "snapshot exact algebra"
+  },
+  "dqn": {
+    "online_and_target_weights_0_2k_6k": "historical saved checkpoints",
+    "training_preaction_online_Q": "historical",
+    "replay_contents": "historical saved buffer",
+    "optimizer_norms_counts": "historical",
+    "per_batch_sample_IDs_target_tensors_network_trajectory": "not-observed; not recorded",
+    "frozen_TD_target_residual": "snapshot; never historical optimizer target"
+  },
+  "ppo": {
+    "all_training_preaction_probabilities_V": "historical",
+    "last_rollout_values_log_probs_returns_advantages_2k_6k": "historical; only last 100 transitions each",
+    "sampled_log_prob": "reconstructable-contemporaneous from logged action probability",
+    "full_GAE_history_minibatch_normalized_advantages_shuffle": "not-observed; not recorded",
+    "last_boundary_bootstrap": "not-observed unless saved boundary is terminal; inspect each archive",
+    "frozen_probabilities_entropy_log_odds_V": "snapshot",
+    "Q_values": "not-applicable"
+  },
+  "all": {
+    "full_gradient_arrays": "not-observed; norm/finiteness summaries only",
+    "assessment_episodes": "historical; 480 reused, zero executed",
+    "legal_40_probes": "synthetic-score-only; exact Phase 5C reuse",
+    "hidden_world_or_final_test": "not-accessed"
+  }
+}

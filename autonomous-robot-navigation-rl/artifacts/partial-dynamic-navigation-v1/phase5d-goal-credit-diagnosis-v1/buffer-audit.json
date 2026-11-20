@@ -1,0 +1,134 @@
+[
+  {
+    "saved_replay_transitions": 0,
+    "sampled_batch_IDs_and_actual_targets": "not recorded",
+    "provenance": "historical buffer; no replay.sample or optimization executed",
+    "family": "dqn",
+    "arm": "B0-original",
+    "checkpoint": 0
+  },
+  {
+    "saved_replay_transitions": 2000,
+    "sampled_batch_IDs_and_actual_targets": "not recorded",
+    "provenance": "historical buffer; no replay.sample or optimization executed",
+    "family": "dqn",
+    "arm": "B0-original",
+    "checkpoint": 2000
+  },
+  {
+    "saved_replay_transitions": 6000,
+    "sampled_batch_IDs_and_actual_targets": "not recorded",
+    "provenance": "historical buffer; no replay.sample or optimization executed",
+    "family": "dqn",
+    "arm": "B0-original",
+    "checkpoint": 6000
+  },
+  {
+    "saved_replay_transitions": 0,
+    "sampled_batch_IDs_and_actual_targets": "not recorded",
+    "provenance": "historical buffer; no replay.sample or optimization executed",
+    "family": "dqn",
+    "arm": "B1-relative-x4",
+    "checkpoint": 0
+  },
+  {
+    "saved_replay_transitions": 2000,
+    "sampled_batch_IDs_and_actual_targets": "not recorded",
+    "provenance": "historical buffer; no replay.sample or optimization executed",
+    "family": "dqn",
+    "arm": "B1-relative-x4",
+    "checkpoint": 2000
+  },
+  {
+    "saved_replay_transitions": 6000,
+    "sampled_batch_IDs_and_actual_targets": "not recorded",
+    "provenance": "historical buffer; no replay.sample or optimization executed",
+    "family": "dqn",
+    "arm": "B1-relative-x4",
+    "checkpoint": 6000
+  },
+  {
+    "saved_rollout_transitions": 0,
+    "full_history_GAE": "not recorded",
+    "boundary": "not-observed",
+    "family": "ppo",
+    "arm": "B0-original",
+    "checkpoint": 0
+  },
+  {
+    "saved_rollout_transitions": 100,
+    "values_match_contemporaneous_log": true,
+    "sampled_log_probs_match": true,
+    "return_identity_verified": true,
+    "interior_GAE_max_error": 0.0,
+    "boundary": "pre-update last bootstrap value not recorded",
+    "timeout_augmented_records": 0,
+    "timeout_reward_adjustments": [],
+    "saved_reward_GAE_recurrence_verified": true,
+    "full_saved_rollout_independent_GAE": false,
+    "full_history_GAE": "not recorded; earlier rollout boundaries and minibatch credit path unavailable",
+    "provenance": "historical last-rollout arrays, not a post-update critic reconstruction",
+    "family": "ppo",
+    "arm": "B0-original",
+    "checkpoint": 2000
+  },
+  {
+    "saved_rollout_transitions": 100,
+    "values_match_contemporaneous_log": true,
+    "sampled_log_probs_match": true,
+    "return_identity_verified": true,
+    "interior_GAE_max_error": 0.0,
+    "boundary": "pre-update last bootstrap value not recorded",
+    "timeout_augmented_records": 0,
+    "timeout_reward_adjustments": [],
+    "saved_reward_GAE_recurrence_verified": true,
+    "full_saved_rollout_independent_GAE": false,
+    "full_history_GAE": "not recorded; earlier rollout boundaries and minibatch credit path unavailable",
+    "provenance": "historical last-rollout arrays, not a post-update critic reconstruction",
+    "family": "ppo",
+    "arm": "B0-original",
+    "checkpoint": 6000
+  },
+  {
+    "saved_rollout_transitions": 0,
+    "full_history_GAE": "not recorded",
+    "boundary": "not-observed",
+    "family": "ppo",
+    "arm": "B1-relative-x4",
+    "checkpoint": 0
+  },
+  {
+    "saved_rollout_transitions": 100,
+    "values_match_contemporaneous_log": true,
+    "sampled_log_probs_match": true,
+    "return_identity_verified": true,
+    "interior_GAE_max_error": 0.0,
+    "boundary": "pre-update last bootstrap value not recorded",
+    "timeout_augmented_records": 0,
+    "timeout_reward_adjustments": [],
+    "saved_reward_GAE_recurrence_verified": true,
+    "full_saved_rollout_independent_GAE": false,
+    "full_history_GAE": "not recorded; earlier rollout boundaries and minibatch credit path unavailable",
+    "provenance": "historical last-rollout arrays, not a post-update critic reconstruction",
+    "family": "ppo",
+    "arm": "B1-relative-x4",
+    "checkpoint": 2000
+  },
+  {
+    "saved_rollout_transitions": 100,
+    "values_match_contemporaneous_log": true,
+    "sampled_log_probs_match": true,
+    "return_identity_verified": true,
+    "interior_GAE_max_error": 0.0,
+    "boundary": "pre-update last bootstrap value not recorded",
+    "timeout_augmented_records": 0,
+    "timeout_reward_adjustments": [],
+    "saved_reward_GAE_recurrence_verified": true,
+    "full_saved_rollout_independent_GAE": false,
+    "full_history_GAE": "not recorded; earlier rollout boundaries and minibatch credit path unavailable",
+    "provenance": "historical last-rollout arrays, not a post-update critic reconstruction",
+    "family": "ppo",
+    "arm": "B1-relative-x4",
+    "checkpoint": 6000
+  }
+]

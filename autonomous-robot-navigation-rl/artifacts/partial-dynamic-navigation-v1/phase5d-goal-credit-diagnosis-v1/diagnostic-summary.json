@@ -1,0 +1,61 @@
+{
+  "study_id": "phase5d-goal-credit-diagnosis-v1",
+  "verdict": "DIAGNOSTIC_COMPLETED_INSUFFICIENT_HISTORICAL_SIGNAL",
+  "reason": "Missing DQN actual optimizer sample/target trajectory, incomplete PPO historical GAE, and development-state support limit unique causal attribution. Descriptive frozen sensitivity is not causal credit assignment.",
+  "accounting": {
+    "historical_unique_training_actions": 48000,
+    "historical_assessment_actions": 41705,
+    "historical_assessment_episodes": 480,
+    "historical_phase5c_probe_calls_reused": 960,
+    "historical_case_vectors_reused": 480,
+    "new_forward_calls": 3786,
+    "new_training_actions": 0,
+    "new_policy_environment_actions": 0,
+    "new_probes": 0
+  },
+  "linear_updates_audited": 24000,
+  "linear_independent_targets": 23974,
+  "wall_seconds": 61.41790280002169,
+  "preservation": {
+    "status": "passed",
+    "base_files": 10025,
+    "historical_pins": {
+      "feasibility-pilot-v1": 249,
+      "phase5b-a-only-v1": 270,
+      "phase5c-directional-coverage-v1": 123
+    },
+    "changed": []
+  },
+  "resource_caps": {
+    "study_id": "phase5d-goal-credit-diagnosis-v1",
+    "version": "goal-credit-read-only-v1",
+    "reviewed_commit": "c1505cc1dab0623b9c7eb86b7bfae9ac3216fa4d",
+    "algorithms": [
+      "q-learning",
+      "sarsa",
+      "dqn",
+      "ppo"
+    ],
+    "arms": [
+      "B0-original",
+      "B1-relative-x4"
+    ],
+    "checkpoints": [
+      0,
+      2000,
+      6000
+    ],
+    "cohort_per_direction_and_outcome": 6,
+    "cohort_window": 6000,
+    "approximate_raw_mean_l1_max": 0.05,
+    "forward_call_ceiling": 5000,
+    "declared_worst_case_calls": 4752,
+    "analysis_wall_seconds": 1200,
+    "artifact_byte_ceiling": 134217728,
+    "new_training_actions": 0,
+    "new_policy_environment_actions": 0,
+    "new_probes": 0
+  },
+  "scientific_scope": "Fixture A only; no new trajectories; all 8 arms and all 3 snapshots retained",
+  "followup": "Before further learning, register instrumentation for replay sample IDs, online/target fingerprints and actual TD targets; PPO collection bootstrap values, rollout IDs, returns/advantages and batch membership. No new training authorized."
+}

@@ -1,0 +1,9 @@
+{
+  "stage": "first report rendering, after successful scientific verification",
+  "exception": "TypeError: unsupported operand type(s) for +: 'int' and 'str'",
+  "cause": "csv.DictWriter writes Python booleans True/False; JSON-only decoder left these as strings",
+  "scientific_analysis_retried": false,
+  "new_score_calls": 0,
+  "report_written_before_failure": false,
+  "frozen_analysis_plan_unchanged": true
+}
