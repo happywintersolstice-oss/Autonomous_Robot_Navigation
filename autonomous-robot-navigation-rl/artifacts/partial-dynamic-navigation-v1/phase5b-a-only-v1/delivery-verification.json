@@ -1,0 +1,276 @@
+{
+  "schema_version": 1,
+  "verified_utc": "2026-11-20T13:57:27.982712+00:00",
+  "branch": "feature/phase5b-basic-navigation-diagnosis-v1",
+  "reviewed_base_commit": "d3822423ffd6fa3c83f9a26fc15808fa9103e36c",
+  "study_status": "completed",
+  "verdict": "SCALING_HYPOTHESIS_NOT_SUPPORTED",
+  "families_passed": 0,
+  "publication": "Verified before local commit; no push or main merge requested/performed for Phase 5B",
+  "created_application_files": [
+    "configs/partial_phase5b_v1.yaml",
+    "developer/tests/test_partial_phase5b.py",
+    "developer/commands/phase5b_case_analysis_v1.py",
+    "docs/partial_phase5b_protocol.md",
+    "docs/partial_phase5b_diagnosis.md",
+    "docs/partial_phase5b_results.md",
+    "src/robot_navigation/partial_features_scaled.py",
+    "src/robot_navigation/partial_phase5b.py",
+    "src/robot_navigation/partial_phase5b_diagnostics.py",
+    "src/robot_navigation/partial_phase5b_fixtures.py",
+    "src/robot_navigation/partial_phase5b_report.py"
+  ],
+  "created_root_file": "CODEX_PHASE5B_BASIC_NAVIGATION_DIAGNOSIS.md",
+  "only_existing_file_changed": ".gitattributes: exact-byte preservation rule for the new brief",
+  "historical_preservation": {
+    "checked": 9630,
+    "historical_files_changed": [],
+    "only_existing_file_edit": ".gitattributes: byte preservation for new Phase 5B brief"
+  },
+  "phase5a_delivery_pins": 249,
+  "original_workspace": {
+    "status": "passed",
+    "original_head": "cf7f0f11d3a94d8533c6a1ff7b4834f1db78f141",
+    "original_branch": "main",
+    "file_hashes_checked": 9644,
+    "changed": [],
+    "status_and_staged_diff": "unchanged"
+  },
+  "tests": {
+    "baseline": 305,
+    "focused": 131,
+    "pretraining_full": {
+      "tests": 366,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "postrun_full": {
+      "tests": 366,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "source_boundary": "passed",
+    "information_boundary": "passed"
+  },
+  "actual_counts": {
+    "q-learning/B0-original": {
+      "training_actions": 6000,
+      "assessment_actions": 4727,
+      "assessment_episodes": 60,
+      "status": "completed",
+      "checkpoints": [
+        {
+          "actions": 0,
+          "original_goals": 1,
+          "expanded_goals": 4
+        },
+        {
+          "actions": 2000,
+          "original_goals": 1,
+          "expanded_goals": 4
+        },
+        {
+          "actions": 6000,
+          "original_goals": 1,
+          "expanded_goals": 6
+        }
+      ]
+    },
+    "q-learning/B1-relative-x4": {
+      "training_actions": 6000,
+      "assessment_actions": 4676,
+      "assessment_episodes": 60,
+      "status": "completed",
+      "checkpoints": [
+        {
+          "actions": 0,
+          "original_goals": 1,
+          "expanded_goals": 4
+        },
+        {
+          "actions": 2000,
+          "original_goals": 2,
+          "expanded_goals": 8
+        },
+        {
+          "actions": 6000,
+          "original_goals": 1,
+          "expanded_goals": 7
+        }
+      ]
+    },
+    "sarsa/B0-original": {
+      "training_actions": 6000,
+      "assessment_actions": 3032,
+      "assessment_episodes": 60,
+      "status": "completed",
+      "checkpoints": [
+        {
+          "actions": 0,
+          "original_goals": 1,
+          "expanded_goals": 4
+        },
+        {
+          "actions": 2000,
+          "original_goals": 2,
+          "expanded_goals": 7
+        },
+        {
+          "actions": 6000,
+          "original_goals": 1,
+          "expanded_goals": 5
+        }
+      ]
+    },
+    "sarsa/B1-relative-x4": {
+      "training_actions": 6000,
+      "assessment_actions": 4138,
+      "assessment_episodes": 60,
+      "status": "completed",
+      "checkpoints": [
+        {
+          "actions": 0,
+          "original_goals": 1,
+          "expanded_goals": 4
+        },
+        {
+          "actions": 2000,
+          "original_goals": 1,
+          "expanded_goals": 5
+        },
+        {
+          "actions": 6000,
+          "original_goals": 2,
+          "expanded_goals": 7
+        }
+      ]
+    },
+    "dqn/B0-original": {
+      "training_actions": 6000,
+      "assessment_actions": 5160,
+      "assessment_episodes": 60,
+      "status": "completed",
+      "checkpoints": [
+        {
+          "actions": 0,
+          "original_goals": 1,
+          "expanded_goals": 4
+        },
+        {
+          "actions": 2000,
+          "original_goals": 2,
+          "expanded_goals": 4
+        },
+        {
+          "actions": 6000,
+          "original_goals": 1,
+          "expanded_goals": 2
+        }
+      ]
+    },
+    "dqn/B1-relative-x4": {
+      "training_actions": 6000,
+      "assessment_actions": 4184,
+      "assessment_episodes": 60,
+      "status": "completed",
+      "checkpoints": [
+        {
+          "actions": 0,
+          "original_goals": 1,
+          "expanded_goals": 4
+        },
+        {
+          "actions": 2000,
+          "original_goals": 2,
+          "expanded_goals": 5
+        },
+        {
+          "actions": 6000,
+          "original_goals": 3,
+          "expanded_goals": 10
+        }
+      ]
+    },
+    "ppo/B0-original": {
+      "training_actions": 6000,
+      "assessment_actions": 9645,
+      "assessment_episodes": 60,
+      "status": "completed",
+      "checkpoints": [
+        {
+          "actions": 0,
+          "original_goals": 1,
+          "expanded_goals": 4
+        },
+        {
+          "actions": 2000,
+          "original_goals": 0,
+          "expanded_goals": 0
+        },
+        {
+          "actions": 6000,
+          "original_goals": 0,
+          "expanded_goals": 0
+        }
+      ]
+    },
+    "ppo/B1-relative-x4": {
+      "training_actions": 6000,
+      "assessment_actions": 6143,
+      "assessment_episodes": 60,
+      "status": "completed",
+      "checkpoints": [
+        {
+          "actions": 0,
+          "original_goals": 1,
+          "expanded_goals": 4
+        },
+        {
+          "actions": 2000,
+          "original_goals": 2,
+          "expanded_goals": 6
+        },
+        {
+          "actions": 6000,
+          "original_goals": 1,
+          "expanded_goals": 5
+        }
+      ]
+    }
+  },
+  "training_total": 48000,
+  "assessment_total": 41761,
+  "assessment_episodes": 520,
+  "controls": {
+    "actions": 56,
+    "episodes": 40
+  },
+  "incomplete_training_episode_prefixes": 7,
+  "aborted_arms": 0,
+  "retries": 0,
+  "wall_seconds": 433.9089190000668,
+  "resources": {
+    "cpu_user_seconds": 394.234375,
+    "cpu_system_seconds": 19.03125,
+    "working_set_bytes": 955731968,
+    "peak_working_set_bytes": 1114034176
+  },
+  "plot_visual_review": "Opened PNG; all eight panels, checkpoint marks, labels and legend legible",
+  "no_further_work": [
+    "B/C/D/E training",
+    "full Phase 5",
+    "new final/test generation/evaluation",
+    "Phase 6 UI",
+    "main merge",
+    "extra seeds"
+  ],
+  "hashes": {
+    "protocol": "088c5f4a4f01be0fd467e86de354b4acfaf768bff74ccc58b1c71d70bf4ea0e8",
+    "measured_outputs_inventory": "2a71ae64567a9d6dfa31c5854a278c2e0188618e4d3013a07d5ce0174c04fb71",
+    "replay_audit": "988afbab2e8f5d146170f982c023028c2c7a0c9eabd974820c5957dfc62fa62a",
+    "final_verdict": "8f27598548ab1846da03d4b8982bd64b9f81d56624a2f85a846871f462058ec7"
+  },
+  "posthoc_scope": "Versioned case arithmetic only; zero new environment or learning actions"
+}

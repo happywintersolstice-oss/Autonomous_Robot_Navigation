@@ -1,0 +1,60 @@
+{
+  "verdict": "SCALING_HYPOTHESIS_NOT_SUPPORTED",
+  "families_passed": 0,
+  "families_assessed": 4,
+  "screens": {
+    "q-learning": {
+      "assessed": true,
+      "passed": false,
+      "checks": {
+        "original_minimum": false,
+        "gain_over_b1_initial": false,
+        "original_gain_over_b0": false,
+        "expanded_minimum": false,
+        "expanded_gain_over_b0": false
+      },
+      "original_difference": 0,
+      "expanded_difference": 1
+    },
+    "sarsa": {
+      "assessed": true,
+      "passed": false,
+      "checks": {
+        "original_minimum": false,
+        "gain_over_b1_initial": true,
+        "original_gain_over_b0": true,
+        "expanded_minimum": false,
+        "expanded_gain_over_b0": false
+      },
+      "original_difference": 1,
+      "expanded_difference": 2
+    },
+    "dqn": {
+      "assessed": true,
+      "passed": false,
+      "checks": {
+        "original_minimum": true,
+        "gain_over_b1_initial": true,
+        "original_gain_over_b0": true,
+        "expanded_minimum": false,
+        "expanded_gain_over_b0": true
+      },
+      "original_difference": 2,
+      "expanded_difference": 8
+    },
+    "ppo": {
+      "assessed": true,
+      "passed": false,
+      "checks": {
+        "original_minimum": false,
+        "gain_over_b1_initial": false,
+        "original_gain_over_b0": true,
+        "expanded_minimum": false,
+        "expanded_gain_over_b0": true
+      },
+      "original_difference": 1,
+      "expanded_difference": 5
+    }
+  },
+  "scope": "Single seed, familiar geometry development only; no further training permission"
+}

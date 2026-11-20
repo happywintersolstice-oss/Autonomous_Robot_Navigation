@@ -1,0 +1,2510 @@
+{
+  "version": "phase5b-posthoc-case-analysis-v1",
+  "new_training_actions": 0,
+  "new_assessment_actions": 0,
+  "scope": "Post-hoc case and path arithmetic; not a new screening criterion or a learned-policy run",
+  "families": {
+    "q-learning": {
+      "original": {
+        "failure -> failure": 2,
+        "goal -> failure": 1,
+        "failure -> goal": 1
+      },
+      "expanded": {
+        "failure -> goal": 5,
+        "failure -> failure": 5,
+        "goal -> goal": 2,
+        "goal -> failure": 4
+      }
+    },
+    "sarsa": {
+      "original": {
+        "goal -> failure": 1,
+        "failure -> goal": 2,
+        "failure -> failure": 1
+      },
+      "expanded": {
+        "goal -> failure": 3,
+        "failure -> failure": 6,
+        "goal -> goal": 2,
+        "failure -> goal": 5
+      }
+    },
+    "dqn": {
+      "original": {
+        "failure -> failure": 1,
+        "goal -> goal": 1,
+        "failure -> goal": 2
+      },
+      "expanded": {
+        "failure -> goal": 8,
+        "failure -> failure": 6,
+        "goal -> goal": 2
+      }
+    },
+    "ppo": {
+      "original": {
+        "failure -> goal": 1,
+        "failure -> failure": 3
+      },
+      "expanded": {
+        "failure -> goal": 5,
+        "failure -> failure": 11
+      }
+    }
+  },
+  "arms": {
+    "q-learning/B0-original": {
+      "original": {
+        "success_count": 1,
+        "successful_action_lengths": [
+          1
+        ],
+        "successful_minimum_axis_steps": [
+          1
+        ],
+        "success_only_total_action_excess": 0,
+        "reference_scope": "Evaluator-only open-geometry shortest-action arithmetic, never supplied to a learner",
+        "failures": [
+          {
+            "case_id": "phase5a-handwritten-fixtures-v1-A-evaluation-00",
+            "direction": "Up",
+            "distance": 1,
+            "quadrant": 0,
+            "boundary_band": "interior",
+            "start": [
+              3,
+              3
+            ],
+            "goal": [
+              2,
+              3
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 184,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.16137718817203606
+          },
+          {
+            "case_id": "phase5a-handwritten-fixtures-v1-A-evaluation-02",
+            "direction": "Left",
+            "distance": 1,
+            "quadrant": 2,
+            "boundary_band": "interior",
+            "start": [
+              6,
+              3
+            ],
+            "goal": [
+              6,
+              2
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 186,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.8254350480511974
+          },
+          {
+            "case_id": "phase5a-handwritten-fixtures-v1-A-evaluation-03",
+            "direction": "Right",
+            "distance": 1,
+            "quadrant": 1,
+            "boundary_band": "interior",
+            "start": [
+              3,
+              6
+            ],
+            "goal": [
+              3,
+              7
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.22143571763757564
+          }
+        ]
+      },
+      "expanded": {
+        "success_count": 6,
+        "successful_action_lengths": [
+          10,
+          2,
+          1,
+          2,
+          2,
+          2
+        ],
+        "successful_minimum_axis_steps": [
+          2,
+          2,
+          1,
+          2,
+          2,
+          2
+        ],
+        "success_only_total_action_excess": 8,
+        "reference_scope": "Evaluator-only open-geometry shortest-action arithmetic, never supplied to a learner",
+        "failures": [
+          {
+            "case_id": "phase5b-open-development-pairs-v1-00",
+            "direction": "Up",
+            "distance": 1,
+            "quadrant": 0,
+            "boundary_band": "interior",
+            "start": [
+              4,
+              3
+            ],
+            "goal": [
+              3,
+              3
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 180,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.1770657100274029
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-01",
+            "direction": "Up",
+            "distance": 1,
+            "quadrant": 1,
+            "boundary_band": "interior",
+            "start": [
+              1,
+              7
+            ],
+            "goal": [
+              0,
+              7
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.2801170580380914
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-05",
+            "direction": "Down",
+            "distance": 1,
+            "quadrant": 2,
+            "boundary_band": "edge",
+            "start": [
+              6,
+              0
+            ],
+            "goal": [
+              7,
+              0
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 188,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.19752245529061696
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-06",
+            "direction": "Down",
+            "distance": 2,
+            "quadrant": 3,
+            "boundary_band": "edge",
+            "start": [
+              6,
+              9
+            ],
+            "goal": [
+              8,
+              9
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": true,
+            "first_goal_margin": 0.07062350155232267
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-08",
+            "direction": "Left",
+            "distance": 1,
+            "quadrant": 2,
+            "boundary_band": "interior",
+            "start": [
+              7,
+              1
+            ],
+            "goal": [
+              7,
+              0
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -1.0524753726069545
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-09",
+            "direction": "Left",
+            "distance": 1,
+            "quadrant": 3,
+            "boundary_band": "interior",
+            "start": [
+              5,
+              7
+            ],
+            "goal": [
+              5,
+              6
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.5341108478799024
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-10",
+            "direction": "Left",
+            "distance": 2,
+            "quadrant": 0,
+            "boundary_band": "edge",
+            "start": [
+              0,
+              4
+            ],
+            "goal": [
+              0,
+              2
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.8032547441510784
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-11",
+            "direction": "Left",
+            "distance": 2,
+            "quadrant": 1,
+            "boundary_band": "edge",
+            "start": [
+              0,
+              7
+            ],
+            "goal": [
+              0,
+              5
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.6042301419271654
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-12",
+            "direction": "Right",
+            "distance": 1,
+            "quadrant": 3,
+            "boundary_band": "interior",
+            "start": [
+              5,
+              6
+            ],
+            "goal": [
+              5,
+              7
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.2631733880291689
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-13",
+            "direction": "Right",
+            "distance": 1,
+            "quadrant": 0,
+            "boundary_band": "edge",
+            "start": [
+              2,
+              0
+            ],
+            "goal": [
+              2,
+              1
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 176,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.07692823627671075
+          }
+        ]
+      }
+    },
+    "q-learning/B1-relative-x4": {
+      "original": {
+        "success_count": 1,
+        "successful_action_lengths": [
+          1
+        ],
+        "successful_minimum_axis_steps": [
+          1
+        ],
+        "success_only_total_action_excess": 0,
+        "reference_scope": "Evaluator-only open-geometry shortest-action arithmetic, never supplied to a learner",
+        "failures": [
+          {
+            "case_id": "phase5a-handwritten-fixtures-v1-A-evaluation-00",
+            "direction": "Up",
+            "distance": 1,
+            "quadrant": 0,
+            "boundary_band": "interior",
+            "start": [
+              3,
+              3
+            ],
+            "goal": [
+              2,
+              3
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 199,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.12990942209739842
+          },
+          {
+            "case_id": "phase5a-handwritten-fixtures-v1-A-evaluation-01",
+            "direction": "Down",
+            "distance": 1,
+            "quadrant": 3,
+            "boundary_band": "interior",
+            "start": [
+              6,
+              6
+            ],
+            "goal": [
+              7,
+              6
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.21805688365360965
+          },
+          {
+            "case_id": "phase5a-handwritten-fixtures-v1-A-evaluation-03",
+            "direction": "Right",
+            "distance": 1,
+            "quadrant": 1,
+            "boundary_band": "interior",
+            "start": [
+              3,
+              6
+            ],
+            "goal": [
+              3,
+              7
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.5825784965257252
+          }
+        ]
+      },
+      "expanded": {
+        "success_count": 7,
+        "successful_action_lengths": [
+          1,
+          4,
+          2,
+          1,
+          1,
+          2,
+          2
+        ],
+        "successful_minimum_axis_steps": [
+          1,
+          2,
+          2,
+          1,
+          1,
+          2,
+          2
+        ],
+        "success_only_total_action_excess": 2,
+        "reference_scope": "Evaluator-only open-geometry shortest-action arithmetic, never supplied to a learner",
+        "failures": [
+          {
+            "case_id": "phase5b-open-development-pairs-v1-01",
+            "direction": "Up",
+            "distance": 1,
+            "quadrant": 1,
+            "boundary_band": "interior",
+            "start": [
+              1,
+              7
+            ],
+            "goal": [
+              0,
+              7
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 182,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.44775195248875477
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-03",
+            "direction": "Up",
+            "distance": 2,
+            "quadrant": 3,
+            "boundary_band": "edge",
+            "start": [
+              9,
+              6
+            ],
+            "goal": [
+              7,
+              6
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": true,
+            "first_goal_margin": 0.06308457740621876
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-04",
+            "direction": "Down",
+            "distance": 1,
+            "quadrant": 1,
+            "boundary_band": "interior",
+            "start": [
+              3,
+              6
+            ],
+            "goal": [
+              4,
+              6
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.2842679057024444
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-05",
+            "direction": "Down",
+            "distance": 1,
+            "quadrant": 2,
+            "boundary_band": "edge",
+            "start": [
+              6,
+              0
+            ],
+            "goal": [
+              7,
+              0
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 200,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.008217083312976214
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-06",
+            "direction": "Down",
+            "distance": 2,
+            "quadrant": 3,
+            "boundary_band": "edge",
+            "start": [
+              6,
+              9
+            ],
+            "goal": [
+              8,
+              9
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.03562104435458657
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-12",
+            "direction": "Right",
+            "distance": 1,
+            "quadrant": 3,
+            "boundary_band": "interior",
+            "start": [
+              5,
+              6
+            ],
+            "goal": [
+              5,
+              7
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.5785621610422442
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-13",
+            "direction": "Right",
+            "distance": 1,
+            "quadrant": 0,
+            "boundary_band": "edge",
+            "start": [
+              2,
+              0
+            ],
+            "goal": [
+              2,
+              1
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 200,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.14196410383558167
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-14",
+            "direction": "Right",
+            "distance": 2,
+            "quadrant": 1,
+            "boundary_band": "edge",
+            "start": [
+              0,
+              5
+            ],
+            "goal": [
+              0,
+              7
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.03629290425863729
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-15",
+            "direction": "Right",
+            "distance": 2,
+            "quadrant": 2,
+            "boundary_band": "interior",
+            "start": [
+              8,
+              3
+            ],
+            "goal": [
+              8,
+              5
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.01577438499594841
+          }
+        ]
+      }
+    },
+    "sarsa/B0-original": {
+      "original": {
+        "success_count": 1,
+        "successful_action_lengths": [
+          1
+        ],
+        "successful_minimum_axis_steps": [
+          1
+        ],
+        "success_only_total_action_excess": 0,
+        "reference_scope": "Evaluator-only open-geometry shortest-action arithmetic, never supplied to a learner",
+        "failures": [
+          {
+            "case_id": "phase5a-handwritten-fixtures-v1-A-evaluation-01",
+            "direction": "Down",
+            "distance": 1,
+            "quadrant": 3,
+            "boundary_band": "interior",
+            "start": [
+              6,
+              6
+            ],
+            "goal": [
+              7,
+              6
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 189,
+            "first_goal_directed": false,
+            "first_goal_margin": -1.4081667881144881
+          },
+          {
+            "case_id": "phase5a-handwritten-fixtures-v1-A-evaluation-02",
+            "direction": "Left",
+            "distance": 1,
+            "quadrant": 2,
+            "boundary_band": "interior",
+            "start": [
+              6,
+              3
+            ],
+            "goal": [
+              6,
+              2
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 173,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.35711758045910136
+          },
+          {
+            "case_id": "phase5a-handwritten-fixtures-v1-A-evaluation-03",
+            "direction": "Right",
+            "distance": 1,
+            "quadrant": 1,
+            "boundary_band": "interior",
+            "start": [
+              3,
+              6
+            ],
+            "goal": [
+              3,
+              7
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 179,
+            "first_goal_directed": false,
+            "first_goal_margin": -1.5935043725623457
+          }
+        ]
+      },
+      "expanded": {
+        "success_count": 5,
+        "successful_action_lengths": [
+          1,
+          2,
+          2,
+          2,
+          20
+        ],
+        "successful_minimum_axis_steps": [
+          1,
+          2,
+          2,
+          2,
+          2
+        ],
+        "success_only_total_action_excess": 18,
+        "reference_scope": "Evaluator-only open-geometry shortest-action arithmetic, never supplied to a learner",
+        "failures": [
+          {
+            "case_id": "phase5b-open-development-pairs-v1-01",
+            "direction": "Up",
+            "distance": 1,
+            "quadrant": 1,
+            "boundary_band": "interior",
+            "start": [
+              1,
+              7
+            ],
+            "goal": [
+              0,
+              7
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 129,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.012489572048685726
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-04",
+            "direction": "Down",
+            "distance": 1,
+            "quadrant": 1,
+            "boundary_band": "interior",
+            "start": [
+              3,
+              6
+            ],
+            "goal": [
+              4,
+              6
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 179,
+            "first_goal_directed": false,
+            "first_goal_margin": -1.1932473172796754
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-05",
+            "direction": "Down",
+            "distance": 1,
+            "quadrant": 2,
+            "boundary_band": "edge",
+            "start": [
+              6,
+              0
+            ],
+            "goal": [
+              7,
+              0
+            ],
+            "outcome": "collision",
+            "actions": 7,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -1.2105044567222984
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-06",
+            "direction": "Down",
+            "distance": 2,
+            "quadrant": 3,
+            "boundary_band": "edge",
+            "start": [
+              6,
+              9
+            ],
+            "goal": [
+              8,
+              9
+            ],
+            "outcome": "collision",
+            "actions": 23,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -1.3883568008324358
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-07",
+            "direction": "Down",
+            "distance": 2,
+            "quadrant": 0,
+            "boundary_band": "edge",
+            "start": [
+              0,
+              2
+            ],
+            "goal": [
+              2,
+              2
+            ],
+            "outcome": "collision",
+            "actions": 1,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -1.2210037080746594
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-08",
+            "direction": "Left",
+            "distance": 1,
+            "quadrant": 2,
+            "boundary_band": "interior",
+            "start": [
+              7,
+              1
+            ],
+            "goal": [
+              7,
+              0
+            ],
+            "outcome": "collision",
+            "actions": 8,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.38627030861436884
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-09",
+            "direction": "Left",
+            "distance": 1,
+            "quadrant": 3,
+            "boundary_band": "interior",
+            "start": [
+              5,
+              7
+            ],
+            "goal": [
+              5,
+              6
+            ],
+            "outcome": "collision",
+            "actions": 20,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.6814710973390885
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-10",
+            "direction": "Left",
+            "distance": 2,
+            "quadrant": 0,
+            "boundary_band": "edge",
+            "start": [
+              0,
+              4
+            ],
+            "goal": [
+              0,
+              2
+            ],
+            "outcome": "collision",
+            "actions": 1,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.032596578010236854
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-12",
+            "direction": "Right",
+            "distance": 1,
+            "quadrant": 3,
+            "boundary_band": "interior",
+            "start": [
+              5,
+              6
+            ],
+            "goal": [
+              5,
+              7
+            ],
+            "outcome": "collision",
+            "actions": 20,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -1.7639570520795858
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-13",
+            "direction": "Right",
+            "distance": 1,
+            "quadrant": 0,
+            "boundary_band": "edge",
+            "start": [
+              2,
+              0
+            ],
+            "goal": [
+              2,
+              1
+            ],
+            "outcome": "collision",
+            "actions": 3,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -1.5952819328049177
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-14",
+            "direction": "Right",
+            "distance": 2,
+            "quadrant": 1,
+            "boundary_band": "edge",
+            "start": [
+              0,
+              5
+            ],
+            "goal": [
+              0,
+              7
+            ],
+            "outcome": "collision",
+            "actions": 5,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -1.0370641101324445
+          }
+        ]
+      }
+    },
+    "sarsa/B1-relative-x4": {
+      "original": {
+        "success_count": 2,
+        "successful_action_lengths": [
+          1,
+          1
+        ],
+        "successful_minimum_axis_steps": [
+          1,
+          1
+        ],
+        "success_only_total_action_excess": 0,
+        "reference_scope": "Evaluator-only open-geometry shortest-action arithmetic, never supplied to a learner",
+        "failures": [
+          {
+            "case_id": "phase5a-handwritten-fixtures-v1-A-evaluation-00",
+            "direction": "Up",
+            "distance": 1,
+            "quadrant": 0,
+            "boundary_band": "interior",
+            "start": [
+              3,
+              3
+            ],
+            "goal": [
+              2,
+              3
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.006917182203666883
+          },
+          {
+            "case_id": "phase5a-handwritten-fixtures-v1-A-evaluation-02",
+            "direction": "Left",
+            "distance": 1,
+            "quadrant": 2,
+            "boundary_band": "interior",
+            "start": [
+              6,
+              3
+            ],
+            "goal": [
+              6,
+              2
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.8408861419498947
+          }
+        ]
+      },
+      "expanded": {
+        "success_count": 7,
+        "successful_action_lengths": [
+          2,
+          1,
+          2,
+          2,
+          1,
+          2,
+          2
+        ],
+        "successful_minimum_axis_steps": [
+          2,
+          1,
+          2,
+          2,
+          1,
+          2,
+          2
+        ],
+        "success_only_total_action_excess": 0,
+        "reference_scope": "Evaluator-only open-geometry shortest-action arithmetic, never supplied to a learner",
+        "failures": [
+          {
+            "case_id": "phase5b-open-development-pairs-v1-00",
+            "direction": "Up",
+            "distance": 1,
+            "quadrant": 0,
+            "boundary_band": "interior",
+            "start": [
+              4,
+              3
+            ],
+            "goal": [
+              3,
+              3
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 141,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.0025027875418217604
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-01",
+            "direction": "Up",
+            "distance": 1,
+            "quadrant": 1,
+            "boundary_band": "interior",
+            "start": [
+              1,
+              7
+            ],
+            "goal": [
+              0,
+              7
+            ],
+            "outcome": "collision",
+            "actions": 3,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.5554667017112891
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-02",
+            "direction": "Up",
+            "distance": 2,
+            "quadrant": 2,
+            "boundary_band": "interior",
+            "start": [
+              7,
+              4
+            ],
+            "goal": [
+              5,
+              4
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 167,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.13010177060334538
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-05",
+            "direction": "Down",
+            "distance": 1,
+            "quadrant": 2,
+            "boundary_band": "edge",
+            "start": [
+              6,
+              0
+            ],
+            "goal": [
+              7,
+              0
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.27957362360590654
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-08",
+            "direction": "Left",
+            "distance": 1,
+            "quadrant": 2,
+            "boundary_band": "interior",
+            "start": [
+              7,
+              1
+            ],
+            "goal": [
+              7,
+              0
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.630403728928866
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-09",
+            "direction": "Left",
+            "distance": 1,
+            "quadrant": 3,
+            "boundary_band": "interior",
+            "start": [
+              5,
+              7
+            ],
+            "goal": [
+              5,
+              6
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.4735038947992187
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-10",
+            "direction": "Left",
+            "distance": 2,
+            "quadrant": 0,
+            "boundary_band": "edge",
+            "start": [
+              0,
+              4
+            ],
+            "goal": [
+              0,
+              2
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.49923226972188495
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-11",
+            "direction": "Left",
+            "distance": 2,
+            "quadrant": 1,
+            "boundary_band": "edge",
+            "start": [
+              0,
+              7
+            ],
+            "goal": [
+              0,
+              5
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 195,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.36674035835629404
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-12",
+            "direction": "Right",
+            "distance": 1,
+            "quadrant": 3,
+            "boundary_band": "interior",
+            "start": [
+              5,
+              6
+            ],
+            "goal": [
+              5,
+              7
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.04857484993181771
+          }
+        ]
+      }
+    },
+    "dqn/B0-original": {
+      "original": {
+        "success_count": 1,
+        "successful_action_lengths": [
+          1
+        ],
+        "successful_minimum_axis_steps": [
+          1
+        ],
+        "success_only_total_action_excess": 0,
+        "reference_scope": "Evaluator-only open-geometry shortest-action arithmetic, never supplied to a learner",
+        "failures": [
+          {
+            "case_id": "phase5a-handwritten-fixtures-v1-A-evaluation-00",
+            "direction": "Up",
+            "distance": 1,
+            "quadrant": 0,
+            "boundary_band": "interior",
+            "start": [
+              3,
+              3
+            ],
+            "goal": [
+              2,
+              3
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 10,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.3221902847290039
+          },
+          {
+            "case_id": "phase5a-handwritten-fixtures-v1-A-evaluation-02",
+            "direction": "Left",
+            "distance": 1,
+            "quadrant": 2,
+            "boundary_band": "interior",
+            "start": [
+              6,
+              3
+            ],
+            "goal": [
+              6,
+              2
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 200,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.31632351875305176
+          },
+          {
+            "case_id": "phase5a-handwritten-fixtures-v1-A-evaluation-03",
+            "direction": "Right",
+            "distance": 1,
+            "quadrant": 1,
+            "boundary_band": "interior",
+            "start": [
+              3,
+              6
+            ],
+            "goal": [
+              3,
+              7
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 181,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.3537611961364746
+          }
+        ]
+      },
+      "expanded": {
+        "success_count": 2,
+        "successful_action_lengths": [
+          1,
+          1
+        ],
+        "successful_minimum_axis_steps": [
+          1,
+          1
+        ],
+        "success_only_total_action_excess": 0,
+        "reference_scope": "Evaluator-only open-geometry shortest-action arithmetic, never supplied to a learner",
+        "failures": [
+          {
+            "case_id": "phase5b-open-development-pairs-v1-00",
+            "direction": "Up",
+            "distance": 1,
+            "quadrant": 0,
+            "boundary_band": "interior",
+            "start": [
+              4,
+              3
+            ],
+            "goal": [
+              3,
+              3
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 200,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.2223668098449707
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-01",
+            "direction": "Up",
+            "distance": 1,
+            "quadrant": 1,
+            "boundary_band": "interior",
+            "start": [
+              1,
+              7
+            ],
+            "goal": [
+              0,
+              7
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 199,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.340285062789917
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-02",
+            "direction": "Up",
+            "distance": 2,
+            "quadrant": 2,
+            "boundary_band": "interior",
+            "start": [
+              7,
+              4
+            ],
+            "goal": [
+              5,
+              4
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 199,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.5181231498718262
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-03",
+            "direction": "Up",
+            "distance": 2,
+            "quadrant": 3,
+            "boundary_band": "edge",
+            "start": [
+              9,
+              6
+            ],
+            "goal": [
+              7,
+              6
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 200,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.3154482841491699
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-04",
+            "direction": "Down",
+            "distance": 1,
+            "quadrant": 1,
+            "boundary_band": "interior",
+            "start": [
+              3,
+              6
+            ],
+            "goal": [
+              4,
+              6
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.4866466522216797
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-06",
+            "direction": "Down",
+            "distance": 2,
+            "quadrant": 3,
+            "boundary_band": "edge",
+            "start": [
+              6,
+              9
+            ],
+            "goal": [
+              8,
+              9
+            ],
+            "outcome": "collision",
+            "actions": 6,
+            "waits": 0,
+            "first_goal_directed": true,
+            "first_goal_margin": 0.0038428306579589844
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-07",
+            "direction": "Down",
+            "distance": 2,
+            "quadrant": 0,
+            "boundary_band": "edge",
+            "start": [
+              0,
+              2
+            ],
+            "goal": [
+              2,
+              2
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 200,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.0031456947326660156
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-09",
+            "direction": "Left",
+            "distance": 1,
+            "quadrant": 3,
+            "boundary_band": "interior",
+            "start": [
+              5,
+              7
+            ],
+            "goal": [
+              5,
+              6
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 199,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.109222412109375
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-10",
+            "direction": "Left",
+            "distance": 2,
+            "quadrant": 0,
+            "boundary_band": "edge",
+            "start": [
+              0,
+              4
+            ],
+            "goal": [
+              0,
+              2
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 163,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.2208085060119629
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-11",
+            "direction": "Left",
+            "distance": 2,
+            "quadrant": 1,
+            "boundary_band": "edge",
+            "start": [
+              0,
+              7
+            ],
+            "goal": [
+              0,
+              5
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 169,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.4433126449584961
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-12",
+            "direction": "Right",
+            "distance": 1,
+            "quadrant": 3,
+            "boundary_band": "interior",
+            "start": [
+              5,
+              6
+            ],
+            "goal": [
+              5,
+              7
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 157,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.09285330772399902
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-13",
+            "direction": "Right",
+            "distance": 1,
+            "quadrant": 0,
+            "boundary_band": "edge",
+            "start": [
+              2,
+              0
+            ],
+            "goal": [
+              2,
+              1
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 200,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.11630058288574219
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-14",
+            "direction": "Right",
+            "distance": 2,
+            "quadrant": 1,
+            "boundary_band": "edge",
+            "start": [
+              0,
+              5
+            ],
+            "goal": [
+              0,
+              7
+            ],
+            "outcome": "collision",
+            "actions": 6,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.06647586822509766
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-15",
+            "direction": "Right",
+            "distance": 2,
+            "quadrant": 2,
+            "boundary_band": "interior",
+            "start": [
+              8,
+              3
+            ],
+            "goal": [
+              8,
+              5
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 200,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.10155630111694336
+          }
+        ]
+      }
+    },
+    "dqn/B1-relative-x4": {
+      "original": {
+        "success_count": 3,
+        "successful_action_lengths": [
+          1,
+          1,
+          31
+        ],
+        "successful_minimum_axis_steps": [
+          1,
+          1,
+          1
+        ],
+        "success_only_total_action_excess": 30,
+        "reference_scope": "Evaluator-only open-geometry shortest-action arithmetic, never supplied to a learner",
+        "failures": [
+          {
+            "case_id": "phase5a-handwritten-fixtures-v1-A-evaluation-00",
+            "direction": "Up",
+            "distance": 1,
+            "quadrant": 0,
+            "boundary_band": "interior",
+            "start": [
+              3,
+              3
+            ],
+            "goal": [
+              2,
+              3
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.011370182037353516
+          }
+        ]
+      },
+      "expanded": {
+        "success_count": 10,
+        "successful_action_lengths": [
+          1,
+          12,
+          2,
+          163,
+          1,
+          2,
+          2,
+          1,
+          17,
+          8
+        ],
+        "successful_minimum_axis_steps": [
+          1,
+          2,
+          2,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1,
+          2
+        ],
+        "success_only_total_action_excess": 194,
+        "reference_scope": "Evaluator-only open-geometry shortest-action arithmetic, never supplied to a learner",
+        "failures": [
+          {
+            "case_id": "phase5b-open-development-pairs-v1-01",
+            "direction": "Up",
+            "distance": 1,
+            "quadrant": 1,
+            "boundary_band": "interior",
+            "start": [
+              1,
+              7
+            ],
+            "goal": [
+              0,
+              7
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.2915682792663574
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-11",
+            "direction": "Left",
+            "distance": 2,
+            "quadrant": 1,
+            "boundary_band": "edge",
+            "start": [
+              0,
+              7
+            ],
+            "goal": [
+              0,
+              5
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.23214006423950195
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-12",
+            "direction": "Right",
+            "distance": 1,
+            "quadrant": 3,
+            "boundary_band": "interior",
+            "start": [
+              5,
+              6
+            ],
+            "goal": [
+              5,
+              7
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.5788087844848633
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-13",
+            "direction": "Right",
+            "distance": 1,
+            "quadrant": 0,
+            "boundary_band": "edge",
+            "start": [
+              2,
+              0
+            ],
+            "goal": [
+              2,
+              1
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.5104465484619141
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-14",
+            "direction": "Right",
+            "distance": 2,
+            "quadrant": 1,
+            "boundary_band": "edge",
+            "start": [
+              0,
+              5
+            ],
+            "goal": [
+              0,
+              7
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.5157580375671387
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-15",
+            "direction": "Right",
+            "distance": 2,
+            "quadrant": 2,
+            "boundary_band": "interior",
+            "start": [
+              8,
+              3
+            ],
+            "goal": [
+              8,
+              5
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.3008613586425781
+          }
+        ]
+      }
+    },
+    "ppo/B0-original": {
+      "original": {
+        "success_count": 0,
+        "successful_action_lengths": [],
+        "successful_minimum_axis_steps": [],
+        "success_only_total_action_excess": 0,
+        "reference_scope": "Evaluator-only open-geometry shortest-action arithmetic, never supplied to a learner",
+        "failures": [
+          {
+            "case_id": "phase5a-handwritten-fixtures-v1-A-evaluation-00",
+            "direction": "Up",
+            "distance": 1,
+            "quadrant": 0,
+            "boundary_band": "interior",
+            "start": [
+              3,
+              3
+            ],
+            "goal": [
+              2,
+              3
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 200,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.06670057773590088
+          },
+          {
+            "case_id": "phase5a-handwritten-fixtures-v1-A-evaluation-01",
+            "direction": "Down",
+            "distance": 1,
+            "quadrant": 3,
+            "boundary_band": "interior",
+            "start": [
+              6,
+              6
+            ],
+            "goal": [
+              7,
+              6
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 200,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.07221916317939758
+          },
+          {
+            "case_id": "phase5a-handwritten-fixtures-v1-A-evaluation-02",
+            "direction": "Left",
+            "distance": 1,
+            "quadrant": 2,
+            "boundary_band": "interior",
+            "start": [
+              6,
+              3
+            ],
+            "goal": [
+              6,
+              2
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 200,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.11473996937274933
+          },
+          {
+            "case_id": "phase5a-handwritten-fixtures-v1-A-evaluation-03",
+            "direction": "Right",
+            "distance": 1,
+            "quadrant": 1,
+            "boundary_band": "interior",
+            "start": [
+              3,
+              6
+            ],
+            "goal": [
+              3,
+              7
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 200,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.09760022163391113
+          }
+        ]
+      },
+      "expanded": {
+        "success_count": 0,
+        "successful_action_lengths": [],
+        "successful_minimum_axis_steps": [],
+        "success_only_total_action_excess": 0,
+        "reference_scope": "Evaluator-only open-geometry shortest-action arithmetic, never supplied to a learner",
+        "failures": [
+          {
+            "case_id": "phase5b-open-development-pairs-v1-00",
+            "direction": "Up",
+            "distance": 1,
+            "quadrant": 0,
+            "boundary_band": "interior",
+            "start": [
+              4,
+              3
+            ],
+            "goal": [
+              3,
+              3
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 200,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.05543607473373413
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-01",
+            "direction": "Up",
+            "distance": 1,
+            "quadrant": 1,
+            "boundary_band": "interior",
+            "start": [
+              1,
+              7
+            ],
+            "goal": [
+              0,
+              7
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 200,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.060925886034965515
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-02",
+            "direction": "Up",
+            "distance": 2,
+            "quadrant": 2,
+            "boundary_band": "interior",
+            "start": [
+              7,
+              4
+            ],
+            "goal": [
+              5,
+              4
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 200,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.04742933809757233
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-03",
+            "direction": "Up",
+            "distance": 2,
+            "quadrant": 3,
+            "boundary_band": "edge",
+            "start": [
+              9,
+              6
+            ],
+            "goal": [
+              7,
+              6
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 200,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.03729097545146942
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-04",
+            "direction": "Down",
+            "distance": 1,
+            "quadrant": 1,
+            "boundary_band": "interior",
+            "start": [
+              3,
+              6
+            ],
+            "goal": [
+              4,
+              6
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 200,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.07313846051692963
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-05",
+            "direction": "Down",
+            "distance": 1,
+            "quadrant": 2,
+            "boundary_band": "edge",
+            "start": [
+              6,
+              0
+            ],
+            "goal": [
+              7,
+              0
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 200,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.07163631916046143
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-06",
+            "direction": "Down",
+            "distance": 2,
+            "quadrant": 3,
+            "boundary_band": "edge",
+            "start": [
+              6,
+              9
+            ],
+            "goal": [
+              8,
+              9
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 200,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.07547345757484436
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-07",
+            "direction": "Down",
+            "distance": 2,
+            "quadrant": 0,
+            "boundary_band": "edge",
+            "start": [
+              0,
+              2
+            ],
+            "goal": [
+              2,
+              2
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 200,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.0759219080209732
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-08",
+            "direction": "Left",
+            "distance": 1,
+            "quadrant": 2,
+            "boundary_band": "interior",
+            "start": [
+              7,
+              1
+            ],
+            "goal": [
+              7,
+              0
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 200,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.11668702960014343
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-09",
+            "direction": "Left",
+            "distance": 1,
+            "quadrant": 3,
+            "boundary_band": "interior",
+            "start": [
+              5,
+              7
+            ],
+            "goal": [
+              5,
+              6
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 200,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.10670244693756104
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-10",
+            "direction": "Left",
+            "distance": 2,
+            "quadrant": 0,
+            "boundary_band": "edge",
+            "start": [
+              0,
+              4
+            ],
+            "goal": [
+              0,
+              2
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 200,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.1371176540851593
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-11",
+            "direction": "Left",
+            "distance": 2,
+            "quadrant": 1,
+            "boundary_band": "edge",
+            "start": [
+              0,
+              7
+            ],
+            "goal": [
+              0,
+              5
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 200,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.13336186110973358
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-12",
+            "direction": "Right",
+            "distance": 1,
+            "quadrant": 3,
+            "boundary_band": "interior",
+            "start": [
+              5,
+              6
+            ],
+            "goal": [
+              5,
+              7
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 200,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.08230540156364441
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-13",
+            "direction": "Right",
+            "distance": 1,
+            "quadrant": 0,
+            "boundary_band": "edge",
+            "start": [
+              2,
+              0
+            ],
+            "goal": [
+              2,
+              1
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 200,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.06756545603275299
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-14",
+            "direction": "Right",
+            "distance": 2,
+            "quadrant": 1,
+            "boundary_band": "edge",
+            "start": [
+              0,
+              5
+            ],
+            "goal": [
+              0,
+              7
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 200,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.08484525978565216
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-15",
+            "direction": "Right",
+            "distance": 2,
+            "quadrant": 2,
+            "boundary_band": "interior",
+            "start": [
+              8,
+              3
+            ],
+            "goal": [
+              8,
+              5
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 200,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.029150381684303284
+          }
+        ]
+      }
+    },
+    "ppo/B1-relative-x4": {
+      "original": {
+        "success_count": 1,
+        "successful_action_lengths": [
+          1
+        ],
+        "successful_minimum_axis_steps": [
+          1
+        ],
+        "success_only_total_action_excess": 0,
+        "reference_scope": "Evaluator-only open-geometry shortest-action arithmetic, never supplied to a learner",
+        "failures": [
+          {
+            "case_id": "phase5a-handwritten-fixtures-v1-A-evaluation-01",
+            "direction": "Down",
+            "distance": 1,
+            "quadrant": 3,
+            "boundary_band": "interior",
+            "start": [
+              6,
+              6
+            ],
+            "goal": [
+              7,
+              6
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 190,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.16292546689510345
+          },
+          {
+            "case_id": "phase5a-handwritten-fixtures-v1-A-evaluation-02",
+            "direction": "Left",
+            "distance": 1,
+            "quadrant": 2,
+            "boundary_band": "interior",
+            "start": [
+              6,
+              3
+            ],
+            "goal": [
+              6,
+              2
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 195,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.19579632580280304
+          },
+          {
+            "case_id": "phase5a-handwritten-fixtures-v1-A-evaluation-03",
+            "direction": "Right",
+            "distance": 1,
+            "quadrant": 1,
+            "boundary_band": "interior",
+            "start": [
+              3,
+              6
+            ],
+            "goal": [
+              3,
+              7
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.13600218296051025
+          }
+        ]
+      },
+      "expanded": {
+        "success_count": 5,
+        "successful_action_lengths": [
+          1,
+          1,
+          2,
+          2,
+          5
+        ],
+        "successful_minimum_axis_steps": [
+          1,
+          1,
+          2,
+          2,
+          1
+        ],
+        "success_only_total_action_excess": 4,
+        "reference_scope": "Evaluator-only open-geometry shortest-action arithmetic, never supplied to a learner",
+        "failures": [
+          {
+            "case_id": "phase5b-open-development-pairs-v1-05",
+            "direction": "Down",
+            "distance": 1,
+            "quadrant": 2,
+            "boundary_band": "edge",
+            "start": [
+              6,
+              0
+            ],
+            "goal": [
+              7,
+              0
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 191,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.1491476446390152
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-06",
+            "direction": "Down",
+            "distance": 2,
+            "quadrant": 3,
+            "boundary_band": "edge",
+            "start": [
+              6,
+              9
+            ],
+            "goal": [
+              8,
+              9
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.15015213191509247
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-07",
+            "direction": "Down",
+            "distance": 2,
+            "quadrant": 0,
+            "boundary_band": "edge",
+            "start": [
+              0,
+              2
+            ],
+            "goal": [
+              2,
+              2
+            ],
+            "outcome": "collision",
+            "actions": 1,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.05620114505290985
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-08",
+            "direction": "Left",
+            "distance": 1,
+            "quadrant": 2,
+            "boundary_band": "interior",
+            "start": [
+              7,
+              1
+            ],
+            "goal": [
+              7,
+              0
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 2,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.19144263863563538
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-09",
+            "direction": "Left",
+            "distance": 1,
+            "quadrant": 3,
+            "boundary_band": "interior",
+            "start": [
+              5,
+              7
+            ],
+            "goal": [
+              5,
+              6
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.2072223722934723
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-10",
+            "direction": "Left",
+            "distance": 2,
+            "quadrant": 0,
+            "boundary_band": "edge",
+            "start": [
+              0,
+              4
+            ],
+            "goal": [
+              0,
+              2
+            ],
+            "outcome": "collision",
+            "actions": 1,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.1340903639793396
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-11",
+            "direction": "Left",
+            "distance": 2,
+            "quadrant": 1,
+            "boundary_band": "edge",
+            "start": [
+              0,
+              7
+            ],
+            "goal": [
+              0,
+              5
+            ],
+            "outcome": "collision",
+            "actions": 1,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.13521715998649597
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-12",
+            "direction": "Right",
+            "distance": 1,
+            "quadrant": 3,
+            "boundary_band": "interior",
+            "start": [
+              5,
+              6
+            ],
+            "goal": [
+              5,
+              7
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.17591728270053864
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-13",
+            "direction": "Right",
+            "distance": 1,
+            "quadrant": 0,
+            "boundary_band": "edge",
+            "start": [
+              2,
+              0
+            ],
+            "goal": [
+              2,
+              1
+            ],
+            "outcome": "collision",
+            "actions": 3,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.12806227803230286
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-14",
+            "direction": "Right",
+            "distance": 2,
+            "quadrant": 1,
+            "boundary_band": "edge",
+            "start": [
+              0,
+              5
+            ],
+            "goal": [
+              0,
+              7
+            ],
+            "outcome": "collision",
+            "actions": 1,
+            "waits": 0,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.07497730851173401
+          },
+          {
+            "case_id": "phase5b-open-development-pairs-v1-15",
+            "direction": "Right",
+            "distance": 2,
+            "quadrant": 2,
+            "boundary_band": "interior",
+            "start": [
+              8,
+              3
+            ],
+            "goal": [
+              8,
+              5
+            ],
+            "outcome": "timeout",
+            "actions": 200,
+            "waits": 193,
+            "first_goal_directed": false,
+            "first_goal_margin": -0.1973474621772766
+          }
+        ]
+      }
+    }
+  }
+}

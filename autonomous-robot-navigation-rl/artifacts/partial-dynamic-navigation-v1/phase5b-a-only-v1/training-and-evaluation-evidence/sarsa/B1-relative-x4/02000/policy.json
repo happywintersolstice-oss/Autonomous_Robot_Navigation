@@ -1,0 +1,26 @@
+{
+  "study_id": "phase5b-a-only-v1",
+  "arm": "B1-relative-x4",
+  "training_interactions": 2000,
+  "manifest_sha256": "088c5f4a4f01be0fd467e86de354b4acfaf768bff74ccc58b1c71d70bf4ea0e8",
+  "checkpoint_role": "Fixed boundary, not best selection",
+  "signature": {
+    "benchmark_id": "partial-dynamic-navigation-v1",
+    "environment_version": "partial-dynamic-env-v1",
+    "observation_version": "partial-memory-409-v2",
+    "sensor_version": "cardinal-rays-range2-v1",
+    "action_version": "up-down-left-right-wait-v1",
+    "reward_version": "partial-step-goal-collision-v1",
+    "feature_version": "partial-visible-relative-scale4-v1",
+    "task_hash": "5379b1c2e64414d3024f5a6741da22c6d3bd80517eadf2173383cca63807499b"
+  },
+  "algorithm": "sarsa",
+  "policy_id": "sarsa/phase5b-a-only-v1/B1-relative-x4/seed23021",
+  "training_seed": 23021,
+  "feature_version": "partial-visible-relative-scale4-v1",
+  "feature_count": 412,
+  "actions": 5,
+  "observation_values": 409,
+  "checkpoint_sha256": "0bb79f0c045d07df746efa46307c0c9877f6e550b320fd7fba38e7e87a97a589",
+  "kind": "inference-only; optimizer/buffer/RNG resume not supported"
+}

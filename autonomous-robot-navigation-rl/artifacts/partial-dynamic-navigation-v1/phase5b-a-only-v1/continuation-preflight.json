@@ -1,0 +1,64 @@
+{
+  "status": "passed",
+  "training_actions": 0,
+  "executed_policy_actions": 0,
+  "purpose": "Mechanical serialization preflight before primary trial",
+  "states": [
+    {
+      "algorithm": "q-learning",
+      "arm": "B0-original",
+      "raw_state_bytes": 12320,
+      "compressed_state_bytes": 9918,
+      "roundtrip_exact": true
+    },
+    {
+      "algorithm": "q-learning",
+      "arm": "B1-relative-x4",
+      "raw_state_bytes": 12320,
+      "compressed_state_bytes": 9917,
+      "roundtrip_exact": true
+    },
+    {
+      "algorithm": "sarsa",
+      "arm": "B0-original",
+      "raw_state_bytes": 12322,
+      "compressed_state_bytes": 9915,
+      "roundtrip_exact": true
+    },
+    {
+      "algorithm": "sarsa",
+      "arm": "B1-relative-x4",
+      "raw_state_bytes": 12321,
+      "compressed_state_bytes": 9916,
+      "roundtrip_exact": true
+    },
+    {
+      "algorithm": "dqn",
+      "arm": "B0-original",
+      "raw_state_bytes": 32937973,
+      "compressed_state_bytes": 44326,
+      "roundtrip_exact": true
+    },
+    {
+      "algorithm": "dqn",
+      "arm": "B1-relative-x4",
+      "raw_state_bytes": 32937972,
+      "compressed_state_bytes": 44327,
+      "roundtrip_exact": true
+    },
+    {
+      "algorithm": "ppo",
+      "arm": "B0-original",
+      "raw_state_bytes": 184827,
+      "compressed_state_bytes": 11571,
+      "roundtrip_exact": true
+    },
+    {
+      "algorithm": "ppo",
+      "arm": "B1-relative-x4",
+      "raw_state_bytes": 184827,
+      "compressed_state_bytes": 11573,
+      "roundtrip_exact": true
+    }
+  ]
+}

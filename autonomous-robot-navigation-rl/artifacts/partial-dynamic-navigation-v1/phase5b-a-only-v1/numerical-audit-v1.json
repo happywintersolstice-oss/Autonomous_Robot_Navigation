@@ -1,0 +1,191 @@
+{
+  "status": "passed",
+  "raw_outputs_sha256": "2a71ae64567a9d6dfa31c5854a278c2e0188618e4d3013a07d5ce0174c04fb71",
+  "systems": {
+    "q-learning/B0-original": {
+      "updates": 6000,
+      "finite": true,
+      "ranges": {
+        "td_error": {
+          "min": -11.139056932930831,
+          "median": -0.024651806833994705,
+          "max": 9.995069521880897
+        },
+        "update_norm": {
+          "min": 5.12492191685845e-07,
+          "median": 0.0011424515404506465,
+          "max": 0.12124542825026204
+        },
+        "feature_norm": {
+          "min": 7.468520133076728,
+          "median": 8.87004275128971,
+          "max": 10.198892299560129
+        }
+      },
+      "last_model_library_counter": null,
+      "counter_note": "Linear updates; DQN optimizer steps; PPO optimizer steps differ from epochs"
+    },
+    "q-learning/B1-relative-x4": {
+      "updates": 6000,
+      "finite": true,
+      "ranges": {
+        "td_error": {
+          "min": -12.342454918229006,
+          "median": -0.02036235307818529,
+          "max": 9.994993986434455
+        },
+        "update_norm": {
+          "min": 5.008234842405608e-07,
+          "median": 0.001380596523996349,
+          "max": 0.1330945433331433
+        },
+        "feature_norm": {
+          "min": 7.628262461200639,
+          "median": 9.080625721222956,
+          "max": 10.577907509700664
+        }
+      },
+      "last_model_library_counter": null,
+      "counter_note": "Linear updates; DQN optimizer steps; PPO optimizer steps differ from epochs"
+    },
+    "sarsa/B0-original": {
+      "updates": 6000,
+      "finite": true,
+      "ranges": {
+        "td_error": {
+          "min": -7.58281350926153,
+          "median": -0.0337992711051463,
+          "max": 10.183946120581968
+        },
+        "update_norm": {
+          "min": 1.3353937518509684e-07,
+          "median": 0.0014807899262724907,
+          "max": 0.1349940794867963
+        },
+        "feature_norm": {
+          "min": 7.019148187635983,
+          "median": 8.829235821200957,
+          "max": 10.339313169023262
+        }
+      },
+      "last_model_library_counter": null,
+      "counter_note": "Linear updates; DQN optimizer steps; PPO optimizer steps differ from epochs"
+    },
+    "sarsa/B1-relative-x4": {
+      "updates": 6000,
+      "finite": true,
+      "ranges": {
+        "td_error": {
+          "min": -8.788184130785343,
+          "median": -0.06425933620296544,
+          "max": 10.148661021403754
+        },
+        "update_norm": {
+          "min": 6.693851517408565e-07,
+          "median": 0.001784953658583376,
+          "max": 0.12028391175693022
+        },
+        "feature_norm": {
+          "min": 7.525684398294653,
+          "median": 9.094020646727323,
+          "max": 10.27806686456862
+        }
+      },
+      "last_model_library_counter": null,
+      "counter_note": "Linear updates; DQN optimizer steps; PPO optimizer steps differ from epochs"
+    },
+    "dqn/B0-original": {
+      "updates": 1475,
+      "finite": true,
+      "ranges": {
+        "gradient_norm_after_library_clipping": {
+          "min": 0.022742148488759995,
+          "median": 0.2708398401737213,
+          "max": 1.4922045469284058
+        },
+        "parameter_update_norm": {
+          "min": 0.006976739969104528,
+          "median": 0.010233838111162186,
+          "max": 0.021546892821788788
+        },
+        "learning_rate": {
+          "min": 0.0003,
+          "median": 0.0003,
+          "max": 0.0003
+        }
+      },
+      "last_model_library_counter": 1475,
+      "counter_note": "Linear updates; DQN optimizer steps; PPO optimizer steps differ from epochs"
+    },
+    "dqn/B1-relative-x4": {
+      "updates": 1475,
+      "finite": true,
+      "ranges": {
+        "gradient_norm_after_library_clipping": {
+          "min": 0.02763153798878193,
+          "median": 0.2529982328414917,
+          "max": 2.0017495155334473
+        },
+        "parameter_update_norm": {
+          "min": 0.006325883790850639,
+          "median": 0.010298981331288815,
+          "max": 0.022230304777622223
+        },
+        "learning_rate": {
+          "min": 0.0003,
+          "median": 0.0003,
+          "max": 0.0003
+        }
+      },
+      "last_model_library_counter": 1475,
+      "counter_note": "Linear updates; DQN optimizer steps; PPO optimizer steps differ from epochs"
+    },
+    "ppo/B0-original": {
+      "updates": 600,
+      "finite": true,
+      "ranges": {
+        "gradient_norm_after_library_clipping": {
+          "min": 0.32473981380462646,
+          "median": 0.4999999403953552,
+          "max": 0.5000001788139343
+        },
+        "parameter_update_norm": {
+          "min": 0.008172592148184776,
+          "median": 0.018046526238322258,
+          "max": 0.05287141352891922
+        },
+        "learning_rate": {
+          "min": 0.0003,
+          "median": 0.0003,
+          "max": 0.0003
+        }
+      },
+      "last_model_library_counter": 300,
+      "counter_note": "Linear updates; DQN optimizer steps; PPO optimizer steps differ from epochs"
+    },
+    "ppo/B1-relative-x4": {
+      "updates": 600,
+      "finite": true,
+      "ranges": {
+        "gradient_norm_after_library_clipping": {
+          "min": 0.49999916553497314,
+          "median": 0.4999999403953552,
+          "max": 0.5000001192092896
+        },
+        "parameter_update_norm": {
+          "min": 0.010926950722932816,
+          "median": 0.01962676178663969,
+          "max": 0.05416399985551834
+        },
+        "learning_rate": {
+          "min": 0.0003,
+          "median": 0.0003,
+          "max": 0.0003
+        }
+      },
+      "last_model_library_counter": 300,
+      "counter_note": "Linear updates; DQN optimizer steps; PPO optimizer steps differ from epochs"
+    }
+  },
+  "training_incomplete_prefixes": 7
+}

@@ -1,0 +1,22 @@
+study_id: phase5b-a-only-v1
+protocol_version: partial-a-learning-diagnosis-v1
+algorithms: [q-learning, sarsa, dqn, ppo]
+arms: [B0-original, B1-relative-x4]
+primary_seed: 23021
+fixture_seed: 23022
+evaluation_seed: 0
+checkpoints: [0, 2000, 6000]
+per_arm_actions: 6000
+total_training_actions: 48000
+evaluation_action_ceiling: 100000
+suite_wall_seconds: 1800
+per_arm_wall_seconds: 300
+artifact_byte_ceiling: 536870912
+model_config: configs/partial_feasibility_v1.yaml
+linear_epsilon_horizon: 10000
+screen:
+  original_successes: 3
+  gain_over_b1_initial: 1
+  gain_over_b0_final: 1
+  expanded_successes: 12
+  expanded_gain_over_b0: 4
