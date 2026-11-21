@@ -1,0 +1,41 @@
+{
+  "stage": "pre",
+  "exit_code": 0,
+  "source_inputs": {
+    "autonomous-robot-navigation-rl/configs/partial_phase5f_v1.yaml": "54cdad3a59ce2d3522ef49c55e4a02d991c5167453c6705b9a31bc432040d087",
+    "autonomous-robot-navigation-rl/developer/commands/phase5f_parent_regressions.py": "a315bd18c64251aafe9403fe9af202aa2020acb28ee6bba19418d73d56226aa4",
+    "autonomous-robot-navigation-rl/developer/tests/test_partial_phase5f.py": "d4f88554a84490ba38fe1c56475d6b6f28341877ad0dc97a62df33ffefd1c443",
+    "autonomous-robot-navigation-rl/docs/partial_phase5f_protocol.md": "5f2b07276f57024bbae7b5f7de1a89c27d780140be961aa41adcb34c204b1b61",
+    "autonomous-robot-navigation-rl/src/robot_navigation/partial_phase5f.py": "4e59cd1adf26c446bafca24c0702b9fbf34d51eb5d6ff104e69b2e1440fc60e3",
+    "autonomous-robot-navigation-rl/src/robot_navigation/partial_phase5f_io.py": "4361c546717f1585b60f48d1b27e40da4694d2c5526a2f07fbfa84cb137e5a14",
+    "autonomous-robot-navigation-rl/src/robot_navigation/partial_phase5f_live.py": "e8294e325f3e08b68996431cfc8433c23c90102055aa489ae8f54d43235b0d52",
+    "autonomous-robot-navigation-rl/src/robot_navigation/partial_phase5f_report.py": "9ddac9d88f801796da5f95cf0ddeb372dbb6d762af043f5824f17e729fb856fb",
+    "autonomous-robot-navigation-rl/src/robot_navigation/partial_phase5f_verify.py": "40b5048297de28e94c81e8e42c6d84a31f4fc509036d4860fc07b3452aeae6f0",
+    "CODEX_PHASE5F_INSTRUMENTED_LEARNING_SIGNAL_PILOT.md": "b4249840b050f92a7d1f6f1396da8fc36ccbb2e7345f504d03870ceb43fef95d"
+  },
+  "source_digest": "362749d5abf9164022185e32900fbb961be6b90e646815b17fb06f6260bb8ce7",
+  "test_counts": {
+    "tests": 12,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "wall_seconds": 3.9357728000031784,
+  "new_synthetic_transitions": 0,
+  "new_synthetic_optimizer_steps": 0,
+  "physical_operation_cap": {
+    "transitions": 0,
+    "optimizer": 0
+  },
+  "scope": "Pure budget/config/hash tests, or read-only integration on actual pilot records; no learner/env construction",
+  "command": [
+    "C:\\Users\\User\\Desktop\\Autonomous_Robot_Navigation\\autonomous-robot-navigation-rl\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "developer/tests/test_partial_phase5f.py",
+    "-q",
+    "-m",
+    "not pilot",
+    "--junitxml=C:\\Users\\User\\Desktop\\Autonomous_Robot_Navigation\\autonomous-robot-navigation-rl\\.runtime\\p5f\\autonomous-robot-navigation-rl\\.runtime\\phase5f-tests\\attempt-0001.xml"
+  ]
+}

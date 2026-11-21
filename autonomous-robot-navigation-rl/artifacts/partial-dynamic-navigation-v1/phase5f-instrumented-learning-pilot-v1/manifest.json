@@ -1,0 +1,188 @@
+{
+  "study_id": "phase5f-instrumented-learning-pilot-v1",
+  "registered_utc": "2026-11-21T21:52:40.110084+00:00",
+  "parent_commit": "192ba8dca9957ac6d6b38965956b06f05b694548",
+  "parent_tree": "9f738ea790249f971cea453cbc93544e4a42fc40",
+  "branch": "feature/phase5f-instrumented-learning-pilot-v1",
+  "settings": {
+    "study_id": "phase5f-instrumented-learning-pilot-v1",
+    "base_commit": "192ba8dca9957ac6d6b38965956b06f05b694548",
+    "branch": "feature/phase5f-instrumented-learning-pilot-v1",
+    "algorithms": [
+      "dqn",
+      "ppo"
+    ],
+    "primary_seed": 23121,
+    "arm": "B1-relative-x4",
+    "feature_version": "partial-visible-relative-scale4-v1",
+    "per_algorithm_actions": 500,
+    "total_training_actions": 1000,
+    "per_algorithm_wall_seconds": 900,
+    "suite_wall_seconds": 1800,
+    "artifact_byte_ceiling": 536870912,
+    "research_evaluation_actions": 0,
+    "final_unseen_evaluations": 0,
+    "new_synthetic_transition_cap": 0,
+    "new_synthetic_optimizer_cap": 0,
+    "expected_optimizer_steps": {
+      "dqn": 100,
+      "ppo": 50
+    },
+    "enabled_by_default": false,
+    "absolute_tolerance": 2e-05,
+    "relative_tolerance": 2e-06
+  },
+  "source_inputs": {
+    "autonomous-robot-navigation-rl/configs/partial_phase5f_v1.yaml": "54cdad3a59ce2d3522ef49c55e4a02d991c5167453c6705b9a31bc432040d087",
+    "autonomous-robot-navigation-rl/developer/commands/phase5f_parent_regressions.py": "a315bd18c64251aafe9403fe9af202aa2020acb28ee6bba19418d73d56226aa4",
+    "autonomous-robot-navigation-rl/developer/tests/test_partial_phase5f.py": "d4f88554a84490ba38fe1c56475d6b6f28341877ad0dc97a62df33ffefd1c443",
+    "autonomous-robot-navigation-rl/docs/partial_phase5f_protocol.md": "5f2b07276f57024bbae7b5f7de1a89c27d780140be961aa41adcb34c204b1b61",
+    "autonomous-robot-navigation-rl/src/robot_navigation/partial_phase5f.py": "a134dfa8ce4fe4c19eb64c6aa7614229fed30d0b6b006e4fd921e52925181fcb",
+    "autonomous-robot-navigation-rl/src/robot_navigation/partial_phase5f_io.py": "4361c546717f1585b60f48d1b27e40da4694d2c5526a2f07fbfa84cb137e5a14",
+    "autonomous-robot-navigation-rl/src/robot_navigation/partial_phase5f_live.py": "e8294e325f3e08b68996431cfc8433c23c90102055aa489ae8f54d43235b0d52",
+    "autonomous-robot-navigation-rl/src/robot_navigation/partial_phase5f_report.py": "9ddac9d88f801796da5f95cf0ddeb372dbb6d762af043f5824f17e729fb856fb",
+    "autonomous-robot-navigation-rl/src/robot_navigation/partial_phase5f_verify.py": "8d08504933431216947986523c40f9449d9fcaa08b76cc57111079bae1ccd1cb",
+    "CODEX_PHASE5F_INSTRUMENTED_LEARNING_SIGNAL_PILOT.md": "b4249840b050f92a7d1f6f1396da8fc36ccbb2e7345f504d03870ceb43fef95d"
+  },
+  "source_digest": "f4c1a33772384bb97f72688b5260b06d93d835ef41ca9600a2366c077812a82a",
+  "library_contract": {
+    "versions": {
+      "stable-baselines3": "2.9.2",
+      "torch": "2.15.0",
+      "numpy": "2.5.4",
+      "gymnasium": "1.4.0"
+    },
+    "methods": {
+      "DQN.train": "696507cb4053336a892a34781e07fc6884c8d43673ea5cc7cb463f64e086c17e",
+      "DQN._on_step": "56a2e3b541d1b2b6d6b9a1f497c1a75a0d1ff3cfc87e8be0178734d5a9fdd529",
+      "ReplayBuffer.add": "310f1d34dc0f4790d65ac4366431731dd64457fb0d65d986d9ce1479ceeb32bf",
+      "ReplayBuffer.sample": "d0aa2fb65a84ec11cbdfc72702826637f6c756774e303578901532c7c65b8d98",
+      "ReplayBuffer._get_samples": "ffe73ca3cb22fc4c9c85e5109b6f6732b0513e58be0132a118ab6183d2c4ad3f",
+      "RolloutBuffer.add": "624274151cae9064b57b410b41deabf64dee367b6500d1de393803c7d83a6c2c",
+      "RolloutBuffer.get": "7500122932f89e08236530c45b82202972987f535deb26df7f04310d92559ad6",
+      "RolloutBuffer._get_samples": "235b5d768dff7ae77f749e5897e0e008084664e70db064b18ac5291a441a3cf7",
+      "RolloutBuffer.reset": "20b4f5d48e0c9e5b2d855201fe6dc0475d6b5a959d227092c4fc55597e6f5198",
+      "RolloutBuffer.compute_returns_and_advantage": "1a229ef50a037a1e6ee33544d9817fb9ea41bef6ece3867f00ddf1f1efd6a6a0",
+      "PPO.train": "7c8d09940123242f0ac401c5ec2cc858b8bf3339f571c222382f048ffd8306ae",
+      "PPO.collect_rollouts": "07f9eed35d9d7392f6ce287dc9d55aede83d8b0f93d34cb5d643410cdf11e3b7",
+      "ActorCriticPolicy.forward": "a105334089d8fc449de927df520a99d588b0f6e2c86e8527aba0d1b2f040f9cd",
+      "ActorCriticPolicy.evaluate_actions": "064f423282536b39d37531cef6d09ff26431dc015f582bcd96370d46fcb38e73",
+      "ActorCriticPolicy.predict_values": "edf8b7d894703edf0100df50dc63371ecf68a4ddb57ff9c8f088e72193e56ebc",
+      "BaseBuffer.sample": "32e77dec7d96488dfa619dc0fd82b08a315943bdd28b635ea93166c932c5f1ee",
+      "LinearPolicy.update": "a8d2b4d2e92b71833db54299019aeccb9fd46104d2ebc58ae8b654cc9d5ab977",
+      "ScaledLinearPolicy.update": "eec7a2797191bc6c1d50eb9a08ca5f647b4c0c309e159430d8c36f649539836f",
+      "Torch.Adam.step": "56edd31e55c3bdc5dfa8db4c334eb812fc1727872b6878831e8974b3496062ff",
+      "Torch.clip_grad_norm_": "ec7e5ef692a2f1679f547a8899fd9d29e934b1f8791d78546821927483d379ca"
+    }
+  },
+  "library_audit_sha256": "c406aa15e8d526ae5333ff43dfec56d3dc0b1df89a45ae3ea4f9f532f3ae2c0d",
+  "hardware": {
+    "platform": "Windows-11-10.0.26300-SP0",
+    "machine": "AMD64",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "python": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]",
+    "device": "cpu",
+    "n_envs": 1,
+    "torch_threads": 1
+  },
+  "model_config": {
+    "discount": 0.99,
+    "linear_learning_rate": 0.1,
+    "neural_learning_rate": 0.0003,
+    "net_arch": [
+      32,
+      32
+    ],
+    "epsilon_start": 1.0,
+    "epsilon_end": 0.1,
+    "buffer_size": 10000,
+    "learning_starts": 100,
+    "batch_size": 50,
+    "train_freq": 4,
+    "target_update_interval": 250,
+    "n_steps": 100,
+    "n_epochs": 5
+  },
+  "model_config_source_sha256": "3cdf367047732c0dd254b432fc5baf36998cb6a734a0042d9339e9b75d20014e",
+  "task_feature_signature": {
+    "benchmark_id": "partial-dynamic-navigation-v1",
+    "environment_version": "partial-dynamic-env-v1",
+    "observation_version": "partial-memory-409-v2",
+    "sensor_version": "cardinal-rays-range2-v1",
+    "action_version": "up-down-left-right-wait-v1",
+    "reward_version": "partial-step-goal-collision-v1",
+    "feature_version": "partial-visible-relative-scale4-v1",
+    "task_hash": "5379b1c2e64414d3024f5a6741da22c6d3bd80517eadf2173383cca63807499b"
+  },
+  "case_ids": [
+    "phase5a-handwritten-fixtures-v1-A-train-00",
+    "phase5a-handwritten-fixtures-v1-A-train-01",
+    "phase5a-handwritten-fixtures-v1-A-train-02",
+    "phase5a-handwritten-fixtures-v1-A-train-03",
+    "phase5a-handwritten-fixtures-v1-A-train-04",
+    "phase5a-handwritten-fixtures-v1-A-train-05",
+    "phase5a-handwritten-fixtures-v1-A-train-06",
+    "phase5a-handwritten-fixtures-v1-A-train-07"
+  ],
+  "case_sha256": {
+    "phase5a-handwritten-fixtures-v1-A-train-00": "3d9cbdb28ac31c67e78c5993121fce318da4be74508c84a191a073aba268d8dc",
+    "phase5a-handwritten-fixtures-v1-A-train-01": "32ceeb161253f9eee6f0085ca6566fac27db73b56d1c3ab9af9b9e33ef28e46c",
+    "phase5a-handwritten-fixtures-v1-A-train-02": "78a70568d5dd02e963040a76c4a2c480ee019ccde8fc9a98e75efa133456aa11",
+    "phase5a-handwritten-fixtures-v1-A-train-03": "764f20cf06862f3bef4dd83b4f871f198dbccc48fa6d2b172b300d26f1700ce5",
+    "phase5a-handwritten-fixtures-v1-A-train-04": "3f7c1a6660e59ca19f3b0b4c1b3666f89ce4420c27c79d8b66bc0fb39235e272",
+    "phase5a-handwritten-fixtures-v1-A-train-05": "be97fe0ed0eb2a42343fd21ac7b9505edbde01662fd73254d270a03fb0e89863",
+    "phase5a-handwritten-fixtures-v1-A-train-06": "9d6e5d899dc1163cc8207b65c6c4afbf499b5212762f440e14b6853d7ea274dd",
+    "phase5a-handwritten-fixtures-v1-A-train-07": "cba7cc26207be78475dbe7ead564a2484af56238d72e7e6cdefdf44553377a4b"
+  },
+  "case_source": "Phase5B training_cases array only; original uniform reset sampler",
+  "case_source_sha256": "088c5f4a4f01be0fd467e86de354b4acfaf768bff74ccc58b1c71d70bf4ea0e8",
+  "source_access": "Only training_cases array decoded; historical/final artifacts byte-hashed, not parsed for science",
+  "order": [
+    "dqn",
+    "ppo"
+  ],
+  "expected_uncompressed_upper_bytes": 386556800,
+  "new_synthetic_caps": {
+    "transitions": 0,
+    "optimizer": 0
+  },
+  "legacy_counts": {
+    "tests": 464,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "pre_tests_sha256": "2c9fa0753fef4eaaf86808a8ad109a86d719f37cb2af480b87ef90732b4d40d0",
+  "preservation": {
+    "status": "passed",
+    "parent": "192ba8dca9957ac6d6b38965956b06f05b694548",
+    "tree": "9f738ea790249f971cea453cbc93544e4a42fc40",
+    "parent_files": 10518,
+    "original_files": 9648,
+    "main_head": "cf7f0f11d3a94d8533c6a1ff7b4834f1db78f141",
+    "base_inventory_sha256": "6fc79abdbbc96039c4c1e1d4ded09713cca5f8bb0772a20b52696c9353d8212e",
+    "original_inventory_sha256": "dd035e1ef02f579c64a5a9a4c2f99f2088aff8efd3caa9a9acb9143448a9ee35",
+    "historical_refs": {
+      "main": "cf7f0f11d3a94d8533c6a1ff7b4834f1db78f141",
+      "feature/phase5b-basic-navigation-diagnosis-v1": "ae3ae73bf7ba5cbe36dcf879125f15fd14c43f4e",
+      "feature/phase5c-directional-coverage-v1": "c1505cc1dab0623b9c7eb86b7bfae9ac3216fa4d",
+      "feature/phase5d-goal-credit-diagnosis-v1": "fe200034e816b10352453471f9c680b7c77d6ca4",
+      "feature/phase5e-training-instrumentation-v1": "192ba8dca9957ac6d6b38965956b06f05b694548"
+    }
+  },
+  "stop_policy": "one attempt; no retries; failure preserved; stop after F",
+  "measurement_gates": [
+    "action_ledger",
+    "train_split",
+    "trace_chain",
+    "consumed_tensor_lineage",
+    "numeric_DQN",
+    "numeric_PPO_GAE",
+    "optimizer_and_model_continuity",
+    "independent_call_counts",
+    "observer_closed",
+    "source_library_hashes",
+    "regressions",
+    "no_evaluation"
+  ]
+}
