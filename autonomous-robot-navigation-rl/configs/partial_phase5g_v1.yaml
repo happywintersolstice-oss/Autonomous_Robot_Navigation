@@ -1,0 +1,25 @@
+study_id: phase5g-longer-horizon-v1
+base_commit: 6fb6aac124067b00016f5514ebbc66ef777dea33
+branch: feature/phase5g-longer-horizon-diagnosis-v1
+algorithms: [dqn, ppo]
+seed: 23121
+arm: B1-relative-x4
+feature_version: partial-visible-relative-scale4-v1
+per_algorithm_actions: 2000
+training_action_cap: 4000
+checkpoints: [0, 500, 1000, 2000]
+expected_optimizer_steps: {dqn: 475, ppo: 200}
+assessment_action_cap: 32000
+assessment_case_steps: 200
+assessment_seed: 0
+development_panels: {original: 4, expanded: 16}
+synthetic_transition_cap: 0
+synthetic_optimizer_cap: 0
+arm_wall_seconds: 1800
+training_wall_seconds: 3600
+artifact_byte_cap: 536870912
+absolute_tolerance: 0.00002
+relative_tolerance: 0.000002
+readiness: {expanded_gain: 4, expanded_successes: 12, successes_per_direction: 2}
+enabled_by_default: false
+final_unseen_accesses: 0

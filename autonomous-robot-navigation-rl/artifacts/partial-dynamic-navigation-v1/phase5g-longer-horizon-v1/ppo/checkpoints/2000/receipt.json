@@ -1,0 +1,37 @@
+{
+  "training_actions": 2000,
+  "optimizer_steps": 200,
+  "library_updates": 100,
+  "model_num_timesteps": 2000,
+  "total_timesteps": 2000,
+  "network": {
+    "policy_and_value": "4f77dbe52302d15a269680a9def591c34cf231ce818b77aa0837a9a9f4dcd852",
+    "target": "not_applicable"
+  },
+  "optimizer_sha256": "b4be187e50c9784e466e17cf6981a14bb2e6240314828c6e6ba2bf1ea4f7183f",
+  "buffer_sha256": "b2c666bbc8a904b21340dcef553162ae09c962085a2768fead2fe8e26625aaea",
+  "rng_before": {
+    "python": "0fdd107adf7c4b7c66b8492685a533da827bd590a7cf9bf166cdc43ee68037bb",
+    "numpy": "4defa1e310672420b91befd04e456c6ebb276aa9cad3f63c2367361873b8cfdb",
+    "torch": "bed2277f38bbef763b8bcb7b2d9be230ca37bdbf40daf106ac8ca5b9b45b582f",
+    "case_rng": "7ce8b659a8d9b6247cc357f4f8230b71bacb60ea8cd7fcb24a8d1aa95a40a4a1",
+    "action_rng": "39eb7f69ad6132d4e5c0a3329f682073eb6172401c2e84b254282415260a1867"
+  },
+  "rng_after": {
+    "python": "0fdd107adf7c4b7c66b8492685a533da827bd590a7cf9bf166cdc43ee68037bb",
+    "numpy": "4defa1e310672420b91befd04e456c6ebb276aa9cad3f63c2367361873b8cfdb",
+    "torch": "bed2277f38bbef763b8bcb7b2d9be230ca37bdbf40daf106ac8ca5b9b45b582f",
+    "case_rng": "7ce8b659a8d9b6247cc357f4f8230b71bacb60ea8cd7fcb24a8d1aa95a40a4a1",
+    "action_rng": "39eb7f69ad6132d4e5c0a3329f682073eb6172401c2e84b254282415260a1867"
+  },
+  "state_unchanged": true,
+  "buffer_pos": 100,
+  "buffer_full": true,
+  "checkpoint_sha256": "0e4c8396a5531f43ef3fd5d21ec66d6bae2342f88d5bc613826373f8f531b014",
+  "buffer_file_sha256": "c758e514949911666d468f043286c2adc0d8b4edc247191824a6d6bfdb5575f5",
+  "capture_boundary": "after original model.train returned, with all boundary optimizer steps complete",
+  "excluded_save_parameters": [
+    "train (orchestration callable only)"
+  ],
+  "feature_version": "partial-visible-relative-scale4-v1"
+}

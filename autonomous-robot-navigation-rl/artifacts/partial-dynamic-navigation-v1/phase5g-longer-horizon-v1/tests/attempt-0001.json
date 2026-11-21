@@ -1,0 +1,44 @@
+{
+  "stage": "pre",
+  "exit_code": 0,
+  "source_inputs": {
+    "autonomous-robot-navigation-rl/configs/partial_phase5g_v1.yaml": "619bcaa2794b3bebb9fb018176c534d28e13b0ee4abb1c9d7d15ba7b97bfe1f0",
+    "autonomous-robot-navigation-rl/developer/commands/phase5g_parent_regressions.py": "028792cc904796d5cc803f1ec368d6bbee4f3c6ec045f23cb9c2eb84ecd5faa5",
+    "autonomous-robot-navigation-rl/developer/tests/test_partial_phase5g.py": "592a1067c49375d4d29805e13ff763e45c1ce4f6f5c9c9f9d43c4127b6911c09",
+    "autonomous-robot-navigation-rl/docs/partial_phase5g_protocol.md": "a411b8d6ed795b4bc19b13bdec3af456ff50167e7db6cb1a587d977a488deb2c",
+    "autonomous-robot-navigation-rl/src/robot_navigation/partial_phase5g.py": "ef0717fd7d552613e6477a2181f72c9959a2694e2b417b91042c985a8fe2ae01",
+    "autonomous-robot-navigation-rl/src/robot_navigation/partial_phase5g_assess.py": "4d49d78c5e113f5a904e743a77a900106c6c58352efbed18c0bb3376054ab126",
+    "autonomous-robot-navigation-rl/src/robot_navigation/partial_phase5g_io.py": "3adfe836af6c6a330f08770a7f30133d7f2e18a0afd0462653531930e4b2fa84",
+    "autonomous-robot-navigation-rl/src/robot_navigation/partial_phase5g_live.py": "a93a7b8b358a19efac8850dda7697f3c842762b18e02391d490471ba48267c1e",
+    "autonomous-robot-navigation-rl/src/robot_navigation/partial_phase5g_report.py": "10c5434060dfe0f4b5d83c6ac3eae3c79ef9f34831176234868921ce4ad47b0d",
+    "autonomous-robot-navigation-rl/src/robot_navigation/partial_phase5g_verify.py": "79115a5ef9f0e587963d708405e94decb986c9fda9ddd6fe2040b9ea304b0294",
+    "CODEX_PHASE5G_LONGER_HORIZON_LEARNING_DIAGNOSIS.md": "450e8bdf9b10a3b487a5085655c8094afece7a33af3e0bba87656549ee97da62"
+  },
+  "source_digest": "bc6e6e80bc04b11e1f82c1d63c62ae765d5efa9febfc9e9248ac8a34dfd8ba42",
+  "test_counts": {
+    "tests": 13,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "wall_seconds": 7.373031399998581,
+  "new_synthetic_transitions": 0,
+  "new_synthetic_optimizer_steps": 0,
+  "declared_caps": {
+    "transitions": 0,
+    "optimizer": 0
+  },
+  "command": [
+    "C:\\Users\\User\\Desktop\\Autonomous_Robot_Navigation\\autonomous-robot-navigation-rl\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "developer/tests/test_partial_phase5g.py",
+    "-q",
+    "-o",
+    "markers=pilot: read-only G evidence integration",
+    "-m",
+    "not pilot",
+    "--junitxml=C:\\Users\\User\\Desktop\\Autonomous_Robot_Navigation\\autonomous-robot-navigation-rl\\.runtime\\p5g\\autonomous-robot-navigation-rl\\.runtime\\phase5g-tests\\attempt-0001.xml"
+  ],
+  "scope": "Offline formulas, fake ledger/control checks or closed G records; no environment/model construction, training or scoring"
+}

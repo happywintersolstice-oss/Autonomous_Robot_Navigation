@@ -1,0 +1,94 @@
+{
+  "status": "training_completed",
+  "arms": [
+    {
+      "algorithm": "dqn",
+      "training_actions": 2000,
+      "optimizer_steps": 475,
+      "library_update_counter": 475,
+      "profile_counts": {
+        "selected_actions": 2000,
+        "replay_sample_calls": 475,
+        "replay_consumptions": 475,
+        "target_forwards": 475,
+        "online_forwards": 1573,
+        "native_optimizer_steps": 475
+      },
+      "network_before": {
+        "online": "2d6a8522319256069a43551a88a888007891687107c645969a206f949748def7",
+        "target": "2d6a8522319256069a43551a88a888007891687107c645969a206f949748def7"
+      },
+      "network_after": {
+        "online": "f3b51972728e452681e214d221997be09a8e185bea4796cf68ae474126280321",
+        "target": "6583a2f60eb519c5b70ba046c01e4a7a76c585cad8753818358a9851cef4885b"
+      },
+      "optimizer_final_sha256": "9705934b0e3129189bc8f00b8e767403a165c3683ca17452359f6ec546a293e1",
+      "rng_before": {
+        "python": "0fdd107adf7c4b7c66b8492685a533da827bd590a7cf9bf166cdc43ee68037bb",
+        "numpy": "86003e9c2a4298f74ddb88c5c05b8bcd0804b32b4a8e9dc7010677ec8970d439",
+        "torch": "e966a14721cd51983326b0a8a93dbe02e0c04bc5fbf4abba5ef0fae154e175f1",
+        "case_rng": "39eb7f69ad6132d4e5c0a3329f682073eb6172401c2e84b254282415260a1867",
+        "action_rng": "39eb7f69ad6132d4e5c0a3329f682073eb6172401c2e84b254282415260a1867"
+      },
+      "rng_after": {
+        "python": "0fdd107adf7c4b7c66b8492685a533da827bd590a7cf9bf166cdc43ee68037bb",
+        "numpy": "f89cd324b4dbfe2cec4351cb3757f8acc550942f32a6459d27cd881b880497be",
+        "torch": "e966a14721cd51983326b0a8a93dbe02e0c04bc5fbf4abba5ef0fae154e175f1",
+        "case_rng": "edee58a7c7514c5997ffcd457abea16b1c79c5af8ea98ff6792a2cad0fa3a18b",
+        "action_rng": "49b15d8221fa81ddd54dd769187113d6c1f4916c4222d722c31871b1bec69d7d"
+      },
+      "observer_hooks_restored": true,
+      "wall_seconds": 275.8008387000009,
+      "trace_uncompressed_bytes": 228554730,
+      "research_assessment_actions_during_training": 0,
+      "final_unseen_evaluations": 0
+    },
+    {
+      "algorithm": "ppo",
+      "training_actions": 2000,
+      "optimizer_steps": 200,
+      "library_update_counter": 100,
+      "profile_counts": {
+        "actor_forwards": 2000,
+        "critic_forwards": 20,
+        "rollout_consumptions": 200,
+        "rollout_permutations": 100,
+        "policy_training_evaluations": 200,
+        "native_optimizer_steps": 200
+      },
+      "network_before": {
+        "policy_and_value": "fdd333f656dc90ba048203689bc9411535d3b45388fe533c22f2470dc17edd83",
+        "target": "not_applicable"
+      },
+      "network_after": {
+        "policy_and_value": "4f77dbe52302d15a269680a9def591c34cf231ce818b77aa0837a9a9f4dcd852",
+        "target": "not_applicable"
+      },
+      "optimizer_final_sha256": "b4be187e50c9784e466e17cf6981a14bb2e6240314828c6e6ba2bf1ea4f7183f",
+      "rng_before": {
+        "python": "0fdd107adf7c4b7c66b8492685a533da827bd590a7cf9bf166cdc43ee68037bb",
+        "numpy": "86003e9c2a4298f74ddb88c5c05b8bcd0804b32b4a8e9dc7010677ec8970d439",
+        "torch": "b29ab5e9606e18b61bebe4d38f7f4da720d871dfa14148a1fd12481764e863cd",
+        "case_rng": "39eb7f69ad6132d4e5c0a3329f682073eb6172401c2e84b254282415260a1867",
+        "action_rng": "39eb7f69ad6132d4e5c0a3329f682073eb6172401c2e84b254282415260a1867"
+      },
+      "rng_after": {
+        "python": "0fdd107adf7c4b7c66b8492685a533da827bd590a7cf9bf166cdc43ee68037bb",
+        "numpy": "4defa1e310672420b91befd04e456c6ebb276aa9cad3f63c2367361873b8cfdb",
+        "torch": "bed2277f38bbef763b8bcb7b2d9be230ca37bdbf40daf106ac8ca5b9b45b582f",
+        "case_rng": "7ce8b659a8d9b6247cc357f4f8230b71bacb60ea8cd7fcb24a8d1aa95a40a4a1",
+        "action_rng": "39eb7f69ad6132d4e5c0a3329f682073eb6172401c2e84b254282415260a1867"
+      },
+      "observer_hooks_restored": true,
+      "wall_seconds": 479.1525552000094,
+      "trace_uncompressed_bytes": 118079028,
+      "research_assessment_actions_during_training": 0,
+      "final_unseen_evaluations": 0
+    }
+  ],
+  "scientific_training_actions": 4000,
+  "optimizer_steps": 675,
+  "wall_seconds": 755.2297159000009,
+  "assessments_during_training": 0,
+  "evaluation_isolation": "Training models destroyed before child assessments; OS process memory/RNG isolated"
+}
