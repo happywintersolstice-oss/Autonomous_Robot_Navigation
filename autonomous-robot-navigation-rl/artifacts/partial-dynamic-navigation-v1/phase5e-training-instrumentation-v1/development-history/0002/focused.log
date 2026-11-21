@@ -1,0 +1,136 @@
+EE                                                                       [100%]
+=================================== ERRORS ====================================
+_ ERROR at setup of test_independent_on_off_bitwise_equality_all_models_and_arms[B0-original-ppo] _
+
+output = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0002')
+
+    @pytest.fixture(scope='session')
+    def runs(output):
+        manifest=read_json(output/'attempt-plan.json');result={}
+        for algorithm in ('q-learning','sarsa','dqn','ppo'):
+            for arm in ARMS:
+                if [algorithm,arm] not in manifest['selected_pairs']:continue
+                path=output/'pairs'/(algorithm+'-'+arm)
+>               receipt=paired(algorithm,arm,path,os.environ['PHASE5E_LEDGER'],manifest['source_digest'],manifest['library_digest'],output/'model-config.json')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+developer\tests\test_partial_phase5e.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+algorithm = 'ppo', arm = 'B0-original'
+folder = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0002/pairs/ppo-B0-original')
+ledger = 'C:\\Users\\User\\Desktop\\Autonomous_Robot_Navigation\\autonomous-robot-navigation-rl\\.runtime\\p5e\\autonomous-robot-navigation-rl\\.runtime\\phase5e-operations.jsonl'
+source_hash = '6e7b943967a505fb74057d8c87419af1344e55d8838443104ba3a8ccf5677762'
+dependency_hash = '64366d3e23ad753a3bbddea59b20a0451dc33584f68d1b9fd112f4cba65d44cf'
+model_config = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0002/model-config.json')
+
+    def paired(algorithm,arm,folder,ledger,source_hash,dependency_hash,model_config):
+        folder=Path(folder);folder.mkdir(parents=True,exist_ok=False)
+        for enabled in (False,True):
+            run=algorithm+'-'+arm+('-on' if enabled else '-off')
+            plan={'source_kind':'synthetic_mechanical','algorithm':algorithm,'arm':arm,'seed':23101,
+                'folder':str(folder/('on' if enabled else 'off')),'enabled':enabled,'ledger':str(ledger),
+                'source_hash':source_hash,'dependency_hash':dependency_hash,'run':run,'model_config':str(model_config)}
+            path=folder/(('on' if enabled else 'off')+'-plan.json');write_json(path,plan)
+            environment=dict(os.environ,PHASE5E_MECHANICAL_ONLY='1',PYTHONPATH=str(ROOT/'src'))
+            process=subprocess.run([sys.executable,'-c','from robot_navigation.partial_phase5e_mechanics import worker; worker()',str(path)],
+                cwd=ROOT,env=environment,capture_output=True,text=True)
+            (folder/('on.log' if enabled else 'off.log')).write_text(process.stdout+process.stderr,encoding='utf-8')
+>           if process.returncode:raise RuntimeError('Synthetic worker failed; partial evidence retained: '+process.stderr[-3000:])
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           RuntimeError: Synthetic worker failed; partial evidence retained: Traceback (most recent call last):
+E             File "<string>", line 1, in <module>
+E               from robot_navigation.partial_phase5e_mechanics import worker; worker()
+E                                                                              ~~~~~~^^
+E             File "C:\Users\User\Desktop\Autonomous_Robot_Navigation\autonomous-robot-navigation-rl\.runtime\p5e\autonomous-robot-navigation-rl\src\robot_navigation\partial_phase5e_mechanics.py", line 199, in worker
+E               write_json(folder/'witness.json',result)
+E               ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E             File "C:\Users\User\Desktop\Autonomous_Robot_Navigation\autonomous-robot-navigation-rl\.runtime\p5e\autonomous-robot-navigation-rl\src\robot_navigation\core.py", line 37, in write_json
+E               payload = json.dumps(value, indent=2, allow_nan=False) + "\n"
+E                         ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E             File "C:\Users\User\AppData\Local\Programs\Python\Python314\Lib\json\__init__.py", line 242, in dumps
+E               **kw).encode(obj)
+E                     ~~~~~~^^^^^
+E             File "C:\Users\User\AppData\Local\Programs\Python\Python314\Lib\json\encoder.py", line 202, in encode
+E               chunks = self.iterencode(o, _one_shot=True)
+E             File "C:\Users\User\AppData\Local\Programs\Python\Python314\Lib\json\encoder.py", line 263, in iterencode
+E               return _iterencode(o, 0)
+E             File "C:\Users\User\AppData\Local\Programs\Python\Python314\Lib\json\encoder.py", line 182, in default
+E               raise TypeError(f'Object of type {o.__class__.__name__} '
+E                               f'is not JSON serializable')
+E           TypeError: Object of type ndarray is not JSON serializable
+E           when serializing dict item 'terminal_observation'
+E           when serializing dict item 'info'
+E           when serializing list item 4
+E           when serializing dict item 'environment_and_behavior'
+
+src\robot_navigation\partial_phase5e_mechanics.py:227: RuntimeError
+_ ERROR at setup of test_actual_ppo_bootstrap_GAE_permutation_normalization_losses_stop[B0-original] _
+
+output = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0002')
+
+    @pytest.fixture(scope='session')
+    def runs(output):
+        manifest=read_json(output/'attempt-plan.json');result={}
+        for algorithm in ('q-learning','sarsa','dqn','ppo'):
+            for arm in ARMS:
+                if [algorithm,arm] not in manifest['selected_pairs']:continue
+                path=output/'pairs'/(algorithm+'-'+arm)
+>               receipt=paired(algorithm,arm,path,os.environ['PHASE5E_LEDGER'],manifest['source_digest'],manifest['library_digest'],output/'model-config.json')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+developer\tests\test_partial_phase5e.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+algorithm = 'ppo', arm = 'B0-original'
+folder = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0002/pairs/ppo-B0-original')
+ledger = 'C:\\Users\\User\\Desktop\\Autonomous_Robot_Navigation\\autonomous-robot-navigation-rl\\.runtime\\p5e\\autonomous-robot-navigation-rl\\.runtime\\phase5e-operations.jsonl'
+source_hash = '6e7b943967a505fb74057d8c87419af1344e55d8838443104ba3a8ccf5677762'
+dependency_hash = '64366d3e23ad753a3bbddea59b20a0451dc33584f68d1b9fd112f4cba65d44cf'
+model_config = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0002/model-config.json')
+
+    def paired(algorithm,arm,folder,ledger,source_hash,dependency_hash,model_config):
+        folder=Path(folder);folder.mkdir(parents=True,exist_ok=False)
+        for enabled in (False,True):
+            run=algorithm+'-'+arm+('-on' if enabled else '-off')
+            plan={'source_kind':'synthetic_mechanical','algorithm':algorithm,'arm':arm,'seed':23101,
+                'folder':str(folder/('on' if enabled else 'off')),'enabled':enabled,'ledger':str(ledger),
+                'source_hash':source_hash,'dependency_hash':dependency_hash,'run':run,'model_config':str(model_config)}
+            path=folder/(('on' if enabled else 'off')+'-plan.json');write_json(path,plan)
+            environment=dict(os.environ,PHASE5E_MECHANICAL_ONLY='1',PYTHONPATH=str(ROOT/'src'))
+            process=subprocess.run([sys.executable,'-c','from robot_navigation.partial_phase5e_mechanics import worker; worker()',str(path)],
+                cwd=ROOT,env=environment,capture_output=True,text=True)
+            (folder/('on.log' if enabled else 'off.log')).write_text(process.stdout+process.stderr,encoding='utf-8')
+>           if process.returncode:raise RuntimeError('Synthetic worker failed; partial evidence retained: '+process.stderr[-3000:])
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           RuntimeError: Synthetic worker failed; partial evidence retained: Traceback (most recent call last):
+E             File "<string>", line 1, in <module>
+E               from robot_navigation.partial_phase5e_mechanics import worker; worker()
+E                                                                              ~~~~~~^^
+E             File "C:\Users\User\Desktop\Autonomous_Robot_Navigation\autonomous-robot-navigation-rl\.runtime\p5e\autonomous-robot-navigation-rl\src\robot_navigation\partial_phase5e_mechanics.py", line 199, in worker
+E               write_json(folder/'witness.json',result)
+E               ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E             File "C:\Users\User\Desktop\Autonomous_Robot_Navigation\autonomous-robot-navigation-rl\.runtime\p5e\autonomous-robot-navigation-rl\src\robot_navigation\core.py", line 37, in write_json
+E               payload = json.dumps(value, indent=2, allow_nan=False) + "\n"
+E                         ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E             File "C:\Users\User\AppData\Local\Programs\Python\Python314\Lib\json\__init__.py", line 242, in dumps
+E               **kw).encode(obj)
+E                     ~~~~~~^^^^^
+E             File "C:\Users\User\AppData\Local\Programs\Python\Python314\Lib\json\encoder.py", line 202, in encode
+E               chunks = self.iterencode(o, _one_shot=True)
+E             File "C:\Users\User\AppData\Local\Programs\Python\Python314\Lib\json\encoder.py", line 263, in iterencode
+E               return _iterencode(o, 0)
+E             File "C:\Users\User\AppData\Local\Programs\Python\Python314\Lib\json\encoder.py", line 182, in default
+E               raise TypeError(f'Object of type {o.__class__.__name__} '
+E                               f'is not JSON serializable')
+E           TypeError: Object of type ndarray is not JSON serializable
+E           when serializing dict item 'terminal_observation'
+E           when serializing dict item 'info'
+E           when serializing list item 4
+E           when serializing dict item 'environment_and_behavior'
+
+src\robot_navigation\partial_phase5e_mechanics.py:227: RuntimeError
+=========================== short test summary info ===========================
+ERROR developer/tests/test_partial_phase5e.py::test_independent_on_off_bitwise_equality_all_models_and_arms[B0-original-ppo]
+ERROR developer/tests/test_partial_phase5e.py::test_actual_ppo_bootstrap_GAE_permutation_normalization_losses_stop[B0-original]
+2 errors in 7.86s

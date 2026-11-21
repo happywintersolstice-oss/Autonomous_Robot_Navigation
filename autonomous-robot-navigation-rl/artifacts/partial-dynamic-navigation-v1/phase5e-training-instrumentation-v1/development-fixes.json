@@ -1,0 +1,23 @@
+[
+  {
+    "attempt": "0001",
+    "actual_result": "12 passed, 19 setup errors",
+    "root_cause": "An unused linear action-space RNG was initialized from OS entropy during witness final-state collection. Actions and weights already matched.",
+    "fix": "Seed the synthetic action space with the registered fixture seed before learner construction.",
+    "threshold_changed": false
+  },
+  {
+    "attempt": "0002",
+    "actual_result": "2 setup errors",
+    "root_cause": "Witness retained the mutable environment info dictionary; SB3 later attached a terminal_observation ndarray, causing witness JSON serialization failure.",
+    "fix": "Copy info at the actual environment return before downstream VecEnv augmentation.",
+    "threshold_changed": false
+  },
+  {
+    "attempt": "0004",
+    "actual_result": "1 passed, 1 failed",
+    "root_cause": "A unit assertion demanded zero DQN scalar arithmetic error; independently promoted float64 calculation differed from actual float32 by 7.450581818169155e-11.",
+    "fix": "Apply the pre-existing preregistered numerical atol 2e-5; keep bitwise on/off equality at zero tolerance.",
+    "threshold_changed": false
+  }
+]

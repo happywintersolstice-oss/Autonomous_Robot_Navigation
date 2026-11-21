@@ -1,0 +1,404 @@
+[
+  {
+    "pair": "dqn-B0-original",
+    "status": "passed",
+    "counts": {
+      "DQN": 1,
+      "PPO": 0,
+      "GAE": 0,
+      "linear": 0
+    },
+    "details": {
+      "DQN": [
+        {
+          "rows": 50,
+          "loss_error": 1.0985960718912224e-07,
+          "target_max_error": 1.564621932015342e-09
+        }
+      ],
+      "PPO": [],
+      "GAE": [],
+      "linear": []
+    },
+    "optimizer_steps": 1
+  },
+  {
+    "pair": "dqn-B1-relative-x4",
+    "status": "passed",
+    "counts": {
+      "DQN": 1,
+      "PPO": 0,
+      "GAE": 0,
+      "linear": 0
+    },
+    "details": {
+      "DQN": [
+        {
+          "rows": 50,
+          "loss_error": 8.228988157554795e-08,
+          "target_max_error": 6.482005127095292e-09
+        }
+      ],
+      "PPO": [],
+      "GAE": [],
+      "linear": []
+    },
+    "optimizer_steps": 1
+  },
+  {
+    "pair": "ppo-B0-original",
+    "status": "passed",
+    "counts": {
+      "DQN": 0,
+      "PPO": 11,
+      "GAE": 1,
+      "linear": 0
+    },
+    "details": {
+      "DQN": [],
+      "PPO": [
+        {
+          "rows": 50,
+          "total_loss_error": 1.9073486328125e-06,
+          "early_stop": false
+        },
+        {
+          "rows": 50,
+          "total_loss_error": 1.9073486328125e-06,
+          "early_stop": false
+        },
+        {
+          "rows": 50,
+          "total_loss_error": 0.0,
+          "early_stop": false
+        },
+        {
+          "rows": 50,
+          "total_loss_error": 1.9073486328125e-06,
+          "early_stop": false
+        },
+        {
+          "rows": 50,
+          "total_loss_error": 1.9073486328125e-06,
+          "early_stop": false
+        },
+        {
+          "rows": 50,
+          "total_loss_error": 1.9073486328125e-06,
+          "early_stop": false
+        },
+        {
+          "rows": 50,
+          "total_loss_error": 3.814697265625e-06,
+          "early_stop": false
+        },
+        {
+          "rows": 50,
+          "total_loss_error": 0.0,
+          "early_stop": false
+        },
+        {
+          "rows": 50,
+          "total_loss_error": 1.9073486328125e-06,
+          "early_stop": false
+        },
+        {
+          "rows": 50,
+          "total_loss_error": 1.9073486328125e-06,
+          "early_stop": false
+        },
+        {
+          "rows": 50,
+          "total_loss_error": 0.0,
+          "early_stop": true
+        }
+      ],
+      "GAE": [
+        {
+          "rows": 100,
+          "advantage_max_error": 8.527415165104912e-07
+        }
+      ],
+      "linear": []
+    },
+    "optimizer_steps": 10
+  },
+  {
+    "pair": "ppo-B1-relative-x4",
+    "status": "passed",
+    "counts": {
+      "DQN": 0,
+      "PPO": 11,
+      "GAE": 1,
+      "linear": 0
+    },
+    "details": {
+      "DQN": [],
+      "PPO": [
+        {
+          "rows": 50,
+          "total_loss_error": 1.9073486328125e-06,
+          "early_stop": false
+        },
+        {
+          "rows": 50,
+          "total_loss_error": 3.814697265625e-06,
+          "early_stop": false
+        },
+        {
+          "rows": 50,
+          "total_loss_error": 0.0,
+          "early_stop": false
+        },
+        {
+          "rows": 50,
+          "total_loss_error": 3.814697265625e-06,
+          "early_stop": false
+        },
+        {
+          "rows": 50,
+          "total_loss_error": 0.0,
+          "early_stop": false
+        },
+        {
+          "rows": 50,
+          "total_loss_error": 1.9073486328125e-06,
+          "early_stop": false
+        },
+        {
+          "rows": 50,
+          "total_loss_error": 0.0,
+          "early_stop": false
+        },
+        {
+          "rows": 50,
+          "total_loss_error": 1.9073486328125e-06,
+          "early_stop": false
+        },
+        {
+          "rows": 50,
+          "total_loss_error": 3.814697265625e-06,
+          "early_stop": false
+        },
+        {
+          "rows": 50,
+          "total_loss_error": 1.9073486328125e-06,
+          "early_stop": false
+        },
+        {
+          "rows": 50,
+          "total_loss_error": 0.0,
+          "early_stop": true
+        }
+      ],
+      "GAE": [
+        {
+          "rows": 100,
+          "advantage_max_error": 3.0774386061693804e-07
+        }
+      ],
+      "linear": []
+    },
+    "optimizer_steps": 10
+  },
+  {
+    "pair": "q-learning-B0-original",
+    "status": "passed",
+    "counts": {
+      "DQN": 0,
+      "PPO": 0,
+      "GAE": 0,
+      "linear": 8
+    },
+    "details": {
+      "DQN": [],
+      "PPO": [],
+      "GAE": [],
+      "linear": [
+        {
+          "target_error": 0.0,
+          "weight_max_error": 0.0
+        },
+        {
+          "target_error": 0.0,
+          "weight_max_error": 0.0
+        },
+        {
+          "target_error": 0.0,
+          "weight_max_error": 0.0
+        },
+        {
+          "target_error": 0.0,
+          "weight_max_error": 0.0
+        },
+        {
+          "target_error": 0.0,
+          "weight_max_error": 0.0
+        },
+        {
+          "target_error": 0.0,
+          "weight_max_error": 0.0
+        },
+        {
+          "target_error": 0.0,
+          "weight_max_error": 0.0
+        },
+        {
+          "target_error": 0.0,
+          "weight_max_error": 0.0
+        }
+      ]
+    },
+    "optimizer_steps": 0
+  },
+  {
+    "pair": "q-learning-B1-relative-x4",
+    "status": "passed",
+    "counts": {
+      "DQN": 0,
+      "PPO": 0,
+      "GAE": 0,
+      "linear": 8
+    },
+    "details": {
+      "DQN": [],
+      "PPO": [],
+      "GAE": [],
+      "linear": [
+        {
+          "target_error": 0.0,
+          "weight_max_error": 0.0
+        },
+        {
+          "target_error": 0.0,
+          "weight_max_error": 0.0
+        },
+        {
+          "target_error": 0.0,
+          "weight_max_error": 0.0
+        },
+        {
+          "target_error": 0.0,
+          "weight_max_error": 0.0
+        },
+        {
+          "target_error": 0.0,
+          "weight_max_error": 0.0
+        },
+        {
+          "target_error": 0.0,
+          "weight_max_error": 0.0
+        },
+        {
+          "target_error": 0.0,
+          "weight_max_error": 0.0
+        },
+        {
+          "target_error": 0.0,
+          "weight_max_error": 0.0
+        }
+      ]
+    },
+    "optimizer_steps": 0
+  },
+  {
+    "pair": "sarsa-B0-original",
+    "status": "passed",
+    "counts": {
+      "DQN": 0,
+      "PPO": 0,
+      "GAE": 0,
+      "linear": 8
+    },
+    "details": {
+      "DQN": [],
+      "PPO": [],
+      "GAE": [],
+      "linear": [
+        {
+          "target_error": 0.0,
+          "weight_max_error": 0.0
+        },
+        {
+          "target_error": 0.0,
+          "weight_max_error": 0.0
+        },
+        {
+          "target_error": 0.0,
+          "weight_max_error": 0.0
+        },
+        {
+          "target_error": 0.0,
+          "weight_max_error": 0.0
+        },
+        {
+          "target_error": 0.0,
+          "weight_max_error": 0.0
+        },
+        {
+          "target_error": 0.0,
+          "weight_max_error": 0.0
+        },
+        {
+          "target_error": 0.0,
+          "weight_max_error": 0.0
+        },
+        {
+          "target_error": 0.0,
+          "weight_max_error": 0.0
+        }
+      ]
+    },
+    "optimizer_steps": 0
+  },
+  {
+    "pair": "sarsa-B1-relative-x4",
+    "status": "passed",
+    "counts": {
+      "DQN": 0,
+      "PPO": 0,
+      "GAE": 0,
+      "linear": 8
+    },
+    "details": {
+      "DQN": [],
+      "PPO": [],
+      "GAE": [],
+      "linear": [
+        {
+          "target_error": 0.0,
+          "weight_max_error": 0.0
+        },
+        {
+          "target_error": 0.0,
+          "weight_max_error": 0.0
+        },
+        {
+          "target_error": 0.0,
+          "weight_max_error": 0.0
+        },
+        {
+          "target_error": 0.0,
+          "weight_max_error": 0.0
+        },
+        {
+          "target_error": 0.0,
+          "weight_max_error": 0.0
+        },
+        {
+          "target_error": 0.0,
+          "weight_max_error": 0.0
+        },
+        {
+          "target_error": 0.0,
+          "weight_max_error": 0.0
+        },
+        {
+          "target_error": 0.0,
+          "weight_max_error": 0.0
+        }
+      ]
+    },
+    "optimizer_steps": 0
+  }
+]

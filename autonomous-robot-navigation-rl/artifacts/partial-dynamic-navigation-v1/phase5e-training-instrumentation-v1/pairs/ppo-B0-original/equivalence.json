@@ -1,0 +1,19 @@
+{
+  "algorithm": "ppo",
+  "arm": "B0-original",
+  "bitwise_equal": true,
+  "tolerance": 0,
+  "independent_witness_sha256": "a51b7e7ce4a7ae8db729d46e4bbda44a1c544072e5cb450acb386c9137b33e96",
+  "transitions_per_run": 100,
+  "optimizer_steps_per_run": 10,
+  "compared": [
+    "actions/probabilities/reset sequence",
+    "global/env/action RNG",
+    "sample order and duplicates",
+    "buffer contents",
+    "losses/clipped gradients",
+    "optimizer and online/target parameters",
+    "forward-call counts",
+    "GAE/returns via actual rollout samples"
+  ]
+}

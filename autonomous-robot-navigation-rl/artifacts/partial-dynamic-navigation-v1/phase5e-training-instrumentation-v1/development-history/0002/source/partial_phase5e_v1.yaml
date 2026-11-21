@@ -1,0 +1,25 @@
+study_id: phase5e-training-instrumentation-v1
+base_commit: fe200034e816b10352453471f9c680b7c77d6ca4
+branch: feature/phase5e-training-instrumentation-v1
+enabled_by_default: false
+fixture_seed: 23101
+algorithms: [q-learning, sarsa, dqn, ppo]
+arms: [B0-original, B1-relative-x4]
+linear_steps_per_run: 8
+dqn_steps_per_run: 4
+ppo_steps_per_run: 100
+expected_paired_transitions: 480
+expected_paired_optimizer_steps: 108
+scientific_training_actions: 0
+research_assessment_actions: 0
+sealed_final_evaluations: 0
+synthetic_transition_cap: 1000
+synthetic_optimizer_cap: 500
+synthetic_wall_seconds: 1200
+artifact_byte_cap: 134217728
+equality: bitwise_cpu
+equality_tolerance: 0
+numerical_atol: 0.00002
+numerical_rtol: 0.000002
+linear_atol: 0.0000000001
+legacy_regressions: unchanged_separately_ledgered_user_authorization

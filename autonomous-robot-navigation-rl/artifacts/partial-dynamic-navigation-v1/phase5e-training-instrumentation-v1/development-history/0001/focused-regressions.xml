@@ -1,0 +1,780 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="19" failures="0" skipped="0" tests="31" time="6.818" timestamp="2026-11-21T04:39:51.998651+08:00" hostname="DESKTOP-P093PS4"><testcase classname="developer.tests.test_partial_phase5e" name="test_independent_on_off_bitwise_equality_all_models_and_arms[B0-original-q-learning]" time="4.463"><error message="failed on setup with &quot;ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original&quot;">output = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001')
+
+    @pytest.fixture(scope='session')
+    def runs(output):
+        manifest=read_json(output/'attempt-plan.json');result={}
+        for algorithm in ('q-learning','sarsa','dqn','ppo'):
+            for arm in ARMS:
+                path=output/'pairs'/(algorithm+'-'+arm)
+&gt;               receipt=paired(algorithm,arm,path,os.environ['PHASE5E_LEDGER'],manifest['source_digest'],manifest['library_digest'],output/'model-config.json')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+developer\tests\test_partial_phase5e.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+algorithm = 'q-learning', arm = 'B0-original'
+folder = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/pairs/q-learning-B0-original')
+ledger = 'C:\\Users\\User\\Desktop\\Autonomous_Robot_Navigation\\autonomous-robot-navigation-rl\\.runtime\\p5e\\autonomous-robot-navigation-rl\\.runtime\\phase5e-operations.jsonl'
+source_hash = 'd42c33f36e4aae00b13513c7c0f295f4da154f481a451bbf85c1bbc218f33e20'
+dependency_hash = '64366d3e23ad753a3bbddea59b20a0451dc33584f68d1b9fd112f4cba65d44cf'
+model_config = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/model-config.json')
+
+    def paired(algorithm,arm,folder,ledger,source_hash,dependency_hash,model_config):
+        folder=Path(folder);folder.mkdir(parents=True,exist_ok=False)
+        for enabled in (False,True):
+            run=algorithm+'-'+arm+('-on' if enabled else '-off')
+            plan={'source_kind':'synthetic_mechanical','algorithm':algorithm,'arm':arm,'seed':23101,
+                'folder':str(folder/('on' if enabled else 'off')),'enabled':enabled,'ledger':str(ledger),
+                'source_hash':source_hash,'dependency_hash':dependency_hash,'run':run,'model_config':str(model_config)}
+            path=folder/(('on' if enabled else 'off')+'-plan.json');write_json(path,plan)
+            environment=dict(os.environ,PHASE5E_MECHANICAL_ONLY='1',PYTHONPATH=str(ROOT/'src'))
+            process=subprocess.run([sys.executable,'-c','from robot_navigation.partial_phase5e_mechanics import worker; worker()',str(path)],
+                cwd=ROOT,env=environment,capture_output=True,text=True)
+            (folder/('on.log' if enabled else 'off.log')).write_text(process.stdout+process.stderr,encoding='utf-8')
+            if process.returncode:raise RuntimeError('Synthetic worker failed; partial evidence retained: '+process.stderr[-3000:])
+        off=read_json(folder/'off/witness.json');on=read_json(folder/'on/witness.json')
+        if off!=on:
+            for key in off:
+&gt;               if off[key]!=on[key]:raise ValueError('On/off bitwise mismatch in '+key+' for '+algorithm+'/'+arm)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original
+
+src\robot_navigation\partial_phase5e_mechanics.py:230: ValueError</error></testcase><testcase classname="developer.tests.test_partial_phase5e" name="test_independent_on_off_bitwise_equality_all_models_and_arms[B0-original-sarsa]" time="0.000"><error message="failed on setup with &quot;ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original&quot;">output = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001')
+
+    @pytest.fixture(scope='session')
+    def runs(output):
+        manifest=read_json(output/'attempt-plan.json');result={}
+        for algorithm in ('q-learning','sarsa','dqn','ppo'):
+            for arm in ARMS:
+                path=output/'pairs'/(algorithm+'-'+arm)
+&gt;               receipt=paired(algorithm,arm,path,os.environ['PHASE5E_LEDGER'],manifest['source_digest'],manifest['library_digest'],output/'model-config.json')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+developer\tests\test_partial_phase5e.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+algorithm = 'q-learning', arm = 'B0-original'
+folder = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/pairs/q-learning-B0-original')
+ledger = 'C:\\Users\\User\\Desktop\\Autonomous_Robot_Navigation\\autonomous-robot-navigation-rl\\.runtime\\p5e\\autonomous-robot-navigation-rl\\.runtime\\phase5e-operations.jsonl'
+source_hash = 'd42c33f36e4aae00b13513c7c0f295f4da154f481a451bbf85c1bbc218f33e20'
+dependency_hash = '64366d3e23ad753a3bbddea59b20a0451dc33584f68d1b9fd112f4cba65d44cf'
+model_config = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/model-config.json')
+
+    def paired(algorithm,arm,folder,ledger,source_hash,dependency_hash,model_config):
+        folder=Path(folder);folder.mkdir(parents=True,exist_ok=False)
+        for enabled in (False,True):
+            run=algorithm+'-'+arm+('-on' if enabled else '-off')
+            plan={'source_kind':'synthetic_mechanical','algorithm':algorithm,'arm':arm,'seed':23101,
+                'folder':str(folder/('on' if enabled else 'off')),'enabled':enabled,'ledger':str(ledger),
+                'source_hash':source_hash,'dependency_hash':dependency_hash,'run':run,'model_config':str(model_config)}
+            path=folder/(('on' if enabled else 'off')+'-plan.json');write_json(path,plan)
+            environment=dict(os.environ,PHASE5E_MECHANICAL_ONLY='1',PYTHONPATH=str(ROOT/'src'))
+            process=subprocess.run([sys.executable,'-c','from robot_navigation.partial_phase5e_mechanics import worker; worker()',str(path)],
+                cwd=ROOT,env=environment,capture_output=True,text=True)
+            (folder/('on.log' if enabled else 'off.log')).write_text(process.stdout+process.stderr,encoding='utf-8')
+            if process.returncode:raise RuntimeError('Synthetic worker failed; partial evidence retained: '+process.stderr[-3000:])
+        off=read_json(folder/'off/witness.json');on=read_json(folder/'on/witness.json')
+        if off!=on:
+            for key in off:
+&gt;               if off[key]!=on[key]:raise ValueError('On/off bitwise mismatch in '+key+' for '+algorithm+'/'+arm)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original
+
+src\robot_navigation\partial_phase5e_mechanics.py:230: ValueError</error></testcase><testcase classname="developer.tests.test_partial_phase5e" name="test_independent_on_off_bitwise_equality_all_models_and_arms[B0-original-dqn]" time="0.000"><error message="failed on setup with &quot;ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original&quot;">output = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001')
+
+    @pytest.fixture(scope='session')
+    def runs(output):
+        manifest=read_json(output/'attempt-plan.json');result={}
+        for algorithm in ('q-learning','sarsa','dqn','ppo'):
+            for arm in ARMS:
+                path=output/'pairs'/(algorithm+'-'+arm)
+&gt;               receipt=paired(algorithm,arm,path,os.environ['PHASE5E_LEDGER'],manifest['source_digest'],manifest['library_digest'],output/'model-config.json')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+developer\tests\test_partial_phase5e.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+algorithm = 'q-learning', arm = 'B0-original'
+folder = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/pairs/q-learning-B0-original')
+ledger = 'C:\\Users\\User\\Desktop\\Autonomous_Robot_Navigation\\autonomous-robot-navigation-rl\\.runtime\\p5e\\autonomous-robot-navigation-rl\\.runtime\\phase5e-operations.jsonl'
+source_hash = 'd42c33f36e4aae00b13513c7c0f295f4da154f481a451bbf85c1bbc218f33e20'
+dependency_hash = '64366d3e23ad753a3bbddea59b20a0451dc33584f68d1b9fd112f4cba65d44cf'
+model_config = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/model-config.json')
+
+    def paired(algorithm,arm,folder,ledger,source_hash,dependency_hash,model_config):
+        folder=Path(folder);folder.mkdir(parents=True,exist_ok=False)
+        for enabled in (False,True):
+            run=algorithm+'-'+arm+('-on' if enabled else '-off')
+            plan={'source_kind':'synthetic_mechanical','algorithm':algorithm,'arm':arm,'seed':23101,
+                'folder':str(folder/('on' if enabled else 'off')),'enabled':enabled,'ledger':str(ledger),
+                'source_hash':source_hash,'dependency_hash':dependency_hash,'run':run,'model_config':str(model_config)}
+            path=folder/(('on' if enabled else 'off')+'-plan.json');write_json(path,plan)
+            environment=dict(os.environ,PHASE5E_MECHANICAL_ONLY='1',PYTHONPATH=str(ROOT/'src'))
+            process=subprocess.run([sys.executable,'-c','from robot_navigation.partial_phase5e_mechanics import worker; worker()',str(path)],
+                cwd=ROOT,env=environment,capture_output=True,text=True)
+            (folder/('on.log' if enabled else 'off.log')).write_text(process.stdout+process.stderr,encoding='utf-8')
+            if process.returncode:raise RuntimeError('Synthetic worker failed; partial evidence retained: '+process.stderr[-3000:])
+        off=read_json(folder/'off/witness.json');on=read_json(folder/'on/witness.json')
+        if off!=on:
+            for key in off:
+&gt;               if off[key]!=on[key]:raise ValueError('On/off bitwise mismatch in '+key+' for '+algorithm+'/'+arm)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original
+
+src\robot_navigation\partial_phase5e_mechanics.py:230: ValueError</error></testcase><testcase classname="developer.tests.test_partial_phase5e" name="test_independent_on_off_bitwise_equality_all_models_and_arms[B0-original-ppo]" time="0.000"><error message="failed on setup with &quot;ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original&quot;">output = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001')
+
+    @pytest.fixture(scope='session')
+    def runs(output):
+        manifest=read_json(output/'attempt-plan.json');result={}
+        for algorithm in ('q-learning','sarsa','dqn','ppo'):
+            for arm in ARMS:
+                path=output/'pairs'/(algorithm+'-'+arm)
+&gt;               receipt=paired(algorithm,arm,path,os.environ['PHASE5E_LEDGER'],manifest['source_digest'],manifest['library_digest'],output/'model-config.json')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+developer\tests\test_partial_phase5e.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+algorithm = 'q-learning', arm = 'B0-original'
+folder = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/pairs/q-learning-B0-original')
+ledger = 'C:\\Users\\User\\Desktop\\Autonomous_Robot_Navigation\\autonomous-robot-navigation-rl\\.runtime\\p5e\\autonomous-robot-navigation-rl\\.runtime\\phase5e-operations.jsonl'
+source_hash = 'd42c33f36e4aae00b13513c7c0f295f4da154f481a451bbf85c1bbc218f33e20'
+dependency_hash = '64366d3e23ad753a3bbddea59b20a0451dc33584f68d1b9fd112f4cba65d44cf'
+model_config = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/model-config.json')
+
+    def paired(algorithm,arm,folder,ledger,source_hash,dependency_hash,model_config):
+        folder=Path(folder);folder.mkdir(parents=True,exist_ok=False)
+        for enabled in (False,True):
+            run=algorithm+'-'+arm+('-on' if enabled else '-off')
+            plan={'source_kind':'synthetic_mechanical','algorithm':algorithm,'arm':arm,'seed':23101,
+                'folder':str(folder/('on' if enabled else 'off')),'enabled':enabled,'ledger':str(ledger),
+                'source_hash':source_hash,'dependency_hash':dependency_hash,'run':run,'model_config':str(model_config)}
+            path=folder/(('on' if enabled else 'off')+'-plan.json');write_json(path,plan)
+            environment=dict(os.environ,PHASE5E_MECHANICAL_ONLY='1',PYTHONPATH=str(ROOT/'src'))
+            process=subprocess.run([sys.executable,'-c','from robot_navigation.partial_phase5e_mechanics import worker; worker()',str(path)],
+                cwd=ROOT,env=environment,capture_output=True,text=True)
+            (folder/('on.log' if enabled else 'off.log')).write_text(process.stdout+process.stderr,encoding='utf-8')
+            if process.returncode:raise RuntimeError('Synthetic worker failed; partial evidence retained: '+process.stderr[-3000:])
+        off=read_json(folder/'off/witness.json');on=read_json(folder/'on/witness.json')
+        if off!=on:
+            for key in off:
+&gt;               if off[key]!=on[key]:raise ValueError('On/off bitwise mismatch in '+key+' for '+algorithm+'/'+arm)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original
+
+src\robot_navigation\partial_phase5e_mechanics.py:230: ValueError</error></testcase><testcase classname="developer.tests.test_partial_phase5e" name="test_independent_on_off_bitwise_equality_all_models_and_arms[B1-relative-x4-q-learning]" time="0.000"><error message="failed on setup with &quot;ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original&quot;">output = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001')
+
+    @pytest.fixture(scope='session')
+    def runs(output):
+        manifest=read_json(output/'attempt-plan.json');result={}
+        for algorithm in ('q-learning','sarsa','dqn','ppo'):
+            for arm in ARMS:
+                path=output/'pairs'/(algorithm+'-'+arm)
+&gt;               receipt=paired(algorithm,arm,path,os.environ['PHASE5E_LEDGER'],manifest['source_digest'],manifest['library_digest'],output/'model-config.json')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+developer\tests\test_partial_phase5e.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+algorithm = 'q-learning', arm = 'B0-original'
+folder = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/pairs/q-learning-B0-original')
+ledger = 'C:\\Users\\User\\Desktop\\Autonomous_Robot_Navigation\\autonomous-robot-navigation-rl\\.runtime\\p5e\\autonomous-robot-navigation-rl\\.runtime\\phase5e-operations.jsonl'
+source_hash = 'd42c33f36e4aae00b13513c7c0f295f4da154f481a451bbf85c1bbc218f33e20'
+dependency_hash = '64366d3e23ad753a3bbddea59b20a0451dc33584f68d1b9fd112f4cba65d44cf'
+model_config = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/model-config.json')
+
+    def paired(algorithm,arm,folder,ledger,source_hash,dependency_hash,model_config):
+        folder=Path(folder);folder.mkdir(parents=True,exist_ok=False)
+        for enabled in (False,True):
+            run=algorithm+'-'+arm+('-on' if enabled else '-off')
+            plan={'source_kind':'synthetic_mechanical','algorithm':algorithm,'arm':arm,'seed':23101,
+                'folder':str(folder/('on' if enabled else 'off')),'enabled':enabled,'ledger':str(ledger),
+                'source_hash':source_hash,'dependency_hash':dependency_hash,'run':run,'model_config':str(model_config)}
+            path=folder/(('on' if enabled else 'off')+'-plan.json');write_json(path,plan)
+            environment=dict(os.environ,PHASE5E_MECHANICAL_ONLY='1',PYTHONPATH=str(ROOT/'src'))
+            process=subprocess.run([sys.executable,'-c','from robot_navigation.partial_phase5e_mechanics import worker; worker()',str(path)],
+                cwd=ROOT,env=environment,capture_output=True,text=True)
+            (folder/('on.log' if enabled else 'off.log')).write_text(process.stdout+process.stderr,encoding='utf-8')
+            if process.returncode:raise RuntimeError('Synthetic worker failed; partial evidence retained: '+process.stderr[-3000:])
+        off=read_json(folder/'off/witness.json');on=read_json(folder/'on/witness.json')
+        if off!=on:
+            for key in off:
+&gt;               if off[key]!=on[key]:raise ValueError('On/off bitwise mismatch in '+key+' for '+algorithm+'/'+arm)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original
+
+src\robot_navigation\partial_phase5e_mechanics.py:230: ValueError</error></testcase><testcase classname="developer.tests.test_partial_phase5e" name="test_independent_on_off_bitwise_equality_all_models_and_arms[B1-relative-x4-sarsa]" time="0.000"><error message="failed on setup with &quot;ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original&quot;">output = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001')
+
+    @pytest.fixture(scope='session')
+    def runs(output):
+        manifest=read_json(output/'attempt-plan.json');result={}
+        for algorithm in ('q-learning','sarsa','dqn','ppo'):
+            for arm in ARMS:
+                path=output/'pairs'/(algorithm+'-'+arm)
+&gt;               receipt=paired(algorithm,arm,path,os.environ['PHASE5E_LEDGER'],manifest['source_digest'],manifest['library_digest'],output/'model-config.json')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+developer\tests\test_partial_phase5e.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+algorithm = 'q-learning', arm = 'B0-original'
+folder = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/pairs/q-learning-B0-original')
+ledger = 'C:\\Users\\User\\Desktop\\Autonomous_Robot_Navigation\\autonomous-robot-navigation-rl\\.runtime\\p5e\\autonomous-robot-navigation-rl\\.runtime\\phase5e-operations.jsonl'
+source_hash = 'd42c33f36e4aae00b13513c7c0f295f4da154f481a451bbf85c1bbc218f33e20'
+dependency_hash = '64366d3e23ad753a3bbddea59b20a0451dc33584f68d1b9fd112f4cba65d44cf'
+model_config = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/model-config.json')
+
+    def paired(algorithm,arm,folder,ledger,source_hash,dependency_hash,model_config):
+        folder=Path(folder);folder.mkdir(parents=True,exist_ok=False)
+        for enabled in (False,True):
+            run=algorithm+'-'+arm+('-on' if enabled else '-off')
+            plan={'source_kind':'synthetic_mechanical','algorithm':algorithm,'arm':arm,'seed':23101,
+                'folder':str(folder/('on' if enabled else 'off')),'enabled':enabled,'ledger':str(ledger),
+                'source_hash':source_hash,'dependency_hash':dependency_hash,'run':run,'model_config':str(model_config)}
+            path=folder/(('on' if enabled else 'off')+'-plan.json');write_json(path,plan)
+            environment=dict(os.environ,PHASE5E_MECHANICAL_ONLY='1',PYTHONPATH=str(ROOT/'src'))
+            process=subprocess.run([sys.executable,'-c','from robot_navigation.partial_phase5e_mechanics import worker; worker()',str(path)],
+                cwd=ROOT,env=environment,capture_output=True,text=True)
+            (folder/('on.log' if enabled else 'off.log')).write_text(process.stdout+process.stderr,encoding='utf-8')
+            if process.returncode:raise RuntimeError('Synthetic worker failed; partial evidence retained: '+process.stderr[-3000:])
+        off=read_json(folder/'off/witness.json');on=read_json(folder/'on/witness.json')
+        if off!=on:
+            for key in off:
+&gt;               if off[key]!=on[key]:raise ValueError('On/off bitwise mismatch in '+key+' for '+algorithm+'/'+arm)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original
+
+src\robot_navigation\partial_phase5e_mechanics.py:230: ValueError</error></testcase><testcase classname="developer.tests.test_partial_phase5e" name="test_independent_on_off_bitwise_equality_all_models_and_arms[B1-relative-x4-dqn]" time="0.000"><error message="failed on setup with &quot;ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original&quot;">output = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001')
+
+    @pytest.fixture(scope='session')
+    def runs(output):
+        manifest=read_json(output/'attempt-plan.json');result={}
+        for algorithm in ('q-learning','sarsa','dqn','ppo'):
+            for arm in ARMS:
+                path=output/'pairs'/(algorithm+'-'+arm)
+&gt;               receipt=paired(algorithm,arm,path,os.environ['PHASE5E_LEDGER'],manifest['source_digest'],manifest['library_digest'],output/'model-config.json')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+developer\tests\test_partial_phase5e.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+algorithm = 'q-learning', arm = 'B0-original'
+folder = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/pairs/q-learning-B0-original')
+ledger = 'C:\\Users\\User\\Desktop\\Autonomous_Robot_Navigation\\autonomous-robot-navigation-rl\\.runtime\\p5e\\autonomous-robot-navigation-rl\\.runtime\\phase5e-operations.jsonl'
+source_hash = 'd42c33f36e4aae00b13513c7c0f295f4da154f481a451bbf85c1bbc218f33e20'
+dependency_hash = '64366d3e23ad753a3bbddea59b20a0451dc33584f68d1b9fd112f4cba65d44cf'
+model_config = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/model-config.json')
+
+    def paired(algorithm,arm,folder,ledger,source_hash,dependency_hash,model_config):
+        folder=Path(folder);folder.mkdir(parents=True,exist_ok=False)
+        for enabled in (False,True):
+            run=algorithm+'-'+arm+('-on' if enabled else '-off')
+            plan={'source_kind':'synthetic_mechanical','algorithm':algorithm,'arm':arm,'seed':23101,
+                'folder':str(folder/('on' if enabled else 'off')),'enabled':enabled,'ledger':str(ledger),
+                'source_hash':source_hash,'dependency_hash':dependency_hash,'run':run,'model_config':str(model_config)}
+            path=folder/(('on' if enabled else 'off')+'-plan.json');write_json(path,plan)
+            environment=dict(os.environ,PHASE5E_MECHANICAL_ONLY='1',PYTHONPATH=str(ROOT/'src'))
+            process=subprocess.run([sys.executable,'-c','from robot_navigation.partial_phase5e_mechanics import worker; worker()',str(path)],
+                cwd=ROOT,env=environment,capture_output=True,text=True)
+            (folder/('on.log' if enabled else 'off.log')).write_text(process.stdout+process.stderr,encoding='utf-8')
+            if process.returncode:raise RuntimeError('Synthetic worker failed; partial evidence retained: '+process.stderr[-3000:])
+        off=read_json(folder/'off/witness.json');on=read_json(folder/'on/witness.json')
+        if off!=on:
+            for key in off:
+&gt;               if off[key]!=on[key]:raise ValueError('On/off bitwise mismatch in '+key+' for '+algorithm+'/'+arm)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original
+
+src\robot_navigation\partial_phase5e_mechanics.py:230: ValueError</error></testcase><testcase classname="developer.tests.test_partial_phase5e" name="test_independent_on_off_bitwise_equality_all_models_and_arms[B1-relative-x4-ppo]" time="0.000"><error message="failed on setup with &quot;ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original&quot;">output = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001')
+
+    @pytest.fixture(scope='session')
+    def runs(output):
+        manifest=read_json(output/'attempt-plan.json');result={}
+        for algorithm in ('q-learning','sarsa','dqn','ppo'):
+            for arm in ARMS:
+                path=output/'pairs'/(algorithm+'-'+arm)
+&gt;               receipt=paired(algorithm,arm,path,os.environ['PHASE5E_LEDGER'],manifest['source_digest'],manifest['library_digest'],output/'model-config.json')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+developer\tests\test_partial_phase5e.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+algorithm = 'q-learning', arm = 'B0-original'
+folder = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/pairs/q-learning-B0-original')
+ledger = 'C:\\Users\\User\\Desktop\\Autonomous_Robot_Navigation\\autonomous-robot-navigation-rl\\.runtime\\p5e\\autonomous-robot-navigation-rl\\.runtime\\phase5e-operations.jsonl'
+source_hash = 'd42c33f36e4aae00b13513c7c0f295f4da154f481a451bbf85c1bbc218f33e20'
+dependency_hash = '64366d3e23ad753a3bbddea59b20a0451dc33584f68d1b9fd112f4cba65d44cf'
+model_config = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/model-config.json')
+
+    def paired(algorithm,arm,folder,ledger,source_hash,dependency_hash,model_config):
+        folder=Path(folder);folder.mkdir(parents=True,exist_ok=False)
+        for enabled in (False,True):
+            run=algorithm+'-'+arm+('-on' if enabled else '-off')
+            plan={'source_kind':'synthetic_mechanical','algorithm':algorithm,'arm':arm,'seed':23101,
+                'folder':str(folder/('on' if enabled else 'off')),'enabled':enabled,'ledger':str(ledger),
+                'source_hash':source_hash,'dependency_hash':dependency_hash,'run':run,'model_config':str(model_config)}
+            path=folder/(('on' if enabled else 'off')+'-plan.json');write_json(path,plan)
+            environment=dict(os.environ,PHASE5E_MECHANICAL_ONLY='1',PYTHONPATH=str(ROOT/'src'))
+            process=subprocess.run([sys.executable,'-c','from robot_navigation.partial_phase5e_mechanics import worker; worker()',str(path)],
+                cwd=ROOT,env=environment,capture_output=True,text=True)
+            (folder/('on.log' if enabled else 'off.log')).write_text(process.stdout+process.stderr,encoding='utf-8')
+            if process.returncode:raise RuntimeError('Synthetic worker failed; partial evidence retained: '+process.stderr[-3000:])
+        off=read_json(folder/'off/witness.json');on=read_json(folder/'on/witness.json')
+        if off!=on:
+            for key in off:
+&gt;               if off[key]!=on[key]:raise ValueError('On/off bitwise mismatch in '+key+' for '+algorithm+'/'+arm)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original
+
+src\robot_navigation\partial_phase5e_mechanics.py:230: ValueError</error></testcase><testcase classname="developer.tests.test_partial_phase5e" name="test_actual_dqn_samples_targets_timeouts_duplicates_and_sync[B0-original]" time="0.000"><error message="failed on setup with &quot;ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original&quot;">output = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001')
+
+    @pytest.fixture(scope='session')
+    def runs(output):
+        manifest=read_json(output/'attempt-plan.json');result={}
+        for algorithm in ('q-learning','sarsa','dqn','ppo'):
+            for arm in ARMS:
+                path=output/'pairs'/(algorithm+'-'+arm)
+&gt;               receipt=paired(algorithm,arm,path,os.environ['PHASE5E_LEDGER'],manifest['source_digest'],manifest['library_digest'],output/'model-config.json')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+developer\tests\test_partial_phase5e.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+algorithm = 'q-learning', arm = 'B0-original'
+folder = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/pairs/q-learning-B0-original')
+ledger = 'C:\\Users\\User\\Desktop\\Autonomous_Robot_Navigation\\autonomous-robot-navigation-rl\\.runtime\\p5e\\autonomous-robot-navigation-rl\\.runtime\\phase5e-operations.jsonl'
+source_hash = 'd42c33f36e4aae00b13513c7c0f295f4da154f481a451bbf85c1bbc218f33e20'
+dependency_hash = '64366d3e23ad753a3bbddea59b20a0451dc33584f68d1b9fd112f4cba65d44cf'
+model_config = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/model-config.json')
+
+    def paired(algorithm,arm,folder,ledger,source_hash,dependency_hash,model_config):
+        folder=Path(folder);folder.mkdir(parents=True,exist_ok=False)
+        for enabled in (False,True):
+            run=algorithm+'-'+arm+('-on' if enabled else '-off')
+            plan={'source_kind':'synthetic_mechanical','algorithm':algorithm,'arm':arm,'seed':23101,
+                'folder':str(folder/('on' if enabled else 'off')),'enabled':enabled,'ledger':str(ledger),
+                'source_hash':source_hash,'dependency_hash':dependency_hash,'run':run,'model_config':str(model_config)}
+            path=folder/(('on' if enabled else 'off')+'-plan.json');write_json(path,plan)
+            environment=dict(os.environ,PHASE5E_MECHANICAL_ONLY='1',PYTHONPATH=str(ROOT/'src'))
+            process=subprocess.run([sys.executable,'-c','from robot_navigation.partial_phase5e_mechanics import worker; worker()',str(path)],
+                cwd=ROOT,env=environment,capture_output=True,text=True)
+            (folder/('on.log' if enabled else 'off.log')).write_text(process.stdout+process.stderr,encoding='utf-8')
+            if process.returncode:raise RuntimeError('Synthetic worker failed; partial evidence retained: '+process.stderr[-3000:])
+        off=read_json(folder/'off/witness.json');on=read_json(folder/'on/witness.json')
+        if off!=on:
+            for key in off:
+&gt;               if off[key]!=on[key]:raise ValueError('On/off bitwise mismatch in '+key+' for '+algorithm+'/'+arm)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original
+
+src\robot_navigation\partial_phase5e_mechanics.py:230: ValueError</error></testcase><testcase classname="developer.tests.test_partial_phase5e" name="test_actual_dqn_samples_targets_timeouts_duplicates_and_sync[B1-relative-x4]" time="0.000"><error message="failed on setup with &quot;ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original&quot;">output = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001')
+
+    @pytest.fixture(scope='session')
+    def runs(output):
+        manifest=read_json(output/'attempt-plan.json');result={}
+        for algorithm in ('q-learning','sarsa','dqn','ppo'):
+            for arm in ARMS:
+                path=output/'pairs'/(algorithm+'-'+arm)
+&gt;               receipt=paired(algorithm,arm,path,os.environ['PHASE5E_LEDGER'],manifest['source_digest'],manifest['library_digest'],output/'model-config.json')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+developer\tests\test_partial_phase5e.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+algorithm = 'q-learning', arm = 'B0-original'
+folder = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/pairs/q-learning-B0-original')
+ledger = 'C:\\Users\\User\\Desktop\\Autonomous_Robot_Navigation\\autonomous-robot-navigation-rl\\.runtime\\p5e\\autonomous-robot-navigation-rl\\.runtime\\phase5e-operations.jsonl'
+source_hash = 'd42c33f36e4aae00b13513c7c0f295f4da154f481a451bbf85c1bbc218f33e20'
+dependency_hash = '64366d3e23ad753a3bbddea59b20a0451dc33584f68d1b9fd112f4cba65d44cf'
+model_config = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/model-config.json')
+
+    def paired(algorithm,arm,folder,ledger,source_hash,dependency_hash,model_config):
+        folder=Path(folder);folder.mkdir(parents=True,exist_ok=False)
+        for enabled in (False,True):
+            run=algorithm+'-'+arm+('-on' if enabled else '-off')
+            plan={'source_kind':'synthetic_mechanical','algorithm':algorithm,'arm':arm,'seed':23101,
+                'folder':str(folder/('on' if enabled else 'off')),'enabled':enabled,'ledger':str(ledger),
+                'source_hash':source_hash,'dependency_hash':dependency_hash,'run':run,'model_config':str(model_config)}
+            path=folder/(('on' if enabled else 'off')+'-plan.json');write_json(path,plan)
+            environment=dict(os.environ,PHASE5E_MECHANICAL_ONLY='1',PYTHONPATH=str(ROOT/'src'))
+            process=subprocess.run([sys.executable,'-c','from robot_navigation.partial_phase5e_mechanics import worker; worker()',str(path)],
+                cwd=ROOT,env=environment,capture_output=True,text=True)
+            (folder/('on.log' if enabled else 'off.log')).write_text(process.stdout+process.stderr,encoding='utf-8')
+            if process.returncode:raise RuntimeError('Synthetic worker failed; partial evidence retained: '+process.stderr[-3000:])
+        off=read_json(folder/'off/witness.json');on=read_json(folder/'on/witness.json')
+        if off!=on:
+            for key in off:
+&gt;               if off[key]!=on[key]:raise ValueError('On/off bitwise mismatch in '+key+' for '+algorithm+'/'+arm)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original
+
+src\robot_navigation\partial_phase5e_mechanics.py:230: ValueError</error></testcase><testcase classname="developer.tests.test_partial_phase5e" name="test_actual_ppo_bootstrap_GAE_permutation_normalization_losses_stop[B0-original]" time="0.000"><error message="failed on setup with &quot;ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original&quot;">output = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001')
+
+    @pytest.fixture(scope='session')
+    def runs(output):
+        manifest=read_json(output/'attempt-plan.json');result={}
+        for algorithm in ('q-learning','sarsa','dqn','ppo'):
+            for arm in ARMS:
+                path=output/'pairs'/(algorithm+'-'+arm)
+&gt;               receipt=paired(algorithm,arm,path,os.environ['PHASE5E_LEDGER'],manifest['source_digest'],manifest['library_digest'],output/'model-config.json')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+developer\tests\test_partial_phase5e.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+algorithm = 'q-learning', arm = 'B0-original'
+folder = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/pairs/q-learning-B0-original')
+ledger = 'C:\\Users\\User\\Desktop\\Autonomous_Robot_Navigation\\autonomous-robot-navigation-rl\\.runtime\\p5e\\autonomous-robot-navigation-rl\\.runtime\\phase5e-operations.jsonl'
+source_hash = 'd42c33f36e4aae00b13513c7c0f295f4da154f481a451bbf85c1bbc218f33e20'
+dependency_hash = '64366d3e23ad753a3bbddea59b20a0451dc33584f68d1b9fd112f4cba65d44cf'
+model_config = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/model-config.json')
+
+    def paired(algorithm,arm,folder,ledger,source_hash,dependency_hash,model_config):
+        folder=Path(folder);folder.mkdir(parents=True,exist_ok=False)
+        for enabled in (False,True):
+            run=algorithm+'-'+arm+('-on' if enabled else '-off')
+            plan={'source_kind':'synthetic_mechanical','algorithm':algorithm,'arm':arm,'seed':23101,
+                'folder':str(folder/('on' if enabled else 'off')),'enabled':enabled,'ledger':str(ledger),
+                'source_hash':source_hash,'dependency_hash':dependency_hash,'run':run,'model_config':str(model_config)}
+            path=folder/(('on' if enabled else 'off')+'-plan.json');write_json(path,plan)
+            environment=dict(os.environ,PHASE5E_MECHANICAL_ONLY='1',PYTHONPATH=str(ROOT/'src'))
+            process=subprocess.run([sys.executable,'-c','from robot_navigation.partial_phase5e_mechanics import worker; worker()',str(path)],
+                cwd=ROOT,env=environment,capture_output=True,text=True)
+            (folder/('on.log' if enabled else 'off.log')).write_text(process.stdout+process.stderr,encoding='utf-8')
+            if process.returncode:raise RuntimeError('Synthetic worker failed; partial evidence retained: '+process.stderr[-3000:])
+        off=read_json(folder/'off/witness.json');on=read_json(folder/'on/witness.json')
+        if off!=on:
+            for key in off:
+&gt;               if off[key]!=on[key]:raise ValueError('On/off bitwise mismatch in '+key+' for '+algorithm+'/'+arm)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original
+
+src\robot_navigation\partial_phase5e_mechanics.py:230: ValueError</error></testcase><testcase classname="developer.tests.test_partial_phase5e" name="test_actual_ppo_bootstrap_GAE_permutation_normalization_losses_stop[B1-relative-x4]" time="0.000"><error message="failed on setup with &quot;ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original&quot;">output = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001')
+
+    @pytest.fixture(scope='session')
+    def runs(output):
+        manifest=read_json(output/'attempt-plan.json');result={}
+        for algorithm in ('q-learning','sarsa','dqn','ppo'):
+            for arm in ARMS:
+                path=output/'pairs'/(algorithm+'-'+arm)
+&gt;               receipt=paired(algorithm,arm,path,os.environ['PHASE5E_LEDGER'],manifest['source_digest'],manifest['library_digest'],output/'model-config.json')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+developer\tests\test_partial_phase5e.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+algorithm = 'q-learning', arm = 'B0-original'
+folder = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/pairs/q-learning-B0-original')
+ledger = 'C:\\Users\\User\\Desktop\\Autonomous_Robot_Navigation\\autonomous-robot-navigation-rl\\.runtime\\p5e\\autonomous-robot-navigation-rl\\.runtime\\phase5e-operations.jsonl'
+source_hash = 'd42c33f36e4aae00b13513c7c0f295f4da154f481a451bbf85c1bbc218f33e20'
+dependency_hash = '64366d3e23ad753a3bbddea59b20a0451dc33584f68d1b9fd112f4cba65d44cf'
+model_config = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/model-config.json')
+
+    def paired(algorithm,arm,folder,ledger,source_hash,dependency_hash,model_config):
+        folder=Path(folder);folder.mkdir(parents=True,exist_ok=False)
+        for enabled in (False,True):
+            run=algorithm+'-'+arm+('-on' if enabled else '-off')
+            plan={'source_kind':'synthetic_mechanical','algorithm':algorithm,'arm':arm,'seed':23101,
+                'folder':str(folder/('on' if enabled else 'off')),'enabled':enabled,'ledger':str(ledger),
+                'source_hash':source_hash,'dependency_hash':dependency_hash,'run':run,'model_config':str(model_config)}
+            path=folder/(('on' if enabled else 'off')+'-plan.json');write_json(path,plan)
+            environment=dict(os.environ,PHASE5E_MECHANICAL_ONLY='1',PYTHONPATH=str(ROOT/'src'))
+            process=subprocess.run([sys.executable,'-c','from robot_navigation.partial_phase5e_mechanics import worker; worker()',str(path)],
+                cwd=ROOT,env=environment,capture_output=True,text=True)
+            (folder/('on.log' if enabled else 'off.log')).write_text(process.stdout+process.stderr,encoding='utf-8')
+            if process.returncode:raise RuntimeError('Synthetic worker failed; partial evidence retained: '+process.stderr[-3000:])
+        off=read_json(folder/'off/witness.json');on=read_json(folder/'on/witness.json')
+        if off!=on:
+            for key in off:
+&gt;               if off[key]!=on[key]:raise ValueError('On/off bitwise mismatch in '+key+' for '+algorithm+'/'+arm)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original
+
+src\robot_navigation\partial_phase5e_mechanics.py:230: ValueError</error></testcase><testcase classname="developer.tests.test_partial_phase5e" name="test_actual_linear_normalized_update_and_sampled_SARSA_action[B0-original-q-learning]" time="0.001"><error message="failed on setup with &quot;ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original&quot;">output = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001')
+
+    @pytest.fixture(scope='session')
+    def runs(output):
+        manifest=read_json(output/'attempt-plan.json');result={}
+        for algorithm in ('q-learning','sarsa','dqn','ppo'):
+            for arm in ARMS:
+                path=output/'pairs'/(algorithm+'-'+arm)
+&gt;               receipt=paired(algorithm,arm,path,os.environ['PHASE5E_LEDGER'],manifest['source_digest'],manifest['library_digest'],output/'model-config.json')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+developer\tests\test_partial_phase5e.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+algorithm = 'q-learning', arm = 'B0-original'
+folder = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/pairs/q-learning-B0-original')
+ledger = 'C:\\Users\\User\\Desktop\\Autonomous_Robot_Navigation\\autonomous-robot-navigation-rl\\.runtime\\p5e\\autonomous-robot-navigation-rl\\.runtime\\phase5e-operations.jsonl'
+source_hash = 'd42c33f36e4aae00b13513c7c0f295f4da154f481a451bbf85c1bbc218f33e20'
+dependency_hash = '64366d3e23ad753a3bbddea59b20a0451dc33584f68d1b9fd112f4cba65d44cf'
+model_config = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/model-config.json')
+
+    def paired(algorithm,arm,folder,ledger,source_hash,dependency_hash,model_config):
+        folder=Path(folder);folder.mkdir(parents=True,exist_ok=False)
+        for enabled in (False,True):
+            run=algorithm+'-'+arm+('-on' if enabled else '-off')
+            plan={'source_kind':'synthetic_mechanical','algorithm':algorithm,'arm':arm,'seed':23101,
+                'folder':str(folder/('on' if enabled else 'off')),'enabled':enabled,'ledger':str(ledger),
+                'source_hash':source_hash,'dependency_hash':dependency_hash,'run':run,'model_config':str(model_config)}
+            path=folder/(('on' if enabled else 'off')+'-plan.json');write_json(path,plan)
+            environment=dict(os.environ,PHASE5E_MECHANICAL_ONLY='1',PYTHONPATH=str(ROOT/'src'))
+            process=subprocess.run([sys.executable,'-c','from robot_navigation.partial_phase5e_mechanics import worker; worker()',str(path)],
+                cwd=ROOT,env=environment,capture_output=True,text=True)
+            (folder/('on.log' if enabled else 'off.log')).write_text(process.stdout+process.stderr,encoding='utf-8')
+            if process.returncode:raise RuntimeError('Synthetic worker failed; partial evidence retained: '+process.stderr[-3000:])
+        off=read_json(folder/'off/witness.json');on=read_json(folder/'on/witness.json')
+        if off!=on:
+            for key in off:
+&gt;               if off[key]!=on[key]:raise ValueError('On/off bitwise mismatch in '+key+' for '+algorithm+'/'+arm)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original
+
+src\robot_navigation\partial_phase5e_mechanics.py:230: ValueError</error></testcase><testcase classname="developer.tests.test_partial_phase5e" name="test_actual_linear_normalized_update_and_sampled_SARSA_action[B0-original-sarsa]" time="0.000"><error message="failed on setup with &quot;ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original&quot;">output = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001')
+
+    @pytest.fixture(scope='session')
+    def runs(output):
+        manifest=read_json(output/'attempt-plan.json');result={}
+        for algorithm in ('q-learning','sarsa','dqn','ppo'):
+            for arm in ARMS:
+                path=output/'pairs'/(algorithm+'-'+arm)
+&gt;               receipt=paired(algorithm,arm,path,os.environ['PHASE5E_LEDGER'],manifest['source_digest'],manifest['library_digest'],output/'model-config.json')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+developer\tests\test_partial_phase5e.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+algorithm = 'q-learning', arm = 'B0-original'
+folder = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/pairs/q-learning-B0-original')
+ledger = 'C:\\Users\\User\\Desktop\\Autonomous_Robot_Navigation\\autonomous-robot-navigation-rl\\.runtime\\p5e\\autonomous-robot-navigation-rl\\.runtime\\phase5e-operations.jsonl'
+source_hash = 'd42c33f36e4aae00b13513c7c0f295f4da154f481a451bbf85c1bbc218f33e20'
+dependency_hash = '64366d3e23ad753a3bbddea59b20a0451dc33584f68d1b9fd112f4cba65d44cf'
+model_config = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/model-config.json')
+
+    def paired(algorithm,arm,folder,ledger,source_hash,dependency_hash,model_config):
+        folder=Path(folder);folder.mkdir(parents=True,exist_ok=False)
+        for enabled in (False,True):
+            run=algorithm+'-'+arm+('-on' if enabled else '-off')
+            plan={'source_kind':'synthetic_mechanical','algorithm':algorithm,'arm':arm,'seed':23101,
+                'folder':str(folder/('on' if enabled else 'off')),'enabled':enabled,'ledger':str(ledger),
+                'source_hash':source_hash,'dependency_hash':dependency_hash,'run':run,'model_config':str(model_config)}
+            path=folder/(('on' if enabled else 'off')+'-plan.json');write_json(path,plan)
+            environment=dict(os.environ,PHASE5E_MECHANICAL_ONLY='1',PYTHONPATH=str(ROOT/'src'))
+            process=subprocess.run([sys.executable,'-c','from robot_navigation.partial_phase5e_mechanics import worker; worker()',str(path)],
+                cwd=ROOT,env=environment,capture_output=True,text=True)
+            (folder/('on.log' if enabled else 'off.log')).write_text(process.stdout+process.stderr,encoding='utf-8')
+            if process.returncode:raise RuntimeError('Synthetic worker failed; partial evidence retained: '+process.stderr[-3000:])
+        off=read_json(folder/'off/witness.json');on=read_json(folder/'on/witness.json')
+        if off!=on:
+            for key in off:
+&gt;               if off[key]!=on[key]:raise ValueError('On/off bitwise mismatch in '+key+' for '+algorithm+'/'+arm)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original
+
+src\robot_navigation\partial_phase5e_mechanics.py:230: ValueError</error></testcase><testcase classname="developer.tests.test_partial_phase5e" name="test_actual_linear_normalized_update_and_sampled_SARSA_action[B1-relative-x4-q-learning]" time="0.000"><error message="failed on setup with &quot;ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original&quot;">output = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001')
+
+    @pytest.fixture(scope='session')
+    def runs(output):
+        manifest=read_json(output/'attempt-plan.json');result={}
+        for algorithm in ('q-learning','sarsa','dqn','ppo'):
+            for arm in ARMS:
+                path=output/'pairs'/(algorithm+'-'+arm)
+&gt;               receipt=paired(algorithm,arm,path,os.environ['PHASE5E_LEDGER'],manifest['source_digest'],manifest['library_digest'],output/'model-config.json')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+developer\tests\test_partial_phase5e.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+algorithm = 'q-learning', arm = 'B0-original'
+folder = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/pairs/q-learning-B0-original')
+ledger = 'C:\\Users\\User\\Desktop\\Autonomous_Robot_Navigation\\autonomous-robot-navigation-rl\\.runtime\\p5e\\autonomous-robot-navigation-rl\\.runtime\\phase5e-operations.jsonl'
+source_hash = 'd42c33f36e4aae00b13513c7c0f295f4da154f481a451bbf85c1bbc218f33e20'
+dependency_hash = '64366d3e23ad753a3bbddea59b20a0451dc33584f68d1b9fd112f4cba65d44cf'
+model_config = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/model-config.json')
+
+    def paired(algorithm,arm,folder,ledger,source_hash,dependency_hash,model_config):
+        folder=Path(folder);folder.mkdir(parents=True,exist_ok=False)
+        for enabled in (False,True):
+            run=algorithm+'-'+arm+('-on' if enabled else '-off')
+            plan={'source_kind':'synthetic_mechanical','algorithm':algorithm,'arm':arm,'seed':23101,
+                'folder':str(folder/('on' if enabled else 'off')),'enabled':enabled,'ledger':str(ledger),
+                'source_hash':source_hash,'dependency_hash':dependency_hash,'run':run,'model_config':str(model_config)}
+            path=folder/(('on' if enabled else 'off')+'-plan.json');write_json(path,plan)
+            environment=dict(os.environ,PHASE5E_MECHANICAL_ONLY='1',PYTHONPATH=str(ROOT/'src'))
+            process=subprocess.run([sys.executable,'-c','from robot_navigation.partial_phase5e_mechanics import worker; worker()',str(path)],
+                cwd=ROOT,env=environment,capture_output=True,text=True)
+            (folder/('on.log' if enabled else 'off.log')).write_text(process.stdout+process.stderr,encoding='utf-8')
+            if process.returncode:raise RuntimeError('Synthetic worker failed; partial evidence retained: '+process.stderr[-3000:])
+        off=read_json(folder/'off/witness.json');on=read_json(folder/'on/witness.json')
+        if off!=on:
+            for key in off:
+&gt;               if off[key]!=on[key]:raise ValueError('On/off bitwise mismatch in '+key+' for '+algorithm+'/'+arm)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original
+
+src\robot_navigation\partial_phase5e_mechanics.py:230: ValueError</error></testcase><testcase classname="developer.tests.test_partial_phase5e" name="test_actual_linear_normalized_update_and_sampled_SARSA_action[B1-relative-x4-sarsa]" time="0.000"><error message="failed on setup with &quot;ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original&quot;">output = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001')
+
+    @pytest.fixture(scope='session')
+    def runs(output):
+        manifest=read_json(output/'attempt-plan.json');result={}
+        for algorithm in ('q-learning','sarsa','dqn','ppo'):
+            for arm in ARMS:
+                path=output/'pairs'/(algorithm+'-'+arm)
+&gt;               receipt=paired(algorithm,arm,path,os.environ['PHASE5E_LEDGER'],manifest['source_digest'],manifest['library_digest'],output/'model-config.json')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+developer\tests\test_partial_phase5e.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+algorithm = 'q-learning', arm = 'B0-original'
+folder = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/pairs/q-learning-B0-original')
+ledger = 'C:\\Users\\User\\Desktop\\Autonomous_Robot_Navigation\\autonomous-robot-navigation-rl\\.runtime\\p5e\\autonomous-robot-navigation-rl\\.runtime\\phase5e-operations.jsonl'
+source_hash = 'd42c33f36e4aae00b13513c7c0f295f4da154f481a451bbf85c1bbc218f33e20'
+dependency_hash = '64366d3e23ad753a3bbddea59b20a0451dc33584f68d1b9fd112f4cba65d44cf'
+model_config = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/model-config.json')
+
+    def paired(algorithm,arm,folder,ledger,source_hash,dependency_hash,model_config):
+        folder=Path(folder);folder.mkdir(parents=True,exist_ok=False)
+        for enabled in (False,True):
+            run=algorithm+'-'+arm+('-on' if enabled else '-off')
+            plan={'source_kind':'synthetic_mechanical','algorithm':algorithm,'arm':arm,'seed':23101,
+                'folder':str(folder/('on' if enabled else 'off')),'enabled':enabled,'ledger':str(ledger),
+                'source_hash':source_hash,'dependency_hash':dependency_hash,'run':run,'model_config':str(model_config)}
+            path=folder/(('on' if enabled else 'off')+'-plan.json');write_json(path,plan)
+            environment=dict(os.environ,PHASE5E_MECHANICAL_ONLY='1',PYTHONPATH=str(ROOT/'src'))
+            process=subprocess.run([sys.executable,'-c','from robot_navigation.partial_phase5e_mechanics import worker; worker()',str(path)],
+                cwd=ROOT,env=environment,capture_output=True,text=True)
+            (folder/('on.log' if enabled else 'off.log')).write_text(process.stdout+process.stderr,encoding='utf-8')
+            if process.returncode:raise RuntimeError('Synthetic worker failed; partial evidence retained: '+process.stderr[-3000:])
+        off=read_json(folder/'off/witness.json');on=read_json(folder/'on/witness.json')
+        if off!=on:
+            for key in off:
+&gt;               if off[key]!=on[key]:raise ValueError('On/off bitwise mismatch in '+key+' for '+algorithm+'/'+arm)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original
+
+src\robot_navigation\partial_phase5e_mechanics.py:230: ValueError</error></testcase><testcase classname="developer.tests.test_partial_phase5e" name="test_ring_slot_generation_and_replacement_order" time="0.004" /><testcase classname="developer.tests.test_partial_phase5e" name="test_nonfinite_tensors_fail_closed[nan]" time="0.001" /><testcase classname="developer.tests.test_partial_phase5e" name="test_nonfinite_tensors_fail_closed[inf]" time="0.000" /><testcase classname="developer.tests.test_partial_phase5e" name="test_nonfinite_tensors_fail_closed[-inf]" time="0.000" /><testcase classname="developer.tests.test_partial_phase5e" name="test_numeric_shape_dtype_hash_preserved_and_corruption_rejected" time="0.001" /><testcase classname="developer.tests.test_partial_phase5e" name="test_trace_corruption_interruption_order_and_quotas" time="0.038" /><testcase classname="developer.tests.test_partial_phase5e" name="test_missing_bootstrap_rollout_identity_and_fake_PPO_Q_rejected" time="0.000"><error message="failed on setup with &quot;ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original&quot;">output = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001')
+
+    @pytest.fixture(scope='session')
+    def runs(output):
+        manifest=read_json(output/'attempt-plan.json');result={}
+        for algorithm in ('q-learning','sarsa','dqn','ppo'):
+            for arm in ARMS:
+                path=output/'pairs'/(algorithm+'-'+arm)
+&gt;               receipt=paired(algorithm,arm,path,os.environ['PHASE5E_LEDGER'],manifest['source_digest'],manifest['library_digest'],output/'model-config.json')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+developer\tests\test_partial_phase5e.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+algorithm = 'q-learning', arm = 'B0-original'
+folder = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/pairs/q-learning-B0-original')
+ledger = 'C:\\Users\\User\\Desktop\\Autonomous_Robot_Navigation\\autonomous-robot-navigation-rl\\.runtime\\p5e\\autonomous-robot-navigation-rl\\.runtime\\phase5e-operations.jsonl'
+source_hash = 'd42c33f36e4aae00b13513c7c0f295f4da154f481a451bbf85c1bbc218f33e20'
+dependency_hash = '64366d3e23ad753a3bbddea59b20a0451dc33584f68d1b9fd112f4cba65d44cf'
+model_config = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/model-config.json')
+
+    def paired(algorithm,arm,folder,ledger,source_hash,dependency_hash,model_config):
+        folder=Path(folder);folder.mkdir(parents=True,exist_ok=False)
+        for enabled in (False,True):
+            run=algorithm+'-'+arm+('-on' if enabled else '-off')
+            plan={'source_kind':'synthetic_mechanical','algorithm':algorithm,'arm':arm,'seed':23101,
+                'folder':str(folder/('on' if enabled else 'off')),'enabled':enabled,'ledger':str(ledger),
+                'source_hash':source_hash,'dependency_hash':dependency_hash,'run':run,'model_config':str(model_config)}
+            path=folder/(('on' if enabled else 'off')+'-plan.json');write_json(path,plan)
+            environment=dict(os.environ,PHASE5E_MECHANICAL_ONLY='1',PYTHONPATH=str(ROOT/'src'))
+            process=subprocess.run([sys.executable,'-c','from robot_navigation.partial_phase5e_mechanics import worker; worker()',str(path)],
+                cwd=ROOT,env=environment,capture_output=True,text=True)
+            (folder/('on.log' if enabled else 'off.log')).write_text(process.stdout+process.stderr,encoding='utf-8')
+            if process.returncode:raise RuntimeError('Synthetic worker failed; partial evidence retained: '+process.stderr[-3000:])
+        off=read_json(folder/'off/witness.json');on=read_json(folder/'on/witness.json')
+        if off!=on:
+            for key in off:
+&gt;               if off[key]!=on[key]:raise ValueError('On/off bitwise mismatch in '+key+' for '+algorithm+'/'+arm)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original
+
+src\robot_navigation\partial_phase5e_mechanics.py:230: ValueError</error></testcase><testcase classname="developer.tests.test_partial_phase5e" name="test_mismatched_actual_network_and_target_tensor_rejected" time="0.000"><error message="failed on setup with &quot;ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original&quot;">output = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001')
+
+    @pytest.fixture(scope='session')
+    def runs(output):
+        manifest=read_json(output/'attempt-plan.json');result={}
+        for algorithm in ('q-learning','sarsa','dqn','ppo'):
+            for arm in ARMS:
+                path=output/'pairs'/(algorithm+'-'+arm)
+&gt;               receipt=paired(algorithm,arm,path,os.environ['PHASE5E_LEDGER'],manifest['source_digest'],manifest['library_digest'],output/'model-config.json')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+developer\tests\test_partial_phase5e.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+algorithm = 'q-learning', arm = 'B0-original'
+folder = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/pairs/q-learning-B0-original')
+ledger = 'C:\\Users\\User\\Desktop\\Autonomous_Robot_Navigation\\autonomous-robot-navigation-rl\\.runtime\\p5e\\autonomous-robot-navigation-rl\\.runtime\\phase5e-operations.jsonl'
+source_hash = 'd42c33f36e4aae00b13513c7c0f295f4da154f481a451bbf85c1bbc218f33e20'
+dependency_hash = '64366d3e23ad753a3bbddea59b20a0451dc33584f68d1b9fd112f4cba65d44cf'
+model_config = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/model-config.json')
+
+    def paired(algorithm,arm,folder,ledger,source_hash,dependency_hash,model_config):
+        folder=Path(folder);folder.mkdir(parents=True,exist_ok=False)
+        for enabled in (False,True):
+            run=algorithm+'-'+arm+('-on' if enabled else '-off')
+            plan={'source_kind':'synthetic_mechanical','algorithm':algorithm,'arm':arm,'seed':23101,
+                'folder':str(folder/('on' if enabled else 'off')),'enabled':enabled,'ledger':str(ledger),
+                'source_hash':source_hash,'dependency_hash':dependency_hash,'run':run,'model_config':str(model_config)}
+            path=folder/(('on' if enabled else 'off')+'-plan.json');write_json(path,plan)
+            environment=dict(os.environ,PHASE5E_MECHANICAL_ONLY='1',PYTHONPATH=str(ROOT/'src'))
+            process=subprocess.run([sys.executable,'-c','from robot_navigation.partial_phase5e_mechanics import worker; worker()',str(path)],
+                cwd=ROOT,env=environment,capture_output=True,text=True)
+            (folder/('on.log' if enabled else 'off.log')).write_text(process.stdout+process.stderr,encoding='utf-8')
+            if process.returncode:raise RuntimeError('Synthetic worker failed; partial evidence retained: '+process.stderr[-3000:])
+        off=read_json(folder/'off/witness.json');on=read_json(folder/'on/witness.json')
+        if off!=on:
+            for key in off:
+&gt;               if off[key]!=on[key]:raise ValueError('On/off bitwise mismatch in '+key+' for '+algorithm+'/'+arm)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original
+
+src\robot_navigation\partial_phase5e_mechanics.py:230: ValueError</error></testcase><testcase classname="developer.tests.test_partial_phase5e" name="test_disabled_is_no_op_and_hooks_restore_on_exception" time="0.030" /><testcase classname="developer.tests.test_partial_phase5e" name="test_unsupported_library_fails_before_hooks" time="0.010" /><testcase classname="developer.tests.test_partial_phase5e" name="test_resource_ledger_rejects_next_operation_before_execution" time="0.017" /><testcase classname="developer.tests.test_partial_phase5e" name="test_feature_parity_original_contract_and_action_ray_mapping[B0-original]" time="0.034" /><testcase classname="developer.tests.test_partial_phase5e" name="test_feature_parity_original_contract_and_action_ray_mapping[B1-relative-x4]" time="0.006" /><testcase classname="developer.tests.test_partial_phase5e" name="test_checkpoint_corruption_rejected_without_prediction" time="0.000"><error message="failed on setup with &quot;ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original&quot;">output = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001')
+
+    @pytest.fixture(scope='session')
+    def runs(output):
+        manifest=read_json(output/'attempt-plan.json');result={}
+        for algorithm in ('q-learning','sarsa','dqn','ppo'):
+            for arm in ARMS:
+                path=output/'pairs'/(algorithm+'-'+arm)
+&gt;               receipt=paired(algorithm,arm,path,os.environ['PHASE5E_LEDGER'],manifest['source_digest'],manifest['library_digest'],output/'model-config.json')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+developer\tests\test_partial_phase5e.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+algorithm = 'q-learning', arm = 'B0-original'
+folder = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/pairs/q-learning-B0-original')
+ledger = 'C:\\Users\\User\\Desktop\\Autonomous_Robot_Navigation\\autonomous-robot-navigation-rl\\.runtime\\p5e\\autonomous-robot-navigation-rl\\.runtime\\phase5e-operations.jsonl'
+source_hash = 'd42c33f36e4aae00b13513c7c0f295f4da154f481a451bbf85c1bbc218f33e20'
+dependency_hash = '64366d3e23ad753a3bbddea59b20a0451dc33584f68d1b9fd112f4cba65d44cf'
+model_config = WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navigation-rl/.runtime/p5e/autonomous-robot-navigation-rl/.runtime/phase5e-development/0001/model-config.json')
+
+    def paired(algorithm,arm,folder,ledger,source_hash,dependency_hash,model_config):
+        folder=Path(folder);folder.mkdir(parents=True,exist_ok=False)
+        for enabled in (False,True):
+            run=algorithm+'-'+arm+('-on' if enabled else '-off')
+            plan={'source_kind':'synthetic_mechanical','algorithm':algorithm,'arm':arm,'seed':23101,
+                'folder':str(folder/('on' if enabled else 'off')),'enabled':enabled,'ledger':str(ledger),
+                'source_hash':source_hash,'dependency_hash':dependency_hash,'run':run,'model_config':str(model_config)}
+            path=folder/(('on' if enabled else 'off')+'-plan.json');write_json(path,plan)
+            environment=dict(os.environ,PHASE5E_MECHANICAL_ONLY='1',PYTHONPATH=str(ROOT/'src'))
+            process=subprocess.run([sys.executable,'-c','from robot_navigation.partial_phase5e_mechanics import worker; worker()',str(path)],
+                cwd=ROOT,env=environment,capture_output=True,text=True)
+            (folder/('on.log' if enabled else 'off.log')).write_text(process.stdout+process.stderr,encoding='utf-8')
+            if process.returncode:raise RuntimeError('Synthetic worker failed; partial evidence retained: '+process.stderr[-3000:])
+        off=read_json(folder/'off/witness.json');on=read_json(folder/'on/witness.json')
+        if off!=on:
+            for key in off:
+&gt;               if off[key]!=on[key]:raise ValueError('On/off bitwise mismatch in '+key+' for '+algorithm+'/'+arm)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               ValueError: On/off bitwise mismatch in final_state for q-learning/B0-original
+
+src\robot_navigation\partial_phase5e_mechanics.py:230: ValueError</error></testcase><testcase classname="developer.tests.test_partial_phase5e" name="test_source_information_boundary_and_no_experiment_cli" time="0.008" /></testsuite></testsuites>

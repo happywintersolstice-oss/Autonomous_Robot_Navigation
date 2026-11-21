@@ -1,0 +1,154 @@
+[
+  {
+    "algorithm": "dqn",
+    "arm": "B0-original",
+    "bitwise_equal": true,
+    "tolerance": 0,
+    "independent_witness_sha256": "6df77d91e14efa5d0ae6150351f0416a74720b90b197bf7a6e9bbc1de0a02af8",
+    "transitions_per_run": 4,
+    "optimizer_steps_per_run": 1,
+    "compared": [
+      "actions/probabilities/reset sequence",
+      "global/env/action RNG",
+      "sample order and duplicates",
+      "buffer contents",
+      "losses/clipped gradients",
+      "optimizer and online/target parameters",
+      "forward-call counts",
+      "GAE/returns via actual rollout samples"
+    ]
+  },
+  {
+    "algorithm": "dqn",
+    "arm": "B1-relative-x4",
+    "bitwise_equal": true,
+    "tolerance": 0,
+    "independent_witness_sha256": "124d4cceaa54e45d74845089a0463407a6566e7da8f56356bd38478d397588b8",
+    "transitions_per_run": 4,
+    "optimizer_steps_per_run": 1,
+    "compared": [
+      "actions/probabilities/reset sequence",
+      "global/env/action RNG",
+      "sample order and duplicates",
+      "buffer contents",
+      "losses/clipped gradients",
+      "optimizer and online/target parameters",
+      "forward-call counts",
+      "GAE/returns via actual rollout samples"
+    ]
+  },
+  {
+    "algorithm": "ppo",
+    "arm": "B0-original",
+    "bitwise_equal": true,
+    "tolerance": 0,
+    "independent_witness_sha256": "a51b7e7ce4a7ae8db729d46e4bbda44a1c544072e5cb450acb386c9137b33e96",
+    "transitions_per_run": 100,
+    "optimizer_steps_per_run": 10,
+    "compared": [
+      "actions/probabilities/reset sequence",
+      "global/env/action RNG",
+      "sample order and duplicates",
+      "buffer contents",
+      "losses/clipped gradients",
+      "optimizer and online/target parameters",
+      "forward-call counts",
+      "GAE/returns via actual rollout samples"
+    ]
+  },
+  {
+    "algorithm": "ppo",
+    "arm": "B1-relative-x4",
+    "bitwise_equal": true,
+    "tolerance": 0,
+    "independent_witness_sha256": "8ca17f8245434ea2a772c859736dfd17fd183f542f37d20ba97e7d6e47bb6bb9",
+    "transitions_per_run": 100,
+    "optimizer_steps_per_run": 10,
+    "compared": [
+      "actions/probabilities/reset sequence",
+      "global/env/action RNG",
+      "sample order and duplicates",
+      "buffer contents",
+      "losses/clipped gradients",
+      "optimizer and online/target parameters",
+      "forward-call counts",
+      "GAE/returns via actual rollout samples"
+    ]
+  },
+  {
+    "algorithm": "q-learning",
+    "arm": "B0-original",
+    "bitwise_equal": true,
+    "tolerance": 0,
+    "independent_witness_sha256": "1ac86a6980c52559cd450326b61a9459dad8ca7dbbf6f56158fb20ef3fdbc9a6",
+    "transitions_per_run": 8,
+    "optimizer_steps_per_run": 8,
+    "compared": [
+      "actions/probabilities/reset sequence",
+      "global/env/action RNG",
+      "sample order and duplicates",
+      "buffer contents",
+      "losses/clipped gradients",
+      "optimizer and online/target parameters",
+      "forward-call counts",
+      "GAE/returns via actual rollout samples"
+    ]
+  },
+  {
+    "algorithm": "q-learning",
+    "arm": "B1-relative-x4",
+    "bitwise_equal": true,
+    "tolerance": 0,
+    "independent_witness_sha256": "72be08aecc204eb947fa05e54f73bd92e038b76301ce2a91517a7eacbd0364ec",
+    "transitions_per_run": 8,
+    "optimizer_steps_per_run": 8,
+    "compared": [
+      "actions/probabilities/reset sequence",
+      "global/env/action RNG",
+      "sample order and duplicates",
+      "buffer contents",
+      "losses/clipped gradients",
+      "optimizer and online/target parameters",
+      "forward-call counts",
+      "GAE/returns via actual rollout samples"
+    ]
+  },
+  {
+    "algorithm": "sarsa",
+    "arm": "B0-original",
+    "bitwise_equal": true,
+    "tolerance": 0,
+    "independent_witness_sha256": "1ac86a6980c52559cd450326b61a9459dad8ca7dbbf6f56158fb20ef3fdbc9a6",
+    "transitions_per_run": 8,
+    "optimizer_steps_per_run": 8,
+    "compared": [
+      "actions/probabilities/reset sequence",
+      "global/env/action RNG",
+      "sample order and duplicates",
+      "buffer contents",
+      "losses/clipped gradients",
+      "optimizer and online/target parameters",
+      "forward-call counts",
+      "GAE/returns via actual rollout samples"
+    ]
+  },
+  {
+    "algorithm": "sarsa",
+    "arm": "B1-relative-x4",
+    "bitwise_equal": true,
+    "tolerance": 0,
+    "independent_witness_sha256": "72be08aecc204eb947fa05e54f73bd92e038b76301ce2a91517a7eacbd0364ec",
+    "transitions_per_run": 8,
+    "optimizer_steps_per_run": 8,
+    "compared": [
+      "actions/probabilities/reset sequence",
+      "global/env/action RNG",
+      "sample order and duplicates",
+      "buffer contents",
+      "losses/clipped gradients",
+      "optimizer and online/target parameters",
+      "forward-call counts",
+      "GAE/returns via actual rollout samples"
+    ]
+  }
+]

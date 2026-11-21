@@ -1,0 +1,19 @@
+{
+  "algorithm": "q-learning",
+  "arm": "B1-relative-x4",
+  "bitwise_equal": true,
+  "tolerance": 0,
+  "independent_witness_sha256": "72be08aecc204eb947fa05e54f73bd92e038b76301ce2a91517a7eacbd0364ec",
+  "transitions_per_run": 8,
+  "optimizer_steps_per_run": 8,
+  "compared": [
+    "actions/probabilities/reset sequence",
+    "global/env/action RNG",
+    "sample order and duplicates",
+    "buffer contents",
+    "losses/clipped gradients",
+    "optimizer and online/target parameters",
+    "forward-call counts",
+    "GAE/returns via actual rollout samples"
+  ]
+}

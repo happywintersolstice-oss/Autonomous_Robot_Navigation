@@ -1,0 +1,30 @@
+{
+  "versions": {
+    "stable-baselines3": "2.9.2",
+    "torch": "2.15.0",
+    "numpy": "2.5.4",
+    "gymnasium": "1.4.0"
+  },
+  "methods": {
+    "DQN.train": "696507cb4053336a892a34781e07fc6884c8d43673ea5cc7cb463f64e086c17e",
+    "DQN._on_step": "56a2e3b541d1b2b6d6b9a1f497c1a75a0d1ff3cfc87e8be0178734d5a9fdd529",
+    "ReplayBuffer.add": "310f1d34dc0f4790d65ac4366431731dd64457fb0d65d986d9ce1479ceeb32bf",
+    "ReplayBuffer.sample": "d0aa2fb65a84ec11cbdfc72702826637f6c756774e303578901532c7c65b8d98",
+    "ReplayBuffer._get_samples": "ffe73ca3cb22fc4c9c85e5109b6f6732b0513e58be0132a118ab6183d2c4ad3f",
+    "RolloutBuffer.add": "624274151cae9064b57b410b41deabf64dee367b6500d1de393803c7d83a6c2c",
+    "RolloutBuffer.get": "7500122932f89e08236530c45b82202972987f535deb26df7f04310d92559ad6",
+    "RolloutBuffer._get_samples": "235b5d768dff7ae77f749e5897e0e008084664e70db064b18ac5291a441a3cf7",
+    "RolloutBuffer.reset": "20b4f5d48e0c9e5b2d855201fe6dc0475d6b5a959d227092c4fc55597e6f5198",
+    "RolloutBuffer.compute_returns_and_advantage": "1a229ef50a037a1e6ee33544d9817fb9ea41bef6ece3867f00ddf1f1efd6a6a0",
+    "PPO.train": "7c8d09940123242f0ac401c5ec2cc858b8bf3339f571c222382f048ffd8306ae",
+    "PPO.collect_rollouts": "07f9eed35d9d7392f6ce287dc9d55aede83d8b0f93d34cb5d643410cdf11e3b7",
+    "ActorCriticPolicy.forward": "a105334089d8fc449de927df520a99d588b0f6e2c86e8527aba0d1b2f040f9cd",
+    "ActorCriticPolicy.evaluate_actions": "064f423282536b39d37531cef6d09ff26431dc015f582bcd96370d46fcb38e73",
+    "ActorCriticPolicy.predict_values": "edf8b7d894703edf0100df50dc63371ecf68a4ddb57ff9c8f088e72193e56ebc",
+    "BaseBuffer.sample": "32e77dec7d96488dfa619dc0fd82b08a315943bdd28b635ea93166c932c5f1ee",
+    "LinearPolicy.update": "a8d2b4d2e92b71833db54299019aeccb9fd46104d2ebc58ae8b654cc9d5ab977",
+    "ScaledLinearPolicy.update": "eec7a2797191bc6c1d50eb9a08ca5f647b4c0c309e159430d8c36f649539836f",
+    "Torch.Adam.step": "56edd31e55c3bdc5dfa8db4c334eb812fc1727872b6878831e8974b3496062ff",
+    "Torch.clip_grad_norm_": "ec7e5ef692a2f1679f547a8899fd9d29e934b1f8791d78546821927483d379ca"
+  }
+}

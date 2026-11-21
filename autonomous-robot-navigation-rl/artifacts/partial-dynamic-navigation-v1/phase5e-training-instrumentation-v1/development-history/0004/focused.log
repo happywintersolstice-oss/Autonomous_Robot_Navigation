@@ -1,0 +1,23 @@
+.F                                                                       [100%]
+================================== FAILURES ===================================
+__ test_actual_dqn_samples_targets_timeouts_duplicates_and_sync[B0-original] __
+
+runs = {('dqn', 'B0-original'): {'path': WindowsPath('C:/Users/User/Desktop/Autonomous_Robot_Navigation/autonomous-robot-navi...observations': {...}, 'dones': {...}, ...}}], 'forward_counts': {'target_forward': 1, 'online_forward': 1}, ...}, ...}}
+arm = 'B0-original'
+
+    @pytest.mark.parametrize('arm',list(ARMS))
+    def test_actual_dqn_samples_targets_timeouts_duplicates_and_sync(runs,arm):
+        r=runs['dqn',arm];rows=r['records'];a=audit_records(rows)
+        assert a['counts']['DQN']==1 and a['optimizer_steps']==1
+        sample=next(x for x in rows if x['event']=='replay_sample')
+        assert len(sample['sample'])==50 and len({s['transition_id'] for s in sample['sample']})==4
+        assert len({s['transition_id'] for s in sample['sample']})<len(sample['sample'])
+        actual=next(x for x in rows if x['event']=='dqn_loss')
+>       near=validate_dqn(actual);assert near['target_max_error']==0
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       assert 7.450581818169155e-11 == 0
+
+developer\tests\test_partial_phase5e.py:65: AssertionError
+=========================== short test summary info ===========================
+FAILED developer/tests/test_partial_phase5e.py::test_actual_dqn_samples_targets_timeouts_duplicates_and_sync[B0-original]
+1 failed, 1 passed in 8.90s
