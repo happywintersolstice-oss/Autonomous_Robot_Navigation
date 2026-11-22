@@ -1,0 +1,69 @@
+{
+  "reason": "Evaluator accepts validation/manual labels, not development. Only development split metadata corrected; layouts, goals, events, training data and official contracts unchanged. Completed native runs reused without retraining. No successful development score existed before this amendment.",
+  "original_evaluation_failures": [
+    {
+      "algorithm": "q-learning",
+      "actions_requested": 10000,
+      "shaping": "none",
+      "error": "ValueError('Only development/manual scenarios may be evaluated')"
+    },
+    {
+      "algorithm": "sarsa",
+      "actions_requested": 10000,
+      "shaping": "none",
+      "error": "ValueError('Only development/manual scenarios may be evaluated')"
+    },
+    {
+      "algorithm": "dqn",
+      "actions_requested": 10000,
+      "shaping": "none",
+      "error": "ValueError('Only development/manual scenarios may be evaluated')"
+    },
+    {
+      "algorithm": "ppo",
+      "actions_requested": 10000,
+      "shaping": "none",
+      "error": "ValueError('Only development/manual scenarios may be evaluated')"
+    },
+    {
+      "algorithm": "q-learning",
+      "actions_requested": 10000,
+      "shaping": "progress-v1",
+      "error": "ValueError('Only development/manual scenarios may be evaluated')"
+    },
+    {
+      "algorithm": "sarsa",
+      "actions_requested": 10000,
+      "shaping": "progress-v1",
+      "error": "ValueError('Only development/manual scenarios may be evaluated')"
+    },
+    {
+      "algorithm": "dqn",
+      "actions_requested": 10000,
+      "shaping": "progress-v1",
+      "error": "ValueError('Only development/manual scenarios may be evaluated')"
+    },
+    {
+      "algorithm": "ppo",
+      "actions_requested": 10000,
+      "shaping": "progress-v1",
+      "error": "ValueError('Only development/manual scenarios may be evaluated')"
+    },
+    {
+      "algorithm": "q-learning",
+      "actions_requested": 30000,
+      "shaping": "progress-v1",
+      "error": "ValueError('Only development/manual scenarios may be evaluated')"
+    }
+  ],
+  "premature_q_learning_30000": "Completed before evaluation integration error was noticed. Eligible for primary selection only if measured 10000-action candidates trigger the registered escalation; otherwise reported as exploratory.",
+  "partial_sarsa_30000": "Interrupted. No usable checkpoint; exact final transition count unavailable; most recent recorded progress retained. Its 30000-action budget slot is consumed and will not be repeated.",
+  "interrupted_runs": [
+    {
+      "run_id": "20261122T132409Z-a8557f2c",
+      "last_recorded_actions": 7040,
+      "exact_final_actions": null,
+      "maximum_requested_actions": 30000
+    }
+  ]
+}

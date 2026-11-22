@@ -1,0 +1,25 @@
+{
+  "schema": "product-development-selection-v1",
+  "selected": {
+    "q-learning": {
+      "id": "20261122T133047Z-befd7c15/q-learning",
+      "checkpoint_sha256": "54a40d81afc9706fb2215e0904430f363e5803b0f95a318f6036581b1bb4ed82"
+    },
+    "sarsa": {
+      "id": "20261122T132241Z-144d4d48/sarsa",
+      "checkpoint_sha256": "d0a60fd564567bcd79b20714583fd14594a282a6f09cbc6e808a8d3037219448"
+    },
+    "dqn": {
+      "id": "20261122T132156Z-f8d472ff/dqn",
+      "checkpoint_sha256": "d71750fe816a0d450bbf9005628eb352c3dea18ee99f32405477b9ba12b05727"
+    },
+    "ppo": {
+      "id": "20261122T132656Z-a8469b3e/ppo",
+      "checkpoint_sha256": "1fcec48acf883d12104a6a863a3ca854a7a6ffdce393d906b97b9776b5b8ba64"
+    }
+  },
+  "comparison": "comparisons/20261122T133310Z-833d1797",
+  "study": "product-phase2/20261122T132126Z-41f7725b",
+  "development_hash": "846eb9dc1adb8a3568193103a60af8bb8bbb33d60fe471637003704c129d9020",
+  "criterion": "Highest success count, then original mean return, then fewer Wait actions, then lower action budget; deterministic first candidate breaks exact ties. New verified complete checkpoints only. Development selection is optimistic, not unseen accuracy."
+}

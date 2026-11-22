@@ -4,32 +4,45 @@ from .core import ROOT,read_json
 from .partial_agents import ALGORITHMS
 from .partial_contract import configuration
 from .partial_features_scaled import ARMS,load_scaled_policy
+from . import product_features
 
 RUNS=ROOT/'runs'
 
 def registry(root=None):
     root=Path(root or RUNS);items=[]
+    selection=read_json(root/'selection.json') if (root/'selection.json').is_file() else {}
+    best=selection.get('selected',{})
     for file in sorted(root.glob('training/*/manifest.json'),reverse=True):
         try:
             run=read_json(file)
+            if run.get('status')!='complete':continue
             for name,record in run.get('models',{}).items():
                 if name not in ALGORITHMS or record.get('status')!='complete':continue
                 path=file.parent/record['checkpoint'];meta=read_json(path.with_suffix('.json'))
-                if meta.get('actions')!=5 or meta.get('observation_values')!=409 or meta.get('feature_count')!=412:continue
+                if meta.get('actions')!=5 or meta.get('observation_values')!=409:continue
                 arm=next((a for a,v in ARMS.items() if v==meta.get('feature_version')),None)
+                if meta.get('feature_version')==product_features.VERSION and meta.get('feature_count')==product_features.FEATURE_COUNT:arm='product-v2'
+                elif meta.get('feature_count')!=412:continue
                 if arm is None:continue
+                item_id=run['run_id']+'/'+name;is_best=best.get(name,{}).get('id')==item_id and best[name].get('checkpoint_sha256')==meta['checkpoint_sha256']
+                state='Best on development' if is_best else 'Trained' if record['actions']>=10000 else 'Starter'
                 items.append({'id':run['run_id']+'/'+name,'algorithm':name,'path':str(path),'arm':arm,'seed':run['seed'],
-                    'actions':record['actions'],'preset':run['preset'],'label':f"{name.upper()} · {record['actions']} actions · seed {run['seed']} · {run['run_id']}"})
+                    'actions':record['actions'],'preset':run['preset'],'status':state,'checkpoint_sha256':meta['checkpoint_sha256'],'feature_version':meta['feature_version'],'shaping':run.get('shaping','none'),'q_stability':run.get('q_stability','off') if name=='q-learning' else None,'training_case_hash':run.get('case_hash'),'learning_evidence':record.get('learning_evidence',{}),'label':f"{state} | {name.upper()} · {record['actions']} actions · seed {run['seed']} · {run['run_id']}"})
         except (OSError,ValueError,KeyError):continue
-    return items
+    return sorted(items,key=lambda i:i['status']!='Best on development')
 
 def load_model(item):
     path=Path(item['path'])
     if not path.is_file():raise ValueError('The checkpoint is missing. Refresh the registry or train a new model.')
-    try:return load_scaled_policy(path,configuration(),item['arm'])
+    try:return product_features.load_policy(path,configuration()) if item['arm']=='product-v2' else load_scaled_policy(path,configuration(),item['arm'])
     except Exception as exc:raise ValueError('This checkpoint is incompatible or corrupt. Select a native five-action model or train a new one. Details: '+str(exc)) from exc
 
 def newest_by_algorithm(items=None):
     result={}
     for item in items if items is not None else registry():result.setdefault(item['algorithm'],item)
     return result
+
+
+def preferred_by_algorithm(items=None):
+    """Development-selected checkpoints first; newest is only the unvalidated fallback."""
+    return newest_by_algorithm(items)

@@ -1,0 +1,318 @@
+{
+  "note": "Initial settings dictionaries inherited starter defaults for net_arch, epochs, replay capacity, epsilon and target interval; those fields did not govern F2 builders. This separate immutable supplementary record reads actual serialized model settings. No completed run was edited. Future manifests now record corrected F2 defaults and per-model effective settings.",
+  "models": {
+    "20261122T133047Z-befd7c15/q-learning": {
+      "family": "q-learning",
+      "weight_shape": [
+        96
+      ],
+      "alpha": 0.1,
+      "discount": 0.99,
+      "q_stability": "target-v1"
+    },
+    "20261122T132656Z-a8469b3e/ppo": {
+      "family": "ppo",
+      "discount": 0.99,
+      "learning_rate": 0.0003,
+      "batch_size": 100,
+      "parameter_shapes": {
+        "mlp_extractor.actor.0.weight": [
+          64,
+          96
+        ],
+        "mlp_extractor.actor.0.bias": [
+          64
+        ],
+        "mlp_extractor.actor.2.weight": [
+          1,
+          64
+        ],
+        "mlp_extractor.actor.2.bias": [
+          1
+        ],
+        "mlp_extractor.critic.0.weight": [
+          64,
+          480
+        ],
+        "mlp_extractor.critic.0.bias": [
+          64
+        ],
+        "mlp_extractor.critic.2.weight": [
+          64,
+          64
+        ],
+        "mlp_extractor.critic.2.bias": [
+          64
+        ],
+        "value_net.weight": [
+          1,
+          64
+        ],
+        "value_net.bias": [
+          1
+        ]
+      },
+      "n_steps": 200,
+      "n_epochs": 4,
+      "entropy_coefficient": 0.02
+    },
+    "20261122T132241Z-144d4d48/sarsa": {
+      "family": "sarsa",
+      "weight_shape": [
+        96
+      ],
+      "alpha": 0.1,
+      "discount": 0.99,
+      "q_stability": null
+    },
+    "20261122T132156Z-f8d472ff/dqn": {
+      "family": "dqn",
+      "discount": 0.99,
+      "learning_rate": 0.0003,
+      "batch_size": 64,
+      "parameter_shapes": {
+        "q_net.q_net.0.weight": [
+          64,
+          96
+        ],
+        "q_net.q_net.0.bias": [
+          64
+        ],
+        "q_net.q_net.2.weight": [
+          64,
+          64
+        ],
+        "q_net.q_net.2.bias": [
+          64
+        ],
+        "q_net.q_net.4.weight": [
+          1,
+          64
+        ],
+        "q_net.q_net.4.bias": [
+          1
+        ],
+        "q_net_target.q_net.0.weight": [
+          64,
+          96
+        ],
+        "q_net_target.q_net.0.bias": [
+          64
+        ],
+        "q_net_target.q_net.2.weight": [
+          64,
+          64
+        ],
+        "q_net_target.q_net.2.bias": [
+          64
+        ],
+        "q_net_target.q_net.4.weight": [
+          1,
+          64
+        ],
+        "q_net_target.q_net.4.bias": [
+          1
+        ]
+      },
+      "buffer_size": 20000,
+      "learning_starts": 500,
+      "train_frequency": 4,
+      "target_update_interval": 500,
+      "exploration_final_epsilon": 0.05,
+      "exploration_fraction": 0.65
+    },
+    "20261122T132736Z-669c6288/q-learning": {
+      "family": "q-learning",
+      "weight_shape": [
+        96
+      ],
+      "alpha": 0.1,
+      "discount": 0.99,
+      "q_stability": "off"
+    },
+    "20261122T132324Z-bb85cc44/q-learning": {
+      "family": "q-learning",
+      "weight_shape": [
+        96
+      ],
+      "alpha": 0.1,
+      "discount": 0.99,
+      "q_stability": "off"
+    },
+    "20261122T132311Z-ea5a1aef/ppo": {
+      "family": "ppo",
+      "discount": 0.99,
+      "learning_rate": 0.0003,
+      "batch_size": 100,
+      "parameter_shapes": {
+        "mlp_extractor.actor.0.weight": [
+          64,
+          96
+        ],
+        "mlp_extractor.actor.0.bias": [
+          64
+        ],
+        "mlp_extractor.actor.2.weight": [
+          1,
+          64
+        ],
+        "mlp_extractor.actor.2.bias": [
+          1
+        ],
+        "mlp_extractor.critic.0.weight": [
+          64,
+          480
+        ],
+        "mlp_extractor.critic.0.bias": [
+          64
+        ],
+        "mlp_extractor.critic.2.weight": [
+          64,
+          64
+        ],
+        "mlp_extractor.critic.2.bias": [
+          64
+        ],
+        "value_net.weight": [
+          1,
+          64
+        ],
+        "value_net.bias": [
+          1
+        ]
+      },
+      "n_steps": 200,
+      "n_epochs": 4,
+      "entropy_coefficient": 0.02
+    },
+    "20261122T132256Z-1e9fbbd4/dqn": {
+      "family": "dqn",
+      "discount": 0.99,
+      "learning_rate": 0.0003,
+      "batch_size": 64,
+      "parameter_shapes": {
+        "q_net.q_net.0.weight": [
+          64,
+          96
+        ],
+        "q_net.q_net.0.bias": [
+          64
+        ],
+        "q_net.q_net.2.weight": [
+          64,
+          64
+        ],
+        "q_net.q_net.2.bias": [
+          64
+        ],
+        "q_net.q_net.4.weight": [
+          1,
+          64
+        ],
+        "q_net.q_net.4.bias": [
+          1
+        ],
+        "q_net_target.q_net.0.weight": [
+          64,
+          96
+        ],
+        "q_net_target.q_net.0.bias": [
+          64
+        ],
+        "q_net_target.q_net.2.weight": [
+          64,
+          64
+        ],
+        "q_net_target.q_net.2.bias": [
+          64
+        ],
+        "q_net_target.q_net.4.weight": [
+          1,
+          64
+        ],
+        "q_net_target.q_net.4.bias": [
+          1
+        ]
+      },
+      "buffer_size": 20000,
+      "learning_starts": 500,
+      "train_frequency": 4,
+      "target_update_interval": 500,
+      "exploration_final_epsilon": 0.05,
+      "exploration_fraction": 0.65
+    },
+    "20261122T132226Z-aa5d6716/q-learning": {
+      "family": "q-learning",
+      "weight_shape": [
+        96
+      ],
+      "alpha": 0.1,
+      "discount": 0.99,
+      "q_stability": "off"
+    },
+    "20261122T132212Z-67675e28/ppo": {
+      "family": "ppo",
+      "discount": 0.99,
+      "learning_rate": 0.0003,
+      "batch_size": 100,
+      "parameter_shapes": {
+        "mlp_extractor.actor.0.weight": [
+          64,
+          96
+        ],
+        "mlp_extractor.actor.0.bias": [
+          64
+        ],
+        "mlp_extractor.actor.2.weight": [
+          1,
+          64
+        ],
+        "mlp_extractor.actor.2.bias": [
+          1
+        ],
+        "mlp_extractor.critic.0.weight": [
+          64,
+          480
+        ],
+        "mlp_extractor.critic.0.bias": [
+          64
+        ],
+        "mlp_extractor.critic.2.weight": [
+          64,
+          64
+        ],
+        "mlp_extractor.critic.2.bias": [
+          64
+        ],
+        "value_net.weight": [
+          1,
+          64
+        ],
+        "value_net.bias": [
+          1
+        ]
+      },
+      "n_steps": 200,
+      "n_epochs": 4,
+      "entropy_coefficient": 0.02
+    },
+    "20261122T132141Z-4ac4be2b/sarsa": {
+      "family": "sarsa",
+      "weight_shape": [
+        96
+      ],
+      "alpha": 0.1,
+      "discount": 0.99,
+      "q_stability": null
+    },
+    "20261122T132126Z-f0df73eb/q-learning": {
+      "family": "q-learning",
+      "weight_shape": [
+        96
+      ],
+      "alpha": 0.1,
+      "discount": 0.99,
+      "q_stability": "off"
+    }
+  }
+}

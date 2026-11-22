@@ -1,0 +1,149 @@
+{
+  "purpose": "Post-selection active UI walkthrough checks; not part of selection or the 24-case comparison",
+  "rows": [
+    {
+      "algorithm": "q-learning",
+      "preset": "Open loading floor",
+      "outcome": "success",
+      "actions": 14,
+      "waits": 0,
+      "checkpoint": "20261122T133047Z-befd7c15/q-learning",
+      "replay": "episodes/20261122T134055Z-be826e61.json.gz"
+    },
+    {
+      "algorithm": "q-learning",
+      "preset": "Storage rack detour",
+      "outcome": "success",
+      "actions": 29,
+      "waits": 0,
+      "checkpoint": "20261122T133047Z-befd7c15/q-learning",
+      "replay": "episodes/20261122T134055Z-065bec40.json.gz"
+    },
+    {
+      "algorithm": "q-learning",
+      "preset": "Blocked aisle \u2014 wait for clearing",
+      "outcome": "success",
+      "actions": 13,
+      "waits": 6,
+      "checkpoint": "20261122T133047Z-befd7c15/q-learning",
+      "replay": "episodes/20261122T134055Z-7bc86c78.json.gz"
+    },
+    {
+      "algorithm": "q-learning",
+      "preset": "Temporary pallet detour",
+      "outcome": "success",
+      "actions": 9,
+      "waits": 0,
+      "checkpoint": "20261122T133047Z-befd7c15/q-learning",
+      "replay": "episodes/20261122T134055Z-287a5f5c.json.gz"
+    },
+    {
+      "algorithm": "ppo",
+      "preset": "Open loading floor",
+      "outcome": "success",
+      "actions": 14,
+      "waits": 0,
+      "checkpoint": "20261122T132656Z-a8469b3e/ppo",
+      "replay": "episodes/20261122T134056Z-f0f67734.json.gz"
+    },
+    {
+      "algorithm": "ppo",
+      "preset": "Storage rack detour",
+      "outcome": "success",
+      "actions": 25,
+      "waits": 0,
+      "checkpoint": "20261122T132656Z-a8469b3e/ppo",
+      "replay": "episodes/20261122T134056Z-67bd94d9.json.gz"
+    },
+    {
+      "algorithm": "ppo",
+      "preset": "Blocked aisle \u2014 wait for clearing",
+      "outcome": "success",
+      "actions": 13,
+      "waits": 6,
+      "checkpoint": "20261122T132656Z-a8469b3e/ppo",
+      "replay": "episodes/20261122T134056Z-e05d2f17.json.gz"
+    },
+    {
+      "algorithm": "ppo",
+      "preset": "Temporary pallet detour",
+      "outcome": "success",
+      "actions": 9,
+      "waits": 0,
+      "checkpoint": "20261122T132656Z-a8469b3e/ppo",
+      "replay": "episodes/20261122T134056Z-90125a9d.json.gz"
+    },
+    {
+      "algorithm": "sarsa",
+      "preset": "Open loading floor",
+      "outcome": "success",
+      "actions": 14,
+      "waits": 0,
+      "checkpoint": "20261122T132241Z-144d4d48/sarsa",
+      "replay": "episodes/20261122T134056Z-280db405.json.gz"
+    },
+    {
+      "algorithm": "sarsa",
+      "preset": "Storage rack detour",
+      "outcome": "success",
+      "actions": 17,
+      "waits": 0,
+      "checkpoint": "20261122T132241Z-144d4d48/sarsa",
+      "replay": "episodes/20261122T134056Z-ea4857b3.json.gz"
+    },
+    {
+      "algorithm": "sarsa",
+      "preset": "Blocked aisle \u2014 wait for clearing",
+      "outcome": "success",
+      "actions": 13,
+      "waits": 6,
+      "checkpoint": "20261122T132241Z-144d4d48/sarsa",
+      "replay": "episodes/20261122T134056Z-729a08db.json.gz"
+    },
+    {
+      "algorithm": "sarsa",
+      "preset": "Temporary pallet detour",
+      "outcome": "success",
+      "actions": 9,
+      "waits": 0,
+      "checkpoint": "20261122T132241Z-144d4d48/sarsa",
+      "replay": "episodes/20261122T134056Z-cb4302f5.json.gz"
+    },
+    {
+      "algorithm": "dqn",
+      "preset": "Open loading floor",
+      "outcome": "timeout",
+      "actions": 200,
+      "waits": 188,
+      "checkpoint": "20261122T132156Z-f8d472ff/dqn",
+      "replay": "episodes/20261122T134057Z-719ae515.json.gz"
+    },
+    {
+      "algorithm": "dqn",
+      "preset": "Storage rack detour",
+      "outcome": "success",
+      "actions": 21,
+      "waits": 0,
+      "checkpoint": "20261122T132156Z-f8d472ff/dqn",
+      "replay": "episodes/20261122T134057Z-9134701e.json.gz"
+    },
+    {
+      "algorithm": "dqn",
+      "preset": "Blocked aisle \u2014 wait for clearing",
+      "outcome": "success",
+      "actions": 13,
+      "waits": 6,
+      "checkpoint": "20261122T132156Z-f8d472ff/dqn",
+      "replay": "episodes/20261122T134057Z-5f6fa51a.json.gz"
+    },
+    {
+      "algorithm": "dqn",
+      "preset": "Temporary pallet detour",
+      "outcome": "success",
+      "actions": 9,
+      "waits": 0,
+      "checkpoint": "20261122T132156Z-f8d472ff/dqn",
+      "replay": "episodes/20261122T134057Z-b113c4a0.json.gz"
+    }
+  ]
+}

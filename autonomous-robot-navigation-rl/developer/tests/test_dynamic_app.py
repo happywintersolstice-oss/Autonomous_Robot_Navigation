@@ -24,7 +24,7 @@ def test_all_native_algorithms_train_load_and_infer(trained):
     env=PartialDynamicEnv(training_cases(),configuration());obs,_=env.reset(seed=3)
     for item in items:
         p=load_model(item);assert p.act(obs) in range(5)
-        meta=json.loads(Path(item['path']).with_suffix('.json').read_text());assert meta['feature_count']==412 and meta['actions']==5 and meta['observation_values']==409
+        meta=json.loads(Path(item['path']).with_suffix('.json').read_text());assert meta['feature_count']==480 and meta['actions']==5 and meta['observation_values']==409
         if item['algorithm'] in ('dqn','ppo'):assert p.model._n_updates>0
 
 def test_checkpoints_reject_old_four_actions_and_missing(trained,tmp_path):
@@ -67,7 +67,7 @@ def test_passive_playback_and_genuine_failure(tmp_path,monkeypatch):
     assert cursor(0,'step',200)==1 and cursor(10,'reset',200)==0 and cursor(100,'seek',200,7)==7
 
 def test_comparison_same_panels_csv_and_parameter_preservation(trained,tmp_path):
-    items=newest_by_algorithm(registry(trained[0]));result=compare(items,include_random=True,output=tmp_path)
+    items=newest_by_algorithm(registry(trained[0]));result=compare(items,cases=development_cases(),include_random=True,output=tmp_path)
     assert result['manifest']['case_count']==24 and len(result['rows'])==24
     for policy in {r['policy'] for r in result['rows']}:
         assert [r['scenario_hash'] for r in result['rows'] if r['policy']==policy]==result['manifest']['case_hashes']

@@ -6,8 +6,8 @@ from .core import ROOT,digest,read_json,write_json
 from .partial_contract import configuration
 from .partial_baselines import OnlinePlanner,RandomPolicy
 from .partial_evaluation import record_episode
-from .app_registry import RUNS,load_model,newest_by_algorithm
-from .app_scenarios import development_cases
+from .app_registry import RUNS,load_model,preferred_by_algorithm
+from .product_curriculum import cases as product_cases, manifest as curriculum_manifest
 
 _JOBS = {}
 
@@ -40,21 +40,26 @@ def cursor(index,command,length,seek=None):
     if command=='back':return max(0,index-1)
     return max(0,min(length,index))
 
-def compare(items=None,cases=None,include_random=False,output=None):
-    selected=items or newest_by_algorithm();cases=cases or development_cases()
+def compare(items=None,cases=None,include_random=False,output=None,starter_items=None):
+    selected=items or preferred_by_algorithm();cases=cases or product_cases('development')
     required={'q-learning','sarsa','dqn','ppo'}
     if set(selected)!=required:raise ValueError('Comparison needs one native checkpoint for each of Q-learning, SARSA, DQN and PPO. Train the missing models first.')
+    if any(selected[a]['algorithm']!=a for a in required):raise ValueError('Checkpoint family does not match comparison slot')
     folder=Path(output or RUNS)/'comparisons'/identity();folder.mkdir(parents=True,exist_ok=False)
-    choices=[(a,selected[a],'RL') for a in ('q-learning','sarsa','dqn','ppo')]+[('Observed-Map Replanner','Observed-Map Replanner','Non-RL reference')]
+    choices=[(a,selected[a],'RL trained') for a in ('q-learning','sarsa','dqn','ppo')]
+    if starter_items:
+        if set(starter_items)!=required:raise ValueError('Starter comparison requires all four original families')
+        choices += [('Starter '+a,starter_items[a],'RL starter (128 actions)') for a in ('q-learning','sarsa','dqn','ppo')]
+    choices += [('Observed-Map Replanner','Observed-Map Replanner','Non-RL reference')]
     if include_random:choices.append(('Random reference','Random reference','Non-RL reference'))
     rows=[];replays=[]
     for label,selection,kind in choices:
         for case in cases:
             record,path=generate(case,selection,seed=0,output=folder)
             m=record['metrics'];base=record['scenario'];success=m['outcome']=='success'
-            row={'policy':label,'kind':kind,'case_id':base['id'],'scenario_hash':digest(base),'event_seed':base['event_seed'],
-                'condition':'dynamic' if base['events'] else 'static','outcome':m['outcome'],'success':int(success),
-                'steps':m['actions'],'reward':m['return'],'wait_count':m['wait_count'],'wait_fraction':m['wait_proportion'],
+            row={'policy':label,'kind':kind,'case_id':base['id'],'scenario_hash':digest(base),'layout_hash':base['layout_hash'],'event_seed':base['event_seed'],'evaluation_seed':0,
+                'condition':'dynamic' if base['events'] else 'static','distance_band':base.get('distance_band','manual'),'base_distance':base.get('base_distance'),'outcome':m['outcome'],'success':int(success),
+                'steps':m['actions'],'successful_steps':m['actions'] if success else None,'reward':m['return'],'wait_count':m['wait_count'],'wait_fraction':m['wait_proportion'],
                 'moving_revisits':m['repeated_movement_visits'],'two_cell_loops':m['two_cell_oscillation_windows'],
                 'recovery_opportunities':m['recovery_opportunities'],'recoveries':m['recoveries'],
                 'successful_movement_excess':m['posthoc_successful_movement_excess_over_base_path'],
@@ -63,28 +68,42 @@ def compare(items=None,cases=None,include_random=False,output=None):
     with (folder/'case-results.csv').open('w',encoding='utf-8',newline='') as f:w=csv.DictWriter(f,fieldnames=list(rows[0]));w.writeheader();w.writerows(rows)
     summary=[]
     for label,_,kind in choices:
-        for subset in ('all','static','dynamic'):
-            part=[r for r in rows if r['policy']==label and (subset=='all' or r['condition']==subset)]
+        for subset in ('all','static','dynamic','short','longer'):
+            part=[r for r in rows if r['policy']==label and (subset=='all' or r['condition']==subset or r['distance_band']==subset)]
             if not part:continue
-            n=len(part);actions=sum(r['steps'] for r in part);opportunities=sum(r['recovery_opportunities'] for r in part)
-            summary.append({'Policy':label,'Type':kind,'Subset':subset,'Cases':n,'Successes':sum(r['success'] for r in part),
-                'Success %':100*sum(r['success'] for r in part)/n,'Collision %':100*sum(r['outcome']=='collision' for r in part)/n,
-                'Timeout %':100*sum(r['outcome']=='timeout' for r in part)/n,'Mean steps':actions/n,'Mean reward':sum(r['reward'] for r in part)/n,
-                'Wait %':100*sum(r['wait_count'] for r in part)/actions if actions else None,
+            n=len(part);actions=sum(r['steps'] for r in part);opportunities=sum(r['recovery_opportunities'] for r in part);successful=[r['steps'] for r in part if r['success']];collisions=sum(r['outcome']=='collision' for r in part);timeouts=sum(r['outcome']=='timeout' for r in part)
+            summary.append({'Policy':label,'Type':kind,'Subset':subset,'Cases':n,'Successes':len(successful),'Collisions':collisions,'Timeouts':timeouts,
+                'Success %':100*len(successful)/n,'Collision %':100*collisions/n,'Timeout %':100*timeouts/n,
+                'Mean successful steps':sum(successful)/len(successful) if successful else None,'Mean steps':actions/n,'Mean reward':sum(r['reward'] for r in part)/n,
+                'Wait actions':sum(r['wait_count'] for r in part),'Actions':actions,'Wait %':100*sum(r['wait_count'] for r in part)/actions if actions else None,
                 'Revisits':sum(r['moving_revisits'] for r in part),'Loops':sum(r['two_cell_loops'] for r in part),
                 'Recoveries':sum(r['recoveries'] for r in part),'Recovery opportunities':opportunities,
                 'Recovery %':100*sum(r['recoveries'] for r in part)/opportunities if opportunities else None})
-    manifest={'schema':'dynamic-app-comparison-v1','purpose':'Product development/manual comparison; no historical scores or final/unseen cohorts',
-        'case_ids':[c['id'] for c in cases],'case_hashes':[digest(c) for c in cases],'evaluation_seed':0,
-        'checkpoint_ids':{a:i['id'] for a,i in selected.items()},'inference_only':True,'case_count':len(rows),'total_actions':sum(r['steps'] for r in rows),'summary':summary}
+    with (folder/'summary.csv').open('w',encoding='utf-8',newline='') as f:w=csv.DictWriter(f,fieldnames=list(summary[0]));w.writeheader();w.writerows(summary)
+    dataset=curriculum_manifest();manifest={'schema':'dynamic-app-comparison-v2','purpose':'Product development comparison; development-selected models, not scientific unseen accuracy. Original official reward, cap and observations unchanged.',
+        'case_ids':[c['id'] for c in cases],'case_hashes':[digest(c) for c in cases],'cases':cases,'evaluation_seed':0,'panel_case_count':len(cases),
+        'training_layout_hashes':sorted({c['layout_hash'] for c in dataset['training_cases']}),'development_layout_hashes':[c['layout_hash'] for c in cases],
+        'layout_overlap':sorted({c['layout_hash'] for c in dataset['training_cases']}&{c['layout_hash'] for c in cases}),
+        'checkpoint_ids':{a:i['id'] for a,i in selected.items()},'training_provenance':{label:{k:v for k,v in selection.items() if k!='path'} for label,selection,_ in choices if isinstance(selection,dict)},
+        'inference_only':True,'case_count':len(rows),'total_actions':sum(r['steps'] for r in rows),'summary':summary}
     write_json(folder/'manifest.json',manifest)
     with zipfile.ZipFile(folder/'results-and-replays.zip','x',zipfile.ZIP_DEFLATED,compresslevel=3) as z:
-        for p in [folder/'case-results.csv',folder/'manifest.json',*replays]:z.write(p,p.relative_to(folder).as_posix())
+        for p in [folder/'case-results.csv',folder/'summary.csv',folder/'manifest.json',*replays]:z.write(p,p.relative_to(folder).as_posix())
     return {'folder':str(folder),'manifest':manifest,'rows':rows}
 
-def start_job(preset,models,actions,seed):
+def saved_comparison(root=RUNS):
+    root=Path(root);selection=root/'selection.json'
+    if not selection.is_file():return None
+    meta=read_json(selection);relative=meta.get('comparison')
+    if not relative:return None
+    folder=(root/relative).resolve()
+    if not folder.is_relative_to(root.resolve()) or not (folder/'manifest.json').is_file():return None
+    with (folder/'case-results.csv').open(encoding='utf-8',newline='') as f:rows=list(csv.DictReader(f))
+    return {'folder':str(folder),'manifest':read_json(folder/'manifest.json'),'rows':rows}
+
+def start_job(preset,models,actions,seed,shaping='none'):
     job=ROOT/'.runtime/jobs'/identity();job.mkdir(parents=True,exist_ok=False)
-    args=[sys.executable,'-m','robot_navigation.app_training','--preset',preset,'--models',*models,'--actions',str(actions),'--seed',str(seed),'--job-dir',str(job)]
+    args=[sys.executable,'-m','robot_navigation.app_training','--preset',preset,'--models',*models,'--actions',str(actions),'--seed',str(seed),'--job-dir',str(job),'--shaping',shaping]
     env=dict(os.environ,PYTHONPATH=str(ROOT/'src'))
     with (job/'stdout.log').open('w') as out,(job/'stderr.log').open('w') as err:
         child=subprocess.Popen(args,cwd=ROOT,env=env,stdout=out,stderr=err,creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))

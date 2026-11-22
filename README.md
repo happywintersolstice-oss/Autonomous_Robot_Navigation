@@ -35,3 +35,9 @@ python scripts/export_history_archives.py --output-dir history-exports --verify
 ZIPs stream to disk with inventories/checksums; duplicate giant ZIP blobs are not committed. Missing files/LFS payloads fail explicitly. Historical final/unseen evidence is reference-only and never mixed into new scores. Four-action models are not converted.
 
 See [delivery report](USABLE_APP_DELIVERY.md), [user guide](docs/user-guide.md) and [developer guide](docs/developer-guide.md). Use focused integration tests, not archived research suites, to validate the app.
+
+## Product Phase 2: real trained checkpoints
+
+The app now labels **Best on development**, **Trained** and **Starter** checkpoints, and Compare opens the saved 24-layout comparison without automatic evaluation. Selected Q-learning/SARSA/DQN/PPO achieved **23/24, 22/24, 18/24 and 21/24** on this development-selected panel, compared with original starters **0/24, 1/24, 3/24 and 1/24**. These are development scores, not unseen accuracy.
+
+See [actual results and failure history](PRODUCT_PHASE2_RESULTS.md) and the [four-person demo](docs/team-demo-script.md). Training uses a seeded train-only curriculum and versioned public-observation features; official evaluation rewards and partial sensing are unchanged. Optional progress feedback is disclosed and off by default. The archive and old starters remain unchanged. Launch remains `py -3 run_app.py`, port **8517**.

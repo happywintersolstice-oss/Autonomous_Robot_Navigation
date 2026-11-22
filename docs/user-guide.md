@@ -10,3 +10,5 @@
 Policies see409 public values, transformed to412 B1 features. Actions0..4 are Up,Down,Left,Right,Wait. Step reward−.01, goal bonus+10, collision penalty−5, maximum200 steps and no timeout bonus. Truth and schedules are only for trusted display/metrics.
 
 History is read-only: [archive guide](../archive/README.md). Archived four-action models are not converted, old scores are not new comparison results, and no old UI mode is available. New outputs live in `autonomous-robot-navigation-rl/runs/`.
+
+Phase 2 adds Best on development checkpoint labels and a saved 24-layout comparison with original starters. Load it in Compare & Export; use an explicit rerun only when needed. New trained policies use 480 public action features; old native starters retain their 412-feature loader. Read [measured performance](../PRODUCT_PHASE2_RESULTS.md) and the [team demo](team-demo-script.md).

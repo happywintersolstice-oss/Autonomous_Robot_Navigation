@@ -5,7 +5,7 @@ import streamlit as st
 from .core import ROOT,read_json
 from .app_scenarios import NAMES,scenario
 from .app_registry import registry,newest_by_algorithm
-from .app_service import generate,frame,cursor,compare,start_job,job_status
+from .app_service import generate,frame,cursor,compare,start_job,job_status,saved_comparison
 
 LABELS={'q-learning':'Q-learning','sarsa':'SARSA','dqn':'DQN','ppo':'PPO'}
 
@@ -88,18 +88,20 @@ def training():
     st.header('Train Models');st.write('Create real five-action checkpoints. Quick training is a small CPU starter and may still navigate poorly.')
     preset=st.radio('Training preset',['quick','standard'],horizontal=True)
     chosen=st.multiselect('RL algorithms',list(LABELS),default=list(LABELS),format_func=lambda v:LABELS[v])
-    actions=st.number_input('Actions per model',min_value=32,max_value=50000,value=256 if preset=='quick' else 10000,step=32 if preset=='quick' else 100)
+    actions=st.number_input('Actions per model',min_value=32,max_value=50000,value=256 if preset=='quick' else 10000,step=32 if preset=='quick' else 200)
+    shaping=st.selectbox('Training feedback',['none','progress-v1'],help='Progress adds 0.2 times the change in public Manhattan distance during training only. Evaluation always uses the official reward. No teacher or action mask.')
+    st.caption('Quick is a small starter. Standard uses the seeded curriculum and versioned 480-value action features. Q-learning uses stabilized lagged targets by default. Training feedback and all measured failures are recorded.')
     seed=st.number_input('Training seed',min_value=0,max_value=2**31-1,value=74001)
-    st.code(f'python -m robot_navigation.app_training --preset {preset} --models '+ ' '.join(chosen)+f' --actions {actions} --seed {seed}',language='powershell')
+    st.code(f'python -m robot_navigation.app_training --preset {preset} --models '+ ' '.join(chosen)+f' --actions {actions} --seed {seed} --shaping {shaping}',language='powershell')
     if preset=='standard':st.warning('Standard is user-initiated development training. It may take minutes or longer on CPU; closing the browser does not stop it. No archived data is used.')
     status=job_status(st.session_state.job) if st.session_state.get('job') else None
     running=status and status['status'] in ('starting','running')
     if st.button('Start training',type='primary',disabled=bool(running) or not chosen):
         from .app_training import model_settings
         cfg=model_settings(preset)
-        if ('ppo' in chosen and actions%cfg['n_steps']) or ('dqn' in chosen and actions%4):st.error('Use an exact PPO rollout multiple (32 quick / 100 standard), and a multiple of 4 for DQN.')
+        if ('ppo' in chosen and actions%cfg['n_steps']) or ('dqn' in chosen and actions%4):st.error('Use an exact PPO rollout multiple (32 quick / 200 standard), and a multiple of 4 for DQN.')
         else:
-            try:st.session_state.job=start_job(preset,chosen,int(actions),int(seed))
+            try:st.session_state.job=start_job(preset,chosen,int(actions),int(seed),shaping)
             except OSError as exc:st.error('Unable to start training: '+str(exc))
             else:st.rerun()
     if status:
@@ -111,27 +113,44 @@ def training():
             (Path(st.session_state.job)/'cancel.request').write_text('cancel');st.info('Cancellation requested. The worker preserves the partial run.')
         if status['status']=='complete':st.success('Checkpoints are ready in Simulator and Compare & Export. These are inference checkpoints, not exact-resume snapshots.')
     items=registry();st.subheader('Available native checkpoints')
-    st.dataframe([{'Algorithm':LABELS[i['algorithm']],'Actions':i['actions'],'Seed':i['seed'],'Run':i['id']} for i in items],use_container_width=True)
+    st.dataframe([{'Algorithm':LABELS[i['algorithm']],'Status':i['status'],'Actions':i['actions'],'Seed':i['seed'],'Run':i['id']} for i in items],use_container_width=True)
 
 def comparison():
-    st.header('Compare & Export');st.write('All four RL checkpoints face the identical four manual development scenarios and event seeds. References are explicitly non-RL.')
+    st.header('Compare & Export');st.write('All four RL checkpoints face the identical 24 product development layouts and event seeds. These layouts are disjoint from training, and development is used for checkpoint selection. References are explicitly non-RL.')
     items=registry();selected={}
+    if 'comparison' not in st.session_state:
+        saved=saved_comparison()
+        if saved:st.session_state.comparison=saved
+    if st.button('Load saved development comparison'):
+        saved=saved_comparison()
+        if saved:st.session_state.comparison=saved
+        else:st.info('No saved study comparison yet. Select checkpoints and explicitly run below.')
     for algorithm in LABELS:
         candidates=[i for i in items if i['algorithm']==algorithm]
         if not candidates:st.info(f'{LABELS[algorithm]} has no checkpoint. Train it before a four-model comparison.');continue
         label=st.selectbox(LABELS[algorithm]+' checkpoint',[i['label'] for i in candidates],key='compare_'+algorithm)
         selected[algorithm]=next(i for i in candidates if i['label']==label)
+    starters={i['algorithm']:i for i in items if i['id'].startswith('20261122T112025Z-a7301ff2/')}
+    include_starters=st.checkbox('Compare with the original 128-action starters',value=len(starters)==4,disabled=len(starters)!=4)
     random=st.checkbox('Include Random as an additional non-RL reference')
     if st.button('Run fair comparison',type='primary',disabled=len(selected)!=4):
         st.session_state.pop('comparison',None)
         try:
-            with st.spinner('Evaluating each checkpoint once per scenario, without updates…'):st.session_state.comparison=compare(selected,include_random=random)
+            with st.spinner('Evaluating each checkpoint once per scenario, without updates…'):st.session_state.comparison=compare(selected,include_random=random,starter_items=starters if include_starters else None)
         except Exception as exc:st.error('Comparison could not finish: '+str(exc))
     if st.session_state.get('comparison'):
-        r=st.session_state.comparison;st.dataframe(r['manifest']['summary'],use_container_width=True,hide_index=True)
+        r=st.session_state.comparison
+        st.caption('Showing a saved measured comparison. Checkpoint IDs and case hashes are recorded in the JSON; changing a selector does not change these saved results.')
+        overview=[row for row in r['manifest']['summary'] if row['Subset']=='all']
+        st.dataframe(overview,use_container_width=True,hide_index=True)
+        import pandas as pd
+        st.bar_chart(pd.DataFrame(overview).set_index('Policy')[['Success %']])
+        with st.expander('Static / dynamic and short / longer breakdowns'):
+            st.dataframe(r['manifest']['summary'],use_container_width=True,hide_index=True)
         st.caption('No recovery opportunity is shown as blank, not zero. Failure routes have no successful-path efficiency. Static/dynamic subsets retain their own denominators.')
         st.dataframe(r['rows'],use_container_width=True,hide_index=True)
-        folder=Path(r['folder']);a,b,c=st.columns(3)
+        folder=Path(r['folder']);a,b,c,d=st.columns(4)
+        d.download_button('Summary CSV',(folder/'summary.csv').read_bytes(),file_name='summary.csv',mime='text/csv')
         a.download_button('Case-level CSV',(folder/'case-results.csv').read_bytes(),file_name='case-results.csv',mime='text/csv')
         b.download_button('Comparison JSON',(folder/'manifest.json').read_bytes(),file_name='comparison.json',mime='application/json')
         c.download_button('Results + all replays ZIP',(folder/'results-and-replays.zip').read_bytes(),file_name='results-and-replays.zip',mime='application/zip')
@@ -140,7 +159,7 @@ def guide():
     st.header('Guide');st.markdown('''### A robot that can only see nearby
 The robot sees occupancy along four cardinal rays, at most **two cells** away. Sensor order is **North, South, East, West**. It remembers sensed occupancy, how old it is, visits and consecutive blocked observations. Unknown areas and stale walls remain uncertain. The robot knows its own position and the goal.
 
-The unchanged observation has **409 values**. B1 builds **412 features**, including a bias and the relative goal scaled by four. Permanent walls and temporary pallets look the same while occupied. The robot never receives event schedules, unblock times, scene truth or a route oracle.
+The unchanged observation has **409 values**. Original B1 starters use **412 features**. Product F2 uses **480 features** (96 for each possible action), derived from public goal offsets, candidate distance, sensed/memorized occupancy and visits. The learned action scorer shares weights across directions. Its scores are learned from TD updates or policy gradients; no action mask or teacher is used. Permanent walls and temporary pallets look the same while occupied. The robot never receives event schedules, unblock times, scene truth or a route oracle.
 
 ### Five actions and honest outcomes
 **0 Up · 1 Down · 2 Left · 3 Right · 4 Wait**. Every action costs −0.01; reaching the goal adds +10; a blocked attempted move adds −5 and ends in collision. An episode ends after at most 200 steps; timeout has no extra penalty. Waiting can reveal that a pallet cleared, but a model can also get stuck waiting. That failure stays visible.
@@ -151,18 +170,22 @@ The unchanged observation has **409 values**. B1 builds **412 features**, includ
 - **DQN:** a neural action-value model with replay and a target network.
 - **PPO:** a neural action policy and value model trained on collected rollouts.
 
-The **Observed-Map Replanner** is a separate non-RL reference using remembered occupancy only. It is never an invisible fallback for RL. Quick checkpoints prove that the workflow works; they are not evidence of strong navigation or deployment readiness.
+The **Observed-Map Replanner** is a separate non-RL reference using remembered occupancy only. It is never an invisible fallback for RL. Quick checkpoints are starters. Standard runs learn on a seeded curriculum; Best on development marks an explicitly selected, measured checkpoint rather than the newest file. Progress feedback is optional and train-only: 0.2 times the decrease in public Manhattan distance. This changes the training objective; comparisons always use the unchanged official reward. Development-selected scores are not scientific unseen accuracy.
 
 ### A 3–5 minute walkthrough
 1. In **Robot Simulator**, choose *Blocked aisle — wait for clearing*, Temporary, and the replanner. Run once, Play, Pause and Step. Compare scene truth with robot memory.
 2. Try *Storage rack detour*. Seek backward and forward; playback never makes new decisions.
 3. In **Train Models**, explicitly start Quick for all four methods (256 actions each), then Refresh status. Existing starter checkpoints may already be available.
 4. Select a native checkpoint in Simulator. Keep collisions, loops and timeouts visible.
-5. In **Compare & Export**, select four checkpoints, run the fixed development panel and download CSV plus replay ZIP.
+5. In **Compare & Export**, select four checkpoints, load the saved 24-layout development panel or explicitly rerun it and download CSV plus replay ZIP.
 
 ### History is reference material
 The old coordinate-only four-action application has been retired. Its data, source, failed trials and Phase 5A–5H history remain accessible through Archives and the repository archive guide. Older models can be incompatible with this task. Archived scores are never presented as results of new app training. There is no old application mode or model-transfer adapter.
 ''')
+
+    team=ROOT.parent/'docs/team-demo-script.md'
+    if team.is_file():
+        with st.expander('Four-person teammate demonstration'):st.markdown(team.read_text(encoding='utf-8'))
 
 def archives():
     st.header('Archives — read-only reference');root=ROOT.parent;receipt=root/'archive/manifests/integrity.json'
