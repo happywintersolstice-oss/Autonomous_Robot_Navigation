@@ -1,0 +1,32 @@
+{
+  "status": "passed after correcting two test expectations",
+  "initial_pass": {
+    "passed": 9,
+    "failed": 2,
+    "seconds": 20.59
+  },
+  "failures": "Only test assumptions: collision trace can be shorter than8 decisions; playback seek correctly clamps to episode end",
+  "correction_pass": {
+    "passed": 2,
+    "deselected": 9,
+    "seconds": 12.5,
+    "warning": "Pytest cache path warning; assertions passed"
+  },
+  "production_model_environment_or_metric_changes_after_final": false,
+  "heldout_policy_execution_count_per_label": 64,
+  "heldout_final_run_count": 1,
+  "mechanical_transitions": {
+    "learning_gate": 256,
+    "export_gate": 20,
+    "focused_acceptance_nonlearning": 227,
+    "targeted_correction_pass": 0,
+    "total": 503,
+    "registered_limit": 512
+  },
+  "substantive_training_actions": 320000,
+  "post_final_training_actions": 0,
+  "scientific_final_or_legacy_regressions_run": false,
+  "manual_browser_validation": false,
+  "python": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0"
+}

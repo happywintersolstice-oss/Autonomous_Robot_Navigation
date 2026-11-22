@@ -143,7 +143,7 @@ def test_final_matched_panel_metrics_replays_and_export_integrity():
     for name,meta in read_json(folder/'export-inventory.json')['files'].items():assert sha(folder/name)==meta['sha256']
     with zipfile.ZipFile(folder/'results-and-replays.zip') as z:
         assert z.testzip() is None and len([n for n in z.namelist() if n.endswith('.json.gz')])==640
-    for f in read_json(folder/'failure-traces.json')['failures']:assert len(f['last8_public_decisions'])==8
+    for f in read_json(folder/'failure-traces.json')['failures']:assert len(f['last8_public_decisions'])==min(8,f['steps'])
 
 def test_saved_viewing_and_passive_playback_never_execute_policies(monkeypatch):
     from robot_navigation.phase3_ui import saved,SCOPES
@@ -151,7 +151,7 @@ def test_saved_viewing_and_passive_playback_never_execute_policies(monkeypatch):
     monkeypatch.setattr(PartialDynamicEnv,'step',lambda *a,**k:pytest.fail('Playback/evidence view stepped environment'))
     for scope in SCOPES:assert saved(scope)
     r=saved(SCOPES[0]);record=read_replay(Path(r['folder'])/r['rows'][0]['replay'])
-    for n in (0,1,7,len(record['transitions']),0):assert frame(record,n)['step']==n
+    for n in (0,1,7,len(record['transitions']),0):assert frame(record,n)['step']==min(n,len(record['transitions']))
 
 def test_streamlit_main_pages_saved_holdout_downloads_and_failure_callback(monkeypatch):
     from streamlit.testing.v1 import AppTest

@@ -8,7 +8,7 @@ Follow [Windows installation](docs/windows-install.md) once, then double-click *
 
 - **Robot Simulator**: choose a preset, custom start/goal, Static/Temporary obstacles and controller. Run once, then Play/Pause/Back/Step/Seek/Reset saved frames. Scene truth is viewer-only; robot memory is separate. Collisions, loops and timeouts remain visible.
 - **Train Models**: explicitly start a bounded quick or standard job, Refresh progress, Cancel safely and select new native checkpoints. No automatic training on rerun.
-- **Compare & Export**: evaluate four checkpoints on identical manual development cases, with labeled references; download CSV, manifest and replay ZIP.
+- **Compare & Export**: view the single saved Phase3 product held-out assessment or separate Phase3/Phase2 development evidence, compare baseline/selected checkpoints and non-RL references, download CSV/JSON/replay ZIP, and open failure replays. Held-out viewing never reruns evaluation.
 - **Guide**: sensing, stale memory, five actions, rewards, models and a 3–5-minute walkthrough.
 - **Archives**: read-only historical reports and ZIP export instructions. No old simulator or model-transfer mode.
 
@@ -41,3 +41,17 @@ See [delivery report](USABLE_APP_DELIVERY.md), [user guide](docs/user-guide.md) 
 The app now labels **Best on development**, **Trained** and **Starter** checkpoints, and Compare opens the saved 24-layout comparison without automatic evaluation. Selected Q-learning/SARSA/DQN/PPO achieved **23/24, 22/24, 18/24 and 21/24** on this development-selected panel, compared with original starters **0/24, 1/24, 3/24 and 1/24**. These are development scores, not unseen accuracy.
 
 See [actual results and failure history](PRODUCT_PHASE2_RESULTS.md) and the [four-person demo](docs/team-demo-script.md). Training uses a seeded train-only curriculum and versioned public-observation features; official evaluation rewards and partial sensing are unchanged. Optional progress feedback is disclosed and off by default. The archive and old starters remain unchanged. Launch remains `py -3 run_app.py`, port **8517**.
+
+## Phase3 product delivery
+
+Phase3 adds a diverse new curriculum, independent 64-case product holdout, versioned public decision history, bounded genuine RL training and development-only checkpoint selection. The four new demo presets include a winding maze, permanent dead end, forced Wait bridge and optional temporary detour. The five pages and existing visual style are retained. Select **Phase 3 selected** or **Phase 2 baseline** in Simulator; old native checkpoint signatures remain supported.
+
+See [measured Phase3 results](PRODUCT_PHASE3_RESULTS.md) and the [four-person checked demonstration](docs/team-demo-script.md). Results include failures and successful-only Wait denominators. This is a single product panel/seed, not a scientific final benchmark or proof of general superiority. Training feedback is versioned and train-only; official evaluation reward is unchanged. Phase2 results/selection/checkpoints and archived history remain unchanged.
+
+Focused acceptance, from the repository root after installation:
+
+```powershell
+python -m pytest autonomous-robot-navigation-rl/developer/tests/test_product_phase3.py -q
+```
+
+This suite reads the saved new product test evidence, never trains models or reruns held-out policies. The registered study's `--run`/`--final` entry points reject reuse of the published holdout. Ordinary development training/comparison remains explicitly available in the app and cannot replace the locked published assessment.

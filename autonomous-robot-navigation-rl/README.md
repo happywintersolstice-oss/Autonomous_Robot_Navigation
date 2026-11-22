@@ -9,3 +9,5 @@ Train all four real five-action algorithms with `python -m robot_navigation.app_
 The original partial environment/encoders remain authoritative. `core.py` re-exports neutral GridMap/JSON utilities; `release.py` supplies only a checksum, with no old runtime imports. Historical code/tests/data remain in `archive/` or retained sealed evidence paths. No classic routes are installed.
 
 Focused checks: `python -m pytest developer/tests/test_dynamic_app.py -q`. The old research suite is archived, not rerun for this product. Quick models may fail; references are never hidden fallbacks.
+
+Phase3 adds a versioned public-history learner, four new demo presets, and saved read-only held-out comparisons with failure replay access. See [Phase3 measured results](../PRODUCT_PHASE3_RESULTS.md) and [checked teammate script](../docs/team-demo-script.md). Phase2 and archived evidence remain preserved.

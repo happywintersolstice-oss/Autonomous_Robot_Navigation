@@ -1,0 +1,642 @@
+{
+  "scope": "Post-hoc saved transitions only; no heldout re-execution or tuning",
+  "audits": [
+    {
+      "audit": "Q-learning failure",
+      "case": {
+        "policy": "Phase3 q-learning",
+        "kind": "RL selected on development",
+        "checkpoint_id": "20261122T165606Z-ea2dd627/q-learning",
+        "checkpoint_sha256": "531a01f6dd09d27cfbaae7572be24568217e9c9685c2661ccffb6bb82bb04565",
+        "feature_version": "partial-action-public-history8-v3",
+        "training_actions": "40000",
+        "case_id": "p3-holdout-013",
+        "case_hash": "08377f04889d3c9ae675701a32e962ee804a2053031531d88bfbab3ad00774bb",
+        "layout_hash": "5d1c20ee9dcb6c6e81e556dfab7a2cb6845d7d2b54d940c1bfd1af34f314a522",
+        "structural_hash": "245e95d2f800ccc5b0953c203aed790af05322bef1ed9c390231275a986af9fc",
+        "topology_family": "serpentine_spurs",
+        "event_seed": "93230",
+        "evaluation_seed": "0",
+        "condition": "dynamic",
+        "distance_band": "long",
+        "blockage_kind": "forced-wait",
+        "base_distance": "12",
+        "outcome": "timeout",
+        "success": "0",
+        "steps": "200",
+        "successful_steps": "",
+        "reward": "-2.0",
+        "wait_count": "12",
+        "wait_fraction": "0.06",
+        "moving_revisits": "173",
+        "two_cell_loops": "0",
+        "recovery_opportunities": "1",
+        "recoveries": "0",
+        "posthoc_optimal_actions": "20",
+        "posthoc_efficiency": "",
+        "wait_blocked_frontier": "0",
+        "unproductive_waits_observed_alternative": "0",
+        "wait_known_free_memory_route": "0",
+        "replay": "episodes/00013.json.gz"
+      },
+      "last_decisions": [
+        {
+          "position": [
+            3,
+            7
+          ],
+          "action": 2,
+          "reward": -0.01,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "position": [
+            3,
+            6
+          ],
+          "action": 2,
+          "reward": -0.01,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "position": [
+            3,
+            7
+          ],
+          "action": 3,
+          "reward": -0.01,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "position": [
+            3,
+            8
+          ],
+          "action": 3,
+          "reward": -0.01,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "position": [
+            3,
+            8
+          ],
+          "action": 4,
+          "reward": -0.01,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "position": [
+            3,
+            7
+          ],
+          "action": 2,
+          "reward": -0.01,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "position": [
+            3,
+            6
+          ],
+          "action": 2,
+          "reward": -0.01,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "position": [
+            3,
+            5
+          ],
+          "action": 2,
+          "reward": -0.01,
+          "terminated": false,
+          "truncated": true
+        }
+      ],
+      "wait_action_indices_zero_based": [
+        71,
+        102,
+        108,
+        120,
+        128,
+        140,
+        146,
+        158,
+        166,
+        178,
+        184,
+        196
+      ],
+      "official_reward_sum": -2.0,
+      "events_evaluator_only": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            4,
+            1
+          ],
+          "start": 0,
+          "clear": 8
+        }
+      ],
+      "no_policy_execution_for_audit": true
+    },
+    {
+      "audit": "DQN failure",
+      "case": {
+        "policy": "Phase3 dqn",
+        "kind": "RL selected on development",
+        "checkpoint_id": "20261122T165937Z-f7774052/dqn",
+        "checkpoint_sha256": "54b877b838f38e2acf44e5cccfa4747fd3fb8f53d5b6e49f814bd18d34a60a12",
+        "feature_version": "partial-action-public-history8-v3",
+        "training_actions": "40000",
+        "case_id": "p3-holdout-009",
+        "case_hash": "d0bdd1bc21d568ae974373289705fbd2c35f0c33f8d239e7d2d69fae2c4977b0",
+        "layout_hash": "30da2b991285e289b2bbb1e1cf707923115711c47a74f5ad201bb8f5e8d30b17",
+        "structural_hash": "62414d8e81b8d69e12a54186b9519fe94d3fd8685fa1085a1d6c664474b646bd",
+        "topology_family": "serpentine_spurs",
+        "event_seed": "93226",
+        "evaluation_seed": "0",
+        "condition": "dynamic",
+        "distance_band": "long",
+        "blockage_kind": "forced-wait",
+        "base_distance": "17",
+        "outcome": "timeout",
+        "success": "0",
+        "steps": "200",
+        "successful_steps": "",
+        "reward": "-2.0",
+        "wait_count": "115",
+        "wait_fraction": "0.575",
+        "moving_revisits": "80",
+        "two_cell_loops": "2",
+        "recovery_opportunities": "1",
+        "recoveries": "1",
+        "posthoc_optimal_actions": "34",
+        "posthoc_efficiency": "",
+        "wait_blocked_frontier": "28",
+        "unproductive_waits_observed_alternative": "9",
+        "wait_known_free_memory_route": "0",
+        "replay": "episodes/00137.json.gz"
+      },
+      "last_decisions": [
+        {
+          "position": [
+            1,
+            3
+          ],
+          "action": 4,
+          "reward": -0.01,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "position": [
+            1,
+            3
+          ],
+          "action": 4,
+          "reward": -0.01,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "position": [
+            1,
+            2
+          ],
+          "action": 2,
+          "reward": -0.01,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "position": [
+            1,
+            2
+          ],
+          "action": 4,
+          "reward": -0.01,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "position": [
+            1,
+            3
+          ],
+          "action": 3,
+          "reward": -0.01,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "position": [
+            1,
+            2
+          ],
+          "action": 2,
+          "reward": -0.01,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "position": [
+            1,
+            2
+          ],
+          "action": 4,
+          "reward": -0.01,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "position": [
+            1,
+            2
+          ],
+          "action": 4,
+          "reward": -0.01,
+          "terminated": false,
+          "truncated": true
+        }
+      ],
+      "wait_action_indices_zero_based": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        22,
+        28,
+        32,
+        33,
+        36,
+        37,
+        43,
+        47,
+        48,
+        49,
+        53,
+        57,
+        60,
+        61,
+        64,
+        65,
+        66,
+        67,
+        70,
+        71,
+        72,
+        74,
+        75,
+        76,
+        78,
+        79,
+        80,
+        81,
+        83,
+        86,
+        87,
+        88,
+        90,
+        93,
+        94,
+        95,
+        96,
+        98,
+        101,
+        102,
+        103,
+        105,
+        108,
+        109,
+        110,
+        111,
+        113,
+        116,
+        117,
+        118,
+        120,
+        123,
+        124,
+        125,
+        126,
+        128,
+        131,
+        132,
+        133,
+        135,
+        138,
+        139,
+        140,
+        141,
+        143,
+        146,
+        147,
+        148,
+        150,
+        153,
+        154,
+        155,
+        156,
+        158,
+        161,
+        162,
+        163,
+        165,
+        168,
+        169,
+        170,
+        171,
+        173,
+        176,
+        177,
+        178,
+        180,
+        183,
+        184,
+        185,
+        186,
+        188,
+        191,
+        192,
+        193,
+        195,
+        198,
+        199
+      ],
+      "official_reward_sum": -2.0,
+      "events_evaluator_only": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            1,
+            2
+          ],
+          "start": 0,
+          "clear": 17
+        }
+      ],
+      "no_policy_execution_for_audit": true
+    },
+    {
+      "audit": "Real forced-Wait success",
+      "case": {
+        "policy": "Phase3 sarsa",
+        "kind": "RL selected on development",
+        "checkpoint_id": "20261122T165803Z-b0736b3d/sarsa",
+        "checkpoint_sha256": "8fda1dcd28fa6ef921899012a754fd40bb3eb089912a6f3b628276f109d4a8c1",
+        "feature_version": "partial-action-public-history8-v3",
+        "training_actions": "40000",
+        "case_id": "p3-holdout-009",
+        "case_hash": "d0bdd1bc21d568ae974373289705fbd2c35f0c33f8d239e7d2d69fae2c4977b0",
+        "layout_hash": "30da2b991285e289b2bbb1e1cf707923115711c47a74f5ad201bb8f5e8d30b17",
+        "structural_hash": "62414d8e81b8d69e12a54186b9519fe94d3fd8685fa1085a1d6c664474b646bd",
+        "topology_family": "serpentine_spurs",
+        "event_seed": "93226",
+        "evaluation_seed": "0",
+        "condition": "dynamic",
+        "distance_band": "long",
+        "blockage_kind": "forced-wait",
+        "base_distance": "17",
+        "outcome": "success",
+        "success": "1",
+        "steps": "34",
+        "successful_steps": "34",
+        "reward": "9.66",
+        "wait_count": "17",
+        "wait_fraction": "0.5",
+        "moving_revisits": "0",
+        "two_cell_loops": "0",
+        "recovery_opportunities": "1",
+        "recoveries": "1",
+        "posthoc_optimal_actions": "34",
+        "posthoc_efficiency": "1.0",
+        "wait_blocked_frontier": "17",
+        "unproductive_waits_observed_alternative": "0",
+        "wait_known_free_memory_route": "0",
+        "replay": "episodes/00073.json.gz"
+      },
+      "last_decisions": [
+        {
+          "position": [
+            3,
+            7
+          ],
+          "action": 2,
+          "reward": -0.01,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "position": [
+            3,
+            6
+          ],
+          "action": 2,
+          "reward": -0.01,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "position": [
+            3,
+            5
+          ],
+          "action": 2,
+          "reward": -0.01,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "position": [
+            3,
+            4
+          ],
+          "action": 2,
+          "reward": -0.01,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "position": [
+            3,
+            3
+          ],
+          "action": 2,
+          "reward": -0.01,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "position": [
+            3,
+            2
+          ],
+          "action": 2,
+          "reward": -0.01,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "position": [
+            3,
+            1
+          ],
+          "action": 2,
+          "reward": -0.01,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "position": [
+            4,
+            1
+          ],
+          "action": 1,
+          "reward": 9.99,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "wait_action_indices_zero_based": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "official_reward_sum": 9.66,
+      "events_evaluator_only": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            1,
+            2
+          ],
+          "start": 0,
+          "clear": 17
+        }
+      ],
+      "no_policy_execution_for_audit": true
+    },
+    {
+      "audit": "Optional-detour success",
+      "case": {
+        "policy": "Phase3 dqn",
+        "kind": "RL selected on development",
+        "checkpoint_id": "20261122T165937Z-f7774052/dqn",
+        "checkpoint_sha256": "54b877b838f38e2acf44e5cccfa4747fd3fb8f53d5b6e49f814bd18d34a60a12",
+        "feature_version": "partial-action-public-history8-v3",
+        "training_actions": "40000",
+        "case_id": "p3-holdout-004",
+        "case_hash": "0f2bf100706e9365fb0525bc4109c177bd648e33bd75c38811b3155352735e96",
+        "layout_hash": "5fba787d7db2ac245cdeb16e1767a29c24316cd9debacfa31151af10e65b677f",
+        "structural_hash": "9f2a649b5ed2091b03519b289dfa666d27a8ed780615bd54621971c410f9b5c7",
+        "topology_family": "irregular_room_chain",
+        "event_seed": "93221",
+        "evaluation_seed": "0",
+        "condition": "dynamic",
+        "distance_band": "short",
+        "blockage_kind": "detour-available",
+        "base_distance": "3",
+        "outcome": "success",
+        "success": "1",
+        "steps": "3",
+        "successful_steps": "3",
+        "reward": "9.97",
+        "wait_count": "0",
+        "wait_fraction": "0.0",
+        "moving_revisits": "0",
+        "two_cell_loops": "0",
+        "recovery_opportunities": "1",
+        "recoveries": "1",
+        "posthoc_optimal_actions": "3",
+        "posthoc_efficiency": "1.0",
+        "wait_blocked_frontier": "0",
+        "unproductive_waits_observed_alternative": "0",
+        "wait_known_free_memory_route": "0",
+        "replay": "episodes/00132.json.gz"
+      },
+      "last_decisions": [
+        {
+          "position": [
+            1,
+            2
+          ],
+          "action": 3,
+          "reward": -0.01,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "position": [
+            2,
+            2
+          ],
+          "action": 1,
+          "reward": -0.01,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "position": [
+            2,
+            3
+          ],
+          "action": 3,
+          "reward": 9.99,
+          "terminated": true,
+          "truncated": false
+        }
+      ],
+      "wait_action_indices_zero_based": [],
+      "official_reward_sum": 9.97,
+      "events_evaluator_only": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            2,
+            1
+          ],
+          "start": 0,
+          "clear": 16
+        }
+      ],
+      "no_policy_execution_for_audit": true
+    }
+  ]
+}
