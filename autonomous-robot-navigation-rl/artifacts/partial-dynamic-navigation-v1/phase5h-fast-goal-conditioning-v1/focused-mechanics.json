@@ -1,0 +1,24 @@
+{
+  "transitions": 20,
+  "optimizer_steps": 6,
+  "scope": "one H1-only 20-step smoke plus two fixed-batch lambda0 updates; no research",
+  "lambda0_Q_update_match": true,
+  "initial_common_Q_equal": true,
+  "same_fixed_batch_ids": true,
+  "aux_gradient_to_shared_and_head_only": true,
+  "Q_only_action_selection": true,
+  "parameter_counts": {
+    "H0": {
+      "online_q": 14437,
+      "target_q": 14437,
+      "auxiliary": 0,
+      "optimizer_parameters": 14437
+    },
+    "H1": {
+      "online_q": 14437,
+      "target_q": 14437,
+      "auxiliary": 132,
+      "optimizer_parameters": 14569
+    }
+  }
+}

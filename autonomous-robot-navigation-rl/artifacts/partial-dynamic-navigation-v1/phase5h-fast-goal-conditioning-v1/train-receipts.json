@@ -1,0 +1,32 @@
+{
+  "H0": {
+    "actions": 2000,
+    "optimizer_steps": 475,
+    "native_calls": {
+      "native_optimizer": 475,
+      "native_replay_consumption": 475
+    },
+    "wall_seconds": 20.279585700001917,
+    "parameter_counts": {
+      "online_q": 14437,
+      "target_q": 14437,
+      "auxiliary": 0,
+      "optimizer_parameters": 14437
+    }
+  },
+  "H1": {
+    "actions": 2000,
+    "optimizer_steps": 475,
+    "native_calls": {
+      "native_optimizer": 475,
+      "native_replay_consumption": 475
+    },
+    "wall_seconds": 18.179892200001632,
+    "parameter_counts": {
+      "online_q": 14437,
+      "target_q": 14437,
+      "auxiliary": 132,
+      "optimizer_parameters": 14569
+    }
+  }
+}

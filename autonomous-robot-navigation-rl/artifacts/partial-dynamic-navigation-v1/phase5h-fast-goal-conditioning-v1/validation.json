@@ -1,0 +1,188 @@
+{
+  "verdict": "INCONCLUSIVE_SMALL_PILOT",
+  "gates": {
+    "G0": "passed",
+    "G1": "passed",
+    "G2": "passed",
+    "G3": "passed",
+    "G4": "passed"
+  },
+  "arms": {
+    "H0": {
+      "checkpoints": {
+        "0": {
+          "original_success": 1,
+          "expanded_success": 4,
+          "directions": {
+            "Up": 0,
+            "Down": 4,
+            "Left": 0,
+            "Right": 0
+          },
+          "first_aligned": 4,
+          "first_aligned_denominator": 16,
+          "wait_count": 0,
+          "actions": 95,
+          "wait_fraction": 0.0,
+          "timeouts": 0,
+          "collisions": 15,
+          "moving_revisits": 0,
+          "ABAB": 0
+        },
+        "2000": {
+          "original_success": 1,
+          "expanded_success": 9,
+          "directions": {
+            "Up": 2,
+            "Down": 3,
+            "Left": 2,
+            "Right": 2
+          },
+          "first_aligned": 6,
+          "first_aligned_denominator": 16,
+          "wait_count": 626,
+          "actions": 2047,
+          "wait_fraction": 0.3058133854421104,
+          "timeouts": 10,
+          "collisions": 0,
+          "moving_revisits": 1289,
+          "ABAB": 859
+        }
+      },
+      "goal_encounters": 60,
+      "goal_sample_draws": 686,
+      "distinct_goals_sampled": 55,
+      "updates_with_goals": 371,
+      "goal_example": {
+        "transition_id": 16,
+        "case_id": "phase5a-handwritten-fixtures-v1-A-train-07",
+        "update_id": 1,
+        "sample_row": 42,
+        "used_at": 104,
+        "actual_target": 9.989999771118164,
+        "chosen_Q": -0.02748468518257141
+      },
+      "optimizer_steps": 475,
+      "training_actions": 2000,
+      "auxiliary_correct": null,
+      "auxiliary_training_draws": null,
+      "accuracy": null,
+      "losses": {
+        "td": {
+          "mean": 0.3809066832886617,
+          "min": 0.0003479948500171304,
+          "max": 1.6511759757995605
+        },
+        "auxiliary": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "total": {
+          "mean": 0.3809066832886617,
+          "min": 0.0003479948500171304,
+          "max": 1.6511759757995605
+        }
+      }
+    },
+    "H1": {
+      "checkpoints": {
+        "0": {
+          "original_success": 1,
+          "expanded_success": 4,
+          "directions": {
+            "Up": 0,
+            "Down": 4,
+            "Left": 0,
+            "Right": 0
+          },
+          "first_aligned": 4,
+          "first_aligned_denominator": 16,
+          "wait_count": 0,
+          "actions": 95,
+          "wait_fraction": 0.0,
+          "timeouts": 0,
+          "collisions": 15,
+          "moving_revisits": 0,
+          "ABAB": 0
+        },
+        "2000": {
+          "original_success": 0,
+          "expanded_success": 7,
+          "directions": {
+            "Up": 0,
+            "Down": 0,
+            "Left": 4,
+            "Right": 3
+          },
+          "first_aligned": 7,
+          "first_aligned_denominator": 16,
+          "wait_count": 169,
+          "actions": 2612,
+          "wait_fraction": 0.06470137825421134,
+          "timeouts": 13,
+          "collisions": 0,
+          "moving_revisits": 2404,
+          "ABAB": 2111
+        }
+      },
+      "goal_encounters": 52,
+      "goal_sample_draws": 362,
+      "distinct_goals_sampled": 41,
+      "updates_with_goals": 254,
+      "goal_example": {
+        "transition_id": 16,
+        "case_id": "phase5a-handwritten-fixtures-v1-A-train-07",
+        "update_id": 1,
+        "sample_row": 42,
+        "used_at": 104,
+        "actual_target": 9.989999771118164,
+        "chosen_Q": -0.02748468518257141
+      },
+      "optimizer_steps": 475,
+      "training_actions": 2000,
+      "auxiliary_correct": 14884,
+      "auxiliary_training_draws": 23750,
+      "accuracy": 0.6266947368421053,
+      "losses": {
+        "td": {
+          "mean": 0.22974901382958418,
+          "min": 0.0005568423075601459,
+          "max": 0.8939122557640076
+        },
+        "auxiliary": {
+          "mean": 0.9999575688964443,
+          "min": 0.5926095247268677,
+          "max": 1.3590375185012817
+        },
+        "total": {
+          "mean": 0.2797468930718146,
+          "min": 0.03220305219292641,
+          "max": 0.9313041567802429
+        }
+      }
+    }
+  },
+  "decision_checks": {
+    "at_least_12": false,
+    "each_direction_2": false,
+    "success_advantage_3": false,
+    "alignment_advantage_3": false,
+    "wait_within_10_points": true,
+    "no_new_complete_direction_collapse": true
+  },
+  "difference_in_differences": -2,
+  "training_actions": 4000,
+  "optimizer_steps": 950,
+  "assessment_actions": 4849,
+  "assessment_episodes": 80,
+  "full_regression_suite": "DEFERRED_TO_MAJOR_MILESTONE",
+  "not_claimed": [
+    "full gradient tensors",
+    "all five Q values per training transition",
+    "complete forward/RNG call census",
+    "Phase5G full tensor trace equivalence",
+    "causal mechanism",
+    "generalization or four-model ranking"
+  ]
+}

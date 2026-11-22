@@ -1,0 +1,26 @@
+{
+  "arm": "H1",
+  "training_actions": 0,
+  "plan_sha256": "2e99cd9fe9c2d3a78c8ba966027a530d18fdeb220e5ab6e42215286435f45086",
+  "sha256": "5afe9c5f05b22e8815b5650af3d426d97a2fefb132ea8c19d29416c3d682c193",
+  "state": {
+    "policy": "b76729522a06f9d5a4681ed176f647aff29793f6b70f1c460ceb8ef6404eac4e",
+    "optimizer": "f3efe76c30c16a7127f562138fc265b3670675d1e927dcd354c88cae49305c13",
+    "rng": {
+      "python": "b47d48e15000575dd404c09102033c5c3af6b0fcb7dc6f072f06f9934f80298c",
+      "numpy": "4bdda687b213042abc1476b982015a792cbb867d6e522902d9471e855c77bd4d",
+      "torch": "0f86ac75e4276b805957385dc4a5557326b77775036695ec29d8ef55410c54c1"
+    },
+    "case_rng": "8f097fd72a117807888845c6ace0412a9ad512550424b657f015447f8669f618",
+    "action_rng": "8f097fd72a117807888845c6ace0412a9ad512550424b657f015447f8669f618"
+  },
+  "parameter_counts": {
+    "online_q": 14437,
+    "target_q": 14437,
+    "auxiliary": 132,
+    "optimizer_parameters": 14569
+  },
+  "num_timesteps": 0,
+  "optimizer_updates": 0,
+  "state_unchanged_by_save": true
+}

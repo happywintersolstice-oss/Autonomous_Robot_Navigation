@@ -1,0 +1,76 @@
+{
+  "H0": {
+    "goal_encounters": 60,
+    "goal_sample_draws": 686,
+    "distinct_goals_sampled": 55,
+    "updates_with_goals": 371,
+    "goal_example": {
+      "transition_id": 16,
+      "case_id": "phase5a-handwritten-fixtures-v1-A-train-07",
+      "update_id": 1,
+      "sample_row": 42,
+      "used_at": 104,
+      "actual_target": 9.989999771118164,
+      "chosen_Q": -0.02748468518257141
+    },
+    "optimizer_steps": 475,
+    "training_actions": 2000,
+    "auxiliary_correct": null,
+    "auxiliary_training_draws": null,
+    "accuracy": null,
+    "losses": {
+      "td": {
+        "mean": 0.3809066832886617,
+        "min": 0.0003479948500171304,
+        "max": 1.6511759757995605
+      },
+      "auxiliary": {
+        "mean": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "total": {
+        "mean": 0.3809066832886617,
+        "min": 0.0003479948500171304,
+        "max": 1.6511759757995605
+      }
+    }
+  },
+  "H1": {
+    "goal_encounters": 52,
+    "goal_sample_draws": 362,
+    "distinct_goals_sampled": 41,
+    "updates_with_goals": 254,
+    "goal_example": {
+      "transition_id": 16,
+      "case_id": "phase5a-handwritten-fixtures-v1-A-train-07",
+      "update_id": 1,
+      "sample_row": 42,
+      "used_at": 104,
+      "actual_target": 9.989999771118164,
+      "chosen_Q": -0.02748468518257141
+    },
+    "optimizer_steps": 475,
+    "training_actions": 2000,
+    "auxiliary_correct": 14884,
+    "auxiliary_training_draws": 23750,
+    "accuracy": 0.6266947368421053,
+    "losses": {
+      "td": {
+        "mean": 0.22974901382958418,
+        "min": 0.0005568423075601459,
+        "max": 0.8939122557640076
+      },
+      "auxiliary": {
+        "mean": 0.9999575688964443,
+        "min": 0.5926095247268677,
+        "max": 1.3590375185012817
+      },
+      "total": {
+        "mean": 0.2797468930718146,
+        "min": 0.03220305219292641,
+        "max": 0.9313041567802429
+      }
+    }
+  }
+}

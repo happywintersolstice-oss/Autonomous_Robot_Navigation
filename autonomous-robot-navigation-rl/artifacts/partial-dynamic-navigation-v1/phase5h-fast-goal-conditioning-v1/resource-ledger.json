@@ -1,0 +1,61 @@
+{
+  "training_actions": 4000,
+  "optimizer_steps": 950,
+  "assessment_actions": 4849,
+  "assessment_episodes": 80,
+  "training_seconds": {
+    "H0": 20.279585700001917,
+    "H1": 18.179892200001632
+  },
+  "assessment_seconds": 13.64602630000445,
+  "total_run_seconds": 52.40009139999165,
+  "assessment_parent_isolation": {
+    "before": {
+      "rng": {
+        "python": "b47d48e15000575dd404c09102033c5c3af6b0fcb7dc6f072f06f9934f80298c",
+        "numpy": "c570f2d00b9b9f7a909ad1c1e7b9797c074eeb3efcd8c74858f063114de540b6",
+        "torch": "0f86ac75e4276b805957385dc4a5557326b77775036695ec29d8ef55410c54c1"
+      },
+      "training_hashes": {
+        "train-H0.jsonl.gz": "77fe85fba7fe38eea54c6d60a8b58d7d3edc6a8fb5dd48300cde19806ad03c21",
+        "train-H1.jsonl.gz": "ec4d9754eced613b72e3ed8e360814d24289303f42296b66fe5d1e828bd938d2"
+      }
+    },
+    "after": {
+      "rng": {
+        "python": "b47d48e15000575dd404c09102033c5c3af6b0fcb7dc6f072f06f9934f80298c",
+        "numpy": "c570f2d00b9b9f7a909ad1c1e7b9797c074eeb3efcd8c74858f063114de540b6",
+        "torch": "0f86ac75e4276b805957385dc4a5557326b77775036695ec29d8ef55410c54c1"
+      },
+      "training_hashes": {
+        "train-H0.jsonl.gz": "77fe85fba7fe38eea54c6d60a8b58d7d3edc6a8fb5dd48300cde19806ad03c21",
+        "train-H1.jsonl.gz": "ec4d9754eced613b72e3ed8e360814d24289303f42296b66fe5d1e828bd938d2"
+      }
+    }
+  },
+  "mechanical": {
+    "transitions": 20,
+    "optimizer_steps": 6,
+    "scope": "one H1-only 20-step smoke plus two fixed-batch lambda0 updates; no research",
+    "lambda0_Q_update_match": true,
+    "initial_common_Q_equal": true,
+    "same_fixed_batch_ids": true,
+    "aux_gradient_to_shared_and_head_only": true,
+    "Q_only_action_selection": true,
+    "parameter_counts": {
+      "H0": {
+        "online_q": 14437,
+        "target_q": 14437,
+        "auxiliary": 0,
+        "optimizer_parameters": 14437
+      },
+      "H1": {
+        "online_q": 14437,
+        "target_q": 14437,
+        "auxiliary": 132,
+        "optimizer_parameters": 14569
+      }
+    }
+  },
+  "full_regression_suite": "DEFERRED_TO_MAJOR_MILESTONE"
+}

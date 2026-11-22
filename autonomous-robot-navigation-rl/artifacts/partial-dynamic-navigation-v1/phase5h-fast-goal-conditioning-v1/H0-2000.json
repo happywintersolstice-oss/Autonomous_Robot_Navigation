@@ -1,0 +1,26 @@
+{
+  "arm": "H0",
+  "training_actions": 2000,
+  "plan_sha256": "2e99cd9fe9c2d3a78c8ba966027a530d18fdeb220e5ab6e42215286435f45086",
+  "sha256": "1d36f18626a314e66725beaf73f5d9e6cae6589cfc881be7074fd933f15bbe20",
+  "state": {
+    "policy": "23578ec1b09ea9c16e1436cda251d165c32d8463d676013aa88bdf154a0b3257",
+    "optimizer": "d03419859a5298a39b3ee695a126a87caab0527d027b7c3d56601492073b3c8b",
+    "rng": {
+      "python": "b47d48e15000575dd404c09102033c5c3af6b0fcb7dc6f072f06f9934f80298c",
+      "numpy": "c570f2d00b9b9f7a909ad1c1e7b9797c074eeb3efcd8c74858f063114de540b6",
+      "torch": "0f86ac75e4276b805957385dc4a5557326b77775036695ec29d8ef55410c54c1"
+    },
+    "case_rng": "1b523984225f5d549a3cb893ec0764d39f7646d2e9dec7d44e455b9e67475b8a",
+    "action_rng": "10780c05319397e852bae3e2adfb1eef95ece97849960129c7d90e0bc059f798"
+  },
+  "parameter_counts": {
+    "online_q": 14437,
+    "target_q": 14437,
+    "auxiliary": 0,
+    "optimizer_parameters": 14437
+  },
+  "num_timesteps": 2000,
+  "optimizer_updates": 475,
+  "state_unchanged_by_save": true
+}
