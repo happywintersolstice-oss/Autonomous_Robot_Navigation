@@ -1,0 +1,76 @@
+{
+  "signature": {
+    "map_id": "bottleneck-v1",
+    "map_hash": "614472df8e4cbed5408e1e5092dfd708bb683cdeef780a1a064246f0e1e58a94",
+    "task_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "step-goal-collision-v1"
+  },
+  "scenario": {
+    "id": "r0c5-r1c5",
+    "start": [
+      0,
+      5
+    ],
+    "goal": [
+      1,
+      5
+    ],
+    "shortest_length": 1,
+    "distance_band": "short"
+  },
+  "seed": 43,
+  "policy_id": "sarsa/m3-sarsa-seed43/step-200000",
+  "mode": "validation",
+  "initial_observation": [
+    0,
+    5,
+    1,
+    5
+  ],
+  "transitions": [
+    {
+      "observation": [
+        0,
+        5,
+        1,
+        5
+      ],
+      "action": 0,
+      "reward": -5.01,
+      "next_observation": [
+        0,
+        5,
+        1,
+        5
+      ],
+      "terminated": true,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          -1,
+          5
+        ],
+        "outcome": "collision",
+        "scenario_id": "r0c5-r1c5",
+        "steps": 1
+      },
+      "scores": [
+        0.0,
+        0.0,
+        -0.03525125850329999,
+        -0.31846469999999993
+      ]
+    }
+  ],
+  "metrics": {
+    "outcome": "collision",
+    "steps": 1,
+    "return": -5.01,
+    "successful_route_length": null,
+    "spl": 0.0
+  },
+  "initial_state_visited_in_training": true
+}

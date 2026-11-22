@@ -1,0 +1,12 @@
+{
+  "family": "q-learning",
+  "member_seeds": [
+    101,
+    211,
+    307
+  ],
+  "single_policy_seed": 101,
+  "reward_variant": "step-cost",
+  "ranking_rule": "confirmation mean success, mean SPL, lower seed SD, training seconds, name",
+  "decision_saved_before_reward_ablation_and_voting": true
+}

@@ -1,0 +1,28 @@
+{
+  "source_run": "smoke-seed7",
+  "timeout_episodes": 503,
+  "timeout_unique_position_histogram": {
+    "5": 47,
+    "2": 216,
+    "8": 12,
+    "3": 107,
+    "4": 77,
+    "6": 25,
+    "10": 3,
+    "7": 13,
+    "9": 1,
+    "11": 2
+  },
+  "timeout_q_min": -3.8070989999999996,
+  "timeout_q_max": 0.0,
+  "undiscovered_goals": [
+    "1,2",
+    "2,9",
+    "4,7",
+    "6,7",
+    "8,1",
+    "9,0",
+    "9,4"
+  ],
+  "interpretation": "Repeated-state loops consume all 200 actions. Goal discoveries are sparse. This motivates a longer diagnostic budget, not rule changes or planner fallback."
+}

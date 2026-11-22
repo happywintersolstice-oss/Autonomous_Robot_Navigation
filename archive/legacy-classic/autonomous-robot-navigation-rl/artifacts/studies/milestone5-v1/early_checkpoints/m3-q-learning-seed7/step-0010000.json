@@ -1,0 +1,29 @@
+{
+  "training_interactions": 10000,
+  "config": {
+    "interactions": 200000,
+    "monitor_every": 10000,
+    "discount": 0.99,
+    "epsilon_start": 1.0,
+    "epsilon_end": 0.1,
+    "epsilon_decay_fraction": 0.8,
+    "learning_rate": 0.3,
+    "algorithm": "q-learning",
+    "seed": 7,
+    "run_id": "m3-q-learning-seed7"
+  },
+  "weight_phase": "after tabular update",
+  "signature": {
+    "map_id": "bottleneck-v1",
+    "map_hash": "614472df8e4cbed5408e1e5092dfd708bb683cdeef780a1a064246f0e1e58a94",
+    "task_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "step-goal-collision-v1"
+  },
+  "policy_id": "q-learning/m3-q-learning-seed7/step-10000",
+  "algorithm": "q-learning",
+  "kind": "inference-only; exact training resume unsupported",
+  "sha256": "12ded4508da87fcaef24b505e84b35cf0a658e41d3cce5404ed63f3421eeee76"
+}

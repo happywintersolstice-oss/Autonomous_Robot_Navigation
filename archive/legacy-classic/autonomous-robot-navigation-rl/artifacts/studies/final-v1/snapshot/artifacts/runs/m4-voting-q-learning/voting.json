@@ -1,0 +1,36 @@
+{
+  "algorithm": "voting",
+  "family": "q-learning",
+  "policy_id": "voting/part-b-v1/q-learning",
+  "signature": {
+    "map_id": "bottleneck-v1",
+    "map_hash": "614472df8e4cbed5408e1e5092dfd708bb683cdeef780a1a064246f0e1e58a94",
+    "task_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "step-goal-collision-v1"
+  },
+  "kind": "frozen inference-only voting; no training",
+  "rule": "majority; three-way tie uses first member",
+  "members": [
+    {
+      "path": "../m4-tuned-q-learning-seed101/selected.npz",
+      "seed": 101,
+      "policy_id": "q-learning/m4-tuned-q-learning-seed101/step-200000",
+      "sha256": "10e88b9d8f0894c0a4226cfce8967f2ababb943bca2aeee9cb05d54eb4abc25b"
+    },
+    {
+      "path": "../m4-tuned-q-learning-seed211/selected.npz",
+      "seed": 211,
+      "policy_id": "q-learning/m4-tuned-q-learning-seed211/step-200000",
+      "sha256": "969d578f6f9e3f6d338521a5a01ac303b6cd212c0e9b14b863db402c95c12ba5"
+    },
+    {
+      "path": "../m4-tuned-q-learning-seed307/selected.npz",
+      "seed": 307,
+      "policy_id": "q-learning/m4-tuned-q-learning-seed307/step-200000",
+      "sha256": "e88b6ad1cbd2148b07a9988b5bc53369b9e047e90d620a4f0e34e1ad6d6168c0"
+    }
+  ]
+}

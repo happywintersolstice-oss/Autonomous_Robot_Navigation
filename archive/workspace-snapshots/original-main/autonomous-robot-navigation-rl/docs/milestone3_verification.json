@@ -1,0 +1,24 @@
+{
+  "pytest": {
+    "passed": 33,
+    "seconds": 12.05,
+    "command": ".venv/Scripts/python.exe -m pytest -q"
+  },
+  "gymnasium_checker": "passed",
+  "sb3_checker": "passed",
+  "learned_episodes_verified": 13920,
+  "learned_actions_verified": 1622440,
+  "reference_episodes_verified": 5568,
+  "periodic_checkpoints_verified": 300,
+  "main_training_source_hash_matches": true,
+  "archived_runner_hash_matches": true,
+  "audited_analyzer_hash_matches": true,
+  "final_test_policy_executions": 0,
+  "preservation": "256 original root, benchmark and earlier-artifact hashes checked; zero changes",
+  "plot_qa": {
+    "source_sha256": "69035a09d6f2c6c959a723152cda206b98a8779c4dee90be2c5b671e021177aa",
+    "audited_analyzer_snapshot_matches": true,
+    "repair": "Added labels for BFS and random reference lines after visual inspection",
+    "data_changed": false
+  }
+}

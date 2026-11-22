@@ -1,0 +1,76 @@
+{
+  "signature": {
+    "map_id": "bottleneck-v1",
+    "map_hash": "614472df8e4cbed5408e1e5092dfd708bb683cdeef780a1a064246f0e1e58a94",
+    "task_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "step-goal-collision-v1"
+  },
+  "scenario": {
+    "id": "r0c6-r0c7",
+    "start": [
+      0,
+      6
+    ],
+    "goal": [
+      0,
+      7
+    ],
+    "shortest_length": 1,
+    "distance_band": "short"
+  },
+  "seed": 67,
+  "policy_id": "dqn/m3-dqn-seed67/step-40000",
+  "mode": "validation",
+  "initial_observation": [
+    0,
+    6,
+    0,
+    7
+  ],
+  "transitions": [
+    {
+      "observation": [
+        0,
+        6,
+        0,
+        7
+      ],
+      "action": 3,
+      "reward": 9.99,
+      "next_observation": [
+        0,
+        7,
+        0,
+        7
+      ],
+      "terminated": true,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          0,
+          7
+        ],
+        "outcome": "success",
+        "scenario_id": "r0c6-r0c7",
+        "steps": 1
+      },
+      "scores": [
+        -4.9825544357299805,
+        1.8858088254928589,
+        2.4153666496276855,
+        2.454237222671509
+      ]
+    }
+  ],
+  "metrics": {
+    "outcome": "success",
+    "steps": 1,
+    "return": 9.99,
+    "successful_route_length": 1,
+    "spl": 1.0
+  },
+  "initial_state_visited_in_training": true
+}

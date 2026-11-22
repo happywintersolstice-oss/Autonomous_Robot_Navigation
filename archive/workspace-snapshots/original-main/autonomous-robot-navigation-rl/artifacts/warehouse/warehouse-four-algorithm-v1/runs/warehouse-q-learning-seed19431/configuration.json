@@ -1,0 +1,19 @@
+{
+  "interactions": 600000,
+  "monitor_every": 100000,
+  "discount": 0.99,
+  "epsilon_start": 1.0,
+  "epsilon_end": 0.03,
+  "epsilon_decay_fraction": 0.8,
+  "training_trace_episodes": 6,
+  "training_trace_starts": [
+    0,
+    200000,
+    400000
+  ],
+  "max_wall_seconds": 1800,
+  "learning_rate": 0.3,
+  "algorithm": "q-learning",
+  "seed": 19431,
+  "run_id": "warehouse-q-learning-seed19431"
+}

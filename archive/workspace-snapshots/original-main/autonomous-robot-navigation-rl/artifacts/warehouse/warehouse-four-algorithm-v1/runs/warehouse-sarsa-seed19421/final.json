@@ -1,0 +1,18 @@
+{
+  "training_interactions": 600000,
+  "training_seed": 19421,
+  "study_id": "warehouse-four-algorithm-v1",
+  "signature": {
+    "map_id": "warehouse-delivery-v1",
+    "map_hash": "49c25e2460cbf64caa8107c8ed4839ac1b630d1dd9f67919d64b80b01c10b568",
+    "task_hash": "a6284566bb020aaf36d2cd1521da69d8bf05acd15f93af0bb3f9bab59b33a686",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "warehouse-step-goal-collision-v1"
+  },
+  "policy_id": "sarsa/warehouse-sarsa-seed19421",
+  "algorithm": "sarsa",
+  "kind": "inference-only; exact training resume unsupported",
+  "sha256": "148b77c84900eabca1c0be6ff79040276312d6b9ab7755d1ba9830fe360280ad"
+}

@@ -1,0 +1,221 @@
+{
+  "map_id": "warehouse-delivery-v1",
+  "name": "Warehouse delivery floor",
+  "rows": [
+    "#################",
+    "#...............#",
+    "#..##..##..##...#",
+    "#..##..##..##...#",
+    "#..##..##..##...#",
+    "#..##..##..##...#",
+    "#..##..##..##...#",
+    "#...............#",
+    "#...............#",
+    "#.##...###......#",
+    "#...............#",
+    "#...............#",
+    "#################"
+  ],
+  "description": "A small warehouse: receiving and dispatch bays face a main cross-aisle, three storage racks and a packing work area.",
+  "fixtures": [
+    {
+      "name": "Rack A",
+      "kind": "storage rack",
+      "bounds": [
+        2,
+        3,
+        6,
+        4
+      ]
+    },
+    {
+      "name": "Rack B",
+      "kind": "storage rack",
+      "bounds": [
+        2,
+        7,
+        6,
+        8
+      ]
+    },
+    {
+      "name": "Rack C",
+      "kind": "storage rack",
+      "bounds": [
+        2,
+        11,
+        6,
+        12
+      ]
+    },
+    {
+      "name": "Packing bench",
+      "kind": "work bench",
+      "bounds": [
+        9,
+        7,
+        9,
+        9
+      ]
+    },
+    {
+      "name": "Inbound pallets",
+      "kind": "staging pallets",
+      "bounds": [
+        9,
+        2,
+        9,
+        3
+      ]
+    }
+  ],
+  "stations": [
+    {
+      "id": "receiving",
+      "name": "Receiving bay",
+      "cell": [
+        10,
+        2
+      ],
+      "purpose": "Collect incoming stock"
+    },
+    {
+      "id": "rack-a",
+      "name": "Rack A pickup",
+      "cell": [
+        4,
+        2
+      ],
+      "purpose": "Collect stored items from Rack A"
+    },
+    {
+      "id": "rack-b",
+      "name": "Rack B pickup",
+      "cell": [
+        4,
+        6
+      ],
+      "purpose": "Collect stored items from Rack B"
+    },
+    {
+      "id": "rack-c",
+      "name": "Rack C pickup",
+      "cell": [
+        4,
+        10
+      ],
+      "purpose": "Collect stored items from Rack C"
+    },
+    {
+      "id": "packing",
+      "name": "Packing station",
+      "cell": [
+        10,
+        8
+      ],
+      "purpose": "Deliver items for packing"
+    },
+    {
+      "id": "dispatch",
+      "name": "Dispatch bay",
+      "cell": [
+        10,
+        14
+      ],
+      "purpose": "Deliver packed parcels for shipping"
+    },
+    {
+      "id": "charging",
+      "name": "Charging dock",
+      "cell": [
+        1,
+        14
+      ],
+      "purpose": "Return the robot for charging"
+    }
+  ],
+  "jobs": [
+    {
+      "id": "pick-b",
+      "name": "Pick an order: Rack B to packing",
+      "from": "rack-b",
+      "to": "packing",
+      "description": "Collect an item beside Rack B, leave the storage aisle and bring it to the packing station."
+    },
+    {
+      "id": "receive-a",
+      "name": "Put away stock: receiving to Rack A",
+      "from": "receiving",
+      "to": "rack-a",
+      "description": "Move incoming stock from the receiving bay to the access point beside Rack A."
+    },
+    {
+      "id": "receive-c",
+      "name": "Put away stock: receiving to Rack C",
+      "from": "receiving",
+      "to": "rack-c",
+      "description": "Carry incoming stock across the main aisle to the access point beside Rack C."
+    },
+    {
+      "id": "pick-a",
+      "name": "Pick an order: Rack A to packing",
+      "from": "rack-a",
+      "to": "packing",
+      "description": "Collect an item beside Rack A and deliver it to the packing station."
+    },
+    {
+      "id": "pick-c",
+      "name": "Pick an order: Rack C to packing",
+      "from": "rack-c",
+      "to": "packing",
+      "description": "Collect an item beside Rack C and deliver it to the packing station."
+    },
+    {
+      "id": "ship",
+      "name": "Ship a parcel: packing to dispatch",
+      "from": "packing",
+      "to": "dispatch",
+      "description": "Move a packed parcel from the packing station to the dispatch bay."
+    },
+    {
+      "id": "charge",
+      "name": "Return to the charging dock",
+      "from": "dispatch",
+      "to": "charging",
+      "description": "After dispatch, return through the perimeter aisle to the charging dock."
+    }
+  ],
+  "zones": [
+    {
+      "name": "RECEIVING",
+      "bounds": [
+        8,
+        1,
+        11,
+        4
+      ],
+      "color": "#17313b"
+    },
+    {
+      "name": "PACKING",
+      "bounds": [
+        8,
+        6,
+        11,
+        10
+      ],
+      "color": "#18352e"
+    },
+    {
+      "name": "DISPATCH",
+      "bounds": [
+        8,
+        12,
+        11,
+        15
+      ],
+      "color": "#2a2c3c"
+    }
+  ],
+  "simulation_limits": "Fixed floor plan, point robot and static fixtures. No people, pallet handling, robot footprint or live sensors are simulated."
+}

@@ -1,0 +1,76 @@
+{
+  "q_learning": {
+    "episodes": 928,
+    "counts": {
+      "success": 616,
+      "collision": 2,
+      "timeout": 310
+    },
+    "success_rate": 0.6637931034482759,
+    "collision_rate": 0.0021551724137931034,
+    "timeout_rate": 0.33405172413793105,
+    "spl": 0.6329621850942073,
+    "mean_return": 5.913243534482759,
+    "mean_successful_route_length": 6.8977272727272725,
+    "successful_route_count": 616,
+    "interactions": 66251,
+    "scope": "complete validation manifest",
+    "seed": 7,
+    "by_distance_band": {
+      "short": {
+        "episodes": 258,
+        "counts": {
+          "success": 252,
+          "collision": 2,
+          "timeout": 4
+        },
+        "success_rate": 0.9767441860465116,
+        "collision_rate": 0.007751937984496124,
+        "timeout_rate": 0.015503875968992248,
+        "spl": 0.9356471693680997,
+        "mean_return": 9.66360465116279,
+        "mean_successful_route_length": 3.4801587301587302,
+        "successful_route_count": 252,
+        "interactions": 1679
+      },
+      "medium": {
+        "episodes": 350,
+        "counts": {
+          "success": 287,
+          "collision": 0,
+          "timeout": 63
+        },
+        "success_rate": 0.82,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.18,
+        "spl": 0.7769010037581465,
+        "mean_return": 7.771742857142858,
+        "mean_successful_route_length": 8.32404181184669,
+        "successful_route_count": 287,
+        "interactions": 14989
+      },
+      "long": {
+        "episodes": 320,
+        "counts": {
+          "success": 77,
+          "collision": 0,
+          "timeout": 243
+        },
+        "success_rate": 0.240625,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.759375,
+        "spl": 0.23148933360969806,
+        "mean_return": 0.85678125,
+        "mean_successful_route_length": 12.766233766233766,
+        "successful_route_count": 77,
+        "interactions": 49583
+      }
+    },
+    "evaluation_seconds": 1.1689320000004955,
+    "interactions_per_second": 56676.521816471715,
+    "mean_decision_microseconds": 1.7619994468986988,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries",
+    "initial_states_visited_in_training": 928,
+    "initial_state_overlap_fraction": 1.0
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "saved_episode_records_verified": 2784,
+  "replay_actions_verified": 113075,
+  "parameters_unchanged": true,
+  "training_visits_and_log_interactions": 30000,
+  "final_test_policy_executions": 0,
+  "validation_by_distance_band": {
+    "q_learning": {
+      "short": {
+        "episodes": 258,
+        "counts": {
+          "success": 74,
+          "collision": 92,
+          "timeout": 92
+        },
+        "success_rate": 0.2868217054263566,
+        "collision_rate": 0.35658914728682173,
+        "timeout_rate": 0.35658914728682173,
+        "spl": 0.280749354005168,
+        "mean_return": 0.3587209302325583,
+        "mean_successful_route_length": 2.0945945945945947,
+        "successful_route_count": 74,
+        "interactions": 18745
+      },
+      "medium": {
+        "episodes": 350,
+        "counts": {
+          "success": 3,
+          "collision": 145,
+          "timeout": 202
+        },
+        "success_rate": 0.008571428571428572,
+        "collision_rate": 0.4142857142857143,
+        "timeout_rate": 0.5771428571428572,
+        "spl": 0.008571428571428572,
+        "mean_return": -3.1493714285714285,
+        "mean_successful_route_length": 6.0,
+        "successful_route_count": 3,
+        "interactions": 40728
+      },
+      "long": {
+        "episodes": 320,
+        "counts": {
+          "success": 0,
+          "collision": 111,
+          "timeout": 209
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.346875,
+        "timeout_rate": 0.653125,
+        "spl": 0.0,
+        "mean_return": -3.0479062499999996,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 42033
+      }
+    },
+    "bfs": {
+      "short": {
+        "episodes": 258,
+        "counts": {
+          "success": 258,
+          "collision": 0,
+          "timeout": 0
+        },
+        "success_rate": 1.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.0,
+        "spl": 1.0,
+        "mean_return": 9.967751937984497,
+        "mean_successful_route_length": 3.2248062015503876,
+        "successful_route_count": 258,
+        "interactions": 832
+      },
+      "medium": {
+        "episodes": 350,
+        "counts": {
+          "success": 350,
+          "collision": 0,
+          "timeout": 0
+        },
+        "success_rate": 1.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.0,
+        "spl": 1.0,
+        "mean_return": 9.920428571428571,
+        "mean_successful_route_length": 7.957142857142857,
+        "successful_route_count": 350,
+        "interactions": 2785
+      },
+      "long": {
+        "episodes": 320,
+        "counts": {
+          "success": 320,
+          "collision": 0,
+          "timeout": 0
+        },
+        "success_rate": 1.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.0,
+        "spl": 1.0,
+        "mean_return": 9.867750000000001,
+        "mean_successful_route_length": 13.225,
+        "successful_route_count": 320,
+        "interactions": 4232
+      }
+    },
+    "random": {
+      "short": {
+        "episodes": 258,
+        "counts": {
+          "success": 22,
+          "collision": 236,
+          "timeout": 0
+        },
+        "success_rate": 0.08527131782945736,
+        "collision_rate": 0.9147286821705426,
+        "timeout_rate": 0.0,
+        "spl": 0.07141295397109351,
+        "mean_return": -3.7560465116279063,
+        "mean_successful_route_length": 3.0454545454545454,
+        "successful_route_count": 22,
+        "interactions": 906
+      },
+      "medium": {
+        "episodes": 350,
+        "counts": {
+          "success": 0,
+          "collision": 350,
+          "timeout": 0
+        },
+        "success_rate": 0.0,
+        "collision_rate": 1.0,
+        "timeout_rate": 0.0,
+        "spl": 0.0,
+        "mean_return": -5.042599999999999,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1491
+      },
+      "long": {
+        "episodes": 320,
+        "counts": {
+          "success": 0,
+          "collision": 320,
+          "timeout": 0
+        },
+        "success_rate": 0.0,
+        "collision_rate": 1.0,
+        "timeout_rate": 0.0,
+        "spl": 0.0,
+        "mean_return": -5.041343749999999,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1323
+      }
+    }
+  },
+  "source_hash_matches_run": false,
+  "source_snapshot_matches_run": true,
+  "post_run_changes": "Renderer footer spacing and UI Matplotlib cache import order; training/environment/agent code unchanged",
+  "render_seconds": [
+    0.1868920000270009,
+    0.15278909995686263,
+    0.14293430000543594,
+    0.1744936999748461,
+    0.1970249000005424,
+    0.18654919997788966
+  ],
+  "render_mean_seconds": 0.1734471999904296,
+  "render_timing_scope": "six local Matplotlib canvas renders, excluding browser/network/Streamlit scheduling",
+  "automated_tests": {
+    "passed": 16,
+    "command": ".venv/Scripts/python.exe -m pytest -q"
+  },
+  "gymnasium_checker": "passed",
+  "browser_animation_verification": "blocked: Computer Use could not verify current Chrome URL; manual check required"
+}

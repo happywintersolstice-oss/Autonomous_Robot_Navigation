@@ -1,0 +1,171 @@
+{
+  "algorithm": "q-learning",
+  "label": "Q-learning",
+  "seed": 19411,
+  "run_id": "warehouse-q-learning-seed19411",
+  "signature": {
+    "map_id": "warehouse-delivery-v1",
+    "map_hash": "49c25e2460cbf64caa8107c8ed4839ac1b630d1dd9f67919d64b80b01c10b568",
+    "task_hash": "a6284566bb020aaf36d2cd1521da69d8bf05acd15f93af0bb3f9bab59b33a686",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "warehouse-step-goal-collision-v1"
+  },
+  "training": {
+    "sampled_training_goals": {
+      "4,6": 9379,
+      "10,14": 9240,
+      "4,10": 9248,
+      "1,14": 9514,
+      "4,2": 9277,
+      "10,8": 9050,
+      "10,2": 9338
+    },
+    "successful_discoveries_by_goal": {
+      "4,6": 4097,
+      "10,2": 4034,
+      "4,2": 3625,
+      "4,10": 3981,
+      "10,8": 4452,
+      "10,14": 4651,
+      "1,14": 4090
+    },
+    "distinct_goals_sampled": 7,
+    "distinct_goals_discovered": 7,
+    "successful_training_episodes": 28930,
+    "completed_training_episodes": 65045,
+    "visited_state_action_entries": 3612,
+    "total_state_action_visits": 600000,
+    "training_interactions": 600000,
+    "incomplete_budget_cutoff_episode": {
+      "steps": 5,
+      "return": -0.25,
+      "scenario_id": "r11c5-r4c10",
+      "outcome": "budget_cutoff; not an environment terminal"
+    },
+    "training_seconds": 20.212566200294532,
+    "training_interactions_per_second": 29684.503890023472,
+    "training_seconds_excludes": "environment construction, monitoring/checkpoints, final validation/export, figures"
+  },
+  "monitoring_seconds": 0.10918339993804693,
+  "assessment": {
+    "episodes": 188,
+    "counts": {
+      "success": 188,
+      "collision": 0,
+      "timeout": 0
+    },
+    "success_rate": 1.0,
+    "collision_rate": 0.0,
+    "timeout_rate": 0.0,
+    "spl": 0.9762055637714356,
+    "mean_return": 9.471010638297871,
+    "mean_successful_route_length": 10.579787234042554,
+    "successful_route_count": 188,
+    "interactions": 1989,
+    "scope": "Warehouse development assessment; familiar floor; no selection",
+    "seed": 0,
+    "by_distance_band": {
+      "fixture": {
+        "episodes": 188,
+        "counts": {
+          "success": 188,
+          "collision": 0,
+          "timeout": 0
+        },
+        "success_rate": 1.0,
+        "collision_rate": 0.0,
+        "timeout_rate": 0.0,
+        "spl": 0.9762055637714356,
+        "mean_return": 9.471010638297871,
+        "mean_successful_route_length": 10.579787234042554,
+        "successful_route_count": 188,
+        "interactions": 1989
+      }
+    },
+    "evaluation_seconds": 0.07146220002323389,
+    "interactions_per_second": 27832.89626338587,
+    "mean_decision_microseconds": 1.7719995230436325,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries",
+    "initial_states_visited_in_training": 188,
+    "initial_state_overlap_fraction": 1.0
+  },
+  "looping_timeouts": 0,
+  "checkpoint": "final.npz",
+  "checkpoint_bytes": 25431,
+  "training_traces": {
+    "requested_episodes": 6,
+    "selection": "first episodes starting at/after each declared training-step boundary; no outcome selection",
+    "records": [
+      {
+        "path": "training_traces/episode-001.json",
+        "sha256": "1fa45943f446c0db2b50dbab51166c8ba3fe981a3669d23812957822b5d4b4cf",
+        "complete": true,
+        "actions": 3,
+        "recording_window_index": 0,
+        "training_start_interaction": 0,
+        "training_end_interaction": 3
+      },
+      {
+        "path": "training_traces/episode-002.json",
+        "sha256": "be80505aca83dad80487310cf8e11e3e0823b4b91c49d4d036eed4e7fc892335",
+        "complete": true,
+        "actions": 3,
+        "recording_window_index": 0,
+        "training_start_interaction": 3,
+        "training_end_interaction": 6
+      },
+      {
+        "path": "training_traces/episode-003.json",
+        "sha256": "9be2aaad6fff785cb5350785ebe30d9413de4d0e444f5029e17bfe5b45080dee",
+        "complete": true,
+        "actions": 6,
+        "recording_window_index": 1,
+        "training_start_interaction": 200004,
+        "training_end_interaction": 200010
+      },
+      {
+        "path": "training_traces/episode-004.json",
+        "sha256": "944d4e335479a5fcd2f6e6ca4108612c1a276c0086e60d91dfbf734c1db98b3f",
+        "complete": true,
+        "actions": 1,
+        "recording_window_index": 1,
+        "training_start_interaction": 200010,
+        "training_end_interaction": 200011
+      },
+      {
+        "path": "training_traces/episode-005.json",
+        "sha256": "fb5a31fa69346bbb63bbc8d2988d2444ad5ac12934377bd73919d8854de491e7",
+        "complete": true,
+        "actions": 1,
+        "recording_window_index": 2,
+        "training_start_interaction": 400009,
+        "training_end_interaction": 400010
+      },
+      {
+        "path": "training_traces/episode-006.json",
+        "sha256": "25b743c0d36165427c813fdf26811bd37916c1a3993331e4390c15b47b80fc21",
+        "complete": true,
+        "actions": 18,
+        "recording_window_index": 2,
+        "training_start_interaction": 400010,
+        "training_end_interaction": 400028
+      }
+    ],
+    "extra_environment_interactions": 0,
+    "historical_training_reconstructed": false,
+    "window_starts": [
+      0,
+      200000,
+      400000
+    ],
+    "episodes_per_window": 2
+  },
+  "selection": "fixed final-budget checkpoint; no seed or checkpoint selection",
+  "assessment_audit": {
+    "episodes": 188,
+    "actions": 1989,
+    "status": "passed"
+  }
+}

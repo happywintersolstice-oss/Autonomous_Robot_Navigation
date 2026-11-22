@@ -1,0 +1,110 @@
+{
+  "status": "passed",
+  "date": "2026-11-10",
+  "milestone": "11. Shared-feature unseen-map main development",
+  "tests": {
+    "passed": 184,
+    "seconds": 76.13,
+    "command": "python -m pytest -p no:cacheprovider -q"
+  },
+  "saved_action_audit": {
+    "actions": 453723,
+    "training_recordings": 48,
+    "training_actions": 980,
+    "reused_reference_actions": 2186,
+    "final_policy_executions": 0,
+    "all_inference_fingerprints_unchanged": true
+  },
+  "preservation": {
+    "protected_files": 12772,
+    "changed_files": [],
+    "original_frozen_snapshot_inputs": 184
+  },
+  "training": {
+    "complete_runs": 16,
+    "pilot_runs": 4,
+    "main_runs": 12,
+    "main_seeds": [
+      12101,
+      12203,
+      12301
+    ],
+    "steps_per_main_run": 200000,
+    "total_steps": 2500000,
+    "failed_attempts": 0,
+    "suite_seconds": 1255.8572391999187,
+    "workers": 2,
+    "torch_threads_per_worker": 1,
+    "device": "cpu",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "logical_processors": 20,
+    "platform": "Windows-11-10.0.26200-SP0",
+    "study_bytes": 298132183
+  },
+  "source": {
+    "training": "79588850979d96e2d4e2416b15cf4e105694bad1eb4a89af9182660ee176e968",
+    "verification": "22ef3b0bd4d9d42c34a55e2158a75353cc13fd6b9ee3a9dc6e118dd3f9bb86f7",
+    "post_training_source_changes": [
+      "app/streamlit_app.py"
+    ],
+    "change_reason": "Environment heading generalized from unseen-map pilot to unseen layouts"
+  },
+  "browser": {
+    "passed": true,
+    "desktop_viewport": [
+      1230,
+      956
+    ],
+    "narrow_viewport": [
+      854,
+      1000
+    ],
+    "narrow_document_width": 854,
+    "viewport_override_reset": true,
+    "checks": [
+      "shared-feature main results and seed support",
+      "PPO seed12301 actual learning window100000 automatically reached [8,8] in4 actions with reward9.96",
+      "Home seek and Next step returned position[8,5], return-0.01",
+      "selected-policy validation seek reached [6,3] in8 actions with reward9.92 and SPL1",
+      "centered map and synchronized reward/state panels",
+      "stacked narrow controls, map before state panels, no horizontal overflow"
+    ],
+    "screenshots": {
+      "learning-replay.jpg": {
+        "size": [
+          1230,
+          956
+        ],
+        "sha256": "131e35eba11c7b9366b7798b66213b3b01dfc1243e45319e41e6bbb0d37f4fc4"
+      },
+      "narrow-replay.jpg": {
+        "size": [
+          854,
+          1000
+        ],
+        "sha256": "80d1278f7e0e31db0962622919c9145f71db8e24346207afa6be3618b5c5570c"
+      },
+      "results.jpg": {
+        "size": [
+          1230,
+          956
+        ],
+        "sha256": "e08a249fbd2e8e709407efaf8033f57e35e88f211f33c0b42a4b0d0912e217fa"
+      },
+      "trained-replay.jpg": {
+        "size": [
+          1230,
+          956
+        ],
+        "sha256": "666097e1769f33cc927b7b1467794da8844a9daae6f1fd4cc74fda49a0e57e9d"
+      }
+    }
+  },
+  "remaining": [
+    "mean success and SPL targets missed by every family",
+    "three seeds and four development layouts limit uncertainty estimates",
+    "development validation used for selection",
+    "independent evaluation on ten reserved layouts remains next-stage work",
+    "exact training resume unsupported"
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "sarsa": {
+    "episodes": 928,
+    "counts": {
+      "success": 237,
+      "collision": 13,
+      "timeout": 678
+    },
+    "success_rate": 0.25538793103448276,
+    "collision_rate": 0.014008620689655173,
+    "timeout_rate": 0.7306034482758621,
+    "spl": 0.24054202502478364,
+    "mean_return": 1.0107543103448275,
+    "mean_successful_route_length": 4.552742616033755,
+    "successful_route_count": 237,
+    "interactions": 136702,
+    "scope": "complete validation manifest; validation-selected checkpoint",
+    "seed": 7,
+    "by_distance_band": {
+      "short": {
+        "episodes": 258,
+        "counts": {
+          "success": 177,
+          "collision": 4,
+          "timeout": 77
+        },
+        "success_rate": 0.686046511627907,
+        "collision_rate": 0.015503875968992248,
+        "timeout_rate": 0.29844961240310075,
+        "spl": 0.6521494009866102,
+        "mean_return": 6.164302325581395,
+        "mean_successful_route_length": 3.1412429378531073,
+        "successful_route_count": 177,
+        "interactions": 15961
+      },
+      "medium": {
+        "episodes": 350,
+        "counts": {
+          "success": 56,
+          "collision": 4,
+          "timeout": 290
+        },
+        "success_rate": 0.16,
+        "collision_rate": 0.011428571428571429,
+        "timeout_rate": 0.8285714285714286,
+        "spl": 0.1465032745032745,
+        "mean_return": -0.1280857142857143,
+        "mean_successful_route_length": 8.428571428571429,
+        "successful_route_count": 56,
+        "interactions": 58483
+      },
+      "long": {
+        "episodes": 320,
+        "counts": {
+          "success": 4,
+          "collision": 5,
+          "timeout": 311
+        },
+        "success_rate": 0.0125,
+        "collision_rate": 0.015625,
+        "timeout_rate": 0.971875,
+        "spl": 0.011538461538461539,
+        "mean_return": -1.8986874999999999,
+        "mean_successful_route_length": 12.75,
+        "successful_route_count": 4,
+        "interactions": 62258
+      }
+    },
+    "evaluation_seconds": 3.2528999999631196,
+    "interactions_per_second": 42024.65492377567,
+    "mean_decision_microseconds": 4.863001522608101,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries",
+    "initial_states_visited_in_training": 927,
+    "initial_state_overlap_fraction": 0.9989224137931034,
+    "initial_state_overlap_scope": "selected checkpoint training prefix"
+  }
+}

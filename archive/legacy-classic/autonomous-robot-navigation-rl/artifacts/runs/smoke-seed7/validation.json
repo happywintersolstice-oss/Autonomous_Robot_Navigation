@@ -1,0 +1,92 @@
+{
+  "q_learning": {
+    "episodes": 928,
+    "counts": {
+      "success": 77,
+      "collision": 348,
+      "timeout": 503
+    },
+    "success_rate": 0.08297413793103449,
+    "collision_rate": 0.375,
+    "timeout_rate": 0.5420258620689655,
+    "spl": 0.08128591954022989,
+    "mean_return": -2.1390732758620685,
+    "mean_successful_route_length": 2.2467532467532467,
+    "successful_route_count": 77,
+    "interactions": 101506,
+    "scope": "complete validation manifest",
+    "seed": 7,
+    "evaluation_seconds": 0.717024700017646,
+    "interactions_per_second": 141565.55554850752,
+    "mean_decision_microseconds": 1.8779997481033206,
+    "timing_method": "perf_counter; wall time includes recording/reset; decision mean over 100 queries; no rendering",
+    "initial_states_visited_in_training": 857,
+    "initial_state_overlap_fraction": 0.9234913793103449
+  },
+  "bfs": {
+    "episodes": 928,
+    "counts": {
+      "success": 928,
+      "collision": 0,
+      "timeout": 0
+    },
+    "success_rate": 1.0,
+    "collision_rate": 0.0,
+    "timeout_rate": 0.0,
+    "spl": 1.0,
+    "mean_return": 9.91542025862069,
+    "mean_successful_route_length": 8.457974137931034,
+    "successful_route_count": 928,
+    "interactions": 7849,
+    "scope": "complete validation manifest",
+    "seed": 7,
+    "evaluation_seconds": 0.18465350003680214,
+    "interactions_per_second": 42506.64080797637,
+    "mean_decision_microseconds": 1.2529996456578374,
+    "timing_method": "perf_counter; wall time includes recording/reset; decision mean over 100 queries; no rendering"
+  },
+  "random": {
+    "episodes": 928,
+    "counts": {
+      "success": 22,
+      "collision": 906,
+      "timeout": 0
+    },
+    "success_rate": 0.023706896551724137,
+    "collision_rate": 0.9762931034482759,
+    "timeout_rate": 0.0,
+    "spl": 0.019854032461791085,
+    "mean_return": -4.68448275862069,
+    "mean_successful_route_length": 3.0454545454545454,
+    "successful_route_count": 22,
+    "interactions": 3720,
+    "scope": "complete validation manifest",
+    "seed": 7,
+    "evaluation_seconds": 0.18524910003179684,
+    "interactions_per_second": 20081.0692163227,
+    "mean_decision_microseconds": 0.971999834291637,
+    "timing_method": "perf_counter; wall time includes recording/reset; decision mean over 100 queries; no rendering"
+  },
+  "bfs_training_correctness": {
+    "episodes": 4306,
+    "counts": {
+      "success": 4306,
+      "collision": 0,
+      "timeout": 0
+    },
+    "success_rate": 1.0,
+    "collision_rate": 0.0,
+    "timeout_rate": 0.0,
+    "spl": 1.0,
+    "mean_return": 9.91579424059452,
+    "mean_successful_route_length": 8.420575940548073,
+    "successful_route_count": 4306,
+    "interactions": 36259,
+    "scope": "complete training manifest",
+    "seed": 7,
+    "evaluation_seconds": 0.9625515000079758,
+    "interactions_per_second": 37669.67273927634,
+    "mean_decision_microseconds": 1.452000578865409,
+    "timing_method": "perf_counter; wall time includes recording/reset; decision mean over 100 queries; no rendering"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ranked_families": [
+    "q-learning",
+    "sarsa",
+    "dqn"
+  ],
+  "shortlist": [
+    "q-learning",
+    "sarsa"
+  ],
+  "ranking_rule": "mean validation success, mean SPL, lower seed success SD, lower total training seconds, name",
+  "selection_uses_final_test": false,
+  "scope": "five-seed Part A development validation; final evaluation still sealed"
+}

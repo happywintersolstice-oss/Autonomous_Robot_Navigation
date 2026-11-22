@@ -1,0 +1,37 @@
+{
+  "status": "complete",
+  "started_utc": "2026-11-06T12:26:26.457273+00:00",
+  "source_hash": "bb7a865f2fe1885fb590624f30e52478321329cc95679b28f6724e6f4994b5a9",
+  "runner_sha256": "efd75b4896e7bbc41afaa9ea969469248b85adfb67ac2eafcbdb9a2615a2e145",
+  "signature": {
+    "map_id": "bottleneck-v1",
+    "map_hash": "614472df8e4cbed5408e1e5092dfd708bb683cdeef780a1a064246f0e1e58a94",
+    "task_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "step-goal-collision-v1"
+  },
+  "final_test_evaluated": false,
+  "completed_runs": [
+    "m3-q-learning-seed7",
+    "m3-q-learning-seed19",
+    "m3-q-learning-seed43",
+    "m3-q-learning-seed67",
+    "m3-q-learning-seed91",
+    "m3-sarsa-seed7",
+    "m3-sarsa-seed19",
+    "m3-sarsa-seed43",
+    "m3-sarsa-seed67",
+    "m3-sarsa-seed91",
+    "m3-dqn-seed7",
+    "m3-dqn-seed19",
+    "m3-dqn-seed43",
+    "m3-dqn-seed67",
+    "m3-dqn-seed91"
+  ],
+  "wall_seconds": 648.3723909999826,
+  "training_interactions": 3000000,
+  "validation_interactions": 1622440,
+  "reference_interactions": 26357
+}

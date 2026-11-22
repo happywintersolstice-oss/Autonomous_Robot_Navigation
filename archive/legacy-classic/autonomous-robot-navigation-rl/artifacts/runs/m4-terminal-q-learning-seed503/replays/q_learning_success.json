@@ -1,0 +1,373 @@
+{
+  "signature": {
+    "map_id": "bottleneck-v1",
+    "map_hash": "614472df8e4cbed5408e1e5092dfd708bb683cdeef780a1a064246f0e1e58a94",
+    "task_hash": "2a66370a5a7602bb553d69f2e51eea1b2c552b80fa78f5d63e9ea698f39485c3",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "terminal-only-v1"
+  },
+  "scenario": {
+    "id": "r0c0-r5c5",
+    "start": [
+      0,
+      0
+    ],
+    "goal": [
+      5,
+      5
+    ],
+    "shortest_length": 10,
+    "distance_band": "medium"
+  },
+  "seed": 503,
+  "policy_id": "q-learning/m4-terminal-q-learning-seed503/step-200000",
+  "mode": "validation",
+  "initial_observation": [
+    0,
+    0,
+    5,
+    5
+  ],
+  "transitions": [
+    {
+      "observation": [
+        0,
+        0,
+        5,
+        5
+      ],
+      "action": 1,
+      "reward": 0.0,
+      "next_observation": [
+        1,
+        0,
+        5,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          1,
+          0
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r5c5",
+        "steps": 1
+      },
+      "scores": [
+        -4.5,
+        0.0,
+        -4.95,
+        0.0
+      ]
+    },
+    {
+      "observation": [
+        1,
+        0,
+        5,
+        5
+      ],
+      "action": 1,
+      "reward": 0.0,
+      "next_observation": [
+        2,
+        0,
+        5,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          2,
+          0
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r5c5",
+        "steps": 2
+      },
+      "scores": [
+        0.0,
+        4.754619669807691,
+        -4.5,
+        0.0
+      ]
+    },
+    {
+      "observation": [
+        2,
+        0,
+        5,
+        5
+      ],
+      "action": 1,
+      "reward": 0.0,
+      "next_observation": [
+        3,
+        0,
+        5,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          3,
+          0
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r5c5",
+        "steps": 3
+      },
+      "scores": [
+        0.0,
+        9.244493973166916,
+        -4.995,
+        0.0
+      ]
+    },
+    {
+      "observation": [
+        3,
+        0,
+        5,
+        5
+      ],
+      "action": 1,
+      "reward": 0.0,
+      "next_observation": [
+        4,
+        0,
+        5,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          4,
+          0
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r5c5",
+        "steps": 4
+      },
+      "scores": [
+        0.0,
+        9.410087989364412,
+        -4.95,
+        0.0
+      ]
+    },
+    {
+      "observation": [
+        4,
+        0,
+        5,
+        5
+      ],
+      "action": 3,
+      "reward": 0.0,
+      "next_observation": [
+        4,
+        1,
+        5,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          4,
+          1
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r5c5",
+        "steps": 5
+      },
+      "scores": [
+        0.0,
+        0.0,
+        -4.5,
+        9.509564936064162
+      ]
+    },
+    {
+      "observation": [
+        4,
+        1,
+        5,
+        5
+      ],
+      "action": 3,
+      "reward": 0.0,
+      "next_observation": [
+        4,
+        2,
+        5,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          4,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r5c5",
+        "steps": 6
+      },
+      "scores": [
+        0.0,
+        5.672223379449,
+        0.0,
+        9.605947679288395
+      ]
+    },
+    {
+      "observation": [
+        4,
+        2,
+        5,
+        5
+      ],
+      "action": 1,
+      "reward": 0.0,
+      "next_observation": [
+        5,
+        2,
+        5,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          5,
+          2
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r5c5",
+        "steps": 7
+      },
+      "scores": [
+        0.0,
+        9.702989955286036,
+        0.0,
+        -4.5
+      ]
+    },
+    {
+      "observation": [
+        5,
+        2,
+        5,
+        5
+      ],
+      "action": 3,
+      "reward": 0.0,
+      "next_observation": [
+        5,
+        3,
+        5,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          5,
+          3
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r5c5",
+        "steps": 8
+      },
+      "scores": [
+        0.0,
+        -4.95,
+        8.347731736407782,
+        9.800999999387297
+      ]
+    },
+    {
+      "observation": [
+        5,
+        3,
+        5,
+        5
+      ],
+      "action": 3,
+      "reward": 0.0,
+      "next_observation": [
+        5,
+        4,
+        5,
+        5
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          5,
+          4
+        ],
+        "outcome": "running",
+        "scenario_id": "r0c0-r5c5",
+        "steps": 9
+      },
+      "scores": [
+        -4.995,
+        -4.5,
+        0.0,
+        9.899999999996007
+      ]
+    },
+    {
+      "observation": [
+        5,
+        4,
+        5,
+        5
+      ],
+      "action": 3,
+      "reward": 10.0,
+      "next_observation": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "terminated": true,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          5,
+          5
+        ],
+        "outcome": "success",
+        "scenario_id": "r0c0-r5c5",
+        "steps": 10
+      },
+      "scores": [
+        -4.5,
+        -4.5,
+        0.0,
+        10.0
+      ]
+    }
+  ],
+  "metrics": {
+    "outcome": "success",
+    "steps": 10,
+    "return": 10.0,
+    "successful_route_length": 10,
+    "spl": 1.0
+  },
+  "initial_state_visited_in_training": true
+}

@@ -1,0 +1,355 @@
+{
+  "signature": {
+    "map_id": "warehouse-delivery-v1",
+    "map_hash": "49c25e2460cbf64caa8107c8ed4839ac1b630d1dd9f67919d64b80b01c10b568",
+    "task_hash": "a6284566bb020aaf36d2cd1521da69d8bf05acd15f93af0bb3f9bab59b33a686",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "warehouse-step-goal-collision-v1"
+  },
+  "scenario": {
+    "id": "r8c7-r4c10",
+    "start": [
+      8,
+      7
+    ],
+    "goal": [
+      4,
+      10
+    ],
+    "shortest_length": 7
+  },
+  "seed": 19421,
+  "policy_id": "sarsa/warehouse-sarsa-seed19421/training-behavior",
+  "mode": "training",
+  "initial_observation": [
+    8,
+    7,
+    4,
+    10
+  ],
+  "transitions": [
+    {
+      "observation": [
+        8,
+        7,
+        4,
+        10
+      ],
+      "action": 0,
+      "reward": -0.05,
+      "next_observation": [
+        7,
+        7,
+        4,
+        10
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          7,
+          7
+        ],
+        "outcome": "running",
+        "scenario_id": "r8c7-r4c10",
+        "steps": 1
+      },
+      "scores": null
+    },
+    {
+      "observation": [
+        7,
+        7,
+        4,
+        10
+      ],
+      "action": 2,
+      "reward": -0.05,
+      "next_observation": [
+        7,
+        6,
+        4,
+        10
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          7,
+          6
+        ],
+        "outcome": "running",
+        "scenario_id": "r8c7-r4c10",
+        "steps": 2
+      },
+      "scores": null
+    },
+    {
+      "observation": [
+        7,
+        6,
+        4,
+        10
+      ],
+      "action": 1,
+      "reward": -0.05,
+      "next_observation": [
+        8,
+        6,
+        4,
+        10
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          8,
+          6
+        ],
+        "outcome": "running",
+        "scenario_id": "r8c7-r4c10",
+        "steps": 3
+      },
+      "scores": null
+    },
+    {
+      "observation": [
+        8,
+        6,
+        4,
+        10
+      ],
+      "action": 3,
+      "reward": -0.05,
+      "next_observation": [
+        8,
+        7,
+        4,
+        10
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          8,
+          7
+        ],
+        "outcome": "running",
+        "scenario_id": "r8c7-r4c10",
+        "steps": 4
+      },
+      "scores": null
+    },
+    {
+      "observation": [
+        8,
+        7,
+        4,
+        10
+      ],
+      "action": 0,
+      "reward": -0.05,
+      "next_observation": [
+        7,
+        7,
+        4,
+        10
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          7,
+          7
+        ],
+        "outcome": "running",
+        "scenario_id": "r8c7-r4c10",
+        "steps": 5
+      },
+      "scores": null
+    },
+    {
+      "observation": [
+        7,
+        7,
+        4,
+        10
+      ],
+      "action": 3,
+      "reward": -0.05,
+      "next_observation": [
+        7,
+        8,
+        4,
+        10
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          7,
+          8
+        ],
+        "outcome": "running",
+        "scenario_id": "r8c7-r4c10",
+        "steps": 6
+      },
+      "scores": null
+    },
+    {
+      "observation": [
+        7,
+        8,
+        4,
+        10
+      ],
+      "action": 3,
+      "reward": -0.05,
+      "next_observation": [
+        7,
+        9,
+        4,
+        10
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          7,
+          9
+        ],
+        "outcome": "running",
+        "scenario_id": "r8c7-r4c10",
+        "steps": 7
+      },
+      "scores": null
+    },
+    {
+      "observation": [
+        7,
+        9,
+        4,
+        10
+      ],
+      "action": 0,
+      "reward": -0.05,
+      "next_observation": [
+        6,
+        9,
+        4,
+        10
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          6,
+          9
+        ],
+        "outcome": "running",
+        "scenario_id": "r8c7-r4c10",
+        "steps": 8
+      },
+      "scores": null
+    },
+    {
+      "observation": [
+        6,
+        9,
+        4,
+        10
+      ],
+      "action": 0,
+      "reward": -0.05,
+      "next_observation": [
+        5,
+        9,
+        4,
+        10
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          5,
+          9
+        ],
+        "outcome": "running",
+        "scenario_id": "r8c7-r4c10",
+        "steps": 9
+      },
+      "scores": null
+    },
+    {
+      "observation": [
+        5,
+        9,
+        4,
+        10
+      ],
+      "action": 0,
+      "reward": -0.05,
+      "next_observation": [
+        4,
+        9,
+        4,
+        10
+      ],
+      "terminated": false,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          4,
+          9
+        ],
+        "outcome": "running",
+        "scenario_id": "r8c7-r4c10",
+        "steps": 10
+      },
+      "scores": null
+    },
+    {
+      "observation": [
+        4,
+        9,
+        4,
+        10
+      ],
+      "action": 3,
+      "reward": 9.95,
+      "next_observation": [
+        4,
+        10,
+        4,
+        10
+      ],
+      "terminated": true,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          4,
+          10
+        ],
+        "outcome": "success",
+        "scenario_id": "r8c7-r4c10",
+        "steps": 11
+      },
+      "scores": null
+    }
+  ],
+  "training_start_interaction": 400018,
+  "behavior": "actual exploratory training actions; policy may change within an episode; no frozen-policy scores recorded",
+  "recording_window_index": 2,
+  "recording_window_start_interaction": 400000,
+  "training_end_interaction": 400029,
+  "complete": true,
+  "metrics": {
+    "outcome": "success",
+    "steps": 11,
+    "return": 9.45,
+    "successful_route_length": 11,
+    "spl": 0.6363636363636364
+  }
+}

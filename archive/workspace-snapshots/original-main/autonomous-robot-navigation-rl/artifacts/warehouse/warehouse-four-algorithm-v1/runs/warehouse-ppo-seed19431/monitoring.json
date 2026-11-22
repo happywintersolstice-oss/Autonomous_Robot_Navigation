@@ -1,0 +1,254 @@
+[
+  {
+    "training_interactions": 100000,
+    "phase": "after preceding PPO rollout update",
+    "episodes": 35,
+    "counts": {
+      "success": 1,
+      "collision": 11,
+      "timeout": 23
+    },
+    "success_rate": 0.02857142857142857,
+    "collision_rate": 0.3142857142857143,
+    "timeout_rate": 0.6571428571428571,
+    "spl": 0.02857142857142857,
+    "mean_return": -7.902857142857144,
+    "mean_successful_route_length": 7.0,
+    "successful_route_count": 1,
+    "interactions": 4632,
+    "scope": "fixed warehouse development monitoring",
+    "seed": 0,
+    "by_distance_band": {
+      "fixture": {
+        "episodes": 35,
+        "counts": {
+          "success": 1,
+          "collision": 11,
+          "timeout": 23
+        },
+        "success_rate": 0.02857142857142857,
+        "collision_rate": 0.3142857142857143,
+        "timeout_rate": 0.6571428571428571,
+        "spl": 0.02857142857142857,
+        "mean_return": -7.902857142857144,
+        "mean_successful_route_length": 7.0,
+        "successful_route_count": 1,
+        "interactions": 4632
+      }
+    },
+    "evaluation_seconds": 0.6287410999648273,
+    "interactions_per_second": 7367.102294186146,
+    "mean_decision_microseconds": 116.63900222629309,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries"
+  },
+  {
+    "training_interactions": 200000,
+    "phase": "after preceding PPO rollout update",
+    "episodes": 35,
+    "counts": {
+      "success": 1,
+      "collision": 8,
+      "timeout": 26
+    },
+    "success_rate": 0.02857142857142857,
+    "collision_rate": 0.22857142857142856,
+    "timeout_rate": 0.7428571428571429,
+    "spl": 0.02857142857142857,
+    "mean_return": -8.311428571428573,
+    "mean_successful_route_length": 7.0,
+    "successful_route_count": 1,
+    "interactions": 5218,
+    "scope": "fixed warehouse development monitoring",
+    "seed": 0,
+    "by_distance_band": {
+      "fixture": {
+        "episodes": 35,
+        "counts": {
+          "success": 1,
+          "collision": 8,
+          "timeout": 26
+        },
+        "success_rate": 0.02857142857142857,
+        "collision_rate": 0.22857142857142856,
+        "timeout_rate": 0.7428571428571429,
+        "spl": 0.02857142857142857,
+        "mean_return": -8.311428571428573,
+        "mean_successful_route_length": 7.0,
+        "successful_route_count": 1,
+        "interactions": 5218
+      }
+    },
+    "evaluation_seconds": 0.7011019000783563,
+    "interactions_per_second": 7442.570044977525,
+    "mean_decision_microseconds": 113.14400006085634,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries"
+  },
+  {
+    "training_interactions": 300000,
+    "phase": "after preceding PPO rollout update",
+    "episodes": 35,
+    "counts": {
+      "success": 4,
+      "collision": 19,
+      "timeout": 12
+    },
+    "success_rate": 0.11428571428571428,
+    "collision_rate": 0.5428571428571428,
+    "timeout_rate": 0.34285714285714286,
+    "spl": 0.11428571428571428,
+    "mean_return": -5.154285714285715,
+    "mean_successful_route_length": 6.25,
+    "successful_route_count": 4,
+    "interactions": 2508,
+    "scope": "fixed warehouse development monitoring",
+    "seed": 0,
+    "by_distance_band": {
+      "fixture": {
+        "episodes": 35,
+        "counts": {
+          "success": 4,
+          "collision": 19,
+          "timeout": 12
+        },
+        "success_rate": 0.11428571428571428,
+        "collision_rate": 0.5428571428571428,
+        "timeout_rate": 0.34285714285714286,
+        "spl": 0.11428571428571428,
+        "mean_return": -5.154285714285715,
+        "mean_successful_route_length": 6.25,
+        "successful_route_count": 4,
+        "interactions": 2508
+      }
+    },
+    "evaluation_seconds": 0.33797749993391335,
+    "interactions_per_second": 7420.612320318374,
+    "mean_decision_microseconds": 119.23300102353096,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries"
+  },
+  {
+    "training_interactions": 400000,
+    "phase": "after preceding PPO rollout update",
+    "episodes": 35,
+    "counts": {
+      "success": 20,
+      "collision": 15,
+      "timeout": 0
+    },
+    "success_rate": 0.5714285714285714,
+    "collision_rate": 0.42857142857142855,
+    "timeout_rate": 0.0,
+    "spl": 0.5714285714285714,
+    "mean_return": 3.2199999999999998,
+    "mean_successful_route_length": 9.65,
+    "successful_route_count": 20,
+    "interactions": 246,
+    "scope": "fixed warehouse development monitoring",
+    "seed": 0,
+    "by_distance_band": {
+      "fixture": {
+        "episodes": 35,
+        "counts": {
+          "success": 20,
+          "collision": 15,
+          "timeout": 0
+        },
+        "success_rate": 0.5714285714285714,
+        "collision_rate": 0.42857142857142855,
+        "timeout_rate": 0.0,
+        "spl": 0.5714285714285714,
+        "mean_return": 3.2199999999999998,
+        "mean_successful_route_length": 9.65,
+        "successful_route_count": 20,
+        "interactions": 246
+      }
+    },
+    "evaluation_seconds": 0.041832600021734834,
+    "interactions_per_second": 5880.581170479161,
+    "mean_decision_microseconds": 117.54299746826291,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries"
+  },
+  {
+    "training_interactions": 500000,
+    "phase": "after preceding PPO rollout update",
+    "episodes": 35,
+    "counts": {
+      "success": 21,
+      "collision": 14,
+      "timeout": 0
+    },
+    "success_rate": 0.6,
+    "collision_rate": 0.4,
+    "timeout_rate": 0.0,
+    "spl": 0.6,
+    "mean_return": 3.6357142857142857,
+    "mean_successful_route_length": 9.714285714285714,
+    "successful_route_count": 21,
+    "interactions": 255,
+    "scope": "fixed warehouse development monitoring",
+    "seed": 0,
+    "by_distance_band": {
+      "fixture": {
+        "episodes": 35,
+        "counts": {
+          "success": 21,
+          "collision": 14,
+          "timeout": 0
+        },
+        "success_rate": 0.6,
+        "collision_rate": 0.4,
+        "timeout_rate": 0.0,
+        "spl": 0.6,
+        "mean_return": 3.6357142857142857,
+        "mean_successful_route_length": 9.714285714285714,
+        "successful_route_count": 21,
+        "interactions": 255
+      }
+    },
+    "evaluation_seconds": 0.04430479998700321,
+    "interactions_per_second": 5755.5840467580065,
+    "mean_decision_microseconds": 114.90299715660512,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries"
+  },
+  {
+    "training_interactions": 600000,
+    "phase": "after final scheduled update",
+    "episodes": 35,
+    "counts": {
+      "success": 21,
+      "collision": 14,
+      "timeout": 0
+    },
+    "success_rate": 0.6,
+    "collision_rate": 0.4,
+    "timeout_rate": 0.0,
+    "spl": 0.6,
+    "mean_return": 3.6357142857142857,
+    "mean_successful_route_length": 9.714285714285714,
+    "successful_route_count": 21,
+    "interactions": 255,
+    "scope": "fixed warehouse development monitoring",
+    "seed": 0,
+    "by_distance_band": {
+      "fixture": {
+        "episodes": 35,
+        "counts": {
+          "success": 21,
+          "collision": 14,
+          "timeout": 0
+        },
+        "success_rate": 0.6,
+        "collision_rate": 0.4,
+        "timeout_rate": 0.0,
+        "spl": 0.6,
+        "mean_return": 3.6357142857142857,
+        "mean_successful_route_length": 9.714285714285714,
+        "successful_route_count": 21,
+        "interactions": 255
+      }
+    },
+    "evaluation_seconds": 0.06263760000001639,
+    "interactions_per_second": 4071.037204489528,
+    "mean_decision_microseconds": 191.59499905072153,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries"
+  }
+]

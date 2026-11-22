@@ -1,0 +1,254 @@
+[
+  {
+    "training_interactions": 100000,
+    "phase": "DQN callback before boundary replay/gradient update",
+    "episodes": 35,
+    "counts": {
+      "success": 5,
+      "collision": 5,
+      "timeout": 25
+    },
+    "success_rate": 0.14285714285714285,
+    "collision_rate": 0.14285714285714285,
+    "timeout_rate": 0.7142857142857143,
+    "spl": 0.14285714285714285,
+    "mean_return": -6.5042857142857144,
+    "mean_successful_route_length": 9.2,
+    "successful_route_count": 5,
+    "interactions": 5053,
+    "scope": "fixed warehouse development monitoring",
+    "seed": 0,
+    "by_distance_band": {
+      "fixture": {
+        "episodes": 35,
+        "counts": {
+          "success": 5,
+          "collision": 5,
+          "timeout": 25
+        },
+        "success_rate": 0.14285714285714285,
+        "collision_rate": 0.14285714285714285,
+        "timeout_rate": 0.7142857142857143,
+        "spl": 0.14285714285714285,
+        "mean_return": -6.5042857142857144,
+        "mean_successful_route_length": 9.2,
+        "successful_route_count": 5,
+        "interactions": 5053
+      }
+    },
+    "evaluation_seconds": 0.3373898999998346,
+    "interactions_per_second": 14976.737596479554,
+    "mean_decision_microseconds": 42.79399989172816,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries"
+  },
+  {
+    "training_interactions": 200000,
+    "phase": "DQN callback before boundary replay/gradient update",
+    "episodes": 35,
+    "counts": {
+      "success": 0,
+      "collision": 3,
+      "timeout": 32
+    },
+    "success_rate": 0.0,
+    "collision_rate": 0.08571428571428572,
+    "timeout_rate": 0.9142857142857143,
+    "spl": 0.0,
+    "mean_return": -9.579999999999998,
+    "mean_successful_route_length": null,
+    "successful_route_count": 0,
+    "interactions": 6406,
+    "scope": "fixed warehouse development monitoring",
+    "seed": 0,
+    "by_distance_band": {
+      "fixture": {
+        "episodes": 35,
+        "counts": {
+          "success": 0,
+          "collision": 3,
+          "timeout": 32
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.08571428571428572,
+        "timeout_rate": 0.9142857142857143,
+        "spl": 0.0,
+        "mean_return": -9.579999999999998,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 6406
+      }
+    },
+    "evaluation_seconds": 0.31879070005379617,
+    "interactions_per_second": 20094.68908258297,
+    "mean_decision_microseconds": 43.20499952882528,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries"
+  },
+  {
+    "training_interactions": 300000,
+    "phase": "DQN callback before boundary replay/gradient update",
+    "episodes": 35,
+    "counts": {
+      "success": 4,
+      "collision": 3,
+      "timeout": 28
+    },
+    "success_rate": 0.11428571428571428,
+    "collision_rate": 0.08571428571428572,
+    "timeout_rate": 0.8,
+    "spl": 0.10147186147186148,
+    "mean_return": -7.348571428571428,
+    "mean_successful_route_length": 9.5,
+    "successful_route_count": 4,
+    "interactions": 5644,
+    "scope": "fixed warehouse development monitoring",
+    "seed": 0,
+    "by_distance_band": {
+      "fixture": {
+        "episodes": 35,
+        "counts": {
+          "success": 4,
+          "collision": 3,
+          "timeout": 28
+        },
+        "success_rate": 0.11428571428571428,
+        "collision_rate": 0.08571428571428572,
+        "timeout_rate": 0.8,
+        "spl": 0.10147186147186148,
+        "mean_return": -7.348571428571428,
+        "mean_successful_route_length": 9.5,
+        "successful_route_count": 4,
+        "interactions": 5644
+      }
+    },
+    "evaluation_seconds": 0.2963125000242144,
+    "interactions_per_second": 19047.458340565376,
+    "mean_decision_microseconds": 50.80400384031236,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries"
+  },
+  {
+    "training_interactions": 400000,
+    "phase": "DQN callback before boundary replay/gradient update",
+    "episodes": 35,
+    "counts": {
+      "success": 8,
+      "collision": 4,
+      "timeout": 23
+    },
+    "success_rate": 0.22857142857142856,
+    "collision_rate": 0.11428571428571428,
+    "timeout_rate": 0.6571428571428571,
+    "spl": 0.20943833943833942,
+    "mean_return": -5.011428571428572,
+    "mean_successful_route_length": 12.625,
+    "successful_route_count": 8,
+    "interactions": 4708,
+    "scope": "fixed warehouse development monitoring",
+    "seed": 0,
+    "by_distance_band": {
+      "fixture": {
+        "episodes": 35,
+        "counts": {
+          "success": 8,
+          "collision": 4,
+          "timeout": 23
+        },
+        "success_rate": 0.22857142857142856,
+        "collision_rate": 0.11428571428571428,
+        "timeout_rate": 0.6571428571428571,
+        "spl": 0.20943833943833942,
+        "mean_return": -5.011428571428572,
+        "mean_successful_route_length": 12.625,
+        "successful_route_count": 8,
+        "interactions": 4708
+      }
+    },
+    "evaluation_seconds": 0.28077950002625585,
+    "interactions_per_second": 16767.605895586225,
+    "mean_decision_microseconds": 49.31099945679307,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries"
+  },
+  {
+    "training_interactions": 500000,
+    "phase": "DQN callback before boundary replay/gradient update",
+    "episodes": 35,
+    "counts": {
+      "success": 13,
+      "collision": 7,
+      "timeout": 15
+    },
+    "success_rate": 0.37142857142857144,
+    "collision_rate": 0.2,
+    "timeout_rate": 0.42857142857142855,
+    "spl": 0.35356506238859176,
+    "mean_return": -1.8185714285714283,
+    "mean_successful_route_length": 10.923076923076923,
+    "successful_route_count": 13,
+    "interactions": 3173,
+    "scope": "fixed warehouse development monitoring",
+    "seed": 0,
+    "by_distance_band": {
+      "fixture": {
+        "episodes": 35,
+        "counts": {
+          "success": 13,
+          "collision": 7,
+          "timeout": 15
+        },
+        "success_rate": 0.37142857142857144,
+        "collision_rate": 0.2,
+        "timeout_rate": 0.42857142857142855,
+        "spl": 0.35356506238859176,
+        "mean_return": -1.8185714285714283,
+        "mean_successful_route_length": 10.923076923076923,
+        "successful_route_count": 13,
+        "interactions": 3173
+      }
+    },
+    "evaluation_seconds": 0.15940000000409782,
+    "interactions_per_second": 19905.897113666433,
+    "mean_decision_microseconds": 41.210000636056066,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries"
+  },
+  {
+    "training_interactions": 600000,
+    "phase": "after final scheduled update",
+    "episodes": 35,
+    "counts": {
+      "success": 9,
+      "collision": 9,
+      "timeout": 17
+    },
+    "success_rate": 0.2571428571428571,
+    "collision_rate": 0.2571428571428571,
+    "timeout_rate": 0.4857142857142857,
+    "spl": 0.2545454545454545,
+    "mean_return": -3.75,
+    "mean_successful_route_length": 8.555555555555555,
+    "successful_route_count": 9,
+    "interactions": 3525,
+    "scope": "fixed warehouse development monitoring",
+    "seed": 0,
+    "by_distance_band": {
+      "fixture": {
+        "episodes": 35,
+        "counts": {
+          "success": 9,
+          "collision": 9,
+          "timeout": 17
+        },
+        "success_rate": 0.2571428571428571,
+        "collision_rate": 0.2571428571428571,
+        "timeout_rate": 0.4857142857142857,
+        "spl": 0.2545454545454545,
+        "mean_return": -3.75,
+        "mean_successful_route_length": 8.555555555555555,
+        "successful_route_count": 9,
+        "interactions": 3525
+      }
+    },
+    "evaluation_seconds": 0.1809337999438867,
+    "interactions_per_second": 19482.263684801925,
+    "mean_decision_microseconds": 38.806002121418715,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries"
+  }
+]

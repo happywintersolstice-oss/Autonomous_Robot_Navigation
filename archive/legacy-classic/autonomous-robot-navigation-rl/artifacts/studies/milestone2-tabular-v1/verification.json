@@ -1,0 +1,104 @@
+{
+  "audits": [
+    {
+      "run_id": "m2-q-learning-seed7",
+      "episodes_verified": 928,
+      "saved_actions_verified": 66251,
+      "training_interactions_reconciled": 200000,
+      "periodic_checkpoints_verified": 20,
+      "source_snapshot_matches": true,
+      "parameters_unchanged": true,
+      "final_test_executions": 0
+    },
+    {
+      "run_id": "m2-q-learning-seed19",
+      "episodes_verified": 928,
+      "saved_actions_verified": 65656,
+      "training_interactions_reconciled": 200000,
+      "periodic_checkpoints_verified": 20,
+      "source_snapshot_matches": true,
+      "parameters_unchanged": true,
+      "final_test_executions": 0
+    },
+    {
+      "run_id": "m2-q-learning-seed43",
+      "episodes_verified": 928,
+      "saved_actions_verified": 67082,
+      "training_interactions_reconciled": 200000,
+      "periodic_checkpoints_verified": 20,
+      "source_snapshot_matches": true,
+      "parameters_unchanged": true,
+      "final_test_executions": 0
+    },
+    {
+      "run_id": "m2-q-learning-seed7-repeat",
+      "episodes_verified": 928,
+      "saved_actions_verified": 66251,
+      "training_interactions_reconciled": 200000,
+      "periodic_checkpoints_verified": 20,
+      "source_snapshot_matches": true,
+      "parameters_unchanged": true,
+      "final_test_executions": 0
+    },
+    {
+      "run_id": "m2-sarsa-seed7",
+      "episodes_verified": 928,
+      "saved_actions_verified": 132835,
+      "training_interactions_reconciled": 200000,
+      "periodic_checkpoints_verified": 20,
+      "source_snapshot_matches": true,
+      "parameters_unchanged": true,
+      "final_test_executions": 0
+    },
+    {
+      "run_id": "m2-sarsa-seed19",
+      "episodes_verified": 928,
+      "saved_actions_verified": 137144,
+      "training_interactions_reconciled": 200000,
+      "periodic_checkpoints_verified": 20,
+      "source_snapshot_matches": true,
+      "parameters_unchanged": true,
+      "final_test_executions": 0
+    },
+    {
+      "run_id": "m2-sarsa-seed43",
+      "episodes_verified": 928,
+      "saved_actions_verified": 135466,
+      "training_interactions_reconciled": 200000,
+      "periodic_checkpoints_verified": 20,
+      "source_snapshot_matches": true,
+      "parameters_unchanged": true,
+      "final_test_executions": 0
+    },
+    {
+      "run_id": "m2-sarsa-seed7-repeat",
+      "episodes_verified": 928,
+      "saved_actions_verified": 132835,
+      "training_interactions_reconciled": 200000,
+      "periodic_checkpoints_verified": 20,
+      "source_snapshot_matches": true,
+      "parameters_unchanged": true,
+      "final_test_executions": 0
+    }
+  ],
+  "reproducibility": [
+    {
+      "algorithm": "q-learning",
+      "seed": 7,
+      "equal_tables": true,
+      "equal_training_csv": true,
+      "equal_validation_metrics": true,
+      "equal_replay_records_except_policy_id": true
+    },
+    {
+      "algorithm": "sarsa",
+      "seed": 7,
+      "equal_tables": true,
+      "equal_training_csv": true,
+      "equal_validation_metrics": true,
+      "equal_replay_records_except_policy_id": true
+    }
+  ],
+  "final_test_policy_executions": 0,
+  "browser_animation": "not verified by this runner"
+}

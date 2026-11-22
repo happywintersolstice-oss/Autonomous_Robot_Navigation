@@ -1,0 +1,78 @@
+[
+  {
+    "training_interactions": 10000,
+    "weight_phase": "after final scheduled gradient update",
+    "episodes": 30,
+    "counts": {
+      "success": 0,
+      "collision": 13,
+      "timeout": 17
+    },
+    "success_rate": 0.0,
+    "collision_rate": 0.43333333333333335,
+    "timeout_rate": 0.5666666666666667,
+    "spl": 0.0,
+    "mean_return": -3.313333333333333,
+    "mean_successful_route_length": null,
+    "successful_route_count": 0,
+    "interactions": 3440,
+    "scope": "fixed monitoring subset",
+    "seed": 7,
+    "by_distance_band": {
+      "short": {
+        "episodes": 10,
+        "counts": {
+          "success": 0,
+          "collision": 4,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.4,
+        "timeout_rate": 0.6,
+        "spl": 0.0,
+        "mean_return": -3.2060000000000004,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1206
+      },
+      "medium": {
+        "episodes": 10,
+        "counts": {
+          "success": 0,
+          "collision": 4,
+          "timeout": 6
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.4,
+        "timeout_rate": 0.6,
+        "spl": 0.0,
+        "mean_return": -3.214,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1214
+      },
+      "long": {
+        "episodes": 10,
+        "counts": {
+          "success": 0,
+          "collision": 5,
+          "timeout": 5
+        },
+        "success_rate": 0.0,
+        "collision_rate": 0.5,
+        "timeout_rate": 0.5,
+        "spl": 0.0,
+        "mean_return": -3.5200000000000005,
+        "mean_successful_route_length": null,
+        "successful_route_count": 0,
+        "interactions": 1020
+      }
+    },
+    "evaluation_seconds": 0.1696415000478737,
+    "interactions_per_second": 20278.056955575223,
+    "mean_decision_microseconds": 38.07499946560711,
+    "timing_method": "perf_counter; includes reset/recording and optional gzip export, excludes env construction/rendering; decision mean over 100 queries",
+    "initial_states_visited_in_training": 12,
+    "initial_state_overlap_fraction": 0.4
+  }
+]

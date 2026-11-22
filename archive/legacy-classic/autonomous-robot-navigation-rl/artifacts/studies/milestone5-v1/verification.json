@@ -1,0 +1,89 @@
+{
+  "status": "complete",
+  "saved_episode_metrics_reconciled": 24128,
+  "systems": 6,
+  "training_runs": 25,
+  "voting_systems": 1,
+  "scenario_count": 928,
+  "group_rows": 442,
+  "label_hash": "cf8c5552c0fc1739b60cb539797393be1e2d21d5782f57254cb4be874d6d5030",
+  "example_replays": [
+    {
+      "run_id": "m3-q-learning-seed7",
+      "stage": "selected",
+      "scenario_id": "r0c0-r4c9",
+      "actions": 200,
+      "outcome": "timeout"
+    },
+    {
+      "run_id": "m3-q-learning-seed7",
+      "stage": "early",
+      "scenario_id": "r0c0-r4c9",
+      "actions": 1,
+      "outcome": "collision"
+    },
+    {
+      "run_id": "m3-sarsa-seed7",
+      "stage": "selected",
+      "scenario_id": "r0c0-r4c9",
+      "actions": 200,
+      "outcome": "timeout"
+    },
+    {
+      "run_id": "m3-sarsa-seed7",
+      "stage": "early",
+      "scenario_id": "r0c0-r4c9",
+      "actions": 1,
+      "outcome": "collision"
+    },
+    {
+      "run_id": "m3-dqn-seed7",
+      "stage": "selected",
+      "scenario_id": "r0c0-r4c9",
+      "actions": 200,
+      "outcome": "timeout"
+    },
+    {
+      "run_id": "m3-dqn-seed7",
+      "stage": "early",
+      "scenario_id": "r0c0-r4c9",
+      "actions": 200,
+      "outcome": "timeout"
+    },
+    {
+      "run_id": "m4-tuned-q-learning-seed101",
+      "stage": "selected",
+      "scenario_id": "r0c0-r4c9",
+      "actions": 13,
+      "outcome": "success"
+    },
+    {
+      "run_id": "m4-tuned-q-learning-seed101",
+      "stage": "early",
+      "scenario_id": "r0c0-r4c9",
+      "actions": 1,
+      "outcome": "collision"
+    },
+    {
+      "run_id": "m4-tuned-sarsa-seed101",
+      "stage": "selected",
+      "scenario_id": "r0c0-r4c9",
+      "actions": 200,
+      "outcome": "timeout"
+    },
+    {
+      "run_id": "m4-tuned-sarsa-seed101",
+      "stage": "early",
+      "scenario_id": "r0c0-r4c9",
+      "actions": 200,
+      "outcome": "timeout"
+    }
+  ],
+  "additional_display_replay_actions": 1416,
+  "existing_collision_replay_actions_verified": 1,
+  "new_training_interactions": 0,
+  "new_benchmark_evaluation_interactions": 0,
+  "final_test_policy_executions": 0,
+  "analysis_seconds": 3.775709100009408,
+  "analyzer_sha256": "186ff1cb84d86329566ff97451b2374b700e77e8d601c7517c3343376277d7d5"
+}

@@ -1,0 +1,26 @@
+{
+  "signature": {
+    "map_id": "bottleneck-v1",
+    "map_hash": "614472df8e4cbed5408e1e5092dfd708bb683cdeef780a1a064246f0e1e58a94",
+    "task_hash": "e47ef62def168ce835e1e4ebfb99defda355a48ad9de2f6ebf5a37bb0ae92adc",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "step-goal-collision-v1"
+  },
+  "policy_id": "q-learning/smoke-seed7/final",
+  "kind": "inference-only; exact training resume unsupported",
+  "sha256": "b2eea5b862e906cfd0203c23ad65b1ee60fc20eb9657bfdd79a93ad6210114f5",
+  "training_interactions": 30000,
+  "config": {
+    "seed": 7,
+    "interactions": 30000,
+    "learning_rate": 0.3,
+    "discount": 0.99,
+    "epsilon_start": 1.0,
+    "epsilon_end": 0.1,
+    "epsilon_decay_fraction": 0.8,
+    "monitor_every": 10000,
+    "run_id": "smoke-seed7"
+  }
+}

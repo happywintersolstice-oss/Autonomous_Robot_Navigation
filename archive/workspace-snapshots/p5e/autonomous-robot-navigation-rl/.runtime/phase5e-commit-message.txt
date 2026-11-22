@@ -1,0 +1,10 @@
+Add Phase 5E passive training instrumentation and validation
+
+Capture actual DQN replay identities, targets and network versions and PPO
+bootstrap, GAE, shuffled minibatches, normalization and optimizer signals.
+Keep logging disabled by default and reject unsupported library paths.
+
+Record eight bitwise on/off pairs, 32 focused and 432 unchanged legacy
+regressions passing, and 812 cumulative new synthetic transitions / 158
+optimizer steps. Preserve pre-seal failures and interrupted legacy runner
+receipts. No scientific training, final evaluation or Phase 6.

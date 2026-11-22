@@ -1,0 +1,75 @@
+{
+  "signature": {
+    "map_id": "warehouse-delivery-v1",
+    "map_hash": "49c25e2460cbf64caa8107c8ed4839ac1b630d1dd9f67919d64b80b01c10b568",
+    "task_hash": "a6284566bb020aaf36d2cd1521da69d8bf05acd15f93af0bb3f9bab59b33a686",
+    "environment_version": "grid-v1",
+    "observation_version": "coordinates-v1",
+    "action_version": "up-down-left-right-v1",
+    "reward_version": "warehouse-step-goal-collision-v1"
+  },
+  "scenario": {
+    "id": "r7c12-r4c2",
+    "start": [
+      7,
+      12
+    ],
+    "goal": [
+      4,
+      2
+    ],
+    "shortest_length": 13
+  },
+  "seed": 19431,
+  "policy_id": "q-learning/warehouse-q-learning-seed19431/training-behavior",
+  "mode": "training",
+  "initial_observation": [
+    7,
+    12,
+    4,
+    2
+  ],
+  "transitions": [
+    {
+      "observation": [
+        7,
+        12,
+        4,
+        2
+      ],
+      "action": 0,
+      "reward": -5.05,
+      "next_observation": [
+        7,
+        12,
+        4,
+        2
+      ],
+      "terminated": true,
+      "truncated": false,
+      "info": {
+        "attempted_position": [
+          6,
+          12
+        ],
+        "outcome": "collision",
+        "scenario_id": "r7c12-r4c2",
+        "steps": 1
+      },
+      "scores": null
+    }
+  ],
+  "training_start_interaction": 200004,
+  "behavior": "actual exploratory training actions; policy may change within an episode; no frozen-policy scores recorded",
+  "recording_window_index": 1,
+  "recording_window_start_interaction": 200000,
+  "training_end_interaction": 200005,
+  "complete": true,
+  "metrics": {
+    "outcome": "collision",
+    "steps": 1,
+    "return": -5.05,
+    "successful_route_length": null,
+    "spl": 0.0
+  }
+}

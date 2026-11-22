@@ -1,0 +1,10 @@
+Implement partial-observation dynamic navigation benchmark
+
+Add an isolated five-action benchmark with occupancy sensing, agent memory,
+versioned observations and shared features, development splits, online
+reference, four RL adapters, metrics and replay audits.
+
+Validate against the committed base: 278 tests pass, including 43 new gates.
+Archive bounded four-by-256-action smoke runs; preserve their waiting
+timeouts without claiming successful learning. Fix fresh-checkout scratch
+directory creation. No large training, fresh final set or UI rewrite.

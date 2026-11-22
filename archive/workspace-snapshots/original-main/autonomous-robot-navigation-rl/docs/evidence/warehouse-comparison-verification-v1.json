@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-19",
+  "title": "Autonomous Warehouse Robot Navigation: A Comparative Study of Q-learning, SARSA, DQN and PPO",
+  "status": "passed",
+  "study": "warehouse-four-algorithm-v1",
+  "verified_runs": 12,
+  "training_actions": 7200000,
+  "recorded_assessment_episodes_audited": 2256,
+  "actual_training_recordings": 72,
+  "registered_input_files": 18,
+  "automated_checks": {
+    "regression_checks_passed": 250,
+    "full_run": {
+      "passed": 249,
+      "failed": 1,
+      "seconds": 145.24,
+      "failure": "Old Guide-title assertion after project branding change"
+    },
+    "corrected_assertion_rerun": {
+      "passed": 1,
+      "seconds": 1.87
+    },
+    "environment_checker": "passed",
+    "dependency_consistency": "passed",
+    "current_document_links": "passed",
+    "project_assets": {
+      "status": "passed",
+      "files": 1505,
+      "total_bytes": 144452736
+    },
+    "asset_manifest": "docs/evidence/warehouse-project-v1.json"
+  },
+  "browser_review": {
+    "status": "blocked",
+    "reason": "Windows Computer Use could not confidently verify the current browser URL; no further browser input issued. Automated Streamlit AppTest coverage completed."
+  },
+  "figure_review": "Comparison figure opened and visually inspected; labels and seed/error-bar marks legible.",
+  "service": {
+    "url": "http://127.0.0.1:8517",
+    "health": "ok"
+  },
+  "historical_hashes_unchanged": {
+    "final-v1": 184,
+    "unseen-map-final-v1": 114,
+    "diagnostic_inputs": 449
+  },
+  "scope": "Inspected development routes on one familiar warehouse; not a new final or unseen-map evaluation",
+  "selection": "All declared seeds; fixed final-budget checkpoints; no outcome-based selection",
+  "primary_ui": "Simulator, Results, Guide; warehouse study; original dark styling; optional temporary 3D preview",
+  "saved_results": {
+    "q-learning": {
+      "completion_mean": 1.0,
+      "completion_sample_sd": 0.0
+    },
+    "sarsa": {
+      "completion_mean": 0.74822695035461,
+      "completion_sample_sd": 0.10562674474188996
+    },
+    "dqn": {
+      "completion_mean": 0.36347517730496454,
+      "completion_sample_sd": 0.07841611484927652
+    },
+    "ppo": {
+      "completion_mean": 0.5549645390070922,
+      "completion_sample_sd": 0.0767753017539396
+    }
+  }
+}

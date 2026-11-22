@@ -1,0 +1,81 @@
+{
+  "status": "passed",
+  "date": "2026-11-10",
+  "milestone": "10. Unseen-map foundation and four-family pilot",
+  "tests": {
+    "passed": 174,
+    "seconds": 51.35,
+    "command": "python -m pytest -p no:cacheprovider -q"
+  },
+  "saved_action_audit": {
+    "passed": true,
+    "actions": 38008,
+    "final_policy_executions": 0
+  },
+  "preservation": {
+    "protected_files": 12605,
+    "changed_files": [],
+    "original_frozen_snapshot_inputs": 184
+  },
+  "training": {
+    "algorithms": 4,
+    "seed_count_per_algorithm": 1,
+    "steps_per_algorithm": 25000,
+    "total_steps": 100000,
+    "suite_seconds": 49.27039780002087,
+    "rerun_for_recording_fix": false
+  },
+  "recording_compatibility": {
+    "original_wrapper_fields_checked": 32,
+    "raw_files_preserved": true,
+    "future_collector_copies_info": true
+  },
+  "browser": {
+    "passed": true,
+    "desktop_css_viewport": [
+      1230,
+      956
+    ],
+    "narrow_css_viewport": [
+      854,
+      1000
+    ],
+    "phone_css_viewport": [
+      390,
+      844
+    ],
+    "checks": [
+      "results table and per-map support",
+      "DQN recorded learning automatically reached frame 16, return -0.16, position [2,5]",
+      "PPO validation replay reached two-action goal [0,6], return 9.98, SPL 1.000",
+      "responsive controls, map before state at narrow widths, no horizontal overflow",
+      "default viewport restored"
+    ],
+    "screenshots": {
+      "learning-replay.jpg": [
+        1230,
+        956
+      ],
+      "narrow-replay.jpg": [
+        854,
+        1000
+      ],
+      "results.jpg": [
+        1230,
+        956
+      ],
+      "trained-replay.jpg": [
+        1230,
+        956
+      ]
+    }
+  },
+  "limits": [
+    "one-seed short-budget development pilot",
+    "all learned families miss performance targets",
+    "tabular exact-state lookup does not learn unseen occupancy keys",
+    "main multi-seed development study and independent final evaluation remain pending"
+  ],
+  "training_source_hash": "cbd7fd8059a1a51821439f6eb20ccfc2c86a52c3106977ea469fee9249ea0329",
+  "verification_source_hash": "7804662a810fbeb6b8389547b16953a09b3de3d5251d149dcd900c603cf31fa5"
+}

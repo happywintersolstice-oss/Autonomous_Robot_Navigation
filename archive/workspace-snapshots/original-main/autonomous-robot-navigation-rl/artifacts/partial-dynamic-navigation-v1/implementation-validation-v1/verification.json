@@ -1,0 +1,233 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-20",
+  "timezone": "Asia/Kuala_Lumpur",
+  "status": "implementation_validation_passed",
+  "completed_phases": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "git_revision_at_start": "cf7f0f11d3a94d8533c6a1ff7b4834f1db78f141",
+  "baseline": {
+    "tests": 250,
+    "seconds": 178.41
+  },
+  "final_regressions": {
+    "tests": 292,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 186.01
+  },
+  "new_gate_tests": 42,
+  "source_hashes": {
+    "partial_agents.py": "7f734aa0694f4dbb68bd625ceb3cbc5288b84a1c94093b736d0cb448f1cad776",
+    "partial_baselines.py": "75838f9a3cf4f7caf367262177557c9e90ce7462bcd13ab35a2bca6fdd6b5dd4",
+    "partial_benchmark.py": "41867e1c4fc45f45fb586d4b1b851f60300a757f172f2800fe719af94fbe9f2c",
+    "partial_commands.py": "11896ba7236e2bcec427c88a9d503055cd918a654821cdec3f42e012832760de",
+    "partial_contract.py": "7ba8c229fee91a44e3834c79bc2ca9983e57e67e42d8fb8d524adca639babf56",
+    "partial_dynamic_env.py": "0cc37c3d010ce34ffba88c5c74a5113cf899d3b28bd6dcd1981308af5083e996",
+    "partial_evaluation.py": "666fc96a3fbdd33ceabdee19bd3eb846f3590f88217c892f04ba5e5b3aeb9afc",
+    "partial_features.py": "16a932dd13bf516bc8e8db2b42c94e398b474ae543137d9a38c9b812faa8eee3",
+    "partial_fixtures.py": "655ea77904cb06e6c2addb75771d62360c1195cd74fb1d61b7867b050e62ec38",
+    "partial_memory.py": "6a5db1824fada60e79ce8cbe32ac9a516a4c2bd926324ea60f7ebf4055395458",
+    "partial_neural.py": "4da85c792d81cf76725cbc3076dd1ce34b589f88e7e9f1391e37f4f5272a9d6e",
+    "partial_observation.py": "bc3064ba44dbc1de90393b431c1699471bf13b5b6939a20116b761e812dae0ca",
+    "partial_sensor.py": "bd2de92e656ce6413d13dfadd37ee539c501622827c7f22a46254a885195e39d",
+    "partial_training.py": "21a5d49a6943cd5c6804995e5159fced08727aada3615954f37face89b1cbc4d"
+  },
+  "configuration_sha256": "3dbc6a84b3627dac4ff3cc63e760540ae7816745de73165562db73f5a8c5598a",
+  "preexisting_file_preservation": {
+    "checked": 9490,
+    "changed": [],
+    "missing": []
+  },
+  "historical_hashes_preserved": {
+    "final-v1": 184,
+    "unseen-map-final-v1": 114,
+    "diagnostic_inputs": 449
+  },
+  "development_dataset": {
+    "layouts": 30,
+    "scenarios": 360,
+    "final_generated": false
+  },
+  "historical_d4_geometries_excluded": 31,
+  "smoke": {
+    "training_actions_audited": 1024,
+    "assessment_episodes_audited": 16,
+    "training_seed": 22001,
+    "wall_seconds": 16.174500000081025,
+    "findings": {
+      "q-learning": {
+        "assessment_outcomes": [
+          "timeout",
+          "timeout",
+          "timeout",
+          "timeout"
+        ],
+        "assessment_wait_counts": [
+          200,
+          200,
+          200,
+          200
+        ],
+        "training_completed_outcomes": {
+          "success": 0,
+          "collision": 18,
+          "timeout": 0
+        }
+      },
+      "sarsa": {
+        "assessment_outcomes": [
+          "timeout",
+          "timeout",
+          "timeout",
+          "timeout"
+        ],
+        "assessment_wait_counts": [
+          200,
+          200,
+          200,
+          200
+        ],
+        "training_completed_outcomes": {
+          "success": 0,
+          "collision": 19,
+          "timeout": 0
+        }
+      },
+      "dqn": {
+        "assessment_outcomes": [
+          "timeout",
+          "timeout",
+          "timeout",
+          "timeout"
+        ],
+        "assessment_wait_counts": [
+          200,
+          200,
+          200,
+          200
+        ],
+        "training_completed_outcomes": {
+          "success": 0,
+          "collision": 35,
+          "timeout": 0
+        }
+      },
+      "ppo": {
+        "assessment_outcomes": [
+          "timeout",
+          "timeout",
+          "timeout",
+          "timeout"
+        ],
+        "assessment_wait_counts": [
+          200,
+          200,
+          200,
+          200
+        ],
+        "training_completed_outcomes": {
+          "success": 0,
+          "collision": 28,
+          "timeout": 0
+        }
+      }
+    },
+    "scope": "Functional smoke only; all assessed policies waited until timeout; successful learning unproven"
+  },
+  "manual_trace": {
+    "actions": 10,
+    "waits": 3,
+    "moves": 7,
+    "outcome": "success",
+    "replay_audit": "passed"
+  },
+  "dependencies": {
+    "numpy": "2.5.4",
+    "gymnasium": "1.4.0",
+    "stable-baselines3": "2.9.2",
+    "torch": "2.15.0",
+    "streamlit": "1.67.0"
+  },
+  "compatibility_checks": {
+    "current_project_assets": "passed without rebuilding historical inventory",
+    "historical_environment_checker": "passed",
+    "pip_check": "passed",
+    "existing_app_and_launcher": "byte-identical; AppTest regression flows passed"
+  },
+  "not_executed": [
+    "large comparative training",
+    "fresh final generation or evaluation",
+    "phase-6 UI or browser review"
+  ],
+  "unresolved": [
+    "budget/search/seed agreement for phase 5",
+    "independent final freeze before substantive selection",
+    "all smoke policies stalled; rewards/representation/horizon require registered development analysis",
+    "difficulty and event-impact quotas require review",
+    "online planner is a heuristic, not an optimal reference",
+    "blocked occupancy cannot guarantee obstacle-type classification"
+  ],
+  "evidence_files": {
+    "preexisting-inventory.json": "1ef68a0cf69f9eca8038abad19c9006f244af877607ac6a9b0a40cbcaff10dd8",
+    "regressions.xml": "e24b9b435014bdb59bed4cfea7bac14cc3648cd3d453f49a5fd58a9b2ff5feb9",
+    "validation.log": "11cb8cc6dcceef207e3e4c448493c6c09894f5633fea781e1704b7978f72d87c",
+    "manual-discovery-trace.json": "f1f9dc9c3a650f5f69792151252da5f41d882cc8f008bd78d67e676085ff32be",
+    "smoke/outputs.json": "45e54af58a1ba4e7d5719aa3c8e2dad1ca0e388cde4c1bc3a42464c0fed3af61",
+    "current-validation-gates.json": "77b4c15cedd237b3b76a41415487e7c89acaceee2c143333ab39be45a3a24700"
+  },
+  "post_full_suite_review": {
+    "changes": "Only new test assertions: explicit boundary collisions and SARSA reset action after external truncation",
+    "new_gate_tests_passed": 42,
+    "seconds": 5.56,
+    "production_code_changed": false,
+    "preexisting_tests_changed": false
+  },
+  "current_validation_inputs": {
+    "code": {
+      "partial_agents.py": "7f734aa0694f4dbb68bd625ceb3cbc5288b84a1c94093b736d0cb448f1cad776",
+      "partial_baselines.py": "75838f9a3cf4f7caf367262177557c9e90ce7462bcd13ab35a2bca6fdd6b5dd4",
+      "partial_benchmark.py": "41867e1c4fc45f45fb586d4b1b851f60300a757f172f2800fe719af94fbe9f2c",
+      "partial_commands.py": "11896ba7236e2bcec427c88a9d503055cd918a654821cdec3f42e012832760de",
+      "partial_contract.py": "7ba8c229fee91a44e3834c79bc2ca9983e57e67e42d8fb8d524adca639babf56",
+      "partial_dynamic_env.py": "0cc37c3d010ce34ffba88c5c74a5113cf899d3b28bd6dcd1981308af5083e996",
+      "partial_evaluation.py": "666fc96a3fbdd33ceabdee19bd3eb846f3590f88217c892f04ba5e5b3aeb9afc",
+      "partial_features.py": "16a932dd13bf516bc8e8db2b42c94e398b474ae543137d9a38c9b812faa8eee3",
+      "partial_fixtures.py": "655ea77904cb06e6c2addb75771d62360c1195cd74fb1d61b7867b050e62ec38",
+      "partial_memory.py": "6a5db1824fada60e79ce8cbe32ac9a516a4c2bd926324ea60f7ebf4055395458",
+      "partial_neural.py": "4da85c792d81cf76725cbc3076dd1ce34b589f88e7e9f1391e37f4f5272a9d6e",
+      "partial_observation.py": "bc3064ba44dbc1de90393b431c1699471bf13b5b6939a20116b761e812dae0ca",
+      "partial_sensor.py": "bd2de92e656ce6413d13dfadd37ee539c501622827c7f22a46254a885195e39d",
+      "partial_training.py": "21a5d49a6943cd5c6804995e5159fced08727aada3615954f37face89b1cbc4d"
+    },
+    "configuration": "3dbc6a84b3627dac4ff3cc63e760540ae7816745de73165562db73f5a8c5598a",
+    "tests": {
+      "test_partial_agents.py": "f840a5f6e2934d55215c6945253de8105fbd6e0f903c2588e5e4e6dd9b59efb4",
+      "test_partial_benchmark.py": "6a2fc0cf797a2575be3e34b23cf196b6ecf080e6bc742bcac699d00a85b3e0bf",
+      "test_partial_commands.py": "46be03e849db1525e048be11c06c6a3773dfcef9884c3d2435f910dd9c4cd159",
+      "test_partial_dynamic_env.py": "c1fbbf9fe59fb5aa6e49aa3be58ab7b813606f9fded6b6867073097ede7acad4",
+      "test_partial_evaluation.py": "e42214d1fc3c953be7b4b82c0b4aadab236e88631bb6417b3eb103fa44a5d204",
+      "test_partial_leakage.py": "93039b75f946d8af47e2adc242b174316b027d07b0702cd734a69110f73fc3f0",
+      "test_partial_memory.py": "4c63c4e59078a5f05988b27492324f67eec8565443cf43d3526231cc005d28ba",
+      "test_partial_observation.py": "a5b866f9c09c937968b06f8c14486007103559b66c8fe0be077d7cab11054c51",
+      "test_partial_sensor.py": "f3bd5386beee8cd649e0ff445f4ba08ecb395bc15c4e68883923ab46817ed32d"
+    }
+  },
+  "new_test_sources": {
+    "test_partial_agents.py": "f840a5f6e2934d55215c6945253de8105fbd6e0f903c2588e5e4e6dd9b59efb4",
+    "test_partial_benchmark.py": "6a2fc0cf797a2575be3e34b23cf196b6ecf080e6bc742bcac699d00a85b3e0bf",
+    "test_partial_commands.py": "46be03e849db1525e048be11c06c6a3773dfcef9884c3d2435f910dd9c4cd159",
+    "test_partial_dynamic_env.py": "c1fbbf9fe59fb5aa6e49aa3be58ab7b813606f9fded6b6867073097ede7acad4",
+    "test_partial_evaluation.py": "e42214d1fc3c953be7b4b82c0b4aadab236e88631bb6417b3eb103fa44a5d204",
+    "test_partial_leakage.py": "93039b75f946d8af47e2adc242b174316b027d07b0702cd734a69110f73fc3f0",
+    "test_partial_memory.py": "4c63c4e59078a5f05988b27492324f67eec8565443cf43d3526231cc005d28ba",
+    "test_partial_observation.py": "a5b866f9c09c937968b06f8c14486007103559b66c8fe0be077d7cab11054c51",
+    "test_partial_sensor.py": "f3bd5386beee8cd649e0ff445f4ba08ecb395bc15c4e68883923ab46817ed32d"
+  }
+}
