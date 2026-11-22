@@ -1,6 +1,6 @@
 # Product Phase3: robustness, unfamiliar maps and checked final demo
 
-Completed locally on **2026-11-23 (Asia/Kuala_Lumpur)**. Branch: **feature/product-phase3-robustness-and-final-demo-v1**. Base: `66e0b2126c33229bbf23622e96887b87a897f23b` (latest remote Phase2 head fetched and verified). Evaluated implementation commit: **`71d19a3deb5d42cd668868c317e96d8107aceb43`**. Suite/protocol freeze commit: **`4dc21aec5c095656934ce128b99a83cb1a3eeb1b`**, made before model work. Publication commit receipt is appended after committing the completed evidence; no main merge or history rewrite.
+Completed locally on **2026-11-23 (Asia/Kuala_Lumpur)**. Branch: **feature/product-phase3-robustness-and-final-demo-v1**. Base: `66e0b2126c33229bbf23622e96887b87a897f23b` (latest remote Phase2 head fetched and verified). Evaluated implementation commit: **`71d19a3deb5d42cd668868c317e96d8107aceb43`**. Suite/protocol freeze commit: **`4dc21aec5c095656934ce128b99a83cb1a3eeb1b`**, made before model work. Exact pushed results/code commit: **[`3b8ede785f4d833652ef9098e3430e138d1702d8`](https://github.com/happywintersolstice-oss/Autonomous_Robot_Navigation/commit/3b8ede785f4d833652ef9098e3430e138d1702d8)**. The branch tip additionally records this documentation-only publication receipt and committed-blob checks; no model, evaluation or result was changed. No main merge or history rewrite.
 
 Phase3 shipped four genuinely trained selected checkpoints, a new independent product test, public decision-history features, diverse curriculum, immutable development/final comparisons, failure replay access and four checked presentation routes. All eight predetermined training jobs completed; none was cancelled or failed. There was **one final held-out assessment**, **640 distinct executed episodes**, **26,160 environment actions**, and **zero training after final outcomes**. This is a product-only assessment, not the historic scientific final/unseen benchmark.
 
@@ -256,3 +256,5 @@ Or double-click `Start Robot Navigation.cmd`, then open **http://127.0.0.1:8517*
 ```
 
 Phase3 is complete; no full training or Phase6 was started. Research limitations and model failures above remain unresolved by design after the frozen final assessment.
+
+The [committed preservation receipt](autonomous-robot-navigation-rl/runs/product-phase3/20261122T163932Z-f85cb312/validation/committed-preservation.json) verifies protected paths and the selected checkpoint/holdout SHA256 values directly from committed Git blobs. The published results commit above includes every source/checkpoint/result/test/report; its following receipt commit adds only publication documentation and these blob checks.
