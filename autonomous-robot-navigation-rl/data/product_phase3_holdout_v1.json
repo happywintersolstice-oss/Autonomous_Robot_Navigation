@@ -1,0 +1,2931 @@
+{
+  "version": "product-phase3-holdout-v1",
+  "seed": 93217,
+  "scope": "New product-only held-out suite; not historical scientific final/unseen data",
+  "cases": [
+    {
+      "id": "p3-holdout-000",
+      "layout_id": "p3-irregular_room_chain-000",
+      "rows": [
+        "##########",
+        "#....##..#",
+        "#........#",
+        "#..#.##..#",
+        "##.#######",
+        "##.#######",
+        "#...######",
+        "#........#",
+        "#...###..#",
+        "##########"
+      ],
+      "start": [
+        8,
+        1
+      ],
+      "goal": [
+        8,
+        3
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            8,
+            2
+          ],
+          "start": 0,
+          "clear": 14
+        }
+      ],
+      "event_seed": 93217,
+      "condition": "irregular_room_chain",
+      "split": "product-heldout",
+      "layout_hash": "a34d5da7a8fbd851aa1a5f5299fdf9cda95ac63cc7d6bddfdc3c651b1c630243",
+      "topology_family": "irregular_room_chain",
+      "canonical_layout_hash": "5691ba06fd06f928cd66ed98d709ce3a6f1a1949d9375449e3c6cba1cd030da7",
+      "structural_hash": "feb32bca3548b1cf59b98f0d178447db5f9c51a8c62e1338948aa08562d718bd",
+      "base_distance": 2,
+      "distance_band": "short",
+      "condition_type": "dynamic",
+      "blockage_kind": "detour-available",
+      "dead_end_count": 1,
+      "curriculum_stage": 0,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-001",
+      "layout_id": "p3-irregular_room_chain-001",
+      "rows": [
+        "##########",
+        "#....##..#",
+        "#........#",
+        "#...###..#",
+        "##.#######",
+        "##.#######",
+        "#...######",
+        "#........#",
+        "#...###..#",
+        "##########"
+      ],
+      "start": [
+        1,
+        2
+      ],
+      "goal": [
+        8,
+        8
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            2,
+            2
+          ],
+          "start": 0,
+          "clear": 9
+        }
+      ],
+      "event_seed": 93218,
+      "condition": "irregular_room_chain",
+      "split": "product-heldout",
+      "layout_hash": "547698f45356c7cb25c53972a35f20886e6ec36f5c24c7ae19f655537a7baec7",
+      "topology_family": "irregular_room_chain",
+      "canonical_layout_hash": "86edea7f5e78b2ee1814b52859872503b2ce171eeff2a9f3469948d26a982c20",
+      "structural_hash": "4342ddd77d9a0a002e52cae77845d205c22d05e05c8daffa6eb0690e2fede60d",
+      "base_distance": 13,
+      "distance_band": "long",
+      "condition_type": "dynamic",
+      "blockage_kind": "detour-available",
+      "dead_end_count": 0,
+      "curriculum_stage": 2,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-002",
+      "layout_id": "p3-irregular_room_chain-002",
+      "rows": [
+        "##########",
+        "#....##..#",
+        "#........#",
+        "#..#.##..#",
+        "##.#######",
+        "##.#######",
+        "#...###..#",
+        "#........#",
+        "#...###..#",
+        "##########"
+      ],
+      "start": [
+        6,
+        3
+      ],
+      "goal": [
+        2,
+        2
+      ],
+      "events": [],
+      "event_seed": 93219,
+      "condition": "irregular_room_chain",
+      "split": "product-heldout",
+      "layout_hash": "9cee62023f7b3a14b638e64ebe432bb9ef414564db7cab45d5cd3f4e1c8dc786",
+      "topology_family": "irregular_room_chain",
+      "canonical_layout_hash": "83532be0aa45c9e4e4f0c39c5124355b5580d894fff2bb4cc485eabc801c96ef",
+      "structural_hash": "0e07794321df8ae2bf4a399dcc2f364e6b8747cd056ec2821f73e09b7e168745",
+      "base_distance": 5,
+      "distance_band": "short",
+      "condition_type": "static",
+      "blockage_kind": "none",
+      "dead_end_count": 1,
+      "curriculum_stage": 1,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-003",
+      "layout_id": "p3-irregular_room_chain-003",
+      "rows": [
+        "##########",
+        "#...##...#",
+        "#........#",
+        "#...##...#",
+        "#######.##",
+        "#######.##",
+        "#..##.#..#",
+        "#........#",
+        "#..##....#",
+        "##########"
+      ],
+      "start": [
+        8,
+        1
+      ],
+      "goal": [
+        1,
+        6
+      ],
+      "events": [],
+      "event_seed": 93220,
+      "condition": "irregular_room_chain",
+      "split": "product-heldout",
+      "layout_hash": "5d3d7a3dbb0709d8c9d879dae0c9d26bc5be04b4291f8a378ed0fe0455ee7d3a",
+      "topology_family": "irregular_room_chain",
+      "canonical_layout_hash": "96a0b23a564a28b3710c5e1c7dd57cbeeea058ed960b189fb5bd4bb6f6cb95e3",
+      "structural_hash": "b843eed1eb61b48d9869ad03b518be723c4f192d968523ce3f245c286cebae84",
+      "base_distance": 14,
+      "distance_band": "long",
+      "condition_type": "static",
+      "blockage_kind": "none",
+      "dead_end_count": 1,
+      "curriculum_stage": 2,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-004",
+      "layout_id": "p3-irregular_room_chain-004",
+      "rows": [
+        "##########",
+        "#..###...#",
+        "#........#",
+        "#..###...#",
+        "#######.##",
+        "#######.##",
+        "#..###...#",
+        "#........#",
+        "#..##....#",
+        "##########"
+      ],
+      "start": [
+        1,
+        1
+      ],
+      "goal": [
+        2,
+        3
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            2,
+            1
+          ],
+          "start": 0,
+          "clear": 16
+        }
+      ],
+      "event_seed": 93221,
+      "condition": "irregular_room_chain",
+      "split": "product-heldout",
+      "layout_hash": "5fba787d7db2ac245cdeb16e1767a29c24316cd9debacfa31151af10e65b677f",
+      "topology_family": "irregular_room_chain",
+      "canonical_layout_hash": "282bc61b0cb5df1d9d3107de1df8a9f69767521a0c4dc4b3b9bded22eb2801fc",
+      "structural_hash": "9f2a649b5ed2091b03519b289dfa666d27a8ed780615bd54621971c410f9b5c7",
+      "base_distance": 3,
+      "distance_band": "short",
+      "condition_type": "dynamic",
+      "blockage_kind": "detour-available",
+      "dead_end_count": 0,
+      "curriculum_stage": 0,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-005",
+      "layout_id": "p3-irregular_room_chain-005",
+      "rows": [
+        "##########",
+        "#...##...#",
+        "#...##...#",
+        "##.####.##",
+        "##.####.##",
+        "#...###.##",
+        "#...##...#",
+        "#..#.....#",
+        "#...##...#",
+        "##########"
+      ],
+      "start": [
+        2,
+        7
+      ],
+      "goal": [
+        7,
+        4
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            7,
+            7
+          ],
+          "start": 0,
+          "clear": 15
+        }
+      ],
+      "event_seed": 93222,
+      "condition": "irregular_room_chain",
+      "split": "product-heldout",
+      "layout_hash": "4a6a4c158148ed62a870fabbaa5aff06d85c1548b8816dc3ff0529de62f2907c",
+      "topology_family": "irregular_room_chain",
+      "canonical_layout_hash": "46217f79ea9e80e7d76bd7ed1c093b30af9aa4b2bc37276ba7e863a6e5ff90dd",
+      "structural_hash": "b1e48ddc2eb592942bbc31ebe2929b7852a1378a6ccd29d9bc839cac02478fe2",
+      "base_distance": 8,
+      "distance_band": "long",
+      "condition_type": "dynamic",
+      "blockage_kind": "detour-available",
+      "dead_end_count": 2,
+      "curriculum_stage": 1,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-006",
+      "layout_id": "p3-irregular_room_chain-006",
+      "rows": [
+        "##########",
+        "#...###..#",
+        "#...###..#",
+        "##.####.##",
+        "##.####.##",
+        "#...###.##",
+        "#...##...#",
+        "#..#.....#",
+        "#...##...#",
+        "##########"
+      ],
+      "start": [
+        3,
+        7
+      ],
+      "goal": [
+        8,
+        8
+      ],
+      "events": [],
+      "event_seed": 93223,
+      "condition": "irregular_room_chain",
+      "split": "product-heldout",
+      "layout_hash": "33a3344d657e8f12da86150445abbb2137d95a6d3d9e437330ed2aa8d9159bb4",
+      "topology_family": "irregular_room_chain",
+      "canonical_layout_hash": "3eb08540190615554c47caeecaa9e80f6952e068c1d1c83aa9c57f88171a7d1c",
+      "structural_hash": "668c52abdf896109d7ad5eb7fc77b0b8d12a28a02f69d3a5901cd2f133a55913",
+      "base_distance": 6,
+      "distance_band": "short",
+      "condition_type": "static",
+      "blockage_kind": "none",
+      "dead_end_count": 2,
+      "curriculum_stage": 1,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-007",
+      "layout_id": "p3-irregular_room_chain-007",
+      "rows": [
+        "##########",
+        "#...##...#",
+        "#........#",
+        "#...##...#",
+        "##.####..#",
+        "##.####.##",
+        "#...###.##",
+        "#...##...#",
+        "#...##...#",
+        "##########"
+      ],
+      "start": [
+        1,
+        7
+      ],
+      "goal": [
+        8,
+        1
+      ],
+      "events": [],
+      "event_seed": 93224,
+      "condition": "irregular_room_chain",
+      "split": "product-heldout",
+      "layout_hash": "b298964e871133bf5b3ced7a946a8673d91105cb5b82f755e423965235de39bf",
+      "topology_family": "irregular_room_chain",
+      "canonical_layout_hash": "9fca07ef776efafaf55ebd85df7ed30673bff72d85bd92a1037faf1d5fad3d76",
+      "structural_hash": "f95e06cfc94212192f099fb0a9a8e1d9fec11a12f1ff0f1efc3834ecdbacfe9d",
+      "base_distance": 13,
+      "distance_band": "long",
+      "condition_type": "static",
+      "blockage_kind": "none",
+      "dead_end_count": 0,
+      "curriculum_stage": 2,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-008",
+      "layout_id": "p3-serpentine_spurs-000",
+      "rows": [
+        "##########",
+        "#........#",
+        "########.#",
+        "#........#",
+        "#.########",
+        "#........#",
+        "########.#",
+        "#........#",
+        "##.##.####",
+        "##########"
+      ],
+      "start": [
+        3,
+        7
+      ],
+      "goal": [
+        1,
+        4
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            3,
+            8
+          ],
+          "start": 0,
+          "clear": 7
+        }
+      ],
+      "event_seed": 93225,
+      "condition": "serpentine_spurs",
+      "split": "product-heldout",
+      "layout_hash": "3723505d5840130fe676b4a36fdadbcc9e9cbf055b5850b73fa98d4653a1b20a",
+      "topology_family": "serpentine_spurs",
+      "canonical_layout_hash": "8b4fc779681c5d932398e88bedcfa251511cbee4a9a059e574be410bfa076f72",
+      "structural_hash": "acd004fca2f0f87545fdf31543c2b0a6ac9d9367f80952fc51778539acac5caf",
+      "base_distance": 7,
+      "distance_band": "short",
+      "condition_type": "dynamic",
+      "blockage_kind": "forced-wait",
+      "dead_end_count": 4,
+      "curriculum_stage": 1,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-009",
+      "layout_id": "p3-serpentine_spurs-001",
+      "rows": [
+        "##########",
+        "#........#",
+        "########.#",
+        "#........#",
+        "#.########",
+        "#........#",
+        "########.#",
+        "#........#",
+        "###..#####",
+        "####.#####"
+      ],
+      "start": [
+        1,
+        1
+      ],
+      "goal": [
+        4,
+        1
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            1,
+            2
+          ],
+          "start": 0,
+          "clear": 17
+        }
+      ],
+      "event_seed": 93226,
+      "condition": "serpentine_spurs",
+      "split": "product-heldout",
+      "layout_hash": "30da2b991285e289b2bbb1e1cf707923115711c47a74f5ad201bb8f5e8d30b17",
+      "topology_family": "serpentine_spurs",
+      "canonical_layout_hash": "7a39444f5c69f1c42cafc521ddd21f79b82f17e289bc1ccf5ac74a29e613e37c",
+      "structural_hash": "62414d8e81b8d69e12a54186b9519fe94d3fd8685fa1085a1d6c664474b646bd",
+      "base_distance": 17,
+      "distance_band": "long",
+      "condition_type": "dynamic",
+      "blockage_kind": "forced-wait",
+      "dead_end_count": 3,
+      "curriculum_stage": 2,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-010",
+      "layout_id": "p3-serpentine_spurs-002",
+      "rows": [
+        "##########",
+        "#........#",
+        "########.#",
+        "#........#",
+        "#.########",
+        "#........#",
+        "########.#",
+        "#........#",
+        "###..#####",
+        "##########"
+      ],
+      "start": [
+        4,
+        1
+      ],
+      "goal": [
+        5,
+        3
+      ],
+      "events": [],
+      "event_seed": 93227,
+      "condition": "serpentine_spurs",
+      "split": "product-heldout",
+      "layout_hash": "505a9c070300c6f081cc1d21189ab988b69388e21e202f52930f2beedb2653fb",
+      "topology_family": "serpentine_spurs",
+      "canonical_layout_hash": "b7ad0be3f30c97fd809dcfbb4f584ff82eacde5c242780812187a9623207e1a4",
+      "structural_hash": "dd8b8d2ef994fd96c9a5b3e1c63ea8be2f46de926f5fbf432ecb3b8db81d4fd9",
+      "base_distance": 3,
+      "distance_band": "short",
+      "condition_type": "static",
+      "blockage_kind": "none",
+      "dead_end_count": 2,
+      "curriculum_stage": 0,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-011",
+      "layout_id": "p3-serpentine_spurs-003",
+      "rows": [
+        "##########",
+        "#...#...##",
+        "#.#.#.#.##",
+        "#.#.#.#.##",
+        "#.#.#.#...",
+        "#.#.#.#...",
+        "#.#.#.#.##",
+        "#.#.#.#.##",
+        "#.#...#.##",
+        "##########"
+      ],
+      "start": [
+        3,
+        3
+      ],
+      "goal": [
+        5,
+        1
+      ],
+      "events": [],
+      "event_seed": 93228,
+      "condition": "serpentine_spurs",
+      "split": "product-heldout",
+      "layout_hash": "6a2d8985347ed1b365ca0f14a52bfb0b63c261686c907cf65a5ca013ea01d81e",
+      "topology_family": "serpentine_spurs",
+      "canonical_layout_hash": "6dc2496e8142fd1f5f19acadc708514f587afaa492661c95710053b41b831edd",
+      "structural_hash": "76f1816cf259ffc32bf0aa9c099ce1ed5fd8b0137a44da0991c4595694f70183",
+      "base_distance": 8,
+      "distance_band": "long",
+      "condition_type": "static",
+      "blockage_kind": "none",
+      "dead_end_count": 2,
+      "curriculum_stage": 1,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-012",
+      "layout_id": "p3-serpentine_spurs-004",
+      "rows": [
+        "##########",
+        "#........#",
+        "########.#",
+        "#........#",
+        "#.########",
+        "#........#",
+        "########.#",
+        "#........#",
+        "##.##.####",
+        "##.##.####"
+      ],
+      "start": [
+        2,
+        8
+      ],
+      "goal": [
+        3,
+        7
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            3,
+            8
+          ],
+          "start": 0,
+          "clear": 12
+        }
+      ],
+      "event_seed": 93229,
+      "condition": "serpentine_spurs",
+      "split": "product-heldout",
+      "layout_hash": "c04fceafe48775723d690f340d8f3373485afa0bd5be4f80d2aab489034e43c6",
+      "topology_family": "serpentine_spurs",
+      "canonical_layout_hash": "a1cfeef8766647eb903e0af8c12d2842658b452601c238619fe23b14c37c386f",
+      "structural_hash": "923d9fd61154cb69edfa7d8d5691aaadad21573ddcc5b9968f8fc29261083c0b",
+      "base_distance": 2,
+      "distance_band": "short",
+      "condition_type": "dynamic",
+      "blockage_kind": "forced-wait",
+      "dead_end_count": 4,
+      "curriculum_stage": 0,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-013",
+      "layout_id": "p3-serpentine_spurs-005",
+      "rows": [
+        "##########",
+        "#........#",
+        "########.#",
+        "#........#",
+        "#.########",
+        "#........#",
+        "########.#",
+        "#........#",
+        "###.##.###",
+        "######.###"
+      ],
+      "start": [
+        3,
+        1
+      ],
+      "goal": [
+        7,
+        7
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            4,
+            1
+          ],
+          "start": 0,
+          "clear": 8
+        }
+      ],
+      "event_seed": 93230,
+      "condition": "serpentine_spurs",
+      "split": "product-heldout",
+      "layout_hash": "5d1c20ee9dcb6c6e81e556dfab7a2cb6845d7d2b54d940c1bfd1af34f314a522",
+      "topology_family": "serpentine_spurs",
+      "canonical_layout_hash": "ce7217b281cabc8c82ae2b9a5d6b12018ef4dc128ab45215bc367467d38e9375",
+      "structural_hash": "245e95d2f800ccc5b0953c203aed790af05322bef1ed9c390231275a986af9fc",
+      "base_distance": 12,
+      "distance_band": "long",
+      "condition_type": "dynamic",
+      "blockage_kind": "forced-wait",
+      "dead_end_count": 4,
+      "curriculum_stage": 2,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-014",
+      "layout_id": "p3-serpentine_spurs-006",
+      "rows": [
+        "##########",
+        "#........#",
+        "########.#",
+        "#........#",
+        "#.########",
+        "#........#",
+        "########.#",
+        "#........#",
+        "###.##.###",
+        "##########"
+      ],
+      "start": [
+        5,
+        1
+      ],
+      "goal": [
+        5,
+        4
+      ],
+      "events": [],
+      "event_seed": 93231,
+      "condition": "serpentine_spurs",
+      "split": "product-heldout",
+      "layout_hash": "295c955a84835d4cb8d387c8a9a228bc11b99e8e0ed8f696170ad71f42c2b1d0",
+      "topology_family": "serpentine_spurs",
+      "canonical_layout_hash": "6564161dd6b7195f4eae86c6aa9048497d98fa483b78624d2baf753191d02706",
+      "structural_hash": "cdfc12eee72eb5d4e57350ef9f6c84b3925cce2c460ed91b7431511b583183bd",
+      "base_distance": 3,
+      "distance_band": "short",
+      "condition_type": "static",
+      "blockage_kind": "none",
+      "dead_end_count": 4,
+      "curriculum_stage": 0,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-015",
+      "layout_id": "p3-serpentine_spurs-007",
+      "rows": [
+        "##########",
+        "#........#",
+        "########.#",
+        "#........#",
+        "#.########",
+        "#........#",
+        "########.#",
+        "#........#",
+        "##.###.###",
+        "##.###.###"
+      ],
+      "start": [
+        3,
+        1
+      ],
+      "goal": [
+        7,
+        1
+      ],
+      "events": [],
+      "event_seed": 93232,
+      "condition": "serpentine_spurs",
+      "split": "product-heldout",
+      "layout_hash": "9517db2e7378b7e94a409f8671952e2026093612f95771a2bde9255a48e3cf47",
+      "topology_family": "serpentine_spurs",
+      "canonical_layout_hash": "9653b45e1c688a0f5de1af555898f7d6ea59f494374540e28b66e9b0cc338876",
+      "structural_hash": "8bf0bbc740d1793f32a6f4589bc425fde825a032d55812728c20d8c1cea6b8f1",
+      "base_distance": 18,
+      "distance_band": "long",
+      "condition_type": "static",
+      "blockage_kind": "none",
+      "dead_end_count": 4,
+      "curriculum_stage": 2,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-016",
+      "layout_id": "p3-bilateral_deadends-000",
+      "rows": [
+        "##########",
+        "#####.####",
+        "####.....#",
+        "#####.####",
+        "#####.####",
+        "####...###",
+        "#####.####",
+        "#####.####",
+        "###....###",
+        "##########"
+      ],
+      "start": [
+        8,
+        6
+      ],
+      "goal": [
+        8,
+        4
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            8,
+            5
+          ],
+          "start": 0,
+          "clear": 18
+        }
+      ],
+      "event_seed": 93233,
+      "condition": "bilateral_deadends",
+      "split": "product-heldout",
+      "layout_hash": "5b76dc7c33501590202e91c4cbff45c39415de650588acac9998aa32d3e0107e",
+      "topology_family": "bilateral_deadends",
+      "canonical_layout_hash": "c6d66115c6673219d2439e815e68c231172ab3944db215230fd1ee3fd3fa5fcd",
+      "structural_hash": "8ed5fa2fc343035353637af7734f85c705471e3a74aa3f8db33c2d734d13ae67",
+      "base_distance": 2,
+      "distance_band": "short",
+      "condition_type": "dynamic",
+      "blockage_kind": "forced-wait",
+      "dead_end_count": 7,
+      "curriculum_stage": 0,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-017",
+      "layout_id": "p3-bilateral_deadends-001",
+      "rows": [
+        "##########",
+        "##.##.##.#",
+        "##.##.##.#",
+        "##.##.##.#",
+        "#........#",
+        "##.##.##.#",
+        "##.##.####",
+        "##########",
+        "##########",
+        "##########"
+      ],
+      "start": [
+        4,
+        8
+      ],
+      "goal": [
+        2,
+        2
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            4,
+            7
+          ],
+          "start": 0,
+          "clear": 13
+        }
+      ],
+      "event_seed": 93234,
+      "condition": "bilateral_deadends",
+      "split": "product-heldout",
+      "layout_hash": "cfb8c15831aefb567360642752525691538bfef1597754505802c002193e3983",
+      "topology_family": "bilateral_deadends",
+      "canonical_layout_hash": "980f3f1a62eb9e678b92e478dbb2bdad7b5660ecb4571f0a2232b2f28885f709",
+      "structural_hash": "04086928ad4ac45abebc47e8b2dc22041452dfb51f5fa657d217d39d656e6711",
+      "base_distance": 8,
+      "distance_band": "long",
+      "condition_type": "dynamic",
+      "blockage_kind": "forced-wait",
+      "dead_end_count": 7,
+      "curriculum_stage": 1,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-018",
+      "layout_id": "p3-bilateral_deadends-002",
+      "rows": [
+        "##########",
+        "#####.####",
+        "###.....##",
+        "#####.####",
+        "#####.####",
+        "#......###",
+        "#####.####",
+        "#####.####",
+        "##.....###",
+        "##########"
+      ],
+      "start": [
+        6,
+        5
+      ],
+      "goal": [
+        8,
+        6
+      ],
+      "events": [],
+      "event_seed": 93235,
+      "condition": "bilateral_deadends",
+      "split": "product-heldout",
+      "layout_hash": "a66c0ca84d9dda625616ce32ec76f563639b1562ccd6af23f97fc6634067aebb",
+      "topology_family": "bilateral_deadends",
+      "canonical_layout_hash": "e282b510c4abc6b5e9675b30001141d8a95998a9f595302155a9363feaa71a1e",
+      "structural_hash": "e76e1f151ff6a683613d8c6a3f5db96335d1feebe30516f9627c57e1998e9e24",
+      "base_distance": 3,
+      "distance_band": "short",
+      "condition_type": "static",
+      "blockage_kind": "none",
+      "dead_end_count": 7,
+      "curriculum_stage": 0,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-019",
+      "layout_id": "p3-bilateral_deadends-003",
+      "rows": [
+        "##########",
+        "#####.####",
+        "####....##",
+        "#####.####",
+        "#####.####",
+        "##.......#",
+        "#####.####",
+        "#####.####",
+        "###....###",
+        "##########"
+      ],
+      "start": [
+        2,
+        6
+      ],
+      "goal": [
+        8,
+        6
+      ],
+      "events": [],
+      "event_seed": 93236,
+      "condition": "bilateral_deadends",
+      "split": "product-heldout",
+      "layout_hash": "9351860e11c78ba45d39e0945e484bf0b2324e85690f83b9afc6910fc8c13509",
+      "topology_family": "bilateral_deadends",
+      "canonical_layout_hash": "0cd39df350c69cb0cb093b226bc4b4376a4675b75d5445325ed95b51c505c015",
+      "structural_hash": "9aff26752c7850b221c94465e3d625b09e91defe894457cdd3349bc82b3a39ca",
+      "base_distance": 8,
+      "distance_band": "long",
+      "condition_type": "static",
+      "blockage_kind": "none",
+      "dead_end_count": 7,
+      "curriculum_stage": 1,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-020",
+      "layout_id": "p3-bilateral_deadends-004",
+      "rows": [
+        "##########",
+        "##########",
+        "##########",
+        "#.########",
+        "#.##.##.##",
+        "#........#",
+        "#.##.##.##",
+        "#.##.##.##",
+        "####.##.##",
+        "##########"
+      ],
+      "start": [
+        4,
+        4
+      ],
+      "goal": [
+        5,
+        7
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            5,
+            4
+          ],
+          "start": 0,
+          "clear": 15
+        }
+      ],
+      "event_seed": 93237,
+      "condition": "bilateral_deadends",
+      "split": "product-heldout",
+      "layout_hash": "acfe58fee8437390f73a4524040fe4b6e046138bb30396e6299fccb7ea7d63e0",
+      "topology_family": "bilateral_deadends",
+      "canonical_layout_hash": "1a8329bbc6f0bac1a467165559c1dd6932493b5ffe23ea72d77efaab0cc79d3a",
+      "structural_hash": "58ff723278355f08999ed2a25c99a7c8bff1e4d47c06a856f41d31b8164b1b4b",
+      "base_distance": 4,
+      "distance_band": "short",
+      "condition_type": "dynamic",
+      "blockage_kind": "forced-wait",
+      "dead_end_count": 7,
+      "curriculum_stage": 0,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-021",
+      "layout_id": "p3-bilateral_deadends-005",
+      "rows": [
+        "##########",
+        "#####.####",
+        "####....##",
+        "#####.####",
+        "#####.####",
+        "##.....###",
+        "#####.####",
+        "#####.####",
+        "###....###",
+        "##########"
+      ],
+      "start": [
+        2,
+        6
+      ],
+      "goal": [
+        8,
+        6
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            2,
+            5
+          ],
+          "start": 0,
+          "clear": 17
+        }
+      ],
+      "event_seed": 93238,
+      "condition": "bilateral_deadends",
+      "split": "product-heldout",
+      "layout_hash": "07c45a1690aef24792db14ed21efb0d156b6fb87e2d1e72a923be61869757724",
+      "topology_family": "bilateral_deadends",
+      "canonical_layout_hash": "0c0db1bf61b2bf199ffacb522a48dbbd82d464162526d8b5b5ee0e789bb91189",
+      "structural_hash": "1c07c2736fd0024a6cb22103a80b0656c90d3080bb323df4def120ed4ae1f072",
+      "base_distance": 8,
+      "distance_band": "long",
+      "condition_type": "dynamic",
+      "blockage_kind": "forced-wait",
+      "dead_end_count": 7,
+      "curriculum_stage": 1,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-022",
+      "layout_id": "p3-bilateral_deadends-006",
+      "rows": [
+        "##########",
+        "#.#####.##",
+        "#.#####.##",
+        "#.##.##.##",
+        "#.##.##.##",
+        "#........#",
+        "#.##.##.##",
+        "####.##.##",
+        "####.##.##",
+        "##########"
+      ],
+      "start": [
+        6,
+        4
+      ],
+      "goal": [
+        4,
+        4
+      ],
+      "events": [],
+      "event_seed": 93239,
+      "condition": "bilateral_deadends",
+      "split": "product-heldout",
+      "layout_hash": "b23e8b20fb9f02cf94dd3f1d450cb06ca5f61b3aed167c419d5bebef261ebeae",
+      "topology_family": "bilateral_deadends",
+      "canonical_layout_hash": "b72347798909501d394f999272ec77053e11c9ce8daadcb3481ce8012d73fe0e",
+      "structural_hash": "a45754b4527d643c5612bdcd7ab36c7a51b4632d580fd45683e10534e955b400",
+      "base_distance": 2,
+      "distance_band": "short",
+      "condition_type": "static",
+      "blockage_kind": "none",
+      "dead_end_count": 7,
+      "curriculum_stage": 0,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-023",
+      "layout_id": "p3-bilateral_deadends-007",
+      "rows": [
+        "##########",
+        "#####.####",
+        "##.....###",
+        "#####.####",
+        "#####.####",
+        "##......##",
+        "#####.####",
+        "#####.####",
+        "#.......##",
+        "##########"
+      ],
+      "start": [
+        7,
+        5
+      ],
+      "goal": [
+        2,
+        2
+      ],
+      "events": [],
+      "event_seed": 93240,
+      "condition": "bilateral_deadends",
+      "split": "product-heldout",
+      "layout_hash": "f972f9aa6b94cf2482804350c66c142d533d45632c13ee9cc25165691620e908",
+      "topology_family": "bilateral_deadends",
+      "canonical_layout_hash": "e11c4e40b6e895414bb73ca01ab0324b3e1178e0325d5acf6ce3a5e7c5b0c016",
+      "structural_hash": "9c758b8d6327ea968e10b2add27ec7efedc6691adf55e562586ff0014b6f8485",
+      "base_distance": 8,
+      "distance_band": "long",
+      "condition_type": "static",
+      "blockage_kind": "none",
+      "dead_end_count": 7,
+      "curriculum_stage": 1,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-024",
+      "layout_id": "p3-double_gate_ring-000",
+      "rows": [
+        "##########",
+        "#........#",
+        "#.###.##.#",
+        "#.###.##.#",
+        "#.#....#.#",
+        "#.#....#.#",
+        "#.#....#.#",
+        "#.###.##.#",
+        "#........#",
+        "##########"
+      ],
+      "start": [
+        4,
+        5
+      ],
+      "goal": [
+        5,
+        4
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            5,
+            5
+          ],
+          "start": 0,
+          "clear": 18
+        }
+      ],
+      "event_seed": 93241,
+      "condition": "double_gate_ring",
+      "split": "product-heldout",
+      "layout_hash": "e323ce4bcfccd76668a5df713e0149ffe0828241554a3d1492f7605526909308",
+      "topology_family": "double_gate_ring",
+      "canonical_layout_hash": "22aac9db396497bdfb179361214159a06c471bd665d0cbf18bdd219ec87d87dc",
+      "structural_hash": "99215883691133ca736145d8beda98c7d05d9baf9f09a89933758c0176cf30f3",
+      "base_distance": 2,
+      "distance_band": "short",
+      "condition_type": "dynamic",
+      "blockage_kind": "detour-available",
+      "dead_end_count": 0,
+      "curriculum_stage": 0,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-025",
+      "layout_id": "p3-double_gate_ring-001",
+      "rows": [
+        "##########",
+        "#........#",
+        "#.####.#.#",
+        "#.####.#.#",
+        "#.####.#.#",
+        "#.###..#.#",
+        "#.###..#.#",
+        "#.####.#.#",
+        "#........#",
+        "##########"
+      ],
+      "start": [
+        4,
+        1
+      ],
+      "goal": [
+        3,
+        6
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            3,
+            1
+          ],
+          "start": 0,
+          "clear": 7
+        }
+      ],
+      "event_seed": 93242,
+      "condition": "double_gate_ring",
+      "split": "product-heldout",
+      "layout_hash": "8afbe72e2d98ed9f5ff93909073c207ccfb68eeb162d972ba6c74de5120b0f13",
+      "topology_family": "double_gate_ring",
+      "canonical_layout_hash": "348144b6e55fb2765d1b4a2a334439db110919202e8f13741bb4a9830803ddff",
+      "structural_hash": "cb823f87ee12d46cb129cc38aba04b3048f96750034bd22a26619ad17be5ac20",
+      "base_distance": 10,
+      "distance_band": "long",
+      "condition_type": "dynamic",
+      "blockage_kind": "detour-available",
+      "dead_end_count": 0,
+      "curriculum_stage": 2,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-026",
+      "layout_id": "p3-double_gate_ring-002",
+      "rows": [
+        "##########",
+        "#........#",
+        "#.#.####.#",
+        "#.#....#.#",
+        "#.#....#.#",
+        "#.#....#.#",
+        "#.####.#.#",
+        "#.####.#.#",
+        "#........#",
+        "##########"
+      ],
+      "start": [
+        6,
+        1
+      ],
+      "goal": [
+        8,
+        5
+      ],
+      "events": [],
+      "event_seed": 93243,
+      "condition": "double_gate_ring",
+      "split": "product-heldout",
+      "layout_hash": "a12bc438b2180af1f4e2a20f9771c58f5873a27d0a1631dc3b8621facfbeb218",
+      "topology_family": "double_gate_ring",
+      "canonical_layout_hash": "44b1eb77d9c1812d4b973a9584b4666de43dda32bbb7d39d51c84b8409127106",
+      "structural_hash": "8bc8e4a54a197aa9bd2c312b76550b3bd04560752696ad45fbbcd9fe8c493b1f",
+      "base_distance": 6,
+      "distance_band": "short",
+      "condition_type": "static",
+      "blockage_kind": "none",
+      "dead_end_count": 0,
+      "curriculum_stage": 1,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-027",
+      "layout_id": "p3-double_gate_ring-003",
+      "rows": [
+        "##########",
+        "#........#",
+        "#.####.#.#",
+        "#.####.#.#",
+        "#.###..#.#",
+        "#.###..#.#",
+        "#.###..#.#",
+        "#.###.##.#",
+        "#........#",
+        "##########"
+      ],
+      "start": [
+        3,
+        8
+      ],
+      "goal": [
+        8,
+        4
+      ],
+      "events": [],
+      "event_seed": 93244,
+      "condition": "double_gate_ring",
+      "split": "product-heldout",
+      "layout_hash": "0ab14c912a474930fd9fa984f4c3aed1cb457b791183d22602f4a5eb5a375c23",
+      "topology_family": "double_gate_ring",
+      "canonical_layout_hash": "0ada3591a79f790b7a35328dbd17a38080f41d47e3beee22ad39d5075abf8f57",
+      "structural_hash": "08f576da25fdf4ad926ac3a8e4d4cd1333539a297e88530db38c3b99edebbeef",
+      "base_distance": 9,
+      "distance_band": "long",
+      "condition_type": "static",
+      "blockage_kind": "none",
+      "dead_end_count": 0,
+      "curriculum_stage": 1,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-028",
+      "layout_id": "p3-double_gate_ring-004",
+      "rows": [
+        "##########",
+        "#........#",
+        "#.#.####.#",
+        "#.#....#.#",
+        "#.#....#.#",
+        "#.#....#.#",
+        "#.#....#.#",
+        "#.####.#.#",
+        "#........#",
+        "##########"
+      ],
+      "start": [
+        8,
+        7
+      ],
+      "goal": [
+        3,
+        5
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            8,
+            6
+          ],
+          "start": 0,
+          "clear": 8
+        }
+      ],
+      "event_seed": 93245,
+      "condition": "double_gate_ring",
+      "split": "product-heldout",
+      "layout_hash": "620c9fc36c9e57b4524ec856cf01d80a35282a2ba74928cd40aec978a366afd8",
+      "topology_family": "double_gate_ring",
+      "canonical_layout_hash": "99e0c5a0590e386afaebdeb939bc960817050ac3e96d3e3e242111ba541c722b",
+      "structural_hash": "de178f74e1611b73b2def227d52e26c64bf3351adb527309176202af6de476fa",
+      "base_distance": 7,
+      "distance_band": "short",
+      "condition_type": "dynamic",
+      "blockage_kind": "detour-available",
+      "dead_end_count": 0,
+      "curriculum_stage": 1,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-029",
+      "layout_id": "p3-double_gate_ring-005",
+      "rows": [
+        "##########",
+        "#........#",
+        "#.###.##.#",
+        "#.###..#.#",
+        "#.###..#.#",
+        "#.###..#.#",
+        "#.###..#.#",
+        "#.###.##.#",
+        "#........#",
+        "##########"
+      ],
+      "start": [
+        3,
+        1
+      ],
+      "goal": [
+        6,
+        8
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            2,
+            1
+          ],
+          "start": 0,
+          "clear": 10
+        }
+      ],
+      "event_seed": 93246,
+      "condition": "double_gate_ring",
+      "split": "product-heldout",
+      "layout_hash": "457067329a73edb90a64df9d365b6acaeb7ddb5bd882a1076adca3f36352be72",
+      "topology_family": "double_gate_ring",
+      "canonical_layout_hash": "c51b655466c137639be8fec09bc94725afe7172aff28354a9e8d41a7492e8c47",
+      "structural_hash": "9514e0e944b27a756a0fedd481b791cdfac032f88d0a249db4ba7a35ef25f9fe",
+      "base_distance": 14,
+      "distance_band": "long",
+      "condition_type": "dynamic",
+      "blockage_kind": "detour-available",
+      "dead_end_count": 0,
+      "curriculum_stage": 2,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-030",
+      "layout_id": "p3-double_gate_ring-006",
+      "rows": [
+        "##########",
+        "#........#",
+        "#.######.#",
+        "#.###..#.#",
+        "#........#",
+        "#.######.#",
+        "#.######.#",
+        "#.######.#",
+        "#........#",
+        "##########"
+      ],
+      "start": [
+        4,
+        3
+      ],
+      "goal": [
+        4,
+        7
+      ],
+      "events": [],
+      "event_seed": 93247,
+      "condition": "double_gate_ring",
+      "split": "product-heldout",
+      "layout_hash": "2e5c6d245ee910a58eac8a1969b0d91bf141bd2079114cdd8b33af69d9c18da1",
+      "topology_family": "double_gate_ring",
+      "canonical_layout_hash": "14b1f16db70610276aaa52ba54df5128908bb1591d4c86e0530b20332bffe77d",
+      "structural_hash": "cb823f87ee12d46cb129cc38aba04b3048f96750034bd22a26619ad17be5ac20",
+      "base_distance": 4,
+      "distance_band": "short",
+      "condition_type": "static",
+      "blockage_kind": "none",
+      "dead_end_count": 0,
+      "curriculum_stage": 0,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-031",
+      "layout_id": "p3-double_gate_ring-007",
+      "rows": [
+        "##########",
+        "#........#",
+        "#.##.###.#",
+        "#.#..###.#",
+        "#.#..###.#",
+        "#.#..###.#",
+        "#.##.###.#",
+        "#.##.###.#",
+        "#........#",
+        "##########"
+      ],
+      "start": [
+        3,
+        4
+      ],
+      "goal": [
+        5,
+        1
+      ],
+      "events": [],
+      "event_seed": 93248,
+      "condition": "double_gate_ring",
+      "split": "product-heldout",
+      "layout_hash": "b1817f2de860fc48f2fd3efb9e783c03f21bbf748dd38137e4a37adc71392bb4",
+      "topology_family": "double_gate_ring",
+      "canonical_layout_hash": "aaca2c4ed16711f9064406d90fc4d36888fcc57fcb09d195f9dd6fdc58eafd6e",
+      "structural_hash": "98f1736c884c1b011c00351d3911735d3f37d4dba227c03eb8ed47e606e88cea",
+      "base_distance": 9,
+      "distance_band": "long",
+      "condition_type": "static",
+      "blockage_kind": "none",
+      "dead_end_count": 0,
+      "curriculum_stage": 1,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-032",
+      "layout_id": "p3-destination_enclosure-000",
+      "rows": [
+        "##########",
+        "#........#",
+        "#.######.#",
+        "##.....#.#",
+        "#.#....#.#",
+        "#.#....###",
+        "#.#....#.#",
+        "#.######.#",
+        "#........#",
+        "##########"
+      ],
+      "start": [
+        2,
+        8
+      ],
+      "goal": [
+        1,
+        5
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            1,
+            8
+          ],
+          "start": 0,
+          "clear": 15
+        }
+      ],
+      "event_seed": 93249,
+      "condition": "destination_enclosure",
+      "split": "product-heldout",
+      "layout_hash": "1bdf48e7c98e08ab657f05ca26a58b61ac9794e2af09c7d85275f4db8d68fad0",
+      "topology_family": "destination_enclosure",
+      "canonical_layout_hash": "b19a29ee858ec5a6808262640b409cfe74ee306f8294b464939f425f77ab398d",
+      "structural_hash": "52035e26011a1b5b06ff73acd9d5077bc1d11c23af75f7b2f821d504b747a673",
+      "base_distance": 4,
+      "distance_band": "short",
+      "condition_type": "dynamic",
+      "blockage_kind": "forced-wait",
+      "dead_end_count": 5,
+      "curriculum_stage": 0,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-033",
+      "layout_id": "p3-destination_enclosure-001",
+      "rows": [
+        "##########",
+        "#....#...#",
+        "#.######.#",
+        "#.#....#.#",
+        "#.#....#.#",
+        "#.#....#.#",
+        "#.#....#.#",
+        "#.####.#.#",
+        "#.#......#",
+        "##########"
+      ],
+      "start": [
+        7,
+        1
+      ],
+      "goal": [
+        1,
+        4
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            6,
+            1
+          ],
+          "start": 0,
+          "clear": 7
+        }
+      ],
+      "event_seed": 93250,
+      "condition": "destination_enclosure",
+      "split": "product-heldout",
+      "layout_hash": "e9d494ba1b8093fdc94249d93c351248889cc17638c3d0b6f9aee40f1d99bbf1",
+      "topology_family": "destination_enclosure",
+      "canonical_layout_hash": "f041974242544ee8f6b34499b6ce3989d3b2936199c240827663db9eb64aba50",
+      "structural_hash": "744651debddba7bfcec42e255e4994276d3d4d17f3a03c196d6a25c65cb7be15",
+      "base_distance": 9,
+      "distance_band": "long",
+      "condition_type": "dynamic",
+      "blockage_kind": "forced-wait",
+      "dead_end_count": 4,
+      "curriculum_stage": 1,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-034",
+      "layout_id": "p3-destination_enclosure-002",
+      "rows": [
+        "##########",
+        "#.....#..#",
+        "#.######.#",
+        "#.#....#.#",
+        "#.#....#.#",
+        "#.#....#.#",
+        "#.#....#.#",
+        "#.##.###.#",
+        "#....#...#",
+        "##########"
+      ],
+      "start": [
+        3,
+        6
+      ],
+      "goal": [
+        7,
+        4
+      ],
+      "events": [],
+      "event_seed": 93251,
+      "condition": "destination_enclosure",
+      "split": "product-heldout",
+      "layout_hash": "462ce3f16ef2e0c252e440ec8247e47176e5647bc7e24741acddb269f3d88914",
+      "topology_family": "destination_enclosure",
+      "canonical_layout_hash": "94666981402cf1b550a655f85fcd357405513f46c16a99c7b7650ce97adddcbb",
+      "structural_hash": "3da5bb84deeaa50bcd6647cba156b8c1aa6a9ea08e89f3d024f6a175feb47bf0",
+      "base_distance": 6,
+      "distance_band": "short",
+      "condition_type": "static",
+      "blockage_kind": "none",
+      "dead_end_count": 3,
+      "curriculum_stage": 1,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-035",
+      "layout_id": "p3-destination_enclosure-003",
+      "rows": [
+        "##########",
+        "#....#...#",
+        "#.######.#",
+        "#.#....#.#",
+        "#.#....#.#",
+        "#.#....#.#",
+        "#.#....#.#",
+        "#.####.#.#",
+        "#..#.....#",
+        "##########"
+      ],
+      "start": [
+        8,
+        7
+      ],
+      "goal": [
+        3,
+        3
+      ],
+      "events": [],
+      "event_seed": 93252,
+      "condition": "destination_enclosure",
+      "split": "product-heldout",
+      "layout_hash": "2dae80de69e9917ea87278d5fc6f9e6f0fc813ecaad1e599727aee1cb19b9925",
+      "topology_family": "destination_enclosure",
+      "canonical_layout_hash": "9f3e1bd8796c90eb642ef3e3353361b78a90b553280ef3595103cd4bd6c9d2b6",
+      "structural_hash": "882aab13c1246d7e983e34a5e374a4358dac16afc16f99b6f62cec37304417b0",
+      "base_distance": 9,
+      "distance_band": "long",
+      "condition_type": "static",
+      "blockage_kind": "none",
+      "dead_end_count": 4,
+      "curriculum_stage": 1,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-036",
+      "layout_id": "p3-destination_enclosure-004",
+      "rows": [
+        "##########",
+        "#......#.#",
+        "#.###.##.#",
+        "#.#....#.#",
+        "#.#....#.#",
+        "#.#....#.#",
+        "#.#....#.#",
+        "#.######.#",
+        "#..#.....#",
+        "##########"
+      ],
+      "start": [
+        5,
+        5
+      ],
+      "goal": [
+        3,
+        4
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            4,
+            5
+          ],
+          "start": 0,
+          "clear": 14
+        }
+      ],
+      "event_seed": 93253,
+      "condition": "destination_enclosure",
+      "split": "product-heldout",
+      "layout_hash": "f74d811d9b308ddd021afea82305a7351acc872e8663ed0708824104ad6b05b5",
+      "topology_family": "destination_enclosure",
+      "canonical_layout_hash": "dcd4d5f65af74aa37f31c42541f917ded931f67cf10097396f4183c843cbbfea",
+      "structural_hash": "7e4eb5c4ab8a1471f995d30dc5b6749c1de2bf8cdec3a074561aa6d21f35ddde",
+      "base_distance": 3,
+      "distance_band": "short",
+      "condition_type": "dynamic",
+      "blockage_kind": "detour-available",
+      "dead_end_count": 4,
+      "curriculum_stage": 0,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-037",
+      "layout_id": "p3-destination_enclosure-005",
+      "rows": [
+        "##########",
+        "#....#...#",
+        "#.######.#",
+        "#.#....#.#",
+        "#.#....#.#",
+        "#.#....#.#",
+        "#.#....#.#",
+        "#.##.###.#",
+        "#.....#..#",
+        "##########"
+      ],
+      "start": [
+        7,
+        1
+      ],
+      "goal": [
+        4,
+        5
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            5,
+            4
+          ],
+          "start": 0,
+          "clear": 21
+        }
+      ],
+      "event_seed": 93254,
+      "condition": "destination_enclosure",
+      "split": "product-heldout",
+      "layout_hash": "b8c23ca0643e40d0771777032f085a62072303ef6e6ebc28dad0083bb725df69",
+      "topology_family": "destination_enclosure",
+      "canonical_layout_hash": "9f923d057278e83bcf5b83165de00393edca49d94f3e4f9a7dc6956a07655638",
+      "structural_hash": "69a4a671fe1c67cba316160bc3477c03eb9f8457be6ab3b3bdce6449bf8fbaae",
+      "base_distance": 9,
+      "distance_band": "long",
+      "condition_type": "dynamic",
+      "blockage_kind": "detour-available",
+      "dead_end_count": 4,
+      "curriculum_stage": 1,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-038",
+      "layout_id": "p3-destination_enclosure-006",
+      "rows": [
+        "##########",
+        "#........#",
+        "#.######.#",
+        "#.#....###",
+        "###....#.#",
+        "#.#....#.#",
+        "#......#.#",
+        "#.######.#",
+        "#........#",
+        "##########"
+      ],
+      "start": [
+        1,
+        6
+      ],
+      "goal": [
+        1,
+        8
+      ],
+      "events": [],
+      "event_seed": 93255,
+      "condition": "destination_enclosure",
+      "split": "product-heldout",
+      "layout_hash": "778678d3fd30b3d589ef4cd5fa7f4b65ac93374a27be28515fb18cf15f9de795",
+      "topology_family": "destination_enclosure",
+      "canonical_layout_hash": "94bf65f307f3e6b3398c0ff9c9dca17edd6ac12db7e3564fcea88aed2e7e3b14",
+      "structural_hash": "9fff3b93515bd1efec5a2f18d9de38d75649a8a02d15b7d5303806c08d4b8884",
+      "base_distance": 2,
+      "distance_band": "short",
+      "condition_type": "static",
+      "blockage_kind": "none",
+      "dead_end_count": 4,
+      "curriculum_stage": 0,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-039",
+      "layout_id": "p3-destination_enclosure-007",
+      "rows": [
+        "##########",
+        "#........#",
+        "#.######.#",
+        "#.#....#.#",
+        "#.#....###",
+        "#......#.#",
+        "###....#.#",
+        "#.######.#",
+        "#........#",
+        "##########"
+      ],
+      "start": [
+        8,
+        2
+      ],
+      "goal": [
+        6,
+        8
+      ],
+      "events": [],
+      "event_seed": 93256,
+      "condition": "destination_enclosure",
+      "split": "product-heldout",
+      "layout_hash": "5b5397cf1dd1f7800a95a1316bd5c3d6dd863fd712424dea5a059f3e9ffb3315",
+      "topology_family": "destination_enclosure",
+      "canonical_layout_hash": "04b8dbe7c8001a6f8a6a16fad4082996bb9c17b77b6b757041d47faccfa7704e",
+      "structural_hash": "8047d56ef9e6ce5c93a11389dc0a631fe3822c06d7c672982407a5e5db3eb741",
+      "base_distance": 8,
+      "distance_band": "long",
+      "condition_type": "static",
+      "blockage_kind": "none",
+      "dead_end_count": 3,
+      "curriculum_stage": 1,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-040",
+      "layout_id": "p3-forced_bridge-000",
+      "rows": [
+        "##########",
+        "#..#######",
+        "#....#####",
+        "#....#####",
+        "####.#####",
+        "####.#####",
+        "####.....#",
+        "######...#",
+        "######..##",
+        "##########"
+      ],
+      "start": [
+        7,
+        7
+      ],
+      "goal": [
+        6,
+        4
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            6,
+            6
+          ],
+          "start": 0,
+          "clear": 14
+        }
+      ],
+      "event_seed": 93257,
+      "condition": "forced_bridge",
+      "split": "product-heldout",
+      "layout_hash": "7837189ec9f36b982ab3ec230905f37ea630675ec063b6651df62a07b36e1d71",
+      "topology_family": "forced_bridge",
+      "canonical_layout_hash": "72c4905d5757db397352b668e23910b6a2ab0879bf47891c8bafad9ce450073f",
+      "structural_hash": "c03a91b8aafeadfb4166a0b66710aa380cf76cf1362f7ce9030aa61765f2a51c",
+      "base_distance": 4,
+      "distance_band": "short",
+      "condition_type": "dynamic",
+      "blockage_kind": "forced-wait",
+      "dead_end_count": 0,
+      "curriculum_stage": 0,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-041",
+      "layout_id": "p3-forced_bridge-001",
+      "rows": [
+        "##########",
+        "##..######",
+        "#...######",
+        "#...######",
+        "###.######",
+        "###.######",
+        "###......#",
+        "######...#",
+        "######.#.#",
+        "##########"
+      ],
+      "start": [
+        2,
+        1
+      ],
+      "goal": [
+        7,
+        8
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            3,
+            3
+          ],
+          "start": 0,
+          "clear": 9
+        }
+      ],
+      "event_seed": 93258,
+      "condition": "forced_bridge",
+      "split": "product-heldout",
+      "layout_hash": "c9d5742871c3978f79e65f857efc35cac3dc8d44f9aca7fb6d412f798b18d405",
+      "topology_family": "forced_bridge",
+      "canonical_layout_hash": "b87a31322ea58d517d3663a12862a68e78da933e436201f1aecd031b50118cba",
+      "structural_hash": "d948185fddc01bb226f9b017b5d10bfbaccf60f9cfeb3837016550ebea5b2b17",
+      "base_distance": 12,
+      "distance_band": "long",
+      "condition_type": "dynamic",
+      "blockage_kind": "forced-wait",
+      "dead_end_count": 2,
+      "curriculum_stage": 2,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-042",
+      "layout_id": "p3-forced_bridge-002",
+      "rows": [
+        "##########",
+        "######...#",
+        "######...#",
+        "######..##",
+        "###.....##",
+        "###.######",
+        "##..######",
+        "#...######",
+        "#...######",
+        "##########"
+      ],
+      "start": [
+        4,
+        6
+      ],
+      "goal": [
+        8,
+        3
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            4,
+            5
+          ],
+          "start": 0,
+          "clear": 18
+        }
+      ],
+      "event_seed": 93259,
+      "condition": "forced_bridge",
+      "split": "product-heldout",
+      "layout_hash": "10a7b45181f64b0ca0dd856f8f874310c923a176243254744e2b1ad543885fc5",
+      "topology_family": "forced_bridge",
+      "canonical_layout_hash": "a437e34bc6730da3fb660a2cb19eb458065a13f18b33fe6be5427fd0e1a7f49a",
+      "structural_hash": "32a240f7fcbb9f971c66b53c6e3e0e79c4685af5c8aeb8f3b190b8ac5d4168e8",
+      "base_distance": 7,
+      "distance_band": "short",
+      "condition_type": "dynamic",
+      "blockage_kind": "forced-wait",
+      "dead_end_count": 0,
+      "curriculum_stage": 1,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-043",
+      "layout_id": "p3-forced_bridge-003",
+      "rows": [
+        "##########",
+        "#..#######",
+        "#.....####",
+        "#...#.####",
+        "#####.####",
+        "#####.####",
+        "#####....#",
+        "######...#",
+        "######.#.#",
+        "##########"
+      ],
+      "start": [
+        5,
+        5
+      ],
+      "goal": [
+        1,
+        1
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            4,
+            5
+          ],
+          "start": 0,
+          "clear": 18
+        }
+      ],
+      "event_seed": 93260,
+      "condition": "forced_bridge",
+      "split": "product-heldout",
+      "layout_hash": "9f39a937699d42730acab6cbbf1470525d13672fbb09e81c013fa5424f56c2e4",
+      "topology_family": "forced_bridge",
+      "canonical_layout_hash": "1ad16139977f793b852225a238968c8287e58c7933853bca7bd56e0101f363b9",
+      "structural_hash": "853f067e2ee1757dd4032728c87b8fcf732921f941ba24069d6ba953edc6a0d9",
+      "base_distance": 8,
+      "distance_band": "long",
+      "condition_type": "dynamic",
+      "blockage_kind": "forced-wait",
+      "dead_end_count": 2,
+      "curriculum_stage": 1,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-044",
+      "layout_id": "p3-forced_bridge-004",
+      "rows": [
+        "##########",
+        "######...#",
+        "######...#",
+        "######..##",
+        "######.###",
+        "######.###",
+        "#......###",
+        "##..######",
+        "#...######",
+        "##########"
+      ],
+      "start": [
+        7,
+        3
+      ],
+      "goal": [
+        4,
+        6
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            6,
+            3
+          ],
+          "start": 0,
+          "clear": 15
+        }
+      ],
+      "event_seed": 93261,
+      "condition": "forced_bridge",
+      "split": "product-heldout",
+      "layout_hash": "b834289dbf7b8463ee3d97045d5fc36188656f4ff3a8d913e7fa3d833292944e",
+      "topology_family": "forced_bridge",
+      "canonical_layout_hash": "8ec8ad3e9569cdde19c861dfcc230d3525f1c2b1a1526060ca7f152bc90bf553",
+      "structural_hash": "e466d4050f52bbc97c402383a629b5ccdeaa06c27d192cfd9cf64dbfad934b31",
+      "base_distance": 6,
+      "distance_band": "short",
+      "condition_type": "dynamic",
+      "blockage_kind": "forced-wait",
+      "dead_end_count": 2,
+      "curriculum_stage": 1,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-045",
+      "layout_id": "p3-forced_bridge-005",
+      "rows": [
+        "##########",
+        "######...#",
+        "######...#",
+        "###.....##",
+        "###.######",
+        "###.######",
+        "#...######",
+        "#...######",
+        "##..######",
+        "##########"
+      ],
+      "start": [
+        5,
+        3
+      ],
+      "goal": [
+        1,
+        7
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            4,
+            3
+          ],
+          "start": 0,
+          "clear": 9
+        }
+      ],
+      "event_seed": 93262,
+      "condition": "forced_bridge",
+      "split": "product-heldout",
+      "layout_hash": "5b3b65c90379a63293af1e38e4df0807daf01ee51151c9be02eb0bda76a1dfef",
+      "topology_family": "forced_bridge",
+      "canonical_layout_hash": "0f79b5873cde2562b5ada471a2d7e9bf4117a14c434c9900c0940c60a92d02f8",
+      "structural_hash": "d3b7774e87d423e7da3d2df17a739315b5afd7bb7e22810f79ba84b6cfb334a7",
+      "base_distance": 8,
+      "distance_band": "long",
+      "condition_type": "dynamic",
+      "blockage_kind": "forced-wait",
+      "dead_end_count": 0,
+      "curriculum_stage": 1,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-046",
+      "layout_id": "p3-forced_bridge-006",
+      "rows": [
+        "##########",
+        "######..##",
+        "######...#",
+        "######...#",
+        "######.###",
+        "##.....###",
+        "#...######",
+        "#...######",
+        "##..######",
+        "##########"
+      ],
+      "start": [
+        5,
+        5
+      ],
+      "goal": [
+        1,
+        6
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            5,
+            6
+          ],
+          "start": 0,
+          "clear": 10
+        }
+      ],
+      "event_seed": 93263,
+      "condition": "forced_bridge",
+      "split": "product-heldout",
+      "layout_hash": "dd21a3901d79090d526ee5040e3b84915d398d644b4a259d22e646b708746e02",
+      "topology_family": "forced_bridge",
+      "canonical_layout_hash": "f515aedc65c8ce9c8323d632ea8a06c05b46ed1309209e3661264bc24765c05a",
+      "structural_hash": "9d8ded14f48fceaf868eb64e0f092dff9b9c2df229f3807e45712d8da5e0bc33",
+      "base_distance": 5,
+      "distance_band": "short",
+      "condition_type": "dynamic",
+      "blockage_kind": "forced-wait",
+      "dead_end_count": 0,
+      "curriculum_stage": 1,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-047",
+      "layout_id": "p3-forced_bridge-007",
+      "rows": [
+        "##########",
+        "#.#.######",
+        "#....#####",
+        "#....#####",
+        "####.#####",
+        "####.#####",
+        "####.....#",
+        "######...#",
+        "#######..#",
+        "##########"
+      ],
+      "start": [
+        6,
+        8
+      ],
+      "goal": [
+        1,
+        1
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            6,
+            6
+          ],
+          "start": 0,
+          "clear": 14
+        }
+      ],
+      "event_seed": 93264,
+      "condition": "forced_bridge",
+      "split": "product-heldout",
+      "layout_hash": "55208177fe0a55253d94d2a024733d4c99b9c25e7ada9338a546a7fb473b8aef",
+      "topology_family": "forced_bridge",
+      "canonical_layout_hash": "fbc6bc8be21b5b5fcdf990a2e494c6f0b50134ce8400afbfb4ed1650552952a9",
+      "structural_hash": "9a9033ca13f33d21902c48f9682380cf15808b569d69d40e7c2cc71be6d4590a",
+      "base_distance": 12,
+      "distance_band": "long",
+      "condition_type": "dynamic",
+      "blockage_kind": "forced-wait",
+      "dead_end_count": 2,
+      "curriculum_stage": 2,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-048",
+      "layout_id": "p3-island_loops-000",
+      "rows": [
+        "##########",
+        "#........#",
+        "#.##.....#",
+        "#.##.....#",
+        "#...#....#",
+        "#.....##.#",
+        "#.....##.#",
+        "#....###.#",
+        "#........#",
+        "##########"
+      ],
+      "start": [
+        7,
+        2
+      ],
+      "goal": [
+        5,
+        4
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            6,
+            2
+          ],
+          "start": 0,
+          "clear": 17
+        }
+      ],
+      "event_seed": 93265,
+      "condition": "island_loops",
+      "split": "product-heldout",
+      "layout_hash": "0e42f502b922fb95fc4cc660ddc1d007ca6a0529c19a74c811c8416acb84ae21",
+      "topology_family": "island_loops",
+      "canonical_layout_hash": "e60a6e8b0d7883fa9f8cb65cc9f744d111c4a783aee6854340aa94ded8893d0c",
+      "structural_hash": "2ec125b972f46a947e96f8bf3ec0afe982382a2cf30d2953a9512ae1b7479d89",
+      "base_distance": 4,
+      "distance_band": "short",
+      "condition_type": "dynamic",
+      "blockage_kind": "detour-available",
+      "dead_end_count": 0,
+      "curriculum_stage": 0,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-049",
+      "layout_id": "p3-island_loops-001",
+      "rows": [
+        "##########",
+        "#........#",
+        "#.##.....#",
+        "#.###....#",
+        "#.##.....#",
+        "#.##.###.#",
+        "#.....##.#",
+        "#.....##.#",
+        "#........#",
+        "##########"
+      ],
+      "start": [
+        2,
+        4
+      ],
+      "goal": [
+        8,
+        2
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            2,
+            5
+          ],
+          "start": 0,
+          "clear": 10
+        }
+      ],
+      "event_seed": 93266,
+      "condition": "island_loops",
+      "split": "product-heldout",
+      "layout_hash": "143caa066d1ee6a209484c155d64c959f5397f826cd05109715725d66739a860",
+      "topology_family": "island_loops",
+      "canonical_layout_hash": "e6f5eadf0fde187fa05cf707f606344a7863977a6b8a329ff362fabcf86d78bf",
+      "structural_hash": "8ef42ac06150985680ca7e2f9ec92f47cab59252e20287e6748071841afc215f",
+      "base_distance": 10,
+      "distance_band": "long",
+      "condition_type": "dynamic",
+      "blockage_kind": "detour-available",
+      "dead_end_count": 0,
+      "curriculum_stage": 2,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-050",
+      "layout_id": "p3-island_loops-002",
+      "rows": [
+        "##########",
+        "#........#",
+        "#.##.....#",
+        "#.###....#",
+        "#.##.....#",
+        "#....#...#",
+        "#.....##.#",
+        "#.....##.#",
+        "#........#",
+        "##########"
+      ],
+      "start": [
+        1,
+        5
+      ],
+      "goal": [
+        1,
+        1
+      ],
+      "events": [],
+      "event_seed": 93267,
+      "condition": "island_loops",
+      "split": "product-heldout",
+      "layout_hash": "52489fdda38896458a600bd58fc9b4fd23d65bde7704288b0f6c72ede741122b",
+      "topology_family": "island_loops",
+      "canonical_layout_hash": "509c656521d564745c514bf31580ec5ef214de5552c7027a1fbb6720904bb3e3",
+      "structural_hash": "b0809a06df389d564e8f5e9a29bcb3cb5200bf4b4dc9bf3cc4024f5f6fa9385b",
+      "base_distance": 4,
+      "distance_band": "short",
+      "condition_type": "static",
+      "blockage_kind": "none",
+      "dead_end_count": 0,
+      "curriculum_stage": 0,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-051",
+      "layout_id": "p3-island_loops-003",
+      "rows": [
+        "##########",
+        "#........#",
+        "#.###....#",
+        "#.##.....#",
+        "#.##.....#",
+        "#........#",
+        "#....###.#",
+        "#.....##.#",
+        "#........#",
+        "##########"
+      ],
+      "start": [
+        3,
+        4
+      ],
+      "goal": [
+        8,
+        1
+      ],
+      "events": [],
+      "event_seed": 93268,
+      "condition": "island_loops",
+      "split": "product-heldout",
+      "layout_hash": "14f5cf861093f9603893012f98bc4805ad4cf719e37806b849afccd1858bacf7",
+      "topology_family": "island_loops",
+      "canonical_layout_hash": "ff839afd2682aa66e0f7b3d3e90816ee58dd3b7ddde6eb63196c9b4cf43eb8cc",
+      "structural_hash": "a5a0ea1946bf7bccfcd079afea08c4dc81b8d42af5b7b9f40bbe953f08e3d18d",
+      "base_distance": 8,
+      "distance_band": "long",
+      "condition_type": "static",
+      "blockage_kind": "none",
+      "dead_end_count": 0,
+      "curriculum_stage": 1,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-052",
+      "layout_id": "p3-island_loops-004",
+      "rows": [
+        "##########",
+        "#........#",
+        "#.##.....#",
+        "#.###....#",
+        "#.##.....#",
+        "#.....##.#",
+        "#....###.#",
+        "#........#",
+        "#........#",
+        "##########"
+      ],
+      "start": [
+        1,
+        4
+      ],
+      "goal": [
+        5,
+        1
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            1,
+            3
+          ],
+          "start": 0,
+          "clear": 8
+        }
+      ],
+      "event_seed": 93269,
+      "condition": "island_loops",
+      "split": "product-heldout",
+      "layout_hash": "9f8dd1b87491659faaf91ae1ef5aeaf1731e0f14bc37b227d90794aace1f3ca5",
+      "topology_family": "island_loops",
+      "canonical_layout_hash": "d77955426897385a6f127606396fca09317122393499f2a4af2e429b205275f8",
+      "structural_hash": "b6da05c52d8dbf075d7001e9b5be7dd0245d3f550f1e3e3825b27608ca18817b",
+      "base_distance": 7,
+      "distance_band": "short",
+      "condition_type": "dynamic",
+      "blockage_kind": "detour-available",
+      "dead_end_count": 0,
+      "curriculum_stage": 1,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-053",
+      "layout_id": "p3-island_loops-005",
+      "rows": [
+        "##########",
+        "#........#",
+        "#.###....#",
+        "#.##.....#",
+        "#.##..##.#",
+        "#.....##.#",
+        "#.....##.#",
+        "#....###.#",
+        "#........#",
+        "##########"
+      ],
+      "start": [
+        3,
+        1
+      ],
+      "goal": [
+        8,
+        8
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            4,
+            1
+          ],
+          "start": 0,
+          "clear": 10
+        }
+      ],
+      "event_seed": 93270,
+      "condition": "island_loops",
+      "split": "product-heldout",
+      "layout_hash": "b4a48b1a14c5d318bdf02670ca96d20c18936e8762ca45fa98dc66f637fa3382",
+      "topology_family": "island_loops",
+      "canonical_layout_hash": "3dbc49d307e5581739fac7466c596ac29605880c2620898540d4f93c64ba6835",
+      "structural_hash": "eca8dc64f6d9d4cdbcee8e088a77c1be4c58addfc81f12d46c7d306512058932",
+      "base_distance": 12,
+      "distance_band": "long",
+      "condition_type": "dynamic",
+      "blockage_kind": "detour-available",
+      "dead_end_count": 0,
+      "curriculum_stage": 2,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-054",
+      "layout_id": "p3-island_loops-006",
+      "rows": [
+        "##########",
+        "#........#",
+        "#.###....#",
+        "#.##.....#",
+        "#.##.....#",
+        "#....###.#",
+        "#.....##.#",
+        "#........#",
+        "#........#",
+        "##########"
+      ],
+      "start": [
+        5,
+        4
+      ],
+      "goal": [
+        1,
+        6
+      ],
+      "events": [],
+      "event_seed": 93271,
+      "condition": "island_loops",
+      "split": "product-heldout",
+      "layout_hash": "58cf83a89a3aef3728ed411ae27bbd8530e0449a38b9f6fb331f1f73fdc0e626",
+      "topology_family": "island_loops",
+      "canonical_layout_hash": "ec2c3a01a1f1958d11fccf596b810afc619ac64f2b31e6960b8684c46d436b44",
+      "structural_hash": "2b7443777b122f22816510bdad7a684172a65598fbd4d7adcc993e8a86991f33",
+      "base_distance": 6,
+      "distance_band": "short",
+      "condition_type": "static",
+      "blockage_kind": "none",
+      "dead_end_count": 0,
+      "curriculum_stage": 1,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-055",
+      "layout_id": "p3-island_loops-007",
+      "rows": [
+        "##########",
+        "#........#",
+        "#.##.....#",
+        "#.###....#",
+        "#.##..##.#",
+        "#.....##.#",
+        "#.....##.#",
+        "#....###.#",
+        "#........#",
+        "##########"
+      ],
+      "start": [
+        1,
+        7
+      ],
+      "goal": [
+        7,
+        3
+      ],
+      "events": [],
+      "event_seed": 93272,
+      "condition": "island_loops",
+      "split": "product-heldout",
+      "layout_hash": "362eee92fc0f110bdee55826391f28dd92f15c767e6b6af4e0176857a09aa43c",
+      "topology_family": "island_loops",
+      "canonical_layout_hash": "12e47ea46dea1131385b7f0cf32c954bab70f259591a9e1dd163cc773149ecbf",
+      "structural_hash": "f6df1d25787017df1982d04a0550b4730fc3f0a802f5811901cdf3abb1a6a6fa",
+      "base_distance": 10,
+      "distance_band": "long",
+      "condition_type": "static",
+      "blockage_kind": "none",
+      "dead_end_count": 0,
+      "curriculum_stage": 2,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-056",
+      "layout_id": "p3-switchback_spine-000",
+      "rows": [
+        "######..##",
+        "######..##",
+        "#........#",
+        "########.#",
+        "########.#",
+        "#........#",
+        "#.########",
+        "#.########",
+        "#........#",
+        "###.######"
+      ],
+      "start": [
+        9,
+        3
+      ],
+      "goal": [
+        8,
+        4
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            8,
+            3
+          ],
+          "start": 0,
+          "clear": 17
+        }
+      ],
+      "event_seed": 93273,
+      "condition": "switchback_spine",
+      "split": "product-heldout",
+      "layout_hash": "e8080db3a59742b863f545262b8475d6827f2a751c17d2b025efa2e3da8224b7",
+      "topology_family": "switchback_spine",
+      "canonical_layout_hash": "5dda4d04582ac1cc9e66c857ecf67e65d08b47586db1f6a46023359685b8cdea",
+      "structural_hash": "059ff4d6371d098a46a4a42c8f562b2ffbdd96e1442ad10400f5e264f349ed7f",
+      "base_distance": 2,
+      "distance_band": "short",
+      "condition_type": "dynamic",
+      "blockage_kind": "forced-wait",
+      "dead_end_count": 3,
+      "curriculum_stage": 0,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-057",
+      "layout_id": "p3-switchback_spine-001",
+      "rows": [
+        "######..##",
+        "######..##",
+        "#........#",
+        "########.#",
+        "########.#",
+        "#........#",
+        "#.########",
+        "#.########",
+        "#........#",
+        "######.###"
+      ],
+      "start": [
+        5,
+        8
+      ],
+      "goal": [
+        8,
+        8
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            5,
+            7
+          ],
+          "start": 0,
+          "clear": 9
+        }
+      ],
+      "event_seed": 93274,
+      "condition": "switchback_spine",
+      "split": "product-heldout",
+      "layout_hash": "330b4724db1a29c5858aa859ccda94f15b04b1aeb0038e08d5241d8a8e2b30a6",
+      "topology_family": "switchback_spine",
+      "canonical_layout_hash": "33a1b8cae2fe5563f0f3997b3fec360e72492812bd236c62e091cfd206e19f76",
+      "structural_hash": "2ed6507adf675b957a046d14b1512fde91d617f748ed6758528804e1a35b57b6",
+      "base_distance": 17,
+      "distance_band": "long",
+      "condition_type": "dynamic",
+      "blockage_kind": "forced-wait",
+      "dead_end_count": 3,
+      "curriculum_stage": 2,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-058",
+      "layout_id": "p3-switchback_spine-002",
+      "rows": [
+        "###.######",
+        "#........#",
+        "########.#",
+        "########.#",
+        "#........#",
+        "#.########",
+        "#.########",
+        "#........#",
+        "######..##",
+        "######..##"
+      ],
+      "start": [
+        7,
+        5
+      ],
+      "goal": [
+        8,
+        6
+      ],
+      "events": [],
+      "event_seed": 93275,
+      "condition": "switchback_spine",
+      "split": "product-heldout",
+      "layout_hash": "fc7254709446ea4aeadc46d4d2dc1eeffbe6cccab94f51d0ad096766a5f9fae3",
+      "topology_family": "switchback_spine",
+      "canonical_layout_hash": "6d3f10ca8d60a8019910388cb7c35901104aa210ce7d3ff475f4cbe7eb8ce3e2",
+      "structural_hash": "dbe073ad74a51dbde16330a39f49fde12af36f4d97e04519701a1db75ffa8379",
+      "base_distance": 2,
+      "distance_band": "short",
+      "condition_type": "static",
+      "blockage_kind": "none",
+      "dead_end_count": 3,
+      "curriculum_stage": 0,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-059",
+      "layout_id": "p3-switchback_spine-003",
+      "rows": [
+        "####.#####",
+        "#........#",
+        "########.#",
+        "########.#",
+        "#........#",
+        "#.########",
+        "#.########",
+        "#........#",
+        "#####..###",
+        "#####..###"
+      ],
+      "start": [
+        8,
+        6
+      ],
+      "goal": [
+        0,
+        4
+      ],
+      "events": [],
+      "event_seed": 93276,
+      "condition": "switchback_spine",
+      "split": "product-heldout",
+      "layout_hash": "8ed0e2db5a723f86bd5cab6750a8a5aeee4a93a7f25fa56f776296cc7a4c5057",
+      "topology_family": "switchback_spine",
+      "canonical_layout_hash": "869d5f663e44b7d320b336d2c25575f2063e9852d4856a2f98dddf1247560cfd",
+      "structural_hash": "5c3c2a1c39d1b8f54120f22acae395505a16e0b2ed93015146eab446e11ea4bd",
+      "base_distance": 24,
+      "distance_band": "long",
+      "condition_type": "static",
+      "blockage_kind": "none",
+      "dead_end_count": 3,
+      "curriculum_stage": 2,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-060",
+      "layout_id": "p3-switchback_spine-004",
+      "rows": [
+        "##########",
+        "#....##.##",
+        "#.##.##.##",
+        "#.##.##.##",
+        "..##.##.##",
+        "#.##.##...",
+        "#.##.##...",
+        "#.##.##.##",
+        "#.##....##",
+        "##########"
+      ],
+      "start": [
+        4,
+        1
+      ],
+      "goal": [
+        1,
+        2
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            3,
+            1
+          ],
+          "start": 0,
+          "clear": 19
+        }
+      ],
+      "event_seed": 93277,
+      "condition": "switchback_spine",
+      "split": "product-heldout",
+      "layout_hash": "49aa787951d617afcc2e27434683e5b57d35d02ec4f893260c830946a184f28c",
+      "topology_family": "switchback_spine",
+      "canonical_layout_hash": "ceca9c7e3533037eb19230fb11504504cabb3f25b192e102d580e7b706ca58b8",
+      "structural_hash": "0f8757b37c8543eb378565097af02c46d9761bae16cb3fc201e6a60707becfcb",
+      "base_distance": 4,
+      "distance_band": "short",
+      "condition_type": "dynamic",
+      "blockage_kind": "forced-wait",
+      "dead_end_count": 3,
+      "curriculum_stage": 0,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-061",
+      "layout_id": "p3-switchback_spine-005",
+      "rows": [
+        "####.#####",
+        "#........#",
+        "########.#",
+        "########.#",
+        "#........#",
+        "#.########",
+        "#.########",
+        "#........#",
+        "###..#####",
+        "###..#####"
+      ],
+      "start": [
+        1,
+        4
+      ],
+      "goal": [
+        7,
+        7
+      ],
+      "events": [
+        {
+          "id": "product-occupancy-blockage",
+          "cell": [
+            1,
+            5
+          ],
+          "start": 0,
+          "clear": 10
+        }
+      ],
+      "event_seed": 93278,
+      "condition": "switchback_spine",
+      "split": "product-heldout",
+      "layout_hash": "566222506e70542f214a1a2af7d6ecb97a3fb6b55ad133804c32d06a1ccd7a56",
+      "topology_family": "switchback_spine",
+      "canonical_layout_hash": "943aaadcb2c2797137a7f10df7e7c4be866c0bc8bfcf5e25c0e0dbf8e682cedb",
+      "structural_hash": "daf73d3682d3e375cf2da26c5a5f7b1da47bd53e995815f3771208e36f415505",
+      "base_distance": 23,
+      "distance_band": "long",
+      "condition_type": "dynamic",
+      "blockage_kind": "forced-wait",
+      "dead_end_count": 3,
+      "curriculum_stage": 2,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-062",
+      "layout_id": "p3-switchback_spine-006",
+      "rows": [
+        "#####.####",
+        "#........#",
+        "########.#",
+        "########.#",
+        "#........#",
+        "#.########",
+        "#.########",
+        "#........#",
+        "#####..###",
+        "#####..###"
+      ],
+      "start": [
+        4,
+        5
+      ],
+      "goal": [
+        1,
+        7
+      ],
+      "events": [],
+      "event_seed": 93279,
+      "condition": "switchback_spine",
+      "split": "product-heldout",
+      "layout_hash": "7f88598dc3e591ed7a44bb3c6c3b2ae035cdb555bccfdd0e54ba9e28f1594afe",
+      "topology_family": "switchback_spine",
+      "canonical_layout_hash": "1cbfca041d5f1269e178357c4aadd60d3d482ea14fc0f8fb9aa0af226f1004b4",
+      "structural_hash": "07057f1406d3d332276cd0bfb9a0ba05320c886e12d2d2358a6a39897bd429f2",
+      "base_distance": 7,
+      "distance_band": "short",
+      "condition_type": "static",
+      "blockage_kind": "none",
+      "dead_end_count": 3,
+      "curriculum_stage": 1,
+      "product_scope": "phase3-holdout"
+    },
+    {
+      "id": "p3-holdout-063",
+      "layout_id": "p3-switchback_spine-007",
+      "rows": [
+        "####..####",
+        "####..####",
+        "#........#",
+        "########.#",
+        "########.#",
+        "#........#",
+        "#.########",
+        "#.########",
+        "#........#",
+        "#####.####"
+      ],
+      "start": [
+        8,
+        6
+      ],
+      "goal": [
+        2,
+        5
+      ],
+      "events": [],
+      "event_seed": 93280,
+      "condition": "switchback_spine",
+      "split": "product-heldout",
+      "layout_hash": "3ba9ce5ba21758ed18a1dc33efdf134c98ad0554e9f784d5cde9b49f0a88b7af",
+      "topology_family": "switchback_spine",
+      "canonical_layout_hash": "e6001eddf62de980655440d981daf60df2c34a444da4cc8eac5c91b89b6a8063",
+      "structural_hash": "b17e0cde6b0d529cf81eb467a46cef7ba8e27fa618aba4eaae3dd14b5a3b98a4",
+      "base_distance": 21,
+      "distance_band": "long",
+      "condition_type": "static",
+      "blockage_kind": "none",
+      "dead_end_count": 3,
+      "curriculum_stage": 2,
+      "product_scope": "phase3-holdout"
+    }
+  ],
+  "case_hashes": [
+    "be14fa810055fcb9ad5292da59c182bc90f900a405c0b25dcc9fca51ad6b7251",
+    "c8475fc0ef693920de4804916e480ee0b34c70da918b37f777698bf88c30fd14",
+    "9aaf41ba0e6cbe948cd9783b6bb123aa923dc704e63e9c0f663877ba48d66d95",
+    "fe7007b72736144ceee62cb19f4779d294e256652cf0b5182640c52bee288fa6",
+    "0f2bf100706e9365fb0525bc4109c177bd648e33bd75c38811b3155352735e96",
+    "b3924ceeb1e2ab137073c537f62739ea57392d7b06a237668d70efbd7ca3137e",
+    "f387541bf04acf81f235826b5fe8a962db105889a5cfda4dd1edcfe581fb33be",
+    "e8a0b6f5df31727b92a0d60f8246dd101fcaf7d670c6512b27f37fa13c873a22",
+    "c4890743918a5442c50174b9b124bf4b1beae7031fe6f38176b9c1c24cc69532",
+    "d0bdd1bc21d568ae974373289705fbd2c35f0c33f8d239e7d2d69fae2c4977b0",
+    "fdcfa682c749d0a61157d19e066989ea3e8bd28a8722f4fbe742b8a601d4e5a2",
+    "77e102135b10c90642226a04779e0b4ffbe845d789a0fa06e30e47102be5ee15",
+    "1b29ca54ecd837aba6d9bebe250b4419043b401526db1f39aae00f86c0683410",
+    "08377f04889d3c9ae675701a32e962ee804a2053031531d88bfbab3ad00774bb",
+    "8ee4a0a1eeaed9df58cfde4e915e000b737b285b193775b176bddd944b92c0f1",
+    "dc1be031c27f15e38c3d6368c427e5877a528194d5f3ad76709e75448b57e0b3",
+    "2158b54eadeb5c725e1b0c612eeabe21e54a4040996c213ad8275e75b8471e66",
+    "191f593695aacf225062dad7670a9c23fd5bc6b967540a00b15ea54a898fe693",
+    "ef31572cefac8a35a26d0795711c5d29f77c34ee4468f79ee21f15ff7c983eb1",
+    "e52832c0d3a85971cc1f0a9252ef5e5f48ba907ae1b99ad81a6ee28d6bf63f47",
+    "6718f5142ec09eaa269f2b81cd99e34350f1319ff952d0464ccf42d0a75342e9",
+    "e6cd9c1d129b540b4b6670f8dcd168ec9c619bf10fb8fe4ece51afe5d254ff12",
+    "e8d275e118b8f9f68c27944fb99481cc345a6784a73bfc9d2a92b446ad6337cf",
+    "b5f625d1d70020485f080cce647e22b1dbf803aa6ae65d69982802e2aa600847",
+    "dec2127d0d06dd7c3a2edfff4b4fea7055d070332ad4f5bf9097b1f04159daac",
+    "e46450482507332ed224f1002f39262c64c73f6175a1c56124ab72ef9f3eba2e",
+    "5dbc58724e5b801043b971d100ad7335a0b1108cc6d72306bca0336340d81b63",
+    "989e0f1a9aa4acdb877e80790a0bc05820473434cc965d96861ea097b77510c6",
+    "749ede55125e86b877b378046bfa4771a66d196ea61629fe5637b0a5a04af7e1",
+    "4d27707fe12d41ef53e5ede543e437963eaf236141a4d388eb64fc84dfe56b92",
+    "678ac365acf06101703c96266c1f2d9c76ff737067385852e1b743be8211037b",
+    "c324f6c61fd1f6ad0dcdd411cc0bfd97a41cac87df322917efb4dbd1323a0a44",
+    "2e2daadadb069b2d868aa09f4fca9ee5dbad05f5448974a0a5da4808165fab97",
+    "4f7648f47f46053f2d979e490a211e633bf14ede9f732a9bdb1edbdef6233254",
+    "908de141bf815ed89a33f4aaf38c520eee8a8235d78fcfd659b86821aeaa8239",
+    "fcef4354176ebe44dd8f4125919d448532b2efcac0011e6283634c7063dc941f",
+    "b7c411488f664b7da214ee85ef43eafb09ec0fbf7853f885f05c4dc7591d1346",
+    "3c48e6dd0d1ff8d9266346f04b2c19e9ced15e757a94ededa90f477ef608485f",
+    "21b0169feecf544d39d4308bb558486ab8ada3d56ef98abfbefcbc12144fa632",
+    "aa2cc0a36b272508d09a387796317ffc9f139b5c64cc1c56c50b9e6bf563ba49",
+    "4459787a646c5d9ffad6285a099131aa4c529b1f2c651a7c75e40addb0cdd50d",
+    "5d6df7ca14a05d728928e8207b245c1aa6df79061ac599598f6ec2c061aa1f4c",
+    "041e9d8d83e50d4ac6594f52350a687f70b998687396f9efe651ac5c10482523",
+    "8ca736281233c098430f362770b5ad34b889caf928acb6e5253b38104827fb9e",
+    "472cc0556c2858ae40eb3302b56f46ec155918c95cde6063830a81dada6fa72d",
+    "9cbb6b65469c3068863bf6c42ab12d168aa8d76bf2e986541e815b3a79b1de43",
+    "44617928c110ab5dc9fd92b1478954f5b71a5735dfc23e45dba897a6ee07359a",
+    "842ed2ab4e0f5c214248c2542fb11fad2b7373f93d3968bbdcc8c23f4e691fbd",
+    "b2b2c987fc9e399ad78c893ffcae9f41223f37a08cc3f2292323fc7fce6a2d2c",
+    "020e36ba0b16000b65991f068927b2d2ae4c9855103b84dc26643dbf17e03d71",
+    "8e2ab8cdc06d208f5e233cdb4c242d6c50aa8c0f97401789f1f7b24fd5794282",
+    "b550f4d0ab624e72ede297c323f8e414986e936fa6261899ffa668ef4899c45c",
+    "2253c69f3e7a53d5b47f359d91e4deaff76f46bd3cbea0b81bdc998c7b5a84be",
+    "8b5d278dae5440b1febec6652e2bff244dcf32aa4ea891b9ca2a3f2dbf333a58",
+    "7f94c9ddc58df888ea8b53dc1de3c2917678cefd1d5f3573b59331804a71df3a",
+    "814f95f884cb19cfcfd65839c8cb9783c139f4b4bc179f0db52bc130b9c760a6",
+    "56327ac629fc6ef5a5e009cc82bd5079dbcda28432b29c00feaf52a03e5ba58f",
+    "b2a5c9f824554a9c05d5acbcb9e86f60d3e01e1a8931b834330f15d33179f6ac",
+    "8579c6bba597296f854ead1b9fa05527a41f528e36dc7354328a873d78f6801a",
+    "c5c0968ed9c3541e687d290c5d8b3fc985b60b08b21cd2373983af1bfea116d7",
+    "68bb36b0f190f19d18e114184d97996007582717863939d82af9a242d6318882",
+    "da9a405184ffc4456920ecd15766360634dc7711f64cd0b5a8251c18d288e36a",
+    "be5438103d3dc9708e6feaecbf4dbbd7d46a0ad625c89da59aa9d3a482b0f283",
+    "b1eadb0da7f5ead2dde193d0d8b028dbc49ea83fa28289d0306d7dd2de64d3b4"
+  ],
+  "inclusion": "64 base-reachable cases; finite initial occupancy events clear within60; base path<=40, so waiting until all clear then following a base path is feasible below200. No outcomes were used during construction.",
+  "suite_hash": "b362a5f5ee845c1c672e2938ab0ff3c1af8784953b684360805ddcfdbc5349c3"
+}

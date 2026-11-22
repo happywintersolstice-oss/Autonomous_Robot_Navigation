@@ -10,3 +10,6 @@ docs/partial_* -text
 configs/partial_* -text
 # Reviewed native models and exports preserve their exact saved bytes.
 runs/** -text whitespace=cr-at-eol
+
+# Newly frozen product-only Phase 3 manifests use raw-byte checksums.
+data/product_phase3* -text whitespace=cr-at-eol
