@@ -107,7 +107,7 @@ The initial generic `settings` dictionary inherited starter defaults that did no
 
 ## Validation and exact commands
 
-**16 focused tests passed in 14.54s**. A targeted follow-up passed **3 checks in 5.33s** with no new learning: the completed-study no-retraining guard, actual serialized neural-settings provenance and Guide/playback AppTest after the team document was added. The primary suite covered actual updates/save/load, old native checkpoint compatibility, seeded separation, public-only inputs and no mask, untouched reward, bad/cancelled checkpoint handling, recorded cap and playback, fair comparison/export, all saved case counts, new-only pages and a small ZIP fixture. No multi-gigabyte archive was rehashed or retested. Git path diff reports no archive, old experiment, starter or authoritative partial-module changes.
+**16 focused tests passed in 14.54s**. A targeted follow-up passed **3 checks in 5.33s** with no new learning: the completed-study no-retraining guard, actual serialized neural-settings provenance and Guide/playback AppTest after the team document was added. A further targeted occupancy check passed (1 test, no learning) using an actual permanent wall and a temporary blocker with identical public observations; all five actions remain selectable. It emitted only a local pytest-cache warning. The primary suite covered actual updates/save/load, old native checkpoint compatibility, seeded separation, public-only inputs and no mask, untouched reward, bad/cancelled checkpoint handling, recorded cap and playback, fair comparison/export, all saved case counts, new-only pages and a small ZIP fixture. No multi-gigabyte archive was rehashed or retested. Git path diff reports no archive, old experiment, starter or authoritative partial-module changes.
 
 An independent artifact pass verified all 240 replay case hashes/IDs, steps, reward sums and Wait counts against the CSV and original reward. AppTest verifies the UI; no manual browser visual review is claimed. The root launcher imported successfully and served HTTP 200/`ok` at 127.0.0.1:8517. The smoke server was stopped. An initial Windows PowerShell web-parser error was corrected with a basic Python HTTP client.
 
@@ -128,4 +128,13 @@ The delivered study was continued using `product_phase2 --run --resume runs/prod
 
 From repository root, launch **`py -3 run_app.py`** or **Start Robot Navigation.cmd**, then open **http://127.0.0.1:8517**. Follow the existing Windows installation guide first. The local isolated worktree used the original compatible environment through `run_app.py --python <absolute existing python.exe>`; `PYTHONPATH` was explicitly set to this checkout for all CLI jobs.
 
-Branch: **feature/product-phase2-training-and-demo-v1**, based on `9c04f3a8a80c591e352ec752c6dde2c6cfdb8955`. [Delivery branch commits](https://github.com/happywintersolstice-oss/Autonomous_Robot_Navigation/commits/feature/product-phase2-training-and-demo-v1). The final delivery reply supplies the exact pushed SHA; a following documentation receipt can name the implementation SHA without a self-referential commit hash. Main, earlier branches, the dirty original workspace and archive remain preserved. No main merge, force-push, full Phase 5 study or Phase 6 was performed.
+Branch: **feature/product-phase2-training-and-demo-v1**, based on `9c04f3a8a80c591e352ec752c6dde2c6cfdb8955`. [Delivery branch commits](https://github.com/happywintersolstice-oss/Autonomous_Robot_Navigation/commits/feature/product-phase2-training-and-demo-v1). Implementation commit: [4c1dce6b562cded3e4823701b10b566eeacdc8f2](https://github.com/happywintersolstice-oss/Autonomous_Robot_Navigation/commit/4c1dce6b562cded3e4823701b10b566eeacdc8f2), independently verified on GitHub. This following documentation/verification receipt names that immutable implementation commit; runtime and model payloads are unchanged. Main, earlier branches, the dirty original workspace and archive remain preserved. No main merge, force-push, full Phase 5 study or Phase 6 was performed.
+
+## Exact local launch from the preserved isolated worktree
+
+```powershell
+Set-Location 'C:\Users\User\Desktop\Autonomous_Robot_Navigation\autonomous-robot-navigation-rl\.runtime\newapp'
+& 'C:\Users\User\Desktop\Autonomous_Robot_Navigation\autonomous-robot-navigation-rl\.venv\Scripts\python.exe' run_app.py --python 'C:\Users\User\Desktop\Autonomous_Robot_Navigation\autonomous-robot-navigation-rl\.venv\Scripts\python.exe'
+```
+
+The original dirty main worktree stays separate. On a normally installed checkout, `py -3 run_app.py` remains the launch command.

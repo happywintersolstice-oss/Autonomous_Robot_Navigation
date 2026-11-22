@@ -22,8 +22,10 @@ def test_seeded_reachable_layout_separation_and_curriculum():
 
 def test_observation_only_features_no_mask_or_hidden_clear_time():
     from robot_navigation.app_scenarios import scenario,NAMES
-    from robot_navigation.partial_dynamic_env import PartialDynamicEnv
-    permanent=scenario(NAMES[2]);temporary=scenario(NAMES[2]);temporary['events'][0]['clear']=19
+    from robot_navigation.partial_dynamic_env import PartialDynamicEnv,make_scenario
+    open_rows=['.'*10 for _ in range(10)];blocked_rows=list(open_rows);blocked_rows[5]='..#.......'
+    permanent=make_scenario(blocked_rows,[5,1],[5,8],split='manual')
+    temporary=make_scenario(open_rows,[5,1],[5,8],[{'id':'pallet','cell':[5,2],'start':0,'clear':19}],split='manual')
     a=PartialDynamicEnv([permanent]);b=PartialDynamicEnv([temporary]);oa,_=a.reset();ob,_=b.reset();assert np.array_equal(oa,ob);assert np.array_equal(rows(oa),rows(ob))
     p=LocalLinearPolicy('q-learning',configuration(),1)
     for action in range(5):
