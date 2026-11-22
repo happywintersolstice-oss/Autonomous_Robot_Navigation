@@ -1,4 +1,5 @@
 """Agent history; it has no environment, event schedule or true-map reference."""
+
 import numpy as np
 
 
@@ -17,8 +18,8 @@ class AgentMemory:
         self.visit_count[tuple(position)] += 1
 
     def update(self, reading, step):
-        if type(step) is not int or step != self.scan_step+1:
-            raise ValueError('Memory requires one chronological scan per decision time')
+        if type(step) is not int or step != self.scan_step + 1:
+            raise ValueError("Memory requires one chronological scan per decision time")
         old_seen = self.currently_seen.copy()
         old_streak = self.consecutive_blocked_observations.copy()
         self.currently_seen.fill(False)
@@ -28,15 +29,31 @@ class AgentMemory:
             previous = int(self.occupancy[r, c])
             corrections += previous != -1 and previous != blocked
             if blocked:
-                continuous = old_seen[r, c] and self.last_seen_step[r, c] == step-1 and previous == 1
-                self.consecutive_blocked_observations[r, c] = int(old_streak[r, c])+1 if continuous else 1
+                continuous = (
+                    old_seen[r, c]
+                    and self.last_seen_step[r, c] == step - 1
+                    and previous == 1
+                )
+                self.consecutive_blocked_observations[r, c] = (
+                    int(old_streak[r, c]) + 1 if continuous else 1
+                )
             self.occupancy[r, c] = blocked
             self.last_seen_step[r, c] = step
             self.currently_seen[r, c] = True
         self.scan_step = step
-        return {'sensed_cells': len(reading.cells), 'occupancy_corrections': int(corrections)}
+        return {
+            "sensed_cells": len(reading.cells),
+            "occupancy_corrections": int(corrections),
+        }
 
     def snapshot(self):
-        return {name: getattr(self, name).tolist() for name in
-                ('occupancy', 'last_seen_step', 'visit_count',
-                 'consecutive_blocked_observations', 'currently_seen')}
+        return {
+            name: getattr(self, name).tolist()
+            for name in (
+                "occupancy",
+                "last_seen_step",
+                "visit_count",
+                "consecutive_blocked_observations",
+                "currently_seen",
+            )
+        }

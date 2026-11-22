@@ -1,4 +1,6 @@
-# Partial & Dynamic Robot Navigation
+# Autonomous Warehouse Robot Navigation
+
+Open **Robot Navigation.code-workspace** for the clean editor layout, or double-click **Start Robot Navigation.cmd** to launch this checkout at **http://127.0.0.1:8517**. See [the workspace guide](docs/clean-workspace.md). The earlier navy/cyan warehouse presentation is restored with all five Phase 3 pages.
 
 One application for a 10x10 robot with range-two occupancy sensing, memory and **Up / Down / Left / Right / Wait**. Four real RL families—Q-learning, SARSA, DQN and PPO—can be trained, simulated and compared. The Observed-Map Replanner and Random are separate non-RL references.
 
@@ -14,13 +16,13 @@ Follow [Windows installation](docs/windows-install.md) once, then double-click *
 
 ```powershell
 cd autonomous-robot-navigation-rl
-.\.venv\Scripts\python.exe -m robot_navigation.app_training --preset quick --models all
-.\.venv\Scripts\python.exe -m robot_navigation.app_training --preset standard --models all
+.\.venv\Scripts\python.exe -m robot_navigation.app_training --preset quick --models all --features product-v3
+.\.venv\Scripts\python.exe -m robot_navigation.app_training --preset standard --models all --features product-v3
 .\.venv\Scripts\python.exe -m robot_navigation.app_training --list-models
 .\.venv\Scripts\python.exe -m robot_navigation.app_service --compare --include-random
 ```
 
-Quick defaults to 256 actions/model; standard to 10,000 and must be user initiated. `--actions`, `--seed`, `--models` and `--output` are bounded. PPO requires a multiple of32 quick /100 standard actions; DQN a multiple of4. New immutable product runs are in `autonomous-robot-navigation-rl/runs/`. Saves are inference checkpoints, not exact-resume snapshots. Tiny starter models demonstrate the workflow, not strong navigation or scientific efficacy.
+Quick defaults to 256 actions/model; standard to 10,000 and must be user initiated. `--actions`, `--seed`, `--models` and `--output` are bounded. PPO requires a multiple of32 quick /200 standard actions; DQN a multiple of4. New immutable product runs are in `autonomous-robot-navigation-rl/runs/`. Saves are inference checkpoints, not exact-resume snapshots. Tiny starter models demonstrate the workflow, not strong navigation or scientific efficacy.
 
 ## All earlier history is preserved
 
@@ -55,3 +57,13 @@ python -m pytest autonomous-robot-navigation-rl/developer/tests/test_product_pha
 ```
 
 This suite reads the saved new product test evidence, never trains models or reruns held-out policies. The registered study's `--run`/`--final` entry points reject reuse of the published holdout. Ordinary development training/comparison remains explicitly available in the app and cannot replace the locked published assessment.
+
+## Readable integrated code and assignment check
+
+The current UI cleanup and Phase3 backend are integrated on `feature/phase3-cleanup-assignment-audit-v1`. There is one page router and one implementation of each page. Saved-model import paths are retained; active Python uses standard formatting and the algorithms include explanatory docstrings. The cleanup does not retrain models or rerun the frozen product test.
+
+- [Start with the code walkthrough](docs/code-walkthrough.md): entry points, data flow, state slices, actual updates and safe editing boundaries.
+- [Assignment and rubric audit](docs/assignment-compliance-audit.md): technical evidence and actual gaps. Full assignment compliance is not established; current model combination, the final report/package, individual contribution/proposal evidence and AI-use compliance remain unresolved.
+- [Cleanup validation](docs/cleanup-validation.md): compatibility checks, UI integration, packaging and preservation evidence.
+
+Open `Robot Navigation.code-workspace` in this feature checkout for the integrated editor view. The separate Documents workspace and the original dirty Desktop/main checkout are preserved; they were not overwritten or merged into main.

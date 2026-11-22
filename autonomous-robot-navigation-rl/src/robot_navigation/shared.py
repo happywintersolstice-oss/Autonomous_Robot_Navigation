@@ -1,29 +1,42 @@
 """Neutral map and atomic JSON utilities; no navigation policy/environment."""
+
 from collections import deque
 from dataclasses import dataclass
 from pathlib import Path
-import errno,hashlib,json,os,tempfile,time
-ROOT=Path(__file__).resolve().parents[2]
-_CARDINAL=((-1,0),(1,0),(0,-1),(0,1))
+import errno, hashlib, json, os, tempfile, time
+
+ROOT = Path(__file__).resolve().parents[2]
+_CARDINAL = ((-1, 0), (1, 0), (0, -1), (0, 1))
+
+
 def digest(value):
-    return hashlib.sha256(json.dumps(value, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+    return hashlib.sha256(
+        json.dumps(value, sort_keys=True, separators=(",", ":")).encode()
+    ).hexdigest()
+
 
 def read_json(path):
     for attempt in range(6):
         try:
             return json.loads(Path(path).read_text(encoding="utf-8"))
         except OSError as exc:
-            if exc.errno not in (errno.EACCES, errno.EPERM, errno.EINVAL) or attempt == 5:
+            if (
+                exc.errno not in (errno.EACCES, errno.EPERM, errno.EINVAL)
+                or attempt == 5
+            ):
                 raise
-            time.sleep(.02 * 2**attempt)
+            time.sleep(0.02 * 2**attempt)
+
 
 def write_json(path, value):
     path = Path(path)
     payload = json.dumps(value, indent=2, allow_nan=False) + "\n"
     path.parent.mkdir(parents=True, exist_ok=True)
-    descriptor, temporary = tempfile.mkstemp(prefix=f'.{path.name}.', suffix='.tmp', dir=path.parent)
+    descriptor, temporary = tempfile.mkstemp(
+        prefix=f".{path.name}.", suffix=".tmp", dir=path.parent
+    )
     try:
-        with os.fdopen(descriptor, 'w', encoding='utf-8') as file:
+        with os.fdopen(descriptor, "w", encoding="utf-8") as file:
             file.write(payload)
         # Windows readers or indexing tools can briefly hold the destination.
         # Replace a complete file so readers always see a complete JSON record.
@@ -32,11 +45,15 @@ def write_json(path, value):
                 os.replace(temporary, path)
                 break
             except OSError as exc:
-                if exc.errno not in (errno.EACCES, errno.EPERM, errno.EINVAL) or attempt == 5:
+                if (
+                    exc.errno not in (errno.EACCES, errno.EPERM, errno.EINVAL)
+                    or attempt == 5
+                ):
                     raise
-                time.sleep(.02 * 2**attempt)
+                time.sleep(0.02 * 2**attempt)
     finally:
         Path(temporary).unlink(missing_ok=True)
+
 
 @dataclass(frozen=True)
 class GridMap:
@@ -57,7 +74,12 @@ class GridMap:
 
     @property
     def free_cells(self):
-        return [(r, c) for r, row in enumerate(self.rows) for c, v in enumerate(row) if v == "."]
+        return [
+            (r, c)
+            for r, row in enumerate(self.rows)
+            for c, v in enumerate(row)
+            if v == "."
+        ]
 
     @property
     def hash(self):
@@ -65,7 +87,9 @@ class GridMap:
 
     def is_free(self, cell):
         r, c = cell
-        return 0 <= r < self.shape[0] and 0 <= c < self.shape[1] and self.rows[r][c] == "."
+        return (
+            0 <= r < self.shape[0] and 0 <= c < self.shape[1] and self.rows[r][c] == "."
+        )
 
     def distances(self, start):
         start = tuple(start)

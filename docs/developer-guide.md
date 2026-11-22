@@ -1,20 +1,19 @@
 # Active application development
 
-Install using [Windows guide](windows-install.md). The only UI route is `app/streamlit_app.py` → `dynamic_demo_ui.render`. The root launcher fixes localhost:8517 and sets the new source path. There is no installed classic CLI.
+Read [the code walkthrough](code-walkthrough.md) first. It follows a user action from the launcher to its page, service, policy, environment and saved replay. Open `Robot Navigation.code-workspace` to work on this checkout. Install using [the Windows guide](windows-install.md).
 
-`app_scenarios` declares fresh train-only and manual cases. `app_training` performs explicit bounded native training with immutable run IDs/progress/cancellation. `app_registry` reads new run manifests only and validates five-action compatibility. `app_service` records real episodes once, reads passive frames and compares identical cases without updates. Display snapshots never enter policies.
+The sole UI entry is `app/streamlit_app.py` -> `dynamic_demo_ui.render` -> `ui/` page modules. Edit presentation in `ui/`, shared labels/navigation in `ui/components.py`, and CSS in `ui/styles.css`. Guide text is a packaged Markdown resource. Simulator, Train, Compare, Guide and Archives share that router; there is no classic-app runtime.
 
-Unchanged `partial_*` environment/learners retain their contract. Neutral GridMap/atomic JSON live in `shared.py`; `core.py` re-exports them and `release.py` contains only SHA256. Archived old source is outside installed package discovery.
+Application services and strict checkpoint loading live in `app_service.py` and `app_registry.py`. The environment/sensing/memory/reward contract is in `partial_*`. Versioned F2/F3 learners must keep their original module/class names because serialized neural policies refer to them. Formatting and explanatory comments do not require retraining; observation/feature/reward changes need a deliberate versioned experiment. Historical source hashes describe the original runs, not the newly formatted source.
+
+From the application directory, using a compatible installed Python (the launcher also accepts `--python`):
 
 ```powershell
-cd autonomous-robot-navigation-rl
-.\.venv\Scripts\python.exe -m pytest developer/tests/test_dynamic_app.py -q
-.\.venv\Scripts\python.exe -m robot_navigation.app_training --preset quick --models all --actions 128
-.\.venv\Scripts\python.exe -m robot_navigation.app_service --compare --include-random
+python -m pytest developer/tests/test_product_phase3.py developer/tests/test_cleanup_integration.py developer/tests/test_product_phase2.py -q
 ```
 
-The focused suite trains 64 actions/family in temporary output and checks actual neural updates, strict loading, sensor/blocker contracts, observed-only replanning, passive playback, fair CSV, AppTest routes and a streamed ZIP fixture. Do not run archived suites/old experiments for this product smoke.
+This focused command loads models, checks public-state/version contracts, reads saved product evidence, validates the integrated UI and exercises mechanical fixtures. It does not perform optimizer training or execute the frozen test policies again. The separate `test_dynamic_app.py` contains training fixtures; do not run its full file when no new learner activity is intended. Its UI-only test can be selected explicitly.
 
-Archive manifests cover historical tracked/Git/local file versions and hashes. Classic assets/source moved; sealed partial evidence stayed. ZIP exports stream copies on demand. The original dirty workspace and older branches remain untouched. Use original directory context/commit to reproduce historical software; do not import it into the app.
+Training is an explicit separate action, such as `python -m robot_navigation.app_training --features product-v3 --preset quick --models all`. It creates a new immutable run. Do not use training merely to check a page renders. View the published test through Compare & Export; never remove a use marker to obtain another supposedly unseen assessment.
 
-The root `pytest.ini` also restricts discovery to the new product tests and excludes archived research/runtime folders. Running `pytest` from the repository root therefore does not activate archived suites.
+Archive scripts stream historical ZIP exports and verify inventories when explicitly invoked. Archived source/research is not installed as another selectable app mode. Main and unrelated dirty workspaces are preserved; integration changes are isolated on the cleanup feature branch.

@@ -20,6 +20,9 @@ robot-nav = "robot_navigation.app_training:main"
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools.package-data]
+"robot_navigation.ui" = ["styles.css", "guide.md"]
+
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 testpaths = ["developer/tests"]
