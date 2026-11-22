@@ -16,3 +16,5 @@ cd autonomous-robot-navigation-rl
 The focused suite trains 64 actions/family in temporary output and checks actual neural updates, strict loading, sensor/blocker contracts, observed-only replanning, passive playback, fair CSV, AppTest routes and a streamed ZIP fixture. Do not run archived suites/old experiments for this product smoke.
 
 Archive manifests cover historical tracked/Git/local file versions and hashes. Classic assets/source moved; sealed partial evidence stayed. ZIP exports stream copies on demand. The original dirty workspace and older branches remain untouched. Use original directory context/commit to reproduce historical software; do not import it into the app.
+
+The root `pytest.ini` also restricts discovery to the new product tests and excludes archived research/runtime folders. Running `pytest` from the repository root therefore does not activate archived suites.
