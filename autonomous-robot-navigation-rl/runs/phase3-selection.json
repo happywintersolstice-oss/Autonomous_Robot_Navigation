@@ -1,0 +1,73 @@
+{
+  "schema": "phase3-development-selection-v1",
+  "selected": {
+    "q-learning": {
+      "id": "20261122T165606Z-ea2dd627/q-learning",
+      "checkpoint_sha256": "531a01f6dd09d27cfbaae7572be24568217e9c9685c2661ccffb6bb82bb04565",
+      "feature_version": "partial-action-public-history8-v3",
+      "actions": 40000,
+      "retains_phase2": false
+    },
+    "sarsa": {
+      "id": "20261122T165803Z-b0736b3d/sarsa",
+      "checkpoint_sha256": "8fda1dcd28fa6ef921899012a754fd40bb3eb089912a6f3b628276f109d4a8c1",
+      "feature_version": "partial-action-public-history8-v3",
+      "actions": 40000,
+      "retains_phase2": false
+    },
+    "dqn": {
+      "id": "20261122T165937Z-f7774052/dqn",
+      "checkpoint_sha256": "54b877b838f38e2acf44e5cccfa4747fd3fb8f53d5b6e49f814bd18d34a60a12",
+      "feature_version": "partial-action-public-history8-v3",
+      "actions": 40000,
+      "retains_phase2": false
+    },
+    "ppo": {
+      "id": "20261122T165456Z-9875f272/ppo",
+      "checkpoint_sha256": "7c6d152a21f986fed96d823207e10eaef8134e466f2cd496e11086cc03aee4dd",
+      "feature_version": "partial-action-public-history8-v3",
+      "actions": 40000,
+      "retains_phase2": false
+    }
+  },
+  "study": "product-phase3/20261122T163932Z-f85cb312",
+  "criterion": "Development only: highest successes, then long-route successes, fewer collisions, fewer unproductive Waits with currently observed unvisited alternatives, higher official return, lower successful mean steps, lower training budget. Phase2 baseline may remain selected. No heldout outcome enters ranking.",
+  "development_case_hashes": [
+    "3769dbf856cb0b2f41fe869b6e194b8ee9bed8c42966db630223bc78f171ae75",
+    "e11231d59346efcbdff0340a139b946500bee525d3c81acb10271dc780f82c50",
+    "ce530aaeede18349236188914afe4bfe18262a75b92803d535d66223332c71db",
+    "8653f632202bb570318d1963d1ff98ff4a1285aa354f11fa09d625252e74f575",
+    "8462a6337acc97486da35a95449a644381b8f2b24a1f928d614be04187e8831b",
+    "8d9632fdfa8310114c7a6d2bd5dcd4a034fd405a7c19cd5812ae9ec80f3fb958",
+    "c384dd47f895f61835af824b569d98ee49f93c7b2d6e145fc580ccc2c3e3976c",
+    "bca3d8214bfa89bc420ba5c9dd7284ea3329a17f47f24b9807754157f886c01a",
+    "80a4b9f1973697086160adb96dedbf346586e0a14ebfa4a65f0c588d9beb49d4",
+    "41c2c6bda6c3a33be822fc020642616a92e4e6d1d36b6e4db1525bfdb64a8656",
+    "c6cd663818c280a053ecea1a56af6215dee386917fa41c11b4363c2c09adc329",
+    "034bad99a0d368a635972ade8b05cc1d6c89c749a09b7938dd2df0a757b03bac",
+    "61b0aee52a2b842a6e2b96955df034bd88ba55bace0c47351fbc23f90161a66e",
+    "b831777e00e5b09cdfc438d81eae36c4104699c3e8bc8a5e9599e75ea88f2835",
+    "64cd6cf4ed21a2a6f5950f6b25cb31d47d2bf9b06eeaa8971a80dd0611306ae4",
+    "a4e114fae1eeae0b07a2887311ec2406643ce6b7161a607d39c9c9682234f67f",
+    "31f60c69ebdda67c0301ff327231cfd598c2139b66895d0cc30aee9b8eea3bfc",
+    "ad0657d8c80fb0bc05d1d387f0807814a6da9ffa5bdf3e6950b45eda0abdfc5a",
+    "cc73184ff9ca2d5391fb89dc60d7257f49763b7708a83900b7e8f3342650b7ba",
+    "fe3ab89cfbda23df53b08dbf9c172c3a1e9cab72017291932669afd24cd0173a",
+    "d9c1ad83ad71ef58891319565eb80529f34c183a563b74d9d274e24cc734670b",
+    "2f9251cf966b20f42ac798d9b9fd68896274e08ba0737fe67d92be5418df67f5",
+    "df3f4743e2a6472bba35872a0967cdf90f09e8a14cecfc5da19e452c38d842f2",
+    "a22d7ca9ec286f95122f0854f3c2c838b0345712bfab8bde96e0eea88b64bcf3",
+    "297f99cf3574daa13ea03670c8c7318fae3c1b14dda36a64ba1e4d1cbd2e9826",
+    "566026ce6d9771dbf06dad3f942c5e1312046491c25f010b17236075595b0ae2",
+    "5b7f84f8cbc596183c5d4c3014b6c90643c8d57801ffa2d326f5f4a2d7bbc8f4",
+    "6e9683dd3cf25b3cf83e30dbf82223f73fa5e9f00e49b0f3eadd7d818088d1cc",
+    "2d4bb8d4ec2619ee6075285139a8d68d13eb6052fe5c6bfa596585b6df5cd9c6",
+    "3bc4fa5dc90a0112f1a7cbbc8056ad8f99902327a1feca866051ebc66d710520",
+    "a1aa776fa981815b50252d74837067e30ab7fb2a306c5a5c99ba3d8cbfb925b8",
+    "2fe4139210b3bc509ff874572f5a78e40c770c9bc9c1b76ddd8f457b4f55ae65"
+  ],
+  "holdout_outcomes_used": false,
+  "heldout_policy_evaluations_at_selection": 0,
+  "locked_at_utc": "2026-11-22T17:02:08.237817+00:00",
+  "development_comparison": "product-phase3\\20261122T163932Z-f85cb312\\development-comparison"
+}

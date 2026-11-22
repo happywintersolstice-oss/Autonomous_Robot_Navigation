@@ -1,0 +1,42 @@
+{
+  "run_id": "20261122T165937Z-f7774052",
+  "training_actions": 40000,
+  "learning_evidence": {
+    "td_updates": 0,
+    "optimizer_steps": 9875,
+    "sb3_update_counter": 9875,
+    "target_weight_refreshes": null,
+    "parameter_l2_change": 11.186932563781738,
+    "initial_parameter_sha256": "f3cb68a20ec343e21c8c61e82849f459126b980f6dd50711f626b4893dd45188",
+    "final_parameter_sha256": "d083f9758c73a632bcac0e21f911f090265763db42f89836300e249254a4023e"
+  },
+  "training_case_hash": "b78e841e4f759a9437e5e9984fffb4ea2f39e1091b66e4445c17d11452c4ef54",
+  "objective": "liveness-v1",
+  "study_id": "20261122T163932Z-f85cb312",
+  "candidate": "B-public-history-liveness",
+  "signature": {
+    "benchmark_id": "partial-dynamic-navigation-v1",
+    "environment_version": "partial-dynamic-env-v1",
+    "observation_version": "partial-memory-409-v2",
+    "sensor_version": "cardinal-rays-range2-v1",
+    "action_version": "up-down-left-right-wait-v1",
+    "reward_version": "partial-step-goal-collision-v1",
+    "feature_version": "partial-action-public-history8-v3",
+    "task_hash": "5379b1c2e64414d3024f5a6741da22c6d3bd80517eadf2173383cca63807499b",
+    "agent_state_version": "public-decision-history8-v1",
+    "agent_state_values": 431
+  },
+  "algorithm": "dqn",
+  "policy_id": "dqn/phase3/20261122T165937Z-f7774052/seed93511",
+  "training_seed": 93511,
+  "feature_version": "partial-action-public-history8-v3",
+  "feature_count": 520,
+  "actions": 5,
+  "observation_values": 409,
+  "checkpoint_sha256": "54b877b838f38e2acf44e5cccfa4747fd3fb8f53d5b6e49f814bd18d34a60a12",
+  "kind": "inference-only; optimizer/buffer/RNG resume not supported",
+  "agent_state_values": 431,
+  "agent_state_version": "public-decision-history8-v1",
+  "linear_action_features": 104,
+  "architecture_version": "history-shared-action-scorer-v1"
+}

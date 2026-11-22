@@ -22,6 +22,9 @@ def model_settings(preset):
         'target_update_interval':128 if preset=='quick' else 250,'n_steps':32 if preset=='quick' else 200,'n_epochs':2 if preset=='quick' else 5}
 
 def train(preset='quick',models=ALGORITHMS,actions=None,seed=74001,output=None,job_dir=None,features='product-v2',shaping='none',q_stability=True):
+    if features=='product-v3':
+        from .phase3_training import train as phase3_train
+        return phase3_train(preset,models,actions,seed,output,job_dir,objective=shaping)
     if preset not in ('quick','standard'):raise ValueError('Unknown preset')
     models=list(models);actions=int((256 if preset=='quick' else 10000) if actions is None else actions);seed=int(seed)
     if not models or len(set(models))!=len(models) or any(a not in ALGORITHMS for a in models):raise ValueError('Choose native RL algorithms')
@@ -112,7 +115,7 @@ def train(preset='quick',models=ALGORITHMS,actions=None,seed=74001,output=None,j
     return {'run_id':run_id,'folder':str(folder),'status':manifest['status'],'actual_actions':sum(m['actions'] for m in manifest['models'].values())}
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--preset',choices=['quick','standard'],default='quick');p.add_argument('--models',nargs='+',default=['all']);p.add_argument('--actions',type=int);p.add_argument('--seed',type=int,default=74001);p.add_argument('--output',type=Path);p.add_argument('--job-dir',type=Path);p.add_argument('--q-stability',choices=['target-v1','off'],default='target-v1');p.add_argument('--features',choices=['product-v2','legacy-b1'],default='product-v2');p.add_argument('--shaping',choices=['progress-v1','none'],default='none');p.add_argument('--list-models',action='store_true');a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--preset',choices=['quick','standard'],default='quick');p.add_argument('--models',nargs='+',default=['all']);p.add_argument('--actions',type=int);p.add_argument('--seed',type=int,default=74001);p.add_argument('--output',type=Path);p.add_argument('--job-dir',type=Path);p.add_argument('--q-stability',choices=['target-v1','off'],default='target-v1');p.add_argument('--features',choices=['product-v3','product-v2','legacy-b1'],default='product-v2');p.add_argument('--shaping',choices=['progress-v1','none','liveness-v1'],default='none');p.add_argument('--list-models',action='store_true');a=p.parse_args()
     if a.list_models:r=registry(a.output)
     else:
         selected=[s for part in a.models for s in part.split(',')];selected=list(ALGORITHMS) if selected==['all'] else selected

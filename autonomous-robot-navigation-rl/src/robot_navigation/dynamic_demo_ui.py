@@ -3,7 +3,12 @@ import html,json,time
 from pathlib import Path
 import streamlit as st
 from .core import ROOT,read_json
-from .app_scenarios import NAMES,scenario
+from .app_scenarios import NAMES,scenario as phase2_scenario
+from .phase3_demo import NAMES as PHASE3_NAMES,scenario as phase3_scenario
+from . import phase3_ui
+
+def scenario(name,*args,**kwargs):
+    return phase3_scenario(name,*args,**kwargs) if name in PHASE3_NAMES else phase2_scenario(name,*args,**kwargs)
 from .app_registry import registry,newest_by_algorithm
 from .app_service import generate,frame,cursor,compare,start_job,job_status,saved_comparison
 
@@ -30,14 +35,14 @@ def simulator():
     st.header('Robot Simulator');st.write('Choose a delivery route and a controller, then record one journey. Playback uses that saved journey.')
     left,right=st.columns([1,2])
     with left:
-        name=st.selectbox('Map preset',NAMES);mode=st.radio('Obstacle mode',['Static','Temporary'],horizontal=True,index=1)
+        name=st.selectbox('Map preset',NAMES+PHASE3_NAMES);mode=st.radio('Obstacle mode',['Static','Temporary'],horizontal=True,index=1)
         default=scenario(name,mode);custom=st.checkbox('Choose start and goal')
         start=default['start'];goal=default['goal']
         if custom:
             a,b=st.columns(2)
             start=[a.number_input('Start row',0,9,value=start[0]),b.number_input('Start column',0,9,value=start[1])]
             goal=[a.number_input('Goal row',0,9,value=goal[0]),b.number_input('Goal column',0,9,value=goal[1])]
-        items=registry();options={'Observed-Map Replanner (non-RL reference)':'Observed-Map Replanner','Random (non-RL reference)':'Random reference'}
+        items=sorted(registry(),key=lambda i:not i.get('phase3_selected',False));options={'Observed-Map Replanner (non-RL reference)':'Observed-Map Replanner','Random (non-RL reference)':'Random reference'}
         options.update({item['label']:item for item in items})
         choice=st.selectbox('Controller / checkpoint',list(options))
         if not items:st.info('No native RL checkpoints yet. Train a quick starter in Train Models; the references are available now.')
@@ -72,6 +77,11 @@ def playback():
             if index==length:st.session_state.playing=False
         chosen=st.slider('Seek recorded step',0,length,value=int(st.session_state.get('frame_index',0)),key='seek_'+str(st.session_state.get('frame_index',0)))
         if chosen!=st.session_state.get('frame_index',0):st.session_state.frame_index=chosen;st.session_state.playing=False
+        past_actions=[t['action'] for t in record['transitions'][:chosen]];wait_streak=0
+        for action in reversed(past_actions):
+            if action!=4:break
+            wait_streak+=1
+        st.caption('Recorded public history: last action '+(['Up','Down','Left','Right','Wait'][past_actions[-1]] if past_actions else 'none')+' | consecutive Waits '+str(wait_streak)+'. Phase3 uses only public past decisions, never blockage identity or clearing time.')
         index=chosen;snap=frame(record,index);truth=st.toggle('Show scene truth — viewer only',value=True)
         a,b=st.columns(2);trail=[record['initial_snapshot']['position']]+[t['snapshot']['position'] for t in record['transitions'][:index]]
         a.image(grid_svg(snap,truth,trail),caption='Scene truth (never supplied to the controller)' if truth else 'Robot memory only: grey occupied, pale unknown')
@@ -87,12 +97,14 @@ def playback():
 def training():
     st.header('Train Models');st.write('Create real five-action checkpoints. Quick training is a small CPU starter and may still navigate poorly.')
     preset=st.radio('Training preset',['quick','standard'],horizontal=True)
+    feature_choice=st.selectbox('Learning representation',['Phase 3 public history','Phase 2 local goal features'])
+    features='product-v3' if feature_choice.startswith('Phase 3') else 'product-v2'
     chosen=st.multiselect('RL algorithms',list(LABELS),default=list(LABELS),format_func=lambda v:LABELS[v])
     actions=st.number_input('Actions per model',min_value=32,max_value=50000,value=256 if preset=='quick' else 10000,step=32 if preset=='quick' else 200)
-    shaping=st.selectbox('Training feedback',['none','progress-v1'],help='Progress adds 0.2 times the change in public Manhattan distance during training only. Evaluation always uses the official reward. No teacher or action mask.')
-    st.caption('Quick is a small starter. Standard uses the seeded curriculum and versioned 480-value action features. Q-learning uses stabilized lagged targets by default. Training feedback and all measured failures are recorded.')
+    shaping=st.selectbox('Training feedback',['none','liveness-v1'] if features=='product-v3' else ['none','progress-v1'],help='Feedback is train-only. Phase3 liveness uses public distance progress, recent revisits and repeated Waits with an observed unvisited adjacent alternative. It knows no obstacle identity or clear time. Official evaluation reward is unchanged.')
+    st.caption('Quick is a small starter. Phase3 uses 8 past public decision positions, the last action and a Wait counter: 409 public inputs, 431 internal state values and 520 derived features. Phase2 uses its original 480 features. Q-learning uses stabilized targets. Training feedback and all measured failures are recorded.')
     seed=st.number_input('Training seed',min_value=0,max_value=2**31-1,value=74001)
-    st.code(f'python -m robot_navigation.app_training --preset {preset} --models '+ ' '.join(chosen)+f' --actions {actions} --seed {seed} --shaping {shaping}',language='powershell')
+    st.code(f'python -m robot_navigation.app_training --preset {preset} --models '+ ' '.join(chosen)+f' --actions {actions} --seed {seed} --shaping {shaping} --features {features}',language='powershell')
     if preset=='standard':st.warning('Standard is user-initiated development training. It may take minutes or longer on CPU; closing the browser does not stop it. No archived data is used.')
     status=job_status(st.session_state.job) if st.session_state.get('job') else None
     running=status and status['status'] in ('starting','running')
@@ -101,7 +113,7 @@ def training():
         cfg=model_settings(preset)
         if ('ppo' in chosen and actions%cfg['n_steps']) or ('dqn' in chosen and actions%4):st.error('Use an exact PPO rollout multiple (32 quick / 200 standard), and a multiple of 4 for DQN.')
         else:
-            try:st.session_state.job=start_job(preset,chosen,int(actions),int(seed),shaping)
+            try:st.session_state.job=start_job(preset,chosen,int(actions),int(seed),shaping,features)
             except OSError as exc:st.error('Unable to start training: '+str(exc))
             else:st.rerun()
     if status:
@@ -113,71 +125,69 @@ def training():
             (Path(st.session_state.job)/'cancel.request').write_text('cancel');st.info('Cancellation requested. The worker preserves the partial run.')
         if status['status']=='complete':st.success('Checkpoints are ready in Simulator and Compare & Export. These are inference checkpoints, not exact-resume snapshots.')
     items=registry();st.subheader('Available native checkpoints')
-    st.dataframe([{'Algorithm':LABELS[i['algorithm']],'Status':i['status'],'Actions':i['actions'],'Seed':i['seed'],'Run':i['id']} for i in items],use_container_width=True)
+    st.dataframe([{'Algorithm':LABELS[i['algorithm']],'Status':i['selection_scope'],'Features':i['feature_version'],'Agent state':i['agent_state_values'],'Actions':i['actions'],'Seed':i['seed'],'Run':i['id']} for i in items],use_container_width=True)
+
+    if items:
+        target=st.selectbox('Checkpoint integrity check',[i['label'] for i in items],key='integrity_checkpoint')
+        if st.button('Verify selected checkpoint'):
+            from .app_registry import load_model
+            try:
+                item=next(i for i in items if i['label']==target);load_model(item);st.success('Task, feature/history version, five actions and SHA-256 verified: '+item['checkpoint_sha256'])
+            except ValueError as exc:st.error(str(exc))
 
 def comparison():
-    st.header('Compare & Export');st.write('All four RL checkpoints face the identical 24 product development layouts and event seeds. These layouts are disjoint from training, and development is used for checkpoint selection. References are explicitly non-RL.')
-    items=registry();selected={}
-    if 'comparison' not in st.session_state:
-        saved=saved_comparison()
-        if saved:st.session_state.comparison=saved
-    if st.button('Load saved development comparison'):
-        saved=saved_comparison()
-        if saved:st.session_state.comparison=saved
-        else:st.info('No saved study comparison yet. Select checkpoints and explicitly run below.')
-    for algorithm in LABELS:
-        candidates=[i for i in items if i['algorithm']==algorithm]
-        if not candidates:st.info(f'{LABELS[algorithm]} has no checkpoint. Train it before a four-model comparison.');continue
-        label=st.selectbox(LABELS[algorithm]+' checkpoint',[i['label'] for i in candidates],key='compare_'+algorithm)
-        selected[algorithm]=next(i for i in candidates if i['label']==label)
-    starters={i['algorithm']:i for i in items if i['id'].startswith('20261122T112025Z-a7301ff2/')}
-    include_starters=st.checkbox('Compare with the original 128-action starters',value=len(starters)==4,disabled=len(starters)!=4)
-    random=st.checkbox('Include Random as an additional non-RL reference')
-    if st.button('Run fair comparison',type='primary',disabled=len(selected)!=4):
-        st.session_state.pop('comparison',None)
-        try:
-            with st.spinner('Evaluating each checkpoint once per scenario, without updates…'):st.session_state.comparison=compare(selected,include_random=random,starter_items=starters if include_starters else None)
-        except Exception as exc:st.error('Comparison could not finish: '+str(exc))
-    if st.session_state.get('comparison'):
-        r=st.session_state.comparison
-        st.caption('Showing a saved measured comparison. Checkpoint IDs and case hashes are recorded in the JSON; changing a selector does not change these saved results.')
-        overview=[row for row in r['manifest']['summary'] if row['Subset']=='all']
-        st.dataframe(overview,use_container_width=True,hide_index=True)
-        import pandas as pd
-        st.bar_chart(pd.DataFrame(overview).set_index('Policy')[['Success %']])
-        with st.expander('Static / dynamic and short / longer breakdowns'):
-            st.dataframe(r['manifest']['summary'],use_container_width=True,hide_index=True)
-        st.caption('No recovery opportunity is shown as blank, not zero. Failure routes have no successful-path efficiency. Static/dynamic subsets retain their own denominators.')
-        st.dataframe(r['rows'],use_container_width=True,hide_index=True)
-        folder=Path(r['folder']);a,b,c,d=st.columns(4)
-        d.download_button('Summary CSV',(folder/'summary.csv').read_bytes(),file_name='summary.csv',mime='text/csv')
-        a.download_button('Case-level CSV',(folder/'case-results.csv').read_bytes(),file_name='case-results.csv',mime='text/csv')
-        b.download_button('Comparison JSON',(folder/'manifest.json').read_bytes(),file_name='comparison.json',mime='application/json')
-        c.download_button('Results + all replays ZIP',(folder/'results-and-replays.zip').read_bytes(),file_name='results-and-replays.zip',mime='application/zip')
+    st.header('Compare & Export')
+    st.write('Choose saved development evidence or the single published product held-out assessment. References are separately labeled non-RL.')
+    available=phase3_ui.SCOPES;default=0 if (ROOT/'runs/phase3-publication.json').is_file() else 1 if (ROOT/'runs/phase3-selection.json').is_file() else 2
+    scope=st.selectbox('Evaluation scope',available,index=default)
+    if st.session_state.get('comparison_scope')!=scope:
+        st.session_state.comparison_scope=scope;st.session_state.comparison=phase3_ui.saved(scope)
+    if st.button('Load saved comparison'):st.session_state.comparison=phase3_ui.saved(scope)
+    held=scope==phase3_ui.SCOPES[0]
+    if held:
+        st.info('Frozen product held-out results are read-only. This page never reruns them or uses them to tune checkpoints. Phase3 may retain a Phase2 checkpoint when development selection favored it.')
+    else:
+        items=registry();selected={}
+        for algorithm in LABELS:
+            candidates=[i for i in items if i['algorithm']==algorithm];candidates.sort(key=lambda i:not (i.get('phase3_selected') if scope==phase3_ui.SCOPES[1] else i.get('phase2_baseline')))
+            if not candidates:st.info(LABELS[algorithm]+' has no checkpoint');continue
+            label=st.selectbox(LABELS[algorithm]+' checkpoint',[i['label'] for i in candidates],key='compare_'+scope+algorithm);selected[algorithm]=next(i for i in candidates if i['label']==label)
+        include_random=st.checkbox('Include Random as an additional non-RL reference')
+        if st.button('Run fair comparison',type='primary',disabled=len(selected)!=4):
+            try:
+                with st.spinner('Explicit development evaluation; no model updates or held-out cases'):
+                    st.session_state.comparison=phase3_ui.development_compare(selected,include_random) if scope==phase3_ui.SCOPES[1] else compare(selected,include_random=include_random)
+            except Exception as exc:st.error('Comparison could not finish: '+str(exc))
+    result=st.session_state.get('comparison')
+    if not result:st.info('No saved result is available for this scope yet.');return
+    manifest=result['manifest'];st.caption(manifest.get('purpose','Recorded product comparison'))
+    if manifest.get('holdout_suite_hash'):st.code('Holdout: '+manifest['holdout_version']+' | '+manifest['holdout_suite_hash'])
+    overview=[row for row in manifest['summary'] if row['Subset']=='all'];st.dataframe(overview,use_container_width=True,hide_index=True)
+    import pandas as pd
+    st.bar_chart(pd.DataFrame(overview).set_index('Policy')[['Success %']])
+    st.caption('Counts keep their denominators. Successful-only Wait and step metrics exclude failed episodes. Empty values mean N/A. Observed alternatives are safe next cells, not a guaranteed whole detour or knowledge of obstacle permanence.')
+    with st.expander('Condition, distance, topology and outcome breakdowns'):st.dataframe(manifest['summary'],use_container_width=True,hide_index=True)
+    with st.expander('All case outcomes and checkpoint provenance'):
+        st.dataframe(result['rows'],use_container_width=True,hide_index=True);st.json(manifest.get('training_provenance',{}))
+    folder=Path(result['folder']);a,b,c,d=st.columns(4)
+    a.download_button('Summary CSV',(folder/'summary.csv').read_bytes(),file_name='summary.csv',mime='text/csv')
+    b.download_button('Case-level CSV',(folder/'case-results.csv').read_bytes(),file_name='case-results.csv',mime='text/csv')
+    c.download_button('Comparison JSON',(folder/'manifest.json').read_bytes(),file_name='comparison.json',mime='application/json')
+    d.download_button('Results + all replays ZIP',(folder/'results-and-replays.zip').read_bytes(),file_name='results-and-replays.zip',mime='application/zip')
+    if (folder/'failure-traces.json').is_file():st.download_button('Failure trace JSON',(folder/'failure-traces.json').read_bytes(),file_name='failure-traces.json',mime='application/json')
+    kind=st.radio('Recorded journeys',['Failures','Successes','All'],horizontal=True)
+    rows=[r for r in result['rows'] if kind=='All' or (r['outcome']=='success')==(kind=='Successes')]
+    if rows:
+        labels=[f"{i}: {row['policy']} | {row['case_id']} | {row['outcome']} ({row['steps']} actions)" for i,row in enumerate(rows)];chosen=st.selectbox('Choose a recorded journey',labels);row=rows[labels.index(chosen)];path=(folder/row['replay']).resolve()
+        if path.is_relative_to(folder.resolve()):st.button('Open recorded journey in Simulator',on_click=phase3_ui.open_replay,args=(str(path),))
 
 def guide():
-    st.header('Guide');st.markdown('''### A robot that can only see nearby
-The robot sees occupancy along four cardinal rays, at most **two cells** away. Sensor order is **North, South, East, West**. It remembers sensed occupancy, how old it is, visits and consecutive blocked observations. Unknown areas and stale walls remain uncertain. The robot knows its own position and the goal.
-
-The unchanged observation has **409 values**. Original B1 starters use **412 features**. Product F2 uses **480 features** (96 for each possible action), derived from public goal offsets, candidate distance, sensed/memorized occupancy and visits. The learned action scorer shares weights across directions. Its scores are learned from TD updates or policy gradients; no action mask or teacher is used. Permanent walls and temporary pallets look the same while occupied. The robot never receives event schedules, unblock times, scene truth or a route oracle.
-
-### Five actions and honest outcomes
-**0 Up · 1 Down · 2 Left · 3 Right · 4 Wait**. Every action costs −0.01; reaching the goal adds +10; a blocked attempted move adds −5 and ends in collision. An episode ends after at most 200 steps; timeout has no extra penalty. Waiting can reveal that a pallet cleared, but a model can also get stuck waiting. That failure stays visible.
-
-### Four real learning methods
-- **Q-learning:** learns five action values from public features and bootstraps the largest next value.
-- **SARSA:** uses the next action sampled by its current exploration policy for its update.
-- **DQN:** a neural action-value model with replay and a target network.
-- **PPO:** a neural action policy and value model trained on collected rollouts.
-
-The **Observed-Map Replanner** is a separate non-RL reference using remembered occupancy only. It is never an invisible fallback for RL. Quick checkpoints are starters. Standard runs learn on a seeded curriculum; Best on development marks an explicitly selected, measured checkpoint rather than the newest file. Progress feedback is optional and train-only: 0.2 times the decrease in public Manhattan distance. This changes the training objective; comparisons always use the unchanged official reward. Development-selected scores are not scientific unseen accuracy.
-
-### A 3–5 minute walkthrough
-1. In **Robot Simulator**, choose *Blocked aisle — wait for clearing*, Temporary, and the replanner. Run once, Play, Pause and Step. Compare scene truth with robot memory.
-2. Try *Storage rack detour*. Seek backward and forward; playback never makes new decisions.
-3. In **Train Models**, explicitly start Quick for all four methods (256 actions each), then Refresh status. Existing starter checkpoints may already be available.
-4. Select a native checkpoint in Simulator. Keep collisions, loops and timeouts visible.
-5. In **Compare & Export**, select four checkpoints, load the saved 24-layout development panel or explicitly rerun it and download CSV plus replay ZIP.
+    st.header('Guide');st.markdown('''### A 3-5 minute walkthrough
+1. Choose a **Phase 3 selected** checkpoint explicitly in Simulator. Member 1: Q-learning, *Temporary bridge - Wait*; member 2: SARSA, *New static maze*; member 3: DQN, *Temporary gate - detour*; member 4: PPO, *Permanent dead end with detour*. Keep Temporary mode and seed 0. These trajectories were checked before held-out evaluation.
+2. Run once, then Play/Pause/Step/Seek saved frames. Compare human-only truth with robot memory. Wait is correct on the bridge; all five actions remain available.
+3. Show Q-learning's honestly timed-out *New static maze*. Do not switch to the replanner and call it RL success.
+4. In Compare & Export, view the saved **Phase 3 product held-out** assessment, compare Phase2/Phase3 on the same panel, download CSV/JSON/ZIP and open a failure replay. Held-out viewing never reruns evaluation.
+5. Train Models shows real feature versions, actions and integrity checks. Start training only when explicitly intended; no live training is needed for this presentation. See the four-person script below for checked actions/Waits and exact checkpoint IDs.
 
 ### History is reference material
 The old coordinate-only four-action application has been retired. Its data, source, failed trials and Phase 5A–5H history remain accessible through Archives and the repository archive guide. Older models can be incompatible with this task. Archived scores are never presented as results of new app training. There is no old application mode or model-transfer adapter.
@@ -205,6 +215,6 @@ def archives():
 def render():
     st.set_page_config(page_title='Partial & Dynamic Robot Navigation',page_icon='🤖',layout='wide')
     st.title('Partial & Dynamic Robot Navigation');st.caption('Sense nearby. Remember. Move, detour or wait. Four native RL methods, one honest simulator.')
-    page=st.sidebar.radio('Workspace',['Robot Simulator','Train Models','Compare & Export','Guide','Archives'])
+    page=st.sidebar.radio('Workspace',['Robot Simulator','Train Models','Compare & Export','Guide','Archives'],key='workspace_page')
     st.sidebar.caption('10×10 world · range-two sensing · five actions. Scene truth is display-only.')
     {'Robot Simulator':simulator,'Train Models':training,'Compare & Export':comparison,'Guide':guide,'Archives':archives}[page]()

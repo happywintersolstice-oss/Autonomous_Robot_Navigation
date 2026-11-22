@@ -101,9 +101,9 @@ def saved_comparison(root=RUNS):
     with (folder/'case-results.csv').open(encoding='utf-8',newline='') as f:rows=list(csv.DictReader(f))
     return {'folder':str(folder),'manifest':read_json(folder/'manifest.json'),'rows':rows}
 
-def start_job(preset,models,actions,seed,shaping='none'):
+def start_job(preset,models,actions,seed,shaping='none',features='product-v2'):
     job=ROOT/'.runtime/jobs'/identity();job.mkdir(parents=True,exist_ok=False)
-    args=[sys.executable,'-m','robot_navigation.app_training','--preset',preset,'--models',*models,'--actions',str(actions),'--seed',str(seed),'--job-dir',str(job),'--shaping',shaping]
+    args=[sys.executable,'-m','robot_navigation.app_training','--preset',preset,'--models',*models,'--actions',str(actions),'--seed',str(seed),'--job-dir',str(job),'--shaping',shaping,'--features',features]
     env=dict(os.environ,PYTHONPATH=str(ROOT/'src'))
     with (job/'stdout.log').open('w') as out,(job/'stderr.log').open('w') as err:
         child=subprocess.Popen(args,cwd=ROOT,env=env,stdout=out,stderr=err,creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
