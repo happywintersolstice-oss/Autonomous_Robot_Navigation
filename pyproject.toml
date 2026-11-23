@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "medinav-rl"
+version = "3.0.0"
+description = "Hospital delivery robot navigation with reinforcement learning (BMDS2114)"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=2.0", "pandas>=2.2", "matplotlib>=3.9", "PyYAML>=6", "gymnasium>=1.0",
+    "stable-baselines3>=2.4", "sb3-contrib>=2.4", "torch>=2.3", "optuna>=4.0", "streamlit>=1.40",
+]
+
+[project.scripts]
+medinav = "medinav.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

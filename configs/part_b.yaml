@@ -1,0 +1,113 @@
+# =====================================================================
+# PART B - refine the model/system
+#   python -m medinav train    --config configs/part_b.yaml [--only <label> ...]
+#   python -m medinav pipeline --config configs/part_b.yaml
+#
+# Part A findings (environment v2, runs/part_a/results/summary.md, 50 unseen test maps x 3 seeds):
+#   * SAC 73% and TD3 67% success match the A* planner (70%) with ~1/3 of its collisions
+#   * the DQN family (52-55%) and PPO/A2C (43-49%) still collide with walls 34-47% of the time
+#   * tabular agents (35-39%) rarely crash but get lost / time out behind walls
+#   * every RL agent degrades with LiDAR dropout (SAC 73% -> 38% at 40% dropout); A* does not use LiDAR
+# So Part B attacks (1) settings -> tuning, (2) route knowledge -> hybrid A*+RL, (3) missing sensor
+# data, (4) learning procedure -> curriculum / reward shaping / longer training,
+# (5) combining models -> ensembles and a safety shield.
+# Every experiment changes ONE thing relative to its Part A counterpart, so differences are attributable.
+# Part A models are re-used (include_runs) for comparison and ensembles - no retraining.
+# =====================================================================
+experiment: part_b
+include_runs: [part_a]
+
+x-dqn-params: &dqn {learning_rate: 0.0005, buffer_size: 100000, learning_starts: 5000, batch_size: 128, gamma: 0.99,
+                    train_freq: 4, target_update_interval: 2000, exploration_fraction: 0.3, exploration_final_eps: 0.05}
+x-ppo-params: &ppo {learning_rate: 0.0003, n_steps: 512, batch_size: 256, n_epochs: 10, gamma: 0.99,
+                    gae_lambda: 0.95, clip_range: 0.2, ent_coef: 0.005}
+x-td3-params: &td3 {learning_rate: 0.0003, buffer_size: 200000, learning_starts: 5000, batch_size: 256,
+                    gamma: 0.99, tau: 0.005, train_freq: 4, gradient_steps: 2, action_noise_std: 0.2}
+x-sac-params: &sac {learning_rate: 0.0003, buffer_size: 200000, learning_starts: 5000, batch_size: 256,
+                    gamma: 0.99, tau: 0.005, train_freq: 4, gradient_steps: 2}
+x-tab-params: &tab {alpha: 0.1, gamma: 0.99, eps_start: 1.0, eps_end: 0.05, eps_decay_frac: 0.8}
+
+env:
+  difficulty: 2
+  max_steps: 400
+
+training:
+  seeds: [0, 1, 2]
+  n_envs: 4
+  eval_freq: 20000
+  eval_episodes: 20
+
+algorithms:
+  # ---------------- Member 1: tabular. Better STATE REPRESENTATION: bins use the A* waypoint direction
+  q_learning_hybrid: {algo: q_learning, owner: Member 1, episodes: 4000, eval_every_episodes: 250,
+                      env_overrides: {guidance: true}, params: *tab}
+  sarsa_hybrid:      {algo: sarsa, owner: Member 1, episodes: 4000, eval_every_episodes: 250,
+                      env_overrides: {guidance: true}, params: *tab}
+
+  # ---------------- Member 2: value-based. Route knowledge + curriculum
+  dueling_dqn_hybrid:     {algo: dueling_dqn, owner: Member 2, timesteps: 300000, net_arch: [128, 128],
+                           env_overrides: {guidance: true}, params: *dqn}
+  dueling_dqn_curriculum: {algo: dueling_dqn, owner: Member 2, timesteps: 300000, net_arch: [128, 128],
+                           curriculum: {start_level: 0, max_level: 2, threshold: 0.6, window: 100}, params: *dqn}
+
+  # ---------------- Member 3: actor-critic. Missing LiDAR data, route knowledge, reward ablation
+  # trained AND tested with 20% of LiDAR rays missing; compare how the gaps are filled
+  ppo_drop_none:      {algo: ppo, owner: Member 3, timesteps: 300000, env_overrides: {dropout_prob: 0.2},
+                       wrappers: {impute: none}, params: *ppo}
+  ppo_drop_maxrange:  {algo: ppo, owner: Member 3, timesteps: 300000, env_overrides: {dropout_prob: 0.2},
+                       wrappers: {impute: max_range}, params: *ppo}
+  ppo_drop_lastvalid: {algo: ppo, owner: Member 3, timesteps: 300000, env_overrides: {dropout_prob: 0.2},
+                       wrappers: {impute: last_valid}, params: *ppo}
+  ppo_drop_stack3:    {algo: ppo, owner: Member 3, timesteps: 300000, env_overrides: {dropout_prob: 0.2},
+                       wrappers: {impute: none, frame_stack: 3}, params: *ppo}
+  ppo_hybrid:         {algo: ppo, owner: Member 3, timesteps: 300000, env_overrides: {guidance: true}, params: *ppo}
+  ppo_euclidean:      {algo: ppo, owner: Member 3, timesteps: 300000, env_overrides: {shaping: euclidean}, params: *ppo}
+
+  # ---------------- Member 4: continuous control - the Part A front-runners (SAC, TD3)
+  sac_hybrid: {algo: sac, owner: Member 4, timesteps: 150000, net_arch: [256, 256],
+               env_overrides: {guidance: true}, params: *sac}
+  sac_long:   {algo: sac, owner: Member 4, timesteps: 300000, net_arch: [256, 256], params: *sac}   # budget ablation
+  td3_hybrid: {algo: td3, owner: Member 4, timesteps: 150000, net_arch: [256, 256],
+               env_overrides: {guidance: true}, params: *td3}
+
+  # ---------------- tuned settings (Optuna: 20 trials x 60k steps per sampler, runs/tuning/*/summary.json)
+  # Best trial of the better sampler, merged into the full Part A parameter set, trained at the FULL budget.
+  q_learning_tuned:   {algo: q_learning, owner: Member 1, episodes: 4000, eval_every_episodes: 250,     # TPE 0.553 vs random 0.502
+                       params: {alpha: 0.0986, gamma: 0.9655, eps_start: 1.0, eps_end: 0.05, eps_decay_frac: 0.4842}}
+  dueling_dqn_tuned:  {algo: dueling_dqn, owner: Member 2, timesteps: 300000, net_arch: [256, 256],      # random 0.756 vs TPE 0.706
+                       params: {learning_rate: 0.000162, gamma: 0.9703, target_update_interval: 1000,
+                                exploration_fraction: 0.309, buffer_size: 100000, learning_starts: 5000,
+                                batch_size: 128, train_freq: 4, exploration_final_eps: 0.05}}
+  ppo_tuned:          {algo: ppo, owner: Member 3, timesteps: 300000, net_arch: [128, 128],             # both samplers: same trial, 0.605
+                       params: {learning_rate: 0.000259, gamma: 0.9850, ent_coef: 0.0017, n_steps: 1024,
+                                clip_range: 0.1875, batch_size: 256, n_epochs: 10, gae_lambda: 0.95}}
+  td3_tuned:          {algo: td3, owner: Member 4, timesteps: 150000, net_arch: [256, 256],             # random 0.757 vs TPE 0.756
+                       params: {learning_rate: 0.000439, gamma: 0.9746, tau: 0.0175, batch_size: 128,
+                                buffer_size: 200000, learning_starts: 5000, train_freq: 4, gradient_steps: 2,
+                                action_noise_std: 0.2}}
+
+# ---------------- combining models (no extra training; uses Part A + Part B runs)
+ensembles:
+  - {name: ens_dqn_family_q,   type: q_average,       members: [dqn, double_dqn, dueling_dqn]}   # Member 2, per seed
+  - {name: ens_dueling_seeds,  type: q_average_seeds, members: [dueling_dqn]}                    # Member 2, 3 seeds in one
+  - {name: ens_vote_discrete,  type: majority_vote,   members: [q_learning, dqn, dueling_dqn]}  # Members 1+2
+  - {name: ens_sac_td3,        type: action_average,  members: [sac, td3]}                      # Member 4, the two best
+  - {name: ens_continuous_all, type: action_average,  members: [sac, td3, ppo, a2c]}            # Members 3+4
+  - {name: sac_shield,         type: shield,          members: [sac]}                           # rule-based safety layer
+  - {name: ppo_hybrid_shield,  type: shield,          members: [ppo_hybrid]}
+
+evaluation:
+  split: test
+  episodes: 50
+  env: {}
+
+robustness:
+  conditions:
+    lidar_dropout_20:  {dropout_prob: 0.2}
+    lidar_dropout_40:  {dropout_prob: 0.4}
+    crowded:           {n_humans: 6}
+    fast_people:       {human_speed: 0.9}
+    bigger_map:        {map_size: 14.0}
+    hardest_level:     {difficulty: 3}
+    people_start_late: {humans_start_step: 40}
+    careless_people:   {humans_yield: false}

@@ -1,0 +1,29 @@
+{
+  "label": "ppo_euclidean",
+  "algo": "ppo",
+  "owner": "Member 3",
+  "seed": 0,
+  "action_mode": "continuous",
+  "env": {
+    "difficulty": 2,
+    "max_steps": 400,
+    "shaping": "euclidean",
+    "action_mode": "continuous"
+  },
+  "wrappers": {},
+  "params": {
+    "learning_rate": 0.0003,
+    "n_steps": 512,
+    "batch_size": 256,
+    "n_epochs": 10,
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "clip_range": 0.2,
+    "ent_coef": 0.005
+  },
+  "net_arch": null,
+  "timesteps": 300000,
+  "episodes": null,
+  "curriculum": false,
+  "train_time_s": 448.8
+}

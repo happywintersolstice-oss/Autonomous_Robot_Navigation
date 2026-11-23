@@ -1,0 +1,11 @@
+# Learnability pilot (~10 min): does each family learn at all with Part A settings?
+#   python -m medinav train --config configs/pilot.yaml --only ppo dqn sac q_learning
+base: part_a.yaml
+experiment: pilot
+training:
+  seeds: [0]
+algorithms:
+  q_learning: {episodes: 3000}
+  dqn: {timesteps: 120000}
+  ppo: {timesteps: 120000}
+  sac: {timesteps: 60000}

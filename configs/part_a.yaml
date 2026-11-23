@@ -1,0 +1,103 @@
+# =====================================================================
+# PART A - identify and shortlist promising models
+#   python -m medinav pipeline --config configs/part_a.yaml
+# Each member owns the algorithms tagged with their name (individual marks).
+# Budgets are sized for a laptop CPU; halve `seeds` while developing.
+# =====================================================================
+experiment: part_a
+
+env:                      # see src/medinav/env/nav_env.py DEFAULT_CONFIG for every option
+  difficulty: 2           # 2 interior walls, 7 obstacles, 2 moving people
+  max_steps: 400
+
+training:
+  seeds: [0, 1, 2]        # 3 independent training runs per algorithm (add 3, 4 if time allows)
+  n_envs: 4               # parallel environments for deep RL
+  eval_freq: 20000        # validation every N env steps
+  eval_episodes: 20       # validation maps per check
+  tensorboard: false
+
+algorithms:
+  # ---------------- Member 1: tabular (discrete actions, 1944 states)
+  q_learning:
+    owner: Member 1
+    episodes: 4000
+    eval_every_episodes: 250
+    params: {alpha: 0.1, gamma: 0.99, eps_start: 1.0, eps_end: 0.05, eps_decay_frac: 0.8}
+  sarsa:
+    owner: Member 1
+    episodes: 4000
+    eval_every_episodes: 250
+    params: {alpha: 0.1, gamma: 0.99, eps_start: 1.0, eps_end: 0.05, eps_decay_frac: 0.8}
+
+  # ---------------- Member 2: value-based deep RL (discrete actions)
+  dqn:
+    owner: Member 2
+    timesteps: 300000
+    net_arch: [128, 128]
+    params: &dqn_params
+      learning_rate: 0.0005
+      buffer_size: 100000
+      learning_starts: 5000
+      batch_size: 128
+      gamma: 0.99
+      train_freq: 4
+      target_update_interval: 2000
+      exploration_fraction: 0.3
+      exploration_final_eps: 0.05
+  double_dqn:
+    owner: Member 2
+    timesteps: 300000
+    net_arch: [128, 128]
+    params: *dqn_params
+  dueling_dqn:
+    owner: Member 2
+    timesteps: 300000
+    net_arch: [128, 128]
+    params: *dqn_params
+
+  # ---------------- Member 3: on-policy actor-critic (continuous actions)
+  ppo:
+    owner: Member 3
+    timesteps: 300000
+    net_arch: [128, 128]
+    params: {learning_rate: 0.0003, n_steps: 512, batch_size: 256, n_epochs: 10, gamma: 0.99,
+             gae_lambda: 0.95, clip_range: 0.2, ent_coef: 0.005}
+  a2c:
+    owner: Member 3
+    timesteps: 300000
+    net_arch: [128, 128]
+    params: {learning_rate: 0.0007, n_steps: 16, gamma: 0.99, gae_lambda: 0.95, ent_coef: 0.005}
+
+  # ---------------- Member 4: off-policy continuous control
+  sac:
+    owner: Member 4
+    timesteps: 150000
+    net_arch: [256, 256]
+    params: {learning_rate: 0.0003, buffer_size: 200000, learning_starts: 5000, batch_size: 256,
+             gamma: 0.99, tau: 0.005, train_freq: 4, gradient_steps: 2}
+  td3:
+    owner: Member 4
+    timesteps: 150000
+    net_arch: [256, 256]
+    params: {learning_rate: 0.0003, buffer_size: 200000, learning_starts: 5000, batch_size: 256,
+             gamma: 0.99, tau: 0.005, train_freq: 4, gradient_steps: 2, action_noise_std: 0.2}
+
+evaluation:
+  split: test             # never-seen maps
+  episodes: 50            # test maps per trained seed
+  env: {}                 # same world as training
+
+# Stress tests (python -m medinav evaluate --config ... --robustness)
+robustness:
+  conditions:
+    noisy_lidar:      {lidar_noise_std: 0.05}
+    lidar_dropout_20: {dropout_prob: 0.2}
+    lidar_dropout_40: {dropout_prob: 0.4}
+    crowded:          {n_humans: 6}
+    fast_people:      {human_speed: 0.9}
+    cluttered:        {n_obstacles: 13}
+    bigger_map:       {map_size: 14.0}
+    hardest_level:    {difficulty: 3}
+    people_start_late: {humans_start_step: 40}   # non-stationary: world changes mid-episode
+    careless_people:  {humans_yield: false}      # env v1 behaviour: people walk into the robot
