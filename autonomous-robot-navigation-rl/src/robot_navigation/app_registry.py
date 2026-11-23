@@ -143,6 +143,10 @@ def load_model(item):
     These module/class paths deliberately stay stable: SB3 checkpoints refer to
     them when restoring their serialized neural architectures.
     """
+    if item.get("arm") == "public-vote-v1":
+        from .ensemble import load_ensemble
+
+        return load_ensemble(item)
     path = Path(item["path"])
     if not path.is_file():
         raise ValueError(

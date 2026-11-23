@@ -55,6 +55,8 @@ def panel_title(title, detail="", badge=""):
 
 
 def friendly_checkpoint(item):
+    if item.get("arm") == "public-vote-v1":
+        return "Four-model vote · optional untrained ensemble"
     label = f"{LABELS[item['algorithm']]} · {item['selection_scope']}"
     if not item.get("phase3_selected") and not item.get("phase2_baseline"):
         label += f" · {item['seed']} / {item['id'].split('/')[0][-8:]}"

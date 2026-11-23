@@ -29,11 +29,16 @@ def comparison():
     if st.button("Load saved comparison"):
         st.session_state.comparison = phase3_ui.saved(scope)
     held = scope == phase3_ui.SCOPES[0]
+    read_only = held or scope == "Ensemble development"
     if held:
         st.info(
             "Frozen product held-out results are read-only. This page never reruns them or uses them to tune checkpoints. Phase3 may retain a Phase2 checkpoint when development selection favored it."
         )
-    else:
+    elif scope == "Ensemble development":
+        st.info(
+            "Registered development-only ensemble evidence. These cases were previously inspected; this is not unseen accuracy. Loading this result never reruns policies or changes the four selected checkpoints."
+        )
+    if not read_only:
         items = registry()
         selected = {}
         for algorithm in LABELS:
@@ -55,6 +60,11 @@ def comparison():
             )
             selected[algorithm] = next((i for i in candidates if i["label"] == label))
         include_random = st.checkbox("Include Random as an additional non-RL reference")
+        include_ensemble = (
+            st.checkbox("Include a separately labeled four-model voting ensemble")
+            if scope == phase3_ui.SCOPES[1]
+            else False
+        )
         if st.button(
             "Run fair comparison", type="primary", disabled=len(selected) != 4
         ):
@@ -63,7 +73,9 @@ def comparison():
                     "Explicit development evaluation; no model updates or held-out cases"
                 ):
                     st.session_state.comparison = (
-                        phase3_ui.development_compare(selected, include_random)
+                        phase3_ui.development_compare(
+                            selected, include_random, include_ensemble
+                        )
                         if scope == phase3_ui.SCOPES[1]
                         else compare(selected, include_random=include_random)
                     )
@@ -74,6 +86,13 @@ def comparison():
         st.info("No saved result is available for this scope yet.")
         return
     manifest = result["manifest"]
+    if manifest.get("ensemble"):
+        with st.expander("How the ensemble was evaluated"):
+            st.write(
+                "Unweighted votes from the same four independently trained models. All members remember the actual executed actions. No action mask, planner, hidden events, fitted voting weights or new training is used. The individual models remain separately available."
+            )
+            st.json(manifest["ensemble"])
+            st.json(manifest.get("public_history_sensitivity", {}))
     st.caption(manifest.get("purpose", "Recorded product comparison"))
     if manifest.get("holdout_suite_hash"):
         st.code(

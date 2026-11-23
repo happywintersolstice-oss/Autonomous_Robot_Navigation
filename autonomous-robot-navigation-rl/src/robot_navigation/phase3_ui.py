@@ -8,7 +8,12 @@ from .app_service import identity, saved_comparison
 from .phase3_evaluation import load_saved, export_comparison
 from .phase3_data import train_dev
 
-SCOPES = ("Phase 3 product held-out", "Phase 3 development", "Phase 2 development")
+SCOPES = (
+    "Phase 3 product held-out",
+    "Phase 3 development",
+    "Phase 2 development",
+    "Ensemble development",
+)
 
 
 def saved(scope):
@@ -17,6 +22,14 @@ def saved(scope):
         raise ValueError("Choose a registered development or held-out scope")
     if scope == "Phase 2 development":
         return saved_comparison()
+    if scope == "Ensemble development":
+        pointer = RUNS / "rubric-publication.json"
+        if not pointer.is_file():
+            return None
+        folder = (RUNS / read_json(pointer)["comparison"]).resolve()
+        if not folder.is_relative_to(RUNS.resolve()):
+            raise ValueError("Unsafe ensemble result path")
+        return load_saved(folder)
     pub = (
         read_json(RUNS / "phase3-publication.json")
         if (RUNS / "phase3-publication.json").is_file()
@@ -41,7 +54,7 @@ def saved(scope):
     return load_saved(folder)
 
 
-def development_compare(selected, include_random=False):
+def development_compare(selected, include_random=False, include_ensemble=False):
     """Explicitly evaluate the development panel and preserve prior exports."""
     if set(selected) != {"q-learning", "sarsa", "dqn", "ppo"}:
         raise ValueError("Select all four genuine RL families")
@@ -62,6 +75,16 @@ def development_compare(selected, include_random=False):
     ]
     if include_random:
         choices.append(("Random reference", "Random reference", "Non-RL reference"))
+    if include_ensemble:
+        from .ensemble import LABEL, descriptor
+
+        choices.append(
+            (
+                LABEL,
+                descriptor(selected),
+                "Untrained voting ensemble of selected RL checkpoints",
+            )
+        )
     return export_comparison(
         choices,
         train_dev()["development"],

@@ -6,7 +6,8 @@ import time
 
 import streamlit as st
 
-from ..app_registry import registry
+from ..app_registry import registry, phase3_selected
+from ..ensemble import LABEL as ENSEMBLE_LABEL, descriptor
 from ..app_scenarios import NAMES, scenario as phase2_scenario
 from ..app_service import cursor, frame, generate
 from ..phase3_demo import NAMES as PHASE3_NAMES, scenario as phase3_scenario
@@ -113,6 +114,9 @@ def simulator():
             "Random (non-RL reference)": "Random reference",
         }
     )
+    selected_members = phase3_selected()
+    if len(selected_members) == 4:
+        options[ENSEMBLE_LABEL] = descriptor(selected_members)
 
     def format_choice(label):
         item = options[label]
@@ -151,9 +155,14 @@ def simulator():
                 ]
             if isinstance(options[choice], dict):
                 item = options[choice]
-                st.caption(
-                    f"{item['actions']:,} training actions · training seed {item['seed']} · {item['feature_version']}"
-                )
+                if item.get("arm") == "public-vote-v1":
+                    st.caption(
+                        "Four existing RL checkpoints vote equally; zero additional training. Ties use the lowest action index. This is an optional ensemble, not a fifth trained algorithm or a planner fallback."
+                    )
+                else:
+                    st.caption(
+                        f"{item['actions']:,} training actions · training seed {item['seed']} · {item['feature_version']}"
+                    )
                 st.code(item["id"], language=None)
             else:
                 st.caption(
@@ -332,6 +341,9 @@ def playback():
             f"Recorded outcome: {metrics['outcome'].title()} · Total reward and Waits describe the full journey. Playback never trains or makes new decisions."
         )
         with st.expander("Journey details & replay download"):
+            if record.get("ensemble_votes") and index > 0:
+                st.write("Actual member votes for the displayed action")
+                st.json(record["ensemble_votes"][index - 1])
             st.caption(
                 "Controller: " + str(record.get("policy_id", "recorded controller"))
             )
