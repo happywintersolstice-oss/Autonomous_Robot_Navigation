@@ -29,3 +29,10 @@ Each ZIP's `original/` contains the corresponding original snapshot hierarchy; `
 LFS pointers are distinguished from payloads. Missing payloads cause an explicit failure and file list; recover with `git lfs fetch --all` and `git lfs pull`, then regenerate/verify the archive. No missing data is silently replaced. Large ZIPs require sufficient disk space and may take time; exporting never deletes originals.
 
 Historical final/unseen results are reference-only, not new generalization evidence. Four-action checkpoints cannot be converted into this app's 409-observation/five-action models. The live registry contains new native app training runs only; archived scientific scores never enter its comparison tables.
+
+
+## Current document locations
+
+Implementation briefs, prior product reports, Phase5 notes and earlier validation records now live under `docs/history/`. Their bytes and original source catalog remain preserved. `archive/relocations.json` maps the original backing paths to their current storage locations; the export/verification tools use that map while retaining original ZIP member names and checksums.
+
+`archive/source-snapshots/` also contains verified recovery ZIPs for removed active test source and the earlier dirty Desktop source. Local original data/artifact directories are preserved under the Desktop application's ignored `.runtime/recovery/` folder; these local recovery copies are separate from the committed historical catalog.

@@ -1,14 +1,13 @@
-# Using the new robot application
+# Use the navigation application
 
-1. Start **Start Robot Navigation.cmd** and visit http://127.0.0.1:8517.
-2. In Simulator choose *Blocked aisle — wait for clearing*, Temporary and **Observed-Map Replanner (non-RL reference)**. Run once. It must observe that the nearby blocker cleared; it is not told the clearing time. Play/Pause/Step/Seek/Reset read saved frames only.
-3. Compare viewer-only scene truth with robot memory. Grey occupied memory does not distinguish a wall from a pallet; pale cells are unknown. Sensor order N/S/E/W differs from action order Up/Down/Left/Right/Wait. A blocked attempted move is terminal collision.
-4. Try *Storage rack detour* and *Temporary pallet detour*. Custom start/goal must be distinct reachable free cells away from scheduled blockers.
-5. In Train Models explicitly start real Q-learning/SARSA/DQN/PPO Quick, then Refresh. Tiny models can fail: no fallback fixes their actions.
-6. Compare four checkpoints on identical manual cases. Inspect static/dynamic denominators and download CSV plus replays. Blank recovery rates mean no opportunity, not zero performance.
+Launch **Start Robot Navigation.cmd** from the repository root, or run `py -3 run_app.py`, and open http://127.0.0.1:8517. Work in the root **Robot Navigation.code-workspace** when editing.
 
-Policies see409 public values, transformed to412 B1 features. Actions0..4 are Up,Down,Left,Right,Wait. Step reward−.01, goal bonus+10, collision penalty−5, maximum200 steps and no timeout bonus. Truth and schedules are only for trusted display/metrics.
+- **Robot Simulator:** select a route, Static/Temporary obstacles and a native checkpoint. Run journey records real actions once. Play/Pause/Step/Back/Seek/Reset/End display saved frames. Human-only truth and robot memory stay separate. An honest collision or timeout is retained.
+- **Train Models:** inspect checkpoint versions, training counts and integrity. Start begins a bounded background job; Refresh reads actual progress; Cancel requests a safe stop. Loading a page never trains. Quick runs can still navigate poorly.
+- **Compare & Export:** inspect saved Phase2/Phase3 development evidence, the single frozen product holdout, or the separately labeled ensemble development comparison. Held-out viewing is read-only. Download CSV/JSON/replay ZIP and open a recorded failure in Simulator.
+- **Guide:** read the public sensor/memory/action/reward explanation and the checked four-person presentation script.
+- **Archives:** read historical reports or follow ZIP export/verification instructions. Earlier source and scientific results are reference material, not another app mode.
 
-History is read-only: [archive guide](../archive/README.md). Archived four-action models are not converted, old scores are not new comparison results, and no old UI mode is available. New outputs live in `autonomous-robot-navigation-rl/runs/`.
+Phase3 selected models use public-only decision history; Phase2 baselines and old native starters keep their original feature signatures. Every robot still chooses among Up/Down/Left/Right/Wait. The optional vote and observed-map replanner are explicitly separate controllers. There is no hidden planner substitution when an RL model fails.
 
-Phase 2 adds Best on development checkpoint labels and a saved 24-layout comparison with original starters. Load it in Compare & Export; use an explicit rerun only when needed. New trained policies use 480 public action features; old native starters retain their 412-feature loader. Read [measured performance](history/reports/PRODUCT_PHASE2_RESULTS.md) and the [team demo](team-demo-script.md).
+Read [recorded results](results.md), [the demo script](team-demo-script.md) and [the code walkthrough](code-walkthrough.md) for the actual measurements, remaining failures and implementation details. Academic submission/individual-contribution requirements are listed separately in [rubric status](rubric-completion-status.md).

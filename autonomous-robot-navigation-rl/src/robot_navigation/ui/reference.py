@@ -68,7 +68,9 @@ def archives():
     if guide.is_file():
         with st.expander("Archive guide and export instructions"):
             st.markdown(guide.read_text(encoding="utf-8"))
-    docs = list((ROOT.parent / "docs/history/application").glob("partial_phase5*_results.md"))
+    docs = list(
+        (ROOT.parent / "docs/history/application").glob("partial_phase5*_results.md")
+    )
     if docs:
         selected = st.selectbox(
             "Read an archived research report", [p.name for p in docs]
