@@ -32,3 +32,9 @@ Every action costs -0.01; reaching the goal adds +10; a blocked move adds -5 and
 
 ### History is reference material
 The old coordinate-only four-action application has been retired. Its data, source, failed trials and Phase 5A–5H history remain accessible through Archives and the repository archive guide. Older models can be incompatible with this task. Archived scores are never presented as results of new app training. There is no old application mode or model-transfer adapter.
+
+### Optional voting ensemble
+
+Four-model vote combines the four selected RL checkpoints with equal votes and a fixed action-index tie rule. It is an optional combination, not a fifth trained algorithm. Every member remembers what the robot actually did. There are no newly fitted weights, planner fallback or secret obstacle labels.
+
+The saved Ensemble development scope reports36/36 goals on32 previously inspected development cases plus4 existing demos. SARSA/DQN/PPO also achieved36/36 individually. Voting cost more time per decision and did not beat those models; keep these development results separate from the original64-case product holdout. Open a saved ensemble replay to inspect actual member votes. Individual model failure and non-RL references remain visible.

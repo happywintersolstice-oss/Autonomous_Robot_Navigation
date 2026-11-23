@@ -81,7 +81,10 @@ def test_descriptor_does_not_invent_new_training_or_weights():
     assert item["actions"] == 0 and item["checkpoint_sha256"] is None
     assert item["constituent_training_actions"] == 160000
     assert item["member_provenance"].keys() == members.keys()
-    assert len(registry()) == 24
+    assert all(
+        item["arm"] != "public-vote-v1" and item["algorithm"] in ALGORITHMS
+        for item in registry()
+    )
     with pytest.raises(ValueError):
         descriptor({"q-learning": members["q-learning"]})
 
@@ -196,3 +199,18 @@ def test_ensemble_ui_is_explicit_and_its_published_scope_is_read_only(monkeypatc
     assert not app.exception
     assert not any(button.label == "Run fair comparison" for button in app.button)
     assert len(app.get("download_button")) >= 5
+
+
+def test_manual_simulator_can_record_a_real_ensemble_journey(tmp_path):
+    from robot_navigation.app_service import generate, read_replay
+    from robot_navigation.phase3_demo import scenario
+
+    record, path = generate(
+        scenario("Temporary bridge - Wait"),
+        descriptor(phase3_selected()),
+        output=tmp_path,
+    )
+    assert record["algorithm"] == "four-model-vote"
+    assert record["metrics"]["outcome"] == "success"
+    assert record["metrics"]["actions"] == 13 and record["metrics"]["wait_count"] == 6
+    assert read_replay(path)["metrics"] == record["metrics"]

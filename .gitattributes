@@ -9,3 +9,9 @@ autonomous-robot-navigation-rl/artifacts/partial-dynamic-navigation-v1/** -text
 autonomous-robot-navigation-rl/data/partial/** -text
 autonomous-robot-navigation-rl/docs/partial_* -text
 autonomous-robot-navigation-rl/configs/partial_* -text
+# New rubric evidence/figures keep their recorded bytes across Windows checkouts.
+docs/rubric-evidence/** -text whitespace=cr-at-eol
+docs/submission/figures/** -text whitespace=cr-at-eol
+# Matplotlib's SVG path strings intentionally contain trailing separator spaces.
+docs/submission/figures/*.svg -text whitespace=cr-at-eol,-blank-at-eol
+docs/submission/*.pdf binary

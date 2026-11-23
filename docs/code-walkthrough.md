@@ -100,3 +100,11 @@ Research data, saved models and reports remain in `runs/`, `artifacts/` and `arc
 For presentation, edit `ui/`, its stylesheet or its guide. For model listing/loading, edit `app_registry.py`. For replay/job handling, edit `app_service.py`. Changes to observations, reward, policy features or training are experiment-contract changes and need deliberate new versioning and evaluation scope.
 
 Run the focused compatibility/UI tests listed in [the cleanup validation receipt](cleanup-validation.md). They read saved product evidence and validate code; they do not start a new training study or execute the frozen holdout again. The [assignment audit](assignment-compliance-audit.md) separately identifies what the code demonstrates and what the team still has to supply for assessment.
+
+## Optional model combination
+
+`ensemble.py` defines the explicitly labeled four-model vote. Every member proposes one action from the same public observation and actual executed-action history. The action with the most votes wins; ties use the lowest action index, fixed before measurement. All five actions remain possible. It has no newly trained weight file, planner fallback or fitted voting weights. Its descriptor records the exact four member IDs/hashes and zero additional training.
+
+`rubric_study.py` records the bounded development-only comparison and offline public-history sensitivity. It never opens or reruns the used product holdout. Native algorithms and their class import paths remain unchanged. `load_model` dispatches the synthetic ensemble descriptor separately; the native registry still contains only genuine learned checkpoints. Saved ensemble replays include actual member votes for inspection.
+
+The [submission checker](../autonomous-robot-navigation-rl/developer/commands/check_submission.py) checks file existence and declarations. It cannot authenticate authorship, assign individual marks or certify tutor approval. Its current incomplete status is intentional until real team evidence is supplied.

@@ -63,7 +63,13 @@ This suite reads the saved new product test evidence, never trains models or rer
 The current UI cleanup and Phase3 backend are integrated on `feature/phase3-cleanup-assignment-audit-v1`. There is one page router and one implementation of each page. Saved-model import paths are retained; active Python uses standard formatting and the algorithms include explanatory docstrings. The cleanup does not retrain models or rerun the frozen product test.
 
 - [Start with the code walkthrough](docs/code-walkthrough.md): entry points, data flow, state slices, actual updates and safe editing boundaries.
-- [Assignment and rubric audit](docs/assignment-compliance-audit.md): technical evidence and actual gaps. Full assignment compliance is not established; current model combination, the final report/package, individual contribution/proposal evidence and AI-use compliance remain unresolved.
+- [Assignment and rubric audit](docs/assignment-compliance-audit.md): technical evidence and actual gaps. Full assignment compliance is not established; the final report/package, individual contribution/proposal evidence and AI-use compliance remain unresolved. Current model combination is now implemented and measured on development.
 - [Cleanup validation](docs/cleanup-validation.md): compatibility checks, UI integration, packaging and preservation evidence.
 
 Open `Robot Navigation.code-workspace` in this feature checkout for the integrated editor view. The separate Documents workspace and the original dirty Desktop/main checkout are preserved; they were not overwritten or merged into main.
+
+## Current rubric support
+
+The optional four-model voting ensemble is now available in Simulator. Its registered **development-only** comparison is saved under Compare & Export > Ensemble development: **36/36** goals, matching SARSA/DQN/PPO and exceeding Q-learning's34/36 on these previously inspected cases. The ensemble is slower and takes longer routes than the strongest single model; it does not replace the four selected policies. No new training or reuse of the published product holdout occurred.
+
+See [actual completion status and measured evidence](docs/rubric-completion-status.md), [submission support](docs/submission/README.md), and [the live missing-evidence checklist](docs/submission/readiness-result.json). The technical appendix/outline are support materials, not a finished student-authored report. Human contribution, approved scope, permitted AI use, final report review, rehearsal and submission remain unverified.
