@@ -21,17 +21,20 @@
       "**/build": true,
       "**/*.egg-info": true,
       "**/partial_phase5*.md": true,
-      "**/partial_phase5*.json": true
+      "**/partial_phase5*.json": true,
+      "**/history": true
     },
     "search.exclude": {
       "**/archive/**": true,
       "**/artifacts/**": true,
       "**/runs/**": true,
-      "**/.runtime/**": true
+      "**/.runtime/**": true,
+      "**/history/**": true
     },
     "python.analysis.extraPaths": [
       "${workspaceFolder:Robot Navigation}/src"
     ],
-    "explorer.compactFolders": false
+    "explorer.compactFolders": false,
+    "python.defaultInterpreterPath": "${workspaceFolder:Robot Navigation}/.venv/Scripts/python.exe"
   }
 }

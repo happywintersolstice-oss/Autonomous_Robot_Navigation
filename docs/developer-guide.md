@@ -12,4 +12,4 @@ From the repository root, run `py -3 run_app.py --check` for a basic import chec
 
 Training is an explicit separate action, such as `python -m robot_navigation.app_training --features product-v3 --preset quick --models all`. It creates a new immutable run. Do not use training merely to check a page renders. View the published test through Compare & Export; never remove a use marker to obtain another supposedly unseen assessment.
 
-Archive scripts stream historical ZIP exports and verify inventories when explicitly invoked. Archived source/research is not installed as another selectable app mode. Main and unrelated dirty workspaces are preserved; integration changes are isolated on the cleanup feature branch.
+Archive scripts stream historical ZIP exports and verify inventories when explicitly invoked. Archived source/research is not installed as another selectable app mode. Work in the canonical Desktop main checkout; source, data and uncommitted changes from the older checkout were preserved before consolidation.

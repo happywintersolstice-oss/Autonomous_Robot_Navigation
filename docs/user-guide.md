@@ -11,4 +11,4 @@ Policies see409 public values, transformed to412 B1 features. Actions0..4 are Up
 
 History is read-only: [archive guide](../archive/README.md). Archived four-action models are not converted, old scores are not new comparison results, and no old UI mode is available. New outputs live in `autonomous-robot-navigation-rl/runs/`.
 
-Phase 2 adds Best on development checkpoint labels and a saved 24-layout comparison with original starters. Load it in Compare & Export; use an explicit rerun only when needed. New trained policies use 480 public action features; old native starters retain their 412-feature loader. Read [measured performance](../PRODUCT_PHASE2_RESULTS.md) and the [team demo](team-demo-script.md).
+Phase 2 adds Best on development checkpoint labels and a saved 24-layout comparison with original starters. Load it in Compare & Export; use an explicit rerun only when needed. New trained policies use 480 public action features; old native starters retain their 412-feature loader. Read [measured performance](history/reports/PRODUCT_PHASE2_RESULTS.md) and the [team demo](team-demo-script.md).

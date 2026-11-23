@@ -30,7 +30,7 @@ def guide():
                 team.read_text(encoding="utf-8"),
             )
             st.markdown(text)
-        results = ROOT.parent / "PRODUCT_PHASE3_RESULTS.md"
+        results = ROOT.parent / "docs/history/reports/PRODUCT_PHASE3_RESULTS.md"
         if results.is_file():
             st.download_button(
                 "Download Phase 3 results report",
@@ -68,7 +68,7 @@ def archives():
     if guide.is_file():
         with st.expander("Archive guide and export instructions"):
             st.markdown(guide.read_text(encoding="utf-8"))
-    docs = list((ROOT / "docs").glob("partial_phase5*_results.md"))
+    docs = list((ROOT.parent / "docs/history/application").glob("partial_phase5*_results.md"))
     if docs:
         selected = st.selectbox(
             "Read an archived research report", [p.name for p in docs]

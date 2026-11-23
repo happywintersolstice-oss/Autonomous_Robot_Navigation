@@ -1,32 +1,11 @@
-# Clean development workspace
+# One active workspace
 
-Open **Robot Navigation.code-workspace** from the repository root. It shows two folders: the active application and the project guide. Research archives, saved runs, machine environments and generated files are excluded from the editor's main file tree and search; they remain on disk and in the existing Git history.
+Open **Robot Navigation.code-workspace** at the Desktop repository root. It shows the current application and its guides. The primary Desktop checkout is synchronized with current main; it no longer runs through `.runtime/newapp`.
 
-## Start
+Double-click **Start Robot Navigation.cmd**, or run `py -3 run_app.py`. The launcher uses `autonomous-robot-navigation-rl/.venv`, sets the source path to this checkout and serves http://127.0.0.1:8517.
 
-Double-click **Start Navigation.cmd** inside the application, or **Start Robot Navigation.cmd** at the repository root. The app runs at http://127.0.0.1:8517. The launcher prints the workspace it is using and always sets the source path to this checkout.
+Edit `autonomous-robot-navigation-rl/src/robot_navigation/ui/` for the existing presentation; use the [code walkthrough](code-walkthrough.md) for service/environment/policy responsibilities. `partial_` modules describe the partially observed task and remain required. Saved-model module/class paths are retained for compatibility.
 
-The local machine uses its existing compatible Python environment, recorded in the ignored `autonomous-robot-navigation-rl/.runtime/python-path.txt`. On another machine, follow `windows-install.md`, create the application's `.venv`, or pass `python run_app.py --python <interpreter>`.
+Historical briefs and prior notes are under `docs/history/`; complete source/data history is under `archive/`. These folders, saved runs, environments and local runtime scratch are excluded from ordinary editor search. They remain on disk and in Git rather than being mixed into the active simulator.
 
-## Edit
-
-| Location in the application | Purpose |
-| --- | --- |
-| `app/streamlit_app.py` | Application entry point |
-| `src/robot_navigation/dynamic_demo_ui.py` | Five-page routing |
-| `src/robot_navigation/ui/styles.css` | Warehouse visual theme |
-| `src/robot_navigation/ui/components.py` | Navigation, headers and shared cards |
-| `src/robot_navigation/ui/simulator.py` | Route controls, maps and passive playback |
-| `src/robot_navigation/ui/training.py` | Explicit training and checkpoint checks |
-| `src/robot_navigation/ui/comparison.py` | Saved evidence, comparisons and downloads |
-| `src/robot_navigation/ui/reference.py` | Guide and read-only archives |
-| `src/robot_navigation/app_*.py` | Registry and application services |
-| `src/robot_navigation/partial_*.py`, `phase3_*.py` | Environment, policies and assessment logic |
-
-The earlier dark warehouse interface is the visual reference. The active app retains Phase 3 models, partial sensing, five actions and honest recorded outcomes. There is no classic-app runtime behind the restored styling.
-
-Training remains an explicit action. Viewing the saved holdout and playing recordings cannot rerun frozen evaluations. Automated test source and test-only fixtures have been removed; historical validation receipts and a verified source archive remain available. Use the root launcher with `--check` for a basic import check.
-
-The original dirty Desktop checkout and its worktrees remain untouched. The integrated cleanup is on `feature/phase3-cleanup-assignment-audit-v1`. Its base is the completed Phase3 delivery. UI changes from the separate Documents workspace were copied into this branch and reviewed; the source workspace remains unchanged. Main has not been merged or changed.
-
-Read [the code walkthrough](code-walkthrough.md), [the assignment audit](assignment-compliance-audit.md) and [cleanup validation](cleanup-validation.md) for the integrated delivery.
+Earlier dirty Desktop source was snapshotted before replacement. Its old data/artifact directories were preserved in ignored `.runtime/recovery/` storage. Historical linked checkouts are reference workspaces, not app dependencies. See [maintenance notes](maintenance.md) for the consolidation receipt.

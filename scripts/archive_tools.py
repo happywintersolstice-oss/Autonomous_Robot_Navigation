@@ -27,13 +27,34 @@ def load_manifest(root):
     )
 
 
+def load_relocations(root):
+    """Read current storage locations without rewriting the sealed source catalog."""
+    path = Path(root) / "archive/relocations.json"
+    if not path.is_file():
+        return {}
+    metadata = json.loads(path.read_text(encoding="utf-8"))
+    if metadata.get("schema") != "archive-path-relocations-v1":
+        raise ValueError("Unknown archive relocation format")
+    return metadata["paths"]
+
+
+def resolve_source(root, relative, relocations):
+    """Resolve one archived backing file, keeping original ZIP member names."""
+    root = Path(root).resolve()
+    source = (root / relocations.get(relative, relative)).resolve()
+    if not source.is_relative_to(root):
+        raise ValueError("Archive backing path escapes repository")
+    return source
+
+
 def verify_sources(root, manifest=None):
     root = Path(root).resolve()
     m = manifest or load_manifest(root)
+    relocations = load_relocations(root)
     cache = {}
     errors = []
     for row in m["files"]:
-        p = (root / row["archive_path"]).resolve()
+        p = resolve_source(root, row["archive_path"], relocations)
         if not p.is_relative_to(root):
             errors.append(row["archive_path"] + ": escapes repository")
             continue
@@ -94,6 +115,7 @@ def export(root, output):
     output = Path(output).resolve()
     output.mkdir(parents=True, exist_ok=True)
     m = load_manifest(root)
+    relocations = load_relocations(root)
     # Each file is hashed as it streams into the ZIP; no duplicate pre-export pass.
     inventory = {
         "schema": "robot-history-export-v1",
@@ -126,7 +148,7 @@ def export(root, output):
                         + row["original_path"]
                         + "; git lfs fetch --all / git lfs pull"
                     )
-                source = (root / row["archive_path"]).resolve()
+                source = resolve_source(root, row["archive_path"], relocations)
                 member = safe_member(row["zip_path"])
                 h = hashlib.sha256()
                 size = 0

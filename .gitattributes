@@ -15,3 +15,6 @@ docs/submission/figures/** -text whitespace=cr-at-eol
 # Matplotlib's SVG path strings intentionally contain trailing separator spaces.
 docs/submission/figures/*.svg -text whitespace=cr-at-eol,-blank-at-eol
 docs/submission/*.pdf binary
+
+# Relocated historical documents retain their original inventoried bytes.
+docs/history/** -text -whitespace

@@ -20,7 +20,7 @@ For the failure segment, use Q-learning on *New static maze*: **timeout at 200 a
 
 All models see the original 409 public values. Phase3 builds a versioned 431-value internal state using eight past decision positions, the last action and a Wait counter, then 520 action features. All five actions, including collision-causing moves, remain possible. Occupancy history does not identify permanent versus temporary obstacles, and memory can be stale. Checkpoints are inference artifacts, not exact optimizer-resume snapshots.
 
-The results page is read-only for the frozen product test. Development scores were used for selection; the new 64-case held-out results are a separate, single final assessment. See [PRODUCT_PHASE3_RESULTS.md](../PRODUCT_PHASE3_RESULTS.md) for measured rates and limitations. Never describe the older Phase2 24-case selection panel as unseen accuracy.
+The results page is read-only for the frozen product test. Development scores were used for selection; the new 64-case held-out results are a separate, single final assessment. See [PRODUCT_PHASE3_RESULTS.md](history/reports/PRODUCT_PHASE3_RESULTS.md) for measured rates and limitations. Never describe the older Phase2 24-case selection panel as unseen accuracy.
 
 In **Train Models**, inspect feature versions/action counts, choose a checkpoint integrity check and verify it. A real training job requires an explicit Start; Refresh displays worker progress and Cancel requests termination. No live training is necessary for the demo. **Archives** remains read-only historical reference; Phase5A-H evidence and all Phase2 checkpoints are preserved.
 
