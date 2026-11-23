@@ -10,7 +10,6 @@ requires-python = ">=3.11"
 dependencies = ["numpy>=2.0,<3", "gymnasium>=1.0,<2", "PyYAML>=6,<7", "matplotlib>=3.9,<4", "streamlit>=1.67,<2", "stable-baselines3==2.9.2", "torch>=2.8,<3"]
 
 [project.optional-dependencies]
-test = ["pytest>=8,<10"]
 dqn = ["stable-baselines3==2.9.2", "torch>=2.8,<3"]
 ppo = ["stable-baselines3==2.9.2", "torch>=2.8,<3"]
 
@@ -23,8 +22,3 @@ where = ["src"]
 [tool.setuptools.package-data]
 "robot_navigation.ui" = ["styles.css", "guide.md"]
 
-[tool.pytest.ini_options]
-pythonpath = ["src"]
-testpaths = ["developer/tests"]
-cache_dir = ".runtime/pytest"
-norecursedirs = ["archive", ".runtime", ".venv"]

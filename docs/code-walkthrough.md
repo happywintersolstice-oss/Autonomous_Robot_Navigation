@@ -99,7 +99,7 @@ Research data, saved models and reports remain in `runs/`, `artifacts/` and `arc
 
 For presentation, edit `ui/`, its stylesheet or its guide. For model listing/loading, edit `app_registry.py`. For replay/job handling, edit `app_service.py`. Changes to observations, reward, policy features or training are experiment-contract changes and need deliberate new versioning and evaluation scope.
 
-Run the focused compatibility/UI tests listed in [the cleanup validation receipt](cleanup-validation.md). They read saved product evidence and validate code; they do not start a new training study or execute the frozen holdout again. The [assignment audit](assignment-compliance-audit.md) separately identifies what the code demonstrates and what the team still has to supply for assessment.
+The focused compatibility/UI checks in [the cleanup validation receipt](cleanup-validation.md) record the earlier validation. Their source has since been removed at the owner's request and preserved in a verified archive. Use `py -3 run_app.py --check` for a current basic import check; do not claim it reruns that historical suite. The [assignment audit](assignment-compliance-audit.md) separately identifies what the code demonstrates and what the team still has to supply for assessment.
 
 ## Optional model combination
 

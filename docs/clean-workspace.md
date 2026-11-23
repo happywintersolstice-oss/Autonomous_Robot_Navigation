@@ -22,11 +22,10 @@ The local machine uses its existing compatible Python environment, recorded in t
 | `src/robot_navigation/ui/reference.py` | Guide and read-only archives |
 | `src/robot_navigation/app_*.py` | Registry and application services |
 | `src/robot_navigation/partial_*.py`, `phase3_*.py` | Environment, policies and assessment logic |
-| `developer/tests` | Active product acceptance tests |
 
 The earlier dark warehouse interface is the visual reference. The active app retains Phase 3 models, partial sensing, five actions and honest recorded outcomes. There is no classic-app runtime behind the restored styling.
 
-Training remains an explicit action. Viewing the saved holdout and playing recordings cannot rerun frozen evaluations. Use `test_product_phase3.py` for acceptance without training. Some integration tests in `test_dynamic_app.py` have training fixtures; exclude those when training is prohibited.
+Training remains an explicit action. Viewing the saved holdout and playing recordings cannot rerun frozen evaluations. Automated test source and test-only fixtures have been removed; historical validation receipts and a verified source archive remain available. Use the root launcher with `--check` for a basic import check.
 
 The original dirty Desktop checkout and its worktrees remain untouched. The integrated cleanup is on `feature/phase3-cleanup-assignment-audit-v1`. Its base is the completed Phase3 delivery. UI changes from the separate Documents workspace were copied into this branch and reviewed; the source workspace remains unchanged. Main has not been merged or changed.
 

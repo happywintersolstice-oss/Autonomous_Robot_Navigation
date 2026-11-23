@@ -15,7 +15,6 @@
 | `archive/` | History, original source and complete origin/hash index |
 | `artifacts/partial-dynamic-navigation-v1/` | Retained sealed Phase 5A–5H evidence, reference-only |
 | `scripts/export_history_archives.py` | Stream/verify real historical ZIPs |
-| `developer/tests/test_dynamic_app.py` | Focused product integration |
 
 Historical code/tests/guides preserve original paths within archive or the path map. They are not installed as a secondary mode. All four active RL families use the new 409-observation/five-action task.
 

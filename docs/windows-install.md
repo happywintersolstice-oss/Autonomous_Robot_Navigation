@@ -7,7 +7,7 @@ git config core.longpaths true
 cd autonomous-robot-navigation-rl
 py -3 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install --upgrade pip
-.\.venv\Scripts\python.exe -m pip install -e ".[test]"
+.\.venv\Scripts\python.exe -m pip install -e "."
 cd ..
 py -3 run_app.py --check
 py -3 run_app.py

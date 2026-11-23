@@ -50,13 +50,7 @@ Phase3 adds a diverse new curriculum, independent 64-case product holdout, versi
 
 See [measured Phase3 results](PRODUCT_PHASE3_RESULTS.md) and the [four-person checked demonstration](docs/team-demo-script.md). Results include failures and successful-only Wait denominators. This is a single product panel/seed, not a scientific final benchmark or proof of general superiority. Training feedback is versioned and train-only; official evaluation reward is unchanged. Phase2 results/selection/checkpoints and archived history remain unchanged.
 
-Focused acceptance, from the repository root after installation:
-
-```powershell
-python -m pytest autonomous-robot-navigation-rl/developer/tests/test_product_phase3.py -q
-```
-
-This suite reads the saved new product test evidence, never trains models or reruns held-out policies. The registered study's `--run`/`--final` entry points reject reuse of the published holdout. Ordinary development training/comparison remains explicitly available in the app and cannot replace the locked published assessment.
+Automated test files and test-only fixtures were removed at the owner's request. A verified source snapshot is retained in [archive/source-snapshots/removed-active-tests-20261123T101901Z](archive/source-snapshots/removed-active-tests-20261123T101901Z/manifest.json); previous validation results remain historical evidence. For a basic launch check, use `py -3 run_app.py --check`. This does not retrain models or rerun the frozen product test.
 
 ## Readable integrated code and assignment check
 
