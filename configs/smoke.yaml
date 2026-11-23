@@ -1,0 +1,35 @@
+# Tiny end-to-end run (a few minutes) to check the installation works.
+#   python -m medinav pipeline --config configs/smoke.yaml
+base: part_a.yaml
+experiment: smoke
+
+training:
+  seeds: [0]
+  n_envs: 2
+  eval_freq: 2000
+  eval_episodes: 5
+
+algorithms:
+  q_learning: {episodes: 300, eval_every_episodes: 100}
+  sarsa: {episodes: 300, eval_every_episodes: 100}
+  dqn: {timesteps: 4000, params: {learning_starts: 500}}
+  double_dqn: {timesteps: 4000, params: {learning_starts: 500}}
+  dueling_dqn: {timesteps: 4000, params: {learning_starts: 500}}
+  ppo: {timesteps: 4096}
+  a2c: {timesteps: 4000}
+  sac: {timesteps: 3000, params: {learning_starts: 500}}
+  td3: {timesteps: 3000, params: {learning_starts: 500}}
+
+ensembles:
+  - {name: ens_actor_critic_avg, type: action_average, members: [ppo, sac, td3]}
+  - {name: ens_dqn_family_q, type: q_average, members: [dqn, double_dqn, dueling_dqn]}
+  - {name: ens_vote_discrete, type: majority_vote, members: [q_learning, double_dqn]}
+  - {name: sac_shield, type: shield, members: [sac]}
+
+evaluation:
+  episodes: 5
+
+robustness:
+  conditions:
+    lidar_dropout_20: {dropout_prob: 0.2}
+    crowded: {n_humans: 6}

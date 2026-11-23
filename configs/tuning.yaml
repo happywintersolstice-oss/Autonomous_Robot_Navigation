@@ -1,0 +1,49 @@
+# =====================================================================
+# Hyper-parameter search (Optuna). Inherits algorithms/env from Part A.
+#   python -m medinav tune --config configs/tuning.yaml --label ppo --sampler both
+# Results: runs/tuning/<label>_<sampler>/ (trials.csv, best_params.yaml, study.db)
+# =====================================================================
+base: part_a.yaml
+experiment: tuning
+
+training:
+  eval_freq: 15000           # 4 validation checkpoints per trial -> the pruner can stop bad trials early
+  eval_episodes: 20
+
+tuning:
+  n_trials: 20               # per sampler; random and TPE get the SAME budget for a fair comparison
+  timesteps: 60000           # ~20% of the Part A budget per trial (tuning ranks settings, it does not finish training)
+  episodes: 1500             # for tabular trials
+  search_space:
+    q_learning: &tab
+      alpha: {type: loguniform, low: 0.01, high: 0.5}
+      gamma: {type: uniform, low: 0.9, high: 0.999}
+      eps_decay_frac: {type: uniform, low: 0.3, high: 0.9}
+    sarsa: *tab
+    dqn: &dqn
+      learning_rate: {type: loguniform, low: 0.00005, high: 0.002}
+      gamma: {type: uniform, low: 0.95, high: 0.999}
+      target_update_interval: {type: categorical, choices: [500, 1000, 2000, 5000]}
+      exploration_fraction: {type: uniform, low: 0.1, high: 0.5}
+      net_arch: {type: categorical, choices: ["64,64", "128,128", "256,256"]}
+    double_dqn: *dqn
+    dueling_dqn: *dqn
+    ppo: &ppo
+      learning_rate: {type: loguniform, low: 0.00005, high: 0.001}
+      gamma: {type: uniform, low: 0.95, high: 0.999}
+      ent_coef: {type: loguniform, low: 0.00001, high: 0.05}
+      n_steps: {type: categorical, choices: [256, 512, 1024]}
+      clip_range: {type: uniform, low: 0.1, high: 0.3}
+      net_arch: {type: categorical, choices: ["64,64", "128,128", "256,256"]}
+    a2c:
+      learning_rate: {type: loguniform, low: 0.0001, high: 0.003}
+      gamma: {type: uniform, low: 0.95, high: 0.999}
+      ent_coef: {type: loguniform, low: 0.00001, high: 0.05}
+      n_steps: {type: categorical, choices: [5, 16, 32]}
+    sac: &sac
+      learning_rate: {type: loguniform, low: 0.00005, high: 0.001}
+      gamma: {type: uniform, low: 0.95, high: 0.999}
+      tau: {type: loguniform, low: 0.001, high: 0.02}
+      batch_size: {type: categorical, choices: [128, 256, 512]}
+      net_arch: {type: categorical, choices: ["128,128", "256,256"]}
+    td3: *sac

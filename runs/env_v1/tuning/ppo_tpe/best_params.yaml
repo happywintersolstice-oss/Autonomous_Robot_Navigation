@@ -1,0 +1,11 @@
+ppo_tuned:
+  algo: ppo
+  net_arch:
+  - 256
+  - 256
+  params:
+    clip_range: 0.24655697018149228
+    ent_coef: 0.0015010753622777177
+    gamma: 0.9838912109511101
+    learning_rate: 0.0005203997260566686
+    n_steps: 256

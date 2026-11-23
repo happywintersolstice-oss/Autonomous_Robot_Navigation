@@ -1,0 +1,10 @@
+dueling_dqn_tuned:
+  algo: dueling_dqn
+  net_arch:
+  - 256
+  - 256
+  params:
+    exploration_fraction: 0.14144899841306652
+    gamma: 0.9746071547511447
+    learning_rate: 0.00033223782286967104
+    target_update_interval: 500

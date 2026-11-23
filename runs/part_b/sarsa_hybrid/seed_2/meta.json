@@ -1,0 +1,26 @@
+{
+  "label": "sarsa_hybrid",
+  "algo": "sarsa",
+  "owner": "Member 1",
+  "seed": 2,
+  "action_mode": "discrete",
+  "env": {
+    "difficulty": 2,
+    "max_steps": 400,
+    "guidance": true,
+    "action_mode": "discrete"
+  },
+  "wrappers": {},
+  "params": {
+    "alpha": 0.1,
+    "gamma": 0.99,
+    "eps_start": 1.0,
+    "eps_end": 0.05,
+    "eps_decay_frac": 0.8
+  },
+  "net_arch": null,
+  "timesteps": null,
+  "episodes": 4000,
+  "curriculum": false,
+  "train_time_s": 422.4
+}
