@@ -36,7 +36,7 @@ def train_tabular(label, spec, env_cfg, tcfg, run_dir, seed):
     wrappers = spec.get("wrappers") or {}
     env = make_env({**env_cfg, "split": "train"}, wrappers)
     val_env = make_env({**env_cfg, "split": "validation"}, wrappers)
-    agent = TabularAgent(algo, env_cfg.get("n_rays", 24), env_cfg.get("max_range", 3.0), env_cfg.get("dist_norm", 15.0),
+    agent = TabularAgent(algo, env_cfg.get("n_rays", 24), env_cfg.get("max_range", 3.0), env_cfg.get("dist_norm", 30.0),
                          guidance=env_cfg.get("guidance", False))
     p = spec.get("params") or {}
     t0 = time.time()

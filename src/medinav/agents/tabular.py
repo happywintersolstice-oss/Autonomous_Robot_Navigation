@@ -10,7 +10,7 @@ and information is lost.
 State discretisation (1 944 states)
 -----------------------------------
 goal bearing     8 bins of 45 degrees
-goal distance    3 bins: < 1 m, < 3 m, further
+goal distance    3 bins: < 1.5 m, < 5 m, further
 4 LiDAR sectors  front / left / back / right, each: danger (< 0.4 m), near (< 1 m), clear
 => 8 * 3 * 3^4 = 1944 states, 5 actions
 
@@ -44,7 +44,7 @@ class Discretiser:
                     by itself - a representation change, not a bigger model (Part B).
     """
 
-    def __init__(self, n_rays=24, max_range=3.0, dist_norm=15.0, guidance=False):
+    def __init__(self, n_rays=24, max_range=3.0, dist_norm=30.0, guidance=False):
         self.n_rays, self.max_range, self.dist_norm = n_rays, max_range, dist_norm
         self.guidance = bool(guidance)
         ang = np.degrees(np.linspace(0, 2 * np.pi, n_rays, endpoint=False))
@@ -68,7 +68,7 @@ class Discretiser:
         else:
             bearing = np.arctan2(obs[n + 1], obs[n + 2])     # straight-line direction to the goal
         b = int(((bearing + np.pi) / (2 * np.pi) * 8 + 0.5) % 8)
-        d = 0 if dist < 1.0 else 1 if dist < 3.0 else 2
+        d = 0 if dist < 1.5 else 1 if dist < 5.0 else 2      # arriving / nearby / far (hospital-scale)
         s = b * 3 + d
         for idx in self.sectors:
             m = scan[idx].min()
@@ -79,7 +79,7 @@ class Discretiser:
 class TabularAgent(Agent):
     action_mode = "discrete"
 
-    def __init__(self, algo="q_learning", n_rays=24, max_range=3.0, dist_norm=15.0, q=None, guidance=False):
+    def __init__(self, algo="q_learning", n_rays=24, max_range=3.0, dist_norm=30.0, q=None, guidance=False):
         if algo not in ("q_learning", "sarsa"):
             raise ValueError(f"tabular algo must be q_learning or sarsa, got {algo!r}")
         self.name, self.algo = algo, algo
@@ -137,7 +137,7 @@ class TabularAgent(Agent):
     @classmethod
     def load(cls, run_dir, algo, env_cfg):
         q = np.load(Path(run_dir) / "q_table.npy")
-        return cls(algo, env_cfg.get("n_rays", 24), env_cfg.get("max_range", 3.0), env_cfg.get("dist_norm", 15.0), q=q,
+        return cls(algo, env_cfg.get("n_rays", 24), env_cfg.get("max_range", 3.0), env_cfg.get("dist_norm", 30.0), q=q,
                    guidance=env_cfg.get("guidance", False))
 
     def visited_fraction(self):

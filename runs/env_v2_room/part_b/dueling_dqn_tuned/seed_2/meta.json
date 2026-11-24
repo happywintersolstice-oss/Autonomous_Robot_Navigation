@@ -1,0 +1,32 @@
+{
+  "label": "dueling_dqn_tuned",
+  "algo": "dueling_dqn",
+  "owner": "Member 2",
+  "seed": 2,
+  "action_mode": "discrete",
+  "env": {
+    "difficulty": 2,
+    "max_steps": 400,
+    "action_mode": "discrete"
+  },
+  "wrappers": {},
+  "params": {
+    "learning_rate": 0.000162,
+    "gamma": 0.9703,
+    "target_update_interval": 1000,
+    "exploration_fraction": 0.309,
+    "buffer_size": 100000,
+    "learning_starts": 5000,
+    "batch_size": 128,
+    "train_freq": 4,
+    "exploration_final_eps": 0.05
+  },
+  "net_arch": [
+    256,
+    256
+  ],
+  "timesteps": 300000,
+  "episodes": null,
+  "curriculum": false,
+  "train_time_s": 1049.1
+}

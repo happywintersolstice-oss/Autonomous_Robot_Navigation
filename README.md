@@ -1,12 +1,18 @@
 # MediNav-RL: hospital delivery robot navigation with reinforcement learning
 
-BMDS2114 Machine Learning assignment. A differential-drive robot with a 24-ray LiDAR delivers medicine across procedurally generated hospital floors. It has to avoid walls, clutter and walking people, and keep a social distance. We compare 11 RL algorithms against A\* and random baselines, then refine the best ones with tuning, missing-data handling, curriculum learning, a hybrid A\*+RL agent and ensembles.
+BMDS2114 Machine Learning assignment. A differential-drive robot with a 24-ray LiDAR delivers medicine from the **pharmacy** to a numbered **ward bed** in procedurally generated hospital wings: a 24 × 16 m floor with a main corridor and named rooms (pharmacy, wards, nurse station, lobby, supply). The robot knows the floor plan's route but not where people and trolleys are. It has to avoid them, keep a social distance and arrive quickly.
+
+We compare 9 RL algorithms against A\* and random baselines on never-seen floors. We then refine the best ones with tuning (random vs TPE), a route-guidance ablation, missing-LiDAR handling, curriculum learning, reward shaping, longer training and ensembles. See [docs/how_it_works.md](docs/how_it_works.md) for the one-page explanation, including how the environment evolved.
 
 ## Quick start (Windows)
 
 1. Double-click **`Setup.cmd`**. It creates `.venv` and installs everything (needs internet, about 5 minutes).
 2. Double-click **`Run Smoke Test.cmd`**. It trains every algorithm for a few seconds and produces all figures. It's a check that the install works, not real results.
-3. Double-click **`Start App.cmd`** to open the dashboard in your browser.
+3. Double-click **`Start App.cmd`** to open the app in your browser. It has four tabs:
+   - **Delivery:** pick a floor, a busy-ness level and an agent, then watch an animated replay.
+   - **Compare agents:** run several agents on the same floor.
+   - **Results:** a dashboard of every table and figure.
+   - **How it works.**
 
 The same steps from a terminal:
 
@@ -15,7 +21,7 @@ py -3 -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
 pip install -e .
-python -m pytest -q                                          # 45 tests, about 30 s
+python -m pytest -q                                          # 57 tests, about 2 min
 python -m medinav pipeline --config configs/smoke.yaml       # tiny end-to-end run
 streamlit run app/streamlit_app.py
 ```
@@ -40,19 +46,41 @@ Training skips runs that already exist, so members can train their own algorithm
 - The DQN family: about 10–15 min per seed.
 - SAC and TD3: about 20–30 min per seed.
 
-All of Part A with 5 seeds takes several hours, so split it by member and start early.
+On a 20-thread laptop, all of Part A (9 algorithms × 3 seeds) took about 40 minutes with one process per run (`Train Part A.cmd`).
+
+## Results (hospital floor, v3)
+
+All numbers are success rates on 50 never-seen test floors × 3 training seeds ("Busy day": 4 people, 3 trolleys).
+
+| Agent | Success | Collision | Note |
+|---|---|---|---|
+| SAC, 2× training (Part B) | **95%** | 5% | best overall; 81% on "Visiting hours" |
+| TD3, 2× training (Part B) | 91% | 7% | |
+| TD3, Optuna-tuned (Part B) | 83% | 10% | TPE beat random search for TD3 |
+| SAC (Part A) | 80% | 19% | significantly better than TD3 and Dueling DQN (p < 0.01) |
+| Ensemble SAC + TD3 | 79% | 19% | |
+| Dueling DQN (Part A) | 63% | 35% | best discrete-action agent |
+| PPO (Part A) | 54% | 43% | |
+| A\* route-follower (baseline) | 38% | 62% | knows the floor plan, not the people |
+| Q-learning (Part A / tuned) | 15% / 27% | 18% / 19% | 1,944-state table is too coarse |
+| Any agent **without** route guidance | ≤ 3% | | the floor plan matters most |
+
+Weak spots for every agent: 40% LiDAR loss (≤ 34%) and "careless" people who walk into the robot (≤ 56%).
+Full tables, CIs, significance tests and figures: `runs/part_a/results/` and `runs/part_b/results/`, or the app's **Results** tab.
+
+**Known limitation.** People yield by stopping about 5 cm from the robot, so the median closest approach is about 0.07 m for every agent, including A\*. A wider yielding distance is a future-work item; changing it would mean retraining everything.
 
 ## What is where
 
 ```
 configs/          experiment definitions (YAML): every result is reproducible from these
 src/medinav/
-  env/            maps.py (procedural floors + train/val/test split), nav_env.py (robot, LiDAR,
+  env/            maps.py (hospital floor generator + train/val/test split), nav_env.py (robot, LiDAR,
                   people, reward), humans.py, planning.py (A*, geodesic distance), wrappers.py
                   (missing-LiDAR imputation, frame stacking)
   agents/         baselines.py (Random, A*), tabular.py (Q-learning, SARSA; Member 1),
                   dqn_family.py (DQN / Double / Dueling; Member 2),
-                  policy_gradient.py (PPO / A2C / RecurrentPPO; Member 3),
+                  policy_gradient.py (PPO / A2C; Member 3),
                   continuous_control.py (SAC / TD3; Member 4), ensemble.py, registry.py
   training/       train.py (multi-seed training), callbacks.py (validation curves, best model, curriculum)
   evaluation/     rollout.py (episode metrics + failure types), metrics.py (bootstrap CI, IQM,
@@ -60,7 +88,9 @@ src/medinav/
                   (permutation importance, gradient saliency, Q-table policy map), report.py (figures)
   tuning.py       Optuna search
   cli.py          the `python -m medinav ...` commands
-app/              Streamlit prototype (simulator, head-to-head, results browser)
+  render.py       static floor-plan drawing (report figures, app background)
+  viz.py          animated / interactive floor plan for the app (Plotly)
+app/              Streamlit prototype (delivery replay, agent comparison, results dashboard)
 tests/            unit tests
 runs/             created by training: models, learning curves, results
 ```
@@ -70,18 +100,18 @@ runs/             created by training: models, learning curves, results
 | Spec item | Where it is done |
 |---|---|
 | Frame the problem / define the environment | `env/nav_env.py` docstring, `docs/how_it_works.md` |
-| Diverse models | 11 algorithms across tabular, value-based, on-policy and off-policy families; continuous and discrete actions |
-| Validation method | Disjoint train/validation/test map seeds; 5 seeds per algorithm; stratified bootstrap 95% CI (`metrics.py`) |
+| Diverse models | 9 algorithms across tabular, value-based, on-policy and off-policy families; continuous and discrete actions |
+| Validation method | Disjoint train/validation/test floor seeds; 3 seeds per algorithm; stratified bootstrap 95% CI (`metrics.py`) |
 | Task-suited metrics | Success, collision (wall/person), path efficiency vs A\*, time to goal, social intrusion, min person distance, IQM return, seed stability, sample efficiency, decision latency |
-| Robustness across conditions | 9 stress tests: noise, 20/40% dropout, crowds, fast people, clutter, bigger map, hardest level, non-stationary people (`robustness` in configs) |
+| Robustness across conditions | 10 stress tests: noise, 20/40% LiDAR loss, crowds, fast people, clutter, bigger wing, visiting hours, careless people, non-stationary people (`robustness` in configs) |
 | Patterns and influencing factors | Permutation importance per input group, LiDAR saliency polar plots, tabular policy map, reward-term breakdown |
 | Error types | `failure_type`: wall, person, stuck/oscillating, too slow; failure breakdown figure; trajectory gallery |
-| Refine representations / learning | Geodesic vs Euclidean reward ablation, curriculum learning, frame stacking, LSTM |
+| Refine representations / learning | Route-guidance ablation, geodesic vs Euclidean reward, curriculum learning, frame stacking, longer training; environment iterations v1 → v3 driven by error analysis |
 | Shortlist | `summary.md` + `significance.md` (permutation test between top agents) |
 | Part B tuning | Optuna TPE vs random, median pruning (`tuning.py`) |
-| Missing information | 5 imputation strategies + frame stack + RecurrentPPO, trained with 20% LiDAR dropout |
-| Combine models | Q-value averaging, seed ensemble, majority vote, continuous action averaging, safety shield, hybrid A\*+RL |
-| New data / adaptation | Unseen test maps, bigger maps, people who start walking mid-episode |
+| Missing information | Gap-filling strategies + frame stack, trained with 20% LiDAR dropout |
+| Combine models | Q-value averaging, seed ensemble, majority vote, continuous action averaging, safety shield; A\* route + learned local control |
+| New data / adaptation | Unseen test floors, bigger wing, people who start walking mid-delivery |
 | Automation | One command per stage; YAML configs; figures and tables generated automatically |
 | Prototype | `app/streamlit_app.py` |
 
@@ -95,6 +125,6 @@ runs/             created by training: models, learning curves, results
 
 ## Things to check yourselves (for Q&A)
 
-- The default hyper-parameters are sensible starting points, not tuned results. Run the tuning, then paste `best_params.yaml` into `configs/part_b.yaml`.
-- Choose the Part B shortlist (PPO/SAC/DQN in the config) from your actual Part A results.
+- The Part A hyper-parameters are sensible starting points, not tuned results. The tuned settings in `configs/part_b.yaml` come from `runs/tuning/*/summary.json`.
+- Your fact sheet is in `runs/part_b/results/factsheets/`. It has the numbers for your own algorithms; the interpretation is yours to write.
 - Every module starts with a comment explaining *why* it exists. Each member should be able to explain their algorithm file line by line and change a hyper-parameter live.

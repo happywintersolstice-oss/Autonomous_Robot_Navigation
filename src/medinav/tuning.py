@@ -74,7 +74,7 @@ def tune(cfg: dict, label: str, sampler: str, out_root: Path, n_trials=None):
             env = make_env({**env_cfg, "split": "train"}, spec.get("wrappers"))
             venv = make_env({**env_cfg, "split": "validation"}, spec.get("wrappers"))
             agent = TabularAgent(spec["algo"], env_cfg.get("n_rays", 24), env_cfg.get("max_range", 3.0),
-                                 env_cfg.get("dist_norm", 15.0), guidance=env_cfg.get("guidance", False))
+                                 env_cfg.get("dist_norm", 30.0), guidance=env_cfg.get("guidance", False))
             scores = []
 
             def cb(ep, steps, ag):

@@ -6,7 +6,8 @@
   "action_mode": "continuous",
   "env": {
     "difficulty": 2,
-    "max_steps": 400,
+    "max_steps": 600,
+    "guidance": true,
     "action_mode": "continuous"
   },
   "wrappers": {},
@@ -27,5 +28,5 @@
   "timesteps": 300000,
   "episodes": null,
   "curriculum": false,
-  "train_time_s": 608.1
+  "train_time_s": 1439.2
 }

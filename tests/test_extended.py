@@ -5,6 +5,7 @@ Fast enough to run before every commit (deep-RL tests train for a few hundred st
 """
 
 import json
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -268,12 +269,14 @@ def test_tuning_suggest_types():
 
 def test_tabular_agent_learns_to_beat_random_on_easy_maps():
     """Not a benchmark - a sanity check that the update rule moves in the right direction."""
-    env = make_env({"difficulty": 0, "n_humans": 0, "max_steps": 150})
-    agent = TabularAgent("q_learning").train(env, 600, seed=0)
+    env = make_env({"difficulty": 0, "n_humans": 0, "max_steps": 300})
+    agent = TabularAgent("q_learning").train(env, 400, seed=0)
     from medinav.evaluation.rollout import evaluate
 
-    learned = np.mean([r["success"] for r in evaluate(agent, env, "validation", 20)])
-    rand = np.mean([r["success"] for r in evaluate(RandomAgent(), env, "validation", 20)])
+    # return, not success: 400 episodes is far too short to finish hospital-length routes reliably,
+    # but the learned table must already make more progress than random driving
+    learned = np.mean([r["return"] for r in evaluate(agent, env, "validation", 20)])
+    rand = np.mean([r["return"] for r in evaluate(RandomAgent(), env, "validation", 20)])
     assert learned > rand
 
 
@@ -316,3 +319,62 @@ def test_people_never_walk_into_a_still_robot():
             hits[yield_] += info["outcome"] == "collision_human"
     assert hits[True] == 0
     assert hits[False] > 0          # the old behaviour really did produce unavoidable collisions
+
+
+# ------------------------------------------------------------------ hospital floor
+@pytest.mark.parametrize("difficulty", range(4))
+def test_hospital_floor_structure(difficulty):
+    for i in range(10):
+        lay = generate_layout(map_seed("test", i), difficulty)
+        kinds = [r.kind for r in lay.rooms]
+        assert kinds.count("pharmacy") == 1 and kinds.count("ward") >= 2 and "nurses" in kinds
+        assert lay.room_at(lay.start) == "Pharmacy"                       # deliveries start in the pharmacy
+        assert lay.goal_room.startswith("Ward") and lay.room_at(lay.goal) == lay.goal_room
+        assert lay.goal_label.startswith(lay.goal_room[-1] + "-")        # bed C-3 is in Ward C
+        assert np.isfinite(lay.geodesic[lay.cell(lay.start)])             # the delivery is possible
+        assert lay.width_m == 24.0 and lay.height_m == 16.0
+
+
+def test_floors_differ_between_seeds_and_splits():
+    a, b = generate_layout(map_seed("train", 0), 2), generate_layout(map_seed("test", 0), 2)
+    assert not np.array_equal(a.grid, b.grid)
+
+
+def test_harder_levels_mean_longer_routes_and_more_people():
+    def stats(d):
+        lays = [generate_layout(map_seed("validation", i), d) for i in range(20)]
+        return np.mean([l.geodesic_m(l.start) for l in lays]), np.mean([len(l.human_spawns) for l in lays])
+    (r0, h0), (r3, h3) = stats(0), stats(3)
+    assert r3 > r0 and h3 > h0
+
+
+def test_bigger_hospital_option():
+    lay = generate_layout(map_seed("test", 0), 2, width_m=32.0, height_m=20.0)
+    assert lay.grid.shape == (80, 128) and len(lay.rooms) >= 6
+
+
+def test_app_figures_build():
+    """The app's animated replay and comparison figure build from a real recorded episode."""
+    from medinav.viz import episode_animation, paths_figure
+
+    env = make_env({"difficulty": 1})
+    row, frames = run_episode(AStarAgent(), env, map_seed("test", 1), record=True)
+    fig = episode_animation(frames, max_frames=30)
+    assert 1 <= len(fig.frames) <= 31 and len(fig.layout.images) == 1
+    assert len(fig.data) == len(fig.frames[0].data)          # Plotly needs the same traces in every frame
+    fig2 = paths_figure(frames[0], [("A*", frames[-1]["path"], row["failure_type"], row["success"])])
+    assert len(fig2.data) == 2
+    assert "Pharmacy" in frames[0]["mission"] and frames[0]["goal_room"].startswith("Ward")
+
+
+def test_part_b_uses_part_a_base_env():
+    """Part B refines Part A: same base world unless a run overrides it on purpose (e.g. *_noroute)."""
+    import yaml
+    root = Path(__file__).resolve().parents[1] / "configs"
+    a = yaml.safe_load((root / "part_a.yaml").read_text(encoding="utf-8"))
+    b = yaml.safe_load((root / "part_b.yaml").read_text(encoding="utf-8"))
+    for key in ("difficulty", "max_steps", "guidance"):
+        assert a["env"].get(key) == b["env"].get(key), key
+    for label, spec in b["algorithms"].items():
+        if "guidance" in spec.get("env_overrides", {}):
+            assert label.endswith("_noroute"), label

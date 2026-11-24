@@ -1,0 +1,32 @@
+{
+  "label": "sac_noroute",
+  "algo": "sac",
+  "owner": "Member 4",
+  "seed": 1,
+  "action_mode": "continuous",
+  "env": {
+    "difficulty": 2,
+    "max_steps": 600,
+    "guidance": false,
+    "action_mode": "continuous"
+  },
+  "wrappers": {},
+  "params": {
+    "learning_rate": 0.0003,
+    "buffer_size": 200000,
+    "learning_starts": 5000,
+    "batch_size": 256,
+    "gamma": 0.99,
+    "tau": 0.005,
+    "train_freq": 4,
+    "gradient_steps": 2
+  },
+  "net_arch": [
+    256,
+    256
+  ],
+  "timesteps": 150000,
+  "episodes": null,
+  "curriculum": false,
+  "train_time_s": 1134.9
+}

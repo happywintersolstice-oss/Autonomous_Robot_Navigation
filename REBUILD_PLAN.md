@@ -139,8 +139,29 @@ Rebuilding the entire project with me is close to that line, so the plan is desi
     - TD3: 0.76 with both.
     - PPO: 0.61 with both.
     - Q-learning: 0.55 (TPE) vs 0.50 (random).
-- **Phase 5 (running).** Part B: 17 experiments × 3 seeds, plus 7 ensembles.
+- **Phase 5, first attempt (superseded).** Part B in the 10 m room (env v2): sac_hybrid 82%, sac_long 81%. Archived in `runs/env_v2_room/`.
+- **Feedback: the map was too small** ("I don't know where the pharmacy or the wards are") and the UI wasn't liked.
+  - **Environment v3: hospital wing.** 24 × 16 m with a corridor, Pharmacy, 2–6 Wards with numbered beds, Nurse station, Lobby/Supply, and trolleys. Missions read like "Pharmacy → Ward C, bed C-3".
+  - **First result:** no agent learned without the floor plan (0% after 120k steps). Fixed by giving the robot the next waypoint on the planned route (`guidance: true`), as real hospital robots do. "No route guidance" became a Part B ablation.
+  - **UI redesigned.** Polished Streamlit with Plotly animation, a named-room floor plan, KPI cards, Compare agents and Results tabs, and member fact sheets.
+- **Phase 4 again (done).** Part A on v3 (50 test floors × 3 seeds):
+  - SAC 80%, TD3 64%, Dueling DQN 63%, PPO 54%, Double DQN 51%, DQN 48%, A2C 48%, A* 38%, Q-learning 15%, SARSA 10%.
+  - SAC is significantly better than TD3 and Dueling DQN (p < 0.01).
+- **Tuning (done).** Optuna, 20 trials per sampler. Best validation score:
+  - Dueling DQN: 0.87 random vs 0.82 TPE.
+  - PPO: 0.66 random vs 0.61 TPE.
+  - TD3: 0.71 TPE vs 0.61 random.
+  - Q-learning: 0.41 both.
+- **Phase 5 (done).** Part B on v3: 15 experiments × 3 seeds plus 7 ensembles/shields.
+  - **Bug found and fixed.** Part B's config was missing `guidance: true`, so 12 experiments first trained without route guidance. They were retrained, and a test now checks that Part B keeps Part A's base environment.
+  - **Results:**
+    - sac_long 95% and td3_long 91% (both p < 0.05 vs Part A).
+    - td3_tuned 83%, q_learning_tuned 27% (vs 15%).
+    - ppo_tuned unchanged (54%); dueling_dqn_tuned and curriculum −6 pts.
+    - LiDAR-gap filling: max-range 47% and last-valid 47%, vs gaps kept 31% and 3-frame stack 19%.
+    - Straight-line reward 10% (vs walking-route 54%).
+    - No route guidance ≤ 3% for every family.
+    - Ensembles: DQN-family Q-average 69% beats every single DQN; SAC + TD3 79%. The safety shield does not help SAC (79% vs 80%).
 - **Still open:**
-  - Commit and push.
-  - Part B.
-  - Decisions 2, 3 and 5 from section 6.
+  - Decisions 2, 3 and 5 from section 6: team names and ownership, and the deadline.
+  - Opening the PR, since `gh` isn't installed.

@@ -6,17 +6,18 @@
   "action_mode": "continuous",
   "env": {
     "difficulty": 2,
-    "max_steps": 400,
+    "max_steps": 600,
+    "guidance": true,
     "action_mode": "continuous"
   },
   "wrappers": {},
   "params": {
-    "learning_rate": 0.000439,
-    "gamma": 0.9746,
-    "tau": 0.0175,
-    "batch_size": 128,
+    "learning_rate": 0.000632,
     "buffer_size": 200000,
     "learning_starts": 5000,
+    "batch_size": 512,
+    "gamma": 0.9728,
+    "tau": 0.0055,
     "train_freq": 4,
     "gradient_steps": 2,
     "action_noise_std": 0.2
@@ -28,5 +29,5 @@
   "timesteps": 150000,
   "episodes": null,
   "curriculum": false,
-  "train_time_s": 492.9
+  "train_time_s": 773.6
 }

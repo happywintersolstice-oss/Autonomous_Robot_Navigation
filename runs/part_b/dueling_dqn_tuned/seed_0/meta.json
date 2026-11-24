@@ -6,27 +6,28 @@
   "action_mode": "discrete",
   "env": {
     "difficulty": 2,
-    "max_steps": 400,
+    "max_steps": 600,
+    "guidance": true,
     "action_mode": "discrete"
   },
   "wrappers": {},
   "params": {
-    "learning_rate": 0.000162,
-    "gamma": 0.9703,
-    "target_update_interval": 1000,
-    "exploration_fraction": 0.309,
+    "learning_rate": 0.00026,
     "buffer_size": 100000,
     "learning_starts": 5000,
     "batch_size": 128,
+    "gamma": 0.9915,
     "train_freq": 4,
+    "target_update_interval": 2000,
+    "exploration_fraction": 0.452,
     "exploration_final_eps": 0.05
   },
   "net_arch": [
-    256,
-    256
+    128,
+    128
   ],
   "timesteps": 300000,
   "episodes": null,
   "curriculum": false,
-  "train_time_s": 1113.2
+  "train_time_s": 589.3
 }
