@@ -1,0 +1,28 @@
+{
+  "label": "a2c",
+  "algo": "a2c",
+  "owner": "Member 3",
+  "seed": 0,
+  "action_mode": "continuous",
+  "env": {
+    "difficulty": 2,
+    "max_steps": 400,
+    "action_mode": "continuous"
+  },
+  "wrappers": {},
+  "params": {
+    "learning_rate": 0.0007,
+    "n_steps": 16,
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "ent_coef": 0.005
+  },
+  "net_arch": [
+    128,
+    128
+  ],
+  "timesteps": 300000,
+  "episodes": null,
+  "curriculum": false,
+  "train_time_s": 546.3
+}

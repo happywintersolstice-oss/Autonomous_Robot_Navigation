@@ -7,8 +7,12 @@
 experiment: part_a
 
 env:                      # see src/medinav/env/nav_env.py DEFAULT_CONFIG for every option
-  difficulty: 2           # 2 interior walls, 7 obstacles, 2 moving people
-  max_steps: 400
+  difficulty: 2           # "Busy day": 4 people, 3 corridor trolleys, any ward bed as the target
+  max_steps: 600          # 120 s per delivery
+  guidance: true          # the robot knows the floor plan: it sees the direction of the next waypoint on
+                          # the planned route (1.5 m ahead). It does NOT know where people/trolleys are -
+                          # avoiding them from LiDAR is what it must learn. (Without guidance no agent
+                          # learned at all in a 120k-step pilot; Part B measures this as an ablation.)
 
 training:
   seeds: [0, 1, 2]        # 3 independent training runs per algorithm (add 3, 4 if time allows)
@@ -97,7 +101,7 @@ robustness:
     crowded:          {n_humans: 6}
     fast_people:      {human_speed: 0.9}
     cluttered:        {n_obstacles: 13}
-    bigger_map:       {map_size: 14.0}
+    bigger_hospital:     {map_width: 32.0, map_height: 20.0}
     hardest_level:    {difficulty: 3}
     people_start_late: {humans_start_step: 40}   # non-stationary: world changes mid-episode
     careless_people:  {humans_yield: false}      # env v1 behaviour: people walk into the robot

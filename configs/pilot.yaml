@@ -1,11 +1,12 @@
-# Learnability pilot (~10 min): does each family learn at all with Part A settings?
-#   python -m medinav train --config configs/pilot.yaml --only ppo dqn sac q_learning
+# Learnability pilot on the hospital floor: does the route guidance make the task learnable?
 base: part_a.yaml
 experiment: pilot
+env:
+  guidance: true
 training:
   seeds: [0]
 algorithms:
   q_learning: {episodes: 3000}
-  dqn: {timesteps: 120000}
-  ppo: {timesteps: 120000}
-  sac: {timesteps: 60000}
+  dqn: {timesteps: 150000}
+  ppo: {timesteps: 150000}
+  sac: {timesteps: 100000}

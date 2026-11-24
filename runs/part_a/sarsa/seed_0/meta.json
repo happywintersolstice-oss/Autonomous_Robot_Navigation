@@ -6,7 +6,8 @@
   "action_mode": "discrete",
   "env": {
     "difficulty": 2,
-    "max_steps": 400,
+    "max_steps": 600,
+    "guidance": true,
     "action_mode": "discrete"
   },
   "wrappers": {},
@@ -21,5 +22,5 @@
   "timesteps": null,
   "episodes": 4000,
   "curriculum": false,
-  "train_time_s": 426.9
+  "train_time_s": 1994.6
 }

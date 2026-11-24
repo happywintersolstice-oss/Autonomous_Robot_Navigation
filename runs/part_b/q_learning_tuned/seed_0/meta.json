@@ -6,20 +6,21 @@
   "action_mode": "discrete",
   "env": {
     "difficulty": 2,
-    "max_steps": 400,
+    "max_steps": 600,
+    "guidance": true,
     "action_mode": "discrete"
   },
   "wrappers": {},
   "params": {
-    "alpha": 0.0986,
-    "gamma": 0.9655,
+    "alpha": 0.144,
+    "gamma": 0.9356,
     "eps_start": 1.0,
     "eps_end": 0.05,
-    "eps_decay_frac": 0.4842
+    "eps_decay_frac": 0.562
   },
   "net_arch": null,
   "timesteps": null,
   "episodes": 4000,
   "curriculum": false,
-  "train_time_s": 465.5
+  "train_time_s": 916.1
 }

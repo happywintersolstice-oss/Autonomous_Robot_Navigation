@@ -1,15 +1,15 @@
 {
   "label": "ppo",
   "sampler": "tpe",
-  "best_value": 0.604820311839292,
+  "best_value": 0.6106985172715715,
   "best_params": {
-    "learning_rate": 0.000258817021493792,
-    "gamma": 0.9850442789522486,
-    "ent_coef": 0.0016966944834563556,
-    "n_steps": 1024,
-    "clip_range": 0.1875174422525385,
-    "net_arch": "128,128"
+    "learning_rate": 0.0004553352525966872,
+    "gamma": 0.9508064399896825,
+    "ent_coef": 4.099136518049334e-05,
+    "n_steps": 256,
+    "clip_range": 0.11769031590408173,
+    "net_arch": "64,64"
   },
   "n_trials": 20,
-  "n_pruned": 4
+  "n_pruned": 11
 }

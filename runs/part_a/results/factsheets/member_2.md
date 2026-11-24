@@ -8,29 +8,29 @@ Source: `runs/part_a/results` (test maps, nominal condition unless stated).
 - Algorithm: `double_dqn`; action space: discrete; code: `src/medinav/agents/dqn_family.py`
 - Seeds trained: [0, 1, 2]
 - Budget: 300000 environment steps per seed; network [128, 128]
-- Training time per seed (s): [680.7, 553.7, 614.9]
+- Training time per seed (s): [1391.3, 1425.8, 1566.0]
 - Hyper-parameters: `{'learning_rate': 0.0005, 'buffer_size': 100000, 'learning_starts': 5000, 'batch_size': 128, 'gamma': 0.99, 'train_freq': 4, 'target_update_interval': 2000, 'exploration_fraction': 0.3, 'exploration_final_eps': 0.05}`
-- Env overrides / wrappers: `{'difficulty': 2, 'max_steps': 400}` / `{}`
+- Env overrides / wrappers: `{'difficulty': 2, 'max_steps': 600, 'guidance': True}` / `{}`
 
 | Metric | Value |
 |---|---|
 | Rank (by success, of 11 agents incl. baselines) | 5 |
-| Success rate | 0.520 (95% CI 0.413–0.620) |
-| Collision rate | 0.400 (95% CI 0.273–0.553) |
-| Collision with a person | 0.120 |
-| Timeout rate | 0.080 |
-| Path efficiency vs A* (successes only) | 0.935 (95% CI 0.889–0.964) |
-| Time to goal (s, successes only) | 13.6 |
-| Share of steps inside a person's comfort zone | 0.147 |
-| Return: mean / IQM | 2.91 / 4.15 |
-| Success std across seeds (stability) | 0.057 |
-| Decision time (ms) | 0.70 |
+| Success rate | 0.513 (95% CI 0.407–0.620) |
+| Collision rate | 0.453 (95% CI 0.340–0.580) |
+| Collision with a person | 0.213 |
+| Timeout rate | 0.033 |
+| Path efficiency vs A* (successes only) | 0.989 (95% CI 0.982–0.995) |
+| Time to goal (s, successes only) | 32.4 |
+| Share of steps inside a person's comfort zone | 0.190 |
+| Return: mean / IQM | 8.96 / 8.96 |
+| Success std across seeds (stability) | 0.066 |
+| Decision time (ms) | 2.64 |
 
-- How episodes end: {'success': 0.52, 'collision_wall': 0.28, 'collision_human': 0.12, 'stuck_oscillating': 0.053, 'too_slow': 0.027}
+- How episodes end: {'success': 0.513, 'collision_wall': 0.24, 'collision_human': 0.213, 'stuck_oscillating': 0.033}
 
-- Success under stress conditions: nominal 0.52, bigger_map 0.613, careless_people 0.48, cluttered 0.467, crowded 0.447, fast_people 0.493, hardest_level 0.267, lidar_dropout_20 0.533, lidar_dropout_40 0.36, noisy_lidar 0.493, people_start_late 0.587
+- Success under stress conditions: nominal 0.513, bigger_hospital 0.54, careless_people 0.367, cluttered 0.513, crowded 0.44, fast_people 0.473, hardest_level 0.32, lidar_dropout_20 0.433, lidar_dropout_40 0.253, noisy_lidar 0.48, people_start_late 0.547
 
-- Sample efficiency (area under validation curve, 0–1) per seed: [0.511, 0.504, 0.505]
+- Sample efficiency (area under validation curve, 0–1) per seed: [0.384, 0.436, 0.454]
 
 - Your figures: `importance_double_dqn.png`, `saliency_double_dqn.png`
 - Shared figures: `comparison.png`, `failure_breakdown.png`, `learning_curves.png`, `robustness_success.png`, `trajectories.png`
@@ -40,29 +40,29 @@ Source: `runs/part_a/results` (test maps, nominal condition unless stated).
 - Algorithm: `dqn`; action space: discrete; code: `src/medinav/agents/dqn_family.py`
 - Seeds trained: [0, 1, 2]
 - Budget: 300000 environment steps per seed; network [128, 128]
-- Training time per seed (s): [692.5, 722.7, 733.2]
+- Training time per seed (s): [1473.6, 1576.5, 1452.9]
 - Hyper-parameters: `{'learning_rate': 0.0005, 'buffer_size': 100000, 'learning_starts': 5000, 'batch_size': 128, 'gamma': 0.99, 'train_freq': 4, 'target_update_interval': 2000, 'exploration_fraction': 0.3, 'exploration_final_eps': 0.05}`
-- Env overrides / wrappers: `{'difficulty': 2, 'max_steps': 400}` / `{}`
+- Env overrides / wrappers: `{'difficulty': 2, 'max_steps': 600, 'guidance': True}` / `{}`
 
 | Metric | Value |
 |---|---|
 | Rank (by success, of 11 agents incl. baselines) | 6 |
-| Success rate | 0.520 (95% CI 0.413–0.633) |
-| Collision rate | 0.413 (95% CI 0.313–0.507) |
-| Collision with a person | 0.147 |
-| Timeout rate | 0.067 |
-| Path efficiency vs A* (successes only) | 0.981 (95% CI 0.943–0.998) |
-| Time to goal (s, successes only) | 11.9 |
-| Share of steps inside a person's comfort zone | 0.132 |
-| Return: mean / IQM | 3.17 / 4.27 |
-| Success std across seeds (stability) | 0.071 |
-| Decision time (ms) | 0.63 |
+| Success rate | 0.480 (95% CI 0.347–0.600) |
+| Collision rate | 0.480 (95% CI 0.360–0.620) |
+| Collision with a person | 0.233 |
+| Timeout rate | 0.040 |
+| Path efficiency vs A* (successes only) | 0.988 (95% CI 0.977–0.997) |
+| Time to goal (s, successes only) | 29.9 |
+| Share of steps inside a person's comfort zone | 0.174 |
+| Return: mean / IQM | 8.41 / 7.92 |
+| Success std across seeds (stability) | 0.099 |
+| Decision time (ms) | 2.37 |
 
-- How episodes end: {'success': 0.52, 'collision_wall': 0.267, 'collision_human': 0.147, 'stuck_oscillating': 0.047, 'too_slow': 0.02}
+- How episodes end: {'success': 0.48, 'collision_wall': 0.247, 'collision_human': 0.233, 'stuck_oscillating': 0.04}
 
-- Success under stress conditions: nominal 0.52, bigger_map 0.647, careless_people 0.473, cluttered 0.527, crowded 0.453, fast_people 0.527, hardest_level 0.253, lidar_dropout_20 0.467, lidar_dropout_40 0.373, noisy_lidar 0.513, people_start_late 0.647
+- Success under stress conditions: nominal 0.48, bigger_hospital 0.52, careless_people 0.3, cluttered 0.507, crowded 0.393, fast_people 0.413, hardest_level 0.267, lidar_dropout_20 0.42, lidar_dropout_40 0.267, noisy_lidar 0.473, people_start_late 0.52
 
-- Sample efficiency (area under validation curve, 0–1) per seed: [0.504, 0.539, 0.498]
+- Sample efficiency (area under validation curve, 0–1) per seed: [0.364, 0.448, 0.412]
 
 - Your figures: `importance_double_dqn.png`, `importance_dqn.png`, `importance_dueling_dqn.png`, `saliency_double_dqn.png`, `saliency_dqn.png`, `saliency_dueling_dqn.png`, `tuning_dueling_dqn.png`
 - Shared figures: `comparison.png`, `failure_breakdown.png`, `learning_curves.png`, `robustness_success.png`, `trajectories.png`
@@ -72,29 +72,29 @@ Source: `runs/part_a/results` (test maps, nominal condition unless stated).
 - Algorithm: `dueling_dqn`; action space: discrete; code: `src/medinav/agents/dqn_family.py`
 - Seeds trained: [0, 1, 2]
 - Budget: 300000 environment steps per seed; network [128, 128]
-- Training time per seed (s): [748.5, 766.3, 754.3]
+- Training time per seed (s): [1574.4, 1570.9, 1616.7]
 - Hyper-parameters: `{'learning_rate': 0.0005, 'buffer_size': 100000, 'learning_starts': 5000, 'batch_size': 128, 'gamma': 0.99, 'train_freq': 4, 'target_update_interval': 2000, 'exploration_fraction': 0.3, 'exploration_final_eps': 0.05}`
-- Env overrides / wrappers: `{'difficulty': 2, 'max_steps': 400}` / `{}`
+- Env overrides / wrappers: `{'difficulty': 2, 'max_steps': 600, 'guidance': True}` / `{}`
 
 | Metric | Value |
 |---|---|
-| Rank (by success, of 11 agents incl. baselines) | 4 |
-| Success rate | 0.547 (95% CI 0.453–0.647) |
-| Collision rate | 0.340 (95% CI 0.260–0.420) |
-| Collision with a person | 0.127 |
-| Timeout rate | 0.113 |
-| Path efficiency vs A* (successes only) | 0.922 (95% CI 0.883–0.958) |
-| Time to goal (s, successes only) | 13.5 |
-| Share of steps inside a person's comfort zone | 0.148 |
-| Return: mean / IQM | 3.30 / 5.05 |
-| Success std across seeds (stability) | 0.038 |
-| Decision time (ms) | 0.73 |
+| Rank (by success, of 11 agents incl. baselines) | 3 |
+| Success rate | 0.633 (95% CI 0.520–0.733) |
+| Collision rate | 0.353 (95% CI 0.253–0.460) |
+| Collision with a person | 0.153 |
+| Timeout rate | 0.013 |
+| Path efficiency vs A* (successes only) | 0.982 (95% CI 0.971–0.990) |
+| Time to goal (s, successes only) | 32.5 |
+| Share of steps inside a person's comfort zone | 0.178 |
+| Return: mean / IQM | 12.88 / 15.49 |
+| Success std across seeds (stability) | 0.066 |
+| Decision time (ms) | 3.04 |
 
-- How episodes end: {'success': 0.547, 'collision_wall': 0.213, 'collision_human': 0.127, 'stuck_oscillating': 0.1, 'too_slow': 0.013}
+- How episodes end: {'success': 0.633, 'collision_wall': 0.2, 'collision_human': 0.153, 'stuck_oscillating': 0.013}
 
-- Success under stress conditions: nominal 0.547, bigger_map 0.62, careless_people 0.467, cluttered 0.52, crowded 0.467, fast_people 0.607, hardest_level 0.353, lidar_dropout_20 0.48, lidar_dropout_40 0.387, noisy_lidar 0.587, people_start_late 0.64
+- Success under stress conditions: nominal 0.633, bigger_hospital 0.78, careless_people 0.373, cluttered 0.66, crowded 0.58, fast_people 0.587, hardest_level 0.447, lidar_dropout_20 0.387, lidar_dropout_40 0.213, noisy_lidar 0.607, people_start_late 0.747
 
-- Sample efficiency (area under validation curve, 0–1) per seed: [0.523, 0.461, 0.518]
+- Sample efficiency (area under validation curve, 0–1) per seed: [0.441, 0.377, 0.543]
 
 - Your figures: `importance_dueling_dqn.png`, `saliency_dueling_dqn.png`, `tuning_dueling_dqn.png`
 - Shared figures: `comparison.png`, `failure_breakdown.png`, `learning_curves.png`, `robustness_success.png`, `trajectories.png`

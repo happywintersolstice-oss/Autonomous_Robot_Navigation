@@ -2,8 +2,9 @@
 
 Problem statement (short version for the report)
 ------------------------------------------------
-A delivery robot carries medicine from the pharmacy to a ward bed. It only sees
-the world through a 2D LiDAR (24 distance rays) and knows where the goal is
+A delivery robot carries medicine from the PHARMACY to a numbered BED in one of
+the wards of a procedurally generated hospital wing (corridor + named rooms, see
+maps.py). It only sees the world through a 2D LiDAR (24 distance rays) and knows where the goal is
 relative to itself (like a GPS/odometry estimate). It must reach the goal
 quickly, never collide with walls, clutter or people, and keep a comfortable
 social distance from people.
@@ -53,12 +54,12 @@ from .planning import descend
 
 DEFAULT_CONFIG = {
     # world
-    "map_size": 10.0,
+    "map_width": 24.0,            # metres (hospital wing)
+    "map_height": 16.0,
     "resolution": 0.25,
     "difficulty": 1,
-    "n_obstacles": None,          # None = use difficulty preset
+    "n_obstacles": None,          # corridor trolleys; None = use difficulty preset
     "n_humans": None,
-    "n_walls": None,
     "train_map_pool": 500,        # number of distinct training maps
     "split": "train",
     # robot
@@ -67,14 +68,14 @@ DEFAULT_CONFIG = {
     "v_max": 0.6,
     "w_max": 1.5,
     "action_mode": "discrete",
-    "max_steps": 400,
+    "max_steps": 600,             # 120 s: enough for the longest (~30 m) delivery with detours
     "goal_tolerance": 0.3,
     # sensor
     "n_rays": 24,
     "max_range": 3.0,
     "lidar_noise_std": 0.0,       # metres, gaussian
     "dropout_prob": 0.0,          # probability each ray returns nothing
-    "dist_norm": 15.0,
+    "dist_norm": 30.0,            # longest route on a 24 x 16 m floor is ~30 m
     # people
     "human_speed": 0.5,
     "humans_start_step": 0,       # >0 = people frozen until this step (non-stationary test)
@@ -161,12 +162,12 @@ class HospitalNavEnv(gym.Env):
         self.layout = generate_layout(
             mseed,
             difficulty=c["difficulty"],
-            size_m=c["map_size"],
+            width_m=c["map_width"],
+            height_m=c["map_height"],
             resolution=c["resolution"],
             robot_radius=c["robot_radius"],
             n_obstacles=c["n_obstacles"],
             n_humans=c["n_humans"],
-            n_walls=c["n_walls"],
         )
         hrng = np.random.default_rng(mseed + 7)  # people behave the same for the same map
         self.humans = [
@@ -346,6 +347,7 @@ class HospitalNavEnv(gym.Env):
             "pos": self.pos.copy(),
             "heading": self.heading,
             "t": self.t,
+            "room": self.layout.room_at(self.pos),
             "path_length": self.path_length,
             "optimal_length": self.optimal_length,
             "map_seed": self.layout.seed,
@@ -368,6 +370,14 @@ class HospitalNavEnv(gym.Env):
             "waypoint": self.waypoint() if self.cfg["guidance"] else None,
             "t": self.t,
             "outcome": self.outcome,
+            "rooms": self.layout.rooms,
+            "corridor": self.layout.corridor,
+            "trolleys": self.layout.trolleys,
+            "mission": self.layout.mission,
+            "goal_room": self.layout.goal_room,
+            "goal_label": self.layout.goal_label,
+            "start": self.layout.start.copy(),
+            "dt": self.cfg["dt"],
         }
 
     def render(self):

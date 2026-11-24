@@ -8,29 +8,29 @@ Source: `runs/part_a/results` (test maps, nominal condition unless stated).
 - Algorithm: `q_learning`; action space: discrete; code: `src/medinav/agents/tabular.py`
 - Seeds trained: [0, 1, 2]
 - Budget: 4000 episodes per seed; network n/a (table)
-- Training time per seed (s): [397.7, 411.1, 406.1]
+- Training time per seed (s): [1609.6, 1626.1, 1618.4]
 - Hyper-parameters: `{'alpha': 0.1, 'gamma': 0.99, 'eps_start': 1.0, 'eps_end': 0.05, 'eps_decay_frac': 0.8}`
-- Env overrides / wrappers: `{'difficulty': 2, 'max_steps': 400}` / `{}`
+- Env overrides / wrappers: `{'difficulty': 2, 'max_steps': 600, 'guidance': True}` / `{}`
 
 | Metric | Value |
 |---|---|
-| Rank (by success, of 11 agents incl. baselines) | 10 |
-| Success rate | 0.353 (95% CI 0.253–0.453) |
-| Collision rate | 0.147 (95% CI 0.087–0.213) |
-| Collision with a person | 0.040 |
-| Timeout rate | 0.500 |
-| Path efficiency vs A* (successes only) | 0.926 (95% CI 0.885–0.969) |
-| Time to goal (s, successes only) | 19.2 |
-| Share of steps inside a person's comfort zone | 0.169 |
-| Return: mean / IQM | -0.67 / -1.63 |
-| Success std across seeds (stability) | 0.062 |
-| Decision time (ms) | 0.46 |
+| Rank (by success, of 11 agents incl. baselines) | 9 |
+| Success rate | 0.153 (95% CI 0.000–0.287) |
+| Collision rate | 0.180 (95% CI 0.100–0.273) |
+| Collision with a person | 0.067 |
+| Timeout rate | 0.667 |
+| Path efficiency vs A* (successes only) | 0.882 (95% CI 0.828–0.925) |
+| Time to goal (s, successes only) | 62.1 |
+| Share of steps inside a person's comfort zone | 0.140 |
+| Return: mean / IQM | -3.96 / -5.92 |
+| Success std across seeds (stability) | 0.111 |
+| Decision time (ms) | 0.90 |
 
-- How episodes end: {'stuck_oscillating': 0.393, 'success': 0.353, 'too_slow': 0.107, 'collision_wall': 0.107, 'collision_human': 0.04}
+- How episodes end: {'stuck_oscillating': 0.593, 'success': 0.153, 'collision_wall': 0.113, 'too_slow': 0.073, 'collision_human': 0.067}
 
-- Success under stress conditions: nominal 0.353, bigger_map 0.353, careless_people 0.273, cluttered 0.307, crowded 0.293, fast_people 0.407, hardest_level 0.113, lidar_dropout_20 0.42, lidar_dropout_40 0.46, noisy_lidar 0.36, people_start_late 0.36
+- Success under stress conditions: nominal 0.153, bigger_hospital 0.187, careless_people 0.067, cluttered 0.14, crowded 0.167, fast_people 0.173, hardest_level 0.14, lidar_dropout_20 0.427, lidar_dropout_40 0.48, noisy_lidar 0.267, people_start_late 0.153
 
-- Sample efficiency (area under validation curve, 0–1) per seed: [0.297, 0.241, 0.321]
+- Sample efficiency (area under validation curve, 0–1) per seed: [0.109, 0.031, 0.1]
 
 - Your figures: `importance_q_learning.png`, `tuning_q_learning.png`
 - Shared figures: `comparison.png`, `failure_breakdown.png`, `learning_curves.png`, `robustness_success.png`, `trajectories.png`
@@ -40,29 +40,29 @@ Source: `runs/part_a/results` (test maps, nominal condition unless stated).
 - Algorithm: `sarsa`; action space: discrete; code: `src/medinav/agents/tabular.py`
 - Seeds trained: [0, 1, 2]
 - Budget: 4000 episodes per seed; network n/a (table)
-- Training time per seed (s): [426.9, 430.5, 449.9]
+- Training time per seed (s): [1994.6, 1961.2, 1947.6]
 - Hyper-parameters: `{'alpha': 0.1, 'gamma': 0.99, 'eps_start': 1.0, 'eps_end': 0.05, 'eps_decay_frac': 0.8}`
-- Env overrides / wrappers: `{'difficulty': 2, 'max_steps': 400}` / `{}`
+- Env overrides / wrappers: `{'difficulty': 2, 'max_steps': 600, 'guidance': True}` / `{}`
 
 | Metric | Value |
 |---|---|
-| Rank (by success, of 11 agents incl. baselines) | 9 |
-| Success rate | 0.387 (95% CI 0.293–0.493) |
-| Collision rate | 0.120 (95% CI 0.040–0.200) |
-| Collision with a person | 0.027 |
-| Timeout rate | 0.493 |
-| Path efficiency vs A* (successes only) | 0.947 (95% CI 0.910–0.974) |
-| Time to goal (s, successes only) | 19.2 |
-| Share of steps inside a person's comfort zone | 0.174 |
-| Return: mean / IQM | 0.34 / -0.51 |
-| Success std across seeds (stability) | 0.052 |
-| Decision time (ms) | 0.44 |
+| Rank (by success, of 11 agents incl. baselines) | 10 |
+| Success rate | 0.100 (95% CI 0.020–0.213) |
+| Collision rate | 0.167 (95% CI 0.053–0.340) |
+| Collision with a person | 0.073 |
+| Timeout rate | 0.733 |
+| Path efficiency vs A* (successes only) | 0.799 (95% CI 0.700–0.961) |
+| Time to goal (s, successes only) | 69.3 |
+| Share of steps inside a person's comfort zone | 0.166 |
+| Return: mean / IQM | -5.57 / -6.85 |
+| Success std across seeds (stability) | 0.085 |
+| Decision time (ms) | 1.16 |
 
-- How episodes end: {'success': 0.387, 'stuck_oscillating': 0.38, 'too_slow': 0.113, 'collision_wall': 0.093, 'collision_human': 0.027}
+- How episodes end: {'stuck_oscillating': 0.553, 'too_slow': 0.18, 'success': 0.1, 'collision_wall': 0.093, 'collision_human': 0.073}
 
-- Success under stress conditions: nominal 0.387, bigger_map 0.427, careless_people 0.3, cluttered 0.287, crowded 0.3, fast_people 0.367, hardest_level 0.1, lidar_dropout_20 0.44, lidar_dropout_40 0.467, noisy_lidar 0.4, people_start_late 0.34
+- Success under stress conditions: nominal 0.1, bigger_hospital 0.1, careless_people 0.047, cluttered 0.153, crowded 0.16, fast_people 0.133, hardest_level 0.093, lidar_dropout_20 0.227, lidar_dropout_40 0.307, noisy_lidar 0.167, people_start_late 0.107
 
-- Sample efficiency (area under validation curve, 0–1) per seed: [0.344, 0.301, 0.368]
+- Sample efficiency (area under validation curve, 0–1) per seed: [0.09, 0.069, 0.045]
 
 - Your figures: `importance_sarsa.png`
 - Shared figures: `comparison.png`, `failure_breakdown.png`, `learning_curves.png`, `robustness_success.png`, `trajectories.png`
