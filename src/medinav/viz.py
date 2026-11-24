@@ -141,6 +141,61 @@ def episode_animation(frames: list, height: int = 560, show_rays: bool = True, m
     return fig
 
 
+def pick_figure(snap: dict, height: int = 560):
+    """Floor preview you can click on. Returns (figure, targets).
+
+    Plotly can only report clicks on data points, so every bed gets a column of invisible
+    points ("deliver here") and every room floor a sparse grid of them ("start from here").
+    targets[curve][point_index] = ("bed", ward, label) or ("room", name), so the app can map
+    a click event (curve_number, point_index) back to a choice.
+    """
+    fig = _base_figure(snap, height)
+    room_x, room_y, room_t, room_h = [], [], [], []
+    bed_x, bed_y, bed_t, bed_h = [], [], [], []
+    bed_boxes = []                                          # bed bodies (+ margin): no "start" targets there
+    for room in snap.get("rooms") or []:
+        for _, (bx, by) in room.beds:
+            toward = 1 if by < (room.rect[1] + room.rect[3]) / 2 else -1
+            ya, yb = by - toward * 0.3, by - toward * 2.8
+            bed_boxes.append((bx - 0.75, min(ya, yb), bx + 0.75, max(ya, yb)))
+    for room in snap.get("rooms") or []:
+        x0, y0, x1, y1 = room.rect
+        for x in np.arange(x0 + 0.4, x1 - 0.2, 0.7):
+            for y in np.arange(y0 + 0.4, y1 - 0.2, 0.7):
+                if any(a <= x <= c and b <= y <= d for a, b, c, d in bed_boxes):
+                    continue
+                room_x.append(x)
+                room_y.append(y)
+                room_t.append(("room", room.name))
+                room_h.append(f"<b>{room.name}</b><br>click: start the robot here")
+        for label, (bx, by) in room.beds:
+            toward = 1 if by < (y0 + y1) / 2 else -1
+            for d in np.linspace(0.75, 2.45, 5):            # along the bed body
+                bed_x.append(bx)
+                bed_y.append(by - toward * d)
+                bed_t.append(("bed", room.name, label))
+                bed_h.append(f"<b>{room.name} · bed {label}</b><br>click: deliver the medicine here")
+    clear = dict(color="rgba(0,0,0,0)", size=22, line=dict(width=0))
+    hover = dict(bgcolor="#ffffff", bordercolor="#d0d7de", font=dict(family="Inter, sans-serif", size=12,
+                                                                     color="#1f2933"))
+    fig.add_trace(go.Scatter(x=room_x, y=room_y, mode="markers", marker=clear, hovertext=room_h,
+                             hoverinfo="text", hoverlabel=hover, name="rooms"))
+    fig.add_trace(go.Scatter(x=bed_x, y=bed_y, mode="markers", marker=dict(clear, size=26), hovertext=bed_h,
+                             hoverinfo="text", hoverlabel=hover, name="beds"))
+    # visible "you are here" pin on the start point
+    if snap.get("start") is not None:
+        sx, sy = snap["start"]
+        fig.add_trace(go.Scatter(x=[sx], y=[sy], mode="markers+text", text=["START"], textposition="top center",
+                                 textfont=dict(size=10, color="#0b3d91", family="Inter, sans-serif"),
+                                 marker=dict(symbol="circle", size=13, color="#1f6feb",
+                                             line=dict(color="white", width=2)),
+                                 hoverinfo="skip"))
+    # dragmode must not be False here: plotly then swallows clicks and never emits a selection.
+    # "pan" with fixed axes = the map does not move, but a click selects the nearest target.
+    fig.update_layout(clickmode="event+select", hovermode="closest", dragmode="pan")
+    return fig, [room_t, bed_t]
+
+
 def paths_figure(snap0: dict, runs: list, height: int = 560):
     """Several agents' finished paths on the same floor. runs = [(name, path array, outcome, success)]."""
     fig = _base_figure(snap0, height)

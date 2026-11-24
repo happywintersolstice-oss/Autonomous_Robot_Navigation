@@ -397,3 +397,18 @@ def test_mission_overrides_keep_the_floor():
         generate_layout(2_000_000, difficulty=2, goal_bed="Z-9")
     with pytest.raises(ValueError):
         generate_layout(2_000_000, difficulty=2, start_room="Cafeteria")
+
+
+def test_clickable_floor_map_targets():
+    """Every clickable point on the floor map maps back to a real room or bed."""
+    from medinav.env import make_env
+    from medinav.viz import pick_figure
+    env = make_env({"difficulty": 2})
+    env.reset(seed=0, options={"map_seed": 2_000_000})
+    snap = env.unwrapped.state_snapshot()
+    fig, targets = pick_figure(snap, height=300)
+    rooms = {r.name for r in snap["rooms"]}
+    beds = {(r.name, b) for r in snap["rooms"] for b, _ in r.beds}
+    assert len(fig.data[0].x) == len(targets[0]) and len(fig.data[1].x) == len(targets[1])
+    assert {t[1] for t in targets[0]} == rooms                  # every room is clickable
+    assert {(t[1], t[2]) for t in targets[1]} == beds           # every bed is clickable
