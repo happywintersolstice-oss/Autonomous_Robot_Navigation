@@ -271,19 +271,26 @@ def generate_layout(
     n_obstacles: int | None = None,
     n_humans: int | None = None,
     max_tries: int = 50,
+    start_room: str | None = None,
+    goal_bed: str | None = None,
 ) -> Layout:
     """Deterministically build a hospital floor + one delivery mission from `seed`.
 
     `n_obstacles` (corridor trolleys) / `n_humans` override the difficulty preset; this
     is how the robustness tests create harder-than-training conditions.
+
+    `start_room` (e.g. "Nurse station") and `goal_bed` (e.g. "C-3") let a user pick the mission
+    (the app does this). With both None the floor is exactly the one used in training/testing:
+    the random draws happen in the same order either way, so the building and people are unchanged.
     """
     return _generate_cached(int(seed), int(difficulty), float(width_m), float(height_m), float(resolution),
-                            float(robot_radius), n_obstacles, n_humans, int(max_tries))
+                            float(robot_radius), n_obstacles, n_humans, int(max_tries),
+                            start_room or None, goal_bed or None)
 
 
 @lru_cache(maxsize=256)
 def _generate_cached(seed, difficulty, width_m, height_m, resolution, robot_radius, n_obstacles, n_humans,
-                     max_tries) -> Layout:
+                     max_tries, start_room=None, goal_bed=None) -> Layout:
     # Cached because evaluation replays the same floors for every agent; the Layout is never
     # modified after creation (people keep their own positions in humans.py).
     spec = dict(DIFFICULTY[int(np.clip(difficulty, 0, max(DIFFICULTY)))])
@@ -376,11 +383,16 @@ def _generate_cached(seed, difficulty, width_m, height_m, resolution, robot_radi
         inflated = inflate(grid, inflate_cells)
         free = ~inflated
 
-        # --- start: inside the pharmacy, 1.6 m in from its doorway (in front of the counter)
-        pharmacy = next(r for r in rooms if r.kind == "pharmacy")
-        py0, py1 = pharmacy.rect[1], pharmacy.rect[3]
-        door_x = (pharmacy.door[0] + pharmacy.door[1]) / 2
-        start_cell = _nearest_free(free, np.array([door_x, _towards(pharmacy.door[2], (py0 + py1) / 2, 1.6)]),
+        # --- start: inside the pharmacy (or the requested room), 1.6 m in from its doorway
+        origin = next(r for r in rooms if r.kind == "pharmacy")
+        if start_room is not None:
+            origin = next((r for r in rooms if r.name == start_room), None)
+            if origin is None:
+                raise ValueError(f"No room called {start_room!r} on this floor "
+                                 f"(rooms: {', '.join(r.name for r in rooms)})")
+        py0, py1 = origin.rect[1], origin.rect[3]
+        door_x = (origin.door[0] + origin.door[1]) / 2
+        start_cell = _nearest_free(free, np.array([door_x, _towards(origin.door[2], (py0 + py1) / 2, 1.6)]),
                                    resolution)
         if start_cell is None:
             continue
@@ -400,6 +412,12 @@ def _generate_cached(seed, difficulty, width_m, height_m, resolution, robot_radi
         i0 = int(np.floor(lo * (len(candidates) - 1)))
         i1 = max(i0, int(np.ceil(hi * (len(candidates) - 1))))
         _, goal_room, goal_label, goal_cell = candidates[int(rng.integers(i0, i1 + 1))]
+        if goal_bed is not None:                    # user's choice; the draw above still happens
+            pick = [c for c in candidates if c[2] == goal_bed]
+            if not pick:
+                raise ValueError(f"No reachable bed {goal_bed!r} on this floor "
+                                 f"(beds: {', '.join(sorted(c[2] for c in candidates))})")
+            _, goal_room, goal_label, goal_cell = pick[0]
 
         layout = Layout(
             grid=grid, resolution=resolution,
@@ -409,7 +427,7 @@ def _generate_cached(seed, difficulty, width_m, height_m, resolution, robot_radi
             seed=seed, difficulty=difficulty,
             geodesic=geodesic_field(inflated, goal_cell), inflated=inflated,
             rooms=rooms, corridor=corridor, trolleys=trolleys,
-            start_room=pharmacy.name, goal_room=goal_room, goal_label=goal_label,
+            start_room=origin.name, goal_room=goal_room, goal_label=goal_label,
         )
 
         # --- people: mostly in the corridor (staff walking between rooms), some in rooms;

@@ -218,7 +218,7 @@ def rooms_visited(frames) -> list:
     return seq
 
 
-def floor_controls(key: str, cols=None):
+def floor_controls(key: str, cols=None, mission: bool = False):
     """Floor + busy-ness + stress options. Returns (map seed, env overrides)."""
     c = cols or st.columns(1)
     split = c[0].selectbox("Floors", ["test", "validation", "train"], key=key + "split",
@@ -240,7 +240,45 @@ def floor_controls(key: str, cols=None):
             "lidar_noise_std": noise, "dropout_prob": drop, "n_humans": None if people < 0 else people}
     if big:
         cond.update(map_width=32.0, map_height=20.0)
-    return map_seed(split, int(idx)), cond
+    mseed = map_seed(split, int(idx))
+    if mission:
+        cond.update(mission_controls(key, mseed, cond))
+    return mseed, cond
+
+
+@st.cache_data(show_spinner=False, max_entries=64)
+def floor_places(mseed: int, cond_items: tuple) -> tuple:
+    """(rooms, beds, default start room, default bed) of one floor, for the mission pickers."""
+    env = make_env(dict(cond_items))
+    env.reset(seed=0, options={"map_seed": mseed})
+    lay = env.unwrapped.layout
+    rooms = [r.name for r in lay.rooms]
+    beds = [(r.name, b) for r in lay.rooms for b, _ in r.beds]
+    return rooms, beds, lay.start_room, lay.goal_label
+
+
+def mission_controls(key: str, mseed: int, cond: dict) -> dict:
+    """'Start from' + 'Deliver to' pickers for the chosen floor. Returns env overrides."""
+    try:
+        rooms, beds, start0, bed0 = floor_places(mseed, tuple(sorted(cond.items())))
+    except Exception:  # noqa: BLE001 - an impossible floor is reported by the preview instead
+        return {}
+    st.markdown("###### Mission")
+    tag = f"{key}{mseed}{cond.get('map_width')}"           # new floor -> fresh choices
+    others = sorted(r for r in rooms if r != start0)
+    start = st.selectbox("Start from", [start0] + others, key=tag + "start",
+                         format_func=lambda r: f"{r} (usual start)" if r == start0 else r,
+                         help="Medicine normally leaves from the Pharmacy. The robots were trained only on "
+                              "Pharmacy starts, so other rooms test how well they generalise.")
+    wards = sorted({w for w, _ in beds})
+    ward = st.selectbox("Deliver to ward", ["auto"] + wards, key=tag + "ward",
+                        format_func=lambda w: f"Automatic (bed {bed0})" if w == "auto" else w,
+                        help="Automatic = the bed this floor's mission normally uses (what the test results use).")
+    bed = None
+    if ward != "auto":
+        ward_beds = [b for w, b in beds if w == ward]
+        bed = st.selectbox("Bed", ward_beds, key=tag + ward + "bed")
+    return {"start_room": None if start == start0 else start, "goal_bed": bed}
 
 
 def kpi(label, value, sub=""):
@@ -263,7 +301,7 @@ with tab_run:
         n_seeds = len(trained_runs().get(label, {0: None}))
         seed = st.selectbox("Training run (seed)", sorted(trained_runs().get(label, {0: None})), disabled=n_seeds < 2,
                             help="Each algorithm was trained 3 times with different random seeds.")
-        mseed, cond = floor_controls("run")
+        mseed, cond = floor_controls("run", mission=True)
         show_rays = st.toggle("Show LiDAR rays", value=True)
         go_btn = st.button("\U0001F69A  Start delivery", type="primary", use_container_width=True)
         if len(opts) <= 2:
@@ -277,10 +315,12 @@ with tab_run:
                     env = env_for(meta, cond)
                     with st.spinner("Driving…"):
                         row, frames = run_episode(agent, env, mseed, 0, record=True)
-                    st.session_state["run"] = dict(row=row, frames=frames, label=label, seed=seed)
+                    st.session_state["run"] = dict(row=row, frames=frames, label=label, seed=seed, setup=(mseed, cond))
                 except Exception as exc:  # noqa: BLE001 - e.g. an impossible stress-test combination
                     st.error(f"The delivery could not run: {type(exc).__name__}: {exc}")
         res = st.session_state.get("run")
+        if res is not None and res.get("setup") != (mseed, cond):
+            res = None                       # settings changed since the last run: preview the new mission
         if res is None:
             # preview the selected floor so the page is never empty
             try:
@@ -317,7 +357,7 @@ with tab_run:
             st.markdown('<div class="legend"><span><span class="dot" style="background:#1f6feb"></span>robot + path'
                         '</span><span><span class="dot" style="background:#d6336c"></span>person (dotted = comfort '
                         'zone)</span><span><span class="dot" style="background:#e8590c"></span>target bed</span>'
-                        '<span>Rx = pharmacy start</span></div>',
+                        '<span>Rx = start point</span></div>',
                         unsafe_allow_html=True)
             a, b = st.columns(2)
             with a.expander("Route through the building", expanded=True):

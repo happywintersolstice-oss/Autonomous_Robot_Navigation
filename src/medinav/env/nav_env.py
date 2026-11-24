@@ -62,6 +62,8 @@ DEFAULT_CONFIG = {
     "n_humans": None,
     "train_map_pool": 500,        # number of distinct training maps
     "split": "train",
+    "start_room": None,           # mission override (app): room name to start in; None = Pharmacy
+    "goal_bed": None,             # mission override (app): bed label, e.g. "C-3"; None = chosen by difficulty
     # robot
     "robot_radius": 0.2,
     "dt": 0.2,
@@ -168,6 +170,8 @@ class HospitalNavEnv(gym.Env):
             robot_radius=c["robot_radius"],
             n_obstacles=c["n_obstacles"],
             n_humans=c["n_humans"],
+            start_room=c["start_room"],
+            goal_bed=c["goal_bed"],
         )
         hrng = np.random.default_rng(mseed + 7)  # people behave the same for the same map
         self.humans = [

@@ -378,3 +378,22 @@ def test_part_b_uses_part_a_base_env():
     for label, spec in b["algorithms"].items():
         if "guidance" in spec.get("env_overrides", {}):
             assert label.endswith("_noroute"), label
+
+
+def test_mission_overrides_keep_the_floor():
+    """Picking a start room / bed changes only the mission, not the building or the people."""
+    from medinav.env.maps import generate_layout
+    base = generate_layout(2_000_000, difficulty=2)
+    other = next(r.name for r in base.rooms if r.kind != "pharmacy")
+    bed = next(b for r in base.rooms for b, _ in r.beds if b != base.goal_label)
+    lay = generate_layout(2_000_000, difficulty=2, start_room=other, goal_bed=bed)
+    assert (lay.grid == base.grid).all()
+    assert lay.start_room == other and lay.goal_label == bed
+    assert lay.room_at(lay.start) == other
+    assert np.isfinite(lay.geodesic_m(lay.start))
+    same = generate_layout(2_000_000, difficulty=2, start_room=None, goal_bed=None)
+    assert same.mission == base.mission and np.allclose(same.goal, base.goal)
+    with pytest.raises(ValueError):
+        generate_layout(2_000_000, difficulty=2, goal_bed="Z-9")
+    with pytest.raises(ValueError):
+        generate_layout(2_000_000, difficulty=2, start_room="Cafeteria")

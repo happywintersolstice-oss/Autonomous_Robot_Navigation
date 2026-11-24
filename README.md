@@ -9,7 +9,7 @@ We compare 9 RL algorithms against A\* and random baselines on never-seen floors
 1. Double-click **`Setup.cmd`**. It creates `.venv` and installs everything (needs internet, about 5 minutes).
 2. Double-click **`Run Smoke Test.cmd`**. It trains every algorithm for a few seconds and produces all figures. It's a check that the install works, not real results.
 3. Double-click **`Start App.cmd`** to open the app in your browser. It has four tabs:
-   - **Delivery:** pick a floor, a busy-ness level and an agent, then watch an animated replay.
+   - **Delivery:** pick a floor, a busy-ness level and an agent, optionally the start room and the target ward + bed, then watch an animated replay. (Trained only on pharmacy starts, SAC/TD3 with 2× training still deliver 95–100% of user-picked missions from other rooms.)
    - **Compare agents:** run several agents on the same floor.
    - **Results:** a dashboard of every table and figure.
    - **How it works.**
